@@ -17,8 +17,7 @@
 
 :root,
 html,
-.theme-dark,
-.theme-light,
+[class*="theme-"],
 .selection-accent-color {
   /* --- Custom Master Palette (Source of Truth) --- */
   --my-gold: #ffb900;                                /* Main accent color for text, borders, and buttons */
@@ -583,11 +582,11 @@ html,
    02. BASE STYLES & LAYOUT
    ============================================================ */
 
-html,
-.theme-dark,
-.theme-light {
-  background: radial-gradient(circle, var(--navy-mid-solid) 25%, var(--navy-base-solid) 85%) fixed !important;
-  color: #ececec !important;
+html, 
+body, 
+[class*="theme-"] {
+    background: radial-gradient(circle, var(--navy-mid-solid) 25%, var(--navy-base-solid) 85%) fixed !important;
+    background-color: var(--retro-navy) !important;
 }
 
 body,
@@ -647,6 +646,38 @@ textarea.txtCustomCss {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--theme-primary-color);
+}
+
+/* ============================================================
+   GLOBAL TEXT OVERRIDE: FORCE WHITE/GOLD TEXT
+   ============================================================ */
+
+/* Targets labels, secondary text, and action buttons across ALL themes */
+[class*="theme-"] .inputLabel,
+/* [class*="theme-"] .secondaryText, */
+[class*="theme-"] .fieldDescription,
+[class*="theme-"] .cardText-secondary,
+[class*="theme-"] .textActionButton,
+[class*="theme-"] .checkboxListLabel,
+[class*="theme-"] .selectLabel {
+    color: var(--white-alpha-70) !important;
+}
+
+/* Targets main headings and primary text */
+[class*="theme-"] .inputLabelUnfocused,
+[class*="theme-"] .primaryText,
+[class*="theme-"] .cardText-first,
+[class*="theme-"] body,
+[class*="theme-"] h1, 
+[class*="theme-"] h2, 
+[class*="theme-"] h3 {
+    color: #ececec !important;
+}
+
+/* Specifically for that screenshot: ensures the setting title stands out */
+.inputLabel {
+    color: var(--my-gold) !important;
+    font-weight: 600 !important;
 }
 
 /* ============================================================
