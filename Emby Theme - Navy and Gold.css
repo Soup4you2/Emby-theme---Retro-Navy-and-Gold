@@ -1990,7 +1990,7 @@ body:has(.view-login) .skinHeader {
   .card:hover .cardContent:not(.cardContent-round), 
   .card:hover .cardImageContainer:not(.cardContent-round) { 
     border-color: var(--vday-pink-deep) !important; 
-    box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 25px var(--vday-red-alpha-50), inset 0 0 15px var(--vday-pink-light-alpha-20) !important; 
+    box-shadow: none !important;
   }
   
   .itemProgressBarForeground { 
@@ -2518,7 +2518,7 @@ body:has(.view-login) .skinHeader {
   .card:hover .cardContent:not(.cardContent-round), 
   .card:hover .cardImageContainer:not(.cardContent-round) { 
     border-color: var(--easter-pink) !important; 
-    box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 20px var(--easter-pink-alpha-60), inset 0 0 10px var(--easter-pink-alpha-20) !important; 
+    box-shadow: none !important;
   }
   
   .videoOsdBottom, 
@@ -2624,7 +2624,7 @@ body:has(.view-login) .skinHeader {
   .card:hover .cardContent:not(.cardContent-round), 
   .card:hover .cardImageContainer:not(.cardContent-round) { 
     border-color: var(--july4-white) !important; 
-    box-shadow: -8px -8px 30px var(--july4-red-alpha-50), 8px 8px 30px var(--july4-blue-alpha-50), inset 0 0 15px var(--july4-white-alpha-20) !important; 
+    box-shadow: none !important;
   }
   
   @keyframes flagWave { 
@@ -2903,7 +2903,7 @@ body:has(.view-login) .skinHeader {
   .card:hover .cardContent:not(.cardContent-round),
   .card:hover .cardImageContainer:not(.cardContent-round) {
     border-color: var(--hw-orange) !important;
-    box-shadow: 0 15px 30px var(--black-alpha-90), 0 0 20px var(--hw-purple-alpha-60), inset 0 0 10px var(--hw-orange-alpha-30) !important;
+    box-shadow: none !important;
   }
 
   .peopleSection .cardText-first {
@@ -3209,7 +3209,7 @@ body:has(.view-login) .skinHeader {
   .card:hover .cardContent:not(.cardContent-round),
   .card:hover .cardImageContainer:not(.cardContent-round) {
     border-color: var(--tg-orange) !important;
-    box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 20px var(--tg-orange-alpha-50), inset 0 0 10px var(--tg-gold-alpha-30) !important;
+    box-shadow: none !important;
   }
   
   @keyframes harvestWind {
@@ -3539,7 +3539,7 @@ body:has(.view-login) .skinHeader {
   .card:hover .cardContent:not(.cardContent-round),
   .card:hover .cardImageContainer:not(.cardContent-round) {
     border-color: #fff !important;
-    box-shadow: 0 15px 30px var(--black-alpha-90), 0 0 20px var(--xmas-white-alpha-60), inset 0 0 10px var(--xmas-blue-light-alpha-30) !important;
+    box-shadow: none !important;
   }
 
   .itemProgressBarForeground {
