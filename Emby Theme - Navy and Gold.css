@@ -4,7 +4,7 @@
    ============================================================ */
 
 /* ============================================================
-   NOTE: Right now it's best to have your display theme set to
+   NOTE: It's best to have your display theme set to
          black or dark for the theme to display properly.
    ============================================================ */
 
@@ -12,7 +12,6 @@
 /* ============================================================
    01. IMPORTS & VARIABLES
    ============================================================ */
-
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap');
 
 :root,
@@ -273,7 +272,7 @@ html,
   */
   
   /* OPTION 2: STANDARD FROSTED (Original Theme Style - Default) */
-  /*
+
   --media-badge-bg: var(--navy-mid-alpha-45);
   --media-badge-color: var(--my-gold);
   --media-badge-border: var(--standard-border-thickness) solid var(--gold-alpha-30);
@@ -283,7 +282,6 @@ html,
   --media-badge-hover-color: var(--my-gold);
   --media-badge-hover-border: var(--standard-border-thickness) solid var(--my-gold);
   --media-badge-hover-shadow: var(--glow-medium);
-  */
 
   /* ============================================================
      SEASONAL EVENT TOGGLE
@@ -414,7 +412,7 @@ html,
   */
 
   /* OPTION 6: HALLOWEEN */
-  /*
+   /*
   --my-gold: #ff6600 !important; 
   --my-gold-transparent: rgba(255, 102, 0, 0.15) !important;
   --gold-alpha-05: rgba(255, 102, 0, 0.05) !important;
@@ -647,34 +645,6 @@ textarea.txtCustomCss {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--theme-primary-color);
-}
-
-/* ============================================================
-   GLOBAL TEXT OVERRIDE: FORCE WHITE/GOLD TEXT
-   ============================================================ */
-[class*="theme-"] .inputLabel,
-/* [class*="theme-"] .secondaryText, */
-[class*="theme-"] .fieldDescription,
-[class*="theme-"] .cardText-secondary,
-[class*="theme-"] .textActionButton,
-[class*="theme-"] .checkboxListLabel,
-[class*="theme-"] .selectLabel {
-    color: var(--white-alpha-70) !important;
-}
-
-[class*="theme-"] .inputLabelUnfocused,
-[class*="theme-"] .primaryText,
-[class*="theme-"] .cardText-first,
-[class*="theme-"] body,
-[class*="theme-"] h1, 
-[class*="theme-"] h2, 
-[class*="theme-"] h3 {
-    color: #ececec !important;
-}
-
-.inputLabel {
-    color: var(--my-gold) !important;
-    font-weight: 600 !important;
 }
 
 /* ============================================================
@@ -1277,8 +1247,8 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
 
 .mediaInfoItem .starIcon {
     color: inherit !important; 
-    filter: none !important; 
-    margin-right: 2px; 
+    filter: none !important; /* Removes the glow so the icon stays sharp */
+    margin-right: 2px;       /* Adds a tiny bit of breathing room from the number */
 }
 
 /* ============================================================
@@ -1753,7 +1723,7 @@ body:has(.view-login) .skinHeader {
 }
 
 .cardBox {
-  perspective: var(--popout-perspective) !important;
+  perspective: var(--popout-perspective) !important;
 }
 
 .cardImageContainer {
