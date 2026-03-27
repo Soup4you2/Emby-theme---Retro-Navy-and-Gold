@@ -4,7 +4,7 @@
    ============================================================ */
 
 /* ============================================================
-   NOTE: It's best to have your display theme set to
+   NOTE: Right now it's best to have your display theme set to
          black or dark for the theme to display properly.
    ============================================================ */
 
@@ -12,6 +12,7 @@
 /* ============================================================
    01. IMPORTS & VARIABLES
    ============================================================ */
+
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap');
 
 :root,
@@ -272,6 +273,7 @@ html,
   */
   
   /* OPTION 2: STANDARD FROSTED (Original Theme Style - Default) */
+  /*
   --media-badge-bg: var(--navy-mid-alpha-45);
   --media-badge-color: var(--my-gold);
   --media-badge-border: var(--standard-border-thickness) solid var(--gold-alpha-30);
@@ -281,6 +283,7 @@ html,
   --media-badge-hover-color: var(--my-gold);
   --media-badge-hover-border: var(--standard-border-thickness) solid var(--my-gold);
   --media-badge-hover-shadow: var(--glow-medium);
+  */
 
   /* ============================================================
      SEASONAL EVENT TOGGLE
@@ -411,7 +414,7 @@ html,
   */
 
   /* OPTION 6: HALLOWEEN */
-   /*
+  /*
   --my-gold: #ff6600 !important; 
   --my-gold-transparent: rgba(255, 102, 0, 0.15) !important;
   --gold-alpha-05: rgba(255, 102, 0, 0.05) !important;
@@ -649,7 +652,6 @@ textarea.txtCustomCss {
 /* ============================================================
    GLOBAL TEXT OVERRIDE: FORCE WHITE/GOLD TEXT
    ============================================================ */
-/* Targets labels, secondary text, and action buttons across ALL themes */
 [class*="theme-"] .inputLabel,
 /* [class*="theme-"] .secondaryText, */
 [class*="theme-"] .fieldDescription,
@@ -660,7 +662,6 @@ textarea.txtCustomCss {
     color: var(--white-alpha-70) !important;
 }
 
-/* Targets main headings and primary text */
 [class*="theme-"] .inputLabelUnfocused,
 [class*="theme-"] .primaryText,
 [class*="theme-"] .cardText-first,
@@ -671,7 +672,6 @@ textarea.txtCustomCss {
     color: #ececec !important;
 }
 
-/* Specifically for that screenshot: ensures the setting title stands out */
 .inputLabel {
     color: var(--my-gold) !important;
     font-weight: 600 !important;
@@ -1273,6 +1273,12 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
 
 .itemSecondaryNameContainer .button-link {
   color: var(--my-gold) !important;
+}
+
+.mediaInfoItem .starIcon {
+    color: inherit !important; 
+    filter: none !important; 
+    margin-right: 2px; 
 }
 
 /* ============================================================
