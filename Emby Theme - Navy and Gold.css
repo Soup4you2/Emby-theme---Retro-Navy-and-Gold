@@ -4,7 +4,7 @@
    ============================================================ */
 
 /* ============================================================
-   NOTE: Right now it's best to have your display theme set to
+   NOTE: It's best to have your display theme set to
          black or dark for the theme to display properly.
    ============================================================ */
 
@@ -12,7 +12,6 @@
 /* ============================================================
    01. IMPORTS & VARIABLES
    ============================================================ */
-
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap');
 
 :root,
@@ -581,7 +580,6 @@ html,
 /* ============================================================
    02. BASE STYLES & LAYOUT
    ============================================================ */
-
 html, 
 body, 
 [class*="theme-"] {
@@ -651,7 +649,6 @@ textarea.txtCustomCss {
 /* ============================================================
    GLOBAL TEXT OVERRIDE: FORCE WHITE/GOLD TEXT
    ============================================================ */
-
 /* Targets labels, secondary text, and action buttons across ALL themes */
 [class*="theme-"] .inputLabel,
 /* [class*="theme-"] .secondaryText, */
@@ -683,7 +680,6 @@ textarea.txtCustomCss {
 /* ============================================================
    03. NAVIGATION 
    ============================================================ */
-
 .skinHeader-withBackground,
 .skinHeader {
   background: transparent !important;
@@ -806,7 +802,6 @@ textarea.txtCustomCss {
 /* ============================================================
    04. FORMS, BUTTONS, DIALOGS
    ============================================================ */
-
 .dialogBackdrop {
   background: var(--black-alpha-70) !important;
   backdrop-filter: none !important;
@@ -961,7 +956,6 @@ button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
 /* ============================================================
    05. CARDS & PORTRAITS
    ============================================================ */
-
 .card {
   transform: translateZ(0);
   will-change: transform;
@@ -1108,7 +1102,6 @@ button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
 /* ============================================================
    06. MEDIA DETAIL PAGE
    ============================================================ */
-
 .detailPageWrapperContainer,
 .detailPagePrimaryContainer {
   display: flex;
@@ -1285,7 +1278,6 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
 /* ============================================================
    07. LIVE TV GUIDE
    ============================================================ */
-
 .guide-channelHeader,
 .programCell {
   background-color: var(--navy-light-alpha-40) !important;
@@ -1328,18 +1320,19 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
   font-family: 'Oswald', sans-serif !important;
 }
 
-.programCell .mediaInfoItem,
-.programCell .guideProgramName,
-.programCell .mediaInfoItem:hover,
-.programCell:hover .mediaInfoItem,
-.programCell .guideProgramName:hover,
-.programCell:hover .guideProgramName {
+body .programCell .mediaInfoItem,
+body .programCell .guideProgramName,
+body .programCell .mediaInfoItem:hover,
+body .programCell:hover .mediaInfoItem,
+body .programCell .guideProgramName:hover,
+body .programCell:hover .guideProgramName {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   color: #ececec !important;
+  -webkit-text-fill-color: #ececec !important;
   font-family: 'Sofia Sans', sans-serif !important;
   font-weight: 500 !important;
   padding: 0 !important;
@@ -1367,7 +1360,6 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
 /* ============================================================
    08. VIDEO PLAYER (OSD) & NOW PLAYING
    ============================================================ */
-
 .videoOsdBottom,
 .videoOsdBottom-video {
   background: linear-gradient(to top, var(--navy-base-alpha-95) 0%, var(--navy-mid-alpha-70) 60%, transparent 100%) !important;
@@ -1531,7 +1523,6 @@ input[type="range"]::-moz-range-thumb {
 /* ============================================================
    09. FULLSCREEN AUDIO & PLAYLIST
    ============================================================ */
-
 .nowPlayingPage {
   background: linear-gradient(to right, var(--navy-base-alpha-40) 0%, var(--black-alpha-80) 100%) !important;
   backdrop-filter: none !important;
@@ -1634,7 +1625,6 @@ input[type="range"]::-moz-range-thumb {
 /* ============================================================
    10. DATA GRID
    ============================================================ */
-
 .dataGridHeader {
   background: var(--navy-light-alpha-70) !important;
   background-image: none !important;
@@ -1737,61 +1727,51 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* ============================================================
-   11. LOGIN PAGE & MISC TWEAKS
-   ============================================================ */
-
+11. LOGIN PAGE & MISC TWEAKS
+============================================================ */
 body:has(.view-startup-manuallogin) .skinHeader,
 body:has(.view-startup-login) .skinHeader,
 body:has(.view-login) .skinHeader {
-  display: none !important;
-}
-
-.mdl-spinner__layer {
-  border-color: var(--my-gold) !important;
+ display: none !important;
 }
 
 .mdl-spinner__layer-1 {
-  border-color: var(--theme-primary-color) !important;
+  animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, base-spinner-colors 5332ms linear infinite !important;
 }
 
-.mdl-spinner__layer-2 {
-  border-color: #fff !important;
-}
-
-.mdl-spinner__layer-3 {
-  border-color: var(--my-gold) !important;
-}
-
-.mdl-spinner__layer-4 {
-  border-color: var(--theme-primary-color) !important;
+@keyframes base-spinner-colors {
+  0%, 100% { border-color: var(--theme-primary-color); }
+  25% { border-color: #fff; }
+  50% { border-color: var(--my-gold); }
+  75% { border-color: var(--theme-primary-color); }
 }
 
 .cardBox {
-  perspective: var(--popout-perspective) !important;
+  perspective: var(--popout-perspective) !important;
 }
 
 .cardImageContainer {
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out !important;
-  transform-origin: center center !important;
+ transition: transform 0.3s ease-out, box-shadow 0.3s ease-out !important;
+ transform-origin: center center !important;
 }
 
 .card:hover .cardImageContainer {
-  transform: var(--popout-transform) !important;
-  box-shadow: var(--popout-shadow) !important;
+ transform: var(--popout-transform) !important;
+ box-shadow: var(--popout-shadow) !important;
 }
 
 .detailButtons .emby-button,
 .button-submit {
-  box-shadow: var(--button-popout-shadow) !important;
-  transform: var(--button-popout-transform) !important;
-  transition: transform 0.1s linear, box-shadow 0.1s linear !important;
-  border: 1px solid var(--theme-primary-color) !important;
+ box-shadow: var(--button-popout-shadow) !important;
+ transform: var(--button-popout-transform) !important;
+ transition: transform 0.1s linear, box-shadow 0.1s linear !important;
+ border: 1px solid var(--theme-primary-color) !important;
 }
 
 .detailButtons .emby-button:active,
 .button-submit:active {
-  box-shadow: var(--button-popout-active-shadow) !important;
-  transform: var(--button-popout-active-transform) !important;
+ box-shadow: var(--button-popout-active-shadow) !important;
+ transform: var(--button-popout-active-transform) !important;
 }
 
 /* ============================================================
@@ -1897,10 +1877,16 @@ body:has(.view-login) .skinHeader {
     transform: translateY(-15px) scale(1.2) !important; 
   }
 
-  .mdl-spinner__layer-1 { border-color: #e60049 !important; } 
-  .mdl-spinner__layer-2 { border-color: #ffb6c1 !important; } 
-  .mdl-spinner__layer-3 { border-color: #ff1493 !important; } 
-  .mdl-spinner__layer-4 { border-color: #fff !important; }
+  .mdl-spinner__layer-1 {
+    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, vday-spinner-colors 5332ms linear infinite !important;
+  }
+
+  @keyframes vday-spinner-colors {
+    0%, 100% { border-color: #e60049; }
+    25% { border-color: #ffb6c1; }
+    50% { border-color: #ff1493; }
+    75% { border-color: #fff; }
+  }
 
     .pageTitle, .sectionTitle {
     background: linear-gradient(to right, #ffb6c1, #e60049, #ff1493) !important;
@@ -2268,6 +2254,18 @@ body:has(.view-login) .skinHeader {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.8) !important; 
     animation: emeraldTabPulse 2.5s infinite alternate ease-in-out !important; 
   }
+
+  .mdl-spinner__layer-1 {
+    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, stpat-spinner-colors 5332ms linear infinite !important;
+  }
+
+  @keyframes stpat-spinner-colors {
+    0%, 100% { border-color: #00ff85; }
+    25% { border-color: #ffd700; }
+    50% { border-color: #009e60; }
+    75% { border-color: #fff; }
+  }
+
 }
 
 /* ============================================================
@@ -2319,15 +2317,16 @@ body:has(.view-login) .skinHeader {
     box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 15px rgba(255, 182, 193, 0.5) !important; 
   }
 
-  .mdl-spinner__circle { 
-    border-radius: 50% / 60% 60% 40% 40% !important; 
-    border-width: 4px !important; 
+  .mdl-spinner__layer-1 {
+    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, easter-spinner-colors 5332ms linear infinite !important;
   }
-  
-  .mdl-spinner__layer-1 { border-color: #ffb6c1 !important; } 
-  .mdl-spinner__layer-2 { border-color: #add8e6 !important; } 
-  .mdl-spinner__layer-3 { border-color: var(--my-gold) !important; } 
-  .mdl-spinner__layer-4 { border-color: #98fb98 !important; }
+
+  @keyframes easter-spinner-colors {
+    0%, 100% { border-color: #ffb6c1; }
+    25% { border-color: #add8e6; }
+    50% { border-color: var(--my-gold); }
+    75% { border-color: #98fb98; }
+  }
 
   @keyframes springGradient { 
     0%, 100% { background-position: 0% 50%; } 
@@ -2598,10 +2597,16 @@ body:has(.view-login) .skinHeader {
     100% { transform: scale(1.5); opacity: 0; filter: brightness(1); } 
   }
 
-  .mdl-spinner__layer-1 { border-color: #e0162b !important; } 
-  .mdl-spinner__layer-2 { border-color: #fff !important; } 
-  .mdl-spinner__layer-3 { border-color: #0052a5 !important; } 
-  .mdl-spinner__layer-4 { border-color: #fff !important; }
+  .mdl-spinner__layer-1 {
+    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, july4-spinner-colors 5332ms linear infinite !important;
+  }
+
+  @keyframes july4-spinner-colors {
+    0%, 100% { border-color: #e0162b; }
+    25% { border-color: #fff; }
+    50% { border-color: #0052a5; }
+    75% { border-color: #fff; }
+  }
 
   .backgroundContainer-transparent::before, 
   .backgroundContainer-transparent::after, 
@@ -2853,16 +2858,14 @@ body:has(.view-login) .skinHeader {
   }
 
   .mdl-spinner__layer-1 {
-    border-color: #f60 !important;
+    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, halloween-spinner-colors 5332ms linear infinite !important;
   }
-  .mdl-spinner__layer-2 {
-    border-color: #8a2be2 !important;
-  }
-  .mdl-spinner__layer-3 {
-    border-color: #39ff14 !important;
-  }
-  .mdl-spinner__layer-4 {
-    border-color: #fff !important;
+
+  @keyframes halloween-spinner-colors {
+    0%, 100% { border-color: #f60; }
+    25% { border-color: #8a2be2; }
+    50% { border-color: #39ff14; }
+    75% { border-color: #fff; }
   }
 
   .dialog:not(.sliderBubble):not(.chapterThumbContainer),
@@ -3310,6 +3313,16 @@ body:has(.view-login) .skinHeader {
     filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.8));
   }
 
+  .mdl-spinner__layer-1 {
+    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, thanksgiving-spinner-colors 5332ms linear infinite !important;
+  }
+
+  @keyframes thanksgiving-spinner-colors {
+    0%, 100% { border-color: #d95c14; }
+    25% { border-color: #e3a01b; }
+    50% { border-color: #8b4513; }
+    75% { border-color: #fff; }
+  }
 }
 
 /* ============================================================
@@ -3432,16 +3445,14 @@ body:has(.view-login) .skinHeader {
   }
 
   .mdl-spinner__layer-1 {
-    border-color: #c41e3a !important;
+    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, xmas-spinner-colors 5332ms linear infinite !important;
   }
-  .mdl-spinner__layer-2 {
-    border-color: #fff !important;
-  }
-  .mdl-spinner__layer-3 {
-    border-color: #0b6623 !important;
-  }
-  .mdl-spinner__layer-4 {
-    border-color: #fff !important;
+
+  @keyframes xmas-spinner-colors {
+    0%, 100% { border-color: #c41e3a; }
+    25% { border-color: #fff; }
+    50% { border-color: #0b6623; }
+    75% { border-color: #fff; }
   }
 
   .dialog:not(.sliderBubble):not(.chapterThumbContainer),
@@ -3848,15 +3859,13 @@ body:has(.view-login) .skinHeader {
   }
 
   .mdl-spinner__layer-1 {
-    border-color: #d4af37 !important;
+    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, nye-spinner-colors 5332ms linear infinite !important;
   }
-  .mdl-spinner__layer-2 {
-    border-color: #f7e7ce !important;
-  }
-  .mdl-spinner__layer-3 {
-    border-color: #ffffff !important;
-  }
-  .mdl-spinner__layer-4 {
-    border-color: #d4af37 !important;
+
+  @keyframes nye-spinner-colors {
+    0%, 100% { border-color: #d4af37; }
+    25% { border-color: #f7e7ce; }
+    50% { border-color: #ffffff; }
+    75% { border-color: #d4af37; }
   }
 }
