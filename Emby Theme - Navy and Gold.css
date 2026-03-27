@@ -253,13 +253,11 @@ html,
   */
 
   /* ============================================================
-     THE "MEDIA INFO BADGES STYLE" TOGGLE (DEFAULT: STANDARD)
-     (Still a work in progress...)
+     THE "MEDIA INFO BADGES STYLE" TOGGLE (DEFAULT: POP-OUT)
      Uncomment ONE of the blocks below to change the badge style.
      ============================================================ */
 
   /* OPTION 1: POP-OUT PILL */
-  /*
   --media-badge-bg: linear-gradient(135deg, #ffca3a 0%, var(--my-gold) 100%);
   --media-badge-color: var(--retro-navy);
   --media-badge-border: 2px solid var(--retro-navy);
@@ -269,10 +267,9 @@ html,
   --media-badge-hover-color: #000;
   --media-badge-hover-border: 2px solid #000;
   --media-badge-hover-shadow: var(--shadow-glow-standard);
-  */
   
   /* OPTION 2: STANDARD FROSTED (Original Theme Style - Default) */
-
+  /*
   --media-badge-bg: var(--navy-mid-alpha-45);
   --media-badge-color: var(--my-gold);
   --media-badge-border: var(--standard-border-thickness) solid var(--gold-alpha-30);
@@ -282,7 +279,8 @@ html,
   --media-badge-hover-color: var(--my-gold);
   --media-badge-hover-border: var(--standard-border-thickness) solid var(--my-gold);
   --media-badge-hover-shadow: var(--glow-medium);
-
+  */
+   
   /* ============================================================
      SEASONAL EVENT TOGGLE
      Uncomment ONE block below to activate a holiday theme
