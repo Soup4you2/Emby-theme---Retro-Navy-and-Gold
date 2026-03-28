@@ -363,9 +363,9 @@ html,
   --vday-text-glow: 0 0 8px rgba(255, 20, 147, 0.8);
   --vday-osd-border-width: 3px;
   */
-  
+
   /* OPTION 3: ST. PATRICK'S DAY */
-  /*
+  
   --my-gold: #ffd700 !important; 
   --my-gold-light: #fff7a1 !important;
   --my-gold-transparent: rgba(255, 215, 0, 0.15) !important;
@@ -425,7 +425,7 @@ html,
   --stpat-rb-blue: #0000ff;
   --stpat-rb-indigo: #4b0082;
   --stpat-rb-violet: #9400d3;
-  */
+  
 
   /* OPTION 4: EASTER */
   /*
@@ -1439,8 +1439,42 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
 
 .mediaInfoItem .starIcon {
     color: inherit !important; 
-    filter: none !important; /* Removes the glow so the icon stays sharp */
-    margin-right: 2px;       /* Adds a tiny bit of breathing room from the number */
+    filter: none !important; 
+    margin-right: 2px; 
+}
+
+.aboutSection div.sectionTitle, 
+.aboutSection .button-link,
+.aboutSection .mediaInfoAttributeValue,
+.aboutSection .itemSecondaryText,
+.aboutSection .audioVideoMediaInfo,
+.aboutSection .mediaInfoPanel h2 {
+    background: transparent !important; 
+    -webkit-background-clip: initial !important;
+    text-shadow: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+.aboutSection div.sectionTitle, 
+.aboutSection .button-link,
+.aboutSection .mediaInfoAttributeValue,
+.aboutSection .itemSecondaryText {
+    -webkit-text-fill-color: var(--pure-white) !important; 
+    color: var(--pure-white) !important;
+}
+
+.aboutSection .mediaInfoPanel h2,
+.aboutSection .mediaInfoPanel .material-icons {
+    -webkit-text-fill-color: var(--my-gold) !important;
+    color: var(--my-gold) !important;
+}
+
+.aboutSection .mediaInfoItem {
+    text-shadow: none !important;
+    -webkit-text-fill-color: var(--media-badge-color) !important; 
+    box-shadow: 2px 2px 5px var(--black-alpha-50) !important; 
+    background: var(--media-badge-bg) !important;
 }
 
 /* ============================================================
@@ -2112,35 +2146,6 @@ input[type="range"]:hover::-moz-range-thumb {
     75% { border-color: var(--pure-white); }
   }
 
-h2.pageTitle, 
-h2.sectionTitle, 
-h4.sectionTitle {
-    background: linear-gradient(to right, var(--vday-pink-light), var(--vday-red), var(--vday-pink-deep)) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    text-shadow: var(--vday-text-glow) !important;
-    filter: drop-shadow(2px 2px 3px var(--black-alpha-80));
-}
-
-.aboutSection div.sectionTitle, 
-.aboutSection .button-link,
-.aboutSection .mediaInfoAttributeValue,
-.aboutSection .itemSecondaryText,
-.aboutSection .audioVideoMediaInfo {
-    -webkit-background-clip: initial !important;
-    -webkit-text-fill-color: var(--pure-white) !important; 
-    text-shadow: none !important;
-    filter: none !important;
-    opacity: 1 !important;
-}
-
-.aboutSection .mediaInfoItem {
-    text-shadow: none !important;
-    -webkit-text-fill-color: var(--retro-navy) !important; 
-    box-shadow: 2px 2px 5px var(--black-alpha-50) !important; 
-    background: var(--media-badge-bg) !important;
-}
-
   @keyframes heartbeatAura {
     0%, 100% { 
       box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 20px var(--vday-red-alpha-50), inset 0 0 15px var(--vday-pink-light-alpha-20); 
@@ -2285,6 +2290,7 @@ h4.sectionTitle {
    13. SEASONAL EFFECTS (ST. PATRICK'S DAY)
    ============================================================ */
 @container style(--theme-primary-color: #00ff85) {
+
   @keyframes luckShimmer { 
     to { background-position: 200% center; } 
   }
