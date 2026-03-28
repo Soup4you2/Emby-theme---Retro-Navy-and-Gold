@@ -12,6 +12,8 @@
 /* ============================================================
    01. IMPORTS & VARIABLES
    ============================================================ */
+
+/* Pulling in Oswald (for headers) and Sofia Sans (for body text) from Google Fonts */   
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap');
 
 :root,
@@ -846,6 +848,8 @@ html,
 /* ============================================================
    02. BASE STYLES & LAYOUT
    ============================================================ */
+
+/* --- 2A. Global Backgrounds & Containers --- */
 html, 
 body, 
 [class*="theme-"] {
@@ -862,6 +866,7 @@ body,
   background: transparent !important;
 }
 
+/* Container dimming for readability */
 .backgroundContainer:not(.backgroundContainer-transparent) {
   background-color: var(--navy-base-alpha-25) !important;
 }
@@ -874,12 +879,7 @@ body,
   opacity: 0.9 !important;
 }
 
-.theme-light .secondaryText,
-.theme-light .textActionButton,
-.theme-light .cardText-secondary {
-  color: var(--white-alpha-70) !important;
-}
-
+/* --- 2B. Global Typography --- */
 .pageTitle,
 .sectionTitle {
   font-family: 'Oswald', sans-serif !important;
@@ -889,10 +889,14 @@ body,
   text-shadow: 2px 2px 4px var(--black-alpha-50) !important;
 }
 
-textarea.txtCustomCss {
-  min-height: 1000px;
+/* Light theme text overrides to maintain readability */
+.theme-light .secondaryText,
+.theme-light .textActionButton,
+.theme-light .cardText-secondary {
+  color: var(--white-alpha-70) !important;
 }
 
+/* --- 2C. Custom Scrollbar --- */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -912,6 +916,12 @@ textarea.txtCustomCss {
   background: var(--theme-primary-color);
 }
 
+/* Quality of life: expand the custom CSS input box in the dashboard */
+textarea.txtCustomCss {
+  min-height: 1000px;
+}
+
+/* --- 2D. Global Background Animation Resets --- */
 body:has(.view-videoosd-videoosd:not(.hide))::before, 
 body:has(.view-videoosd-videoosd:not(.hide))::after, 
 body:has(.backgroundContainer.withBackdrop)::before,
@@ -930,8 +940,10 @@ body:has(.videoBackdropContainer:not(.hide))::after,
 }
 
 /* ============================================================
-   03. NAVIGATION 
+   03. NAVIGATION & SIDEBAR
    ============================================================ */
+
+/* --- 3A. Top Header --- */
 .skinHeader-withBackground,
 .skinHeader {
   background: transparent !important;
@@ -945,6 +957,7 @@ body:has(.videoBackdropContainer:not(.hide))::after,
   display: flex !important;
 }
 
+/* Hides the default Emby logo */
 .headerLogo,
 .headerLeft img {
   display: none !important;
@@ -955,6 +968,7 @@ body:has(.videoBackdropContainer:not(.hide))::after,
   color: var(--theme-primary-color) !important;
 }
 
+/* --- 3B. Sidebar Drawer --- */
 .mainDrawer {
   background-color: var(--retro-navy) !important;
   border-right: var(--standard-border-thickness) solid var(--gold-alpha-15) !important;
@@ -965,12 +979,14 @@ body:has(.videoBackdropContainer:not(.hide))::after,
   font-size: 1.1em !important;
 }
 
+/* Selected item in the sidebar */
 .navMenuOption-selected {
   background: var(--theme-icon-focus-background) !important;
   border-left: none !important;
   box-shadow: inset 10px 0 15px var(--gold-alpha-10) !important;
 }
 
+/* Remove default Emby selection pseudo-elements */
 .navMenuOption-selected::before,
 .navMenuOption-selected::after {
   display: none !important;
@@ -980,6 +996,7 @@ body:has(.videoBackdropContainer:not(.hide))::after,
   color: var(--theme-primary-color) !important;
 }
 
+/* --- 3C. Tab Buttons (Home, Favorites, Live TV, etc.) --- */
 .videoOsdBottom .emby-tabs-container,
 .emby-tabs-container {
   display: flex !important;
@@ -1004,6 +1021,7 @@ body:has(.videoBackdropContainer:not(.hide))::after,
   display: none !important;
 }
 
+/* Base Tab Button Styling */
 .videoOsdBottom .emby-tab-button,
 .emby-tab-button {
   display: inline-flex;
@@ -1016,7 +1034,7 @@ body:has(.videoBackdropContainer:not(.hide))::after,
   text-transform: uppercase !important;
   letter-spacing: 1px !important;
   color: var(--white-alpha-60) !important;
-  border-radius: 30px !important;
+  border-radius: var(--border-radius-pill) !important;
   padding: 0.6em 1.4em !important;
   margin: 0 !important;
   border: none !important;
@@ -1030,6 +1048,13 @@ body:has(.videoBackdropContainer:not(.hide))::after,
   display: none !important;
 }
 
+/* Remove default Emby tab underlines */
+.videoOsdBottom .emby-tab-button::after,
+.videoOsdBottom .emby-tab-button::before {
+  display: none !important;
+}
+
+/* Active & Focused Tab State */
 .videoOsdBottom .emby-tab-button-active,
 .emby-tab-button-active,
 .videoOsdBottom .emby-tab-button:focus,
@@ -1041,19 +1066,17 @@ body:has(.videoBackdropContainer:not(.hide))::after,
   opacity: 1 !important;
 }
 
+/* Hover State (Inactive tabs only) */
 .emby-tab-button:hover:not(.emby-tab-button-active) {
   background: var(--white-alpha-10) !important;
   color: var(--my-gold) !important;
 }
 
-.videoOsdBottom .emby-tab-button::after,
-.videoOsdBottom .emby-tab-button::before {
-  display: none !important;
-}
-
 /* ============================================================
-   04. FORMS, BUTTONS, DIALOGS
+   04. FORMS, BUTTONS, & DIALOGS
    ============================================================ */
+
+/* --- 4A. Modal Backgrounds & Headers --- */
 .dialogBackdrop {
   background: var(--black-alpha-70) !important;
   backdrop-filter: none !important;
@@ -1063,10 +1086,9 @@ body:has(.videoBackdropContainer:not(.hide))::after,
 .formDialogHeader,
 .formDialogFooter {
   background: var(--black-alpha-20) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
 }
 
+/* Main Dialog Box Container */
 .dialog,
 .formDialog,
 .actionSheet {
@@ -1076,11 +1098,12 @@ body:has(.videoBackdropContainer:not(.hide))::after,
   border: var(--standard-border-thickness) solid var(--gold-alpha-25) !important;
   box-shadow: 0 15px 40px var(--black-alpha-90) !important;
   border-radius: var(--border-radius-md) !important;
-  overflow: hidden !important;
   color: var(--text-muted) !important;
-  transform: translateZ(0);
+  overflow: hidden !important;
+  transform: translateZ(0); /* Hardware acceleration for smooth opening */
 }
 
+/* Multi-select command panels */
 .itemSelectionPanel,
 .selectionCommandsPanel {
   background-color: var(--retro-navy-light) !important;
@@ -1088,6 +1111,7 @@ body:has(.videoBackdropContainer:not(.hide))::after,
   color: var(--pure-white) !important;
 }
 
+/* --- 4B. Text Inputs, Selects & Textareas --- */
 .emby-input,
 .emby-select,
 .emby-textarea {
@@ -1099,6 +1123,7 @@ body:has(.videoBackdropContainer:not(.hide))::after,
   transition: border-color var(--transition-speed), box-shadow var(--transition-speed) !important;
 }
 
+/* Fix for Emby's native select dropdown heights */
 .emby-select,
 .emby-select[disabled],
 .trackSelectionField .emby-select {
@@ -1107,6 +1132,7 @@ body:has(.videoBackdropContainer:not(.hide))::after,
   line-height: normal !important;
 }
 
+/* Universal Input Focus State */
 .emby-input:focus,
 .emby-textarea:focus,
 select.emby-select:focus,
@@ -1118,24 +1144,13 @@ select.emby-select.emby-select-focusscale:focus {
   outline: none !important;
 }
 
+/* Search bar icon padding fix */
 input[type="search"].emby-input,
 .emby-input.searchInput {
   padding-left: 2.5em !important;
 }
 
-.actionSheetMenuItem-selected,
-.listItem-selected,
-.paperListbox-selected {
-  background-color: var(--my-gold-transparent) !important;
-  color: var(--my-gold) !important;
-}
-
-.actionSheetMenuItem:hover,
-.listItem.listItem-button:hover {
-  background-color: var(--white-alpha-10) !important;
-  color: var(--my-gold) !important;
-}
-
+/* --- 4C. Checkboxes & Toggles --- */
 .emby-checkbox:checked + span::before {
   background-color: var(--my-gold) !important;
   border-color: var(--my-gold) !important;
@@ -1154,12 +1169,30 @@ input[type="search"].emby-input,
   box-shadow: var(--shadow-glow-standard) !important;
 }
 
+/* --- 4D. Universal Buttons & Indicators --- */
+
+/* Standard Accent Buttons */
 .button-submit,
 .button-accent-flat {
   background-color: var(--theme-primary-color) !important;
   color: var(--pure-black) !important;
 }
 
+/* List Item Selection */
+.actionSheetMenuItem-selected,
+.listItem-selected,
+.paperListbox-selected {
+  background-color: var(--my-gold-transparent) !important;
+  color: var(--my-gold) !important;
+}
+
+.actionSheetMenuItem:hover,
+.listItem.listItem-button:hover {
+  background-color: var(--white-alpha-10) !important;
+  color: var(--my-gold) !important;
+}
+
+/* Media Overlay Buttons (Play, Edit, etc.) */
 .cardOverlayFab-primary,
 .cardOverlayButtonIcon,
 .listItemOverlayButtonIcon,
@@ -1169,16 +1202,17 @@ input[type="search"].emby-input,
   will-change: transform, box-shadow;
 }
 
+/* Played State Icons (Overrides default green checkmarks) */
 .playstatebutton-icon-played,
 button[data-played="true"] .playstatebutton-icon,
 .listViewPlayedButton.playstatebutton-icon-played,
-.listViewPlayedButton[data-played="true"] {
-  color: var(--my-gold) !important;
-}
-
+.listViewPlayedButton[data-played="true"],
 button[data-played="true"].cardOverlayButton-fab {
   color: var(--my-gold) !important;
   border-color: var(--my-gold) !important;
+}
+
+button[data-played="true"].cardOverlayButton-fab {
   filter: drop-shadow(0 0 5px var(--retro-glow)) !important;
 }
 
@@ -1193,23 +1227,42 @@ button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
   filter: var(--filter-glow-light) !important;
 }
 
+/* Unwatched / Played Count Pills */
 .playedIndicator,
-.cardIndicator.playedIndicator {
-  background: var(--played-indicator-bg) !important;
-  color: var(--played-indicator-color) !important;
-  border: var(--played-indicator-border) !important;
-  box-shadow: var(--played-indicator-shadow) !important;
+.cardIndicator.playedIndicator,
+.countIndicator {
+  background: var(--indicator-bg) !important;
+  color: var(--indicator-color) !important;
+  border: var(--indicator-border) !important;
+  box-shadow: var(--indicator-shadow) !important;
+  font-family: 'Oswald', sans-serif !important;
+  font-weight: 700 !important;
+  text-shadow: none !important;
+  border-radius: var(--border-radius-pill) !important;
+}
+
+.countIndicator {
+  font-size: 0.9em !important;
+  min-width: 26px !important;
+  height: 26px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 6px !important;
+  line-height: 1 !important;
 }
 
 .playedIndicator .md-icon {
-  color: var(--played-indicator-color) !important;
+  color: var(--indicator-color) !important;
 }
 
 /* ============================================================
-   05. CARDS & PORTRAITS
+   05. CARDS & PORTRAITS (POSTERS)
    ============================================================ */
+
+/* --- 5A. Base Card Styling --- */
 .card {
-  transform: translateZ(0);
+  transform: translateZ(0); /* Prevents layout shifting on hover */
   will-change: transform;
   backface-visibility: hidden;
 }
@@ -1222,31 +1275,6 @@ button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
   will-change: border-color, box-shadow;
 }
 
-.card:hover {
-  transform: none !important;
-}
-
-.card:hover .cardContent,
-.card:hover .cardImageContainer {
-  border: var(--hover-border-thickness) solid var(--theme-primary-color) !important;
-  box-shadow: 0px 15px 30px var(--black-alpha-90), var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
-}
-
-.card:hover .cardContent:not(.cardContent-round),
-.card:hover .cardImageContainer:not(.cardContent-round) {
-  border-radius: var(--border-radius-lg) !important;
-}
-
-.card:hover .cardContent.cardContent-round,
-.card:hover .cardImageContainer.cardContent-round,
-.cardBox .cardContent-round ~ .cardOverlayContainer {
-  border-radius: 50% !important;
-}
-
-.cardOverlayFab-primary {
-  display: var(--play-button-display) !important;
-}
-
 .innerCardFooter {
   text-shadow: 1px 1px 2px var(--black-alpha-80);
 }
@@ -1257,12 +1285,45 @@ button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
   border-radius: var(--hover-border-thickness) !important;
 }
 
+/* Connects to the User Toggle in Section 1 */
+.cardOverlayFab-primary {
+  display: var(--play-button-display) !important;
+}
+
+/* --- 5B. Card Hover States --- */
+.card:hover {
+  transform: none !important;
+}
+
+.card:hover .cardContent,
+.card:hover .cardImageContainer {
+  border-color: var(--theme-primary-color) !important;
+  box-shadow: 0px 15px 30px var(--black-alpha-90), var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+}
+
+/* Standard Rectangular Cards */
+.card:hover .cardContent:not(.cardContent-round),
+.card:hover .cardImageContainer:not(.cardContent-round) {
+  border-radius: var(--border-radius-lg) !important;
+}
+
+/* Circular Cards (Collections/Music Artists) */
+.card:hover .cardContent.cardContent-round,
+.card:hover .cardImageContainer.cardContent-round,
+.cardBox .cardContent-round ~ .cardOverlayContainer {
+  border-radius: 50% !important;
+}
+
+/* Removes default Emby dark overlay on hover */
 .card:hover .cardOverlayContainer,
 .card-selected .cardOverlayContainer,
 .card.show-focus .cardOverlayContainer {
   background-color: transparent !important;
 }
 
+/* --- 5C. Cast & Crew Portraits --- */
+
+/* Portrait Dimensions (Driven by Section 1 Toggles) */
 .peopleSection .cardPadder-portrait,
 .personCard .cardPadder-portrait {
   aspect-ratio: var(--portrait-ratio) !important;
@@ -1281,8 +1342,11 @@ button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
   object-fit: cover !important;
 }
 
+/* Portrait Hover States */
 .peopleSection .card-hoverable:hover .cardOverlayContainer,
-.personCard.card-hoverable:hover .cardOverlayContainer {
+.personCard.card-hoverable:hover .cardOverlayContainer,
+.peopleSection .card:hover .cardImageContainer,
+.personCard:hover .cardImageContainer {
   border-radius: var(--portrait-radius) !important;
 }
 
@@ -1295,11 +1359,11 @@ button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
 
 .peopleSection .card:hover .cardImageContainer,
 .personCard:hover .cardImageContainer {
-  border-radius: var(--portrait-radius) !important;
-  border: var(--hover-border-thickness) solid var(--theme-primary-color) !important;
+  border-color: var(--theme-primary-color) !important;
   box-shadow: 0px 15px 30px var(--black-alpha-90), var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
 }
 
+/* Clean up Emby's base container for people cards */
 .peopleSection .card,
 .personCard,
 .peopleSection .cardBox,
@@ -1310,6 +1374,7 @@ button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
   box-shadow: none !important;
 }
 
+/* --- 5D. Cast & Crew Typography --- */
 .peopleSection .cardText {
   text-align: center !important;
   width: 100%;
@@ -1331,56 +1396,24 @@ button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
   font-style: italic;
 }
 
-.countIndicator {
-  background: var(--count-indicator-bg) !important;
-  color: var(--count-indicator-color) !important;
-  border: var(--count-indicator-border) !important;
-  box-shadow: var(--count-indicator-shadow) !important;
-  font-family: 'Oswald', sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 0.9em !important;
-  text-shadow: none !important;
-  filter: none !important;
-  border-radius: 50px !important;
-  min-width: 26px !important;
-  height: 26px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 0 6px !important;
-  line-height: 1 !important;
-}
-
 /* ============================================================
    06. MEDIA DETAIL PAGE
    ============================================================ */
+
+/* --- 6A. Page Layout & Section Ordering --- */
 .detailPageWrapperContainer,
 .detailPagePrimaryContainer {
   display: flex;
   flex-direction: column;
 }
 
-div.verticalSection.seriesItemsSection {
-  order: var(--order-seasons) !important;
-}
+div.verticalSection.seriesItemsSection { order: var(--order-seasons) !important; }
+div.verticalSection.itemNextUpSection  { order: var(--order-next-up) !important; }
+div.verticalSection.peopleSection      { order: var(--order-cast-crew) !important; margin-top: 20px; }
+div.verticalSection.similarSection     { order: var(--order-similar) !important; }
+div.verticalSection.aboutSection       { order: var(--order-about) !important; }
 
-div.verticalSection.itemNextUpSection {
-  order: var(--order-next-up) !important;
-}
-
-div.verticalSection.peopleSection {
-  order: var(--order-cast-crew) !important;
-  margin-top: 20px;
-}
-
-div.verticalSection.similarSection {
-  order: var(--order-similar) !important;
-}
-
-div.verticalSection.aboutSection {
-  order: var(--order-about) !important;
-}
-
+/* --- 6B. Info Banner & Panels --- */
 .infoBanner {
   display: flex;
   align-items: center;
@@ -1396,6 +1429,23 @@ div.verticalSection.aboutSection {
   padding: 12px 20px !important;
 }
 
+.mediaInfoPanel {
+  background: var(--navy-light-alpha-70) !important;
+  backdrop-filter: var(--blur-heavy) !important;
+  -webkit-backdrop-filter: var(--blur-heavy) !important;
+  border: var(--standard-border-thickness) solid var(--my-gold-transparent) !important;
+  border-radius: var(--border-radius-xl) !important;
+  padding: 15px !important;
+}
+
+.mediaInfoPanel h2,
+.mediaInfoPanel .material-icons {
+  color: var(--my-gold) !important;
+  font-family: 'Oswald', sans-serif !important;
+  text-transform: uppercase;
+}
+
+/* --- 6C. Media Badges (4K, HDR, CC, etc.) --- */
 .mediaInfoItem {
   background: var(--media-badge-bg) !important;
   backdrop-filter: blur(5px) !important;
@@ -1426,36 +1476,17 @@ div.verticalSection.aboutSection {
   filter: var(--filter-glow-light);
 }
 
-.itemDetailSecondaryText {
-  color: var(--white-alpha-80) !important;
-}
-
-.mediaInfoPanel {
-  background: var(--navy-light-alpha-70) !important;
-  backdrop-filter: var(--blur-heavy) !important;
-  -webkit-backdrop-filter: var(--blur-heavy) !important;
-  border: var(--standard-border-thickness) solid var(--my-gold-transparent) !important;
-  border-radius: var(--border-radius-xl) !important;
-  padding: 15px !important;
-}
-
-.mediaInfoPanel h2,
-.mediaInfoPanel .material-icons {
-  color: var(--my-gold) !important;
-  font-family: 'Oswald', sans-serif !important;
-  text-transform: uppercase;
+/* Track Selector Dropdowns */
+.trackSelectionField .selectLabel,
+.trackSelectionField .selectContainer,
+.mediaInfoAttributeValue {
+  color: var(--pure-white) !important;
 }
 
 .mediaInfoAttributeLabel {
   color: var(--my-gold) !important;
   font-weight: 600 !important;
   opacity: 0.9;
-}
-
-.mediaInfoAttributeValue,
-.trackSelectionField .selectLabel,
-.trackSelectionField .selectContainer {
-  color: var(--pure-white) !important;
 }
 
 .trackSelectionField .emby-select {
@@ -1469,6 +1500,7 @@ div.verticalSection.aboutSection {
   color: var(--my-gold) !important;
 }
 
+/* --- 6D. Detail Action Buttons --- */
 .mainDetailButtons .emby-button,
 .detailButtons .emby-button,
 .detailButton {
@@ -1480,6 +1512,7 @@ div.verticalSection.aboutSection {
   transition: all var(--transition-speed) ease-in-out !important;
 }
 
+/* Primary Play Button Priority */
 .mainDetailButtons .btnPlay,
 .detailButtons .btnPlay,
 .btnPlay.detailButton {
@@ -1502,6 +1535,7 @@ div.verticalSection.aboutSection {
   color: inherit !important;
 }
 
+/* Text Links (Resume text, actors, etc.) */
 div.resumeName a.emby-button[is="emby-linkbutton"] {
   color: var(--my-gold) !important;
   text-decoration: none !important;
@@ -1509,11 +1543,8 @@ div.resumeName a.emby-button[is="emby-linkbutton"] {
   border: none !important;
   box-shadow: none !important;
   outline: none !important;
-  transform: none !important;
-  transition: none !important;
   padding: 0 !important;
   margin: 0 !important;
-  filter: none !important;
 }
 
 div.resumeName a.emby-button[is="emby-linkbutton"]:hover,
@@ -1527,49 +1558,56 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
   color: var(--my-gold) !important;
 }
 
+/* --- 6E. About Section Overrides (Fixing Emby's hardcoded clips) --- */
 .mediaInfoItem .starIcon {
-    color: inherit !important; 
-    filter: none !important; 
-    margin-right: 2px; 
+  color: inherit !important; 
+  filter: none !important; 
+  margin-right: 2px; 
 }
 
+/* Strip Emby's native text clipping and shadow forcing */
 .aboutSection div.sectionTitle, 
 .aboutSection .button-link,
 .aboutSection .mediaInfoAttributeValue,
 .aboutSection .itemSecondaryText,
 .aboutSection .audioVideoMediaInfo,
 .aboutSection .mediaInfoPanel h2 {
-    background: transparent !important; 
-    -webkit-background-clip: initial !important;
-    text-shadow: none !important;
-    filter: none !important;
-    opacity: 1 !important;
+  background: transparent !important; 
+  -webkit-background-clip: initial !important;
+  text-shadow: none !important;
+  filter: none !important;
+  opacity: 1 !important;
 }
 
+/* Re-apply our pure white */
 .aboutSection div.sectionTitle, 
 .aboutSection .button-link,
 .aboutSection .mediaInfoAttributeValue,
 .aboutSection .itemSecondaryText {
-    -webkit-text-fill-color: var(--pure-white) !important; 
-    color: var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important; 
+  color: var(--pure-white) !important;
 }
 
+/* Re-apply our gold to headers */
 .aboutSection .mediaInfoPanel h2,
 .aboutSection .mediaInfoPanel .material-icons {
-    -webkit-text-fill-color: var(--my-gold) !important;
-    color: var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  color: var(--my-gold) !important;
 }
 
+/* Fix badges inside the About section */
 .aboutSection .mediaInfoItem {
-    text-shadow: none !important;
-    -webkit-text-fill-color: var(--media-badge-color) !important; 
-    box-shadow: 2px 2px 5px var(--black-alpha-50) !important; 
-    background: var(--media-badge-bg) !important;
+  -webkit-text-fill-color: var(--media-badge-color) !important; 
+  background: var(--media-badge-bg) !important;
+  box-shadow: 2px 2px 5px var(--black-alpha-50) !important; 
+  text-shadow: none !important;
 }
 
 /* ============================================================
    07. LIVE TV GUIDE
    ============================================================ */
+
+/* --- 7A. Grid Cells & Channels --- */
 .guide-channelHeader,
 .programCell {
   background-color: var(--navy-light-alpha-40) !important;
@@ -1585,6 +1623,7 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
   border-right: var(--hover-border-thickness) solid var(--theme-primary-color) !important;
 }
 
+/* Hover & Active TV Programs */
 .programCell-active,
 .programCell:hover {
   background-color: var(--my-gold-transparent) !important;
@@ -1594,12 +1633,14 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
   z-index: 10 !important;
 }
 
+/* Vertical Time Bar */
 .guide-currentTimeIndicator {
   background-color: var(--theme-primary-color) !important;
   width: var(--hover-border-thickness) !important;
   box-shadow: 0 0 10px var(--theme-primary-color);
 }
 
+/* --- 7B. Guide Headers --- */
 .guide-headerButtons {
   background-color: var(--retro-navy-light) !important;
   border-bottom: var(--standard-border-thickness) solid var(--theme-primary-color) !important;
@@ -1612,11 +1653,11 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
   font-family: 'Oswald', sans-serif !important;
 }
 
+/* --- 7C. Program Info Typography Reset --- */
+/* Strips badge styling from media info text inside the TV guide grid */
 body .programCell .mediaInfoItem,
 body .programCell .guideProgramName,
-body .programCell .mediaInfoItem:hover,
 body .programCell:hover .mediaInfoItem,
-body .programCell .guideProgramName:hover,
 body .programCell:hover .guideProgramName {
   background: transparent !important;
   border: none !important;
@@ -1631,6 +1672,15 @@ body .programCell:hover .guideProgramName {
   margin: 0 !important;
 }
 
+.programCell .guideProgramTime {
+  color: var(--white-alpha-60) !important;
+  font-family: 'Sofia Sans', sans-serif !important;
+  font-size: 0.9em !important;
+  margin-top: 2px !important;
+}
+
+/* --- 7D. Misc Guide Tweaks --- */
+/* Hide repetitive text tags in the guide */
 .premiereTvProgram,
 .newTvProgram,
 .liveTvProgram,
@@ -1642,38 +1692,29 @@ body .programCell:hover .guideProgramName {
   filter: drop-shadow(0px 4px 6px var(--black-alpha-60)) !important;
 }
 
-.programCell .guideProgramTime {
-  color: var(--white-alpha-60) !important;
-  font-family: 'Sofia Sans', sans-serif !important;
-  font-size: 0.9em !important;
-  margin-top: 2px !important;
-}
-
 /* ============================================================
-   08. VIDEO PLAYER (OSD) & NOW PLAYING
+   08. VIDEO PLAYER (OSD) & NOW PLAYING BAR
    ============================================================ */
+
+/* --- 8A. Video OSD Overlays (Bottom Controls) --- */
 .videoOsdBottom,
 .videoOsdBottom-video {
   background: linear-gradient(to top, var(--navy-base-alpha-95) 0%, var(--navy-mid-alpha-70) 60%, transparent 100%) !important;
   backdrop-filter: var(--blur-lg) !important;
   -webkit-backdrop-filter: var(--blur-lg) !important;
   padding-bottom: 20px !important;
-  transform: translateZ(0);
+  transform: translateZ(0); /* Hardware acceleration for smooth UI rendering */
 }
 
+/* Small poster shown in the video player */
 .osdPoster {
   border: var(--hover-border-thickness) solid var(--my-gold) !important;
   box-shadow: 0 0 20px var(--black-alpha-80) !important;
   border-radius: 8px !important;
 }
 
-.osdValues,
-.osdTextContainer {
-  font-family: 'Oswald', sans-serif !important;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
+/* --- 8B. Media Sliders (Progress & Volume) --- */
+/* Fix overflow issues on custom slider tracks */
 .videoOsdBottom .emby-slider-background,
 .videoOsdBottom .emby-slider-background-inner,
 .nowPlayingBar .emby-slider-background,
@@ -1681,6 +1722,7 @@ body .programCell:hover .guideProgramName {
   overflow: visible !important;
 }
 
+/* Slider Track Fill (The played portion) */
 .videoOsdBottom .emby-slider-background-lower,
 .nowPlayingBar .emby-slider-background-lower,
 .emby-slider-background-lower {
@@ -1688,38 +1730,33 @@ body .programCell:hover .guideProgramName {
   box-shadow: var(--glow-slider-track) !important;
 }
 
+/* CONSOLIDATED SLIDER THUMBS: Targets Emby divs + Webkit/Mozilla native inputs */
 .emby-slider-thumb,
 .videoOsdBottom .emby-slider-thumb,
-.nowPlayingBar .emby-slider-thumb {
-  background: var(--my-gold) !important;
-  border: 2px solid var(--retro-navy) !important;
-  box-shadow: var(--glow-slider-thumb) !important;
-  border-radius: 50% !important;
-  transform: scale(1.1) !important;
-  will-change: transform, box-shadow;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none !important;
-  background: var(--my-gold) !important;
-  border: 2px solid var(--retro-navy) !important;
-  box-shadow: var(--glow-slider-thumb) !important;
-  border-radius: 50% !important;
-  transform: scale(1.1) !important;
-  will-change: transform, box-shadow;
-}
-
+.nowPlayingBar .emby-slider-thumb,
+input[type="range"]::-webkit-slider-thumb,
 input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
   background: var(--my-gold) !important;
-  border: 2px solid var(--retro-navy) !important;
+  border: var(--hover-border-thickness) solid var(--retro-navy) !important;
   box-shadow: var(--glow-slider-thumb) !important;
   border-radius: 50% !important;
   transform: scale(1.1) !important;
   will-change: transform, box-shadow;
+}
+
+/* --- 8C. OSD Typography & Buttons --- */
+.osdValues,
+.osdTextContainer,
+.osdTitle {
+  font-family: 'Oswald', sans-serif !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .osdTitle {
-  font-family: 'Oswald', sans-serif !important;
   color: var(--my-gold) !important;
   font-size: 1.6em !important;
   text-shadow: 2px 2px 4px var(--black-alpha-80) !important;
@@ -1731,18 +1768,28 @@ input[type="range"]::-moz-range-thumb {
   opacity: 0.8;
 }
 
-.videoOsdBottom .paper-icon-button-light {
-  color: var(--pure-white) !important;
+/* Universal Media Control Buttons (Play, Pause, CC, settings, etc.) */
+.videoOsdBottom .paper-icon-button-light,
+.nowPlayingBar .paper-icon-button-light {
+  color: var(--white-alpha-80) !important;
   transition: all var(--transition-speed) ease !important;
   will-change: transform;
 }
 
-.videoOsdBottom .paper-icon-button-light:hover {
+.videoOsdBottom .paper-icon-button-light:hover,
+.nowPlayingBar .paper-icon-button-light:hover {
   color: var(--my-gold) !important;
-  transform: scale(1.2) !important;
+  transform: scale(1.1) !important;
   filter: var(--filter-glow-medium) !important;
 }
 
+/* Active state for toggles like Repeat or Shuffle */
+.nowPlayingBar .buttonActive {
+  color: var(--my-gold) !important;
+  filter: var(--filter-glow-gold-solid) !important;
+}
+
+/* --- 8D. "Up Next" & Skip Intro Overlays --- */
 .btnSkipIntro,
 .upNextDialog .btnStartNow,
 .btnStartNow {
@@ -1750,7 +1797,7 @@ input[type="range"]::-moz-range-thumb {
   color: var(--pure-black) !important;
   font-family: 'Oswald', sans-serif !important;
   font-weight: 700 !important;
-  border-radius: 30px !important;
+  border-radius: var(--border-radius-pill) !important;
   box-shadow: 0 0 20px var(--black-alpha-50) !important;
   text-transform: uppercase;
   transition: all var(--transition-speed) ease-in-out;
@@ -1774,6 +1821,7 @@ input[type="range"]::-moz-range-thumb {
   transform: translateZ(0);
 }
 
+/* --- 8E. Global Bottom "Now Playing" Bar --- */
 .nowPlayingBar {
   background: var(--navy-base-alpha-95) !important;
   backdrop-filter: var(--blur-heavy) !important;
@@ -1796,31 +1844,18 @@ input[type="range"]::-moz-range-thumb {
   color: var(--white-alpha-70) !important;
 }
 
-.nowPlayingBar .paper-icon-button-light {
-  color: var(--white-alpha-80) !important;
-  transition: all var(--transition-speed) ease !important;
-}
-
-.nowPlayingBar .paper-icon-button-light:hover {
-  color: var(--my-gold) !important;
-  transform: scale(1.1) !important;
-  filter: var(--filter-glow-medium) !important;
-}
-
-.nowPlayingBar .buttonActive {
-  color: var(--my-gold) !important;
-  filter: var(--filter-glow-gold-solid) !important;
-}
-
 /* ============================================================
    09. FULLSCREEN AUDIO & PLAYLIST
    ============================================================ */
+
+/* --- 9A. Audio Player Background & Layout --- */
 .nowPlayingPage {
   background: linear-gradient(to right, var(--navy-base-alpha-40) 0%, var(--black-alpha-80) 100%) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
 
+/* Fullscreen Album Art container */
 .nowPlayingPage-imageContainer,
 .nowPlayingPage .cardImageContainer {
   border: var(--hover-border-thickness) solid var(--my-gold) !important;
@@ -1828,6 +1863,7 @@ input[type="range"]::-moz-range-thumb {
   border-radius: var(--border-radius-lg) !important;
 }
 
+/* --- 9B. Audio Playlist Items --- */
 .nowPlayingPage .listItem {
   background: transparent !important;
   border: var(--standard-border-thickness) solid transparent !important;
@@ -1843,6 +1879,7 @@ input[type="range"]::-moz-range-thumb {
   transform: scale(1.01) !important;
 }
 
+/* Currently Playing Track Highlight */
 .nowPlayingPage .listItem.playing,
 .nowPlayingPage .listItem-active {
   background-color: var(--navy-light-alpha-80) !important;
@@ -1850,6 +1887,7 @@ input[type="range"]::-moz-range-thumb {
   box-shadow: 0 5px 15px var(--black-alpha-50) !important;
 }
 
+/* Playlist Typography */
 .nowPlayingPage .listItemBodyText {
   font-family: 'Oswald', sans-serif !important;
   color: var(--text-muted) !important;
@@ -1862,6 +1900,7 @@ input[type="range"]::-moz-range-thumb {
   font-size: 0.9em !important;
 }
 
+/* Change text to gold if the track is currently playing */
 .nowPlayingPage .listItem.playing .listItemBodyText,
 .nowPlayingPage .listItem-active .listItemBodyText,
 .nowPlayingPage .listItem .secondaryText {
@@ -1872,6 +1911,7 @@ input[type="range"]::-moz-range-thumb {
   font-weight: bold !important;
 }
 
+/* Playlist item right-side context menu buttons (3 dots/heart) */
 .nowPlayingPage .listItem .paper-icon-button-light {
   opacity: 0.5 !important;
   transition: opacity var(--transition-speed) ease, color var(--transition-speed) ease !important;
@@ -1886,6 +1926,7 @@ input[type="range"]::-moz-range-thumb {
   filter: var(--filter-glow-light) !important;
 }
 
+/* --- 9C. Fullscreen Audio Typography --- */
 .videoOsdText .videoOsdParentTitle {
   font-family: 'Oswald', sans-serif !important;
   color: var(--my-gold) !important;
@@ -1915,8 +1956,10 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* ============================================================
-   10. DATA GRID
+   10. DATA GRID (Settings, Server Dashboard, Devices)
    ============================================================ */
+
+/* --- 10A. Data Grid Header --- */
 .dataGridHeader {
   background: var(--navy-light-alpha-70) !important;
   background-image: none !important;
@@ -1927,6 +1970,7 @@ input[type="range"]::-moz-range-thumb {
   z-index: 100 !important;
 }
 
+/* Clean up Emby's native grid backgrounds and borders */
 .dataGridHeader .dataGridHeader-content,
 .dataGridHeader .dataGridItem-content,
 .dataGridHeader .dataGridHeader-content-inner,
@@ -1939,6 +1983,7 @@ input[type="range"]::-moz-range-thumb {
   box-shadow: none !important;
 }
 
+/* Header Text & Typography */
 .dataGridHeader .dataGridItemCell,
 .dataGridHeader .dataGridHeaderText,
 .dataGridHeader .primaryText {
@@ -1951,6 +1996,7 @@ input[type="range"]::-moz-range-thumb {
   text-shadow: 1px 1px 2px var(--black-alpha-80) !important;
 }
 
+/* Header Icons (Sort, filter, etc.) */
 .dataGridHeader .paper-icon-button-light,
 .dataGridHeader .md-icon,
 .dataGridHeader button i.md-icon {
@@ -1967,6 +2013,7 @@ input[type="range"]::-moz-range-thumb {
   transform: scale(1.1) !important;
 }
 
+/* --- 10B. Data Grid List Items --- */
 .dataGridItem-content {
   background-color: var(--navy-light-alpha-40) !important;
   border: var(--hover-border-thickness) solid transparent !important;
@@ -1988,12 +2035,14 @@ input[type="range"]::-moz-range-thumb {
   transition: all var(--transition-speed) ease !important;
 }
 
+/* Device/User Avatar Images in the grid */
 .dataGridItem img {
   border-radius: var(--border-radius-sm) !important;
   border: 1px solid var(--my-gold-transparent) !important;
   transition: all var(--transition-speed) ease !important;
 }
 
+/* --- 10C. Data Grid Item Hover States --- */
 .dataGridItem:hover .dataGridItem-content,
 .dataGridItem.show-focus .dataGridItem-content {
   background-color: var(--my-gold-transparent) !important;
@@ -2018,15 +2067,20 @@ input[type="range"]::-moz-range-thumb {
   box-shadow: var(--glow-light) !important;
 }
 
+
 /* ============================================================
-11. LOGIN PAGE & MISC TWEAKS
-============================================================ */
+   11. LOGIN PAGE & MISC TWEAKS
+   ============================================================ */
+
+/* --- 11A. Login Screen Layout --- */
+/* Hides the top navigation bar specifically on the login screens */
 body:has(.view-startup-manuallogin) .skinHeader,
 body:has(.view-startup-login) .skinHeader,
 body:has(.view-login) .skinHeader {
  display: none !important;
 }
 
+/* --- 11B. Loading Spinner Animation --- */
 .mdl-spinner__layer-1 {
   animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, base-spinner-colors 5332ms linear infinite !important;
 }
@@ -2038,6 +2092,7 @@ body:has(.view-login) .skinHeader {
   75% { border-color: var(--theme-primary-color); }
 }
 
+/* --- 11C. 3D Pop-out Effects (Driven by Section 1 Toggles) --- */
 .cardBox {
   perspective: var(--popout-perspective) !important;
 }
@@ -2052,12 +2107,13 @@ body:has(.view-login) .skinHeader {
  box-shadow: var(--popout-shadow) !important;
 }
 
+/* Detail action buttons 3D click effect */
 .detailButtons .emby-button,
 .button-submit {
  box-shadow: var(--button-popout-shadow) !important;
  transform: var(--button-popout-transform) !important;
  transition: transform 0.1s linear, box-shadow 0.1s linear !important;
- border: 1px solid var(--theme-primary-color) !important;
+ border: var(--standard-border-thickness) solid var(--theme-primary-color) !important;
 }
 
 .detailButtons .emby-button:active,
@@ -2069,6 +2125,7 @@ body:has(.view-login) .skinHeader {
 /* ============================================================
    12. SEASONAL EFFECTS (VALENTINE'S DAY)
    ============================================================ */
+
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #e60049) {
   
@@ -2416,12 +2473,26 @@ body:has(.view-login) .skinHeader {
     ) !important; 
     border-bottom: var(--vday-osd-border-width) solid var(--vday-pink-deep) !important; 
   }
+
+  .button-submit {
+    border: 2px solid var(--vday-pink-light) !important;
+    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--vday-red-alpha-40) !important;
+    transform: none !important;
+  }
+
+  .button-submit:active {
+    border: 2px solid var(--vday-pink-deep) !important;
+    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
+    transform: scale(0.98) !important;
+  }
+
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    13. SEASONAL EFFECTS (ST. PATRICK'S DAY)
    ============================================================ */
+
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #00ff85) {
 
@@ -2691,12 +2762,24 @@ body:has(.view-login) .skinHeader {
     75% { border-color: var(--pure-white); }
   }
   
+  .button-submit {
+    border: 2px solid var(--stpat-gold) !important;
+    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--stpat-green-bright-alpha-40) !important;
+    transform: none !important;
+  }
+  .button-submit:active {
+    border: 2px solid var(--stpat-gold-dark) !important;
+    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
+    transform: scale(0.98) !important;
+  }
+
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    14. SEASONAL EFFECTS (EASTER)
    ============================================================ */
+
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #ffb7b2) {
   .countIndicator { 
@@ -2853,12 +2936,25 @@ body:has(.view-login) .skinHeader {
     box-shadow: 0 6px 12px var(--black-alpha-90), inset -2px -4px 6px var(--easter-black-alpha-30), 0 0 10px var(--easter-blue) !important; 
     transform: translateY(-2px) scale(1.1) !important; 
   }
+
+  .button-submit {
+    border: 2px solid var(--easter-blue-light) !important;
+    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--easter-pink-alpha-50) !important;
+    transform: none !important;
+  }
+  .button-submit:active {
+    border: 2px solid var(--easter-blue) !important;
+    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
+    transform: scale(0.98) !important;
+  }
+
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    15. SEASONAL EFFECTS (4TH OF JULY)
    ============================================================ */
+
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #e0162b) {
 
@@ -2990,12 +3086,24 @@ body:has(.view-login) .skinHeader {
     100% { transform: scale(1.8); opacity: 0; filter: brightness(1); } 
   }
 
+  .button-submit {
+    border: 2px solid var(--july4-white) !important;
+    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--july4-blue-alpha-50) !important;
+    transform: none !important;
+  }
+  .button-submit:active {
+    border: 2px solid var(--july4-blue) !important;
+    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
+    transform: scale(0.98) !important;
+  }
+    
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    16. SEASONAL EFFECTS (HALLOWEEN)
    ============================================================ */
+
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #ff6600) {
 
@@ -3312,12 +3420,25 @@ body:has(.view-login) .skinHeader {
   .peopleSection .cardText-first {
     color: var(--hw-orange) !important;
   }
+
+  .button-submit {
+    border: 2px solid var(--hw-orange) !important;
+    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--hw-purple-alpha-50) !important;
+    transform: none !important;
+  }
+  .button-submit:active {
+    border: 2px solid var(--hw-purple) !important;
+    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
+    transform: scale(0.98) !important;
+  }
+
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    17. SEASONAL EFFECTS (THANKSGIVING / AUTUMN HARVEST)
    ============================================================ */
+
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #d95c14) {
 
@@ -3366,7 +3487,7 @@ body:has(.view-login) .skinHeader {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    box-shadow: inset 0 0 40px rgba(92, 38, 5, 0.7) !important; 
+    box-shadow: inset 0 0 40px rgba(var(--tg-brown-rgb), 0.7) !important;
     pointer-events: none;
     transition: box-shadow 0.6s ease-in-out !important;
     z-index: 1;
@@ -3378,7 +3499,7 @@ body:has(.view-login) .skinHeader {
   }
 
   .card:hover .cardImageContainer::after {
-    box-shadow: inset 0 -40px 60px rgba(217, 92, 20, 0.6), inset 0 0 15px rgba(227, 160, 27, 0.4) !important;
+    box-shadow: inset 0 -40px 60px var(--tg-orange-alpha-60), inset 0 0 15px var(--tg-gold-alpha-40) !important;
   }
 
   @keyframes hearthFlicker {
@@ -3636,12 +3757,26 @@ body:has(.view-login) .skinHeader {
     50% { border-color: var(--tg-brown); }
     75% { border-color: var(--pure-white); }
   }
+
+ /* Fix for misaligned Submit/Save buttons ONLY + Themed Border */
+  .button-submit {
+    border: 2px solid var(--tg-gold) !important;
+    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--tg-orange-alpha-40) !important;
+    transform: none !important;
+  }
+  .button-submit:active {
+    border: 2px solid var(--tg-orange) !important;
+    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
+    transform: scale(0.98) !important;
+  }
+
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    18. SEASONAL EFFECTS (CHRISTMAS)
    ============================================================ */
+
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #c41e3a) {
 
@@ -3702,15 +3837,15 @@ body:has(.view-login) .skinHeader {
     transition: filter 0.3s ease !important;
   }
 
-   .cardContent, .cardImageContainer {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1), 0 10px 20px var(--black-alpha-75) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  .cardContent, .cardImageContainer {
+    box-shadow: 0 0 10px var(--white-alpha-10), 0 10px 20px var(--black-alpha-75) !important;
+    border: var(--standard-border-thickness) solid var(--white-alpha-10) !important;
   }
 
   @keyframes auroraBorder {
     0% { border-color: var(--xmas-red); box-shadow: 0 0 15px var(--xmas-red-alpha-30), 0 15px 30px var(--black-alpha-90); }
     33% { border-color: var(--xmas-green); box-shadow: 0 0 25px var(--xmas-green-alpha-30), 0 15px 30px var(--black-alpha-90); }
-    66% { border-color: var(--my-gold); box-shadow: 0 0 15px rgba(255, 185, 0, 0.3), 0 15px 30px var(--black-alpha-90); }
+    66% { border-color: var(--my-gold); box-shadow: 0 0 15px var(--gold-alpha-30), 0 15px 30px var(--black-alpha-90); }
     100% { border-color: var(--xmas-red); box-shadow: 0 0 15px var(--xmas-red-alpha-30), 0 15px 30px var(--black-alpha-90); }
   }
 
@@ -3782,12 +3917,25 @@ body:has(.view-login) .skinHeader {
     0% { right: -50vw; top: 20vh; transform: scale(1.2) rotate(3deg); }
     100% { right: 120vw; top: 18vh; transform: scale(1.2) rotate(2deg); }
   }
+
+  .button-submit {
+    border: 2px solid var(--xmas-white) !important;
+    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--xmas-green-alpha-50) !important;
+    transform: none !important;
+  }
+  .button-submit:active {
+    border: 2px solid var(--xmas-green) !important;
+    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
+    transform: scale(0.98) !important;
+  }
+
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    19. SEASONAL EFFECTS (NEW YEAR'S EVE)
    ============================================================ */
+
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #d4af37) {
 
@@ -4081,5 +4229,17 @@ body:has(.view-login) .skinHeader {
     50% { border-color: var(--pure-white); }
     75% { border-color: var(--nye-gold); }
   }
+
+  .button-submit {
+    border: 2px solid var(--nye-cream) !important;
+    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--nye-gold-alpha-40) !important;
+    transform: none !important;
+  }
+  .button-submit:active {
+    border: 2px solid var(--nye-gold) !important;
+    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
+    transform: scale(0.98) !important;
+  }
+
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
