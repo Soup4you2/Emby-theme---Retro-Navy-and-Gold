@@ -854,6 +854,23 @@ textarea.txtCustomCss {
   background: var(--theme-primary-color);
 }
 
+body:has(.view-videoosd-videoosd:not(.hide))::before, 
+body:has(.view-videoosd-videoosd:not(.hide))::after, 
+body:has(.backgroundContainer.withBackdrop)::before,
+body:has(.backgroundContainer.withBackdrop)::after,
+body:has(.videoBackdropContainer:not(.hide))::before,
+body:has(.videoBackdropContainer:not(.hide))::after,
+.view-videoosd-videoosd:not(.hide) .backgroundContainer::before,
+.view-videoosd-videoosd:not(.hide) .backgroundContainer::after,
+.withBackdrop::before,
+.withBackdrop::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
 /* ============================================================
    03. NAVIGATION 
    ============================================================ */
