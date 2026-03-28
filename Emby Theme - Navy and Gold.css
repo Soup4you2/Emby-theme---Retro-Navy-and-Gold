@@ -18,75 +18,84 @@
 html,
 [class*="theme-"],
 .selection-accent-color {
-  /* --- Custom Master Palette (Source of Truth) --- */
+
+  /* --- Core RGB Values (The Source of Truth for Transparencies) --- */
+  --pure-black-rgb: 0, 0, 0;
+  --pure-white-rgb: 255, 255, 255;
+  --my-gold-rgb: 255, 185, 0;
+  --navy-base-rgb: 0, 8, 20;
+  --navy-light-rgb: 0, 20, 40;
+  --navy-mid-rgb: 0, 29, 61;
+
+  /* --- Custom Master Palette --- */
   --my-gold: #ffb900;                                /* Main accent color for text, borders, and buttons */
   --my-gold-light: #ffca3a;                          /* Lighter gold used for gradient transitions */
-  --my-gold-transparent: rgba(255, 185, 0, 0.2);     /* Used for selected items, hover backgrounds, and subtle highlights */
+  --my-gold-transparent: rgba(var(--my-gold-rgb), 0.2);     /* Used for selected items, hover backgrounds, and subtle highlights */
   --retro-navy: #000814;                             /* Primary dark background color (used for sidebars, headers) */
   --retro-navy-light: #001d3d;                       /* Lighter background accent (used for panels, popups) */
   
   /* --- Core Solid Colors --- */
-  --pure-white: #ffffff;
-  --pure-black: #000000;
+  --pure-white: #ffffff;                             /* Standard absolute white for text and high-contrast icons */
+  --pure-black: #000000;                             /* Absolute black for deep shadows and background resets */
   --text-muted: #ececec;                             /* Standard off-white for primary paragraph text */
   --scrollbar-thumb: #333333;                        /* Dark grey for custom scrollbars */
 
   /* --- Emby Theme Overrides (Enforces our colors globally for the base theme) --- */
-  --theme-primary-color: var(--my-gold) !important;
-  --theme-accent-color: var(--my-gold) !important;
-  --theme-accent-text-color: var(--my-gold) !important;
-  --theme-checked-color: var(--my-gold) !important;
-  --theme-icon-focus-background: var(--my-gold-transparent) !important;
-  --theme-selection-background: var(--my-gold-transparent) !important;
-  --theme-primary-color-lightened: var(--my-gold) !important;
-  --button-accent-flat-background: var(--my-gold-transparent) !important;
+  --theme-primary-color: var(--my-gold) !important;          /* Overrides Emby's main brand color */
+  --theme-accent-color: var(--my-gold) !important;           /* Overrides secondary accent colors */
+  --theme-accent-text-color: var(--my-gold) !important;      /* Forces accent color on text links/icons */
+  --theme-checked-color: var(--my-gold) !important;          /* Color for checked checkboxes and toggles */
+  --theme-icon-focus-background: var(--my-gold-transparent) !important; /* Background for focused icons */
+  --theme-selection-background: var(--my-gold-transparent) !important;  /* Background for selected list items */
+  --theme-primary-color-lightened: var(--my-gold) !important; /* Secondary lighter primary color used in some Emby skins */
+  --button-accent-flat-background: var(--my-gold-transparent) !important; /* Base color for flat/borderless accent buttons */
 
   /* --- RGBA TRANSLUCENCY VARIABLES --- */
   
   /* Black Transparencies (Shadows, Overlays & Dimming) */
-  --black-alpha-20: rgba(0, 0, 0, 0.2);     /* Faint dimming applied to form dialog headers */
-  --black-alpha-50: rgba(0, 0, 0, 0.5);     /* Medium shadow drop for page titles and basic buttons */
-  --black-alpha-60: rgba(0, 0, 0, 0.6);     /* Darker shadow drop behind Live TV channel images */
-  --black-alpha-70: rgba(0, 0, 0, 0.7);     /* Heavy screen-dimming overlay behind open dialog popups */
-  --black-alpha-75: rgba(0, 0, 0, 0.75);    /* Standard drop shadow depth beneath media cards */
-  --black-alpha-80: rgba(0, 0, 0, 0.8);     /* Deep shadow effect to lift text, posters, and the Now Playing bar */
-  --black-alpha-90: rgba(0, 0, 0, 0.9);     /* Maximum shadow depth used specifically for hovered cards and popups */
+  --black-alpha-20: rgba(var(--pure-black-rgb), 0.2);     /* Faint dimming applied to form dialog headers */
+  --black-alpha-50: rgba(var(--pure-black-rgb), 0.5);     /* Medium shadow drop for page titles and basic buttons */
+  --black-alpha-60: rgba(var(--pure-black-rgb), 0.6);     /* Darker shadow drop behind Live TV channel images */
+  --black-alpha-70: rgba(var(--pure-black-rgb), 0.7);     /* Heavy screen-dimming overlay behind open dialog popups */
+  --black-alpha-75: rgba(var(--pure-black-rgb), 0.75);    /* Standard drop shadow depth beneath media cards */
+  --black-alpha-80: rgba(var(--pure-black-rgb), 0.8);     /* Deep shadow effect to lift text, posters, and the Now Playing bar */
+  --black-alpha-90: rgba(var(--pure-black-rgb), 0.9);     /* Maximum shadow depth used specifically for hovered cards and popups */
 
   /* White Transparencies (Text Colors & Highlights) */
-  --white-alpha-10: rgba(255, 255, 255, 0.1); /* Very faint white for inactive tab hovers and input field borders */
-  --white-alpha-60: rgba(255, 255, 255, 0.6); /* Muted white text color for inactive tabs and timestamps */
-  --white-alpha-70: rgba(255, 255, 255, 0.7); /* Standard secondary text color (e.g., cast roles, track info) */
-  --white-alpha-80: rgba(255, 255, 255, 0.8); /* Slightly brighter secondary text color and inactive icons */
+  --white-alpha-10: rgba(var(--pure-white-rgb), 0.1); /* Very faint white for inactive tab hovers and input field borders */
+  --white-alpha-60: rgba(var(--pure-white-rgb), 0.6); /* Muted white text color for inactive tabs and timestamps */
+  --white-alpha-70: rgba(var(--pure-white-rgb), 0.7); /* Standard secondary text color (e.g., cast roles, track info) */
+  --white-alpha-80: rgba(var(--pure-white-rgb), 0.8); /* Slightly brighter secondary text color and inactive icons */
 
   /* Gold Transparencies (Borders, Selections & Accents) */
-  --gold-alpha-05: rgba(255, 185, 0, 0.05); /* Extremely subtle gold tint for faint borders in the Live TV Guide */
-  --gold-alpha-10: rgba(255, 185, 0, 0.1);  /* Very light gold used for inner shadows and selected item highlights */
-  --gold-alpha-15: rgba(255, 185, 0, 0.15); /* Light gold applied as a subtle divider border (e.g., sidebar edge) */
-  --gold-alpha-25: rgba(255, 185, 0, 0.25); /* Medium gold specifically defining the outer borders of dialog boxes */
-  --gold-alpha-30: rgba(255, 185, 0, 0.3);  /* Stronger gold used to outline small media info badges (4K, HDR, etc.) */
+  --gold-alpha-05: rgba(var(--my-gold-rgb), 0.05); /* Extremely subtle gold tint for faint borders in the Live TV Guide */
+  --gold-alpha-10: rgba(var(--my-gold-rgb), 0.1);  /* Very light gold used for inner shadows and selected item highlights */
+  --gold-alpha-15: rgba(var(--my-gold-rgb), 0.15); /* Light gold applied as a subtle divider border (e.g., sidebar edge) */
+  --gold-alpha-25: rgba(var(--my-gold-rgb), 0.25); /* Medium gold specifically defining the outer borders of dialog boxes */
+  --gold-alpha-30: rgba(var(--my-gold-rgb), 0.3);  /* Stronger gold used to outline small media info badges (4K, HDR, etc.) */
 
   /* Navy Base Transparencies (Main Background Overlays) */
   --navy-base-solid: #000814;                 /* Solid dark navy used at the very bottom edge of the home background gradient */
-  --navy-base-alpha-25: rgba(0, 8, 20, 0.25); /* Light navy tint layered over the primary background art on the home screen */
-  --navy-base-alpha-40: rgba(0, 8, 20, 0.4);  /* Medium navy tint providing contrast behind pill-shaped navigation tabs */
-  --navy-base-alpha-60: rgba(0, 8, 20, 0.6);  /* Dark navy tint used for small input fields (like the track selector dropdown) */
-  --navy-base-alpha-75: rgba(0, 8, 20, 0.75); /* Heavy navy tint used to significantly dim backdrop art to improve text readability */
-  --navy-base-alpha-95: rgba(0, 8, 20, 0.95); /* Nearly solid navy used to ground the video controls and Now Playing audio bar */
+  --navy-base-alpha-25: rgba(var(--navy-base-rgb), 0.25); /* Light navy tint layered over the primary background art on the home screen */
+  --navy-base-alpha-40: rgba(var(--navy-base-rgb), 0.4);  /* Medium navy tint providing contrast behind pill-shaped navigation tabs */
+  --navy-base-alpha-60: rgba(var(--navy-base-rgb), 0.6);  /* Dark navy tint used for small input fields (like the track selector dropdown) */
+  --navy-base-alpha-75: rgba(var(--navy-base-rgb), 0.75); /* Heavy navy tint used to significantly dim backdrop art to improve text readability */
+  --navy-base-alpha-95: rgba(var(--navy-base-rgb), 0.95); /* Nearly solid navy used to ground the video controls and Now Playing audio bar */
 
   /* Navy Light Transparencies (Panels, Inputs & Buttons) */
-  --navy-light-alpha-40: rgba(0, 20, 40, 0.4); /* Faint light-navy providing the base color for Live TV program cells */
-  --navy-light-alpha-60: rgba(0, 20, 40, 0.6); /* Medium light-navy used for detail page action buttons and login screen panels */
-  --navy-light-alpha-70: rgba(0, 20, 40, 0.7); /* Solid light-navy forming the background of the Media Info summary boxes */
-  --navy-light-alpha-80: rgba(0, 20, 40, 0.8); /* Heavy light-navy used for main popups, dialog boxes, and text input fields */
+  --navy-light-alpha-40: rgba(var(--navy-light-rgb), 0.4); /* Faint light-navy providing the base color for Live TV program cells */
+  --navy-light-alpha-60: rgba(var(--navy-light-rgb), 0.6); /* Medium light-navy used for detail page action buttons and login screen panels */
+  --navy-light-alpha-70: rgba(var(--navy-light-rgb), 0.7); /* Solid light-navy forming the background of the Media Info summary boxes */
+  --navy-light-alpha-80: rgba(var(--navy-light-rgb), 0.8); /* Heavy light-navy used for main popups, dialog boxes, and text input fields */
 
   /* Navy Mid/Bright Transparencies (Accents & Background Gradients) */
   --navy-mid-solid: #001d3d;                  /* Solid bright navy establishing the center core color of the global background gradient */
-  --navy-mid-alpha-45: rgba(0, 29, 61, 0.45); /* Translucent bright navy used as the background fill for media info badges */
-  --navy-mid-alpha-70: rgba(0, 29, 61, 0.7);  /* Transition color step inside the video player controls gradient */
-  --navy-mid-alpha-90: rgba(0, 29, 61, 0.9);  /* Nearly solid bright navy defining the background of the "Up Next" episode dialog */
+  --navy-mid-alpha-45: rgba(var(--navy-mid-rgb), 0.45); /* Translucent bright navy used as the background fill for media info badges */
+  --navy-mid-alpha-70: rgba(var(--navy-mid-rgb), 0.7);  /* Transition color step inside the video player controls gradient */
+  --navy-mid-alpha-90: rgba(var(--navy-mid-rgb), 0.9);  /* Nearly solid bright navy defining the background of the "Up Next" episode dialog */
 
   /* --- Glow & Shadow Presets --- */
-  --retro-glow: rgba(255, 185, 0, 0.4);                              /* Color and opacity of the glowing drop shadows */
+  --retro-glow: rgba(var(--my-gold-rgb), 0.4);                               /* Color and opacity of the glowing drop shadows */
   --glow-none: none;                                                 /* Option to completely disable box-glow */
   --glow-light: 0 0 5px var(--retro-glow);                           /* Subtle box-glow for small highlights */
   --glow-medium: 0 0 10px var(--retro-glow);                         /* Standard box-glow for play buttons and badges */
@@ -306,118 +315,130 @@ html,
 
   /* OPTION 2: VALENTINE'S DAY */
   /*
+  --vday-red-rgb: 230, 0, 73;
+  --vday-pink-deep-rgb: 255, 20, 147;
+  --vday-pink-light-rgb: 255, 182, 193;
+  --vday-navy-base-rgb: 26, 0, 13;
+  --vday-navy-mid-rgb: 35, 0, 17;
+  --vday-navy-light-rgb: 45, 0, 22;
   --my-gold: #ffb6c1 !important; 
   --my-gold-light: #ffe4e1 !important;
-  --my-gold-transparent: rgba(255, 182, 193, 0.15) !important;
-  --gold-alpha-05: rgba(255, 182, 193, 0.05) !important;
-  --gold-alpha-10: rgba(255, 182, 193, 0.1) !important;
-  --gold-alpha-15: rgba(255, 182, 193, 0.15) !important;
-  --gold-alpha-25: rgba(255, 182, 193, 0.25) !important;
-  --gold-alpha-30: rgba(255, 182, 193, 0.3) !important;
-  --retro-glow: rgba(230, 0, 73, 0.6) !important; 
+  --my-gold-transparent: rgba(var(--vday-pink-light-rgb), 0.15) !important;
+  --gold-alpha-05: rgba(var(--vday-pink-light-rgb), 0.05) !important;
+  --gold-alpha-10: rgba(var(--vday-pink-light-rgb), 0.1) !important;
+  --gold-alpha-15: rgba(var(--vday-pink-light-rgb), 0.15) !important;
+  --gold-alpha-25: rgba(var(--vday-pink-light-rgb), 0.25) !important;
+  --gold-alpha-30: rgba(var(--vday-pink-light-rgb), 0.3) !important;
+  --retro-glow: rgba(var(--vday-red-rgb), 0.6) !important; 
   --theme-primary-color: #e60049 !important;   
   --theme-accent-color: #ff1493 !important;
   --theme-accent-text-color: #ffb6c1 !important;
   --theme-checked-color: #e60049 !important;
-  --theme-icon-focus-background: rgba(230, 0, 73, 0.2) !important;
-  --theme-selection-background: rgba(230, 0, 73, 0.2) !important;
+  --theme-icon-focus-background: rgba(var(--vday-red-rgb), 0.2) !important;
+  --theme-selection-background: rgba(var(--vday-red-rgb), 0.2) !important;
   --retro-navy: #1a000d !important;              
   --retro-navy-light: #2d0016 !important;        
-  --navy-base-solid: rgba(26, 0, 13, 1) !important;
-  --navy-base-transparent: rgba(26, 0, 13, 0) !important;
-  --navy-base-alpha-25: rgba(26, 0, 13, 0.25) !important;
-  --navy-base-alpha-40: rgba(26, 0, 13, 0.4) !important;
-  --navy-base-alpha-60: rgba(26, 0, 13, 0.6) !important;
-  --navy-base-alpha-75: rgba(26, 0, 13, 0.75) !important;
-  --navy-base-alpha-95: rgba(26, 0, 13, 0.95) !important;
-  --navy-light-alpha-40: rgba(45, 0, 22, 0.4) !important;
-  --navy-light-alpha-60: rgba(45, 0, 22, 0.6) !important;
-  --navy-light-alpha-70: rgba(45, 0, 22, 0.7) !important;
-  --navy-light-alpha-80: rgba(45, 0, 22, 0.8) !important;
-  --navy-mid-solid: rgba(35, 0, 17, 1) !important;
-  --navy-mid-alpha-45: rgba(35, 0, 17, 0.45) !important;
-  --navy-mid-alpha-70: rgba(35, 0, 17, 0.7) !important;
-  --navy-mid-alpha-90: rgba(35, 0, 17, 0.9) !important;
+  --navy-base-solid: rgba(var(--vday-navy-base-rgb), 1) !important;
+  --navy-base-transparent: rgba(var(--vday-navy-base-rgb), 0) !important;
+  --navy-base-alpha-25: rgba(var(--vday-navy-base-rgb), 0.25) !important;
+  --navy-base-alpha-40: rgba(var(--vday-navy-base-rgb), 0.4) !important;
+  --navy-base-alpha-60: rgba(var(--vday-navy-base-rgb), 0.6) !important;
+  --navy-base-alpha-75: rgba(var(--vday-navy-base-rgb), 0.75) !important;
+  --navy-base-alpha-95: rgba(var(--vday-navy-base-rgb), 0.95) !important;
+  --navy-light-alpha-40: rgba(var(--vday-navy-light-rgb), 0.4) !important;
+  --navy-light-alpha-60: rgba(var(--vday-navy-light-rgb), 0.6) !important;
+  --navy-light-alpha-70: rgba(var(--vday-navy-light-rgb), 0.7) !important;
+  --navy-light-alpha-80: rgba(var(--vday-navy-light-rgb), 0.8) !important;
+  --navy-mid-solid: rgba(var(--vday-navy-mid-rgb), 1) !important;
+  --navy-mid-alpha-45: rgba(var(--vday-navy-mid-rgb), 0.45) !important;
+  --navy-mid-alpha-70: rgba(var(--vday-navy-mid-rgb), 0.7) !important;
+  --navy-mid-alpha-90: rgba(var(--vday-navy-mid-rgb), 0.9) !important;
   --vday-red: #e60049;
-  --vday-red-alpha-80: rgba(230, 0, 73, 0.8);
-  --vday-red-alpha-60: rgba(230, 0, 73, 0.6);
-  --vday-red-alpha-50: rgba(230, 0, 73, 0.5);
-  --vday-red-alpha-40: rgba(230, 0, 73, 0.4);
-  --vday-red-alpha-30: rgba(230, 0, 73, 0.3);
-  --vday-red-alpha-25: rgba(230, 0, 73, 0.25);
+  --vday-red-alpha-80: rgba(var(--vday-red-rgb), 0.8);
+  --vday-red-alpha-60: rgba(var(--vday-red-rgb), 0.6);
+  --vday-red-alpha-50: rgba(var(--vday-red-rgb), 0.5);
+  --vday-red-alpha-40: rgba(var(--vday-red-rgb), 0.4);
+  --vday-red-alpha-30: rgba(var(--vday-red-rgb), 0.3);
+  --vday-red-alpha-25: rgba(var(--vday-red-rgb), 0.25);
   --vday-pink-deep: #ff1493;
-  --vday-pink-deep-alpha-100: rgba(255, 20, 147, 1);
-  --vday-pink-deep-alpha-90: rgba(255, 20, 147, 0.9);
-  --vday-pink-deep-alpha-80: rgba(255, 20, 147, 0.8);
-  --vday-pink-deep-alpha-50: rgba(255, 20, 147, 0.5);
-  --vday-pink-deep-alpha-30: rgba(255, 20, 147, 0.3);
+  --vday-pink-deep-alpha-100: rgba(var(--vday-pink-deep-rgb), 1);
+  --vday-pink-deep-alpha-90: rgba(var(--vday-pink-deep-rgb), 0.9);
+  --vday-pink-deep-alpha-80: rgba(var(--vday-pink-deep-rgb), 0.8);
+  --vday-pink-deep-alpha-50: rgba(var(--vday-pink-deep-rgb), 0.5);
+  --vday-pink-deep-alpha-30: rgba(var(--vday-pink-deep-rgb), 0.3);
   --vday-pink-light: #ffb6c1;
-  --vday-pink-light-alpha-60: rgba(255, 182, 193, 0.6);
-  --vday-pink-light-alpha-50: rgba(255, 182, 193, 0.5);
-  --vday-pink-light-alpha-20: rgba(255, 182, 193, 0.2);
+  --vday-pink-light-alpha-60: rgba(var(--vday-pink-light-rgb), 0.6);
+  --vday-pink-light-alpha-50: rgba(var(--vday-pink-light-rgb), 0.5);
+  --vday-pink-light-alpha-20: rgba(var(--vday-pink-light-rgb), 0.2);
   --vday-maroon: #8a002b;
   --vday-coral: #ff6b81;
-  --vday-bg-dark: rgba(26, 0, 13, 0.9)
-  --vday-pulse-light: rgba(255, 182, 193, 0.4);
-  --vday-pulse-heavy: rgba(255, 20, 147, 0.6);
-  --vday-text-glow: 0 0 8px rgba(255, 20, 147, 0.8);
+  --vday-bg-dark: rgba(var(--vday-navy-base-rgb), 0.9);
+  --vday-pulse-light: rgba(var(--vday-pink-light-rgb), 0.4);
+  --vday-pulse-heavy: rgba(var(--vday-pink-deep-rgb), 0.6);
+  --vday-text-glow: 0 0 8px rgba(var(--vday-pink-deep-rgb), 0.8);
   --vday-osd-border-width: 3px;
   */
 
   /* OPTION 3: ST. PATRICK'S DAY */
   /*
+  --stpat-green-bright-rgb: 0, 255, 133;
+  --stpat-green-mid-rgb: 0, 158, 96;
+  --stpat-gold-rgb: 255, 215, 0;
+  --stpat-navy-base-rgb: 0, 10, 5;
+  --stpat-navy-mid-rgb: 0, 26, 13;
+  --stpat-navy-light-rgb: 0, 35, 20;
   --my-gold: #ffd700 !important; 
   --my-gold-light: #fff7a1 !important;
-  --my-gold-transparent: rgba(255, 215, 0, 0.15) !important;
-  --gold-alpha-05: rgba(255, 215, 0, 0.05) !important;
-  --gold-alpha-10: rgba(255, 215, 0, 0.1) !important;
-  --gold-alpha-15: rgba(255, 215, 0, 0.15) !important;
-  --gold-alpha-25: rgba(255, 215, 0, 0.25) !important;
-  --gold-alpha-30: rgba(255, 215, 0, 0.3) !important;
-  --retro-glow: rgba(0, 255, 133, 0.5) !important; 
+  --my-gold-transparent: rgba(var(--stpat-gold-rgb), 0.15) !important;
+  --gold-alpha-05: rgba(var(--stpat-gold-rgb), 0.05) !important;
+  --gold-alpha-10: rgba(var(--stpat-gold-rgb), 0.1) !important;
+  --gold-alpha-15: rgba(var(--stpat-gold-rgb), 0.15) !important;
+  --gold-alpha-25: rgba(var(--stpat-gold-rgb), 0.25) !important;
+  --gold-alpha-30: rgba(var(--stpat-gold-rgb), 0.3) !important;
+  --retro-glow: rgba(var(--stpat-green-bright-rgb), 0.5) !important; 
   --theme-primary-color: #00ff85 !important;   
   --theme-accent-color: #ffd700 !important;
   --theme-accent-text-color: #00ff85 !important;
   --theme-checked-color: #00ff85 !important;
-  --theme-icon-focus-background: rgba(0, 255, 133, 0.2) !important;
-  --theme-selection-background: rgba(0, 255, 133, 0.2) !important;
+  --theme-icon-focus-background: rgba(var(--stpat-green-bright-rgb), 0.2) !important;
+  --theme-selection-background: rgba(var(--stpat-green-bright-rgb), 0.2) !important;
   --retro-navy: #000a05 !important;              
-  --retro-navy-light: #001a0d !important;      
-  --navy-base-solid: rgba(0, 10, 5, 1) !important;
-  --navy-base-alpha-25: rgba(0, 10, 5, 0.25) !important;
-  --navy-base-alpha-40: rgba(0, 10, 5, 0.4) !important;
-  --navy-base-alpha-60: rgba(0, 10, 5, 0.6) !important;
-  --navy-base-alpha-75: rgba(0, 10, 5, 0.75) !important;
-  --navy-base-alpha-95: rgba(0, 10, 5, 0.95) !important;
-  --navy-light-alpha-40: rgba(0, 35, 20, 0.4) !important;
-  --navy-light-alpha-60: rgba(0, 35, 20, 0.6) !important;
-  --navy-light-alpha-70: rgba(0, 35, 20, 0.7) !important;
-  --navy-light-alpha-80: rgba(0, 35, 20, 0.8) !important;
-  --navy-mid-solid: rgba(0, 26, 13, 1) !important;
-  --navy-mid-alpha-45: rgba(0, 26, 13, 0.45) !important;
-  --navy-mid-alpha-70: rgba(0, 26, 13, 0.7) !important;
-  --navy-mid-alpha-90: rgba(0, 26, 13, 0.9) !important;
+  --retro-navy-light: #001a0d !important;        
+  --navy-base-solid: rgba(var(--stpat-navy-base-rgb), 1) !important;
+  --navy-base-alpha-25: rgba(var(--stpat-navy-base-rgb), 0.25) !important;
+  --navy-base-alpha-40: rgba(var(--stpat-navy-base-rgb), 0.4) !important;
+  --navy-base-alpha-60: rgba(var(--stpat-navy-base-rgb), 0.6) !important;
+  --navy-base-alpha-75: rgba(var(--stpat-navy-base-rgb), 0.75) !important;
+  --navy-base-alpha-95: rgba(var(--stpat-navy-base-rgb), 0.95) !important;
+  --navy-light-alpha-40: rgba(var(--stpat-navy-light-rgb), 0.4) !important;
+  --navy-light-alpha-60: rgba(var(--stpat-navy-light-rgb), 0.6) !important;
+  --navy-light-alpha-70: rgba(var(--stpat-navy-light-rgb), 0.7) !important;
+  --navy-light-alpha-80: rgba(var(--stpat-navy-light-rgb), 0.8) !important;
+  --navy-mid-solid: rgba(var(--stpat-navy-mid-rgb), 1) !important;
+  --navy-mid-alpha-45: rgba(var(--stpat-navy-mid-rgb), 0.45) !important;
+  --navy-mid-alpha-70: rgba(var(--stpat-navy-mid-rgb), 0.7) !important;
+  --navy-mid-alpha-90: rgba(var(--stpat-navy-mid-rgb), 0.9) !important;
   --stpat-green-bright: #00ff85;
-  --stpat-green-bright-alpha-100: rgba(0, 255, 133, 1);
-  --stpat-green-bright-alpha-80: rgba(0, 255, 133, 0.8);
-  --stpat-green-bright-alpha-60: rgba(0, 255, 133, 0.6);
-  --stpat-green-bright-alpha-50: rgba(0, 255, 133, 0.5);
-  --stpat-green-bright-alpha-40: rgba(0, 255, 133, 0.4);
-  --stpat-green-bright-alpha-15: rgba(0, 255, 133, 0.15);
+  --stpat-green-bright-alpha-100: rgba(var(--stpat-green-bright-rgb), 1);
+  --stpat-green-bright-alpha-80: rgba(var(--stpat-green-bright-rgb), 0.8);
+  --stpat-green-bright-alpha-60: rgba(var(--stpat-green-bright-rgb), 0.6);
+  --stpat-green-bright-alpha-50: rgba(var(--stpat-green-bright-rgb), 0.5);
+  --stpat-green-bright-alpha-40: rgba(var(--stpat-green-bright-rgb), 0.4);
+  --stpat-green-bright-alpha-15: rgba(var(--stpat-green-bright-rgb), 0.15);
   --stpat-gold: #ffd700;
-  --stpat-gold-alpha-80: rgba(255, 215, 0, 0.8);
-  --stpat-gold-alpha-70: rgba(255, 215, 0, 0.7);
-  --stpat-gold-alpha-60: rgba(255, 215, 0, 0.6);
-  --stpat-gold-alpha-30: rgba(255, 215, 0, 0.3);
-  --stpat-gold-alpha-10: rgba(255, 215, 0, 0.1);
+  --stpat-gold-alpha-80: rgba(var(--stpat-gold-rgb), 0.8);
+  --stpat-gold-alpha-70: rgba(var(--stpat-gold-rgb), 0.7);
+  --stpat-gold-alpha-60: rgba(var(--stpat-gold-rgb), 0.6);
+  --stpat-gold-alpha-30: rgba(var(--stpat-gold-rgb), 0.3);
+  --stpat-gold-alpha-10: rgba(var(--stpat-gold-rgb), 0.1);
   --stpat-green-mid: #009e60;
-  --stpat-green-mid-alpha-20: rgba(0, 158, 96, 0.2);
+  --stpat-green-mid-alpha-20: rgba(var(--stpat-green-mid-rgb), 0.2);
   --stpat-gold-light: #fff7a1;
   --stpat-gold-dark: #b8860b;
   --stpat-green-dark: #006400;
   --stpat-green-deep: #00331c;
-  --stpat-bg-dark-1: rgba(0, 10, 5, 0.95);
-  --stpat-bg-dark-2: rgba(0, 26, 13, 0.8);
+  --stpat-bg-dark-1: rgba(var(--stpat-navy-base-rgb), 0.95);
+  --stpat-bg-dark-2: rgba(var(--stpat-navy-mid-rgb), 0.8);
   --stpat-rb-red: #ff0000;
   --stpat-rb-orange: #ff7f00;
   --stpat-rb-yellow: #ffff00;
@@ -432,100 +453,110 @@ html,
 
   /* OPTION 4: EASTER */
   /*
+  --easter-primary-rgb: 255, 183, 178;
+  --easter-navy-base-rgb: 26, 22, 37;
+  --easter-navy-mid-rgb: 47, 39, 64;
+  --easter-navy-light-rgb: 74, 62, 99;
+  --easter-navy-dark-rgb: 60, 48, 80;
+  --easter-pink-rgb: 255, 182, 193;
+  --easter-green-rgb: 152, 251, 152;
   --my-gold: #ffb7b2 !important; 
   --my-gold-light: #ffdac1 !important;
-  --my-gold-transparent: rgba(255, 183, 178, 0.2) !important;
-  --gold-alpha-05: rgba(255, 183, 178, 0.05) !important;
-  --gold-alpha-10: rgba(255, 183, 178, 0.1) !important;
-  --gold-alpha-15: rgba(255, 183, 178, 0.15) !important;
-  --gold-alpha-25: rgba(255, 183, 178, 0.25) !important;
-  --gold-alpha-30: rgba(255, 183, 178, 0.3) !important;
-  --retro-glow: rgba(255, 183, 178, 0.4) !important;
+  --my-gold-transparent: rgba(var(--easter-primary-rgb), 0.2) !important;
+  --gold-alpha-05: rgba(var(--easter-primary-rgb), 0.05) !important;
+  --gold-alpha-10: rgba(var(--easter-primary-rgb), 0.1) !important;
+  --gold-alpha-15: rgba(var(--easter-primary-rgb), 0.15) !important;
+  --gold-alpha-25: rgba(var(--easter-primary-rgb), 0.25) !important;
+  --gold-alpha-30: rgba(var(--easter-primary-rgb), 0.3) !important;
+  --retro-glow: rgba(var(--easter-primary-rgb), 0.4) !important;
   --theme-primary-color: #ffb7b2 !important; 
   --theme-accent-color: #a7bed3 !important;
   --theme-accent-text-color: #ffb7b2 !important;
   --theme-checked-color: #ffb7b2 !important;
-  --theme-icon-focus-background: rgba(255, 183, 178, 0.2) !important;
-  --theme-selection-background: rgba(255, 183, 178, 0.2) !important;
+  --theme-icon-focus-background: rgba(var(--easter-primary-rgb), 0.2) !important;
+  --theme-selection-background: rgba(var(--easter-primary-rgb), 0.2) !important;
   --retro-navy: #1a1625 !important;
   --retro-navy-light: #2f2740 !important;
-  --navy-base-solid: rgba(26, 22, 37, 1) !important;
-  --navy-base-alpha-25: rgba(26, 22, 37, 0.25) !important;
-  --navy-base-alpha-40: rgba(26, 22, 37, 0.4) !important;
-  --navy-base-alpha-60: rgba(26, 22, 37, 0.6) !important;
-  --navy-base-alpha-75: rgba(26, 22, 37, 0.75) !important;
-  --navy-base-alpha-95: rgba(26, 22, 37, 0.95) !important;
-  --navy-light-alpha-40: rgba(74, 62, 99, 0.4) !important;
-  --navy-light-alpha-60: rgba(74, 62, 99, 0.6) !important;
-  --navy-light-alpha-70: rgba(74, 62, 99, 0.7) !important;
-  --navy-light-alpha-80: rgba(74, 62, 99, 0.8) !important;
-  --navy-mid-solid: rgba(47, 39, 64, 1) !important;
-  --navy-mid-alpha-45: rgba(47, 39, 64, 0.45) !important;
-  --navy-mid-alpha-70: rgba(47, 39, 64, 0.7) !important;
-  --navy-mid-alpha-90: rgba(47, 39, 64, 0.9) !important;
+  --navy-base-solid: rgba(var(--easter-navy-base-rgb), 1) !important;
+  --navy-base-alpha-25: rgba(var(--easter-navy-base-rgb), 0.25) !important;
+  --navy-base-alpha-40: rgba(var(--easter-navy-base-rgb), 0.4) !important;
+  --navy-base-alpha-60: rgba(var(--easter-navy-base-rgb), 0.6) !important;
+  --navy-base-alpha-75: rgba(var(--easter-navy-base-rgb), 0.75) !important;
+  --navy-base-alpha-95: rgba(var(--easter-navy-base-rgb), 0.95) !important;
+  --navy-light-alpha-40: rgba(var(--easter-navy-light-rgb), 0.4) !important;
+  --navy-light-alpha-60: rgba(var(--easter-navy-light-rgb), 0.6) !important;
+  --navy-light-alpha-70: rgba(var(--easter-navy-light-rgb), 0.7) !important;
+  --navy-light-alpha-80: rgba(var(--easter-navy-light-rgb), 0.8) !important;
+  --navy-mid-solid: rgba(var(--easter-navy-mid-rgb), 1) !important;
+  --navy-mid-alpha-45: rgba(var(--easter-navy-mid-rgb), 0.45) !important;
+  --navy-mid-alpha-70: rgba(var(--easter-navy-mid-rgb), 0.7) !important;
+  --navy-mid-alpha-90: rgba(var(--easter-navy-mid-rgb), 0.9) !important;
   --easter-yellow: #ffdf00;
   --easter-yellow-light: #fffacd;
   --easter-yellow-dark: #b38000;
   --easter-brown: #5c3a21;
   --easter-pink: #ffb6c1;
-  --easter-pink-alpha-20: rgba(255, 182, 193, 0.2);
-  --easter-pink-alpha-50: rgba(255, 182, 193, 0.5);
-  --easter-pink-alpha-60: rgba(255, 182, 193, 0.6);
-  --easter-pink-alpha-80: rgba(255, 182, 193, 0.8);
+  --easter-pink-alpha-20: rgba(var(--easter-pink-rgb), 0.2);
+  --easter-pink-alpha-50: rgba(var(--easter-pink-rgb), 0.5);
+  --easter-pink-alpha-60: rgba(var(--easter-pink-rgb), 0.6);
+  --easter-pink-alpha-80: rgba(var(--easter-pink-rgb), 0.8);
   --easter-pink-dark: #ff6b6b;
   --easter-blue: #87ceeb;
   --easter-blue-light: #add8e6;
   --easter-blue-dark: #5f9ea0;
   --easter-green: #98fb98;
-  --easter-green-alpha-25: rgba(152, 251, 152, 0.25);
-  --easter-bg-purple-light: rgba(74, 62, 99, 0.95);
-  --easter-bg-purple-dark: rgba(60, 48, 80, 0.95);
-  --easter-bg-purple-mid: rgba(47, 39, 64, 0.8);
+  --easter-green-alpha-25: rgba(var(--easter-green-rgb), 0.25);
+  --easter-bg-purple-light: rgba(var(--easter-navy-light-rgb), 0.95);
+  --easter-bg-purple-dark: rgba(var(--easter-navy-dark-rgb), 0.95);
+  --easter-bg-purple-mid: rgba(var(--easter-navy-mid-rgb), 0.8);
   --easter-black-alpha-10: rgba(0, 0, 0, 0.1);
   --easter-black-alpha-15: rgba(0, 0, 0, 0.15);
-  --easter-black-alpha-30: rgba(0, 0, 0, 0.3);  
+  --easter-black-alpha-30: rgba(0, 0, 0, 0.3);
   */
 
   /* OPTION 5: 4TH OF JULY */
   /*
+  --july4-red-rgb: 224, 22, 43;
+  --july4-blue-rgb: 0, 82, 165;
+  --july4-white-rgb: 255, 255, 255;
   --my-gold: #e0162b !important; 
   --my-gold-light: #ff4d4d !important;
-  --my-gold-transparent: rgba(224, 22, 43, 0.2) !important;
-  --gold-alpha-05: rgba(224, 22, 43, 0.05) !important;
-  --gold-alpha-10: rgba(224, 22, 43, 0.1) !important;
-  --gold-alpha-15: rgba(224, 22, 43, 0.15) !important;
-  --gold-alpha-25: rgba(224, 22, 43, 0.25) !important;
-  --gold-alpha-30: rgba(224, 22, 43, 0.3) !important;
-  --retro-glow: rgba(224, 22, 43, 0.6) !important;
+  --my-gold-transparent: rgba(var(--july4-red-rgb), 0.2) !important;
+  --gold-alpha-05: rgba(var(--july4-red-rgb), 0.05) !important;
+  --gold-alpha-10: rgba(var(--july4-red-rgb), 0.1) !important;
+  --gold-alpha-15: rgba(var(--july4-red-rgb), 0.15) !important;
+  --gold-alpha-25: rgba(var(--july4-red-rgb), 0.25) !important;
+  --gold-alpha-30: rgba(var(--july4-red-rgb), 0.3) !important;
+  --retro-glow: rgba(var(--july4-red-rgb), 0.6) !important;
   --theme-primary-color: #e0162b !important; 
   --theme-accent-color: #0052a5 !important;
   --theme-accent-text-color: #ffffff !important;
   --theme-checked-color: #e0162b !important;
-  --theme-icon-focus-background: rgba(0, 82, 165, 0.3) !important;
-  --theme-selection-background: rgba(0, 82, 165, 0.3) !important;
+  --theme-icon-focus-background: rgba(var(--july4-blue-rgb), 0.3) !important;
+  --theme-selection-background: rgba(var(--july4-blue-rgb), 0.3) !important;
   --july4-red: #e0162b;
-  --july4-red-alpha-80: rgba(224, 22, 43, 0.8);
-  --july4-red-alpha-60: rgba(224, 22, 43, 0.6);
-  --july4-red-alpha-50: rgba(224, 22, 43, 0.5);
-  --july4-red-alpha-30: rgba(224, 22, 43, 0.3);
-  --july4-red-alpha-20: rgba(224, 22, 43, 0.2);
+  --july4-red-alpha-80: rgba(var(--july4-red-rgb), 0.8);
+  --july4-red-alpha-60: rgba(var(--july4-red-rgb), 0.6);
+  --july4-red-alpha-50: rgba(var(--july4-red-rgb), 0.5);
+  --july4-red-alpha-30: rgba(var(--july4-red-rgb), 0.3);
+  --july4-red-alpha-20: rgba(var(--july4-red-rgb), 0.2);
   --july4-blue: #0052a5;
-  --july4-blue-alpha-80: rgba(0, 82, 165, 0.8);
-  --july4-blue-alpha-60: rgba(0, 82, 165, 0.6);
-  --july4-blue-alpha-50: rgba(0, 82, 165, 0.5);
-  --july4-blue-alpha-40: rgba(0, 82, 165, 0.4);
-  --july4-blue-alpha-30: rgba(0, 82, 165, 0.3);
-  --july4-blue-alpha-20: rgba(0, 82, 165, 0.2);
+  --july4-blue-alpha-80: rgba(var(--july4-blue-rgb), 0.8);
+  --july4-blue-alpha-60: rgba(var(--july4-blue-rgb), 0.6);
+  --july4-blue-alpha-50: rgba(var(--july4-blue-rgb), 0.5);
+  --july4-blue-alpha-40: rgba(var(--july4-blue-rgb), 0.4);
+  --july4-blue-alpha-30: rgba(var(--july4-blue-rgb), 0.3);
+  --july4-blue-alpha-20: rgba(var(--july4-blue-rgb), 0.2);
   --july4-navy: #001d3d;
   --july4-bg-dark: #000814;
   --july4-white: #ffffff;
-  --july4-white-alpha-70: rgba(255, 255, 255, 0.7);
-  --july4-white-alpha-60: rgba(255, 255, 255, 0.6);
-  --july4-white-alpha-50: rgba(255, 255, 255, 0.5);
-  --july4-white-alpha-20: rgba(255, 255, 255, 0.2);
+  --july4-white-alpha-70: rgba(var(--july4-white-rgb), 0.7);
+  --july4-white-alpha-60: rgba(var(--july4-white-rgb), 0.6);
+  --july4-white-alpha-50: rgba(var(--july4-white-rgb), 0.5);
+  --july4-white-alpha-20: rgba(var(--july4-white-rgb), 0.2);
   --july4-gray: #e0e0e0;
-  --july4-sky-red-glow: rgba(224, 22, 43, 0.03);
-  --july4-sky-blue-glow: rgba(0, 82, 165, 0.03);
+  --july4-sky-red-glow: rgba(var(--july4-red-rgb), 0.03);
+  --july4-sky-blue-glow: rgba(var(--july4-blue-rgb), 0.03);
   --july4-firework-red: var(--july4-red);
   --july4-firework-blue: var(--july4-blue);
   --july4-firework-white: var(--july4-white);
@@ -533,225 +564,252 @@ html,
 
   /* OPTION 6: HALLOWEEN */
   /*
+  --hw-orange-rgb: 255, 102, 0;
+  --hw-purple-rgb: 138, 43, 226;
+  --hw-navy-base-rgb: 13, 0, 21;
+  --hw-navy-mid-rgb: 20, 0, 35;
+  --hw-navy-light-rgb: 30, 0, 50;
+  --hw-white-rgb: 255, 255, 255;
   --my-gold: #ff6600 !important; 
   --my-gold-light: #ff8533 !important;
-  --my-gold-transparent: rgba(255, 102, 0, 0.15) !important;
-  --gold-alpha-05: rgba(255, 102, 0, 0.05) !important;
-  --gold-alpha-10: rgba(255, 102, 0, 0.1) !important;
-  --gold-alpha-15: rgba(255, 102, 0, 0.15) !important;
-  --gold-alpha-25: rgba(255, 102, 0, 0.25) !important;
-  --gold-alpha-30: rgba(255, 102, 0, 0.3) !important;
-  --retro-glow: rgba(138, 43, 226, 0.6) !important; 
+  --my-gold-transparent: rgba(var(--hw-orange-rgb), 0.15) !important;
+  --gold-alpha-05: rgba(var(--hw-orange-rgb), 0.05) !important;
+  --gold-alpha-10: rgba(var(--hw-orange-rgb), 0.1) !important;
+  --gold-alpha-15: rgba(var(--hw-orange-rgb), 0.15) !important;
+  --gold-alpha-25: rgba(var(--hw-orange-rgb), 0.25) !important;
+  --gold-alpha-30: rgba(var(--hw-orange-rgb), 0.3) !important;
+  --retro-glow: rgba(var(--hw-purple-rgb), 0.6) !important; 
   --theme-primary-color: #ff6600 !important;   
   --theme-accent-color: #8a2be2 !important;
   --theme-accent-text-color: #ff6600 !important;
   --theme-checked-color: #ff6600 !important;
-  --theme-icon-focus-background: rgba(255, 102, 0, 0.2) !important;
-  --theme-selection-background: rgba(255, 102, 0, 0.2) !important;
+  --theme-icon-focus-background: rgba(var(--hw-orange-rgb), 0.2) !important;
+  --theme-selection-background: rgba(var(--hw-orange-rgb), 0.2) !important;
   --retro-navy: #0d0015 !important;              
   --retro-navy-light: #170026 !important;        
-  --navy-base-solid: rgba(13, 0, 21, 1) !important;
-  --navy-base-alpha-25: rgba(13, 0, 21, 0.25) !important;
-  --navy-base-alpha-40: rgba(13, 0, 21, 0.4) !important;
-  --navy-base-alpha-60: rgba(13, 0, 21, 0.6) !important;
-  --navy-base-alpha-75: rgba(13, 0, 21, 0.75) !important;
-  --navy-base-alpha-95: rgba(13, 0, 21, 0.95) !important;
-  --navy-light-alpha-40: rgba(30, 0, 50, 0.4) !important;
-  --navy-light-alpha-60: rgba(30, 0, 50, 0.6) !important;
-  --navy-light-alpha-70: rgba(30, 0, 50, 0.7) !important;
-  --navy-light-alpha-80: rgba(30, 0, 50, 0.8) !important;
-  --navy-mid-solid: rgba(20, 0, 35, 1) !important;
-  --navy-mid-alpha-45: rgba(20, 0, 35, 0.45) !important;
-  --navy-mid-alpha-70: rgba(20, 0, 35, 0.7) !important;
-  --navy-mid-alpha-90: rgba(20, 0, 35, 0.9) !important;
+  --navy-base-solid: rgba(var(--hw-navy-base-rgb), 1) !important;
+  --navy-base-alpha-25: rgba(var(--hw-navy-base-rgb), 0.25) !important;
+  --navy-base-alpha-40: rgba(var(--hw-navy-base-rgb), 0.4) !important;
+  --navy-base-alpha-60: rgba(var(--hw-navy-base-rgb), 0.6) !important;
+  --navy-base-alpha-75: rgba(var(--hw-navy-base-rgb), 0.75) !important;
+  --navy-base-alpha-95: rgba(var(--hw-navy-base-rgb), 0.95) !important;
+  --navy-light-alpha-40: rgba(var(--hw-navy-light-rgb), 0.4) !important;
+  --navy-light-alpha-60: rgba(var(--hw-navy-light-rgb), 0.6) !important;
+  --navy-light-alpha-70: rgba(var(--hw-navy-light-rgb), 0.7) !important;
+  --navy-light-alpha-80: rgba(var(--hw-navy-light-rgb), 0.8) !important;
+  --navy-mid-solid: rgba(var(--hw-navy-mid-rgb), 1) !important;
+  --navy-mid-alpha-45: rgba(var(--hw-navy-mid-rgb), 0.45) !important;
+  --navy-mid-alpha-70: rgba(var(--hw-navy-mid-rgb), 0.7) !important;
+  --navy-mid-alpha-90: rgba(var(--hw-navy-mid-rgb), 0.9) !important;
   --hw-orange: #ff6600;
-  --hw-orange-alpha-90: rgba(255, 102, 0, 0.9);
-  --hw-orange-alpha-50: rgba(255, 102, 0, 0.5);
-  --hw-orange-alpha-40: rgba(255, 102, 0, 0.4);
-  --hw-orange-alpha-30: rgba(255, 102, 0, 0.3);
-  --hw-orange-alpha-20: rgba(255, 102, 0, 0.2);
-  --hw-orange-alpha-04: rgba(255, 102, 0, 0.04);
+  --hw-orange-alpha-90: rgba(var(--hw-orange-rgb), 0.9);
+  --hw-orange-alpha-50: rgba(var(--hw-orange-rgb), 0.5);
+  --hw-orange-alpha-40: rgba(var(--hw-orange-rgb), 0.4);
+  --hw-orange-alpha-30: rgba(var(--hw-orange-rgb), 0.3);
+  --hw-orange-alpha-20: rgba(var(--hw-orange-rgb), 0.2);
+  --hw-orange-alpha-04: rgba(var(--hw-orange-rgb), 0.04);
   --hw-purple: #8a2be2;
-  --hw-purple-alpha-80: rgba(138, 43, 226, 0.8);
-  --hw-purple-alpha-60: rgba(138, 43, 226, 0.6);
-  --hw-purple-alpha-50: rgba(138, 43, 226, 0.5);
-  --hw-purple-alpha-30: rgba(138, 43, 226, 0.3);
-  --hw-purple-alpha-05: rgba(138, 43, 226, 0.05);
+  --hw-purple-alpha-80: rgba(var(--hw-purple-rgb), 0.8);
+  --hw-purple-alpha-60: rgba(var(--hw-purple-rgb), 0.6);
+  --hw-purple-alpha-50: rgba(var(--hw-purple-rgb), 0.5);
+  --hw-purple-alpha-30: rgba(var(--hw-purple-rgb), 0.3);
+  --hw-purple-alpha-05: rgba(var(--hw-purple-rgb), 0.05);
   --hw-green: #39ff14;
   --hw-bg-dark-1: #1a1a1a;
   --hw-bg-dark-2: #170026;
   --hw-bg-dark-3: #0d0015;
-  --hw-bg-dark-3-alpha-00: rgba(13, 0, 21, 0);
-  --hw-bg-dark-3-alpha-90: rgba(13, 0, 21, 0.9);
-  --hw-bg-dark-3-alpha-85: rgba(13, 0, 21, 0.85);
-  --hw-bg-dark-3-alpha-60: rgba(13, 0, 21, 0.6);
+  --hw-bg-dark-3-alpha-00: rgba(var(--hw-navy-base-rgb), 0);
+  --hw-bg-dark-3-alpha-90: rgba(var(--hw-navy-base-rgb), 0.9);
+  --hw-bg-dark-3-alpha-85: rgba(var(--hw-navy-base-rgb), 0.85);
+  --hw-bg-dark-3-alpha-60: rgba(var(--hw-navy-base-rgb), 0.6);
   --hw-gray-1: #444444;
   --hw-gray-2: #555555;
   --hw-gray-3: #888888;
-  --hw-white-alpha-10: rgba(255, 255, 255, 0.1);
-  --hw-white-alpha-05: rgba(255, 255, 255, 0.05);
+  --hw-white-alpha-10: rgba(var(--hw-white-rgb), 0.1);
+  --hw-white-alpha-05: rgba(var(--hw-white-rgb), 0.05);
   */
 
   /* OPTION 7: THANKSGIVING / AUTUMN HARVEST */
   /*
+  --tg-gold-rgb: 227, 160, 27;
+  --tg-orange-rgb: 217, 92, 20;
+  --tg-brown-rgb: 139, 69, 19;
+  --tg-navy-base-rgb: 26, 11, 9;
+  --tg-navy-light-rgb: 44, 22, 18;
+  --tg-navy-mid-rgb: 36, 17, 14;
+  --tg-black-rgb: 0, 0, 0;
   --my-gold: #e3a01b !important; 
   --my-gold-light: #ffb732 !important;
-  --my-gold-transparent: rgba(227, 160, 27, 0.15) !important;
-  --gold-alpha-05: rgba(227, 160, 27, 0.05) !important;
-  --gold-alpha-10: rgba(227, 160, 27, 0.1) !important;
-  --gold-alpha-15: rgba(227, 160, 27, 0.15) !important;
-  --gold-alpha-25: rgba(227, 160, 27, 0.25) !important;
-  --gold-alpha-30: rgba(227, 160, 27, 0.3) !important;
-  --retro-glow: rgba(217, 92, 20, 0.5) !important; 
+  --my-gold-transparent: rgba(var(--tg-gold-rgb), 0.15) !important;
+  --gold-alpha-05: rgba(var(--tg-gold-rgb), 0.05) !important;
+  --gold-alpha-10: rgba(var(--tg-gold-rgb), 0.1) !important;
+  --gold-alpha-15: rgba(var(--tg-gold-rgb), 0.15) !important;
+  --gold-alpha-25: rgba(var(--tg-gold-rgb), 0.25) !important;
+  --gold-alpha-30: rgba(var(--tg-gold-rgb), 0.3) !important;
+  --retro-glow: rgba(var(--tg-orange-rgb), 0.5) !important; 
   --theme-primary-color: #d95c14 !important;   
   --theme-accent-color: #e3a01b !important;
   --theme-accent-text-color: #e3a01b !important;
   --theme-checked-color: #d95c14 !important;
-  --theme-icon-focus-background: rgba(217, 92, 20, 0.2) !important;
-  --theme-selection-background: rgba(217, 92, 20, 0.2) !important;
+  --theme-icon-focus-background: rgba(var(--tg-orange-rgb), 0.2) !important;
+  --theme-selection-background: rgba(var(--tg-orange-rgb), 0.2) !important;
   --retro-navy: #1a0b09 !important;              
   --retro-navy-light: #2c1612 !important;        
-  --navy-base-solid: rgba(26, 11, 9, 1) !important;
-  --navy-base-alpha-25: rgba(26, 11, 9, 0.25) !important;
-  --navy-base-alpha-40: rgba(26, 11, 9, 0.4) !important;
-  --navy-base-alpha-60: rgba(26, 11, 9, 0.6) !important;
-  --navy-base-alpha-75: rgba(26, 11, 9, 0.75) !important;
-  --navy-base-alpha-95: rgba(26, 11, 9, 0.95) !important;
-  --navy-light-alpha-40: rgba(44, 22, 18, 0.4) !important;
-  --navy-light-alpha-60: rgba(44, 22, 18, 0.6) !important;
-  --navy-light-alpha-70: rgba(44, 22, 18, 0.7) !important;
-  --navy-light-alpha-80: rgba(44, 22, 18, 0.8) !important;
-  --navy-mid-solid: rgba(36, 17, 14, 1) !important;
-  --navy-mid-alpha-45: rgba(36, 17, 14, 0.45) !important;
-  --navy-mid-alpha-70: rgba(36, 17, 14, 0.7) !important;
-  --navy-mid-alpha-90: rgba(36, 17, 14, 0.9) !important;
+  --navy-base-solid: rgba(var(--tg-navy-base-rgb), 1) !important;
+  --navy-base-alpha-25: rgba(var(--tg-navy-base-rgb), 0.25) !important;
+  --navy-base-alpha-40: rgba(var(--tg-navy-base-rgb), 0.4) !important;
+  --navy-base-alpha-60: rgba(var(--tg-navy-base-rgb), 0.6) !important;
+  --navy-base-alpha-75: rgba(var(--tg-navy-base-rgb), 0.75) !important;
+  --navy-base-alpha-95: rgba(var(--tg-navy-base-rgb), 0.95) !important;
+  --navy-light-alpha-40: rgba(var(--tg-navy-light-rgb), 0.4) !important;
+  --navy-light-alpha-60: rgba(var(--tg-navy-light-rgb), 0.6) !important;
+  --navy-light-alpha-70: rgba(var(--tg-navy-light-rgb), 0.7) !important;
+  --navy-light-alpha-80: rgba(var(--tg-navy-light-rgb), 0.8) !important;
+  --navy-mid-solid: rgba(var(--tg-navy-mid-rgb), 1) !important;
+  --navy-mid-alpha-45: rgba(var(--tg-navy-mid-rgb), 0.45) !important;
+  --navy-mid-alpha-70: rgba(var(--tg-navy-mid-rgb), 0.7) !important;
+  --navy-mid-alpha-90: rgba(var(--tg-navy-mid-rgb), 0.9) !important;
   --tg-orange: #d95c14;
-  --tg-orange-alpha-60: rgba(217, 92, 20, 0.6);
-  --tg-orange-alpha-50: rgba(217, 92, 20, 0.5);
-  --tg-orange-alpha-40: rgba(217, 92, 20, 0.4);
-  --tg-orange-alpha-30: rgba(217, 92, 20, 0.3);
-  --tg-orange-alpha-25: rgba(217, 92, 20, 0.25);
-  --tg-orange-alpha-20: rgba(217, 92, 20, 0.2);
-  --tg-orange-alpha-15: rgba(217, 92, 20, 0.15);
+  --tg-orange-alpha-60: rgba(var(--tg-orange-rgb), 0.6);
+  --tg-orange-alpha-50: rgba(var(--tg-orange-rgb), 0.5);
+  --tg-orange-alpha-40: rgba(var(--tg-orange-rgb), 0.4);
+  --tg-orange-alpha-30: rgba(var(--tg-orange-rgb), 0.3);
+  --tg-orange-alpha-25: rgba(var(--tg-orange-rgb), 0.25);
+  --tg-orange-alpha-20: rgba(var(--tg-orange-rgb), 0.2);
+  --tg-orange-alpha-15: rgba(var(--tg-orange-rgb), 0.15);
   --tg-gold: #e3a01b;
-  --tg-gold-alpha-80: rgba(227, 160, 27, 0.8);
-  --tg-gold-alpha-70: rgba(227, 160, 27, 0.7);
-  --tg-gold-alpha-40: rgba(227, 160, 27, 0.4);
-  --tg-gold-alpha-30: rgba(227, 160, 27, 0.3);
+  --tg-gold-alpha-80: rgba(var(--tg-gold-rgb), 0.8);
+  --tg-gold-alpha-70: rgba(var(--tg-gold-rgb), 0.7);
+  --tg-gold-alpha-40: rgba(var(--tg-gold-rgb), 0.4);
+  --tg-gold-alpha-30: rgba(var(--tg-gold-rgb), 0.3);
   --tg-brown: #8b4513;
-  --tg-brown-alpha-50: rgba(139, 69, 19, 0.5);
-  --tg-brown-alpha-15: rgba(139, 69, 19, 0.15);
+  --tg-brown-alpha-50: rgba(var(--tg-brown-rgb), 0.5);
+  --tg-brown-alpha-15: rgba(var(--tg-brown-rgb), 0.15);
   --tg-brown-dark: #5c2605;
   --tg-yellow: #ffd700;
   --tg-bg-dark-1: #2c1612;
   --tg-bg-dark-2: #1a0b09;
-  --tg-bg-dark-3: rgba(36, 17, 14, 0.8);
-  --tg-bg-dark-4: rgba(26, 11, 9, 0.9);
-  --tg-bg-dark-5: rgba(26, 11, 9, 0.8);
-  --tg-black-alpha-40: rgba(0, 0, 0, 0.4);
+  --tg-bg-dark-3: rgba(var(--tg-navy-mid-rgb), 0.8);
+  --tg-bg-dark-4: rgba(var(--tg-navy-base-rgb), 0.9);
+  --tg-bg-dark-5: rgba(var(--tg-navy-base-rgb), 0.8);
+  --tg-black-alpha-40: rgba(var(--tg-black-rgb), 0.4);
   */
 
   /* OPTION 8: CHRISTMAS */
   /*
+  --xmas-white-rgb: 255, 255, 255;
+  --xmas-red-rgb: 196, 30, 58;
+  --xmas-green-rgb: 11, 102, 35;
+  --xmas-navy-base-rgb: 2, 10, 20;
+  --xmas-navy-light-rgb: 5, 24, 41;
+  --xmas-navy-mid-rgb: 8, 32, 50;
+  --xmas-blue-light-rgb: 173, 216, 230;
+  --xmas-black-rgb: 0, 0, 0;
   --my-gold: #ffffff !important; 
   --my-gold-light: #f0f0f0 !important;
-  --my-gold-transparent: rgba(255, 255, 255, 0.15) !important;
-  --gold-alpha-05: rgba(255, 255, 255, 0.05) !important;
-  --gold-alpha-10: rgba(255, 255, 255, 0.1) !important;
-  --gold-alpha-15: rgba(255, 255, 255, 0.15) !important;
-  --gold-alpha-25: rgba(255, 255, 255, 0.25) !important;
-  --gold-alpha-30: rgba(255, 255, 255, 0.3) !important;
-  --retro-glow: rgba(255, 255, 255, 0.6) !important; 
+  --my-gold-transparent: rgba(var(--xmas-white-rgb), 0.15) !important;
+  --gold-alpha-05: rgba(var(--xmas-white-rgb), 0.05) !important;
+  --gold-alpha-10: rgba(var(--xmas-white-rgb), 0.1) !important;
+  --gold-alpha-15: rgba(var(--xmas-white-rgb), 0.15) !important;
+  --gold-alpha-25: rgba(var(--xmas-white-rgb), 0.25) !important;
+  --gold-alpha-30: rgba(var(--xmas-white-rgb), 0.3) !important;
+  --retro-glow: rgba(var(--xmas-white-rgb), 0.6) !important; 
   --theme-primary-color: #c41e3a !important;   
   --theme-accent-color: #0b6623 !important;
   --theme-accent-text-color: #ffffff !important;
   --theme-checked-color: #0b6623 !important;
-  --theme-icon-focus-background: rgba(196, 30, 58, 0.2) !important;
-  --theme-selection-background: rgba(196, 30, 58, 0.2) !important;
+  --theme-icon-focus-background: rgba(var(--xmas-red-rgb), 0.2) !important;
+  --theme-selection-background: rgba(var(--xmas-red-rgb), 0.2) !important;
   --retro-navy: #020a14 !important;              
   --retro-navy-light: #051829 !important;        
-  --navy-base-solid: rgba(2, 10, 20, 1) !important;
-  --navy-base-alpha-25: rgba(2, 10, 20, 0.25) !important;
-  --navy-base-alpha-40: rgba(2, 10, 20, 0.4) !important;
-  --navy-base-alpha-60: rgba(2, 10, 20, 0.6) !important;
-  --navy-base-alpha-75: rgba(2, 10, 20, 0.75) !important;
-  --navy-base-alpha-95: rgba(2, 10, 20, 0.95) !important;
-  --navy-light-alpha-40: rgba(5, 24, 41, 0.4) !important;
-  --navy-light-alpha-60: rgba(5, 24, 41, 0.6) !important;
-  --navy-light-alpha-70: rgba(5, 24, 41, 0.7) !important;
-  --navy-light-alpha-80: rgba(5, 24, 41, 0.8) !important;
-  --navy-mid-solid: rgba(8, 32, 50, 1) !important;
-  --navy-mid-alpha-45: rgba(8, 32, 50, 0.45) !important;
-  --navy-mid-alpha-70: rgba(8, 32, 50, 0.7) !important;
-  --navy-mid-alpha-90: rgba(8, 32, 50, 0.9) !important;
+  --navy-base-solid: rgba(var(--xmas-navy-base-rgb), 1) !important;
+  --navy-base-alpha-25: rgba(var(--xmas-navy-base-rgb), 0.25) !important;
+  --navy-base-alpha-40: rgba(var(--xmas-navy-base-rgb), 0.4) !important;
+  --navy-base-alpha-60: rgba(var(--xmas-navy-base-rgb), 0.6) !important;
+  --navy-base-alpha-75: rgba(var(--xmas-navy-base-rgb), 0.75) !important;
+  --navy-base-alpha-95: rgba(var(--xmas-navy-base-rgb), 0.95) !important;
+  --navy-light-alpha-40: rgba(var(--xmas-navy-light-rgb), 0.4) !important;
+  --navy-light-alpha-60: rgba(var(--xmas-navy-light-rgb), 0.6) !important;
+  --navy-light-alpha-70: rgba(var(--xmas-navy-light-rgb), 0.7) !important;
+  --navy-light-alpha-80: rgba(var(--xmas-navy-light-rgb), 0.8) !important;
+  --navy-mid-solid: rgba(var(--xmas-navy-mid-rgb), 1) !important;
+  --navy-mid-alpha-45: rgba(var(--xmas-navy-mid-rgb), 0.45) !important;
+  --navy-mid-alpha-70: rgba(var(--xmas-navy-mid-rgb), 0.7) !important;
+  --navy-mid-alpha-90: rgba(var(--xmas-navy-mid-rgb), 0.9) !important;
   --xmas-red: #c41e3a;
-  --xmas-red-alpha-80: rgba(196, 30, 58, 0.8);
-  --xmas-red-alpha-30: rgba(196, 30, 58, 0.3);
+  --xmas-red-alpha-80: rgba(var(--xmas-red-rgb), 0.8);
+  --xmas-red-alpha-30: rgba(var(--xmas-red-rgb), 0.3);
   --xmas-red-light: #ff8a8a;
   --xmas-red-dark: #5a0000;
   --xmas-green: #0b6623;
-  --xmas-green-alpha-50: rgba(11, 102, 35, 0.5);
-  --xmas-green-alpha-30: rgba(11, 102, 35, 0.3);
+  --xmas-green-alpha-50: rgba(var(--xmas-green-rgb), 0.5);
+  --xmas-green-alpha-30: rgba(var(--xmas-green-rgb), 0.3);
   --xmas-bg-dark-1: #051829;
   --xmas-bg-dark-2: #020a14;
-  --xmas-bg-dark-2-alpha-85: rgba(2, 10, 20, 0.85);
-  --xmas-blue-light-alpha-30: rgba(173, 216, 230, 0.3);
+  --xmas-bg-dark-2-alpha-85: rgba(var(--xmas-navy-base-rgb), 0.85);
+  --xmas-blue-light-alpha-30: rgba(var(--xmas-blue-light-rgb), 0.3);
   --xmas-white: #ffffff;
-  --xmas-white-alpha-60: rgba(255, 255, 255, 0.6);
+  --xmas-white-alpha-60: rgba(var(--xmas-white-rgb), 0.6);
   --xmas-gray: #e0e0e0;
-  --xmas-black-alpha-30: rgba(0, 0, 0, 0.3);
+  --xmas-black-alpha-30: rgba(var(--xmas-black-rgb), 0.3);
   */
-  
+
   /* OPTION 9: NEW YEAR'S EVE */
   /*
+  --nye-cream-rgb: 247, 231, 206;
+  --nye-gold-rgb: 212, 175, 55;
+  --nye-navy-base-rgb: 5, 5, 5;
+  --nye-navy-light-rgb: 17, 17, 17;
+  --nye-navy-mid-rgb: 10, 10, 10;
+  --nye-black-rgb: 0, 0, 0;
   --my-gold: #f7e7ce !important; 
   --my-gold-light: #ffffff !important;
-  --my-gold-transparent: rgba(247, 231, 206, 0.15) !important;
-  --gold-alpha-05: rgba(247, 231, 206, 0.05) !important;
-  --gold-alpha-10: rgba(247, 231, 206, 0.1) !important;
-  --gold-alpha-15: rgba(247, 231, 206, 0.15) !important;
-  --gold-alpha-25: rgba(247, 231, 206, 0.25) !important;
-  --gold-alpha-30: rgba(247, 231, 206, 0.3) !important;
-  --retro-glow: rgba(212, 175, 55, 0.6) !important; 
+  --my-gold-transparent: rgba(var(--nye-cream-rgb), 0.15) !important;
+  --gold-alpha-05: rgba(var(--nye-cream-rgb), 0.05) !important;
+  --gold-alpha-10: rgba(var(--nye-cream-rgb), 0.1) !important;
+  --gold-alpha-15: rgba(var(--nye-cream-rgb), 0.15) !important;
+  --gold-alpha-25: rgba(var(--nye-cream-rgb), 0.25) !important;
+  --gold-alpha-30: rgba(var(--nye-cream-rgb), 0.3) !important;
+  --retro-glow: rgba(var(--nye-gold-rgb), 0.6) !important; 
   --theme-primary-color: #d4af37 !important;   
   --theme-accent-color: #e5e4e2 !important;
   --theme-accent-text-color: #f7e7ce !important;
   --theme-checked-color: #d4af37 !important;
-  --theme-icon-focus-background: rgba(212, 175, 55, 0.2) !important;
-  --theme-selection-background: rgba(212, 175, 55, 0.2) !important;
+  --theme-icon-focus-background: rgba(var(--nye-gold-rgb), 0.2) !important;
+  --theme-selection-background: rgba(var(--nye-gold-rgb), 0.2) !important;
   --retro-navy: #050505 !important;              
   --retro-navy-light: #111111 !important;        
-  --navy-base-solid: rgba(5, 5, 5, 1) !important;
-  --navy-base-alpha-25: rgba(5, 5, 5, 0.25) !important;
-  --navy-base-alpha-40: rgba(5, 5, 5, 0.4) !important;
-  --navy-base-alpha-60: rgba(5, 5, 5, 0.6) !important;
-  --navy-base-alpha-75: rgba(5, 5, 5, 0.75) !important;
-  --navy-base-alpha-95: rgba(5, 5, 5, 0.95) !important;
-  --navy-light-alpha-40: rgba(17, 17, 17, 0.4) !important;
-  --navy-light-alpha-60: rgba(17, 17, 17, 0.6) !important;
-  --navy-light-alpha-70: rgba(17, 17, 17, 0.7) !important;
-  --navy-light-alpha-80: rgba(17, 17, 17, 0.8) !important;
-  --navy-mid-solid: rgba(10, 10, 10, 1) !important;
-  --navy-mid-alpha-45: rgba(10, 10, 10, 0.45) !important;
-  --navy-mid-alpha-70: rgba(10, 10, 10, 0.7) !important;
-  --navy-mid-alpha-90: rgba(10, 10, 10, 0.9) !important;
+  --navy-base-solid: rgba(var(--nye-navy-base-rgb), 1) !important;
+  --navy-base-alpha-25: rgba(var(--nye-navy-base-rgb), 0.25) !important;
+  --navy-base-alpha-40: rgba(var(--nye-navy-base-rgb), 0.4) !important;
+  --navy-base-alpha-60: rgba(var(--nye-navy-base-rgb), 0.6) !important;
+  --navy-base-alpha-75: rgba(var(--nye-navy-base-rgb), 0.75) !important;
+  --navy-base-alpha-95: rgba(var(--nye-navy-base-rgb), 0.95) !important;
+  --navy-light-alpha-40: rgba(var(--nye-navy-light-rgb), 0.4) !important;
+  --navy-light-alpha-60: rgba(var(--nye-navy-light-rgb), 0.6) !important;
+  --navy-light-alpha-70: rgba(var(--nye-navy-light-rgb), 0.7) !important;
+  --navy-light-alpha-80: rgba(var(--nye-navy-light-rgb), 0.8) !important;
+  --navy-mid-solid: rgba(var(--nye-navy-mid-rgb), 1) !important;
+  --navy-mid-alpha-45: rgba(var(--nye-navy-mid-rgb), 0.45) !important;
+  --navy-mid-alpha-70: rgba(var(--nye-navy-mid-rgb), 0.7) !important;
+  --navy-mid-alpha-90: rgba(var(--nye-navy-mid-rgb), 0.9) !important;
   --nye-gold: #d4af37;
-  --nye-gold-alpha-100: rgba(212, 175, 55, 1);
-  --nye-gold-alpha-80: rgba(212, 175, 55, 0.8);
-  --nye-gold-alpha-60: rgba(212, 175, 55, 0.6);
-  --nye-gold-alpha-50: rgba(212, 175, 55, 0.5);
-  --nye-gold-alpha-40: rgba(212, 175, 55, 0.4);
-  --nye-gold-alpha-15: rgba(212, 175, 55, 0.15);
-  --nye-gold-alpha-10: rgba(212, 175, 55, 0.1);
+  --nye-gold-alpha-100: rgba(var(--nye-gold-rgb), 1);
+  --nye-gold-alpha-80: rgba(var(--nye-gold-rgb), 0.8);
+  --nye-gold-alpha-60: rgba(var(--nye-gold-rgb), 0.6);
+  --nye-gold-alpha-50: rgba(var(--nye-gold-rgb), 0.5);
+  --nye-gold-alpha-40: rgba(var(--nye-gold-rgb), 0.4);
+  --nye-gold-alpha-15: rgba(var(--nye-gold-rgb), 0.15);
+  --nye-gold-alpha-10: rgba(var(--nye-gold-rgb), 0.1);
   --nye-cream: #f7e7ce;
-  --nye-cream-alpha-80: rgba(247, 231, 206, 0.8);
-  --nye-cream-alpha-30: rgba(247, 231, 206, 0.3);
-  --nye-cream-alpha-20: rgba(247, 231, 206, 0.2);
+  --nye-cream-alpha-80: rgba(var(--nye-cream-rgb), 0.8);
+  --nye-cream-alpha-30: rgba(var(--nye-cream-rgb), 0.3);
+  --nye-cream-alpha-20: rgba(var(--nye-cream-rgb), 0.2);
   --nye-gold-dark: #8a6a1c;
   --nye-black-light: #111111;
-  --nye-bg-dark-1: rgba(10, 10, 10, 0.8);
-  --nye-bg-dark-2: rgba(5, 5, 5, 0.95);
-  --nye-black-alpha-30: rgba(0, 0, 0, 0.3);
+  --nye-bg-dark-1: rgba(var(--nye-navy-mid-rgb), 0.8);
+  --nye-bg-dark-2: rgba(var(--nye-navy-base-rgb), 0.95);
+  --nye-black-alpha-30: rgba(var(--nye-black-rgb), 0.3);
   */
 
   /* ============================================================
