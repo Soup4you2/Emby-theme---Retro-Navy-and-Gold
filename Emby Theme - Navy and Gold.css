@@ -365,7 +365,7 @@ html,
   */
 
   /* OPTION 3: ST. PATRICK'S DAY */
-  
+  /*
   --my-gold: #ffd700 !important; 
   --my-gold-light: #fff7a1 !important;
   --my-gold-transparent: rgba(255, 215, 0, 0.15) !important;
@@ -425,7 +425,10 @@ html,
   --stpat-rb-blue: #0000ff;
   --stpat-rb-indigo: #4b0082;
   --stpat-rb-violet: #9400d3;
-  
+  --stpat-black-alpha-30: rgba(0, 0, 0, 0.3);
+  --stpat-dialog-bg-light: #022b12;
+  --stpat-dialog-bg-dark: #011408;
+  */
 
   /* OPTION 4: EASTER */
   /*
@@ -478,6 +481,9 @@ html,
   --easter-bg-purple-light: rgba(74, 62, 99, 0.95);
   --easter-bg-purple-dark: rgba(60, 48, 80, 0.95);
   --easter-bg-purple-mid: rgba(47, 39, 64, 0.8);
+  --easter-black-alpha-10: rgba(0, 0, 0, 0.1);
+  --easter-black-alpha-15: rgba(0, 0, 0, 0.15);
+  --easter-black-alpha-30: rgba(0, 0, 0, 0.3);  
   */
 
   /* OPTION 5: 4TH OF JULY */
@@ -570,6 +576,7 @@ html,
   --hw-bg-dark-1: #1a1a1a;
   --hw-bg-dark-2: #170026;
   --hw-bg-dark-3: #0d0015;
+  --hw-bg-dark-3-alpha-00: rgba(13, 0, 21, 0);
   --hw-bg-dark-3-alpha-90: rgba(13, 0, 21, 0.9);
   --hw-bg-dark-3-alpha-85: rgba(13, 0, 21, 0.85);
   --hw-bg-dark-3-alpha-60: rgba(13, 0, 21, 0.6);
@@ -636,10 +643,11 @@ html,
   --tg-bg-dark-3: rgba(36, 17, 14, 0.8);
   --tg-bg-dark-4: rgba(26, 11, 9, 0.9);
   --tg-bg-dark-5: rgba(26, 11, 9, 0.8);
+  --tg-black-alpha-40: rgba(0, 0, 0, 0.4);
   */
 
   /* OPTION 8: CHRISTMAS */
-  /*
+  
   --my-gold: #ffffff !important; 
   --my-gold-light: #f0f0f0 !important;
   --my-gold-transparent: rgba(255, 255, 255, 0.15) !important;
@@ -686,7 +694,8 @@ html,
   --xmas-white: #ffffff;
   --xmas-white-alpha-60: rgba(255, 255, 255, 0.6);
   --xmas-gray: #e0e0e0;
-  */
+  --xmas-black-alpha-30: rgba(0, 0, 0, 0.3);
+  
   
   /* OPTION 9: NEW YEAR'S EVE */
   /*
@@ -737,6 +746,7 @@ html,
   --nye-black-light: #111111;
   --nye-bg-dark-1: rgba(10, 10, 10, 0.8);
   --nye-bg-dark-2: rgba(5, 5, 5, 0.95);
+  --nye-black-alpha-30: rgba(0, 0, 0, 0.3);
   */
 
   /* ============================================================
@@ -1979,6 +1989,7 @@ body:has(.view-login) .skinHeader {
 /* ============================================================
    12. SEASONAL EFFECTS (VALENTINE'S DAY)
    ============================================================ */
+/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #e60049) {
   
   .cardOverlayFab-primary, 
@@ -2284,11 +2295,13 @@ input[type="range"]:hover::-moz-range-thumb {
     ) !important; 
     border-bottom: var(--vday-osd-border-width) solid var(--vday-pink-deep) !important; 
   }
+/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    13. SEASONAL EFFECTS (ST. PATRICK'S DAY)
    ============================================================ */
+/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #00ff85) {
 
   @keyframes luckShimmer { 
@@ -2322,14 +2335,14 @@ input[type="range"]:hover::-moz-range-thumb {
   .listItemImageButton { 
     background: radial-gradient(circle at 30% 30%, var(--stpat-gold-light) 0%, var(--stpat-gold) 60%, var(--stpat-gold-dark) 100%) !important; 
     border: 2px solid var(--stpat-gold-dark) !important; 
-    box-shadow: 0 5px 15px var(--stpat-green-bright-alpha-40), inset -2px -4px 8px rgba(0,0,0,0.3) !important; 
+    box-shadow: 0 5px 15px var(--stpat-green-bright-alpha-40), inset -2px -4px 8px var(--stpat-black-alpha-30) !important; 
     color: var(--stpat-green-dark) !important; 
     border-radius: 50% !important; 
   }
   
   .card:hover .cardOverlayFab-primary { 
     animation: coinFlipHover 1.5s infinite alternate !important; 
-    color: #000 !important; 
+    color: var(--pure-black) !important; 
   }
 
   @keyframes emeraldAura { 
@@ -2345,8 +2358,8 @@ input[type="range"]:hover::-moz-range-thumb {
   .countIndicator { 
     background: radial-gradient(circle at 30% 30%, var(--stpat-gold-light) 0%, var(--stpat-gold) 60%, var(--stpat-gold-dark) 100%) !important; 
     border: 2px solid var(--stpat-gold-dark) !important; 
-    box-shadow: 0 4px 8px var(--black-alpha-60), inset -2px -2px 5px rgba(0,0,0,0.3) !important; 
-    color: #000 !important; 
+    box-shadow: 0 4px 8px var(--black-alpha-60), inset -2px -2px 5px var(--stpat-black-alpha-30) !important; 
+    color: var(--pure-black) !important; 
     min-width: 32px !important; 
     height: 32px !important; 
     border-radius: 50% !important; 
@@ -2382,8 +2395,8 @@ input[type="range"]:hover::-moz-range-thumb {
   .mediaInfoItem:hover {
     background: var(--stpat-green-bright-alpha-15) !important;
     border-color: var(--stpat-green-bright) !important;
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
     box-shadow: 0 0 10px var(--stpat-green-bright-alpha-50) !important;
   }
 
@@ -2397,7 +2410,7 @@ input[type="range"]:hover::-moz-range-thumb {
     background-position: center !important; 
     border: 2px solid var(--stpat-gold-dark) !important; 
     border-radius: 50% !important; 
-    box-shadow: 0 0 10px var(--stpat-green-bright-alpha-60), inset -2px -2px 5px rgba(0,0,0,0.3) !important; 
+    box-shadow: 0 0 10px var(--stpat-green-bright-alpha-60), inset -2px -2px 5px var(--stpat-black-alpha-30) !important; 
     width: 32px !important; 
     height: 32px !important; 
     cursor: pointer !important; 
@@ -2412,7 +2425,7 @@ input[type="range"]:hover::-moz-range-thumb {
     background-position: center !important; 
     border: 2px solid var(--stpat-gold-dark) !important; 
     border-radius: 50% !important; 
-    box-shadow: 0 0 10px var(--stpat-green-bright-alpha-60), inset -2px -2px 5px rgba(0,0,0,0.3) !important; 
+    box-shadow: 0 0 10px var(--stpat-green-bright-alpha-60), inset -2px -2px 5px var(--stpat-black-alpha-30) !important; 
     width: 32px !important; 
     height: 32px !important; 
     cursor: pointer !important; 
@@ -2421,9 +2434,9 @@ input[type="range"]:hover::-moz-range-thumb {
   
   .emby-slider-thumb:hover, 
   input[type="range"]:hover::-webkit-slider-thumb { 
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='15' fill='%2300ff85'/%3E%3Ccircle cx='35' cy='60' r='15' fill='%2300ff85'/%3E%3Ccircle cx='65' cy='60' r='15' fill='%2300ff85'/%3E%3Cpath d='M50 50 Q 60 90 45 95 Q 55 90 50 50' fill='%2300ff85'/%3E%3C/svg%3E"), radial-gradient(circle at 30% 30%, #ffffff 0%, var(--stpat-gold-light) 60%, var(--stpat-gold) 100%) !important; 
-    border-color: #ffffff !important; 
-    box-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 25px var(--stpat-green-bright-alpha-100) !important; 
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='15' fill='%2300ff85'/%3E%3Ccircle cx='35' cy='60' r='15' fill='%2300ff85'/%3E%3Ccircle cx='65' cy='60' r='15' fill='%2300ff85'/%3E%3Cpath d='M50 50 Q 60 90 45 95 Q 55 90 50 50' fill='%2300ff85'/%3E%3C/svg%3E"), radial-gradient(circle at 30% 30%, var(--pure-white) 0%, var(--stpat-gold-light) 60%, var(--stpat-gold) 100%) !important; 
+    border-color: var(--pure-white) !important; 
+    box-shadow: 0 0 15px var(--pure-white), 0 0 25px var(--stpat-green-bright-alpha-100) !important; 
     transform: translateY(-5px) scale(1.15) !important; 
     transition: transform 0.2s ease, box-shadow 0.2s ease !important; 
   }
@@ -2436,7 +2449,7 @@ input[type="range"]:hover::-moz-range-thumb {
   .formDialog, 
   .actionSheet, 
   .itemSelectionPanel { 
-    background: linear-gradient(135deg, #022b12 0%, #011408 100%) !important; 
+    background: linear-gradient(135deg, var(--stpat-dialog-bg-light) 0%, var(--stpat-dialog-bg-dark) 100%) !important; 
     border: 2px solid var(--stpat-green-mid) !important; 
     border-top: 2px solid var(--stpat-gold) !important; 
     box-shadow: 0 15px 40px var(--black-alpha-90), 0 -5px 20px var(--stpat-green-mid-alpha-20) !important; 
@@ -2500,7 +2513,7 @@ input[type="range"]:hover::-moz-range-thumb {
 
   @keyframes emeraldTabPulse { 
     0% { transform: scale(1); box-shadow: 0 4px 10px var(--black-alpha-50), 0 0 10px var(--stpat-green-bright-alpha-40), inset 0 0 8px var(--stpat-gold-alpha-30) !important; } 
-    100% { transform: scale(1.05); box-shadow: 0 4px 10px var(--black-alpha-50), 0 0 20px var(--stpat-green-bright-alpha-80), inset 0 0 15px var(--stpat-gold-alpha-70) !important; border-color: var(--stpat-gold-light) !important; color: #fff !important; } 
+    100% { transform: scale(1.05); box-shadow: 0 4px 10px var(--black-alpha-50), 0 0 20px var(--stpat-green-bright-alpha-80), inset 0 0 15px var(--stpat-gold-alpha-70) !important; border-color: var(--stpat-gold-light) !important; color: var(--pure-white) !important; } 
   }
   
   .videoOsdBottom .emby-tab-button-active, 
@@ -2522,19 +2535,22 @@ input[type="range"]:hover::-moz-range-thumb {
     0%, 100% { border-color: var(--stpat-green-bright); }
     25% { border-color: var(--stpat-gold); }
     50% { border-color: var(--stpat-green-mid); }
-    75% { border-color: #fff; }
+    75% { border-color: var(--pure-white); }
   }
+  
+/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    14. SEASONAL EFFECTS (EASTER)
    ============================================================ */
+/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #ffb7b2) {
   .countIndicator { 
     border-radius: 50% / 60% 60% 40% 40% !important; 
     background: radial-gradient(circle at 30% 30%, var(--easter-yellow-light) 0%, var(--easter-yellow) 100%) !important; 
     color: var(--easter-brown) !important; 
-    box-shadow: 2px 3px 6px var(--black-alpha-50), inset -2px -2px 5px rgba(0,0,0,0.1) !important; 
+    box-shadow: 2px 3px 6px var(--black-alpha-50), inset -2px -2px 5px var(--easter-black-alpha-10) !important; 
     border: none !important; 
     padding: 0.3em 0.6em !important; 
   }
@@ -2552,7 +2568,7 @@ input[type="range"]:hover::-moz-range-thumb {
   .listItemImageButton { 
     border-radius: 50% / 60% 60% 40% 40% !important; 
     background: radial-gradient(circle at 30% 30%, var(--easter-yellow-light) 0%, var(--my-gold) 60%, var(--easter-yellow-dark) 100%) !important; 
-    box-shadow: 0 5px 15px var(--black-alpha-80), inset -2px -4px 8px rgba(0,0,0,0.2) !important; 
+    box-shadow: 0 5px 15px var(--black-alpha-80), inset -2px -4px 8px var(--black-alpha-20) !important; 
   }
   
   .card:hover .cardOverlayFab-primary { 
@@ -2607,7 +2623,7 @@ input[type="range"]:hover::-moz-range-thumb {
     background: linear-gradient(135deg, var(--easter-blue-light) 0%, var(--easter-blue) 100%) !important; 
     color: var(--retro-navy) !important; 
     border: 2px solid var(--easter-blue-dark) !important; 
-    box-shadow: 2px 3px 6px var(--black-alpha-50), inset -2px -2px 6px rgba(0,0,0,0.15) !important; 
+    box-shadow: 2px 3px 6px var(--black-alpha-50), inset -2px -2px 6px var(--easter-black-alpha-15) !important; 
   }
   
   .card:hover .cardContent:not(.cardContent-round), 
@@ -2639,7 +2655,7 @@ input[type="range"]:hover::-moz-range-thumb {
     border-radius: 50% / 60% 60% 40% 40% !important; 
     background: radial-gradient(circle at 30% 30%, var(--easter-yellow-light) 0%, var(--theme-primary-color) 60%, var(--easter-pink-dark) 100%) !important; 
     border: none !important; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.8), inset -2px -4px 6px rgba(0,0,0,0.3) !important; 
+    box-shadow: 0 4px 10px var(--black-alpha-80), inset -2px -4px 6px var(--easter-black-alpha-30) !important; 
     width: 20px !important; 
     height: 26px !important; 
     transform: translateY(-4px) !important; 
@@ -2651,7 +2667,7 @@ input[type="range"]:hover::-moz-range-thumb {
     border-radius: 50% / 60% 60% 40% 40% !important; 
     background: radial-gradient(circle at 30% 30%, var(--easter-yellow-light) 0%, var(--theme-primary-color) 60%, var(--easter-pink-dark) 100%) !important; 
     border: none !important; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.8), inset -2px -4px 6px rgba(0,0,0,0.3) !important; 
+    box-shadow: 0 4px 10px var(--black-alpha-80), inset -2px -4px 6px var(--easter-black-alpha-30) !important; 
     width: 20px !important; 
     height: 26px !important; 
     transform: translateY(-2px) !important; 
@@ -2662,33 +2678,35 @@ input[type="range"]:hover::-moz-range-thumb {
     border-radius: 50% / 60% 60% 40% 40% !important; 
     background: radial-gradient(circle at 30% 30%, var(--easter-yellow-light) 0%, var(--theme-primary-color) 60%, var(--easter-pink-dark) 100%) !important; 
     border: none !important; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.8), inset -2px -4px 6px rgba(0,0,0,0.3) !important; 
+    box-shadow: 0 4px 10px var(--black-alpha-80), inset -2px -4px 6px var(--easter-black-alpha-30) !important; 
     width: 20px !important; 
     height: 26px !important; 
   }
   
   .emby-slider-thumb:hover { 
     background: radial-gradient(circle at 30% 30%, var(--easter-yellow-light) 0%, var(--easter-blue) 60%, var(--easter-blue-dark) 100%) !important; 
-    box-shadow: 0 6px 12px rgba(0,0,0,0.9), inset -2px -4px 6px rgba(0,0,0,0.3), 0 0 10px var(--easter-blue) !important; 
+    box-shadow: 0 6px 12px var(--black-alpha-90), inset -2px -4px 6px var(--easter-black-alpha-30), 0 0 10px var(--easter-blue) !important; 
     transform: translateY(-6px) scale(1.1) !important; 
   }
   
   input[type="range"]:hover::-webkit-slider-thumb { 
     background: radial-gradient(circle at 30% 30%, var(--easter-yellow-light) 0%, var(--easter-blue) 60%, var(--easter-blue-dark) 100%) !important; 
-    box-shadow: 0 6px 12px rgba(0,0,0,0.9), inset -2px -4px 6px rgba(0,0,0,0.3), 0 0 10px var(--easter-blue) !important; 
+    box-shadow: 0 6px 12px var(--black-alpha-90), inset -2px -4px 6px var(--easter-black-alpha-30), 0 0 10px var(--easter-blue) !important; 
     transform: translateY(-2px) scale(1.1) !important; 
   }
   
   input[type="range"]:hover::-moz-range-thumb { 
     background: radial-gradient(circle at 30% 30%, var(--easter-yellow-light) 0%, var(--easter-blue) 60%, var(--easter-blue-dark) 100%) !important; 
-    box-shadow: 0 6px 12px rgba(0,0,0,0.9), inset -2px -4px 6px rgba(0,0,0,0.3), 0 0 10px var(--easter-blue) !important; 
+    box-shadow: 0 6px 12px var(--black-alpha-90), inset -2px -4px 6px var(--easter-black-alpha-30), 0 0 10px var(--easter-blue) !important; 
     transform: translateY(-2px) scale(1.1) !important; 
   }
+/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    15. SEASONAL EFFECTS (4TH OF JULY)
    ============================================================ */
+/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #e0162b) {
   .countIndicator { 
     background: var(--july4-blue) !important; 
@@ -2813,7 +2831,7 @@ input[type="range"]:hover::-moz-range-thumb {
   }
   
   .mediaInfoItem { 
-    background: var(--hw-white-alpha-10) !important; 
+    background: var(--white-alpha-10) !important; 
     backdrop-filter: blur(10px) !important; 
     -webkit-backdrop-filter: blur(10px) !important; 
     color: var(--july4-white) !important; 
@@ -2940,11 +2958,13 @@ input[type="range"]:hover::-moz-range-thumb {
     15% { transform: scale(3.5); opacity: 1; } 
     to { transform: scale(5); opacity: 0; } 
   }
+/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    16. SEASONAL EFFECTS (HALLOWEEN)
    ============================================================ */
+/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #ff6600) {
 
   .peopleSection .card,
@@ -3006,7 +3026,7 @@ input[type="range"]:hover::-moz-range-thumb {
     color: var(--hw-gray-3) !important;
     font-size: 1.05em !important;
     text-transform: uppercase;
-    text-shadow: 1px 1px 0 #000, -1px -1px 0 var(--hw-white-alpha-10) !important;
+    text-shadow: 1px 1px 0 var(--pure-black), -1px -1px 0 var(--white-alpha-10) !important;
     margin-top: 12px !important;
   }
 
@@ -3094,13 +3114,13 @@ input[type="range"]:hover::-moz-range-thumb {
   }
 
   .emby-slider-thumb:hover {
-    box-shadow: 0 0 15px #fff, 0 0 30px var(--hw-purple), 0 0 45px var(--hw-orange) !important;
+    box-shadow: 0 0 15px var(--pure-white), 0 0 30px var(--hw-purple), 0 0 45px var(--hw-orange) !important;
     transform: translateY(-15px) scale(1.15) !important;
   }
 
   input[type="range"]:hover::-webkit-slider-thumb,
   input[type="range"]:hover::-moz-range-thumb {
-    box-shadow: 0 0 15px #fff, 0 0 30px var(--hw-purple), 0 0 45px var(--hw-orange) !important;
+    box-shadow: 0 0 15px var(--pure-white), 0 0 30px var(--hw-purple), 0 0 45px var(--hw-orange) !important;
     transform: translateY(-2px) scale(1.15) !important;
   }
 
@@ -3122,14 +3142,14 @@ input[type="range"]:hover::-moz-range-thumb {
     0%, 100% { border-color: var(--hw-orange); }
     25% { border-color: var(--hw-purple); }
     50% { border-color: var(--hw-green); }
-    75% { border-color: #fff; }
+    75% { border-color: var(--pure-white); }
   }
 
   .dialog:not(.sliderBubble):not(.chapterThumbContainer),
   .formDialog,
   .actionSheet,
   .itemSelectionPanel {
-    background: linear-gradient(135deg, var(--hw-bg-dark-3) 0%, #000 100%) !important;
+    background: linear-gradient(135deg, var(--hw-bg-dark-3) 0%, var(--pure-black) 100%) !important;
     border: 2px solid var(--hw-purple) !important;
     border-top: 2px solid var(--hw-orange) !important;
     box-shadow: 0 15px 40px var(--black-alpha-90), 0 -5px 20px var(--hw-purple-alpha-30), 0 5px 20px var(--hw-orange-alpha-30) !important;
@@ -3226,7 +3246,7 @@ input[type="range"]:hover::-moz-range-thumb {
   }
 
   .backgroundContainer::before {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cg transform='translate(24, 24)'%3E%3Cpath fill='rgba(138, 43, 226, 0.05)' d='M12 2C8.13 2 5 5.13 5 9v13l2.5-1.5L10 22l2-1.5 2 1.5 2.5-1.5 2.5 1.5V9c0-3.87-3.13-7-7-7zm-2 6c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm4 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z'/%3E%3C/g%3E%3C/svg%3E") 100px 100px / 500px 500px, radial-gradient(circle at center, rgba(13, 0, 21, 0) 0%, var(--hw-bg-dark-3-alpha-60) 80%, var(--hw-bg-dark-3-alpha-90) 100%);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cg transform='translate(24, 24)'%3E%3Cpath fill='rgba(138, 43, 226, 0.05)' d='M12 2C8.13 2 5 5.13 5 9v13l2.5-1.5L10 22l2-1.5 2 1.5 2.5-1.5 2.5 1.5V9c0-3.87-3.13-7-7-7zm-2 6c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm4 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z'/%3E%3C/g%3E%3C/svg%3E") 100px 100px / 500px 500px, radial-gradient(circle at center, var(--hw-bg-dark-3-alpha-00) 0%, var(--hw-bg-dark-3-alpha-60) 80%, var(--hw-bg-dark-3-alpha-90) 100%);
     filter: blur(2px);
     opacity: 0.5;
     animation: ghost-fly-3 var(--ghost-speed-back) linear infinite, ghost-sway 14s ease-in-out infinite alternate, mist-creep 60s ease-in-out infinite alternate;
@@ -3260,19 +3280,21 @@ input[type="range"]:hover::-moz-range-thumb {
   .peopleSection .cardText-first {
     color: var(--hw-orange) !important;
   }
+/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    17. SEASONAL EFFECTS (THANKSGIVING / AUTUMN HARVEST)
    ============================================================ */
+/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #d95c14) {
 
   .countIndicator {
     background: radial-gradient(circle at 30% 30%, var(--tg-yellow) 0%, var(--tg-orange) 60%, var(--tg-brown) 100%) !important;
-    color: #fff !important;
+    color: var(--pure-white) !important;
     border: 2px solid var(--tg-brown) !important;
     border-radius: 5px 15px 5px 15px !important;
-    box-shadow: 0 4px 8px var(--black-alpha-80), inset -2px -2px 5px var(--black-alpha-40) !important;
+    box-shadow: 0 4px 8px var(--black-alpha-80), inset -2px -2px 5px var(--tg-black-alpha-40) !important;
   }
   
   .cardOverlayFab-primary,
@@ -3281,8 +3303,8 @@ input[type="range"]:hover::-moz-range-thumb {
   .listItemImageButton {
     background: radial-gradient(circle at 30% 30%, var(--tg-gold) 0%, var(--tg-orange) 60%, var(--tg-brown-dark) 100%) !important;
     border: 2px solid var(--tg-gold) !important;
-    box-shadow: 0 5px 15px var(--tg-orange-alpha-60), inset -2px -4px 8px var(--black-alpha-40) !important;
-    color: #fff !important;
+    box-shadow: 0 5px 15px var(--tg-orange-alpha-60), inset -2px -4px 8px var(--tg-black-alpha-40) !important;
+    color: var(--pure-white) !important;
     border-radius: 5px 25px 5px 25px !important;
   }
   
@@ -3333,8 +3355,8 @@ input[type="range"]:hover::-moz-range-thumb {
   .mediaInfoItem:hover {
     background: var(--tg-orange-alpha-20) !important;
     border-color: var(--tg-gold) !important;
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
     box-shadow: 0 0 10px var(--tg-orange-alpha-60) !important;
   }
 
@@ -3372,7 +3394,7 @@ input[type="range"]:hover::-moz-range-thumb {
 
   .emby-slider-thumb:hover {
     background-color: var(--tg-gold) !important;
-    box-shadow: 0 0 15px #fff, 0 0 30px var(--tg-orange) !important;
+    box-shadow: 0 0 15px var(--pure-white), 0 0 30px var(--tg-orange) !important;
     transform: translateY(-15px) scale(1.1) rotate(45deg) !important;
   }
 
@@ -3515,7 +3537,7 @@ input[type="range"]:hover::-moz-range-thumb {
     background-size: 100% 100% !important; 
     background-repeat: no-repeat !important; 
     background-position: center !important; 
-    color: #fff !important; 
+    color: var(--pure-white) !important; 
     min-width: 32px !important; 
     height: 32px !important; 
     border-radius: 0 !important; 
@@ -3578,21 +3600,23 @@ input[type="range"]:hover::-moz-range-thumb {
     0%, 100% { border-color: var(--tg-orange); }
     25% { border-color: var(--tg-gold); }
     50% { border-color: var(--tg-brown); }
-    75% { border-color: #fff; }
+    75% { border-color: var(--pure-white); }
   }
+/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    18. SEASONAL EFFECTS (CHRISTMAS)
    ============================================================ */
+/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #c41e3a) {
 
   .countIndicator {
     background: radial-gradient(circle at 30% 30%, var(--xmas-red-light) 0%, var(--xmas-red) 60%, var(--xmas-red-dark) 100%) !important;
-    color: #fff !important;
-    border: 2px solid #fff !important;
+    color: var(--pure-white) !important;
+    border: 2px solid var(--pure-white) !important;
     border-radius: 50% !important;
-    box-shadow: 0 4px 8px var(--black-alpha-80), inset -2px -2px 5px var(--black-alpha-30) !important;
+    box-shadow: 0 4px 8px var(--black-alpha-80), inset -2px -2px 5px var(--xmas-black-alpha-30) !important;
   }
 
   .cardOverlayFab-primary,
@@ -3602,7 +3626,7 @@ input[type="range"]:hover::-moz-range-thumb {
     border: 0 !important;
     box-shadow: none !important;
     border-radius: 0 !important;
-    color: #fff !important;
+    color: var(--pure-white) !important;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3CradialGradient id='g' cx='35%25' cy='35%25' r='65%25'%3E%3Cstop offset='0%25' stop-color='%23ff8a8a'/%3E%3Cstop offset='60%25' stop-color='%23c41e3a'/%3E%3Cstop offset='100%25' stop-color='%235a0000'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M10 2c0-1.5 4-1.5 4 0' fill='none' stroke='%23e0e0e0' stroke-width='1.5'/%3E%3Cpath d='M9 3h6v2.5H9z' fill='%23e0e0e0'/%3E%3Cpath d='M9 4.5h6' stroke='%23a0a0a0' stroke-width='0.5'/%3E%3Ccircle cx='12' cy='14' r='9' fill='url(%23g)' stroke='%23ffffff' stroke-width='1'/%3E%3C/svg%3E") center / 100% 100% no-repeat !important;
     filter: drop-shadow(0 4px 6px var(--black-alpha-60));
     transition: filter 0.2s, transform 0.2s !important;
@@ -3633,12 +3657,12 @@ input[type="range"]:hover::-moz-range-thumb {
 
   .card:hover .cardContent:not(.cardContent-round),
   .card:hover .cardImageContainer:not(.cardContent-round) {
-    border-color: #fff !important;
+    border-color: var(--pure-white) !important;
     box-shadow: none !important;
   }
 
   .itemProgressBarForeground {
-    background: repeating-linear-gradient(45deg, var(--xmas-red), var(--xmas-red) 10px, #fff 10px, #fff 20px) !important;
+    background: repeating-linear-gradient(45deg, var(--xmas-red), var(--xmas-red) 10px, var(--pure-white) 10px, var(--pure-white) 20px) !important;
     background-size: 50px 50px !important;
     animation: candyCaneScroll 2s linear infinite !important;
     box-shadow: 0 0 10px var(--xmas-red-alpha-80) !important;
@@ -3680,9 +3704,9 @@ input[type="range"]:hover::-moz-range-thumb {
   .emby-slider-thumb:hover,
   input[type="range"]:hover::-webkit-slider-thumb,
   input[type="range"]:hover::-moz-range-thumb {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23c41e3a' d='M14.5 10l3.8-3.8-1.4-1.4L13 8.6V2h-2v6.6L7.1 4.8 5.7 6.2 9.5 10H2v2h7.5l-3.8 3.8 1.4 1.4L11 13.4V20h2v-6.6l3.9 3.9 1.4-1.4-3.8-3.8H22v-2h-7.5z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, #fff 0%, var(--xmas-gray) 100%) !important;
-    border-color: #fff !important;
-    box-shadow: 0 0 15px #fff, 0 0 30px var(--xmas-red), 0 0 45px var(--xmas-green) !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23c41e3a' d='M14.5 10l3.8-3.8-1.4-1.4L13 8.6V2h-2v6.6L7.1 4.8 5.7 6.2 9.5 10H2v2h7.5l-3.8 3.8 1.4 1.4L11 13.4V20h2v-6.6l3.9 3.9 1.4-1.4-3.8-3.8H22v-2h-7.5z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--pure-white) 0%, var(--xmas-gray) 100%) !important;
+    border-color: var(--pure-white) !important;
+    box-shadow: 0 0 15px var(--pure-white), 0 0 30px var(--xmas-red), 0 0 45px var(--xmas-green) !important;
     transform: translateY(-15px) scale(1.15) !important;
   }
 
@@ -3696,7 +3720,7 @@ input[type="range"]:hover::-moz-range-thumb {
   .videoOsdBottom .emby-tab-button:focus,
   .videoOsdBottom .emby-tab-button.show-focus {
     background: var(--xmas-green-alpha-30) !important;
-    color: #fff !important;
+    color: var(--pure-white) !important;
     border: 2px solid var(--xmas-green) !important;
     box-shadow: 0 4px 10px var(--black-alpha-50), 0 0 15px var(--xmas-green-alpha-50), inset 0 0 10px var(--xmas-red-alpha-30) !important;
   }
@@ -3707,9 +3731,9 @@ input[type="range"]:hover::-moz-range-thumb {
 
   @keyframes xmas-spinner-colors {
     0%, 100% { border-color: var(--xmas-red); }
-    25% { border-color: #fff; }
+    25% { border-color: var(--pure-white); }
     50% { border-color: var(--xmas-green); }
-    75% { border-color: #fff; }
+    75% { border-color: var(--pure-white); }
   }
 
   .dialog:not(.sliderBubble):not(.chapterThumbContainer),
@@ -3726,25 +3750,6 @@ input[type="range"]:hover::-moz-range-thumb {
     background: var(--xmas-bg-dark-2-alpha-85) !important;
     backdrop-filter: blur(25px) !important;
     -webkit-backdrop-filter: blur(25px) !important;
-  }
-
-  .sectionTitle::before {
-    content: "";
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    margin-right: 12px;
-    vertical-align: -0.1em;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230b6623' d='M12 5L7 11h2.5L6 16h5v5h2v-5h5l-3.5-5H17L12 5z'/%3E%3Cpath fill='%23ffd700' d='M12 0l1 2h2.5l-2 1.5 1 2.5-2-1.5-2 1.5 1-2.5-2-1.5h2.5z'/%3E%3Ccircle cx='10' cy='9' r='1' fill='%23c41e3a'/%3E%3Ccircle cx='14' cy='10' r='1' fill='%23c41e3a'/%3E%3Ccircle cx='12' cy='13' r='1.2' fill='%23c41e3a'/%3E%3Ccircle cx='8' cy='14' r='1' fill='%23c41e3a'/%3E%3Ccircle cx='15' cy='14.5' r='1' fill='%23c41e3a'/%3E%3C/svg%3E") center / contain no-repeat;
-    filter: drop-shadow(0 3px 5px var(--black-alpha-60));
-    animation: gentlePineSway 4s ease-in-out infinite;
-    transform-origin: bottom center;
-    will-change: transform;
-  }
-
-  @keyframes gentlePineSway {
-    0%, 100% { transform: rotate(-3deg); }
-    50% { transform: rotate(3deg); }
   }
 
   .backgroundContainer-transparent::before,
@@ -3765,18 +3770,18 @@ input[type="range"]:hover::-moz-range-thumb {
   }
 
   body::before {
-    background: radial-gradient(circle at 10% 10%, #fff 1px, transparent 1px), radial-gradient(circle at 30% 50%, #fff 1.5px, transparent 1.5px), radial-gradient(circle at 70% 20%, #fff 1px, transparent 1px), radial-gradient(circle at 90% 80%, #fff 1.2px, transparent 1.2px) 0 0 / 250px 250px;
+    background: radial-gradient(circle at 10% 10%, var(--pure-white) 1px, transparent 1px), radial-gradient(circle at 30% 50%, var(--pure-white) 1.5px, transparent 1.5px), radial-gradient(circle at 70% 20%, var(--pure-white) 1px, transparent 1px), radial-gradient(circle at 90% 80%, var(--pure-white) 1.2px, transparent 1.2px) 0 0 / 250px 250px;
     animation: snow-fall 12s linear infinite;
   }
 
   body::after {
-    background: radial-gradient(circle at 20% 40%, #fff 2px, transparent 2px), radial-gradient(circle at 50% 10%, #fff 2.5px, transparent 2.5px), radial-gradient(circle at 80% 60%, #fff 2px, transparent 2px) 0 0 / 400px 400px;
+    background: radial-gradient(circle at 20% 40%, var(--pure-white) 2px, transparent 2px), radial-gradient(circle at 50% 10%, var(--pure-white) 2.5px, transparent 2.5px), radial-gradient(circle at 80% 60%, var(--pure-white) 2px, transparent 2px) 0 0 / 400px 400px;
     animation: snow-fall 20s linear infinite;
     opacity: 0.5;
   }
 
   .backgroundContainer::before {
-    background: radial-gradient(circle at 40% 80%, #fff 4px, transparent 4px), radial-gradient(circle at 15% 15%, #fff 3px, transparent 3px), radial-gradient(circle at 85% 35%, #fff 5px, transparent 5px) 0 0 / 600px 600px;
+    background: radial-gradient(circle at 40% 80%, var(--pure-white) 4px, transparent 4px), radial-gradient(circle at 15% 15%, var(--pure-white) 3px, transparent 3px), radial-gradient(circle at 85% 35%, var(--pure-white) 5px, transparent 5px) 0 0 / 600px 600px;
     filter: blur(2px);
     opacity: 0.3;
     animation: snow-fall 35s linear infinite, snow-drift 10s ease-in-out infinite alternate;
@@ -3792,7 +3797,7 @@ input[type="range"]:hover::-moz-range-thumb {
   }
 
   .backdropContainer::after {
-    content: "🦌 🦌 🦌 🎅🛷";
+    content: "🦌🦌🦌🛷🎅";
     position: fixed;
     top: 20vh;
     right: -50vw;
@@ -3800,7 +3805,7 @@ input[type="range"]:hover::-moz-range-thumb {
     z-index: -1;
     pointer-events: none;
     color: transparent;
-    text-shadow: 0 0 4px #fff, 0 0 15px var(--xmas-white-alpha-60);
+    text-shadow: 0 0 4px var(--pure-white), 0 0 15px var(--xmas-white-alpha-60);
     animation: sleighFly 20s linear infinite;
   }
 
@@ -3828,11 +3833,13 @@ input[type="range"]:hover::-moz-range-thumb {
       transform: scale(1.2) rotate(2deg);
     }
   }
+/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    19. SEASONAL EFFECTS (NEW YEAR'S EVE)
    ============================================================ */
+/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #d4af37) {
 
   .pageTitle,
@@ -3880,8 +3887,8 @@ input[type="range"]:hover::-moz-range-thumb {
   .mediaInfoItem:hover {
     background: var(--nye-gold-alpha-15) !important;
     border-color: var(--nye-cream) !important;
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
     box-shadow: 0 0 12px var(--nye-gold-alpha-60) !important;
   }
 
@@ -3889,7 +3896,7 @@ input[type="range"]:hover::-moz-range-thumb {
   .cardOverlayButtonIcon,
   .listItemOverlayButtonIcon,
   .listItemImageButton {
-    background: linear-gradient(135deg, var(--nye-black-light) 0%, #000 100%) !important;
+    background: linear-gradient(135deg, var(--nye-black-light) 0%, var(--pure-black) 100%) !important;
     border: 2px solid var(--nye-gold) !important;
     box-shadow: 0 0 15px var(--nye-gold-alpha-40), inset 0 0 10px var(--nye-cream-alpha-20) !important;
     color: var(--nye-gold) !important;
@@ -3902,7 +3909,7 @@ input[type="range"]:hover::-moz-range-thumb {
     }
     50% {
       box-shadow: 0 0 25px var(--nye-cream-alpha-80);
-      border-color: #fff;
+      border-color: var(--pure-white);
     }
     100% {
       box-shadow: 0 0 15px var(--nye-gold-alpha-40);
@@ -3912,7 +3919,7 @@ input[type="range"]:hover::-moz-range-thumb {
 
   .card:hover .cardOverlayFab-primary {
     animation: diamondShimmer 1.5s infinite alternate !important;
-    color: #fff !important;
+    color: var(--pure-white) !important;
   }
 
   @keyframes glassGlint {
@@ -3959,7 +3966,7 @@ input[type="range"]:hover::-moz-range-thumb {
   }
 
   .itemProgressBarForeground {
-    background: radial-gradient(circle, #fff 10%, transparent 20%), radial-gradient(circle, var(--nye-cream) 10%, transparent 20%), var(--nye-gold) !important;
+    background: radial-gradient(circle, var(--pure-white) 10%, transparent 20%), radial-gradient(circle, var(--nye-cream) 10%, transparent 20%), var(--nye-gold) !important;
     background-size: 10px 10px, 15px 15px !important;
     background-position: 0 0, 5px 5px !important;
     animation: champagneBubbles 2s linear infinite !important;
@@ -3975,9 +3982,9 @@ input[type="range"]:hover::-moz-range-thumb {
     background-size: 50% 50%, 100% 100% !important;
     background-repeat: no-repeat !important;
     background-position: center center !important;
-    border: 2px solid #ffffff !important;
+    border: 2px solid var(--pure-white) !important;
     border-radius: 50% !important;
-    box-shadow: 0 0 10px var(--nye-gold-alpha-80), inset 0 0 5px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 0 10px var(--nye-gold-alpha-80), inset 0 0 5px var(--nye-black-alpha-30) !important;
     width: 32px !important;
     height: 32px !important;
     cursor: pointer !important;
@@ -3991,9 +3998,9 @@ input[type="range"]:hover::-moz-range-thumb {
     background-size: 50% 50%, 100% 100% !important;
     background-repeat: no-repeat !important;
     background-position: center center !important;
-    border: 2px solid #ffffff !important;
+    border: 2px solid var(--pure-white) !important;
     border-radius: 50% !important;
-    box-shadow: 0 0 10px var(--nye-gold-alpha-80), inset 0 0 5px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 0 10px var(--nye-gold-alpha-80), inset 0 0 5px var(--nye-black-alpha-30) !important;
     width: 32px !important;
     height: 32px !important;
     cursor: pointer !important;
@@ -4003,9 +4010,9 @@ input[type="range"]:hover::-moz-range-thumb {
 
   .emby-slider-thumb:hover,
   input[type="range"]:hover::-webkit-slider-thumb {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d4af37' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, #ffffff 0%, var(--nye-cream) 60%, var(--nye-gold) 100%) !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d4af37' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--pure-white) 0%, var(--nye-cream) 60%, var(--nye-gold) 100%) !important;
     border-color: var(--nye-gold) !important;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 25px var(--nye-gold-alpha-100) !important;
+    box-shadow: 0 0 15px var(--pure-white), 0 0 25px var(--nye-gold-alpha-100) !important;
     transform: translateY(-5px) scale(1.15) rotate(45deg) !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease !important;
   }
@@ -4018,7 +4025,7 @@ input[type="range"]:hover::-moz-range-thumb {
   .formDialog,
   .actionSheet,
   .itemSelectionPanel {
-    background: linear-gradient(135deg, var(--nye-black-light) 0%, #000 100%) !important;
+    background: linear-gradient(135deg, var(--nye-black-light) 0%, var(--pure-black) 100%) !important;
     border: 1px solid var(--nye-gold) !important;
     box-shadow: 0 15px 40px var(--black-alpha-90), 0 0 30px var(--nye-gold-alpha-15) !important;
   }
@@ -4122,7 +4129,8 @@ input[type="range"]:hover::-moz-range-thumb {
   @keyframes nye-spinner-colors {
     0%, 100% { border-color: var(--nye-gold); }
     25% { border-color: var(--nye-cream); }
-    50% { border-color: #ffffff; }
+    50% { border-color: var(--pure-white); }
     75% { border-color: var(--nye-gold); }
   }
+/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
