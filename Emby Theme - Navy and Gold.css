@@ -3936,6 +3936,19 @@ body:has(.view-login) .skinHeader {
       transform: scale(1.2) rotate(2deg);
     }
   }
+
+  .peopleSection .cardText-first {
+    color: var(--xmas-red-light) !important; 
+    text-shadow: 1px 1px 2px var(--black-alpha-80) !important; 
+    font-weight: 700 !important;
+  }
+
+  .peopleSection .cardText-secondary {
+    color: var(--pure-white) !important; 
+    opacity: 0.8 !important;
+    font-style: italic !important;
+  }
+
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
