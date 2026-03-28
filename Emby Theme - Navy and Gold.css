@@ -524,6 +524,11 @@ html,
   --july4-white-alpha-50: rgba(255, 255, 255, 0.5);
   --july4-white-alpha-20: rgba(255, 255, 255, 0.2);
   --july4-gray: #e0e0e0;
+  --july4-sky-red-glow: rgba(224, 22, 43, 0.03);
+  --july4-sky-blue-glow: rgba(0, 82, 165, 0.03);
+  --july4-firework-red: var(--july4-red);
+  --july4-firework-blue: var(--july4-blue);
+  --july4-firework-white: var(--july4-white);
   */
 
   /* OPTION 6: HALLOWEEN */
@@ -2781,18 +2786,92 @@ body:has(.view-login) .skinHeader {
    ============================================================ */
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #e0162b) {
-  .countIndicator { 
-    background: var(--july4-blue) !important; 
-    color: var(--july4-white) !important; 
-    border: 2px solid var(--july4-white) !important; 
-    box-shadow: 0 0 10px var(--july4-red-alpha-80), inset 0 0 5px var(--black-alpha-50) !important; 
+
+  @keyframes firework-burst {
+    0% { transform: scale(0.1) translateY(0); opacity: 0; filter: brightness(2) blur(1px); }
+    10% { opacity: 1; filter: brightness(1.5) blur(0px); }
+    100% { transform: scale(5) translateY(60px); opacity: 0; filter: blur(3px); }
   }
-  
+
+  @keyframes starTwinkle {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.2); }
+  }
+
+  @keyframes sky-glow {
+    0%, 100% { background-color: transparent; }
+    10%, 20% { background-color: var(--july4-sky-red-glow); } 
+    40%, 50% { background-color: var(--july4-sky-blue-glow); } 
+  }
+
   @keyframes shieldPulse { 
     0% { transform: scale(1); box-shadow: 0 0 0 3px var(--july4-white) inset, 0 0 15px var(--july4-red-alpha-60); } 
     100% { transform: scale(1.05); box-shadow: 0 0 0 3px var(--july4-white) inset, 0 0 25px var(--july4-blue-alpha-80); } 
   }
-  
+
+  .backgroundContainer::before,
+  .backgroundContainer::after,
+  body::before,
+  body::after,
+  .backdropContainer::before,
+  .backdropContainer::after {
+    content: '';
+    position: fixed;
+    pointer-events: none;
+    z-index: -2;
+    border-radius: 50%;
+  }
+
+  body::before {
+    inset: 0;
+    border-radius: 0;
+    background-image: 
+      radial-gradient(1px 1px at 15% 15%, var(--pure-white), transparent),
+      radial-gradient(1.5px 1.5px at 40% 70%, var(--pure-white), transparent),
+      radial-gradient(1px 1px at 70% 30%, var(--pure-white), transparent),
+      radial-gradient(2px 2px at 85% 85%, var(--pure-white), transparent);
+    background-size: 300px 300px;
+    animation: starTwinkle 5s infinite ease-in-out;
+    opacity: 0.5;
+    z-index: -3;
+  }
+
+  body::after {
+    inset: 0;
+    border-radius: 0;
+    animation: sky-glow 12s infinite;
+    z-index: -4;
+  }
+
+  .backgroundContainer::before {
+    top: 25%; left: 25%; width: 4px; height: 4px;
+    box-shadow: 
+      0 -45px var(--july4-firework-red), 32px -32px var(--july4-firework-red), 45px 0 var(--july4-firework-red), 
+      32px 32px var(--july4-firework-red), 0 45px var(--july4-firework-red), -32px 32px var(--july4-firework-red), 
+      -45px 0 var(--july4-firework-red), -32px -32px var(--july4-firework-red),
+      0 -75px var(--july4-white-alpha-50), 53px -53px var(--july4-white-alpha-50);
+    animation: firework-burst 4.5s infinite ease-out;
+  }
+
+  .backgroundContainer::after {
+    top: 35%; left: 75%; width: 3px; height: 3px;
+    box-shadow: 
+      0 -40px var(--july4-firework-blue), 28px -28px var(--july4-firework-blue), 40px 0 var(--july4-firework-blue), 
+      28px 28px var(--july4-firework-blue), 0 40px var(--july4-firework-blue), -28px 28px var(--july4-firework-blue), 
+      -40px 0 var(--july4-firework-blue), -28px -28px var(--july4-firework-blue);
+    animation: firework-burst 5.2s infinite ease-out 1.5s;
+  }
+
+  .backdropContainer::before {
+    top: 15%; left: 50%; width: 2px; height: 2px;
+    box-shadow: 
+      0 -60px var(--july4-firework-white), 42px -42px var(--july4-firework-white), 60px 0 var(--july4-firework-white), 
+      42px 42px var(--july4-firework-white), 0 60px var(--july4-firework-white), -42px 42px var(--july4-firework-white), 
+      -60px 0 var(--july4-firework-white), -42px -42px var(--july4-firework-white),
+      0 -30px var(--july4-red-alpha-50), 30px 0 var(--july4-blue-alpha-50);
+    animation: firework-burst 7s infinite ease-out 3s;
+  }
+
   .cardOverlayFab-primary, 
   .cardOverlayButtonIcon, 
   .listItemOverlayButtonIcon, 
@@ -2800,237 +2879,42 @@ body:has(.view-login) .skinHeader {
     background: var(--july4-blue) !important; 
     border: 4px solid var(--july4-red) !important; 
     box-shadow: 0 0 0 3px var(--july4-white) inset, 0 0 15px var(--july4-red-alpha-60) !important; 
-    color: var(--july4-white) !important; 
+    color: var(--july4-white) !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
   }
-  
+
   .card:hover .cardOverlayFab-primary { 
     animation: shieldPulse 1s ease-in-out infinite alternate !important; 
   }
 
-  .card:hover .cardContent:not(.cardContent-round), 
-  .card:hover .cardImageContainer:not(.cardContent-round) { 
-    border-color: var(--july4-white) !important; 
-    box-shadow: none !important;
+  .countIndicator { 
+    background: var(--july4-blue) !important; 
+    color: var(--july4-white) !important; 
+    border: 2px solid var(--july4-white) !important; 
+    box-shadow: 0 0 10px var(--july4-red-alpha-80), inset 0 0 5px var(--black-alpha-50) !important; 
   }
-  
-  @keyframes flagWave { 
-    0%, 100% { background-position: 0% 50%; } 
-    50% { background-position: 100% 50%; } 
-  }
-  
+
   .itemProgressBarForeground { 
     background: linear-gradient(90deg, var(--july4-red), var(--july4-white), var(--july4-blue), var(--july4-white), var(--july4-red)) !important; 
     background-size: 300% 100% !important; 
     animation: flagWave 4s ease-in-out infinite !important; 
     box-shadow: 0 0 12px var(--july4-white-alpha-50) !important; 
-    border-radius: 5px !important; 
-  }
-
-  .emby-slider-thumb, 
-  .videoOsdBottom .emby-slider-thumb, 
-  .nowPlayingBar .emby-slider-thumb { 
-    -webkit-appearance: none !important; 
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6H14.4z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--july4-blue) 0%, var(--july4-navy) 100%) !important; 
-    background-size: 60% 60%, 100% 100% !important; 
-    background-repeat: no-repeat !important; 
-    background-position: center center !important; 
-    border: 2px solid var(--july4-red) !important; 
-    border-radius: 50% !important; 
-    box-shadow: 0 0 10px var(--july4-red), 0 0 20px var(--july4-blue) !important; 
-    width: 34px !important; 
-    height: 34px !important; 
-    cursor: pointer !important; 
-    transform: translateY(-13px) !important; 
-  }
-  
-  input[type="range"]::-webkit-slider-thumb { 
-    -webkit-appearance: none !important; 
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6H14.4z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--july4-blue) 0%, var(--july4-navy) 100%) !important; 
-    background-size: 60% 60%, 100% 100% !important; 
-    background-repeat: no-repeat !important; 
-    background-position: center center !important; 
-    border: 2px solid var(--july4-red) !important; 
-    border-radius: 50% !important; 
-    box-shadow: 0 0 10px var(--july4-red), 0 0 20px var(--july4-blue) !important; 
-    width: 34px !important; 
-    height: 34px !important; 
-    cursor: pointer !important; 
-    transform: translateY(0px) !important; 
-  }
-  
-  input[type="range"]::-moz-range-thumb { 
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6H14.4z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--july4-blue) 0%, var(--july4-navy) 100%) !important; 
-    background-size: 60% 60%, 100% 100% !important; 
-    background-repeat: no-repeat !important; 
-    background-position: center center !important; 
-    border: 2px solid var(--july4-red) !important; 
-    border-radius: 50% !important; 
-    box-shadow: 0 0 10px var(--july4-red), 0 0 20px var(--july4-blue) !important; 
-    width: 34px !important; 
-    height: 34px !important; 
-    cursor: pointer !important; 
-    transform: translateY(0px) !important; 
-  }
-  
-  .emby-slider-thumb:hover { 
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230052a5' d='M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6H14.4z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--july4-white) 0%, var(--july4-gray) 100%) !important; 
-    border-color: var(--july4-white) !important; 
-    box-shadow: 0 0 15px var(--july4-white), 0 0 30px var(--july4-red), 0 0 45px var(--july4-blue) !important; 
-    transform: translateY(-15px) scale(1.1) !important; 
-  }
-  
-  input[type="range"]:hover::-webkit-slider-thumb { 
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230052a5' d='M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6H14.4z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--july4-white) 0%, var(--july4-gray) 100%) !important; 
-    border-color: var(--july4-white) !important; 
-    box-shadow: 0 0 15px var(--july4-white), 0 0 30px var(--july4-red), 0 0 45px var(--july4-blue) !important; 
-    transform: translateY(-2px) scale(1.1) !important; 
-  }
-  
-  input[type="range"]:hover::-moz-range-thumb { 
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230052a5' d='M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6H14.4z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--july4-white) 0%, var(--july4-gray) 100%) !important; 
-    border-color: var(--july4-white) !important; 
-    box-shadow: 0 0 15px var(--july4-white), 0 0 30px var(--july4-red), 0 0 45px var(--july4-blue) !important; 
-    transform: translateY(-2px) scale(1.1) !important; 
-  }
-
-  .videoOsdBottom .emby-tab-button-active, 
-  .emby-tab-button-active, 
-  .videoOsdBottom .emby-tab-button:focus, 
-  .videoOsdBottom .emby-tab-button.show-focus { 
-    background: var(--july4-blue-alpha-20) !important; 
-    color: var(--july4-white) !important; 
-    border: 2px solid var(--july4-blue) !important; 
-    box-shadow: 0 4px 10px var(--black-alpha-50), 0 0 15px var(--july4-blue-alpha-50), inset 0 0 10px var(--july4-red-alpha-20) !important; 
-  }
-  
-  .mediaInfoItem { 
-    background: var(--white-alpha-10) !important; 
-    backdrop-filter: blur(10px) !important; 
-    -webkit-backdrop-filter: blur(10px) !important; 
-    color: var(--july4-white) !important; 
-    border: 1px solid var(--july4-red-alpha-30) !important; 
-    border-left: 3px solid var(--july4-red) !important; 
-    border-right: 3px solid var(--july4-blue) !important; 
-  }
-  
-  .mediaInfoItem:hover { 
-    background: var(--july4-white-alpha-20) !important; 
-    border-left-color: var(--july4-white) !important; 
-    border-right-color: var(--july4-white) !important; 
-    box-shadow: 0 0 15px var(--july4-red-alpha-40), 0 0 15px var(--july4-blue-alpha-40) !important; 
-  }
-
-  .dialog:not(.sliderBubble):not(.chapterThumbContainer), 
-  .formDialog, 
-  .actionSheet, 
-  .itemSelectionPanel { 
-    background: linear-gradient(135deg, var(--july4-navy) 0%, var(--july4-bg-dark) 100%) !important; 
-    border: 2px solid var(--july4-blue) !important; 
-    border-top: 2px solid var(--july4-red) !important; 
-    box-shadow: 0 15px 40px var(--black-alpha-90), 0 -5px 20px var(--july4-red-alpha-30), 0 5px 20px var(--july4-blue-alpha-30) !important; 
   }
 
   .card:hover .cardImageContainer::after { 
-    content: ""; 
-    position: absolute; 
-    top: 0; left: 0; right: 0; bottom: 0; 
-    border-radius: inherit; 
+    content: ""; position: absolute; inset: 0; border-radius: inherit;
     background: radial-gradient(circle, var(--july4-white) 10%, transparent 70%); 
-    opacity: 0; 
-    pointer-events: none; 
-    animation: fireworkBurst 0.5s ease-out; 
+    opacity: 0; pointer-events: none; animation: fireworkBurst 0.6s ease-out; 
   }
-  
+
   @keyframes fireworkBurst { 
-    0% { transform: scale(0.1); opacity: 0.8; filter: brightness(2); } 
-    100% { transform: scale(1.5); opacity: 0; filter: brightness(1); } 
+    0% { transform: scale(0.1); opacity: 1; filter: brightness(2); } 
+    100% { transform: scale(1.8); opacity: 0; filter: brightness(1); } 
   }
 
-  .mdl-spinner__layer-1 {
-    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, july4-spinner-colors 5332ms linear infinite !important;
-  }
-
-  @keyframes july4-spinner-colors {
-    0%, 100% { border-color: var(--july4-red); }
-    25% { border-color: var(--july4-white); }
-    50% { border-color: var(--july4-blue); }
-    75% { border-color: var(--july4-white); }
-  }
-
-  .backgroundContainer-transparent::before, 
-  .backgroundContainer-transparent::after, 
-  .view-videoosd::after { 
-    display: none !important; 
-    content: none !important; 
-    animation: none !important; 
-    opacity: 0 !important; 
-  }
-  
-  .backgroundContainer::before, 
-  .backgroundContainer::after, 
-  body::before, 
-  body::after, 
-  .backdropContainer::before, 
-  .backdropContainer::after { 
-    content: ''; 
-    position: fixed; 
-    width: 3px; 
-    height: 3px; 
-    border-radius: 50%; 
-    pointer-events: none; 
-    z-index: -2; 
-    opacity: 0; 
-  }
-
-  .backgroundContainer::before { 
-    top: 35%; left: 20%; 
-    box-shadow: 0 -30px 0 var(--july4-red), 21px -21px 0 var(--july4-red), 30px 0 0 var(--july4-red), 21px 21px 0 var(--july4-red), 0 30px 0 var(--july4-red), -21px 21px 0 var(--july4-red), -30px 0 0 var(--july4-red), -21px -21px 0 var(--july4-red), 0 -50px 0 var(--july4-white-alpha-70), 35px -35px 0 var(--july4-white-alpha-70), 50px 0 0 var(--july4-white-alpha-70), 35px 35px 0 var(--july4-white-alpha-70), 0 50px 0 var(--july4-white-alpha-70), -35px 35px 0 var(--july4-white-alpha-70), -50px 0 0 var(--july4-white-alpha-70), -35px -35px 0 var(--july4-white-alpha-70); 
-    animation: firework-explode 4s infinite ease-out; 
-  }
-  
-  .backgroundContainer::after { 
-    top: 25%; left: 75%; 
-    box-shadow: 0 -30px 0 var(--july4-blue), 21px -21px 0 var(--july4-blue), 30px 0 0 var(--july4-blue), 21px 21px 0 var(--july4-blue), 0 30px 0 var(--july4-blue), -21px 21px 0 var(--july4-blue), -30px 0 0 var(--july4-blue), -21px -21px 0 var(--july4-blue), 0 -50px 0 var(--july4-white-alpha-70), 35px -35px 0 var(--july4-white-alpha-70), 50px 0 0 var(--july4-white-alpha-70), 35px 35px 0 var(--july4-white-alpha-70), 0 50px 0 var(--july4-white-alpha-70), -35px 35px 0 var(--july4-white-alpha-70), -50px 0 0 var(--july4-white-alpha-70), -35px -35px 0 var(--july4-white-alpha-70); 
-    animation: firework-explode 5.5s infinite ease-out 1.5s; 
-  }
-  
-  body::after { 
-    top: 15%; left: 50%; 
-    box-shadow: 0 -30px 0 var(--july4-white), 21px -21px 0 var(--july4-red), 30px 0 0 var(--july4-blue), 21px 21px 0 var(--july4-white), 0 30px 0 var(--july4-red), -21px 21px 0 var(--july4-blue), -30px 0 0 var(--july4-white), -21px -21px 0 var(--july4-red), 0 -50px 0 var(--july4-blue-alpha-40), 35px -35px 0 var(--july4-blue-alpha-40), 50px 0 0 var(--july4-blue-alpha-40), 35px 35px 0 var(--july4-blue-alpha-40), 0 50px 0 var(--july4-blue-alpha-40), -35px 35px 0 var(--july4-blue-alpha-40), -50px 0 0 var(--july4-blue-alpha-40), -35px -35px 0 var(--july4-blue-alpha-40); 
-    animation: firework-explode 6s infinite ease-out 3.2s; 
-  }
-  
-  body::before { 
-    top: 5%; left: 5%; 
-    box-shadow: 0 -80px 0 var(--july4-white-alpha-60), 0 80px 0 var(--july4-blue-alpha-60), -80px 0 0 var(--july4-white-alpha-60), 80px 0 0 var(--july4-blue-alpha-60), -40px -40px 0 var(--july4-red-alpha-80), 40px -40px 0 var(--july4-red-alpha-80), -40px 40px 0 var(--july4-red-alpha-80), 40px 40px 0 var(--july4-red-alpha-80); 
-    animation: firework-star-explode 7s infinite ease-out .8s; 
-  }
-  
-  .backdropContainer::before { 
-    top: 10%; left: 90%; 
-    box-shadow: 0 -30px 0 var(--july4-blue-alpha-80), 21px -21px 0 var(--july4-white), 30px 0 0 var(--july4-blue-alpha-80), 21px 21px 0 var(--july4-white), 0 30px 0 var(--july4-blue-alpha-80), -21px 21px 0 var(--july4-white), -30px 0 0 var(--july4-blue-alpha-80), -21px -21px 0 var(--july4-white), -10px -10px 0 var(--july4-red), 10px -10px 0 var(--july4-red), -10px 10px 0 var(--july4-red), 10px 10px 0 var(--july4-red); 
-    animation: firework-explode 3.5s infinite ease-out 2.5s; 
-  }
-  
-  .backdropContainer::after { 
-    top: 85%; left: 50%; 
-    box-shadow: 0 -60px 0 var(--july4-blue-alpha-30), 42px -42px 0 var(--july4-blue-alpha-30), 60px 0 0 var(--july4-blue-alpha-30), 42px 42px 0 var(--july4-blue-alpha-30), 0 60px 0 var(--july4-blue-alpha-30), -42px 42px 0 var(--july4-blue-alpha-30), -60px 0 0 var(--july4-blue-alpha-30), -42px -42px 0 var(--july4-blue-alpha-30), 0 -15px 0 var(--july4-red), 15px 0 0 var(--july4-red), 0 15px 0 var(--july4-red), -15px 0 0 var(--july4-red); 
-    animation: firework-star-explode 10s infinite ease-out 5s; 
-  }
-
-  @keyframes firework-explode { 
-    0% { transform: scale(.1) translateY(0); opacity: 0; } 
-    5% { opacity: 1; } 
-    50% { opacity: .9; } 
-    to { transform: scale(6) translateY(20px); opacity: 0; } 
-  }
-  
-  @keyframes firework-star-explode { 
-    0% { transform: scale(.1); opacity: 0; } 
-    2% { opacity: 1; } 
-    15% { transform: scale(3.5); opacity: 1; } 
-    to { transform: scale(5); opacity: 0; } 
-  }
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
