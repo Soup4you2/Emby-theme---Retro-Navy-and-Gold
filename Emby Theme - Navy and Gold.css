@@ -3604,48 +3604,45 @@ body:has(.view-login) .skinHeader {
   }
 
   @keyframes ornamentSwing {
-    0%, 100% {
-      transform: rotate(-8deg) scale(1.05);
-      filter: drop-shadow(0 8px 12px var(--xmas-red-alpha-80));
-    }
-    50% {
-      transform: rotate(8deg) scale(1.05);
-      filter: drop-shadow(0 8px 12px var(--xmas-red-alpha-80));
-    }
+    0%, 100% { transform: rotate(-8deg) scale(1.05); filter: drop-shadow(0 8px 12px var(--xmas-red-alpha-80)); }
+    50% { transform: rotate(8deg) scale(1.05); filter: drop-shadow(0 8px 12px var(--xmas-red-alpha-80)); }
+  }
+
+  .peopleSection .cardText-first {
+    color: var(--xmas-red-light) !important;
+    text-shadow: 1px 1px 2px var(--black-alpha-80) !important;
+    font-weight: 700 !important;
+  }
+
+  .peopleSection .cardText-secondary {
+    color: var(--pure-white) !important;
+    opacity: 0.8 !important;
+    font-style: italic !important;
   }
 
   .peopleSection .cardImageContainer img,
   .personCard .cardImageContainer img,
   .card .cardImageContainer img {
-    filter: grayscale(25%) contrast(0.9) saturate(0.8) brightness(1.15) hue-rotate(180deg) !important; 
-    transition: filter 0.5s ease-in-out !important;
+    filter: none !important; 
+    transition: filter 0.3s ease !important;
   }
 
-  .card .cardImageContainer::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    box-shadow: inset 0 0 20px rgba(255,255,255,0.4), inset 0 0 45px rgba(255,255,255,0.15) !important;
-    pointer-events: none;
-    transition: box-shadow 0.5s ease-in-out, opacity 0.5s ease-in-out !important;
-    z-index: 1;
-    border-radius: inherit;
+   .cardContent, .cardImageContainer {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1), 0 10px 20px var(--black-alpha-75) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
   }
 
-  .card:hover .cardImageContainer img {
-    filter: grayscale(0%) contrast(1.1) saturate(1.25) brightness(1) hue-rotate(0deg) !important; 
-    transition: filter 0.5s ease-in-out !important;
+  @keyframes auroraBorder {
+    0% { border-color: var(--xmas-red); box-shadow: 0 0 15px var(--xmas-red-alpha-30), 0 15px 30px var(--black-alpha-90); }
+    33% { border-color: var(--xmas-green); box-shadow: 0 0 25px var(--xmas-green-alpha-30), 0 15px 30px var(--black-alpha-90); }
+    66% { border-color: var(--my-gold); box-shadow: 0 0 15px rgba(255, 185, 0, 0.3), 0 15px 30px var(--black-alpha-90); }
+    100% { border-color: var(--xmas-red); box-shadow: 0 0 15px var(--xmas-red-alpha-30), 0 15px 30px var(--black-alpha-90); }
   }
 
-  .card:hover .cardImageContainer::after {
-    box-shadow: inset 0 0 0px rgba(255,255,255,0) !important;
-    opacity: 0 !important;
-  }
-
-  .card:hover .cardContent:not(.cardContent-round),
-  .card:hover .cardImageContainer:not(.cardContent-round) {
-    border-color: var(--pure-white) !important;
-    box-shadow: none !important;
+  .card:hover .cardContent, 
+  .card:hover .cardImageContainer {
+    animation: auroraBorder 4s infinite linear !important;
+    border-width: 2px !important;
   }
 
   .itemProgressBarForeground {
@@ -3669,170 +3666,47 @@ body:has(.view-login) .skinHeader {
     border: 2px solid var(--xmas-red) !important;
     border-radius: 50% !important;
     box-shadow: 0 0 10px var(--xmas-green), 0 0 20px var(--xmas-red) !important;
-    width: 34px !important;
-    height: 34px !important;
+    width: 34px !important; height: 34px !important;
     cursor: pointer !important;
     transform: translateY(-13px) !important;
   }
 
-  input[type="range"]::-webkit-slider-thumb,
-  input[type="range"]::-moz-range-thumb {
-    -webkit-appearance: none !important;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M14.5 10l3.8-3.8-1.4-1.4L13 8.6V2h-2v6.6L7.1 4.8 5.7 6.2 9.5 10H2v2h7.5l-3.8 3.8 1.4 1.4L11 13.4V20h2v-6.6l3.9 3.9 1.4-1.4-3.8-3.8H22v-2h-7.5z'/%3E%3C/svg%3E") center / 65% 65% no-repeat, radial-gradient(circle at 35% 35%, var(--xmas-green) 0%, var(--xmas-bg-dark-1) 100%) center / 100% 100% no-repeat !important;
-    border: 2px solid var(--xmas-red) !important;
-    border-radius: 50% !important;
-    box-shadow: 0 0 10px var(--xmas-green), 0 0 20px var(--xmas-red) !important;
-    width: 34px !important;
-    height: 34px !important;
-    cursor: pointer !important;
-    transform: translateY(0) !important;
-  }
-
-  .emby-slider-thumb:hover,
-  input[type="range"]:hover::-webkit-slider-thumb,
-  input[type="range"]:hover::-moz-range-thumb {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23c41e3a' d='M14.5 10l3.8-3.8-1.4-1.4L13 8.6V2h-2v6.6L7.1 4.8 5.7 6.2 9.5 10H2v2h7.5l-3.8 3.8 1.4 1.4L11 13.4V20h2v-6.6l3.9 3.9 1.4-1.4-3.8-3.8H22v-2h-7.5z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--pure-white) 0%, var(--xmas-gray) 100%) !important;
-    border-color: var(--pure-white) !important;
-    box-shadow: 0 0 15px var(--pure-white), 0 0 30px var(--xmas-red), 0 0 45px var(--xmas-green) !important;
-    transform: translateY(-15px) scale(1.15) !important;
-  }
-
-  input[type="range"]:hover::-webkit-slider-thumb,
-  input[type="range"]:hover::-moz-range-thumb {
-    transform: translateY(-2px) scale(1.15) !important;
-  }
-
   .videoOsdBottom .emby-tab-button-active,
-  .emby-tab-button-active,
-  .videoOsdBottom .emby-tab-button:focus,
-  .videoOsdBottom .emby-tab-button.show-focus {
+  .emby-tab-button-active {
     background: var(--xmas-green-alpha-30) !important;
     color: var(--pure-white) !important;
     border: 2px solid var(--xmas-green) !important;
-    box-shadow: 0 4px 10px var(--black-alpha-50), 0 0 15px var(--xmas-green-alpha-50), inset 0 0 10px var(--xmas-red-alpha-30) !important;
+    box-shadow: 0 4px 10px var(--black-alpha-50), 0 0 15px var(--xmas-green-alpha-50) !important;
   }
 
-  .mdl-spinner__layer-1 {
-    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, xmas-spinner-colors 5332ms linear infinite !important;
-  }
-
-  @keyframes xmas-spinner-colors {
-    0%, 100% { border-color: var(--xmas-red); }
-    25% { border-color: var(--pure-white); }
-    50% { border-color: var(--xmas-green); }
-    75% { border-color: var(--pure-white); }
-  }
-
-  .dialog:not(.sliderBubble):not(.chapterThumbContainer),
-  .formDialog,
-  .actionSheet,
-  .itemSelectionPanel {
-    background: linear-gradient(135deg, var(--xmas-bg-dark-1) 0%, var(--xmas-bg-dark-2) 100%) !important;
-    border: 2px solid var(--xmas-green) !important;
-    border-top: 2px solid var(--xmas-red) !important;
-    box-shadow: 0 15px 40px var(--black-alpha-90), 0 -5px 20px var(--xmas-red-alpha-30), 0 5px 20px var(--xmas-green-alpha-30) !important;
-  }
-
-  .dialogBackdrop {
-    background: var(--xmas-bg-dark-2-alpha-85) !important;
-    backdrop-filter: blur(25px) !important;
-    -webkit-backdrop-filter: blur(25px) !important;
-  }
-
-  .backgroundContainer-transparent::before,
-  .backgroundContainer-transparent::after,
-  .view-videoosd::after {
-    display: none !important;
-  }
-
-  .backgroundContainer::before,
-  body::before,
-  body::after {
-    content: '';
-    position: fixed;
-    inset: -100% 0 0;
-    pointer-events: none;
-    z-index: -1;
-    opacity: 0.8;
+  .backgroundContainer::before, body::before, body::after {
+    content: ''; position: fixed; inset: -100% 0 0; pointer-events: none; z-index: -1; opacity: 0.8;
   }
 
   body::before {
-    background: radial-gradient(circle at 10% 10%, var(--pure-white) 1px, transparent 1px), radial-gradient(circle at 30% 50%, var(--pure-white) 1.5px, transparent 1.5px), radial-gradient(circle at 70% 20%, var(--pure-white) 1px, transparent 1px), radial-gradient(circle at 90% 80%, var(--pure-white) 1.2px, transparent 1.2px) 0 0 / 250px 250px;
+    background: radial-gradient(circle at 10% 10%, var(--pure-white) 1px, transparent 1px) 0 0 / 250px 250px;
     animation: snow-fall 12s linear infinite;
   }
 
   body::after {
-    background: radial-gradient(circle at 20% 40%, var(--pure-white) 2px, transparent 2px), radial-gradient(circle at 50% 10%, var(--pure-white) 2.5px, transparent 2.5px), radial-gradient(circle at 80% 60%, var(--pure-white) 2px, transparent 2px) 0 0 / 400px 400px;
+    background: radial-gradient(circle at 20% 40%, var(--pure-white) 2px, transparent 2px) 0 0 / 400px 400px;
     animation: snow-fall 20s linear infinite;
     opacity: 0.5;
   }
 
-  .backgroundContainer::before {
-    background: radial-gradient(circle at 40% 80%, var(--pure-white) 4px, transparent 4px), radial-gradient(circle at 15% 15%, var(--pure-white) 3px, transparent 3px), radial-gradient(circle at 85% 35%, var(--pure-white) 5px, transparent 5px) 0 0 / 600px 600px;
-    filter: blur(2px);
-    opacity: 0.3;
-    animation: snow-fall 35s linear infinite, snow-drift 10s ease-in-out infinite alternate;
-  }
-
-  @keyframes snow-fall {
-    to { transform: translateY(100%); }
-  }
-
-  @keyframes snow-drift {
-    from { margin-left: -20px; }
-    to { margin-left: 20px; }
-  }
+  @keyframes snow-fall { to { transform: translateY(100%); } }
 
   .backdropContainer::after {
     content: "🦌🦌🦌🛷🎅";
-    position: fixed;
-    top: 20vh;
-    right: -50vw;
-    font-size: 3.75rem;
-    z-index: -1;
-    pointer-events: none;
-    color: transparent;
+    position: fixed; top: 20vh; right: -50vw; font-size: 3.75rem; z-index: -1; pointer-events: none; color: transparent;
     text-shadow: 0 0 4px var(--pure-white), 0 0 15px var(--xmas-white-alpha-60);
     animation: sleighFly 20s linear infinite;
   }
 
   @keyframes sleighFly {
-    0% {
-      right: -50vw;
-      top: 20vh;
-      transform: scale(1.2) rotate(3deg);
-    }
-    25% {
-      top: 15vh;
-      transform: scale(1) rotate(-2deg);
-    }
-    50% {
-      top: 25vh;
-      transform: scale(0.8) rotate(4deg);
-    }
-    75% {
-      top: 12vh;
-      transform: scale(1) rotate(-3deg);
-    }
-    100% {
-      right: 120vw;
-      top: 18vh;
-      transform: scale(1.2) rotate(2deg);
-    }
+    0% { right: -50vw; top: 20vh; transform: scale(1.2) rotate(3deg); }
+    100% { right: 120vw; top: 18vh; transform: scale(1.2) rotate(2deg); }
   }
-
-  .peopleSection .cardText-first {
-    color: var(--xmas-red-light) !important; 
-    text-shadow: 1px 1px 2px var(--black-alpha-80) !important; 
-    font-weight: 700 !important;
-  }
-
-  .peopleSection .cardText-secondary {
-    color: var(--pure-white) !important; 
-    opacity: 0.8 !important;
-    font-style: italic !important;
-  }
-
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
