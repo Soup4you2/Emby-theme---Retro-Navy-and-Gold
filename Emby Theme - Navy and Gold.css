@@ -293,11 +293,10 @@ html,
      Uncomment ONE block below to activate a holiday theme
 
     -----------------------------------------------------------
-     NOTE: Firefox does not support @container() yet, so if you 
-     really want to add in Firefox support, you will need to 
-     comment out the @container {  line and it's closing bracket.
-     if you want to apply the full theme, in the seasonal areas
-     down below. (Just search for the theme name.)
+    BROWSER COMPATIBILITY NOTE: Firefox does not currently support 
+    CSS Style Container Queries (@container style). To enable seasonal 
+    themes in Firefox, you must manually comment out the @container wrapper 
+    line and its corresponding closing bracket within the seasonal CSS section.
     -----------------------------------------------------------
 
      ============================================================ */
