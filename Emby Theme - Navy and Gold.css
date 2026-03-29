@@ -3169,6 +3169,11 @@ body:has(.view-login) .skinHeader {
   body::after {
     inset: 0;
     border-radius: 0;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 600' preserveAspectRatio='xMidYMax slice'%3E%3Cpath fill='%23001d3d' d='M 700 500 L 1220 500 L 1600 600 L 320 600 Z'/%3E%3Cpath fill='%23ffffff' d='M 700 500 L 1220 500 L 1222 502 L 698 502 Z' opacity='0.15'/%3E%3Cpath fill='%23ffffff' d='M 700 500 L 320 600 L 315 600 L 695 500 Z' opacity='0.15'/%3E%3Cpath fill='%23ffffff' d='M 1220 500 L 1600 600 L 1605 600 L 1225 500 Z' opacity='0.15'/%3E%3Cpath fill='%23000814' d='M 0 500 Q 150 480 300 500 T 600 490 T 900 500 L 900 500 L 0 500 Z' opacity='0.9'/%3E%3Cpath fill='%23000814' d='M 1000 500 Q 1200 485 1400 500 T 1700 490 T 1920 495 L 1920 500 Z' opacity='0.9'/%3E%3Crect x='0' y='495' width='1920' height='5' fill='%23000814'/%3E%3Cpath fill='%23000814' d='M 940 495 L 980 495 L 966 80 L 960 60 L 954 80 Z'/%3E%3Cpath fill='%23ffffff' d='M 940 495 L 960 495 L 960 60 L 954 80 Z' opacity='0.05'/%3E%3Ccircle cx='960' cy='60' r='2' fill='%23e0162b'/%3E%3Cpath fill='%23000814' d='M 940 502 L 980 502 L 966 590 L 960 600 L 954 590 Z' opacity='0.4'/%3E%3C/svg%3E");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 55vh;
     animation: sky-glow 12s infinite;
     z-index: -4;
   }
