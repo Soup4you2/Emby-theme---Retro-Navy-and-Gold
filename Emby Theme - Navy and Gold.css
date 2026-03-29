@@ -474,7 +474,7 @@ html,
   --stpat-dialog-bg-dark: #011408;
   */
 
-  /* OPTION 4: EASTER */
+  /* OPTION 4: EASTER / CHERRY BLOSSOM */
   /*
   --easter-primary-rgb: 255, 183, 178;
   --easter-navy-base-rgb: 26, 22, 37;
@@ -2828,7 +2828,7 @@ body:has(.view-login) .skinHeader {
 }
 
 /* ============================================================
-   14. SEASONAL EFFECTS (EASTER)
+   14. SEASONAL EFFECTS (EASTER / CHERRY BLOSSOM)
    ============================================================ */
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
