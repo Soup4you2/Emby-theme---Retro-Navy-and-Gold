@@ -299,28 +299,28 @@ html,
   --media-badge-hover-shadow: var(--glow-medium);
   */
 
-/* ============================================================
-    THE "SEASONAL BACKGROUND" TOGGLES (DEFAULT: ON)
-    Controls the heavy background layers (snow, petals, fireworks).
-    Uncomment ONE of the blocks below to change the behavior.
-    ============================================================ */
+  /* ============================================================
+      THE "SEASONAL BACKGROUND" TOGGLES (DEFAULT: ON)
+      Controls the heavy background layers (snow, petals, fireworks).
+      Uncomment ONE of the blocks below to change the behavior.
+      ============================================================ */
 
-/* OPTION 1: FULLY ENABLED (Default) */
---seasonal-bg-visibility: visible;
---seasonal-bg-anim-state: running;
+  /* OPTION 1: FULLY ENABLED (Default) */
+  --seasonal-bg-visibility: visible;
+  --seasonal-bg-anim-state: running;
 
-/* OPTION 2: PAUSE ANIMATIONS (Keeps the art, stops the motion) */
-/*
---seasonal-bg-anim-state: paused !important;
-*/
+  /* OPTION 2: PAUSE ANIMATIONS (Keeps the art, stops the motion) */
+  /*
+  --seasonal-bg-anim-state: paused !important;
+  */
 
-/* OPTION 3: HIDE COMPLETELY (Removes the art and animations entirely) */
-/*
---seasonal-bg-visibility: hidden !important;
---seasonal-bg-anim-state: paused !important;
-*/
+  /* OPTION 3: HIDE COMPLETELY (Removes the art and animations entirely) */
+  /*
+  --seasonal-bg-visibility: hidden !important;
+  --seasonal-bg-anim-state: paused !important;
+  */
 
-/* ============================================================
+  /* ============================================================
      SEASONAL EVENT TOGGLE
      Uncomment ONE block below to activate a holiday theme
 
@@ -4464,3 +4464,4 @@ body:has(.view-login) .skinHeader {
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
+
