@@ -719,7 +719,7 @@ html,
   */
 
   /* OPTION 8: CHRISTMAS */
-  /*
+  
   --xmas-white-rgb: 255, 255, 255;
   --xmas-red-rgb: 196, 30, 58;
   --xmas-green-rgb: 11, 102, 35;
@@ -775,7 +775,7 @@ html,
   --xmas-white-alpha-60: rgba(var(--xmas-white-rgb), 0.6);
   --xmas-gray: #e0e0e0;
   --xmas-black-alpha-30: rgba(var(--xmas-black-rgb), 0.3);
-  */
+  
 
   /* OPTION 9: NEW YEAR'S EVE */
   /*
@@ -4182,6 +4182,26 @@ body,
     border: 2px solid var(--xmas-green) !important;
     box-shadow: 0 2px 5px var(--black-alpha-50) !important;
     transform: scale(0.98) !important;
+  }
+
+  .backgroundContainer::after {
+    content: '';
+    position: fixed;
+    bottom: -10px;
+    left: -50px; right: -50px;
+    height: 25vh;
+    min-height: 160px;
+    top: auto;
+    background:
+      /* Layer 1: Front Snowbank (Darkest Navy) */
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 200' preserveAspectRatio='none'%3E%3Cpath fill='%23020a14' d='M0,200 L0,120 Q200,180 400,140 T800,100 T1000,140 L1000,200 Z'/%3E%3C/svg%3E") 0 bottom / 100% 100% no-repeat,
+      /* Layer 2: Mid Snowbank (Medium Navy) */
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 200' preserveAspectRatio='none'%3E%3Cpath fill='%23051829' d='M0,200 L0,160 Q250,90 500,130 T1000,100 L1000,200 Z'/%3E%3C/svg%3E") 0 bottom / 100% 85% no-repeat,
+      /* Layer 3: Distant Snowbank (Lighter Navy) */
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 200' preserveAspectRatio='none'%3E%3Cpath fill='%23082032' d='M0,200 L0,140 Q300,190 600,130 T1000,80 L1000,200 Z'/%3E%3C/svg%3E") 0 bottom / 100% 65% no-repeat;
+    z-index: -1;
+    pointer-events: none;
+    filter: drop-shadow(0 -5px 15px var(--black-alpha-50));
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
