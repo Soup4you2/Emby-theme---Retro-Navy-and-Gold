@@ -4193,11 +4193,8 @@ body,
     min-height: 160px;
     top: auto;
     background:
-      /* Layer 1: Front Snowbank (Darkest Navy) */
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 200' preserveAspectRatio='none'%3E%3Cpath fill='%23020a14' d='M0,200 L0,120 Q200,180 400,140 T800,100 T1000,140 L1000,200 Z'/%3E%3C/svg%3E") 0 bottom / 100% 100% no-repeat,
-      /* Layer 2: Mid Snowbank (Medium Navy) */
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 200' preserveAspectRatio='none'%3E%3Cpath fill='%23051829' d='M0,200 L0,160 Q250,90 500,130 T1000,100 L1000,200 Z'/%3E%3C/svg%3E") 0 bottom / 100% 85% no-repeat,
-      /* Layer 3: Distant Snowbank (Lighter Navy) */
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 200' preserveAspectRatio='none'%3E%3Cpath fill='%23082032' d='M0,200 L0,140 Q300,190 600,130 T1000,80 L1000,200 Z'/%3E%3C/svg%3E") 0 bottom / 100% 65% no-repeat;
     z-index: -1;
     pointer-events: none;
