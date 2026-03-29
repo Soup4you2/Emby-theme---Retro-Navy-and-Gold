@@ -3630,13 +3630,11 @@ body:has(.view-login) .skinHeader {
     min-height: 140px;
     top: auto;
     background:
-      /* Layer 1: Tombstones & Crosses (Back layer - Dark Purple) */
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 150' preserveAspectRatio='none'%3E%3Cpath fill='%23170026' d='M30,150 L30,70 C30,40 70,30 80,70 L75,150 Z M130,150 L130,60 L115,60 L115,45 L130,45 L130,20 L145,20 L145,45 L160,45 L160,60 L145,60 L145,150 Z M220,150 L210,50 C220,10 270,20 280,60 L270,150 Z M330,150 L325,80 L350,50 L375,80 L370,150 Z'/%3E%3Cpath fill='%23170026' d='M0,150 Q50,130 100,150 Q150,140 200,150 Q280,135 350,150 Q380,145 400,150 L0,150 Z'/%3E%3C/svg%3E") 20px bottom / 400px 75% repeat-x,
-      /* Layer 2: Iron Fence (Front layer - Pure Black) */
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='%2305000a' d='M8,100 L12,100 L12,30 L10,15 L8,30 Z M28,100 L32,100 L32,40 L30,25 L28,40 Z M48,100 L52,100 L52,20 L50,5 L48,20 Z M68,100 L72,100 L72,35 L70,20 L68,35 Z M88,100 L92,100 L92,45 L90,30 L88,45 Z M0,55 Q50,65 100,50 L100,58 Q50,73 0,63 Z M0,80 Q50,90 100,75 L100,83 Q50,98 0,88 Z M0,95 L100,95 L100,100 L0,100 Z'/%3E%3C/svg%3E") 0 bottom / 150px 100% repeat-x;
     z-index: -1;
     pointer-events: none;
-    filter: drop-shadow(0 -5px 15px rgba(0,0,0,0.8));
+    filter: drop-shadow(0 -5px 15px var(--black-alpha-80));
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
