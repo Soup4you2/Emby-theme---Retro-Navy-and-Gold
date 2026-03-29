@@ -719,7 +719,7 @@ html,
   */
 
   /* OPTION 8: CHRISTMAS */
-  
+  /*
   --xmas-white-rgb: 255, 255, 255;
   --xmas-red-rgb: 196, 30, 58;
   --xmas-green-rgb: 11, 102, 35;
@@ -775,7 +775,7 @@ html,
   --xmas-white-alpha-60: rgba(var(--xmas-white-rgb), 0.6);
   --xmas-gray: #e0e0e0;
   --xmas-black-alpha-30: rgba(var(--xmas-black-rgb), 0.3);
-  
+  */
 
   /* OPTION 9: NEW YEAR'S EVE */
   /*
@@ -4119,17 +4119,17 @@ body,
     z-index: -1; 
   }
 
-  body::before {
+body::before {
     background: 
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Ccircle cx='50' cy='50' r='4' fill='%23ffffff' opacity='0.9'/%3E%3Ccircle cx='150' cy='250' r='3' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='350' cy='100' r='5' fill='%23ffffff' opacity='0.9'/%3E%3Ccircle cx='450' cy='400' r='4' fill='%23ffffff' opacity='0.7'/%3E%3Ccircle cx='250' cy='350' r='4.5' fill='%23ffffff' opacity='0.85'/%3E%3C/svg%3E") 0 0 / 500px 500px,
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Ccircle cx='100' cy='100' r='3' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='300' cy='300' r='4' fill='%23ffffff' opacity='0.9'/%3E%3Ccircle cx='200' cy='50' r='3.5' fill='%23ffffff' opacity='0.85'/%3E%3C/svg%3E") 50px 50px / 400px 400px;
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cdefs%3E%3Cg id='sf' stroke='%23ffffff' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M0,-10 L0,10 M-10,0 L10,0 M-7,-7 L7,7 M-7,7 L7,-7 M0,-5 L-3,-8 M0,-5 L3,-8 M0,5 L-3,8 M0,5 L3,8 M-5,0 L-8,-3 M-5,0 L-8,3 M5,0 L8,-3 M5,0 L8,3'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23sf' transform='translate(50,50) scale(0.4)' opacity='0.9'/%3E%3Cuse href='%23sf' transform='translate(150,250) scale(0.3)' opacity='0.8'/%3E%3Cuse href='%23sf' transform='translate(350,100) scale(0.5)' opacity='0.9'/%3E%3Cuse href='%23sf' transform='translate(450,400) scale(0.4)' opacity='0.7'/%3E%3Cuse href='%23sf' transform='translate(250,350) scale(0.45)' opacity='0.85'/%3E%3C/svg%3E") 0 0 / 500px 500px,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3Cg id='sf' stroke='%23ffffff' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M0,-10 L0,10 M-10,0 L10,0 M-7,-7 L7,7 M-7,7 L7,-7 M0,-5 L-3,-8 M0,-5 L3,-8 M0,5 L-3,8 M0,5 L3,8 M-5,0 L-8,-3 M-5,0 L-8,3 M5,0 L8,-3 M5,0 L8,3'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23sf' transform='translate(100,100) scale(0.3)' opacity='0.8'/%3E%3Cuse href='%23sf' transform='translate(300,300) scale(0.4)' opacity='0.9'/%3E%3Cuse href='%23sf' transform='translate(200,50) scale(0.35)' opacity='0.85'/%3E%3C/svg%3E") 50px 50px / 400px 400px;
     animation: snow-fall-1 15s linear infinite, snow-sway 6s ease-in-out infinite alternate;
   }
 
   body::after {
     background: 
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Ccircle cx='40' cy='40' r='2' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='180' cy='120' r='2.5' fill='%23ffffff' opacity='0.7'/%3E%3Ccircle cx='80' cy='250' r='2' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='250' cy='60' r='1.5' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='220' cy='220' r='2' fill='%23ffffff' opacity='0.7'/%3E%3C/svg%3E") 0 0 / 300px 300px,
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250'%3E%3Ccircle cx='150' cy='150' r='1.5' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='50' cy='180' r='2' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='200' cy='40' r='2' fill='%23ffffff' opacity='0.5'/%3E%3C/svg%3E") 100px 100px / 250px 250px;
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cdefs%3E%3Cg id='sf' stroke='%23ffffff' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M0,-10 L0,10 M-10,0 L10,0 M-7,-7 L7,7 M-7,7 L7,-7 M0,-5 L-3,-8 M0,-5 L3,-8 M0,5 L-3,8 M0,5 L3,8 M-5,0 L-8,-3 M-5,0 L-8,3 M5,0 L8,-3 M5,0 L8,3'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23sf' transform='translate(40,40) scale(0.2)' opacity='0.6'/%3E%3Cuse href='%23sf' transform='translate(180,120) scale(0.25)' opacity='0.7'/%3E%3Cuse href='%23sf' transform='translate(80,250) scale(0.2)' opacity='0.5'/%3E%3Cuse href='%23sf' transform='translate(250,60) scale(0.15)' opacity='0.6'/%3E%3Cuse href='%23sf' transform='translate(220,220) scale(0.2)' opacity='0.7'/%3E%3C/svg%3E") 0 0 / 300px 300px,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250'%3E%3Cdefs%3E%3Cg id='sf' stroke='%23ffffff' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M0,-10 L0,10 M-10,0 L10,0 M-7,-7 L7,7 M-7,7 L7,-7 M0,-5 L-3,-8 M0,-5 L3,-8 M0,5 L-3,8 M0,5 L3,8 M-5,0 L-8,-3 M-5,0 L-8,3 M5,0 L8,-3 M5,0 L8,3'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23sf' transform='translate(150,150) scale(0.15)' opacity='0.5'/%3E%3Cuse href='%23sf' transform='translate(50,180) scale(0.2)' opacity='0.6'/%3E%3Cuse href='%23sf' transform='translate(200,40) scale(0.2)' opacity='0.5'/%3E%3C/svg%3E") 100px 100px / 250px 250px;
     animation: snow-fall-2 25s linear infinite, snow-sway 8s ease-in-out infinite alternate-reverse;
     filter: blur(1px);
     opacity: 0.8;
@@ -4137,7 +4137,7 @@ body,
 
   .backgroundContainer::before {
     background: 
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='20' cy='20' r='1' fill='%23ffffff' opacity='0.4'/%3E%3Ccircle cx='80' cy='150' r='1.5' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='140' cy='60' r='1' fill='%23ffffff' opacity='0.4'/%3E%3Ccircle cx='180' cy='180' r='1' fill='%23ffffff' opacity='0.3'/%3E%3Ccircle cx='100' cy='90' r='1.5' fill='%23ffffff' opacity='0.5'/%3E%3C/svg%3E") 0 0 / 200px 200px;
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3Cg id='sf' stroke='%23ffffff' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M0,-10 L0,10 M-10,0 L10,0 M-7,-7 L7,7 M-7,7 L7,-7 M0,-5 L-3,-8 M0,-5 L3,-8 M0,5 L-3,8 M0,5 L3,8 M-5,0 L-8,-3 M-5,0 L-8,3 M5,0 L8,-3 M5,0 L8,3'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23sf' transform='translate(20,20) scale(0.1)' opacity='0.4'/%3E%3Cuse href='%23sf' transform='translate(80,150) scale(0.15)' opacity='0.5'/%3E%3Cuse href='%23sf' transform='translate(140,60) scale(0.1)' opacity='0.4'/%3E%3Cuse href='%23sf' transform='translate(180,180) scale(0.1)' opacity='0.3'/%3E%3Cuse href='%23sf' transform='translate(100,90) scale(0.15)' opacity='0.5'/%3E%3C/svg%3E") 0 0 / 200px 200px;
     animation: snow-fall-3 40s linear infinite, snow-sway 10s ease-in-out infinite alternate;
     filter: blur(2.5px);
     opacity: 0.6;
