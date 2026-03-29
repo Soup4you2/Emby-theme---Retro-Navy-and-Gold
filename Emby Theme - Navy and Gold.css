@@ -2475,14 +2475,23 @@ body:has(.view-login) .skinHeader {
   }
 
   .button-submit {
+    background: linear-gradient(135deg, var(--vday-red) 0%, var(--vday-pink-deep) 100%) !important;
+    color: var(--pure-white) !important;
+    font-family: 'Oswald', sans-serif !important;
+    text-transform: uppercase !important;
+    border-radius: var(--border-radius-pill) !important;
     border: 2px solid var(--vday-pink-light) !important;
     box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--vday-red-alpha-40) !important;
+    transition: all 0.2s ease-in-out !important;
     transform: none !important;
   }
-
+  .button-submit:hover {
+    background: linear-gradient(135deg, var(--vday-pink-deep) 0%, var(--vday-pink-light) 100%) !important;
+    border-color: var(--pure-white) !important;
+    box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--vday-pink-deep-alpha-80) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+  }
   .button-submit:active {
-    border: 2px solid var(--vday-pink-deep) !important;
-    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
     transform: scale(0.98) !important;
   }
 
@@ -2763,13 +2772,23 @@ body:has(.view-login) .skinHeader {
   }
   
   .button-submit {
+    background: linear-gradient(135deg, var(--stpat-green-mid) 0%, var(--stpat-green-bright) 100%) !important;
+    color: var(--pure-black) !important;
+    font-family: 'Oswald', sans-serif !important;
+    text-transform: uppercase !important;
+    border-radius: var(--border-radius-pill) !important;
     border: 2px solid var(--stpat-gold) !important;
     box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--stpat-green-bright-alpha-40) !important;
+    transition: all 0.2s ease-in-out !important;
     transform: none !important;
   }
+  .button-submit:hover {
+    background: linear-gradient(135deg, var(--stpat-green-bright) 0%, var(--stpat-gold) 100%) !important;
+    border-color: var(--pure-white) !important;
+    box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--stpat-green-bright-alpha-80) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+  }
   .button-submit:active {
-    border: 2px solid var(--stpat-gold-dark) !important;
-    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
     transform: scale(0.98) !important;
   }
 
@@ -2938,13 +2957,23 @@ body:has(.view-login) .skinHeader {
   }
 
   .button-submit {
-    border: 2px solid var(--easter-blue-light) !important;
+    background: linear-gradient(135deg, var(--easter-blue-light) 0%, var(--easter-pink) 100%) !important;
+    color: var(--retro-navy) !important;
+    font-family: 'Oswald', sans-serif !important;
+    text-transform: uppercase !important;
+    border-radius: var(--border-radius-pill) !important;
+    border: 2px solid var(--pure-white) !important;
     box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--easter-pink-alpha-50) !important;
+    transition: all 0.2s ease-in-out !important;
     transform: none !important;
   }
+  .button-submit:hover {
+    background: linear-gradient(135deg, var(--easter-pink) 0%, var(--easter-yellow-light) 100%) !important;
+    border-color: var(--pure-white) !important;
+    box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--easter-blue-light) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+  }
   .button-submit:active {
-    border: 2px solid var(--easter-blue) !important;
-    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
     transform: scale(0.98) !important;
   }
 
@@ -3087,13 +3116,24 @@ body:has(.view-login) .skinHeader {
   }
 
   .button-submit {
+    background: linear-gradient(135deg, var(--july4-blue) 0%, var(--july4-red) 100%) !important;
+    color: var(--july4-white) !important;
+    font-family: 'Oswald', sans-serif !important;
+    text-transform: uppercase !important;
+    border-radius: var(--border-radius-pill) !important;
     border: 2px solid var(--july4-white) !important;
     box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--july4-blue-alpha-50) !important;
+    transition: all 0.2s ease-in-out !important;
     transform: none !important;
   }
+  .button-submit:hover {
+    background: linear-gradient(135deg, var(--july4-red) 0%, var(--july4-white) 100%) !important;
+    color: var(--july4-navy) !important;
+    border-color: var(--july4-white) !important;
+    box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--july4-red-alpha-80) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+  }
   .button-submit:active {
-    border: 2px solid var(--july4-blue) !important;
-    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
     transform: scale(0.98) !important;
   }
     
@@ -3758,15 +3798,25 @@ body:has(.view-login) .skinHeader {
     75% { border-color: var(--pure-white); }
   }
 
- /* Fix for misaligned Submit/Save buttons ONLY + Themed Border */
   .button-submit {
+    background: linear-gradient(135deg, var(--tg-brown) 0%, var(--tg-orange) 100%) !important;
+    color: var(--pure-white) !important;
+    font-family: 'Oswald', sans-serif !important;
+    text-transform: uppercase !important;
+    border-radius: var(--border-radius-pill) !important;
     border: 2px solid var(--tg-gold) !important;
     box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--tg-orange-alpha-40) !important;
+    transition: all 0.2s ease-in-out !important;
     transform: none !important;
   }
+  .button-submit:hover {
+    background: linear-gradient(135deg, var(--tg-orange) 0%, var(--tg-gold) 100%) !important;
+    border-color: var(--pure-white) !important;
+    color: var(--pure-black) !important;
+    box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--tg-gold-alpha-80) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+  }
   .button-submit:active {
-    border: 2px solid var(--tg-orange) !important;
-    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
     transform: scale(0.98) !important;
   }
 
@@ -4231,13 +4281,23 @@ body:has(.view-login) .skinHeader {
   }
 
   .button-submit {
+    background: linear-gradient(135deg, var(--nye-gold-dark) 0%, var(--nye-gold) 100%) !important;
+    color: var(--pure-black) !important;
+    font-family: 'Oswald', sans-serif !important;
+    text-transform: uppercase !important;
+    border-radius: var(--border-radius-pill) !important;
     border: 2px solid var(--nye-cream) !important;
     box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--nye-gold-alpha-40) !important;
+    transition: all 0.2s ease-in-out !important;
     transform: none !important;
   }
+  .button-submit:hover {
+    background: linear-gradient(135deg, var(--nye-gold) 0%, var(--nye-cream) 100%) !important;
+    border-color: var(--pure-white) !important;
+    box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--nye-cream-alpha-80) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+  }
   .button-submit:active {
-    border: 2px solid var(--nye-gold) !important;
-    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
     transform: scale(0.98) !important;
   }
 
