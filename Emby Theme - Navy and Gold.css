@@ -1263,21 +1263,31 @@ button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
   filter: var(--filter-glow-light) !important;
 }
 
-/* Unwatched / Played Count Pills */
+/* Unwatched / Played Count Pills - Base Styling */
 .playedIndicator,
 .cardIndicator.playedIndicator,
 .countIndicator {
-  background: var(--indicator-bg) !important;
-  color: var(--indicator-color) !important;
-  border: var(--indicator-border) !important;
-  box-shadow: var(--indicator-shadow) !important;
   font-family: 'Oswald', sans-serif !important;
   font-weight: 700 !important;
   text-shadow: none !important;
   border-radius: var(--border-radius-pill) !important;
 }
 
+/* Played Count Pill Variables */
+.playedIndicator,
+.cardIndicator.playedIndicator {
+  background: var(--played-indicator-bg) !important;
+  color: var(--played-indicator-color) !important;
+  border: var(--played-indicator-border) !important;
+  box-shadow: var(--played-indicator-shadow) !important;
+}
+
+/* Unwatched Count Pill Variables & Sizing */
 .countIndicator {
+  background: var(--count-indicator-bg) !important;
+  color: var(--count-indicator-color) !important;
+  border: var(--count-indicator-border) !important;
+  box-shadow: var(--count-indicator-shadow) !important;
   font-size: 0.9em !important;
   min-width: 26px !important;
   height: 26px !important;
@@ -1289,7 +1299,7 @@ button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
 }
 
 .playedIndicator .md-icon {
-  color: var(--indicator-color) !important;
+  color: var(--played-indicator-color) !important;
 }
 
 /* ============================================================
