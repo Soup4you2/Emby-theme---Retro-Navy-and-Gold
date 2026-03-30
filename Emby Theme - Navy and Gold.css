@@ -4318,14 +4318,25 @@ body:has(.view-login) .skinHeader {
 
   /* General dialog buttons */
   .button-submit {
+    background: linear-gradient(135deg, var(--xmas-red) 0%, var(--xmas-red-dark) 100%) !important;
+    color: var(--pure-white) !important;
+    font-family: 'Oswald', sans-serif !important;
+    text-transform: uppercase !important;
+    border-radius: var(--border-radius-pill) !important;
     border: 2px solid var(--xmas-white) !important;
-    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--xmas-green-alpha-50) !important;
+    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--xmas-red-alpha-80) !important;
+    transition: all 0.2s ease-in-out !important;
     transform: none !important;
   }
-  
+ 
+  .button-submit:hover {
+    background: linear-gradient(135deg, var(--xmas-green) 0%, var(--xmas-bg-dark-1) 100%) !important;
+    border-color: var(--pure-white) !important;
+    box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--xmas-green-alpha-50) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+  }
+ 
   .button-submit:active {
-    border: 2px solid var(--xmas-green) !important;
-    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
     transform: scale(0.98) !important;
   }
 
