@@ -1056,327 +1056,351 @@ html .backdropContainer::after {
    ============================================================ */
 
 /* --- 3A. Top Header --- */
+
+/* 1. Header Transparency: Strips the solid background/blur from the top bar so the backdrop shows through */
 .skinHeader-withBackground,
 .skinHeader {
-  background: transparent !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border-bottom: none !important;
-  box-shadow: none !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
 }
 
+/* 2. Logo Management: Hides the default Emby text/image logo in the top left */
 .headerLeft {
-  display: flex !important;
+    display: flex !important;
 }
 
-/* Hides the default Emby logo */
 .headerLogo,
 .headerLeft img {
-  display: none !important;
+    display: none !important;
 }
 
+/* 3. Main Menu Button (Hamburger Icon) */
 .headerButton[title="Menu"],
 .headerButton.btnMenu {
-  color: var(--theme-primary-color) !important;
+    color: var(--theme-primary-color) !important;
 }
 
-/* --- 3B. Sidebar Drawer --- */
+
+/* --- 3B. Sidebar Drawer (Slide-out Menu) --- */
+
+/* 1. Drawer Base Styling */
 .mainDrawer {
-  background-color: var(--retro-navy) !important;
-  border-right: var(--standard-border-thickness) solid var(--gold-alpha-15) !important;
+    background-color: var(--retro-navy) !important;
+    border-right: var(--standard-border-thickness) solid var(--gold-alpha-15) !important;
 }
 
+/* 2. Drawer Text & Title Resizing */
 .navDrawerListItemBody,
 .emby-collapsible-title {
-  font-size: 1.1em !important;
+    font-size: 1.1em !important;
 }
 
-/* Selected item in the sidebar */
+/* 3. Selected Menu Item: Highlights the active page in the sidebar */
 .navMenuOption-selected {
-  background: var(--theme-icon-focus-background) !important;
-  border-left: none !important;
-  box-shadow: inset 10px 0 15px var(--gold-alpha-10) !important;
-}
-
-/* Remove default Emby selection pseudo-elements */
-.navMenuOption-selected::before,
-.navMenuOption-selected::after {
-  display: none !important;
+    background: var(--theme-icon-focus-background) !important;
+    border-left: none !important;
+    box-shadow: inset 10px 0 15px var(--gold-alpha-10) !important;
 }
 
 .navMenuOption-selected i.navDrawerListItemIcon {
-  color: var(--theme-primary-color) !important;
+    color: var(--theme-primary-color) !important;
 }
 
-/* --- 3C. Tab Buttons (Home, Favorites, Live TV, etc.) --- */
+/* 4. Cleanup: Removes default Emby selection indicator lines */
+.navMenuOption-selected::before,
+.navMenuOption-selected::after {
+    display: none !important;
+}
+
+
+/* --- 3C. Pill Navigation Tabs (Home, Favorites, Live TV, etc.) --- */
+
+/* 1. Tab Container: Creates the floating pill-box housing the navigation buttons */
 .videoOsdBottom .emby-tabs-container,
 .emby-tabs-container {
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 12px !important;
-  background: var(--navy-base-alpha-40) !important;
-  backdrop-filter: var(--blur-light) !important;
-  -webkit-backdrop-filter: var(--blur-light) !important;
-  border-radius: var(--border-radius-pill) !important;
-  padding: 10px 20px !important;
-  margin: 10px auto !important;
-  width: auto !important;
-  max-width: 98% !important;
-  overflow-x: auto !important;
-  overflow-y: hidden !important;
-  scrollbar-width: none;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 12px !important;
+    background: var(--navy-base-alpha-40) !important;
+    backdrop-filter: var(--blur-light) !important;
+    -webkit-backdrop-filter: var(--blur-light) !important;
+    border-radius: var(--border-radius-pill) !important;
+    padding: 10px 20px !important;
+    margin: 10px auto !important;
+    width: auto !important;
+    max-width: 98% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none; /* Hides scrollbar on Firefox */
 }
 
+/* Hides scrollbar in Webkit browsers for the tab container */
 .emby-tabs-container::-webkit-scrollbar {
-  display: none !important;
+    display: none !important;
 }
 
-/* Base Tab Button Styling */
+/* 2. Base Tab Buttons: Standard inactive state for the navigation text */
 .videoOsdBottom .emby-tab-button,
 .emby-tab-button {
-  display: inline-flex;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-shrink: 0 !important;
-  font-family: 'Oswald', sans-serif !important;
-  font-size: 0.72em !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1px !important;
-  color: var(--white-alpha-60) !important;
-  border-radius: var(--border-radius-pill) !important;
-  padding: 0.6em 1.4em !important;
-  margin: 0 !important;
-  border: none !important;
-  transition: all var(--transition-speed) ease-in-out !important;
-  line-height: 1.2 !important;
-  height: auto !important;
-  will-change: background, transform;
+    display: inline-flex;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    font-family: 'Oswald', sans-serif !important;
+    font-size: 0.72em !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    color: var(--white-alpha-60) !important;
+    border-radius: var(--border-radius-pill) !important;
+    padding: 0.6em 1.4em !important;
+    margin: 0 !important;
+    border: none !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+    line-height: 1.2 !important;
+    height: auto !important;
+    will-change: background, transform;
 }
 
 .emby-tab-button.hide {
-  display: none !important;
+    display: none !important;
 }
 
-/* Remove default Emby tab underlines */
+/* 3. Cleanup: Removes default Emby underline effects on tabs */
 .videoOsdBottom .emby-tab-button::after,
 .videoOsdBottom .emby-tab-button::before {
-  display: none !important;
+    display: none !important;
 }
 
-/* Active & Focused Tab State */
+/* 4. Active & Focused Tab States (Driven by Section 1 Toggles) */
 .videoOsdBottom .emby-tab-button-active,
 .emby-tab-button-active,
 .videoOsdBottom .emby-tab-button:focus,
 .videoOsdBottom .emby-tab-button.show-focus {
-  background: var(--nav-active-background) !important;
-  color: var(--nav-active-color) !important;
-  border: var(--nav-active-border) !important;
-  box-shadow: var(--nav-active-shadow) !important;
-  opacity: 1 !important;
+    background: var(--nav-active-background) !important;
+    color: var(--nav-active-color) !important;
+    border: var(--nav-active-border) !important;
+    box-shadow: var(--nav-active-shadow) !important;
+    opacity: 1 !important;
 }
 
-/* Hover State (Inactive tabs only) */
+/* 5. Hover State for Inactive Tabs */
 .emby-tab-button:hover:not(.emby-tab-button-active) {
-  background: var(--white-alpha-10) !important;
-  color: var(--my-gold) !important;
+    background: var(--white-alpha-10) !important;
+    color: var(--my-gold) !important;
 }
 
 /* ============================================================
    04. FORMS, BUTTONS, & DIALOGS
    ============================================================ */
 
-/* --- 4A. Modal Backgrounds & Headers --- */
+/* --- 4A. Modal Dialogs & Popups --- */
+
+/* 1. Backdrop Overlay: Dims the rest of the screen behind the open dialog */
 .dialogBackdrop {
-  background: var(--black-alpha-70) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+    background: var(--black-alpha-70) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
-.formDialogHeader,
-.formDialogFooter {
-  background: var(--black-alpha-20) !important;
-}
-
-/* Main Dialog Box Container */
+/* 2. Main Dialog Box: Styling for settings windows, edit metadata boxes, etc. */
 .dialog,
 .formDialog,
 .actionSheet {
-  background-color: var(--navy-light-alpha-80) !important;
-  backdrop-filter: var(--blur-extreme) saturate(160%) !important;
-  -webkit-backdrop-filter: var(--blur-extreme) saturate(160%) !important;
-  border: var(--standard-border-thickness) solid var(--gold-alpha-25) !important;
-  box-shadow: 0 15px 40px var(--black-alpha-90) !important;
-  border-radius: var(--border-radius-md) !important;
-  color: var(--text-muted) !important;
-  overflow: hidden !important;
-  transform: translateZ(0); /* Hardware acceleration for smooth opening */
+    background-color: var(--navy-light-alpha-80) !important;
+    backdrop-filter: var(--blur-extreme) saturate(160%) !important;
+    -webkit-backdrop-filter: var(--blur-extreme) saturate(160%) !important;
+    border: var(--standard-border-thickness) solid var(--gold-alpha-25) !important;
+    box-shadow: 0 15px 40px var(--black-alpha-90) !important;
+    border-radius: var(--border-radius-md) !important;
+    color: var(--text-muted) !important;
+    overflow: hidden !important;
+    transform: translateZ(0); /* Hardware acceleration for smooth rendering */
 }
 
-/* Multi-select command panels */
+/* 3. Dialog Headers & Footers */
+.formDialogHeader,
+.formDialogFooter {
+    background: var(--black-alpha-20) !important;
+}
+
+/* 4. Multi-Select Panels: The bar that appears when selecting multiple media items */
 .itemSelectionPanel,
 .selectionCommandsPanel {
-  background-color: var(--retro-navy-light) !important;
-  border: var(--standard-border-thickness) solid var(--theme-primary-color) !important;
-  color: var(--pure-white) !important;
+    background-color: var(--retro-navy-light) !important;
+    border: var(--standard-border-thickness) solid var(--theme-primary-color) !important;
+    color: var(--pure-white) !important;
 }
 
-/* --- 4B. Text Inputs, Selects & Textareas --- */
+
+/* --- 4B. Text Inputs, Dropdowns & Textareas --- */
+
+/* 1. Base Input Styling */
 .emby-input,
 .emby-select,
 .emby-textarea {
-  background-color: var(--navy-light-alpha-80) !important;
-  border: var(--standard-border-thickness) solid var(--white-alpha-10) !important;
-  border-radius: var(--border-radius-sm) !important;
-  color: var(--pure-white) !important;
-  padding: 0.5em 1em !important;
-  transition: border-color var(--transition-speed), box-shadow var(--transition-speed) !important;
+    background-color: var(--navy-light-alpha-80) !important;
+    border: var(--standard-border-thickness) solid var(--white-alpha-10) !important;
+    border-radius: var(--border-radius-sm) !important;
+    color: var(--pure-white) !important;
+    padding: 0.5em 1em !important;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed) !important;
 }
 
-/* Fix for Emby's native select dropdown heights */
+/* 2. Dropdown Height Fix: Ensures native select dropdowns don't collapse */
 .emby-select,
 .emby-select[disabled],
 .trackSelectionField .emby-select {
-  height: auto !important;
-  min-height: 35px !important;
-  line-height: normal !important;
+    height: auto !important;
+    min-height: 35px !important;
+    line-height: normal !important;
 }
 
-/* Universal Input Focus State */
+/* 3. Input Focus States (Glowing borders when typing/selecting) */
 .emby-input:focus,
 .emby-textarea:focus,
 select.emby-select:focus,
 select.emby-select:active,
 select.emby-select:focus-visible,
 select.emby-select.emby-select-focusscale:focus {
-  border: var(--hover-border-thickness) solid var(--theme-primary-color) !important;
-  box-shadow: var(--shadow-glow-standard) !important;
-  outline: none !important;
+    border: var(--hover-border-thickness) solid var(--theme-primary-color) !important;
+    box-shadow: var(--shadow-glow-standard) !important;
+    outline: none !important;
 }
 
-/* Search bar icon padding fix */
+/* 4. Search Bar Fix: Prevents text from overlapping the magnifying glass icon */
 input[type="search"].emby-input,
 .emby-input.searchInput {
-  padding-left: 2.5em !important;
+    padding-left: 2.5em !important;
 }
 
+
 /* --- 4C. Checkboxes & Toggles --- */
+
+/* 1. Checkboxes */
 .emby-checkbox:checked + span::before {
-  background-color: var(--my-gold) !important;
-  border-color: var(--my-gold) !important;
+    background-color: var(--my-gold) !important;
+    border-color: var(--my-gold) !important;
 }
 
 .emby-checkbox:focus + span::before {
-  border-color: var(--my-gold) !important;
-  box-shadow: var(--shadow-glow-standard) !important;
+    border-color: var(--my-gold) !important;
+    box-shadow: var(--shadow-glow-standard) !important;
 }
 
+/* 2. Toggles (On/Off Switches) */
 .emby-toggle:checked ~ .toggleSwitch {
-  background-color: var(--my-gold) !important;
+    background-color: var(--my-gold) !important;
 }
 
 .emby-toggle:focus:checked ~ .toggleSwitch {
-  box-shadow: var(--shadow-glow-standard) !important;
+    box-shadow: var(--shadow-glow-standard) !important;
 }
 
-/* --- 4D. Universal Buttons & Indicators --- */
 
-/* Standard Accent Buttons */
+/* --- 4D. Standard Buttons & List Selections --- */
+
+/* 1. Primary "Submit" Action Buttons (Save, Enter, etc.) */
 .button-submit,
 .button-accent-flat {
-  background-color: var(--theme-primary-color) !important;
-  color: var(--pure-black) !important;
+    background-color: var(--theme-primary-color) !important;
+    color: var(--pure-black) !important;
 }
 
-/* List Item Selection */
+/* 2. List Item Selection & Hover States */
 .actionSheetMenuItem-selected,
 .listItem-selected,
 .paperListbox-selected {
-  background-color: var(--my-gold-transparent) !important;
-  color: var(--my-gold) !important;
+    background-color: var(--my-gold-transparent) !important;
+    color: var(--my-gold) !important;
 }
 
 .actionSheetMenuItem:hover,
 .listItem.listItem-button:hover {
-  background-color: var(--white-alpha-10) !important;
-  color: var(--my-gold) !important;
+    background-color: var(--white-alpha-10) !important;
+    color: var(--my-gold) !important;
 }
 
-/* Media Overlay Buttons (Play, Edit, etc.) */
+/* 3. Media Overlay Buttons (The small floating Play/Edit buttons on posters) */
 .cardOverlayFab-primary,
 .cardOverlayButtonIcon,
 .listItemOverlayButtonIcon,
 .listItemImageButton {
-  background-color: var(--my-gold) !important;
-  color: var(--pure-black) !important;
-  will-change: transform, box-shadow;
+    background-color: var(--my-gold) !important;
+    color: var(--pure-black) !important;
+    will-change: transform, box-shadow;
 }
 
-/* Played State Icons (Overrides default green checkmarks) */
+
+/* --- 4E. Media Status Indicators (Unwatched & Played Pills) --- */
+
+/* 1. Base Shared Styling for all notification pills */
+.playedIndicator,
+.cardIndicator.playedIndicator,
+.countIndicator {
+    text-shadow: none !important;
+    border-radius: var(--border-radius-pill) !important;
+}
+
+/* 2. Played Status Checks (Overrides default Emby green checkmarks) */
 .playstatebutton-icon-played,
 button[data-played="true"] .playstatebutton-icon,
 .listViewPlayedButton.playstatebutton-icon-played,
 .listViewPlayedButton[data-played="true"],
 button[data-played="true"].cardOverlayButton-fab {
-  color: var(--my-gold) !important;
-  border-color: var(--my-gold) !important;
+    color: var(--my-gold) !important;
+    border-color: var(--my-gold) !important;
 }
 
 button[data-played="true"].cardOverlayButton-fab {
-  filter: drop-shadow(0 0 5px var(--retro-glow)) !important;
+    filter: drop-shadow(0 0 5px var(--retro-glow)) !important;
 }
 
 button[data-played="true"] .playstatebutton-icon-played,
 button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
-  filter: drop-shadow(0 0 5px var(--my-gold-transparent)) !important;
+    filter: drop-shadow(0 0 5px var(--my-gold-transparent)) !important;
 }
 
 .cardOverlayButton-br:hover .playstatebutton-icon-played,
 .listViewPlayedButton:hover {
-  color: var(--my-gold) !important;
-  filter: var(--filter-glow-light) !important;
+    color: var(--my-gold) !important;
+    filter: var(--filter-glow-light) !important;
 }
 
-/* Unwatched / Played Count Pills - Base Shared Styling */
-.playedIndicator,
-.cardIndicator.playedIndicator,
-.countIndicator {
-  text-shadow: none !important;
-  border-radius: var(--border-radius-pill) !important;
-}
-
-/* Played Count Pill Variables */
+/* 3. Played Indicator Pills (Top right of cards) */
 .playedIndicator,
 .cardIndicator.playedIndicator {
-  background: var(--played-indicator-bg) !important;
-  color: var(--played-indicator-color) !important;
-  border: var(--played-indicator-border) !important;
-  box-shadow: var(--played-indicator-shadow) !important;
-  /* Font-family is intentionally left default here so the checkmark icon renders */
-}
-
-/* Unwatched Count Pill Variables & Sizing */
-.countIndicator {
-  background: var(--count-indicator-bg) !important;
-  color: var(--count-indicator-color) !important;
-  border: var(--count-indicator-border) !important;
-  box-shadow: var(--count-indicator-shadow) !important;
-  font-family: 'Oswald', sans-serif !important; /* Only applied to numbers */
-  font-weight: 700 !important;
-  font-size: 0.9em !important;
-  min-width: 26px !important;
-  height: 26px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 0 6px !important;
-  line-height: 1 !important;
+    background: var(--played-indicator-bg) !important;
+    color: var(--played-indicator-color) !important;
+    border: var(--played-indicator-border) !important;
+    box-shadow: var(--played-indicator-shadow) !important;
 }
 
 .playedIndicator .md-icon {
-  color: var(--played-indicator-color) !important;
+    color: var(--played-indicator-color) !important;
+}
+
+/* 4. Unwatched Count Pills (Driven by Section 1 Variables for sizing/style) */
+.countIndicator {
+    background: var(--count-indicator-bg) !important;
+    color: var(--count-indicator-color) !important;
+    border: var(--count-indicator-border) !important;
+    box-shadow: var(--count-indicator-shadow) !important;
+    font-family: 'Oswald', sans-serif !important; 
+    font-weight: 700 !important;
+    font-size: 0.9em !important;
+    min-width: 26px !important;
+    height: 26px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 6px !important;
+    line-height: 1 !important;
 }
 
 /* ============================================================
@@ -1384,139 +1408,161 @@ button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
    ============================================================ */
 
 /* --- 5A. Base Card Styling --- */
+
+/* 1. Universal Card Container: Includes hardware acceleration to keep hovers smooth */
 .card {
-  transform: translateZ(0); /* Prevents layout shifting on hover */
-  will-change: transform;
-  backface-visibility: hidden;
+    transform: translateZ(0); 
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
+/* 2. Card Content & Images: Defines the standard look of posters and thumbnails */
 .cardContent,
 .cardImageContainer {
-  box-shadow: 0px 10px 20px var(--black-alpha-75) !important;
-  border: var(--hover-border-thickness) solid transparent !important;
-  transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out !important;
-  will-change: border-color, box-shadow;
+    box-shadow: 0px 10px 20px var(--black-alpha-75) !important;
+    border: var(--hover-border-thickness) solid transparent !important;
+    transition: border-color var(--transition-speed) ease-out, box-shadow var(--transition-speed) ease-out !important;
+    will-change: border-color, box-shadow;
 }
 
-.innerCardFooter {
-  text-shadow: 1px 1px 2px var(--black-alpha-80);
-}
-
+/* 3. Card Progress Bar: The "watch progress" line at the bottom of posters */
 .itemProgressBarForeground {
-  background-color: var(--theme-primary-color) !important;
-  box-shadow: var(--glow-progress-bar) !important;
-  border-radius: var(--hover-border-thickness) !important;
+    background-color: var(--theme-primary-color) !important;
+    box-shadow: var(--glow-progress-bar) !important;
+    border-radius: var(--hover-border-thickness) !important;
 }
 
-/* Connects to the User Toggle in Section 1 */
+/* 4. Play Button Toggle: Links to the visibility switch in Section 1 */
 .cardOverlayFab-primary {
-  display: var(--play-button-display) !important;
+    display: var(--play-button-display) !important;
+}
+
+/* 5. Card Footer: Subtle text shadow to help white text stay visible over art */
+.innerCardFooter {
+    text-shadow: 1px 1px 2px var(--black-alpha-80);
 }
 
 /* --- 5B. Card Hover States --- */
-.card:hover {
-  transform: none !important;
-}
 
+/* 1. Global Hover Behavior: Applies the glow and border color on mouse-over */
 .card:hover .cardContent,
 .card:hover .cardImageContainer {
-  border-color: var(--theme-primary-color) !important;
-  box-shadow: 0px 15px 30px var(--black-alpha-90), var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+    border-color: var(--theme-primary-color) !important;
+    box-shadow: 0px 15px 30px var(--black-alpha-90), 
+                var(--shadow-glow-standard), 
+                inset 0 0 10px var(--gold-alpha-10) !important;
 }
 
-/* Standard Rectangular Cards */
+/* 2. Shape Handling: Ensure rectangular cards get rounded corners on hover */
 .card:hover .cardContent:not(.cardContent-round),
 .card:hover .cardImageContainer:not(.cardContent-round) {
-  border-radius: var(--border-radius-lg) !important;
+    border-radius: var(--border-radius-lg) !important;
 }
 
-/* Circular Cards (Collections/Music Artists) */
+/* 3. Circular Cards: Ensures Music Artists/Collections stay circular during hover effects */
 .card:hover .cardContent.cardContent-round,
 .card:hover .cardImageContainer.cardContent-round,
 .cardBox .cardContent-round ~ .cardOverlayContainer {
-  border-radius: 50% !important;
+    border-radius: 50% !important;
 }
 
-/* Removes default Emby dark overlay on hover */
+/* 4. Overlay Cleanup: Removes Emby's default dark tint when hovering over cards */
 .card:hover .cardOverlayContainer,
 .card-selected .cardOverlayContainer,
 .card.show-focus .cardOverlayContainer {
-  background-color: transparent !important;
+    background-color: transparent !important;
 }
 
 /* --- 5C. Cast & Crew Portraits --- */
 
-/* Portrait Dimensions (Driven by Section 1 Toggles) */
+/* 1. Portrait Dimensions: Driven by the Oval/Circle/Rectangle toggles in Section 1 */
 .peopleSection .cardPadder-portrait,
 .personCard .cardPadder-portrait {
-  aspect-ratio: var(--portrait-ratio) !important;
+    aspect-ratio: var(--portrait-ratio) !important;
 }
 
+/* 2. Portrait Shape & Shadow */
 .peopleSection .cardContent-background,
 .peopleSection .cardImageContainer,
 .personCard .cardImageContainer {
-  border-radius: var(--portrait-radius) !important;
-  box-shadow: 0px 10px 25px var(--black-alpha-70) !important;
-  overflow: hidden !important;
+    border-radius: var(--portrait-radius) !important;
+    box-shadow: 0px 10px 25px var(--black-alpha-70) !important;
+    overflow: hidden !important;
 }
 
+/* 3. Portrait Image Scaling: Ensures actors' faces aren't squashed */
 .peopleSection .cardImageContainer img,
 .personCard .cardImageContainer img {
-  object-fit: cover !important;
+    object-fit: cover !important;
 }
 
-/* Portrait Hover States */
-.peopleSection .card-hoverable:hover .cardOverlayContainer,
-.personCard.card-hoverable:hover .cardOverlayContainer,
+/* 4. Portrait Hover Tweaks: Fixed border dimensions to prevent morphing */
+
+/* Pre-apply a transparent border to the overlay so its box model doesn't resize on hover */
+.peopleSection .cardOverlayContainer,
+.personCard .cardOverlayContainer {
+    border: var(--hover-border-thickness) solid transparent !important;
+    border-radius: var(--portrait-radius) !important;
+    transition: border-color var(--transition-speed) ease-out, background var(--transition-speed) ease-out !important;
+}
+
+/* Light up the overlay border on hover */
+.peopleSection .card:hover .cardOverlayContainer,
+.personCard:hover .cardOverlayContainer {
+    border-color: var(--theme-primary-color) !important;
+    background: transparent !important;
+}
+
+/* Force the underlying image container's border to stay transparent to prevent layout shifting */
 .peopleSection .card:hover .cardImageContainer,
 .personCard:hover .cardImageContainer {
-  border-radius: var(--portrait-radius) !important;
+    border-color: transparent !important;
+    box-shadow: 0px 15px 30px var(--black-alpha-90), 
+                var(--shadow-glow-standard) !important;
+    border-radius: var(--portrait-radius) !important;
 }
 
+/* Strip borders and shadows from the deep content layer to prevent double-rendering */
 .peopleSection .card:hover .cardContent,
 .personCard:hover .cardContent {
-  border: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
-}
-
-.peopleSection .card:hover .cardImageContainer,
-.personCard:hover .cardImageContainer {
-  border-color: var(--theme-primary-color) !important;
-  box-shadow: 0px 15px 30px var(--black-alpha-90), var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
-}
-
-/* Clean up Emby's base container for people cards */
-.peopleSection .card,
-.personCard,
-.peopleSection .cardBox,
-.personCard .cardBox {
-  border-radius: 0 !important;
-  overflow: visible !important;
-  background: transparent !important;
-  box-shadow: none !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    background: transparent !important;
 }
 
 /* --- 5D. Cast & Crew Typography --- */
+
+/* 1. Master Container: Prevents long names from breaking into 3+ lines and ruining the grid */
 .peopleSection .cardText {
-  text-align: center !important;
-  width: 100%;
+    text-align: center !important;
+    width: 100%;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
 }
 
+/* 2. Actor Name (Top line) */
 .peopleSection .cardText-first {
-  font-family: 'Oswald', sans-serif !important;
-  color: var(--my-gold) !important;
-  font-size: 1.1em !important;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-top: 10px !important;
+    font-family: 'Oswald', sans-serif !important;
+    color: var(--my-gold) !important;
+    font-size: 1.1em !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 10px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
 }
 
+/* 3. Character Role (Bottom line) */
 .peopleSection .cardText-secondary {
-  font-family: 'Sofia Sans', sans-serif !important;
-  color: var(--white-alpha-70) !important;
-  font-size: 0.9em !important;
-  font-style: italic;
+    font-family: 'Sofia Sans', sans-serif !important;
+    color: var(--white-alpha-70) !important;
+    font-size: 0.9em !important;
+    font-style: italic;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
 }
 
 /* ============================================================
@@ -1524,206 +1570,230 @@ button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
    ============================================================ */
 
 /* --- 6A. Page Layout & Section Ordering --- */
+
+/* 1. Flex Container: Allows us to re-order page sections using the variables in Section 1 */
 .detailPageWrapperContainer,
 .detailPagePrimaryContainer {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
+/* 2. Section Orders: Forces sections to display in our preferred vertical order */
 div.verticalSection.seriesItemsSection { order: var(--order-seasons) !important; }
 div.verticalSection.itemNextUpSection  { order: var(--order-next-up) !important; }
 div.verticalSection.peopleSection      { order: var(--order-cast-crew) !important; margin-top: 20px; }
 div.verticalSection.similarSection     { order: var(--order-similar) !important; }
 div.verticalSection.aboutSection       { order: var(--order-about) !important; }
 
+
 /* --- 6B. Info Banner & Panels --- */
+
+/* 1. Top Info Banner: The horizontal bar containing the general metadata summary */
 .infoBanner {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  background: var(--retro-navy-light) !important;
-  backdrop-filter: var(--blur-light) !important;
-  -webkit-backdrop-filter: var(--blur-light) !important;
-  border: var(--hover-border-thickness) solid var(--theme-primary-color) !important;
-  box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
-  border-radius: var(--border-radius-lg) !important;
-  color: var(--pure-white) !important;
-  font-weight: 600 !important;
-  padding: 12px 20px !important;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--retro-navy-light) !important;
+    backdrop-filter: var(--blur-light) !important;
+    -webkit-backdrop-filter: var(--blur-light) !important;
+    border: var(--hover-border-thickness) solid var(--theme-primary-color) !important;
+    box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+    border-radius: var(--border-radius-lg) !important;
+    color: var(--pure-white) !important;
+    font-weight: 600 !important;
+    padding: 12px 20px !important;
 }
 
+/* 2. Media Info Panel: The background card for the description and tech details */
 .mediaInfoPanel {
-  background: var(--navy-light-alpha-70) !important;
-  backdrop-filter: var(--blur-heavy) !important;
-  -webkit-backdrop-filter: var(--blur-heavy) !important;
-  border: var(--standard-border-thickness) solid var(--my-gold-transparent) !important;
-  border-radius: var(--border-radius-xl) !important;
-  padding: 15px !important;
+    background: var(--navy-light-alpha-70) !important;
+    backdrop-filter: var(--blur-heavy) !important;
+    -webkit-backdrop-filter: var(--blur-heavy) !important;
+    border: var(--standard-border-thickness) solid var(--my-gold-transparent) !important;
+    border-radius: var(--border-radius-xl) !important;
+    padding: 15px !important;
 }
 
 .mediaInfoPanel h2,
 .mediaInfoPanel .material-icons {
-  color: var(--my-gold) !important;
-  font-family: 'Oswald', sans-serif !important;
-  text-transform: uppercase;
+    color: var(--my-gold) !important;
+    font-family: 'Oswald', sans-serif !important;
+    text-transform: uppercase;
 }
 
-/* --- 6C. Media Badges (4K, HDR, CC, etc.) --- */
+/* --- 6C. Media Badges & Selectors (4K, HDR, Audio Tracks, etc.) --- */
+
+/* 1. Base Badge Styling: The pill-shaped technical icons */
 .mediaInfoItem {
-  background: var(--media-badge-bg) !important;
-  backdrop-filter: blur(5px) !important;
-  -webkit-backdrop-filter: blur(5px) !important;
-  border: var(--media-badge-border) !important;
-  border-radius: var(--media-badge-radius) !important;
-  color: var(--media-badge-color) !important;
-  box-shadow: var(--media-badge-shadow) !important;
-  font-family: 'Oswald', sans-serif !important;
-  font-weight: 700 !important;
-  text-transform: uppercase;
-  padding: 2px 10px !important;
-  margin: 0 8px 8px 0 !important;
-  transition: all var(--transition-speed) ease-in-out;
-  will-change: transform;
+    background: var(--media-badge-bg) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+    border: var(--media-badge-border) !important;
+    border-radius: var(--media-badge-radius) !important;
+    color: var(--media-badge-color) !important;
+    box-shadow: var(--media-badge-shadow) !important;
+    font-family: 'Oswald', sans-serif !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    padding: 2px 10px !important;
+    margin: 0 8px 8px 0 !important;
+    transition: all var(--transition-speed) ease-in-out;
+    will-change: transform;
 }
 
+/* 2. Badge Hover: Causes technical tags to scale and glint when hovered */
 .mediaInfoItem:hover {
-  background: var(--media-badge-hover-bg) !important;
-  color: var(--media-badge-hover-color) !important;
-  border: var(--media-badge-hover-border) !important;
-  box-shadow: var(--media-badge-hover-shadow) !important;
-  transform: scale(1.05);
+    background: var(--media-badge-hover-bg) !important;
+    color: var(--media-badge-hover-color) !important;
+    border: var(--media-badge-hover-border) !important;
+    box-shadow: var(--media-badge-hover-shadow) !important;
+    transform: scale(1.05);
 }
 
+/* 3. Rating Star Icon Formatting */
 .starIcon {
-  color: var(--my-gold) !important;
-  filter: var(--filter-glow-light);
+    color: var(--my-gold) !important;
+    filter: var(--filter-glow-light) !important;
+    margin-right: 2px; 
 }
 
-/* Track Selector Dropdowns */
+/* Forces stars inside the rating badges to match the dark text color so they don't vanish */
+.mediaInfoItem .starIcon {
+    color: inherit !important;
+    filter: none !important;
+}
+
+/* 4. Track Selector Dropdowns (Audio/Subtitle menus) */
 .trackSelectionField .selectLabel,
 .trackSelectionField .selectContainer,
 .mediaInfoAttributeValue {
-  color: var(--pure-white) !important;
+    color: var(--pure-white) !important;
 }
 
 .mediaInfoAttributeLabel {
-  color: var(--my-gold) !important;
-  font-weight: 600 !important;
-  opacity: 0.9;
+    color: var(--my-gold) !important;
+    font-weight: 600 !important;
+    opacity: 0.9;
 }
 
 .trackSelectionField .emby-select {
-  background: var(--navy-base-alpha-60) !important;
-  border: var(--standard-border-thickness) solid var(--my-gold-transparent) !important;
-  color: var(--my-gold) !important;
-  padding: 5px 10px !important;
+    background: var(--navy-base-alpha-60) !important;
+    border: var(--standard-border-thickness) solid var(--my-gold-transparent) !important;
+    color: var(--my-gold) !important;
+    padding: 5px 10px !important;
 }
 
 .trackSelectionField .selectArrowContainer {
-  color: var(--my-gold) !important;
+    color: var(--my-gold) !important;
 }
 
-/* --- 6D. Detail Action Buttons --- */
+/* --- 6D. Detail Action Buttons (Play, Trailer, More) --- */
+
+/* 1. Standard Detail Buttons */
 .mainDetailButtons .emby-button,
 .detailButtons .emby-button,
 .detailButton {
-  background: var(--navy-light-alpha-60) !important;
-  backdrop-filter: var(--blur-light) !important;
-  -webkit-backdrop-filter: var(--blur-light) !important;
-  border: var(--standard-border-thickness) solid var(--theme-primary-color) !important;
-  color: var(--pure-white) !important;
-  transition: all var(--transition-speed) ease-in-out !important;
+    background: var(--navy-light-alpha-60) !important;
+    backdrop-filter: var(--blur-light) !important;
+    -webkit-backdrop-filter: var(--blur-light) !important;
+    border: var(--standard-border-thickness) solid var(--theme-primary-color) !important;
+    color: var(--pure-white) !important;
+    transition: all var(--transition-speed) ease-in-out !important;
 }
 
-/* Primary Play Button Priority */
+/* 2. Primary Action Button: Play Button Priority (Solid Gold) */
 .mainDetailButtons .btnPlay,
 .detailButtons .btnPlay,
 .btnPlay.detailButton {
-  background-color: var(--theme-primary-color) !important;
-  color: var(--pure-black) !important;
-  font-weight: bold !important;
-  box-shadow: var(--glow-medium) !important;
+    background-color: var(--theme-primary-color) !important;
+    color: var(--pure-black) !important;
+    font-weight: bold !important;
+    box-shadow: var(--glow-medium) !important;
 }
 
+/* 3. Universal Button Hover State */
 .mainDetailButtons .emby-button:hover,
 .detailButtons .emby-button:hover,
 .detailButton:hover {
-  background-color: var(--theme-primary-color) !important;
-  color: var(--pure-black) !important;
-  box-shadow: var(--shadow-glow-standard) !important;
-  transform: scale(1.05) !important;
+    background-color: var(--theme-primary-color) !important;
+    color: var(--pure-black) !important;
+    box-shadow: var(--shadow-glow-standard) !important;
+    transform: scale(1.05) !important;
 }
 
 .detailButton .material-icons {
-  color: inherit !important;
+    color: inherit !important;
 }
 
-/* Text Links (Resume text, actors, etc.) */
+/* 4. Text Links (Resume text, actor names in lists, etc.) */
 div.resumeName a.emby-button[is="emby-linkbutton"] {
-  color: var(--my-gold) !important;
-  text-decoration: none !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
+    color: var(--my-gold) !important;
+    text-decoration: none !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 div.resumeName a.emby-button[is="emby-linkbutton"]:hover,
 div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
 .itemSecondaryNameContainer .button-link:hover {
-  text-decoration: underline !important;
-  color: var(--my-gold) !important;
+    text-decoration: underline !important;
+    color: var(--my-gold) !important;
 }
 
 .itemSecondaryNameContainer .button-link {
-  color: var(--my-gold) !important;
+    color: var(--my-gold) !important;
 }
 
-/* --- 6E. About Section Overrides (Fixing Emby's hardcoded clips) --- */
-.mediaInfoItem .starIcon {
-  color: inherit !important; 
-  filter: none !important; 
-  margin-right: 2px; 
-}
+/* --- 6E. About Section Overrides (Fixing Emby's native text issues) --- */
 
-/* Strip Emby's native text clipping and shadow forcing */
+/* 1. Strip Emby's native text clipping and shadow forcing.
+      Emby often applies weird hardcoded gradients to text in this section 
+      that breaks custom theming. This resets it back to normal text. */
 .aboutSection div.sectionTitle, 
 .aboutSection .button-link,
 .aboutSection .mediaInfoAttributeValue,
 .aboutSection .itemSecondaryText,
 .aboutSection .audioVideoMediaInfo,
 .aboutSection .mediaInfoPanel h2 {
-  background: transparent !important; 
-  -webkit-background-clip: initial !important;
-  text-shadow: none !important;
-  filter: none !important;
-  opacity: 1 !important;
+    background: transparent !important; 
+    -webkit-background-clip: initial !important;
+    text-shadow: none !important;
+    filter: none !important;
+    opacity: 1 !important;
 }
 
-/* Re-apply our pure white */
+/* 2. Re-apply our pure white text */
 .aboutSection div.sectionTitle, 
 .aboutSection .button-link,
 .aboutSection .mediaInfoAttributeValue,
 .aboutSection .itemSecondaryText {
-  -webkit-text-fill-color: var(--pure-white) !important; 
-  color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important; 
+    color: var(--pure-white) !important;
 }
 
-/* Re-apply our gold to headers */
+/* 3. Re-apply our gold to headers */
 .aboutSection .mediaInfoPanel h2,
 .aboutSection .mediaInfoPanel .material-icons {
-  -webkit-text-fill-color: var(--my-gold) !important;
-  color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    color: var(--my-gold) !important;
 }
 
-/* Fix badges inside the About section */
+/* 4. Fix media badges specifically inside the About section */
 .aboutSection .mediaInfoItem {
-  -webkit-text-fill-color: var(--media-badge-color) !important; 
-  background: var(--media-badge-bg) !important;
-  box-shadow: 2px 2px 5px var(--black-alpha-50) !important; 
-  text-shadow: none !important;
+    -webkit-text-fill-color: var(--media-badge-color) !important; 
+    background: var(--media-badge-bg) !important;
+    box-shadow: 2px 2px 5px var(--black-alpha-50) !important; 
+    text-shadow: none !important;
+}
+
+/* 5. Fix star icon filtering inside the About section badges */
+.aboutSection .mediaInfoItem .starIcon {
+    color: inherit !important; 
+    filter: none !important; 
 }
 
 /* ============================================================
@@ -1731,88 +1801,113 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
    ============================================================ */
 
 /* --- 7A. Grid Cells & Channels --- */
-.guide-channelHeader,
+
+/* 1. Base TV Program Cell */
 .programCell {
-  background-color: var(--navy-light-alpha-40) !important;
-  border: var(--standard-border-thickness) solid var(--gold-alpha-05) !important;
-  backdrop-filter: var(--blur-light);
-  -webkit-backdrop-filter: var(--blur-light);
-  transition: all var(--transition-speed) ease;
-  will-change: background, border;
+    background-color: var(--navy-light-alpha-40) !important;
+    border: var(--standard-border-thickness) solid var(--gold-alpha-05) !important;
+    backdrop-filter: var(--blur-light) !important;
+    -webkit-backdrop-filter: var(--blur-light) !important;
+    transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease !important;
+    will-change: background-color, box-shadow;
 }
 
+/* 2. Left Column: Channel Names & Logos */
 .guide-channelHeader {
-  background-color: var(--retro-navy) !important;
-  border-right: var(--hover-border-thickness) solid var(--theme-primary-color) !important;
+    background-color: var(--retro-navy) !important;
+    border-top: var(--standard-border-thickness) solid var(--gold-alpha-05) !important;
+    border-bottom: var(--standard-border-thickness) solid var(--gold-alpha-05) !important;
+    border-left: var(--standard-border-thickness) solid var(--gold-alpha-05) !important;
+    border-right: var(--hover-border-thickness) solid var(--theme-primary-color) !important;
+    backdrop-filter: var(--blur-light) !important;
+    -webkit-backdrop-filter: var(--blur-light) !important;
 }
 
-/* Hover & Active TV Programs */
+/* 3. Hover & Active TV Programs */
 .programCell-active,
 .programCell:hover {
-  background-color: var(--my-gold-transparent) !important;
-  border: var(--hover-border-thickness) solid var(--theme-primary-color) !important;
-  box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
-  border-radius: 8px !important;
-  z-index: 10 !important;
+    background-color: var(--my-gold-transparent) !important;
+    border-color: transparent !important;
+    /* Uses an inset shadow for the border to prevent the grid from jittering/resizing on hover */
+    box-shadow: inset 0 0 0 var(--hover-border-thickness) var(--theme-primary-color),
+                var(--shadow-glow-standard), 
+                inset 0 0 10px var(--gold-alpha-10) !important;
+    border-radius: 8px !important;
+    z-index: 10 !important;
 }
 
-/* Vertical Time Bar */
+/* 4. Vertical Current Time Bar */
 .guide-currentTimeIndicator {
-  background-color: var(--theme-primary-color) !important;
-  width: var(--hover-border-thickness) !important;
-  box-shadow: 0 0 10px var(--theme-primary-color);
+    background-color: var(--theme-primary-color) !important;
+    width: var(--hover-border-thickness) !important;
+    box-shadow: 0 0 10px var(--theme-primary-color) !important;
 }
 
-/* --- 7B. Guide Headers --- */
+/* --- 7B. Guide Headers (Top Bar) --- */
+
+/* 1. Top Left Actions (Filter/Search buttons above channels) */
 .guide-headerButtons {
-  background-color: var(--retro-navy-light) !important;
-  border-bottom: var(--standard-border-thickness) solid var(--theme-primary-color) !important;
+    background-color: var(--retro-navy-light) !important;
+    border-bottom: var(--standard-border-thickness) solid var(--theme-primary-color) !important;
 }
 
+/* 2. Top Time Ruler (The hours spanning across the top) */
 .guide-headerTimes {
-  background-color: var(--retro-navy) !important;
-  border-bottom: var(--standard-border-thickness) solid var(--my-gold-transparent) !important;
-  color: var(--theme-primary-color) !important;
-  font-family: 'Oswald', sans-serif !important;
+    background-color: var(--retro-navy) !important;
+    border-bottom: var(--standard-border-thickness) solid var(--my-gold-transparent) !important;
+    color: var(--theme-primary-color) !important;
+    font-family: 'Oswald', sans-serif !important;
 }
 
 /* --- 7C. Program Info Typography Reset --- */
-/* Strips badge styling from media info text inside the TV guide grid */
+
+/* 1. Strip native badge styling and shadows from media text inside the grid */
 body .programCell .mediaInfoItem,
 body .programCell .guideProgramName,
 body .programCell:hover .mediaInfoItem,
 body .programCell:hover .guideProgramName {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  color: var(--text-muted) !important;
-  -webkit-text-fill-color: var(--text-muted) !important;
-  font-family: 'Sofia Sans', sans-serif !important;
-  font-weight: 500 !important;
-  padding: 0 !important;
-  margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    color: var(--text-muted) !important;
+    -webkit-text-fill-color: var(--text-muted) !important;
+    font-family: 'Sofia Sans', sans-serif !important;
+    font-weight: 500 !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
+/* 2. Program Name: Prevent long titles from wrapping and breaking row heights */
+.programCell .guideProgramName {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+}
+
+/* 3. Program Air Time */
 .programCell .guideProgramTime {
-  color: var(--white-alpha-60) !important;
-  font-family: 'Sofia Sans', sans-serif !important;
-  font-size: 0.9em !important;
-  margin-top: 2px !important;
+    color: var(--white-alpha-60) !important;
+    font-family: 'Sofia Sans', sans-serif !important;
+    font-size: 0.9em !important;
+    margin-top: 2px !important;
 }
 
 /* --- 7D. Misc Guide Tweaks --- */
-/* Hide repetitive text tags in the guide */
+
+/* 1. Clutter Cleanup: Hides repetitive Emby text tags to keep the grid clean */
 .premiereTvProgram,
 .newTvProgram,
 .liveTvProgram,
 .repeatTvProgram {
-  display: none !important;
+    display: none !important;
 }
 
+/* 2. Channel Logo Shadows */
 .guideChannelImage {
-  filter: drop-shadow(0px 4px 6px var(--black-alpha-60)) !important;
+    filter: drop-shadow(0px 4px 6px var(--black-alpha-60)) !important;
 }
 
 /* ============================================================
