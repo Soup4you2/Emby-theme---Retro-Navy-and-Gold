@@ -4,9 +4,8 @@
    ============================================================ */
 
 /* ============================================================
-   NOTE: YOU NEED TO HAVE YOUR DISPLAY AND SETTINGS THEME
-   SET TO `BLACK` OR THIS THEME WILL NOT DISPLAY PROPERLY
-   BE SURE TO REMEMBER TO UPDATE YOUR USERS ALSO.      
+   NOTE: It's best to have your display theme and settings theme
+         set to black or dark for the theme to display properly.
    ============================================================ */
 
 
@@ -52,6 +51,14 @@ html,
   --theme-selection-background: var(--my-gold-transparent) !important;  /* Background for selected list items */
   --theme-primary-color-lightened: var(--my-gold) !important; /* Secondary lighter primary color used in some Emby skins */
   --button-accent-flat-background: var(--my-gold-transparent) !important; /* Base color for flat/borderless accent buttons */
+  --theme-background: var(--retro-navy) !important;
+  --theme-text-color: var(--text-muted) !important;
+  --theme-text-color-opaque: var(--pure-white) !important;
+  --theme-secondary-text-color: var(--white-alpha-70) !important;
+  --line-background: var(--gold-alpha-15) !important;
+  --line-size: 1px !important;
+  --background-color: var(--retro-navy) !important;
+  --dialog-background-color: var(--navy-light-alpha-80) !important;
 
   /* --- RGBA TRANSLUCENCY VARIABLES --- */
   
@@ -907,7 +914,11 @@ body,
   opacity: 0.9 !important;
 }
 
-/* --- 2B. Global Typography --- */
+/* --- 2B. Global Typography Fixes --- */
+html, body, .emby-input, .emby-select, .emby-textarea, .label, .fieldDescription, .listItemBodyText {
+  color: var(--theme-text-color-force);
+}
+
 .pageTitle,
 .sectionTitle {
   font-family: 'Oswald', sans-serif !important;
@@ -915,6 +926,17 @@ body,
   text-transform: uppercase !important;
   letter-spacing: 1.5px !important;
   text-shadow: 2px 2px 4px var(--black-alpha-50) !important;
+}
+
+/* Specific fix for settings/form labels that often stay black */
+.inputLabel, .selectLabel, .checkboxListLabel, .textareaLabel {
+    color: var(--my-gold) !important; 
+    font-weight: 600;
+}
+
+/* Secondary text fix */
+.secondaryText, .fieldDescription, .cardText-secondary {
+    color: var(--white-alpha-70) !important;
 }
 
 /* Light theme text overrides to maintain readability */
