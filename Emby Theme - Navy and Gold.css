@@ -2495,6 +2495,16 @@ body:has(.view-login) .skinHeader {
     to { opacity: 0.8; }
   }
 
+/* Dialog Boxes */
+.dialog:not(.sliderBubble):not(.chapterThumbContainer),
+.formDialog,
+.actionSheet,
+.itemSelectionPanel {
+    background: linear-gradient(135deg, var(--vday-red-alpha-30) 25%, var(--vday-pink-deep-alpha-30) 25%, var(--vday-pink-deep-alpha-30) 50%, var(--vday-red-alpha-30) 50%, var(--vday-red-alpha-30) 75%, var(--vday-pink-deep-alpha-30) 75%, var(--vday-pink-deep-alpha-30) 100%) !important;
+    background-size: 40px 40px !important;
+    border: 3px solid var(--vday-pink-light) !important;
+}
+
   /* --- 12I. UI INDICATORS (Unwatched/Played Counts) --- */
   /* Styles the tiny notification pills as red heart icons */
   .countIndicator { 
@@ -3398,7 +3408,7 @@ body:has(.view-login) .skinHeader {
   
   .button-submit:active {
     transform: scale(0.98) !important;
-  }
+  } 
     
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
@@ -4373,6 +4383,16 @@ body:has(.view-login) .skinHeader {
     box-shadow: 0 0 10px var(--xmas-green-alpha-50) !important;
   }
 
+  /* Dialog boxes */
+  .dialog:not(.sliderBubble):not(.chapterThumbContainer),
+  .formDialog,
+  .actionSheet,
+  .itemSelectionPanel {
+      background: linear-gradient(135deg, var(--xmas-red-alpha-30) 25%, var(--xmas-green-alpha-30) 25%, var(--xmas-green-alpha-30) 50%, var(--xmas-red-alpha-30) 50%, var(--xmas-red-alpha-30) 75%, var(--xmas-green-alpha-30) 75%, var(--xmas-green-alpha-30) 100%) !important;
+      background-size: 50px 50px !important;
+      border: 3px solid var(--pure-white) !important;
+  }
+
   /* --- 18G. GLOBAL BACKGROUNDS (SNOW & AURORA) --- */
   /* Base container setup for full-screen effects */
   .backgroundContainer::before, 
@@ -4803,6 +4823,16 @@ body:has(.view-login) .skinHeader {
     25% { border-color: var(--nye-cream); }
     50% { border-color: var(--pure-white); }
     75% { border-color: var(--nye-gold); }
+  }
+
+  /* Dialog boxes */
+  .dialog:not(.sliderBubble):not(.chapterThumbContainer),
+  .formDialog,
+  .actionSheet,
+  .itemSelectionPanel {
+      background: linear-gradient(135deg, var(--nye-black-light) 25%, var(--nye-gold-alpha-10) 25%, var(--nye-gold-alpha-10) 50%, var(--nye-black-light) 50%, var(--nye-black-light) 75%, var(--nye-gold-alpha-10) 75%, var(--nye-gold-alpha-10) 100%) !important;
+      background-size: 15px 15px !important;
+      border: 2px solid var(--nye-gold) !important;
   }
 
   /* --- 19G. GLOBAL BACKGROUNDS (RISING CHAMPAGNE BUBBLES) --- */
