@@ -883,6 +883,8 @@ html,
    ============================================================ */
 
 /* --- 2A. Global Backgrounds & Containers --- */
+
+/* 1. Base App Background: Applies the radial navy gradient as the global foundation */
 html[class*="theme-"], 
 body[class*="theme-"],
 [class*="theme-"] .view,
@@ -892,7 +894,12 @@ body[class*="theme-"],
     background-color: var(--retro-navy) !important;
 }
 
-/* UNIVERSAL BACKDROP FIX: Prevents solid backgrounds on pages from acting as a curtain over backdrops/videos */
+/* 2. Transparency Resets: Prevents solid page backgrounds from acting as a curtain over backdrops and video players */
+body,
+.backdropContainer,
+.mainAnimatedPages,
+.view,
+.page,
 html[class*="theme-"] .view,
 html[class*="theme-"] .page,
 html[class*="theme-"] .libraryPage,
@@ -900,99 +907,118 @@ html[class*="theme-"] .mainAnimatedPages {
     background: transparent !important;
 }
 
-/* UNIVERSAL BACKGROUND FIX: High Specificity to stop solid wall blockages */
+/* 3. Container Dimming: Adjusts overlay darkness for text readability (with and without backdrops) */
+.backgroundContainer:not(.backgroundContainer-transparent),
 html[class*="theme-"] body .backgroundContainer:not(.withBackdrop) {
-    background: var(--navy-base-alpha-25) !important; 
+    background-color: var(--navy-base-alpha-25) !important; 
 }
 
+.backgroundContainer.withBackdrop:not(.backgroundContainer-transparent),
 html[class*="theme-"] body .backgroundContainer.withBackdrop:not(.backgroundContainer-transparent) {
-    background: var(--navy-base-alpha-75) !important;
+    background-color: var(--navy-base-alpha-75) !important;
 }
 
+/* 4. Global Backdrop Opacity: Dims backdrop fanart slightly so the UI pops */
+.backdropImage {
+    opacity: 0.9 !important;
+}
+
+/* --- 2B. Global Typography & Fonts --- */
+
+/* 1. Base Font Family Initialization */
 body,
 .backdropContainer,
 .mainAnimatedPages,
 .view,
 .page {
-  font-family: 'Sofia Sans', sans-serif;
-  background: transparent !important;
+    font-family: 'Sofia Sans', sans-serif;
 }
 
-/* Container dimming for readability */
-.backgroundContainer:not(.backgroundContainer-transparent) {
-  background-color: var(--navy-base-alpha-25) !important;
+/* 2. Universal Text Coloring: Sets standard text to our forced variable */
+html, 
+body, 
+.emby-input, 
+.emby-select, 
+.emby-textarea, 
+.label, 
+.fieldDescription, 
+.listItemBodyText {
+    color: var(--theme-text-color-force);
 }
 
-.backgroundContainer.withBackdrop:not(.backgroundContainer-transparent) {
-  background-color: var(--navy-base-alpha-75) !important;
-}
-
-.backdropImage {
-  opacity: 0.9 !important;
-}
-
-/* --- 2B. Global Typography Fixes --- */
-html, body, .emby-input, .emby-select, .emby-textarea, .label, .fieldDescription, .listItemBodyText {
-  color: var(--theme-text-color-force);
-}
-
+/* 3. Primary Headers: Large, stylized uppercase titles */
 .pageTitle,
 .sectionTitle {
-  font-family: 'Oswald', sans-serif !important;
-  color: var(--theme-primary-color) !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1.5px !important;
-  text-shadow: 2px 2px 4px var(--black-alpha-50) !important;
+    font-family: 'Oswald', sans-serif !important;
+    color: var(--theme-primary-color) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    text-shadow: 2px 2px 4px var(--black-alpha-50) !important;
 }
 
-/* Specific fix for settings/form labels that often stay black */
-.inputLabel, .selectLabel, .checkboxListLabel, .textareaLabel {
+/* 4. Form & Setting Labels: Forces settings labels to gold so they don't get lost in dark mode */
+.inputLabel, 
+.selectLabel, 
+.checkboxListLabel, 
+.textareaLabel {
     color: var(--my-gold) !important; 
     font-weight: 600;
 }
 
-/* Secondary text fix */
-.secondaryText, .fieldDescription, .cardText-secondary {
-    color: var(--white-alpha-70) !important;
-}
-
-/* Light theme text overrides to maintain readability */
+/* 5. Secondary Text: Subtitles, Cast Roles, Muted Descriptions (Ensures readability in light/dark skins) */
+.secondaryText, 
+.fieldDescription, 
+.cardText-secondary,
 .theme-light .secondaryText,
 .theme-light .textActionButton,
 .theme-light .cardText-secondary {
-  color: var(--white-alpha-70) !important;
+    color: var(--white-alpha-70) !important;
 }
 
 /* --- 2C. Custom Scrollbar --- */
-html, [class*="theme-"] {
-  scrollbar-color: var(--scrollbar-thumb) var(--retro-navy) !important; 
+
+/* Firefox Support */
+html, 
+[class*="theme-"] {
+    scrollbar-color: var(--scrollbar-thumb) var(--retro-navy) !important; 
+    scrollbar-width: thin;
 }
 
+/* WebKit (Chrome, Safari, Edge) Support */
 ::-webkit-scrollbar {
-  width: 8px !important;
-  height: 8px !important;
+    width: 8px !important;
+    height: 8px !important;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--retro-navy) !important;
+    background: var(--retro-navy) !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb) !important;
-  border-radius: var(--border-radius-md) !important;
-  border: var(--hover-border-thickness) solid var(--retro-navy) !important;
+    background: var(--scrollbar-thumb) !important;
+    border-radius: var(--border-radius-md) !important;
+    border: var(--hover-border-thickness) solid var(--retro-navy) !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--theme-primary-color) !important;
+    background: var(--theme-primary-color) !important;
 }
 
-/* Quality of life: expand the custom CSS input box in the dashboard */
+
+/* --- 2D. Dashboard UI Quality of Life Tweaks --- */
+
+/* Expands the Custom CSS input box in the server dashboard for easier code editing */
 textarea.txtCustomCss {
-  min-height: 1000px;
+    min-height: 1000px;
 }
 
-/* --- 2D. Global Background Animation Resets --- */
+
+/* --- 2E. Global Background Animation Resets --- */
+
+/* CRITICAL FIX: Completely disables background animations and pseudo-elements 
+   whenever a video is playing or a backdrop is focused, preventing CPU drain 
+   and visual overlap during playback.
+*/
 body:has(.view-videoosd-videoosd:not(.hide))::before, 
 body:has(.view-videoosd-videoosd:not(.hide))::after, 
 body:has(.backgroundContainer.withBackdrop)::before,
@@ -1003,22 +1029,26 @@ body:has(.videoBackdropContainer:not(.hide))::after,
 .view-videoosd-videoosd:not(.hide) .backgroundContainer::after,
 .withBackdrop::before,
 .withBackdrop::after {
-  content: none !important;
-  display: none !important;
-  animation: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
+    content: none !important;
+    display: none !important;
+    animation: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
 }
 
-/* --- 2E. Seasonal Background Variable Hooks --- */
+/* --- 2F. Seasonal Background Variable Hooks --- */
+
+/* Master controls mapping to the Section 1 Toggles. 
+   Dictates whether the heavy background particle effects (Snow, Hearts, etc.) are visible or paused.
+*/
 html body::before, 
 html body::after, 
 html .backgroundContainer::before, 
 html .backgroundContainer::after, 
 html .backdropContainer::before, 
 html .backdropContainer::after {
-  visibility: var(--seasonal-bg-visibility) !important;
-  animation-play-state: var(--seasonal-bg-anim-state) !important;
+    visibility: var(--seasonal-bg-visibility) !important;
+    animation-play-state: var(--seasonal-bg-anim-state) !important;
 }
 
 /* ============================================================
