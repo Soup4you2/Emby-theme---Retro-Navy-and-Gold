@@ -4166,47 +4166,72 @@ body:has(.view-login) .skinHeader {
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #c41e3a) {
 
-  /* --- 18A. UI INDICATORS (ORNAMENT COUNTS) --- */
-  /* Unwatched/Played count pills transformed into red ornaments */
+  /* --- 18A. UI INDICATORS (TREE COUNTS) --- */
+  /* Unwatched/Played count pills transformed into a Christmas Tree */
   .countIndicator {
-    background: radial-gradient(circle at 30% 30%, var(--xmas-red-light) 0%, var(--xmas-red) 60%, var(--xmas-red-dark) 100%) !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    
+    /* Custom SVG Tree: Green pine with a brown trunk and a gold star */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%235c2605' d='M10 19h4v4h-4z'/%3E%3Cpath fill='%230b6623' d='M12 3l-7 8h3l-5 8h18l-5-8h3z'/%3E%3Cpolygon fill='%23ffd700' points='12,0 13,2 15,2 13.5,3.5 14,5.5 12,4.5 10,5.5 10.5,3.5 9,2 11,2'/%3E%3C/svg%3E") !important;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    
     color: var(--pure-white) !important;
-    border: 2px solid var(--pure-white) !important;
-    border-radius: 50% !important;
-    box-shadow: 0 4px 8px var(--black-alpha-80), inset -2px -2px 5px var(--xmas-black-alpha-30) !important;
+    min-width: 32px !important;
+    height: 36px !important;
+    border-radius: 0 !important;
+    
+    /* Pushes the unwatched number down into the fat part of the tree */
+    padding: 12px 6px 0 6px !important; 
+    font-size: 0.8em !important;
+    
+    /* CSS filter replaces the box-shadow for PNG/SVG shapes */
+    filter: drop-shadow(0 4px 6px var(--black-alpha-80));
   }
 
-  /* --- 18B. MEDIA CARD ACTION OVERLAYS (SWINGING ORNAMENTS) --- */
-  /* Replaces default play/edit buttons with a detailed SVG ornament */
+  /* --- 18B. MEDIA CARD ACTION OVERLAYS (FESTIVE WREATH) --- */
+  /* Replaces default play/edit buttons with a detailed SVG Wreath */
   .cardOverlayFab-primary,
   .cardOverlayButtonIcon,
   .listItemOverlayButtonIcon,
   .listItemImageButton {
     border: 0 !important;
     box-shadow: none !important;
-    border-radius: 0 !important;
-    color: var(--pure-white) !important;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3CradialGradient id='g' cx='35%25' cy='35%25' r='65%25'%3E%3Cstop offset='0%25' stop-color='%23ff8a8a'/%3E%3Cstop offset='60%25' stop-color='%23c41e3a'/%3E%3Cstop offset='100%25' stop-color='%235a0000'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M10 2c0-1.5 4-1.5 4 0' fill='none' stroke='%23e0e0e0' stroke-width='1.5'/%3E%3Cpath d='M9 3h6v2.5H9z' fill='%23e0e0e0'/%3E%3Cpath d='M9 4.5h6' stroke='%23a0a0a0' stroke-width='0.5'/%3E%3Ccircle cx='12' cy='14' r='9' fill='url(%23g)' stroke='%23ffffff' stroke-width='1'/%3E%3C/svg%3E") center / 100% 100% no-repeat !important;
-    filter: drop-shadow(0 4px 6px var(--black-alpha-60));
+    border-radius: 50% !important;
+    color: var(--pure-white) !important; /* Keeps the native play icon white */
+    
+    /* Custom SVG Wreath with a dark translucent center so the play icon pops */
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='8' fill='rgba(0,0,0,0.4)' stroke='%230b6623' stroke-width='4' /%3E%3Ccircle cx='12' cy='12' r='8' fill='none' stroke='%23074015' stroke-width='4' stroke-dasharray='3 4' /%3E%3Ccircle cx='12' cy='4' r='1.5' fill='%23c41e3a' /%3E%3Ccircle cx='18' cy='8' r='1.5' fill='%23c41e3a' /%3E%3Ccircle cx='18' cy='16' r='1.5' fill='%23c41e3a' /%3E%3Ccircle cx='12' cy='20' r='1.5' fill='%23c41e3a' /%3E%3Ccircle cx='6' cy='16' r='1.5' fill='%23c41e3a' /%3E%3Ccircle cx='6' cy='8' r='1.5' fill='%23c41e3a' /%3E%3Cpath d='M12 18 L 8 22 L 10 17 Z' fill='%23c41e3a' /%3E%3Cpath d='M12 18 L 16 22 L 14 17 Z' fill='%23c41e3a' /%3E%3Ccircle cx='12' cy='18' r='1.5' fill='%23c41e3a' /%3E%3C/svg%3E") center / 115% 115% no-repeat !important;
+    
+    filter: drop-shadow(0 4px 6px var(--black-alpha-80));
     transition: filter 0.2s, transform 0.2s !important;
   }
 
-  /* Vertically centers the icon inside the ornament */
+  /* Ensures Emby's native play icon is perfectly centered in the wreath */
   .cardOverlayFab-primary *,
   .cardOverlayButtonIcon *,
   .listItemOverlayButtonIcon *,
   .listItemImageButton * {
-    transform: translateY(2px) !important;
+    transform: translateY(0) !important; 
   }
 
-  @keyframes ornamentSwing {
-    0%, 100% { transform: rotate(-8deg) scale(1.05); filter: drop-shadow(0 8px 12px var(--xmas-red-alpha-80)); }
-    50% { transform: rotate(8deg) scale(1.05); filter: drop-shadow(0 8px 12px var(--xmas-red-alpha-80)); }
+  @keyframes wreathPulse {
+    0%, 100% { 
+      transform: scale(1); 
+      filter: drop-shadow(0 4px 6px var(--black-alpha-80)); 
+    }
+    50% { 
+      transform: scale(1.15); 
+      filter: drop-shadow(0 8px 15px var(--xmas-green-alpha-50)); 
+    }
   }
 
   .card:hover .cardOverlayFab-primary {
-    animation: ornamentSwing 1.5s ease-in-out infinite !important;
-    transform-origin: top center !important;
+    animation: wreathPulse 1.5s ease-in-out infinite !important;
+    transform-origin: center !important;
   }
 
   /* --- 18C. TYPOGRAPHY & MEDIA CARDS (AURORA BORDERS) --- */
@@ -4247,6 +4272,35 @@ body:has(.view-login) .skinHeader {
   .card:hover .cardImageContainer {
     animation: auroraBorder 4s infinite linear !important;
     border-width: 2px !important;
+  }
+
+  /* --- FROSTED INNER EDGES ON HOVER --- */
+  .card:hover .cardImageContainer::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 1;
+    
+    /* 1. Stronger frosty white tint using your existing alpha variable */
+    box-shadow: inset 0 0 70px var(--white-alpha-80) !important;
+    
+    /* 2. Heavier physical glass blur effect */
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    
+    /* 3. The mask: Brings the frost further toward the center */
+    -webkit-mask-image: radial-gradient(ellipse at center, transparent 25%, var(--pure-black) 85%);
+    mask-image: radial-gradient(ellipse at center, transparent 25%, var(--pure-black) 85%);
+    
+    /* Smooth fade in */
+    animation: frostFadeIn 0.3s ease-in-out forwards;
+  }
+
+  @keyframes frostFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
 /* --- 18D. PROGRESS BARS (HOLIDAY RIBBON) --- */
