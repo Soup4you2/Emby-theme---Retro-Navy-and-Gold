@@ -4298,6 +4298,12 @@ body:has(.view-login) .skinHeader {
     animation: frostFadeIn 0.3s ease-in-out forwards;
   }
 
+  /* Exclude Cast & Crew Portraits from the frosted glass effect */
+  .peopleSection .card:hover .cardImageContainer::after,
+  .personCard:hover .cardImageContainer::after {
+    display: none !important;
+  }
+
   @keyframes frostFadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
