@@ -4274,41 +4274,6 @@ body:has(.view-login) .skinHeader {
     border-width: 2px !important;
   }
 
-  /* --- FROSTED INNER EDGES ON HOVER --- */
-  .card:hover .cardImageContainer::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: 1;
-    
-    /* 1. Stronger frosty white tint using your existing alpha variable */
-    box-shadow: inset 0 0 70px var(--white-alpha-80) !important;
-    
-    /* 2. Heavier physical glass blur effect */
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    
-    /* 3. The mask: Brings the frost further toward the center */
-    -webkit-mask-image: radial-gradient(ellipse at center, transparent 25%, var(--pure-black) 85%);
-    mask-image: radial-gradient(ellipse at center, transparent 25%, var(--pure-black) 85%);
-    
-    /* Smooth fade in */
-    animation: frostFadeIn 0.3s ease-in-out forwards;
-  }
-
-  /* Exclude Cast & Crew Portraits from the frosted glass effect */
-  .peopleSection .card:hover .cardImageContainer::after,
-  .personCard:hover .cardImageContainer::after {
-    display: none !important;
-  }
-
-  @keyframes frostFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
 /* --- 18D. PROGRESS BARS (HOLIDAY RIBBON) --- */
   @keyframes xmasRibbonFlow {
     0% { background-position: 0% 50%; }
