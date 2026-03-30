@@ -4239,18 +4239,18 @@ body:has(.view-login) .skinHeader {
     border-width: 2px !important;
   }
 
-  /* --- 18D. PROGRESS BARS (CANDY CANES) --- */
-  @keyframes candyCaneScroll {
-    0% { background-position: 0 0; }
-    100% { background-position: 50px 50px; }
+/* --- 18D. PROGRESS BARS (HOLIDAY RIBBON) --- */
+  @keyframes xmasRibbonFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
   }
 
-  /* Creates an animated, scrolling candy cane stripe effect */
+  /* Flowing festive gradient for media progress bars */
   .itemProgressBarForeground {
-    background: repeating-linear-gradient(45deg, var(--xmas-red), var(--xmas-red) 10px, var(--pure-white) 10px, var(--pure-white) 20px) !important;
-    background-size: 50px 50px !important;
-    animation: candyCaneScroll 2s linear infinite !important;
-    box-shadow: 0 0 10px var(--xmas-red-alpha-80) !important;
+    background: linear-gradient(90deg, var(--xmas-red), var(--xmas-red-dark), var(--xmas-green), var(--pure-white), var(--xmas-green), var(--xmas-red-dark), var(--xmas-red)) !important;
+    background-size: 200% 100% !important;
+    animation: xmasRibbonFlow 4s linear infinite !important;
+    box-shadow: 0 0 12px var(--xmas-red-alpha-80), inset 0 0 4px var(--black-alpha-30) !important;
     border-radius: 5px !important;
   }
 
