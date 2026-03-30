@@ -892,6 +892,14 @@ body[class*="theme-"],
     background-color: var(--retro-navy) !important;
 }
 
+/* UNIVERSAL BACKDROP FIX: Prevents solid backgrounds on pages from acting as a curtain over backdrops/videos */
+html[class*="theme-"] .view,
+html[class*="theme-"] .page,
+html[class*="theme-"] .libraryPage,
+html[class*="theme-"] .mainAnimatedPages {
+    background: transparent !important;
+}
+
 body,
 .backdropContainer,
 .mainAnimatedPages,
