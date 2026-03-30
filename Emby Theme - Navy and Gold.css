@@ -4254,44 +4254,58 @@ body:has(.view-login) .skinHeader {
     border-radius: 5px !important;
   }
 
-  /* --- 18E. SLIDERS & CONTROLS (SNOWFLAKE/ORNAMENT THUMBS) --- */
-  
+  /* --- 18E. SLIDERS & CONTROLS (CRISP SNOWFLAKE THUMBS) --- */
+ 
   /* 1. DIV based sliders (Emby Web App) */
   .emby-slider-thumb,
   .videoOsdBottom .emby-slider-thumb,
   .nowPlayingBar .emby-slider-thumb {
     -webkit-appearance: none !important;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M14.5 10l3.8-3.8-1.4-1.4L13 8.6V2h-2v6.6L7.1 4.8 5.7 6.2 9.5 10H2v2h7.5l-3.8 3.8 1.4-1.4L11 13.4V20h2v-6.6l3.9 3.9 1.4-1.4-3.8-3.8H22v-2h-7.5z'/%3E%3C/svg%3E") center / 65% 65% no-repeat, radial-gradient(circle at 35% 35%, var(--xmas-green) 0%, var(--xmas-bg-dark-1) 100%) center / 100% 100% no-repeat !important;
-    border: 2px solid var(--xmas-red) !important;
+    appearance: none !important;
     border-radius: 50% !important;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cline x1='12' y1='2' x2='12' y2='22'/%3E%3Cpath d='m20 16-4-4 4-4'/%3E%3Cpath d='m4 8 4 4-4 4'/%3E%3Cpath d='m16 4-4 4-4-4'/%3E%3Cpath d='m8 20 4-4 4 4'/%3E%3C/svg%3E") 50% 50% / 60% 60% no-repeat, 
+                radial-gradient(circle at 35% 35%, var(--xmas-green) 0%, var(--xmas-bg-dark-1) 100%) 50% 50% / 100% 100% no-repeat !important;
+    background-origin: border-box !important;
+    border: 2px solid var(--xmas-red) !important;
     box-shadow: 0 0 10px var(--xmas-green), 0 0 20px var(--xmas-red) !important;
-    width: 34px !important; height: 34px !important;
+    width: 34px !important;
+    height: 34px !important;
     cursor: pointer !important;
     transform: translateY(-13px) !important;
+    background-color: transparent !important;
   }
 
   /* 2. Webkit native sliders */
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none !important;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M14.5 10l3.8-3.8-1.4-1.4L13 8.6V2h-2v6.6L7.1 4.8 5.7 6.2 9.5 10H2v2h7.5l-3.8 3.8 1.4-1.4L11 13.4V20h2v-6.6l3.9 3.9 1.4-1.4-3.8-3.8H22v-2h-7.5z'/%3E%3C/svg%3E") center / 65% 65% no-repeat, radial-gradient(circle at 35% 35%, var(--xmas-green) 0%, var(--xmas-bg-dark-1) 100%) center / 100% 100% no-repeat !important;
-    border: 2px solid var(--xmas-red) !important;
+    appearance: none !important;
     border-radius: 50% !important;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cline x1='12' y1='2' x2='12' y2='22'/%3E%3Cpath d='m20 16-4-4 4-4'/%3E%3Cpath d='m4 8 4 4-4 4'/%3E%3Cpath d='m16 4-4 4-4-4'/%3E%3Cpath d='m8 20 4-4 4 4'/%3E%3C/svg%3E") 50% 50% / 60% 60% no-repeat, 
+                radial-gradient(circle at 35% 35%, var(--xmas-green) 0%, var(--xmas-bg-dark-1) 100%) 50% 50% / 100% 100% no-repeat !important;
+    background-origin: border-box !important;
+    border: 2px solid var(--xmas-red) !important;
     box-shadow: 0 0 10px var(--xmas-green), 0 0 20px var(--xmas-red) !important;
-    width: 34px !important; height: 34px !important;
+    width: 34px !important;
+    height: 34px !important;
     cursor: pointer !important;
     transform: translateY(0) !important;
+    background-color: transparent !important;
   }
 
   /* 3. Mozilla native sliders */
   input[type="range"]::-moz-range-thumb {
     appearance: none !important;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M14.5 10l3.8-3.8-1.4-1.4L13 8.6V2h-2v6.6L7.1 4.8 5.7 6.2 9.5 10H2v2h7.5l-3.8 3.8 1.4-1.4L11 13.4V20h2v-6.6l3.9 3.9 1.4-1.4-3.8-3.8H22v-2h-7.5z'/%3E%3C/svg%3E") center / 65% 65% no-repeat, radial-gradient(circle at 35% 35%, var(--xmas-green) 0%, var(--xmas-bg-dark-1) 100%) center / 100% 100% no-repeat !important;
-    border: 2px solid var(--xmas-red) !important;
     border-radius: 50% !important;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cline x1='12' y1='2' x2='12' y2='22'/%3E%3Cpath d='m20 16-4-4 4-4'/%3E%3Cpath d='m4 8 4 4-4 4'/%3E%3Cpath d='m16 4-4 4-4-4'/%3E%3Cpath d='m8 20 4-4 4 4'/%3E%3C/svg%3E") 50% 50% / 60% 60% no-repeat, 
+                radial-gradient(circle at 35% 35%, var(--xmas-green) 0%, var(--xmas-bg-dark-1) 100%) 50% 50% / 100% 100% no-repeat !important;
+    background-origin: border-box !important;
+    border: 2px solid var(--xmas-red) !important;
     box-shadow: 0 0 10px var(--xmas-green), 0 0 20px var(--xmas-red) !important;
-    width: 34px !important; height: 34px !important;
+    width: 34px !important;
+    height: 34px !important;
     cursor: pointer !important;
     transform: translateY(0) !important;
+    background-color: transparent !important;
   }
 
   /* Hover states for snowflake thumbs */
