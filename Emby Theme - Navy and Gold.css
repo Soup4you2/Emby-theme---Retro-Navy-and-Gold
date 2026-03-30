@@ -1750,7 +1750,6 @@ body .programCell:hover .guideProgramName {
 }
 
 /* --- 8B. Media Sliders (Progress & Volume) --- */
-/* Fix overflow issues on custom slider tracks */
 .videoOsdBottom .emby-slider-background,
 .videoOsdBottom .emby-slider-background-inner,
 .nowPlayingBar .emby-slider-background,
@@ -1766,13 +1765,30 @@ body .programCell:hover .guideProgramName {
   box-shadow: var(--glow-slider-track) !important;
 }
 
-/* CONSOLIDATED SLIDER THUMBS: Targets Emby divs + Webkit/Mozilla native inputs */
+/* Base Theme Slider Thumbs (Separated for browser compatibility) */
 .emby-slider-thumb,
 .videoOsdBottom .emby-slider-thumb,
-.nowPlayingBar .emby-slider-thumb,
-input[type="range"]::-webkit-slider-thumb,
-input[type="range"]::-moz-range-thumb {
+.nowPlayingBar .emby-slider-thumb {
+  background: var(--my-gold) !important;
+  border: var(--hover-border-thickness) solid var(--retro-navy) !important;
+  box-shadow: var(--glow-slider-thumb) !important;
+  border-radius: 50% !important;
+  transform: scale(1.1) !important;
+  will-change: transform, box-shadow;
+}
+
+input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none !important;
+  appearance: none !important;
+  background: var(--my-gold) !important;
+  border: var(--hover-border-thickness) solid var(--retro-navy) !important;
+  box-shadow: var(--glow-slider-thumb) !important;
+  border-radius: 50% !important;
+  transform: scale(1.1) !important;
+  will-change: transform, box-shadow;
+}
+
+input[type="range"]::-moz-range-thumb {
   -moz-appearance: none !important;
   appearance: none !important;
   background: var(--my-gold) !important;
@@ -2165,6 +2181,8 @@ body:has(.view-login) .skinHeader {
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #e60049) {
   
+  /* --- 12A. MEDIA CARD ACTION OVERLAYS (Play/Edit Buttons) --- */
+  /* Strips default button styles and replaces them with a custom SVG heart icon */
   .cardOverlayFab-primary, 
   .cardOverlayButtonIcon, 
   .listItemOverlayButtonIcon, 
@@ -2182,6 +2200,7 @@ body:has(.view-login) .skinHeader {
     transition: filter 0.2s ease, transform 0.2s ease !important; 
   }
 
+  /* Hides the original Emby icon paths since we are using background SVGs */
   .cardOverlayFab-primary *, 
   .cardOverlayButtonIcon *, 
   .listItemOverlayButtonIcon *, 
@@ -2190,6 +2209,7 @@ body:has(.view-login) .skinHeader {
     background: transparent !important; 
   }
   
+  /* Keyframes for the pulsing heartbeat effect on the play button */
   @keyframes heartbeat { 
     0%, 100% { transform: scale(1); filter: drop-shadow(0 4px 8px var(--vday-red-alpha-60)); } 
     15% { transform: scale(1.15); filter: drop-shadow(0 0 15px var(--vday-pulse-heavy)); } 
@@ -2197,11 +2217,14 @@ body:has(.view-login) .skinHeader {
     45% { transform: scale(1.15); filter: drop-shadow(0 0 15px var(--vday-pulse-heavy)); } 
   }
 
+  /* Triggers the heartbeat animation and changes icon color on hover */
   .card:hover .cardOverlayFab-primary { 
     animation: heartbeat 1.2s infinite !important; 
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23ff1493'/%3E%3Cpath fill='%23ffffff' d='M10 16.5v-9l6 4.5z'/%3E%3C/svg%3E") !important;
   }
 
+  /* --- 12B. MEDIA IMAGE FILTERS & TINTS --- */
+  /* Applies a warm, pinkish-red sepia tone to posters and portraits by default */
   .peopleSection .cardImageContainer img,
   .personCard .cardImageContainer img,
   .card .cardImageContainer img {
@@ -2209,27 +2232,31 @@ body:has(.view-login) .skinHeader {
     transition: filter 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 
-  .card .cardImageContainer::after {
+  /* Adds a subtle red radial gradient overlay over the images */
+.card .cardImageContainer::after {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle, transparent 50%, rgba(230, 0, 73, 0.15) 100%);
+    background: radial-gradient(circle, transparent 50%, rgba(var(--vday-red-rgb), 0.15) 100%);
     pointer-events: none;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
     z-index: 1;
     border-radius: inherit;
   }
 
+  /* Removes the filter on hover so the original image colors pop through */
   .card:hover .cardImageContainer img {
     filter: sepia(0%) saturate(110%) hue-rotate(0deg) contrast(1.1) brightness(1) !important; 
   }
 
+  /* --- 12C. CARD HOVER EFFECTS (FLOATING HEARTS) --- */
   @keyframes floatingHearts {
     0% { background-position: 20% 110%, 80% 120%, 50% 100%; opacity: 0; }
     20% { opacity: 1; }
     100% { background-position: 10% -20%, 90% -10%, 60% -30%; opacity: 0; }
   }
 
+  /* Generates 3 floating SVG hearts rising inside the media card on hover */
   .card:hover .cardImageContainer::after {
     background: 
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffb6c1' opacity='0.8' d='M50,85 C20,60 10,40 10,25 C10,10 25,5 35,15 C42,22 50,30 50,30 C50,30 58,22 65,15 C75,5 90,10 90,25 C90,40 80,60 50,85 Z'/%3E%3C/svg%3E") 20% 110% / 25px 25px no-repeat,
@@ -2238,6 +2265,7 @@ body:has(.view-login) .skinHeader {
     animation: floatingHearts 1.5s ease-out forwards !important;
   }
   
+  /* --- 12D. CARD GLOW & AURA EFFECTS --- */
   .card:hover .cardContent:not(.cardContent-round), 
   .card:hover .cardImageContainer:not(.cardContent-round) { 
     border-color: var(--vday-pink-deep) !important; 
@@ -2255,16 +2283,19 @@ body:has(.view-login) .skinHeader {
     }
   }
 
+  /* Pulsing glow box-shadow around the edges of hovered cards */
   .card:hover .cardContent:not(.cardContent-round), 
   .card:hover .cardImageContainer:not(.cardContent-round) {
     animation: heartbeatAura 2s infinite ease-in-out !important;
   }
 
+/* --- 12E. PROGRESS BAR & SLIDERS --- */
   @keyframes vdayLoveFlow { 
     0% { background-position: 0% 50%; } 
     100% { background-position: 100% 50%; } 
   }
   
+  /* Flowing pink/red gradient for media progress bars */
   .itemProgressBarForeground { 
     background: linear-gradient(90deg, var(--vday-red), var(--vday-pink-deep), var(--vday-pink-light), var(--vday-pink-deep), var(--vday-red)) !important; 
     background-size: 200% 100% !important; 
@@ -2273,15 +2304,13 @@ body:has(.view-login) .skinHeader {
     border-radius: 5px !important; 
   }
 
+  /* Custom Heart Slider Thumbs (Video player, Volume, etc.) */
+  
+  /* 1. DIV based sliders (Emby Web App) */
   .emby-slider-thumb, 
   .videoOsdBottom .emby-slider-thumb, 
   .nowPlayingBar .emby-slider-thumb { 
-    -webkit-appearance: none !important; 
-    appearance: none !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") !important; 
-    background-size: 100% 100% !important; 
-    background-repeat: no-repeat !important; 
-    background-position: center center !important; 
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") center center / 100% 100% no-repeat transparent !important; 
     border: none !important; 
     border-radius: 0 !important; 
     box-shadow: none !important; 
@@ -2289,17 +2318,14 @@ body:has(.view-login) .skinHeader {
     width: 34px !important; 
     height: 34px !important; 
     cursor: pointer !important; 
-    background-color: transparent !important; 
     transform: translateY(-8px) !important; 
   }
 
+  /* 2. Webkit native sliders (Chrome/Safari/Edge) */
   input[type="range"]::-webkit-slider-thumb { 
     -webkit-appearance: none !important; 
     appearance: none !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") !important; 
-    background-size: 100% 100% !important; 
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") center center / 100% 100% no-repeat transparent !important; 
     border: none !important; 
     border-radius: 0 !important; 
     box-shadow: none !important; 
@@ -2307,17 +2333,14 @@ body:has(.view-login) .skinHeader {
     width: 34px !important; 
     height: 34px !important; 
     cursor: pointer !important; 
-    background-color: transparent !important; 
     transform: translateY(-6px) !important; 
   }
 
+  /* 3. Mozilla native sliders (Firefox) */
   input[type="range"]::-moz-range-thumb { 
-    -moz-appearance: none !important; 
+    -moz-appearance: none !important;
     appearance: none !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") !important; 
-    background-size: 100% 100% !important; 
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") center center / 100% 100% no-repeat transparent !important; 
     border: none !important; 
     border-radius: 0 !important; 
     box-shadow: none !important; 
@@ -2325,28 +2348,29 @@ body:has(.view-login) .skinHeader {
     width: 34px !important; 
     height: 34px !important; 
     cursor: pointer !important; 
-    background-color: transparent !important; 
     transform: translateY(-6px) !important; 
   }
 
+  /* Hover states (Safe to combine these specific pseudo-classes for hover if carefully structured, but keeping separate is safer) */
   .emby-slider-thumb:hover { 
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffb6c1' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") !important; 
     filter: drop-shadow(0 0 20px var(--vday-pink-deep-alpha-100)) !important; 
     transform: translateY(-10px) scale(1.2) !important; 
   }
 
-  input[type="range"]:hover::-webkit-slider-thumb { 
+  input[type="range"]:hover::-webkit-slider-thumb {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffb6c1' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") !important; 
     filter: drop-shadow(0 0 20px var(--vday-pink-deep-alpha-100)) !important; 
     transform: translateY(-8px) scale(1.2) !important; 
   }
 
-  input[type="range"]:hover::-moz-range-thumb { 
+  input[type="range"]:hover::-moz-range-thumb {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffb6c1' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") !important; 
     filter: drop-shadow(0 0 20px var(--vday-pink-deep-alpha-100)) !important; 
     transform: translateY(-8px) scale(1.2) !important; 
   }
 
+  /* --- 12F. LOADING SPINNER --- */
   .mdl-spinner__layer-1 {
     animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, vday-spinner-colors 5332ms linear infinite !important;
   }
@@ -2358,6 +2382,8 @@ body:has(.view-login) .skinHeader {
     75% { border-color: var(--pure-white); }
   }
 
+  /* --- 12G. TYPOGRAPHY & HEADERS --- */
+  /* Pink/Red gradient text for main page titles */
   h2.pageTitle, 
   h2.sectionTitle, 
   h4.sectionTitle {
@@ -2368,6 +2394,7 @@ body:has(.view-login) .skinHeader {
       filter: drop-shadow(2px 2px 3px var(--black-alpha-80));
   }
 
+  /* Overrides to prevent the About section text from breaking due to title gradients */
   .aboutSection div.sectionTitle, 
   .aboutSection .button-link,
   .aboutSection .mediaInfoAttributeValue,
@@ -2380,6 +2407,7 @@ body:has(.view-login) .skinHeader {
       opacity: 1 !important;
   }
 
+  /* Fixes info badges inside the About section */
   .aboutSection .mediaInfoItem {
       text-shadow: none !important;
       -webkit-text-fill-color: var(--retro-navy) !important; 
@@ -2387,17 +2415,21 @@ body:has(.view-login) .skinHeader {
       background: var(--media-badge-bg) !important;
   }
 
+  /* --- 12H. GLOBAL BACKGROUNDS & FLOATING EFFECTS --- */
+  /* Video Player OSD Bottom gradient */
   .videoOsdBottom, .videoOsdBottom-video { 
     background: linear-gradient(to top, var(--vday-red-alpha-25) 0%, var(--vday-bg-dark) 60%, transparent 100%) !important; 
     border-bottom: 3px solid var(--vday-pink-deep) !important; 
   }
 
+  /* Hides default empty containers to avoid overlap */
   .backgroundContainer-transparent::before, 
   .backgroundContainer-transparent::after, 
   .view-videoosd::after { 
     display: none !important; 
   }
 
+  /* Global Container setup for the floating background hearts */
   .backgroundContainer::before, 
   body::before, 
   body::after {
@@ -2408,6 +2440,7 @@ body:has(.view-login) .skinHeader {
     z-index: -1;
   }
 
+  /* Layer 1: Foreground floating hearts */
   body::before {
     background:
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Cg transform='translate(325,325) scale(1.5) rotate(5)'%3E%3Cpath fill='%23ff1493' d='M50,85 C20,60 10,40 10,25 C10,10 25,5 35,15 C42,22 50,30 50,30 C50,30 58,22 65,15 C75,5 90,10 90,25 C90,40 80,60 50,85 Z'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 800px 800px,
@@ -2416,6 +2449,7 @@ body:has(.view-login) .skinHeader {
     opacity: 0.6;
   }
 
+  /* Layer 2: Midground floating hearts (Slightly blurred) */
   body::after {
     background:
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 900'%3E%3Cg transform='translate(385,385) scale(1.3) rotate(-5)'%3E%3Cpath fill='%23ffb6c1' d='M50,85 C20,60 10,40 10,25 C10,10 25,5 35,15 C42,22 50,30 50,30 C50,30 58,22 65,15 C75,5 90,10 90,25 C90,40 80,60 50,85 Z'/%3E%3C/g%3E%3C/svg%3E") 150px 50px / 900px 900px,
@@ -2425,6 +2459,7 @@ body:has(.view-login) .skinHeader {
     opacity: 0.5;
   }
 
+  /* Layer 3: Background distant particles & small hearts */
   .backgroundContainer::before {
     background:
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Ccircle cx='200' cy='200' r='5' fill='%23ffffff'/%3E%3C/svg%3E") 10px 10px / 400px 400px,
@@ -2434,6 +2469,7 @@ body:has(.view-login) .skinHeader {
     opacity: 0.3;
   }
 
+  /* Animation Keyframes for global background effects */
   @keyframes hearts-float-1 {
     from { background-position: 0 0, 50px 100px; }
     to { background-position: 0 -4000px, 50px -3900px; } 
@@ -2459,6 +2495,8 @@ body:has(.view-login) .skinHeader {
     to { opacity: 0.8; }
   }
 
+  /* --- 12I. UI INDICATORS (Unwatched/Played Counts) --- */
+  /* Styles the tiny notification pills as red heart icons */
   .countIndicator { 
     background: transparent !important; 
     border: none !important; 
@@ -2476,6 +2514,8 @@ body:has(.view-login) .skinHeader {
     filter: drop-shadow(0 4px 6px var(--black-alpha-60));
   }
 
+  /* --- 12J. NAVIGATION TABS --- */
+  /* Active states for tabs like "Home", "Favorites", etc. */
   .videoOsdBottom .emby-tab-button-active, 
   .emby-tab-button-active, 
   .videoOsdBottom .emby-tab-button:focus, 
@@ -2500,6 +2540,7 @@ body:has(.view-login) .skinHeader {
     }
   }
 
+  /* Fix for the Video player bottom gradient to accommodate the borders */
   .videoOsdBottom, .videoOsdBottom-video { 
     background: linear-gradient(
       to top, 
@@ -2510,6 +2551,8 @@ body:has(.view-login) .skinHeader {
     border-bottom: var(--vday-osd-border-width) solid var(--vday-pink-deep) !important; 
   }
 
+  /* --- 12K. SUBMIT & ACTION BUTTONS --- */
+  /* General dialog buttons (Save, Cancel, Play) */
   .button-submit {
     background: linear-gradient(135deg, var(--vday-red) 0%, var(--vday-pink-deep) 100%) !important;
     color: var(--pure-white) !important;
@@ -2521,12 +2564,14 @@ body:has(.view-login) .skinHeader {
     transition: all 0.2s ease-in-out !important;
     transform: none !important;
   }
+  
   .button-submit:hover {
     background: linear-gradient(135deg, var(--vday-pink-deep) 0%, var(--vday-pink-light) 100%) !important;
     border-color: var(--pure-white) !important;
     box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--vday-pink-deep-alpha-80) !important;
     transform: translateY(-2px) scale(1.02) !important;
   }
+  
   .button-submit:active {
     transform: scale(0.98) !important;
   }
@@ -2541,10 +2586,12 @@ body:has(.view-login) .skinHeader {
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #00ff85) {
 
+  /* --- 13A. HEADERS & TITLES (SHIMMER EFFECT) --- */
   @keyframes luckShimmer { 
     to { background-position: 200% center; } 
   }
   
+  /* Applies a continuous gold/green shimmering gradient to page titles */
   .pageTitle, 
   .sectionTitle { 
     background: linear-gradient(to right, var(--stpat-green-bright) 0%, var(--stpat-gold) 50%, var(--stpat-green-mid) 100%) !important; 
@@ -2555,17 +2602,8 @@ body:has(.view-login) .skinHeader {
     filter: drop-shadow(2px 2px 4px var(--black-alpha-90)); 
   }
 
-  .videoOsdBottom, 
-  .videoOsdBottom-video { 
-    background: linear-gradient(to top, var(--stpat-green-mid-alpha-20) 0%, var(--stpat-bg-dark-1) 60%, transparent 100%) !important; 
-    border-bottom: 3px solid var(--stpat-gold) !important; 
-  }
-
-  @keyframes coinFlipHover { 
-    0%, 100% { box-shadow: 0 0 15px var(--stpat-green-bright-alpha-40); border-color: var(--stpat-gold-dark); transform: scale(1); } 
-    50% { box-shadow: 0 0 25px var(--stpat-gold-alpha-80); border-color: var(--stpat-gold-light); transform: scale(1.1); } 
-  }
-  
+  /* --- 13B. MEDIA CARD ACTION OVERLAYS (GOLD COIN) --- */
+  /* Replaces default play/edit buttons with a glowing gold coin effect */
   .cardOverlayFab-primary, 
   .cardOverlayButtonIcon, 
   .listItemOverlayButtonIcon, 
@@ -2577,11 +2615,18 @@ body:has(.view-login) .skinHeader {
     border-radius: 50% !important; 
   }
   
+  @keyframes coinFlipHover { 
+    0%, 100% { box-shadow: 0 0 15px var(--stpat-green-bright-alpha-40); border-color: var(--stpat-gold-dark); transform: scale(1); } 
+    50% { box-shadow: 0 0 25px var(--stpat-gold-alpha-80); border-color: var(--stpat-gold-light); transform: scale(1.1); } 
+  }
+
   .card:hover .cardOverlayFab-primary { 
     animation: coinFlipHover 1.5s infinite alternate !important; 
     color: var(--pure-black) !important; 
   }
 
+  /* --- 13C. CARD HOVER EFFECTS (GOLD DUST & AURA) --- */
+  /* Prepares an invisible overlay on cards for the gold dust animation */
   .card .cardImageContainer::after {
     content: "";
     position: absolute;
@@ -2600,13 +2645,7 @@ body:has(.view-login) .skinHeader {
     100% { background-position: 0 0; opacity: 0; }
   }
 
-  .card:hover .cardImageContainer::after {
-    box-shadow: inset 0 0 20px var(--stpat-gold-alpha-60), inset 0 -30px 40px var(--stpat-green-mid-alpha-40) !important;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='20' cy='150' r='1.5' fill='%23ffb900'/%3E%3Ccircle cx='80' cy='50' r='2' fill='%23ffb900' opacity='0.8'/%3E%3Ccircle cx='150' cy='120' r='1' fill='%23ffca3a'/%3E%3Ccircle cx='180' cy='40' r='2.5' fill='%23ffb900' opacity='0.6'/%3E%3Ccircle cx='100' cy='180' r='1.5' fill='%23ffca3a'/%3E%3Ccircle cx='40' cy='80' r='1' fill='%23ffb900'/%3E%3C/svg%3E") 0 0 / 100px 100px;
-    animation: goldDustRise 3s linear infinite !important;
-    opacity: 1 !important;
-  }
-
+  /* Triggers rising gold particles and a green inner shadow on hover */
   .card:hover .cardImageContainer::after {
     box-shadow: inset 0 0 20px var(--stpat-gold-alpha-60), inset 0 -30px 40px var(--stpat-green-mid-alpha-40) !important;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='20' cy='150' r='1.5' fill='%23ffb900'/%3E%3Ccircle cx='80' cy='50' r='2' fill='%23ffb900' opacity='0.8'/%3E%3Ccircle cx='150' cy='120' r='1' fill='%23ffca3a'/%3E%3Ccircle cx='180' cy='40' r='2.5' fill='%23ffb900' opacity='0.6'/%3E%3Ccircle cx='100' cy='180' r='1.5' fill='%23ffca3a'/%3E%3Ccircle cx='40' cy='80' r='1' fill='%23ffb900'/%3E%3C/svg%3E") 0 0 / 100px 100px;
@@ -2619,11 +2658,14 @@ body:has(.view-login) .skinHeader {
     50% { border-color: var(--stpat-green-bright); box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 30px var(--stpat-green-bright-alpha-80), inset 0 0 20px var(--stpat-gold-alpha-30); } 
   }
   
+  /* Pulsing green border and glow for hovered cards */
   .card:hover .cardContent:not(.cardContent-round), 
   .card:hover .cardImageContainer:not(.cardContent-round) { 
     animation: emeraldAura 2s infinite ease-in-out !important; 
   }
 
+  /* --- 13D. UI INDICATORS (RAINBOW PROGRESS & COUNTS) --- */
+  /* Unwatched/Played count pills transformed into gold coins */
   .countIndicator { 
     background: radial-gradient(circle at 30% 30%, var(--stpat-gold-light) 0%, var(--stpat-gold) 60%, var(--stpat-gold-dark) 100%) !important; 
     border: 2px solid var(--stpat-gold-dark) !important; 
@@ -2643,6 +2685,7 @@ body:has(.view-login) .skinHeader {
     100% { background-position: 200% 50%; } 
   }
   
+  /* Flowing rainbow gradient for media progress bars */
   .itemProgressBarForeground { 
     background: linear-gradient(90deg, var(--stpat-rb-red), var(--stpat-rb-orange), var(--stpat-rb-yellow), var(--stpat-rb-green), var(--stpat-rb-blue), var(--stpat-rb-indigo), var(--stpat-rb-violet), var(--stpat-rb-red)) !important; 
     background-size: 200% 100% !important; 
@@ -2651,6 +2694,7 @@ body:has(.view-login) .skinHeader {
     border-radius: 5px !important; 
   }
 
+  /* Media info badges (4K, HDR, etc.) */
   .mediaInfoItems .mediaInfoItem,
   .mediaInfoItem {
     background: var(--stpat-bg-dark-2) !important; 
@@ -2669,23 +2713,11 @@ body:has(.view-login) .skinHeader {
     box-shadow: 0 0 10px var(--stpat-green-bright-alpha-50) !important;
   }
 
+  /* --- 13E. SLIDERS & CONTROLS (SHAMROCK THUMBS) --- */
+  /* Custom Shamrock Slider Thumbs */
   .emby-slider-thumb, 
   .videoOsdBottom .emby-slider-thumb, 
-  .nowPlayingBar .emby-slider-thumb { 
-    -webkit-appearance: none !important; 
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='15' fill='%23006400'/%3E%3Ccircle cx='35' cy='60' r='15' fill='%23006400'/%3E%3Ccircle cx='65' cy='60' r='15' fill='%23006400'/%3E%3Cpath d='M50 50 Q 60 90 45 95 Q 55 90 50 50' fill='%23006400'/%3E%3C/svg%3E"), radial-gradient(circle at 30% 30%, var(--stpat-gold-light) 0%, var(--stpat-gold) 60%, var(--stpat-gold-dark) 100%) !important; 
-    background-size: 60% 60%, 100% 100% !important; 
-    background-repeat: no-repeat !important; 
-    background-position: center !important; 
-    border: 2px solid var(--stpat-gold-dark) !important; 
-    border-radius: 50% !important; 
-    box-shadow: 0 0 10px var(--stpat-green-bright-alpha-60), inset -2px -2px 5px var(--stpat-black-alpha-30) !important; 
-    width: 32px !important; 
-    height: 32px !important; 
-    cursor: pointer !important; 
-    transform: translateY(-5px) !important; 
-  }
-  
+  .nowPlayingBar .emby-slider-thumb,
   input[type="range"]::-webkit-slider-thumb { 
     -webkit-appearance: none !important; 
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='15' fill='%23006400'/%3E%3Ccircle cx='35' cy='60' r='15' fill='%23006400'/%3E%3Ccircle cx='65' cy='60' r='15' fill='%23006400'/%3E%3Cpath d='M50 50 Q 60 90 45 95 Q 55 90 50 50' fill='%23006400'/%3E%3C/svg%3E"), radial-gradient(circle at 30% 30%, var(--stpat-gold-light) 0%, var(--stpat-gold) 60%, var(--stpat-gold-dark) 100%) !important; 
@@ -2698,22 +2730,26 @@ body:has(.view-login) .skinHeader {
     width: 32px !important; 
     height: 32px !important; 
     cursor: pointer !important; 
-    transform: translateY(-2px) !important; 
   }
   
+  /* Vertical alignment fixes */
+  .emby-slider-thumb, .videoOsdBottom .emby-slider-thumb, .nowPlayingBar .emby-slider-thumb { transform: translateY(-5px) !important; }
+  input[type="range"]::-webkit-slider-thumb { transform: translateY(-2px) !important; }
+  
+  /* Hover state: changes to a bright green shamrock on a silver/white background */
   .emby-slider-thumb:hover, 
   input[type="range"]:hover::-webkit-slider-thumb { 
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='15' fill='%2300ff85'/%3E%3Ccircle cx='35' cy='60' r='15' fill='%2300ff85'/%3E%3Ccircle cx='65' cy='60' r='15' fill='%2300ff85'/%3E%3Cpath d='M50 50 Q 60 90 45 95 Q 55 90 50 50' fill='%2300ff85'/%3E%3C/svg%3E"), radial-gradient(circle at 30% 30%, var(--pure-white) 0%, var(--stpat-gold-light) 60%, var(--stpat-gold) 100%) !important; 
     border-color: var(--pure-white) !important; 
     box-shadow: 0 0 15px var(--pure-white), 0 0 25px var(--stpat-green-bright-alpha-100) !important; 
-    transform: translateY(-5px) scale(1.15) !important; 
     transition: transform 0.2s ease, box-shadow 0.2s ease !important; 
   }
-  
-  input[type="range"]:hover::-webkit-slider-thumb { 
-    transform: translateY(-2px) scale(1.15) !important; 
-  }
 
+  .emby-slider-thumb:hover { transform: translateY(-5px) scale(1.15) !important; }
+  input[type="range"]:hover::-webkit-slider-thumb { transform: translateY(-2px) scale(1.15) !important; }
+
+  /* --- 13F. DIALOG BOXES & LOADING SPINNERS --- */
+  /* Main popup dialog window styling */
   .dialog:not(.sliderBubble):not(.chapterThumbContainer), 
   .formDialog, 
   .actionSheet, 
@@ -2724,6 +2760,18 @@ body:has(.view-login) .skinHeader {
     box-shadow: 0 15px 40px var(--black-alpha-90), 0 -5px 20px var(--stpat-green-mid-alpha-20) !important; 
   }
 
+  .mdl-spinner__layer-1 {
+    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, stpat-spinner-colors 5332ms linear infinite !important;
+  }
+
+  @keyframes stpat-spinner-colors {
+    0%, 100% { border-color: var(--stpat-green-bright); }
+    25% { border-color: var(--stpat-gold); }
+    50% { border-color: var(--stpat-green-mid); }
+    75% { border-color: var(--pure-white); }
+  }
+
+  /* --- 13G. GLOBAL BACKGROUNDS (FALLING CLOVERS) --- */
   @keyframes luck-fall-1 { 
     from { background-position: 0 0, 150px 250px; } 
     to { background-position: 0 2400px, 150px 2650px; } 
@@ -2757,6 +2805,7 @@ body:has(.view-login) .skinHeader {
     z-index: -1; 
   }
   
+  /* Layer 1: Bright foreground clovers */
   body::before { 
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cg transform='translate(300,300) scale(0.6) rotate(15)'%3E%3Ccircle cx='50' cy='30' r='20' fill='%2300ff85'/%3E%3Ccircle cx='30' cy='60' r='20' fill='%2300ff85'/%3E%3Ccircle cx='70' cy='60' r='20' fill='%2300ff85'/%3E%3Cpath d='M50 50 Q 60 100 40 110 Q 55 100 50 50' fill='%2300ff85'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 600px 600px, 
                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Cg transform='translate(400,400) scale(0.4) rotate(-20)'%3E%3Ccircle cx='50' cy='30' r='20' fill='%2300ff85'/%3E%3Ccircle cx='30' cy='60' r='20' fill='%2300ff85'/%3E%3Ccircle cx='70' cy='60' r='20' fill='%2300ff85'/%3E%3Cpath d='M50 50 Q 60 100 40 110 Q 55 100 50 50' fill='%2300ff85'/%3E%3C/g%3E%3C/svg%3E") 150px 250px / 800px 800px; 
@@ -2764,6 +2813,7 @@ body:has(.view-login) .skinHeader {
     opacity: 0.7; 
   }
   
+  /* Layer 2: Mid-layer blurred clovers */
   body::after { 
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 700 700'%3E%3Cg transform='translate(350,350) scale(0.5) rotate(-10)'%3E%3Ccircle cx='50' cy='30' r='20' fill='%23009e60'/%3E%3Ccircle cx='30' cy='60' r='20' fill='%23009e60'/%3E%3Ccircle cx='70' cy='60' r='20' fill='%23009e60'/%3E%3Cpath d='M50 50 Q 60 100 40 110 Q 55 100 50 50' fill='%23009e60'/%3E%3C/g%3E%3C/svg%3E") 100px 100px / 700px 700px, 
                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 900'%3E%3Cg transform='translate(450,450) scale(0.7) rotate(25)'%3E%3Ccircle cx='50' cy='30' r='20' fill='%23009e60'/%3E%3Ccircle cx='30' cy='60' r='20' fill='%23009e60'/%3E%3Ccircle cx='70' cy='60' r='20' fill='%23009e60'/%3E%3Cpath d='M50 50 Q 60 100 40 110 Q 55 100 50 50' fill='%23009e60'/%3E%3C/g%3E%3C/svg%3E") 350px 400px / 900px 900px; 
@@ -2772,6 +2822,7 @@ body:has(.view-login) .skinHeader {
     opacity: 0.5; 
   }
   
+  /* Layer 3: Distant background clovers */
   .backgroundContainer::before { 
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cg transform='translate(250,250) scale(0.3) rotate(10)'%3E%3Ccircle cx='50' cy='30' r='20' fill='%23006400'/%3E%3Ccircle cx='30' cy='60' r='20' fill='%23006400'/%3E%3Ccircle cx='70' cy='60' r='20' fill='%23006400'/%3E%3Cpath d='M50 50 Q 60 100 40 110 Q 55 100 50 50' fill='%23006400'/%3E%3C/g%3E%3C/svg%3E") 50px 50px / 500px 500px, 
                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cg transform='translate(500,500) scale(0.4) rotate(-5)'%3E%3Ccircle cx='50' cy='30' r='20' fill='%23006400'/%3E%3Ccircle cx='30' cy='60' r='20' fill='%23006400'/%3E%3Ccircle cx='70' cy='60' r='20' fill='%23006400'/%3E%3Cpath d='M50 50 Q 60 100 40 110 Q 55 100 50 50' fill='%23006400'/%3E%3C/g%3E%3C/svg%3E") 200px 600px / 1000px 1000px; 
@@ -2780,11 +2831,13 @@ body:has(.view-login) .skinHeader {
     opacity: 0.4; 
   }
 
+  /* --- 13H. SUBMIT BUTTONS & NAVIGATION TABS --- */
   @keyframes emeraldTabPulse { 
     0% { transform: scale(1); box-shadow: 0 4px 10px var(--black-alpha-50), 0 0 10px var(--stpat-green-bright-alpha-40), inset 0 0 8px var(--stpat-gold-alpha-30) !important; } 
     100% { transform: scale(1.05); box-shadow: 0 4px 10px var(--black-alpha-50), 0 0 20px var(--stpat-green-bright-alpha-80), inset 0 0 15px var(--stpat-gold-alpha-70) !important; border-color: var(--stpat-gold-light) !important; color: var(--pure-white) !important; } 
   }
   
+  /* Active states for tabs like "Home", "Favorites", etc. */
   .videoOsdBottom .emby-tab-button-active, 
   .emby-tab-button-active, 
   .videoOsdBottom .emby-tab-button:focus, 
@@ -2796,17 +2849,14 @@ body:has(.view-login) .skinHeader {
     animation: emeraldTabPulse 2.5s infinite alternate ease-in-out !important; 
   }
 
-  .mdl-spinner__layer-1 {
-    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, stpat-spinner-colors 5332ms linear infinite !important;
+  /* Video player bottom gradient */
+  .videoOsdBottom, 
+  .videoOsdBottom-video { 
+    background: linear-gradient(to top, var(--stpat-green-mid-alpha-20) 0%, var(--stpat-bg-dark-1) 60%, transparent 100%) !important; 
+    border-bottom: 3px solid var(--stpat-gold) !important; 
   }
 
-  @keyframes stpat-spinner-colors {
-    0%, 100% { border-color: var(--stpat-green-bright); }
-    25% { border-color: var(--stpat-gold); }
-    50% { border-color: var(--stpat-green-mid); }
-    75% { border-color: var(--pure-white); }
-  }
-  
+  /* General dialog buttons (Save, Cancel, Play) */
   .button-submit {
     background: linear-gradient(135deg, var(--stpat-green-mid) 0%, var(--stpat-green-bright) 100%) !important;
     color: var(--pure-black) !important;
@@ -2818,12 +2868,14 @@ body:has(.view-login) .skinHeader {
     transition: all 0.2s ease-in-out !important;
     transform: none !important;
   }
+  
   .button-submit:hover {
     background: linear-gradient(135deg, var(--stpat-green-bright) 0%, var(--stpat-gold) 100%) !important;
     border-color: var(--pure-white) !important;
     box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--stpat-green-bright-alpha-80) !important;
     transform: translateY(-2px) scale(1.02) !important;
   }
+  
   .button-submit:active {
     transform: scale(0.98) !important;
   }
@@ -2837,6 +2889,9 @@ body:has(.view-login) .skinHeader {
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #ffb7b2) {
+  
+  /* --- 14A. UI INDICATORS (EGG SHAPES) --- */
+  /* Unwatched/Played count pills transformed into Easter eggs */
   .countIndicator { 
     border-radius: 50% / 60% 60% 40% 40% !important; 
     background: radial-gradient(circle at 30% 30%, var(--easter-yellow-light) 0%, var(--easter-yellow) 100%) !important; 
@@ -2846,13 +2901,8 @@ body:has(.view-login) .skinHeader {
     padding: 0.3em 0.6em !important; 
   }
   
-  @keyframes eggWobble { 
-    0%, 100% { transform: scale(1.1) rotate(0deg); } 
-    25% { transform: scale(1.1) rotate(8deg); } 
-    50% { transform: scale(1.1) rotate(-8deg); } 
-    75% { transform: scale(1.1) rotate(4deg); } 
-  }
-  
+  /* --- 14B. MEDIA CARD ACTION OVERLAYS (WOBBLING EGGS) --- */
+  /* Replaces default play/edit buttons with a golden egg shape */
   .cardOverlayFab-primary, 
   .cardOverlayButtonIcon, 
   .listItemOverlayButtonIcon, 
@@ -2862,10 +2912,19 @@ body:has(.view-login) .skinHeader {
     box-shadow: 0 5px 15px var(--black-alpha-80), inset -2px -4px 8px var(--black-alpha-20) !important; 
   }
   
+  @keyframes eggWobble { 
+    0%, 100% { transform: scale(1.1) rotate(0deg); } 
+    25% { transform: scale(1.1) rotate(8deg); } 
+    50% { transform: scale(1.1) rotate(-8deg); } 
+    75% { transform: scale(1.1) rotate(4deg); } 
+  }
+  
   .card:hover .cardOverlayFab-primary { 
     animation: eggWobble 0.6s ease-in-out infinite !important; 
   }
 
+  /* --- 14C. PORTRAITS & MEDIA CARDS (EGG CLIPPING) --- */
+  /* Forces cast/crew portraits to clip into an egg shape */
   .peopleSection .cardContent-background, 
   .peopleSection .cardImageContainer, 
   .personCard .cardImageContainer, 
@@ -2876,12 +2935,21 @@ body:has(.view-login) .skinHeader {
     border-radius: 50% / 60% 60% 40% 40% !important; 
   }
   
+  /* Glow effect for hovered egg portraits */
   .peopleSection .card:hover .cardImageContainer, 
   .personCard:hover .cardImageContainer { 
     border-color: var(--easter-pink) !important; 
     box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 15px var(--easter-pink-alpha-50) !important; 
   }
 
+  /* Standard media card hover state */
+  .card:hover .cardContent:not(.cardContent-round), 
+  .card:hover .cardImageContainer:not(.cardContent-round) { 
+    border-color: var(--easter-pink) !important; 
+    box-shadow: none !important;
+  }
+
+  /* --- 14D. PROGRESS BARS & LOADERS --- */
   .mdl-spinner__layer-1 {
     animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, easter-spinner-colors 5332ms linear infinite !important;
   }
@@ -2898,6 +2966,7 @@ body:has(.view-login) .skinHeader {
     50% { background-position: 100% 50%; } 
   }
   
+  /* Flowing pastel gradient for media progress bars */
   .itemProgressBarForeground { 
     background: linear-gradient(90deg, var(--easter-pink), var(--easter-blue-light), var(--easter-green), var(--easter-yellow)) !important; 
     background-size: 300% 300% !important; 
@@ -2906,38 +2975,9 @@ body:has(.view-login) .skinHeader {
     border-radius: 5px !important; 
   }
 
-  .videoOsdBottom .emby-tab-button-active, 
-  .emby-tab-button-active, 
-  .videoOsdBottom .emby-tab-button:focus, 
-  .videoOsdBottom .emby-tab-button.show-focus { 
-    border-radius: 20px / 30px !important; 
-    background: linear-gradient(135deg, var(--easter-blue-light) 0%, var(--easter-blue) 100%) !important; 
-    color: var(--retro-navy) !important; 
-    border: 2px solid var(--easter-blue-dark) !important; 
-    box-shadow: 2px 3px 6px var(--black-alpha-50), inset -2px -2px 6px var(--easter-black-alpha-15) !important; 
-  }
+  /* --- 14E. SLIDERS & CONTROLS (EGG THUMBS) --- */
   
-  .card:hover .cardContent:not(.cardContent-round), 
-  .card:hover .cardImageContainer:not(.cardContent-round) { 
-    border-color: var(--easter-pink) !important; 
-    box-shadow: none !important;
-  }
-  
-  .videoOsdBottom, 
-  .videoOsdBottom-video { 
-    background: linear-gradient(to top, var(--easter-green-alpha-25) 0%, var(--easter-bg-purple-mid) 50%, transparent 100%) !important; 
-    border-bottom: 3px solid var(--easter-green) !important; 
-  }
-  
-  .dialog:not(.sliderBubble):not(.chapterThumbContainer), 
-  .formDialog, 
-  .actionSheet, 
-  .itemSelectionPanel { 
-    background: linear-gradient(135deg, var(--easter-bg-purple-light) 25%, var(--easter-bg-purple-dark) 25%, var(--easter-bg-purple-dark) 50%, var(--easter-bg-purple-light) 50%, var(--easter-bg-purple-light) 75%, var(--easter-bg-purple-dark) 75%, var(--easter-bg-purple-dark) 100%) !important; 
-    background-size: 20px 20px !important; 
-    border: 3px solid var(--theme-primary-color) !important; 
-  }
-
+  /* 1. DIV based sliders (Emby Web App) */
   .emby-slider-thumb, 
   .videoOsdBottom .emby-slider-thumb, 
   .nowPlayingBar .emby-slider-thumb { 
@@ -2952,6 +2992,7 @@ body:has(.view-login) .skinHeader {
     transform: translateY(-4px) !important; 
   }
   
+  /* 2. Webkit native sliders */
   input[type="range"]::-webkit-slider-thumb { 
     -webkit-appearance: none !important; 
     appearance: none !important; 
@@ -2964,6 +3005,7 @@ body:has(.view-login) .skinHeader {
     transform: translateY(-2px) !important; 
   }
   
+  /* 3. Mozilla native sliders */
   input[type="range"]::-moz-range-thumb { 
     appearance: none !important; 
     border-radius: 50% / 60% 60% 40% 40% !important; 
@@ -2974,6 +3016,7 @@ body:has(.view-login) .skinHeader {
     height: 26px !important; 
   }
   
+  /* Hover states for egg thumbs */
   .emby-slider-thumb:hover { 
     background: radial-gradient(circle at 30% 30%, var(--easter-yellow-light) 0%, var(--easter-blue) 60%, var(--easter-blue-dark) 100%) !important; 
     box-shadow: 0 6px 12px var(--black-alpha-90), inset -2px -4px 6px var(--easter-black-alpha-30), 0 0 10px var(--easter-blue) !important; 
@@ -2992,6 +3035,37 @@ body:has(.view-login) .skinHeader {
     transform: translateY(-2px) scale(1.1) !important; 
   }
 
+  /* --- 14F. TABS, DIALOGS, & BUTTONS --- */
+  /* Active states for tabs like "Home", "Favorites", etc. */
+  .videoOsdBottom .emby-tab-button-active, 
+  .emby-tab-button-active, 
+  .videoOsdBottom .emby-tab-button:focus, 
+  .videoOsdBottom .emby-tab-button.show-focus { 
+    border-radius: 20px / 30px !important; 
+    background: linear-gradient(135deg, var(--easter-blue-light) 0%, var(--easter-blue) 100%) !important; 
+    color: var(--retro-navy) !important; 
+    border: 2px solid var(--easter-blue-dark) !important; 
+    box-shadow: 2px 3px 6px var(--black-alpha-50), inset -2px -2px 6px var(--easter-black-alpha-15) !important; 
+  }
+  
+  /* Video player bottom gradient */
+  .videoOsdBottom, 
+  .videoOsdBottom-video { 
+    background: linear-gradient(to top, var(--easter-green-alpha-25) 0%, var(--easter-bg-purple-mid) 50%, transparent 100%) !important; 
+    border-bottom: 3px solid var(--easter-green) !important; 
+  }
+  
+  /* Main popup dialog window styling */
+  .dialog:not(.sliderBubble):not(.chapterThumbContainer), 
+  .formDialog, 
+  .actionSheet, 
+  .itemSelectionPanel { 
+    background: linear-gradient(135deg, var(--easter-bg-purple-light) 25%, var(--easter-bg-purple-dark) 25%, var(--easter-bg-purple-dark) 50%, var(--easter-bg-purple-light) 50%, var(--easter-bg-purple-light) 75%, var(--easter-bg-purple-dark) 75%, var(--easter-bg-purple-dark) 100%) !important; 
+    background-size: 20px 20px !important; 
+    border: 3px solid var(--theme-primary-color) !important; 
+  }
+
+  /* General dialog buttons (Save, Cancel, Play) */
   .button-submit {
     background: linear-gradient(135deg, var(--easter-blue-light) 0%, var(--easter-pink) 100%) !important;
     color: var(--retro-navy) !important;
@@ -3003,16 +3077,20 @@ body:has(.view-login) .skinHeader {
     transition: all 0.2s ease-in-out !important;
     transform: none !important;
   }
+  
   .button-submit:hover {
     background: linear-gradient(135deg, var(--easter-pink) 0%, var(--easter-yellow-light) 100%) !important;
     border-color: var(--pure-white) !important;
     box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--easter-blue-light) !important;
     transform: translateY(-2px) scale(1.02) !important;
   }
+  
   .button-submit:active {
     transform: scale(0.98) !important;
   }
 
+  /* --- 14G. GLOBAL BACKGROUNDS (CHERRY BLOSSOMS & LANDSCAPE) --- */
+  /* Hide default empty containers */
   .backgroundContainer-transparent::before,
   .backgroundContainer-transparent::after,
   .view-videoosd::after {
@@ -3029,6 +3107,7 @@ body:has(.view-login) .skinHeader {
     z-index: -1;
   }
 
+  /* Layer 1: Foreground falling blossoms */
   body::before {
     inset: -100px;
     background: 
@@ -3038,6 +3117,7 @@ body:has(.view-login) .skinHeader {
     animation: blossom-fall-1 25s linear infinite, blossom-sway 6s ease-in-out infinite alternate;
   }
 
+  /* Layer 2: Midground falling blossoms (blurred) */
   body::after {
     inset: -100px;
     background: 
@@ -3048,6 +3128,7 @@ body:has(.view-login) .skinHeader {
     filter: blur(2px);
   }
 
+  /* Layer 3: Rolling grass hills at the bottom */
   .backgroundContainer::after {
     bottom: -15px; 
     left: -100px; right: -100px; 
@@ -3061,6 +3142,7 @@ body:has(.view-login) .skinHeader {
     z-index: -1;
   }
 
+  /* Layer 4: The large Cherry Blossom branch in the background */
   .backdropContainer::before {
     content: '';
     position: fixed;
@@ -3071,21 +3153,21 @@ body:has(.view-login) .skinHeader {
     min-width: 420px;
     height: 78vh; 
     max-height: 960px;
-    
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 1000'%3E%3Cdefs%3E%3Cg id='a'%3E%3Cpath d='M0,40 C-40,20 -40,-20 0,-40 C40,-20 40,20 0,40 Z' transform='translate(0,0) rotate(15)' fill='%23ffb7b2' opacity='0.95'/%3E%3Cpath d='M0,35 C-35,17 -35,-17 0,-35 C35,-17 35,17 0,35 Z' transform='translate(-20,-20) rotate(-40)' fill='%23ffdac1' opacity='0.85'/%3E%3Cpath d='M0,35 C-35,17 -35,-17 0,-35 C35,-17 35,17 0,35 Z' transform='translate(25,-15) rotate(60)' fill='%23ffb6c1' opacity='0.9'/%3E%3Cpath d='M0,30 C-30,15 -30,-15 0,-30 C30,-15 30,15 0,30 Z' transform='translate(-10,20) rotate(-15)' fill='%23ff9aa2' opacity='0.9'/%3E%3Cpath d='M0,30 C-30,15 -30,-15 0,-30 C30,-15 30,15 0,30 Z' transform='translate(20,20) rotate(80)' fill='%23ffb7b2' opacity='0.85'/%3E%3Cpath d='M0,25 C-25,12 -25,-12 0,-25 C25,-12 25,12 0,25 Z' transform='translate(0,-30) rotate(-75)' fill='%23ffc4c4' opacity='0.8'/%3E%3C/g%3E%3Cg id='b'%3E%3Cpath d='M0,28 C-28,14 -28,-14 0,-28 C28,-14 28,14 0,28 Z' transform='translate(0,0) rotate(35)' fill='%23ffb7b2' opacity='0.95'/%3E%3Cpath d='M0,24 C-24,12 -24,-12 0,-24 C24,-12 24,12 0,24 Z' transform='translate(-14,-14) rotate(-25)' fill='%23ffdac1' opacity='0.85'/%3E%3Cpath d='M0,24 C-24,12 -24,-12 0,-24 C24,-12 24,12 0,24 Z' transform='translate(17,-10) rotate(55)' fill='%23ffb6c1' opacity='0.9'/%3E%3Cpath d='M0,21 C-21,10 -21,-10 0,-21 C21,-10 21,10 0,21 Z' transform='translate(-7,14) rotate(-60)' fill='%23ff9aa2' opacity='0.9'/%3E%3Cpath d='M0,21 C-21,10 -21,-10 0,-21 C21,-10 21,10 0,21 Z' transform='translate(14,14) rotate(15)' fill='%23ffb7b2' opacity='0.85'/%3E%3C/g%3E%3Cg id='c'%3E%3Cpath d='M0,16 C-16,8 -16,-8 0,-16 C16,-8 16,8 0,16 Z' transform='translate(0,0) rotate(-15)' fill='%23ffb7b2' opacity='0.95'/%3E%3Cpath d='M0,14 C-14,7 -14,-7 0,-14 C14,-7 14,7 0,14 Z' transform='translate(-8,-8) rotate(45)' fill='%23ffdac1' opacity='0.85'/%3E%3Cpath d='M0,14 C-14,7 -14,-7 0,-14 C14,-7 14,7 0,14 Z' transform='translate(10,-6) rotate(-75)' fill='%23ffb6c1' opacity='0.9'/%3E%3Cpath d='M0,12 C-12,6 -12,-6 0,-12 C12,-6 12,6 0,12 Z' transform='translate(-4,8) rotate(30)' fill='%23ff9aa2' opacity='0.9'/%3E%3Cpath d='M0,12 C-12,6 -12,-6 0,-12 C12,-6 12,6 0,12 Z' transform='translate(8,8) rotate(-50)' fill='%23ffb7b2' opacity='0.85'/%3E%3C/g%3E%3C/defs%3E%3Cg stroke='%232d1b13' stroke-linecap='round' fill='none'%3E%3Cpath stroke-width='60' d='M400,1000 C400,800 380,600 400,450'/%3E%3Cpath stroke-width='40' d='M395,550 C350,450 250,400 150,300'/%3E%3Cpath stroke-width='35' d='M405,500 C480,400 550,350 650,250'/%3E%3Cpath stroke-width='25' d='M390,450 C380,300 300,200 250,150'/%3E%3Cpath stroke-width='20' d='M410,480 C450,350 500,250 480,100'/%3E%3Cpath stroke-width='15' d='M250,400 C200,350 150,250 100,200'/%3E%3Cpath stroke-width='15' d='M500,380 C580,300 650,200 700,150'/%3E%3Cpath stroke-width='12' d='M330,300 C280,200 200,150 150,100'/%3E%3Cpath stroke-width='12' d='M470,250 C550,150 600,100 650,50'/%3E%3C/g%3E%3Cuse href='%23a' x='400' y='450'/%3E%3Cuse href='%23a' x='350' y='400'/%3E%3Cuse href='%23a' x='450' y='400'/%3E%3Cuse href='%23a' x='300' y='320'/%3E%3Cuse href='%23a' x='500' y='320'/%3E%3Cuse href='%23a' x='380' y='300'/%3E%3Cuse href='%23a' x='420' y='280'/%3E%3Cuse href='%23a' x='350' y='200'/%3E%3Cuse href='%23a' x='460' y='200'/%3E%3Cuse href='%23b' x='250' y='400'/%3E%3Cuse href='%23b' x='200' y='350'/%3E%3Cuse href='%23b' x='150' y='300'/%3E%3Cuse href='%23c' x='120' y='280'/%3E%3Cuse href='%23b' x='550' y='350'/%3E%3Cuse href='%23b' x='600' y='300'/%3E%3Cuse href='%23b' x='650' y='250'/%3E%3Cuse href='%23c' x='680' y='220'/%3E%3Cuse href='%23b' x='250' y='250'/%3E%3Cuse href='%23b' x='200' y='200'/%3E%3Cuse href='%23c' x='150' y='150'/%3E%3Cuse href='%23b' x='500' y='250'/%3E%3Cuse href='%23b' x='550' y='180'/%3E%3Cuse href='%23c' x='600' y='120'/%3E%3Cuse href='%23c' x='100' y='200'/%3E%3Cuse href='%23c' x='80' y='180'/%3E%3Cuse href='%23c' x='700' y='150'/%3E%3Cuse href='%23c' x='730' y='130'/%3E%3Cuse href='%23b' x='280' y='150'/%3E%3Cuse href='%23c' x='220' y='100'/%3E%3Cuse href='%23c' x='150' y='80'/%3E%3Cuse href='%23b' x='500' y='100'/%3E%3Cuse href='%23c' x='550' y='60'/%3E%3Cuse href='%23c' x='650' y='50'/%3E%3Cuse href='%23c' x='680' y='30'/%3E%3Cuse href='%23b' x='320' y='250'/%3E%3Cuse href='%23b' x='480' y='250'/%3E%3Cuse href='%23a' x='400' y='350'/%3E%3Cuse href='%23b' x='350' y='480'/%3E%3Cuse href='%23b' x='450' y='480'/%3E%3Cuse href='%23c' x='300' y='450'/%3E%3Cuse href='%23c' x='500' y='450'/%3E%3Cuse href='%23b' x='280' y='280'/%3E%3Cuse href='%23b' x='520' y='280'/%3E%3Cuse href='%23b' x='400' y='150'/%3E%3Cuse href='%23c' x='400' y='80'/%3E%3Cuse href='%23c' x='350' y='100'/%3E%3Cuse href='%23c' x='450' y='100'/%3E%3C/svg%3E") center bottom / contain no-repeat;
-    
-    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4)); 
+    filter: drop-shadow(0 15px 25px var(--black-alpha-50)); 
     z-index: -2;
     transform-origin: bottom center;
     pointer-events: none;
   }
 
+  /* Layer 5: Base sky gradient behind the blossoms */
   .backgroundContainer::before {
     inset: 0;
     background: linear-gradient(to top, rgba(var(--easter-navy-base-rgb), 0.9) 0%, rgba(var(--easter-navy-base-rgb), 0.3) 40%, transparent 100%);
     z-index: 0;
   }
 
+  /* Background Effect Animations */
   @keyframes blossom-fall-1 {
     from { background-position: 0px -100px, 150px -50px, 350px -150px; }
     to { background-position: 250px 1200px, 400px 1150px, 600px 1050px; }
@@ -3121,28 +3203,7 @@ body:has(.view-login) .skinHeader {
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #e0162b) {
 
-  @keyframes firework-burst {
-    0% { transform: scale(0.1) translateY(0); opacity: 0; filter: brightness(2) blur(1px); }
-    10% { opacity: 1; filter: brightness(1.5) blur(0px); }
-    100% { transform: scale(5) translateY(60px); opacity: 0; filter: blur(3px); }
-  }
-
-  @keyframes starTwinkle {
-    0%, 100% { opacity: 0.2; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.2); }
-  }
-
-  @keyframes sky-glow {
-    0%, 100% { background-color: transparent; }
-    10%, 20% { background-color: var(--july4-sky-red-glow); } 
-    40%, 50% { background-color: var(--july4-sky-blue-glow); } 
-  }
-
-  @keyframes shieldPulse { 
-    0% { transform: scale(1); box-shadow: 0 0 0 3px var(--july4-white) inset, 0 0 15px var(--july4-red-alpha-60); } 
-    100% { transform: scale(1.05); box-shadow: 0 0 0 3px var(--july4-white) inset, 0 0 25px var(--july4-blue-alpha-80); } 
-  }
-
+  /* --- 15A. GLOBAL BACKGROUNDS (STARS & SKYLINE) --- */
   .backgroundContainer::before,
   .backgroundContainer::after,
   body::before,
@@ -3156,6 +3217,12 @@ body:has(.view-login) .skinHeader {
     border-radius: 50%;
   }
 
+  @keyframes starTwinkle {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.2); }
+  }
+
+  /* Layer 1: Twinkling Starry Sky Background */
   body::before {
     inset: 0;
     border-radius: 0;
@@ -3170,6 +3237,13 @@ body:has(.view-login) .skinHeader {
     z-index: -3;
   }
 
+  @keyframes sky-glow {
+    0%, 100% { background-color: transparent; }
+    10%, 20% { background-color: var(--july4-sky-red-glow); } 
+    40%, 50% { background-color: var(--july4-sky-blue-glow); } 
+  }
+
+  /* Layer 2: City Skyline Silhouette & Ambient Sky Glow */
   body::after {
     inset: 0;
     border-radius: 0;
@@ -3182,6 +3256,14 @@ body:has(.view-login) .skinHeader {
     z-index: -4;
   }
 
+  /* --- 15B. FIREWORK ANIMATIONS (USING BOX-SHADOW) --- */
+  @keyframes firework-burst {
+    0% { transform: scale(0.1) translateY(0); opacity: 0; filter: brightness(2) blur(1px); }
+    10% { opacity: 1; filter: brightness(1.5) blur(0px); }
+    100% { transform: scale(5) translateY(60px); opacity: 0; filter: blur(3px); }
+  }
+
+  /* Firework 1 */
   .backgroundContainer::before {
     top: 25%; left: 20%; width: 4px; height: 4px;
     box-shadow: 
@@ -3194,6 +3276,7 @@ body:has(.view-login) .skinHeader {
     animation: firework-burst 3.2s infinite ease-out 0.5s;
   }
 
+  /* Firework 2 */
   .backgroundContainer::after {
     top: 35%; left: 80%; width: 3px; height: 3px;
     box-shadow: 
@@ -3206,6 +3289,7 @@ body:has(.view-login) .skinHeader {
     animation: firework-burst 3.8s infinite ease-out 1.2s;
   }
 
+  /* Firework 3 */
   .backdropContainer::before {
     top: 15%; left: 50%; width: 4px; height: 4px;
     box-shadow: 
@@ -3218,6 +3302,7 @@ body:has(.view-login) .skinHeader {
     animation: firework-burst 4.5s infinite ease-out 2.1s;
   }
 
+  /* Firework 4 */
   .backdropContainer::after {
     top: 55%; left: 25%; width: 3px; height: 3px;
     box-shadow: 
@@ -3230,6 +3315,8 @@ body:has(.view-login) .skinHeader {
     animation: firework-burst 2.8s infinite ease-out 0.8s;
   }
 
+  /* --- 15C. MEDIA CARD ACTION OVERLAYS (SHIELDS) --- */
+  /* Replaces default play/edit buttons with a red/white/blue shield effect */
   .cardOverlayFab-primary, 
   .cardOverlayButtonIcon, 
   .listItemOverlayButtonIcon, 
@@ -3244,24 +3331,16 @@ body:has(.view-login) .skinHeader {
     justify-content: center;
   }
 
+  @keyframes shieldPulse { 
+    0% { transform: scale(1); box-shadow: 0 0 0 3px var(--july4-white) inset, 0 0 15px var(--july4-red-alpha-60); } 
+    100% { transform: scale(1.05); box-shadow: 0 0 0 3px var(--july4-white) inset, 0 0 25px var(--july4-blue-alpha-80); } 
+  }
+
   .card:hover .cardOverlayFab-primary { 
     animation: shieldPulse 1s ease-in-out infinite alternate !important; 
   }
 
-  .countIndicator { 
-    background: var(--july4-blue) !important; 
-    color: var(--july4-white) !important; 
-    border: 2px solid var(--july4-white) !important; 
-    box-shadow: 0 0 10px var(--july4-red-alpha-80), inset 0 0 5px var(--black-alpha-50) !important; 
-  }
-
-  .itemProgressBarForeground { 
-    background: linear-gradient(90deg, var(--july4-red), var(--july4-white), var(--july4-blue), var(--july4-white), var(--july4-red)) !important; 
-    background-size: 300% 100% !important; 
-    animation: flagWave 4s ease-in-out infinite !important; 
-    box-shadow: 0 0 12px var(--july4-white-alpha-50) !important; 
-  }
-
+  /* Mini firework burst behind the card on hover */
   .card:hover .cardImageContainer::after { 
     content: ""; position: absolute; inset: 0; border-radius: inherit;
     background: radial-gradient(circle, var(--july4-white) 10%, transparent 70%); 
@@ -3273,6 +3352,30 @@ body:has(.view-login) .skinHeader {
     100% { transform: scale(1.8); opacity: 0; filter: brightness(1); } 
   }
 
+  /* --- 15D. UI INDICATORS (COUNT & PROGRESS) --- */
+  /* Unwatched/Played count pills */
+  .countIndicator { 
+    background: var(--july4-blue) !important; 
+    color: var(--july4-white) !important; 
+    border: 2px solid var(--july4-white) !important; 
+    box-shadow: 0 0 10px var(--july4-red-alpha-80), inset 0 0 5px var(--black-alpha-50) !important; 
+  }
+
+  /* Added Missing Keyframe for the flag wave */
+  @keyframes flagWave {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+
+  /* Scrolling red/white/blue gradient for progress bars */
+  .itemProgressBarForeground { 
+    background: linear-gradient(90deg, var(--july4-red), var(--july4-white), var(--july4-blue), var(--july4-white), var(--july4-red)) !important; 
+    background-size: 300% 100% !important; 
+    animation: flagWave 4s linear infinite !important; 
+    box-shadow: 0 0 12px var(--july4-white-alpha-50) !important; 
+  }
+
+  /* --- 15E. SUBMIT & ACTION BUTTONS --- */
   .button-submit {
     background: linear-gradient(135deg, var(--july4-blue) 0%, var(--july4-red) 100%) !important;
     color: var(--july4-white) !important;
@@ -3284,6 +3387,7 @@ body:has(.view-login) .skinHeader {
     transition: all 0.2s ease-in-out !important;
     transform: none !important;
   }
+  
   .button-submit:hover {
     background: linear-gradient(135deg, var(--july4-red) 0%, var(--july4-white) 100%) !important;
     color: var(--july4-navy) !important;
@@ -3291,6 +3395,7 @@ body:has(.view-login) .skinHeader {
     box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--july4-red-alpha-80) !important;
     transform: translateY(-2px) scale(1.02) !important;
   }
+  
   .button-submit:active {
     transform: scale(0.98) !important;
   }
@@ -3305,11 +3410,14 @@ body:has(.view-login) .skinHeader {
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #ff6600) {
 
+  /* --- 16A. PORTRAITS & MEDIA CARDS (TOMBSTONE SHAPES) --- */
+  /* Adjusts the aspect ratio of people cards to fit the tombstone shape */
   .peopleSection .card,
   .personCard {
     aspect-ratio: 2 / 3.5 !important;
   }
 
+  /* Shapes the top of the cards to look like tombstones */
   .peopleSection .cardContent-background,
   .peopleSection .cardImageContainer,
   .personCard .cardImageContainer {
@@ -3321,6 +3429,7 @@ body:has(.view-login) .skinHeader {
     overflow: hidden !important;
   }
 
+  /* Applies a desaturated, spooky sepia filter to the portraits */
   .peopleSection .cardImageContainer img,
   .personCard .cardImageContainer img {
     border-radius: 45% 45% 0 0 / 18% 18% 0 0 !important;
@@ -3329,6 +3438,7 @@ body:has(.view-login) .skinHeader {
     transition: filter 0.3s ease !important;
   }
 
+  /* Hover states for the tombstone portraits (Glows orange and lifts up) */
   body .peopleSection .card:hover .cardImageContainer,
   body .personCard:hover .cardImageContainer,
   body .peopleSection .card:hover .cardContent.cardContent-round,
@@ -3348,20 +3458,23 @@ body:has(.view-login) .skinHeader {
     border-radius: 50% 50% 5px 5px / 20% 20% 0 0 !important;
   }
 
+  /* Removes the sepia filter on hover to reveal natural colors */
   .peopleSection .card:hover img,
   .personCard:hover img {
     filter: sepia(0%) grayscale(20%) contrast(1.2) !important;
   }
 
+  /* Standard media card hover glow (Overrides default theme) */
   .card:hover .cardContent:not(.cardContent-round),
   .card:hover .cardImageContainer:not(.cardContent-round) {
     border-color: var(--hw-orange) !important;
     box-shadow: none !important;
   }
 
+  /* Spooky typography for the actor names */
   .peopleSection .cardText-first {
     font-family: 'Oswald', sans-serif !important;
-    color: var(--hw-gray-3) !important;
+    color: var(--hw-orange) !important;
     font-size: 1.05em !important;
     text-transform: uppercase;
     text-shadow: 1px 1px 0 var(--pure-black), -1px -1px 0 var(--white-alpha-10) !important;
@@ -3374,6 +3487,19 @@ body:has(.view-login) .skinHeader {
     font-style: italic;
   }
 
+  /* Alters the poster colors to look more sinister */
+  .card:hover .cardImageContainer img {
+    filter: grayscale(80%) sepia(40%) hue-rotate(250deg) contrast(1.3) !important;
+    transition: filter 0.4s ease-in-out !important;
+  }
+
+  .card .cardImageContainer img {
+    filter: grayscale(0%) sepia(0%) hue-rotate(0deg) contrast(1) !important;
+    transition: filter 0.4s ease-in-out !important;
+  }
+
+  /* --- 16B. UI INDICATORS (PUMPKIN COUNT & POTION PROGRESS) --- */
+  /* Unwatched/Played count pills transformed into glowing pumpkins */
   .countIndicator {
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23170026' stroke='%23ff6600' stroke-width='1.5' stroke-linejoin='round' d='M12 21.5C6 22.5 2 18 2 12.5 2 7 6 4 11 4.5V2c0-.6.4-1 1-1s1 .4 1 1v2.5c5-.5 9 2.5 9 8 0 5.5-4 10-10 9z'/%3E%3C/svg%3E") center / 100% 100% no-repeat transparent !important;
     border: none !important;
@@ -3398,6 +3524,12 @@ body:has(.view-login) .skinHeader {
     }
   }
 
+  @keyframes potionBubble {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Flowing toxic gradient for media progress bars */
   .itemProgressBarForeground {
     background: linear-gradient(90deg, var(--hw-orange), var(--hw-purple), var(--hw-green), var(--hw-orange)) left center / 300% 100% !important;
     animation: potionBubble 4s linear infinite !important;
@@ -3405,110 +3537,8 @@ body:has(.view-login) .skinHeader {
     border-radius: 5px !important;
   }
 
-  @keyframes potionBubble {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  .emby-slider-thumb,
-  .videoOsdBottom .emby-slider-thumb,
-  .nowPlayingBar .emby-slider-thumb {
-    -webkit-appearance: none !important;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 2C8.69 2 6 4.69 6 8v9.64L7.5 16 9 17.5 10.5 16l1.5 1.5 1.5-1.5 1.5 1.5 1.5-1.5 1.5 1.5L18 17.64V8c0-3.31-2.69-6-6-6zm-2 7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-2 4c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2z'/%3E%3C/svg%3E") center / 65% 65% no-repeat, radial-gradient(circle at 35% 35%, var(--hw-purple) 0%, var(--hw-bg-dark-2) 100%) center / 100% 100% no-repeat !important;
-    border: 2px solid var(--hw-orange) !important;
-    border-radius: 50% !important;
-    box-shadow: 0 0 10px var(--hw-purple), 0 0 20px var(--hw-orange) !important;
-    width: 34px !important;
-    height: 34px !important;
-    cursor: pointer !important;
-    transform: translateY(-13px) !important;
-  }
-
-  input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none !important;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 2C8.69 2 6 4.69 6 8v9.64L7.5 16 9 17.5 10.5 16l1.5 1.5 1.5-1.5 1.5 1.5 1.5-1.5 1.5 1.5L18 17.64V8c0-3.31-2.69-6-6-6zm-2 7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-2 4c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2z'/%3E%3C/svg%3E") center / 65% 65% no-repeat, radial-gradient(circle at 35% 35%, var(--hw-purple) 0%, var(--hw-bg-dark-2) 100%) center / 100% 100% no-repeat !important;
-    border: 2px solid var(--hw-orange) !important;
-    border-radius: 50% !important;
-    box-shadow: 0 0 10px var(--hw-purple), 0 0 20px var(--hw-orange) !important;
-    width: 34px !important;
-    height: 34px !important;
-    cursor: pointer !important;
-    transform: translateY(0) !important;
-  }
-
-  input[type="range"]::-moz-range-thumb {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 2C8.69 2 6 4.69 6 8v9.64L7.5 16 9 17.5 10.5 16l1.5 1.5 1.5-1.5 1.5 1.5 1.5-1.5 1.5 1.5L18 17.64V8c0-3.31-2.69-6-6-6zm-2 7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-2 4c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2z'/%3E%3C/svg%3E") center / 65% 65% no-repeat, radial-gradient(circle at 35% 35%, var(--hw-purple) 0%, var(--hw-bg-dark-2) 100%) center / 100% 100% no-repeat !important;
-    border: 2px solid var(--hw-orange) !important;
-    border-radius: 50% !important;
-    box-shadow: 0 0 10px var(--hw-purple), 0 0 20px var(--hw-orange) !important;
-    width: 34px !important;
-    height: 34px !important;
-    cursor: pointer !important;
-    transform: translateY(0) !important;
-  }
-
-  .emby-slider-thumb:hover {
-    box-shadow: 0 0 15px var(--pure-white), 0 0 30px var(--hw-purple), 0 0 45px var(--hw-orange) !important;
-    transform: translateY(-15px) scale(1.15) !important;
-  }
-
-  input[type="range"]:hover::-webkit-slider-thumb,
-  input[type="range"]:hover::-moz-range-thumb {
-    box-shadow: 0 0 15px var(--pure-white), 0 0 30px var(--hw-purple), 0 0 45px var(--hw-orange) !important;
-    transform: translateY(-2px) scale(1.15) !important;
-  }
-
-  .videoOsdBottom .emby-tab-button-active,
-  .emby-tab-button-active,
-  .videoOsdBottom .emby-tab-button:focus,
-  .videoOsdBottom .emby-tab-button.show-focus {
-    background: var(--hw-purple-alpha-20) !important;
-    color: var(--hw-orange) !important;
-    border: 2px solid var(--hw-purple) !important;
-    box-shadow: 0 4px 10px var(--black-alpha-50), 0 0 15px var(--hw-purple-alpha-50), inset 0 0 10px var(--hw-orange-alpha-20) !important;
-  }
-
-  .mdl-spinner__layer-1 {
-    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, halloween-spinner-colors 5332ms linear infinite !important;
-  }
-
-  @keyframes halloween-spinner-colors {
-    0%, 100% { border-color: var(--hw-orange); }
-    25% { border-color: var(--hw-purple); }
-    50% { border-color: var(--hw-green); }
-    75% { border-color: var(--pure-white); }
-  }
-
-  .dialog:not(.sliderBubble):not(.chapterThumbContainer),
-  .formDialog,
-  .actionSheet,
-  .itemSelectionPanel {
-    background: linear-gradient(135deg, var(--hw-bg-dark-3) 0%, var(--pure-black) 100%) !important;
-    border: 2px solid var(--hw-purple) !important;
-    border-top: 2px solid var(--hw-orange) !important;
-    box-shadow: 0 15px 40px var(--black-alpha-90), 0 -5px 20px var(--hw-purple-alpha-30), 0 5px 20px var(--hw-orange-alpha-30) !important;
-  }
-
-  .dialogBackdrop {
-    background: var(--hw-bg-dark-3-alpha-85) !important;
-    backdrop-filter: blur(25px) saturate(80%) !important;
-    -webkit-backdrop-filter: blur(25px) saturate(80%) !important;
-  }
-
-  .card:hover .cardImageContainer img {
-    filter: grayscale(80%) sepia(40%) hue-rotate(250deg) contrast(1.3) !important;
-    transition: filter 0.4s ease-in-out !important;
-  }
-
-  .card .cardImageContainer img {
-    filter: grayscale(0%) sepia(0%) hue-rotate(0deg) contrast(1) !important;
-    transition: filter 0.4s ease-in-out !important;
-  }
-
+  /* --- 16C. MEDIA CARD ACTION OVERLAYS (SPECTRAL BUTTONS) --- */
+  /* Replaces default play/edit buttons with a glowing purple orb */
   .cardOverlayFab-primary,
   .cardOverlayButtonIcon,
   .listItemOverlayButtonIcon,
@@ -3530,10 +3560,6 @@ body:has(.view-login) .skinHeader {
     background: transparent !important;
   }
 
-  .card:hover .cardOverlayFab-primary {
-    animation: spectralPulse 1.2s infinite alternate ease-in-out !important;
-  }
-
   @keyframes spectralPulse {
     0% {
       filter: drop-shadow(0 0 8px var(--hw-purple-alpha-60));
@@ -3547,7 +3573,121 @@ body:has(.view-login) .skinHeader {
     }
   }
 
-body,
+  .card:hover .cardOverlayFab-primary {
+    animation: spectralPulse 1.2s infinite alternate ease-in-out !important;
+  }
+
+  /* --- 16D. SLIDERS & CONTROLS (GHOST THUMBS) --- */
+  
+  /* 1. DIV based sliders (Emby Web App) */
+  .emby-slider-thumb,
+  .videoOsdBottom .emby-slider-thumb,
+  .nowPlayingBar .emby-slider-thumb {
+    -webkit-appearance: none !important;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 2C8.69 2 6 4.69 6 8v9.64L7.5 16 9 17.5 10.5 16l1.5 1.5 1.5-1.5 1.5 1.5 1.5-1.5 1.5 1.5L18 17.64V8c0-3.31-2.69-6-6-6zm-2 7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-2 4c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2z'/%3E%3C/svg%3E") center / 65% 65% no-repeat, radial-gradient(circle at 35% 35%, var(--hw-purple) 0%, var(--hw-bg-dark-2) 100%) center / 100% 100% no-repeat !important;
+    border: 2px solid var(--hw-orange) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 0 10px var(--hw-purple), 0 0 20px var(--hw-orange) !important;
+    width: 34px !important;
+    height: 34px !important;
+    cursor: pointer !important;
+    transform: translateY(-13px) !important;
+  }
+
+  /* 2. Webkit native sliders */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 2C8.69 2 6 4.69 6 8v9.64L7.5 16 9 17.5 10.5 16l1.5 1.5 1.5-1.5 1.5 1.5 1.5-1.5 1.5 1.5L18 17.64V8c0-3.31-2.69-6-6-6zm-2 7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-2 4c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2z'/%3E%3C/svg%3E") center / 65% 65% no-repeat, radial-gradient(circle at 35% 35%, var(--hw-purple) 0%, var(--hw-bg-dark-2) 100%) center / 100% 100% no-repeat !important;
+    border: 2px solid var(--hw-orange) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 0 10px var(--hw-purple), 0 0 20px var(--hw-orange) !important;
+    width: 34px !important;
+    height: 34px !important;
+    cursor: pointer !important;
+    transform: translateY(0) !important;
+  }
+
+  /* 3. Mozilla native sliders */
+  input[type="range"]::-moz-range-thumb {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 2C8.69 2 6 4.69 6 8v9.64L7.5 16 9 17.5 10.5 16l1.5 1.5 1.5-1.5 1.5 1.5 1.5-1.5 1.5 1.5L18 17.64V8c0-3.31-2.69-6-6-6zm-2 7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-2 4c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2z'/%3E%3C/svg%3E") center / 65% 65% no-repeat, radial-gradient(circle at 35% 35%, var(--hw-purple) 0%, var(--hw-bg-dark-2) 100%) center / 100% 100% no-repeat !important;
+    border: 2px solid var(--hw-orange) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 0 10px var(--hw-purple), 0 0 20px var(--hw-orange) !important;
+    width: 34px !important;
+    height: 34px !important;
+    cursor: pointer !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Hover states for ghost thumbs */
+  .emby-slider-thumb:hover {
+    box-shadow: 0 0 15px var(--pure-white), 0 0 30px var(--hw-purple), 0 0 45px var(--hw-orange) !important;
+    transform: translateY(-15px) scale(1.15) !important;
+  }
+
+  input[type="range"]:hover::-webkit-slider-thumb,
+  input[type="range"]:hover::-moz-range-thumb {
+    box-shadow: 0 0 15px var(--pure-white), 0 0 30px var(--hw-purple), 0 0 45px var(--hw-orange) !important;
+    transform: translateY(-2px) scale(1.15) !important;
+  }
+
+  /* --- 16E. TABS, DIALOGS & BUTTONS --- */
+  /* Active states for tabs like "Home", "Favorites", etc. */
+  .videoOsdBottom .emby-tab-button-active,
+  .emby-tab-button-active,
+  .videoOsdBottom .emby-tab-button:focus,
+  .videoOsdBottom .emby-tab-button.show-focus {
+    background: var(--hw-purple-alpha-20) !important;
+    color: var(--hw-orange) !important;
+    border: 2px solid var(--hw-purple) !important;
+    box-shadow: 0 4px 10px var(--black-alpha-50), 0 0 15px var(--hw-purple-alpha-50), inset 0 0 10px var(--hw-orange-alpha-20) !important;
+  }
+
+  /* Main popup dialog window styling */
+  .dialog:not(.sliderBubble):not(.chapterThumbContainer),
+  .formDialog,
+  .actionSheet,
+  .itemSelectionPanel {
+    background: linear-gradient(135deg, var(--hw-bg-dark-3) 0%, var(--pure-black) 100%) !important;
+    border: 2px solid var(--hw-purple) !important;
+    border-top: 2px solid var(--hw-orange) !important;
+    box-shadow: 0 15px 40px var(--black-alpha-90), 0 -5px 20px var(--hw-purple-alpha-30), 0 5px 20px var(--hw-orange-alpha-30) !important;
+  }
+
+  .dialogBackdrop {
+    background: var(--hw-bg-dark-3-alpha-85) !important;
+    backdrop-filter: blur(25px) saturate(80%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(80%) !important;
+  }
+
+  /* General dialog buttons (Save, Cancel, Play) */
+  .button-submit {
+    border: 2px solid var(--hw-orange) !important;
+    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--hw-purple-alpha-50) !important;
+    transform: none !important;
+  }
+  
+  .button-submit:active {
+    border: 2px solid var(--hw-purple) !important;
+    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
+    transform: scale(0.98) !important;
+  }
+
+  /* Loading Spinner */
+  .mdl-spinner__layer-1 {
+    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, halloween-spinner-colors 5332ms linear infinite !important;
+  }
+
+  @keyframes halloween-spinner-colors {
+    0%, 100% { border-color: var(--hw-orange); }
+    25% { border-color: var(--hw-purple); }
+    50% { border-color: var(--hw-green); }
+    75% { border-color: var(--pure-white); }
+  }
+
+  /* --- 16F. GLOBAL BACKGROUNDS (GHOSTS & MIST) --- */
+  /* Timing variables for the floating ghosts */
+  body,
   .backgroundContainer {
     --ghost-speed-front: 30s; 
     --ghost-speed-mid: 52s;    
@@ -3555,6 +3695,7 @@ body,
     --ghost-sway-speed: 6.5s;  
   }
 
+  /* Hides default empty containers */
   .backgroundContainer-transparent::before,
   .backgroundContainer-transparent::after,
   .view-videoosd::after {
@@ -3571,18 +3712,21 @@ body,
     z-index: -1;
   }
 
+  /* Layer 1: Fast foreground ghosts */
   body::before {
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cg transform='translate(24, 24)'%3E%3Cpath fill='rgba(255, 255, 255, 0.05)' d='M12 2C8.13 2 5 5.13 5 9v13l2.5-1.5L10 22l2-1.5 2 1.5 2.5-1.5 2.5 1.5V9c0-3.87-3.13-7-7-7zm-2 6c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm4 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 600px 600px;
     animation: ghost-fly-1 var(--ghost-speed-front) linear infinite, ghost-sway var(--ghost-sway-speed) ease-in-out infinite alternate;
     opacity: 0.98;
   }
 
+  /* Layer 2: Slow midground orange-tinted ghosts */
   body::after {
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Cg transform='translate(36, 36)'%3E%3Cpath fill='rgba(255, 102, 0, 0.04)' d='M12 2C8.13 2 5 5.13 5 9v13l2.5-1.5L10 22l2-1.5 2 1.5 2.5-1.5 2.5 1.5V9c0-3.87-3.13-7-7-7zm-2 6c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm4 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z'/%3E%3C/g%3E%3C/svg%3E") 50px 50px / 800px 800px;
     animation: ghost-fly-2 var(--ghost-speed-mid) linear infinite, ghost-sway 18s ease-in-out infinite alternate-reverse;
     opacity: 0.85;
   }
 
+  /* Layer 3: Distant background ghosts and creeping mist */
   .backgroundContainer::before {
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cg transform='translate(24, 24)'%3E%3Cpath fill='rgba(138, 43, 226, 0.05)' d='M12 2C8.13 2 5 5.13 5 9v13l2.5-1.5L10 22l2-1.5 2 1.5 2.5-1.5 2.5 1.5V9c0-3.87-3.13-7-7-7zm-2 6c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm4 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z'/%3E%3C/g%3E%3C/svg%3E") 100px 100px / 500px 500px, radial-gradient(circle at center, var(--hw-bg-dark-3-alpha-00) 0%, var(--hw-bg-dark-3-alpha-60) 80%, var(--hw-bg-dark-3-alpha-90) 100%);
     filter: blur(2px);
@@ -3590,6 +3734,24 @@ body,
     animation: ghost-fly-3 var(--ghost-speed-back) linear infinite, ghost-sway 14s ease-in-out infinite alternate, mist-creep 60s ease-in-out infinite alternate;
   }
 
+  /* Base rolling graveyard mist layer at the bottom */
+  .backgroundContainer::after {
+    content: '';
+    position: fixed;
+    bottom: -10px;
+    left: -50px; right: -50px;
+    height: 22vh;
+    min-height: 140px;
+    top: auto;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 150' preserveAspectRatio='none'%3E%3Cpath fill='%23170026' d='M30,150 L30,70 C30,40 70,30 80,70 L75,150 Z M130,150 L130,60 L115,60 L115,45 L130,45 L130,20 L145,20 L145,45 L160,45 L160,60 L145,60 L145,150 Z M220,150 L210,50 C220,10 270,20 280,60 L270,150 Z M330,150 L325,80 L350,50 L375,80 L370,150 Z'/%3E%3Cpath fill='%23170026' d='M0,150 Q50,130 100,150 Q150,140 200,150 Q280,135 350,150 Q380,145 400,150 L0,150 Z'/%3E%3C/svg%3E") 20px bottom / 400px 75% repeat-x,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='%2305000a' d='M8,100 L12,100 L12,30 L10,15 L8,30 Z M28,100 L32,100 L32,40 L30,25 L28,40 Z M48,100 L52,100 L52,20 L50,5 L48,20 Z M68,100 L72,100 L72,35 L70,20 L68,35 Z M88,100 L92,100 L92,45 L90,30 L88,45 Z M0,55 Q50,65 100,50 L100,58 Q50,73 0,63 Z M0,80 Q50,90 100,75 L100,83 Q50,98 0,88 Z M0,95 L100,95 L100,100 L0,100 Z'/%3E%3C/svg%3E") 0 bottom / 150px 100% repeat-x;
+    z-index: -1;
+    pointer-events: none;
+    filter: drop-shadow(0 -5px 15px var(--black-alpha-80));
+  }
+
+  /* Ghost and Mist Animation Keyframes */
   @keyframes ghost-fly-1 {
     from { background-position: 0 0; }
     to { background-position: 0 -600px; }
@@ -3615,37 +3777,6 @@ body,
     to { transform: scale(1.1); opacity: 0.7; }
   }
 
-  .peopleSection .cardText-first {
-    color: var(--hw-orange) !important;
-  }
-
-  .button-submit {
-    border: 2px solid var(--hw-orange) !important;
-    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--hw-purple-alpha-50) !important;
-    transform: none !important;
-  }
-  .button-submit:active {
-    border: 2px solid var(--hw-purple) !important;
-    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
-    transform: scale(0.98) !important;
-  }
-
-  .backgroundContainer::after {
-    content: '';
-    position: fixed;
-    bottom: -10px;
-    left: -50px; right: -50px;
-    height: 22vh;
-    min-height: 140px;
-    top: auto;
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 150' preserveAspectRatio='none'%3E%3Cpath fill='%23170026' d='M30,150 L30,70 C30,40 70,30 80,70 L75,150 Z M130,150 L130,60 L115,60 L115,45 L130,45 L130,20 L145,20 L145,45 L160,45 L160,60 L145,60 L145,150 Z M220,150 L210,50 C220,10 270,20 280,60 L270,150 Z M330,150 L325,80 L350,50 L375,80 L370,150 Z'/%3E%3Cpath fill='%23170026' d='M0,150 Q50,130 100,150 Q150,140 200,150 Q280,135 350,150 Q380,145 400,150 L0,150 Z'/%3E%3C/svg%3E") 20px bottom / 400px 75% repeat-x,
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='%2305000a' d='M8,100 L12,100 L12,30 L10,15 L8,30 Z M28,100 L32,100 L32,40 L30,25 L28,40 Z M48,100 L52,100 L52,20 L50,5 L48,20 Z M68,100 L72,100 L72,35 L70,20 L68,35 Z M88,100 L92,100 L92,45 L90,30 L88,45 Z M0,55 Q50,65 100,50 L100,58 Q50,73 0,63 Z M0,80 Q50,90 100,75 L100,83 Q50,98 0,88 Z M0,95 L100,95 L100,100 L0,100 Z'/%3E%3C/svg%3E") 0 bottom / 150px 100% repeat-x;
-    z-index: -1;
-    pointer-events: none;
-    filter: drop-shadow(0 -5px 15px var(--black-alpha-80));
-  }
-
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
@@ -3656,226 +3787,27 @@ body,
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #d95c14) {
 
-  .countIndicator {
-    background: radial-gradient(circle at 30% 30%, var(--tg-yellow) 0%, var(--tg-orange) 60%, var(--tg-brown) 100%) !important;
-    color: var(--pure-white) !important;
-    border: 2px solid var(--tg-brown) !important;
-    border-radius: 5px 15px 5px 15px !important;
-    box-shadow: 0 4px 8px var(--black-alpha-80), inset -2px -2px 5px var(--tg-black-alpha-40) !important;
-  }
-  
-  .cardOverlayFab-primary,
-  .cardOverlayButtonIcon,
-  .listItemOverlayButtonIcon,
-  .listItemImageButton {
-    background: radial-gradient(circle at 30% 30%, var(--tg-gold) 0%, var(--tg-orange) 60%, var(--tg-brown-dark) 100%) !important;
-    border: 2px solid var(--tg-gold) !important;
-    box-shadow: 0 5px 15px var(--tg-orange-alpha-60), inset -2px -4px 8px var(--tg-black-alpha-40) !important;
-    color: var(--pure-white) !important;
-    border-radius: 5px 25px 5px 25px !important;
-  }
-  
-  @keyframes leafFlutter {
-    0%, 100% {
-      transform: rotate(-5deg) translateY(0px);
-      box-shadow: 0 5px 15px var(--tg-orange-alpha-60);
-    }
-    50% {
-      transform: rotate(5deg) translateY(-3px);
-      box-shadow: 0 10px 20px var(--tg-gold-alpha-80);
-    }
+  /* --- 17A. UI INDICATORS (TURKEY COUNT PILLS) --- */
+  /* Unwatched/Played count pills transformed into a Turkey SVG */
+  .countIndicator { 
+    background: transparent !important; 
+    border: none !important; 
+    box-shadow: none !important; 
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%235c2605' d='M18 10h-12c-1.1 0-2-.9-2-2s.9-2 2-2h3v-2c0-.55.45-1 1-1s1 .45 1 1v2h4c1.1 0 2 .9 2 2s-.9 2-2 2z'/%3E%3Cpath fill='%23d95c14' d='M6 11h12v2c0 3.31-2.69 6-6 6s-6-2.69-6-6v-2z'/%3E%3C/svg%3E") !important; 
+    background-size: 100% 100% !important; 
+    background-repeat: no-repeat !important; 
+    background-position: center !important; 
+    color: var(--pure-white) !important; 
+    min-width: 32px !important; 
+    height: 32px !important; 
+    border-radius: 0 !important; 
+    padding: 8px 6px 0 6px !important; 
+    font-size: 0.8em !important;
+    filter: drop-shadow(0 4px 6px var(--black-alpha-60));
   }
 
-  .card:hover .cardOverlayFab-primary {
-    animation: leafFlutter 2s ease-in-out infinite !important;
-  }
-
-  .peopleSection .cardImageContainer img,
-  .personCard .cardImageContainer img,
-  .card .cardImageContainer img {
-    filter: sepia(40%) saturate(120%) contrast(1.1) brightness(0.85) hue-rotate(-10deg) !important;
-    transition: filter 0.6s ease-in-out !important;
-  }
-
-  .card .cardImageContainer::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    box-shadow: inset 0 0 40px rgba(var(--tg-brown-rgb), 0.7) !important;
-    pointer-events: none;
-    transition: box-shadow 0.6s ease-in-out !important;
-    z-index: 1;
-    border-radius: inherit;
-  }
-
-  .card:hover .cardImageContainer img {
-    filter: sepia(10%) saturate(140%) contrast(1.15) brightness(1.1) hue-rotate(0deg) !important;
-  }
-
-  .card:hover .cardImageContainer::after {
-    box-shadow: inset 0 -40px 60px var(--tg-orange-alpha-60), inset 0 0 15px var(--tg-gold-alpha-40) !important;
-  }
-
-  @keyframes hearthFlicker {
-    0%, 100% {
-      box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 15px var(--tg-orange-alpha-40);
-      border-color: var(--tg-orange);
-    }
-    33% {
-      box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 25px var(--tg-gold-alpha-70);
-      border-color: var(--tg-gold);
-    }
-    66% {
-      box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 12px var(--tg-brown-alpha-50);
-      border-color: var(--tg-brown);
-    }
-  }
-
-  .card:hover .cardContent:not(.cardContent-round),
-  .card:hover .cardImageContainer:not(.cardContent-round) {
-    animation: hearthFlicker 3s infinite alternate ease-in-out !important;
-  }
-  
-  @keyframes harvestWind {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
-  }
-
-  .itemProgressBarForeground {
-    background: linear-gradient(90deg, var(--tg-brown), var(--tg-orange), var(--tg-gold), var(--tg-orange), var(--tg-brown)) !important;
-    background-size: 200% 100% !important;
-    animation: harvestWind 3s linear infinite !important;
-    box-shadow: 0 0 10px var(--tg-orange-alpha-60) !important;
-    border-radius: 5px !important;
-  }
-
-  .mediaInfoItems .mediaInfoItem,
-  .mediaInfoItem {
-    background: var(--tg-bg-dark-3) !important; 
-    border: 1px solid var(--tg-orange) !important; 
-    color: var(--tg-gold) !important; 
-    -webkit-text-fill-color: var(--tg-gold) !important;
-    box-shadow: inset 0 0 5px var(--tg-orange-alpha-20) !important;
-  }
-
-  .mediaInfoItems .mediaInfoItem:hover,
-  .mediaInfoItem:hover {
-    background: var(--tg-orange-alpha-20) !important;
-    border-color: var(--tg-gold) !important;
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    box-shadow: 0 0 10px var(--tg-orange-alpha-60) !important;
-  }
-
-  .emby-slider-thumb,
-  .videoOsdBottom .emby-slider-thumb,
-  .nowPlayingBar .emby-slider-thumb {
-    -webkit-appearance: none !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg transform='translate(0, -1)'%3E%3Cpath fill='%23ffffff' d='M20.2,13.4l-3-2.6l1.8-5.3l-5.2,1.3L12,1.5L10.2,6.8L5,5.5l1.8,5.3l-3,2.6l4.6,2.4l-0.6,5h3l1.2-4.5l1.2,4.5h3l-0.6-5L20.2,13.4z'/%3E%3C/g%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--tg-gold) 0%, var(--tg-brown) 100%) !important;
-    background-size: 60% 60%, 100% 100% !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    border: 2px solid var(--tg-orange) !important;
-    border-radius: 5px 20px 5px 20px !important;
-    box-shadow: 0 0 15px var(--tg-orange-alpha-60) !important;
-    width: 34px !important;
-    height: 34px !important;
-    cursor: pointer !important;
-    transform: translateY(-13px) rotate(45deg) !important;
-  }
-
-  input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg transform='translate(0, -1)'%3E%3Cpath fill='%23ffffff' d='M20.2,13.4l-3-2.6l1.8-5.3l-5.2,1.3L12,1.5L10.2,6.8L5,5.5l1.8,5.3l-3,2.6l4.6,2.4l-0.6,5h3l1.2-4.5l1.2,4.5h3l-0.6-5L20.2,13.4z'/%3E%3C/g%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--tg-gold) 0%, var(--tg-brown) 100%) !important;
-    background-size: 60% 60%, 100% 100% !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    border: 2px solid var(--tg-orange) !important;
-    border-radius: 5px 20px 5px 20px !important;
-    box-shadow: 0 0 15px var(--tg-orange-alpha-60) !important;
-    width: 34px !important;
-    height: 34px !important;
-    cursor: pointer !important;
-    transform: translateY(0px) rotate(45deg) !important;
-  }
-
-  .emby-slider-thumb:hover {
-    background-color: var(--tg-gold) !important;
-    box-shadow: 0 0 15px var(--pure-white), 0 0 30px var(--tg-orange) !important;
-    transform: translateY(-15px) scale(1.1) rotate(45deg) !important;
-  }
-
-  .dialog:not(.sliderBubble):not(.chapterThumbContainer),
-  .formDialog,
-  .actionSheet,
-  .itemSelectionPanel {
-    background: linear-gradient(135deg, var(--tg-bg-dark-1) 0%, var(--tg-bg-dark-2) 100%) !important;
-    border: 2px solid var(--tg-orange) !important;
-    border-top: 2px solid var(--tg-gold) !important;
-    box-shadow: 0 15px 40px var(--black-alpha-90), 0 -5px 20px var(--tg-orange-alpha-20) !important;
-  }
-
-  .backgroundContainer-transparent::before,
-  .backgroundContainer-transparent::after,
-  .view-videoosd::after {
-    display: none !important;
-  }
-
-  .backgroundContainer::before,
-  body::before,
-  body::after {
-    content: ''; 
-    position: fixed; 
-    inset: -100px; 
-    pointer-events: none; 
-    z-index: -1;
-  }
-
-  body::before {
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cg transform='translate(180,180) rotate(15) scale(1.5)'%3E%3Cpath fill='%23d95c14' d='M20.2,13.4l-3-2.6l1.8-5.3l-5.2,1.3L12,1.5L10.2,6.8L5,5.5l1.8,5.3l-3,2.6l4.6,2.4l-0.6,5h3l1.2-4.5l1.2,4.5h3l-0.6-5L20.2,13.4z'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 400px 400px,
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cg transform='translate(250,250) rotate(-20) scale(1.2)'%3E%3Cpath fill='%23e3a01b' d='M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c0 0-2.07-.08-5 5z'/%3E%3C/g%3E%3C/svg%3E") 50px 100px / 500px 500px;
-    animation: leaf-fall-1 18s linear infinite, leaf-sway 4s ease-in-out infinite alternate;
-    opacity: 0.9;
-  }
-
-  body::after {
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 450 450'%3E%3Cg transform='translate(225,225) rotate(45) scale(1.3)'%3E%3Cpath fill='%238b4513' d='M12,2C7.5,2 4,6.5 4,12c0,4.5 3,8.5 7,10l1,1l1-1c4-1.5 7-5.5 7-10C20,6.5 16.5,2 12,2z'/%3E%3C/g%3E%3C/svg%3E") 150px 50px / 450px 450px,
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cg transform='translate(300,300) rotate(-40) scale(1.4)'%3E%3Cpath fill='%23e3a01b' d='M20.2,13.4l-3-2.6l1.8-5.3l-5.2,1.3L12,1.5L10.2,6.8L5,5.5l1.8,5.3l-3,2.6l4.6,2.4l-0.6,5h3l1.2-4.5l1.2,4.5h3l-0.6-5L20.2,13.4z'/%3E%3C/g%3E%3C/svg%3E") 50px 250px / 600px 600px;
-    animation: leaf-fall-2 28s linear infinite, leaf-sway 5s ease-in-out infinite alternate-reverse;
-    filter: blur(1.5px);
-    opacity: 0.7;
-  }
-
-  .backgroundContainer::before {
-    background: 
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 350 350'%3E%3Cg transform='translate(175,175) rotate(60) scale(1)'%3E%3Cpath fill='%23d95c14' d='M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c0 0-2.07-.08-5 5z'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 350px 350px;
-    animation: leaf-fall-3 45s linear infinite, leaf-sway 6s ease-in-out infinite alternate;
-    filter: blur(4px);
-    opacity: 0.5;
-  }
-
-  @keyframes leaf-fall-1 {
-    from { background-position: 0 0, 50px 100px; }
-    to { background-position: 0 2000px, 50px 2100px; } 
-  }
-
-  @keyframes leaf-fall-2 {
-    from { background-position: 150px 50px, 50px 250px; }
-    to { background-position: 150px 1850px, 50px 2050px; }
-  }
-
-  @keyframes leaf-fall-3 {
-    from { background-position: 0 0; }
-    to { background-position: 0 1400px; }
-  }
-
-  @keyframes leaf-sway {
-    from { transform: translateX(-30px) rotate(-10deg); }
-    to { transform: translateX(30px) rotate(10deg); }
-  }
-
+  /* --- 17B. MEDIA CARD ACTION OVERLAYS (PIE BUTTONS) --- */
+  /* Replaces default play/edit buttons with a Pie SVG */
   .cardOverlayFab-primary,
   .cardOverlayButtonIcon,
   .listItemOverlayButtonIcon,
@@ -3901,10 +3833,6 @@ body,
     background: transparent !important; 
   }
 
-  .card:hover .cardOverlayFab-primary { 
-    animation: pieBounce 1.5s infinite alternate ease-in-out !important; 
-  }
-
   @keyframes pieBounce {
     0%, 100% {
       transform: translateY(0) scale(1.1);
@@ -3916,29 +3844,193 @@ body,
     }
   }
 
-  .countIndicator { 
-    background: transparent !important; 
-    border: none !important; 
-    box-shadow: none !important; 
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%235c2605' d='M18 10h-12c-1.1 0-2-.9-2-2s.9-2 2-2h3v-2c0-.55.45-1 1-1s1 .45 1 1v2h4c1.1 0 2 .9 2 2s-.9 2-2 2z'/%3E%3Cpath fill='%23d95c14' d='M6 11h12v2c0 3.31-2.69 6-6 6s-6-2.69-6-6v-2z'/%3E%3C/svg%3E") !important; 
-    background-size: 100% 100% !important; 
-    background-repeat: no-repeat !important; 
-    background-position: center !important; 
-    color: var(--pure-white) !important; 
-    min-width: 32px !important; 
-    height: 32px !important; 
-    border-radius: 0 !important; 
-    padding: 8px 6px 0 6px !important; 
-    font-size: 0.8em !important;
-    filter: drop-shadow(0 4px 6px var(--black-alpha-60));
+  .card:hover .cardOverlayFab-primary { 
+    animation: pieBounce 1.5s infinite alternate ease-in-out !important; 
   }
 
+  /* --- 17C. PORTRAITS & MEDIA CARDS (SEPIA & HEARTH GLOW) --- */
+  /* Applies a warm, autumnal sepia filter to posters and portraits */
+  .peopleSection .cardImageContainer img,
+  .personCard .cardImageContainer img,
+  .card .cardImageContainer img {
+    filter: sepia(40%) saturate(120%) contrast(1.1) brightness(0.85) hue-rotate(-10deg) !important;
+    transition: filter 0.6s ease-in-out !important;
+  }
+
+  /* Adds a dark vignette shadow inside the image cards */
+  .card .cardImageContainer::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    box-shadow: inset 0 0 40px rgba(var(--tg-brown-rgb), 0.7) !important;
+    pointer-events: none;
+    transition: box-shadow 0.6s ease-in-out !important;
+    z-index: 1;
+    border-radius: inherit;
+  }
+
+  /* Reveals brighter, richer colors on hover */
+  .card:hover .cardImageContainer img {
+    filter: sepia(10%) saturate(140%) contrast(1.15) brightness(1.1) hue-rotate(0deg) !important;
+  }
+
+  .card:hover .cardImageContainer::after {
+    box-shadow: inset 0 -40px 60px var(--tg-orange-alpha-60), inset 0 0 15px var(--tg-gold-alpha-40) !important;
+  }
+
+  @keyframes hearthFlicker {
+    0%, 100% {
+      box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 15px var(--tg-orange-alpha-40);
+      border-color: var(--tg-orange);
+    }
+    33% {
+      box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 25px var(--tg-gold-alpha-70);
+      border-color: var(--tg-gold);
+    }
+    66% {
+      box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 12px var(--tg-brown-alpha-50);
+      border-color: var(--tg-brown);
+    }
+  }
+
+  /* A warm, flickering fireplace glow around hovered cards */
+  .card:hover .cardContent:not(.cardContent-round),
+  .card:hover .cardImageContainer:not(.cardContent-round) {
+    animation: hearthFlicker 3s infinite alternate ease-in-out !important;
+  }
+
+  /* --- 17D. PROGRESS BARS & LOADERS --- */
+  @keyframes harvestWind {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+
+  /* Flowing autumnal gradient for media progress bars */
+  .itemProgressBarForeground {
+    background: linear-gradient(90deg, var(--tg-brown), var(--tg-orange), var(--tg-gold), var(--tg-orange), var(--tg-brown)) !important;
+    background-size: 200% 100% !important;
+    animation: harvestWind 3s linear infinite !important;
+    box-shadow: 0 0 10px var(--tg-orange-alpha-60) !important;
+    border-radius: 5px !important;
+  }
+
+  /* Loading Spinner */
+  .mdl-spinner__layer-1 {
+    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, thanksgiving-spinner-colors 5332ms linear infinite !important;
+  }
+
+  @keyframes thanksgiving-spinner-colors {
+    0%, 100% { border-color: var(--tg-orange); }
+    25% { border-color: var(--tg-gold); }
+    50% { border-color: var(--tg-brown); }
+    75% { border-color: var(--pure-white); }
+  }
+
+  /* --- 17E. MEDIA INFO BADGES --- */
+  .mediaInfoItems .mediaInfoItem,
+  .mediaInfoItem {
+    background: var(--tg-bg-dark-3) !important; 
+    border: 1px solid var(--tg-orange) !important; 
+    color: var(--tg-gold) !important; 
+    -webkit-text-fill-color: var(--tg-gold) !important;
+    box-shadow: inset 0 0 5px var(--tg-orange-alpha-20) !important;
+  }
+
+  .mediaInfoItems .mediaInfoItem:hover,
+  .mediaInfoItem:hover {
+    background: var(--tg-orange-alpha-20) !important;
+    border-color: var(--tg-gold) !important;
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    box-shadow: 0 0 10px var(--tg-orange-alpha-60) !important;
+  }
+
+  /* --- 17F. SLIDERS & CONTROLS (LEAF THUMBS) --- */
+  
+  /* 1. DIV based sliders (Emby Web App) */
+  .emby-slider-thumb,
+  .videoOsdBottom .emby-slider-thumb,
+  .nowPlayingBar .emby-slider-thumb {
+    -webkit-appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg transform='translate(0, -1)'%3E%3Cpath fill='%23ffffff' d='M20.2,13.4l-3-2.6l1.8-5.3l-5.2,1.3L12,1.5L10.2,6.8L5,5.5l1.8,5.3l-3,2.6l4.6,2.4l-0.6,5h3l1.2-4.5l1.2,4.5h3l-0.6-5L20.2,13.4z'/%3E%3C/g%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--tg-gold) 0%, var(--tg-brown) 100%) !important;
+    background-size: 60% 60%, 100% 100% !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    border: 2px solid var(--tg-orange) !important;
+    border-radius: 5px 20px 5px 20px !important;
+    box-shadow: 0 0 15px var(--tg-orange-alpha-60) !important;
+    width: 34px !important;
+    height: 34px !important;
+    cursor: pointer !important;
+    transform: translateY(-13px) rotate(45deg) !important;
+  }
+
+  /* 2. Webkit native sliders */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg transform='translate(0, -1)'%3E%3Cpath fill='%23ffffff' d='M20.2,13.4l-3-2.6l1.8-5.3l-5.2,1.3L12,1.5L10.2,6.8L5,5.5l1.8,5.3l-3,2.6l4.6,2.4l-0.6,5h3l1.2-4.5l1.2,4.5h3l-0.6-5L20.2,13.4z'/%3E%3C/g%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--tg-gold) 0%, var(--tg-brown) 100%) !important;
+    background-size: 60% 60%, 100% 100% !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    border: 2px solid var(--tg-orange) !important;
+    border-radius: 5px 20px 5px 20px !important;
+    box-shadow: 0 0 15px var(--tg-orange-alpha-60) !important;
+    width: 34px !important;
+    height: 34px !important;
+    cursor: pointer !important;
+    transform: translateY(0px) rotate(45deg) !important;
+  }
+
+  /* 3. Mozilla native sliders */
+  input[type="range"]::-moz-range-thumb {
+    appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg transform='translate(0, -1)'%3E%3Cpath fill='%23ffffff' d='M20.2,13.4l-3-2.6l1.8-5.3l-5.2,1.3L12,1.5L10.2,6.8L5,5.5l1.8,5.3l-3,2.6l4.6,2.4l-0.6,5h3l1.2-4.5l1.2,4.5h3l-0.6-5L20.2,13.4z'/%3E%3C/g%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--tg-gold) 0%, var(--tg-brown) 100%) !important;
+    background-size: 60% 60%, 100% 100% !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    border: 2px solid var(--tg-orange) !important;
+    border-radius: 5px 20px 5px 20px !important;
+    box-shadow: 0 0 15px var(--tg-orange-alpha-60) !important;
+    width: 34px !important;
+    height: 34px !important;
+    cursor: pointer !important;
+    transform: translateY(0px) rotate(45deg) !important;
+  }
+
+  /* Hover states for leaf thumbs */
+  .emby-slider-thumb:hover {
+    background-color: var(--tg-gold) !important;
+    box-shadow: 0 0 15px var(--pure-white), 0 0 30px var(--tg-orange) !important;
+    transform: translateY(-15px) scale(1.1) rotate(45deg) !important;
+  }
+  
+  input[type="range"]:hover::-webkit-slider-thumb,
+  input[type="range"]:hover::-moz-range-thumb {
+    background-color: var(--tg-gold) !important;
+    box-shadow: 0 0 15px var(--pure-white), 0 0 30px var(--tg-orange) !important;
+    transform: translateY(-2px) scale(1.1) rotate(45deg) !important;
+  }
+
+  /* --- 17G. TABS, DIALOGS & BUTTONS --- */
+  /* Main popup dialog window styling */
+  .dialog:not(.sliderBubble):not(.chapterThumbContainer),
+  .formDialog,
+  .actionSheet,
+  .itemSelectionPanel {
+    background: linear-gradient(135deg, var(--tg-bg-dark-1) 0%, var(--tg-bg-dark-2) 100%) !important;
+    border: 2px solid var(--tg-orange) !important;
+    border-top: 2px solid var(--tg-gold) !important;
+    box-shadow: 0 15px 40px var(--black-alpha-90), 0 -5px 20px var(--tg-orange-alpha-20) !important;
+  }
+
+  /* Video player bottom gradient */
   .videoOsdBottom,
   .videoOsdBottom-video { 
     background: linear-gradient(to top, var(--tg-orange-alpha-25) 0%, var(--tg-bg-dark-4) 60%, transparent 100%) !important; 
     border-bottom: 3px solid var(--tg-gold) !important; 
   }
 
+  /* Active states for tabs like "Home", "Favorites", etc. */
   .videoOsdBottom .emby-tab-button-active,
   .emby-tab-button-active,
   .videoOsdBottom .emby-tab-button:focus,
@@ -3952,6 +4044,7 @@ body,
     box-shadow: 0 4px 10px var(--black-alpha-50), inset 0 0 10px var(--tg-orange-alpha-30) !important;
   }
 
+  /* Page title styling */
   .pageTitle,
   .sectionTitle {
     background: linear-gradient(to right, var(--tg-gold), var(--tg-orange), var(--tg-brown)) !important;
@@ -3961,17 +4054,7 @@ body,
     filter: drop-shadow(2px 2px 3px var(--black-alpha-80));
   }
 
-  .mdl-spinner__layer-1 {
-    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, thanksgiving-spinner-colors 5332ms linear infinite !important;
-  }
-
-  @keyframes thanksgiving-spinner-colors {
-    0%, 100% { border-color: var(--tg-orange); }
-    25% { border-color: var(--tg-gold); }
-    50% { border-color: var(--tg-brown); }
-    75% { border-color: var(--pure-white); }
-  }
-
+  /* General dialog buttons (Save, Cancel, Play) */
   .button-submit {
     background: linear-gradient(135deg, var(--tg-brown) 0%, var(--tg-orange) 100%) !important;
     color: var(--pure-white) !important;
@@ -3983,6 +4066,7 @@ body,
     transition: all 0.2s ease-in-out !important;
     transform: none !important;
   }
+  
   .button-submit:hover {
     background: linear-gradient(135deg, var(--tg-orange) 0%, var(--tg-gold) 100%) !important;
     border-color: var(--pure-white) !important;
@@ -3990,8 +4074,76 @@ body,
     box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--tg-gold-alpha-80) !important;
     transform: translateY(-2px) scale(1.02) !important;
   }
+  
   .button-submit:active {
     transform: scale(0.98) !important;
+  }
+
+  /* --- 17H. GLOBAL BACKGROUNDS (FALLING LEAVES) --- */
+  /* Hides default empty containers */
+  .backgroundContainer-transparent::before,
+  .backgroundContainer-transparent::after,
+  .view-videoosd::after {
+    display: none !important;
+  }
+
+  .backgroundContainer::before,
+  body::before,
+  body::after {
+    content: ''; 
+    position: fixed; 
+    inset: -100px; 
+    pointer-events: none; 
+    z-index: -1;
+  }
+
+  /* Layer 1: Fast foreground falling leaves */
+  body::before {
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cg transform='translate(180,180) rotate(15) scale(1.5)'%3E%3Cpath fill='%23d95c14' d='M20.2,13.4l-3-2.6l1.8-5.3l-5.2,1.3L12,1.5L10.2,6.8L5,5.5l1.8,5.3l-3,2.6l4.6,2.4l-0.6,5h3l1.2-4.5l1.2,4.5h3l-0.6-5L20.2,13.4z'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 400px 400px,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cg transform='translate(250,250) rotate(-20) scale(1.2)'%3E%3Cpath fill='%23e3a01b' d='M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c0 0-2.07-.08-5 5z'/%3E%3C/g%3E%3C/svg%3E") 50px 100px / 500px 500px;
+    animation: leaf-fall-1 18s linear infinite, leaf-sway 4s ease-in-out infinite alternate;
+    opacity: 0.9;
+  }
+
+  /* Layer 2: Slow midground falling leaves (blurred) */
+  body::after {
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 450 450'%3E%3Cg transform='translate(225,225) rotate(45) scale(1.3)'%3E%3Cpath fill='%238b4513' d='M12,2C7.5,2 4,6.5 4,12c0,4.5 3,8.5 7,10l1,1l1-1c4-1.5 7-5.5 7-10C20,6.5 16.5,2 12,2z'/%3E%3C/g%3E%3C/svg%3E") 150px 50px / 450px 450px,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cg transform='translate(300,300) rotate(-40) scale(1.4)'%3E%3Cpath fill='%23e3a01b' d='M20.2,13.4l-3-2.6l1.8-5.3l-5.2,1.3L12,1.5L10.2,6.8L5,5.5l1.8,5.3l-3,2.6l4.6,2.4l-0.6,5h3l1.2-4.5l1.2,4.5h3l-0.6-5L20.2,13.4z'/%3E%3C/g%3E%3C/svg%3E") 50px 250px / 600px 600px;
+    animation: leaf-fall-2 28s linear infinite, leaf-sway 5s ease-in-out infinite alternate-reverse;
+    filter: blur(1.5px);
+    opacity: 0.7;
+  }
+
+  /* Layer 3: Distant background falling leaves */
+  .backgroundContainer::before {
+    background: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 350 350'%3E%3Cg transform='translate(175,175) rotate(60) scale(1)'%3E%3Cpath fill='%23d95c14' d='M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c0 0-2.07-.08-5 5z'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 350px 350px;
+    animation: leaf-fall-3 45s linear infinite, leaf-sway 6s ease-in-out infinite alternate;
+    filter: blur(4px);
+    opacity: 0.5;
+  }
+
+  /* Leaf Animation Keyframes */
+  @keyframes leaf-fall-1 {
+    from { background-position: 0 0, 50px 100px; }
+    to { background-position: 0 2000px, 50px 2100px; } 
+  }
+
+  @keyframes leaf-fall-2 {
+    from { background-position: 150px 50px, 50px 250px; }
+    to { background-position: 150px 1850px, 50px 2050px; }
+  }
+
+  @keyframes leaf-fall-3 {
+    from { background-position: 0 0; }
+    to { background-position: 0 1400px; }
+  }
+
+  @keyframes leaf-sway {
+    from { transform: translateX(-30px) rotate(-10deg); }
+    to { transform: translateX(30px) rotate(10deg); }
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
@@ -4004,6 +4156,8 @@ body,
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #c41e3a) {
 
+  /* --- 18A. UI INDICATORS (ORNAMENT COUNTS) --- */
+  /* Unwatched/Played count pills transformed into red ornaments */
   .countIndicator {
     background: radial-gradient(circle at 30% 30%, var(--xmas-red-light) 0%, var(--xmas-red) 60%, var(--xmas-red-dark) 100%) !important;
     color: var(--pure-white) !important;
@@ -4012,6 +4166,8 @@ body,
     box-shadow: 0 4px 8px var(--black-alpha-80), inset -2px -2px 5px var(--xmas-black-alpha-30) !important;
   }
 
+  /* --- 18B. MEDIA CARD ACTION OVERLAYS (SWINGING ORNAMENTS) --- */
+  /* Replaces default play/edit buttons with a detailed SVG ornament */
   .cardOverlayFab-primary,
   .cardOverlayButtonIcon,
   .listItemOverlayButtonIcon,
@@ -4025,6 +4181,7 @@ body,
     transition: filter 0.2s, transform 0.2s !important;
   }
 
+  /* Vertically centers the icon inside the ornament */
   .cardOverlayFab-primary *,
   .cardOverlayButtonIcon *,
   .listItemOverlayButtonIcon *,
@@ -4032,16 +4189,17 @@ body,
     transform: translateY(2px) !important;
   }
 
-  .card:hover .cardOverlayFab-primary {
-    animation: ornamentSwing 1.5s ease-in-out infinite !important;
-    transform-origin: top center !important;
-  }
-
   @keyframes ornamentSwing {
     0%, 100% { transform: rotate(-8deg) scale(1.05); filter: drop-shadow(0 8px 12px var(--xmas-red-alpha-80)); }
     50% { transform: rotate(8deg) scale(1.05); filter: drop-shadow(0 8px 12px var(--xmas-red-alpha-80)); }
   }
 
+  .card:hover .cardOverlayFab-primary {
+    animation: ornamentSwing 1.5s ease-in-out infinite !important;
+    transform-origin: top center !important;
+  }
+
+  /* --- 18C. TYPOGRAPHY & MEDIA CARDS (AURORA BORDERS) --- */
   .peopleSection .cardText-first {
     color: var(--xmas-red-light) !important;
     text-shadow: 1px 1px 2px var(--black-alpha-80) !important;
@@ -4061,6 +4219,7 @@ body,
     transition: filter 0.3s ease !important;
   }
 
+  /* Adds a frosty white inner border to all media cards */
   .cardContent, .cardImageContainer {
     box-shadow: 0 0 10px var(--white-alpha-10), 0 10px 20px var(--black-alpha-75) !important;
     border: var(--standard-border-thickness) solid var(--white-alpha-10) !important;
@@ -4073,12 +4232,20 @@ body,
     100% { border-color: var(--xmas-red); box-shadow: 0 0 15px var(--xmas-red-alpha-30), 0 15px 30px var(--black-alpha-90); }
   }
 
+  /* Cycles the border glow through red, green, and gold on hover */
   .card:hover .cardContent, 
   .card:hover .cardImageContainer {
     animation: auroraBorder 4s infinite linear !important;
     border-width: 2px !important;
   }
 
+  /* --- 18D. PROGRESS BARS (CANDY CANES) --- */
+  @keyframes candyCaneScroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+  }
+
+  /* Creates an animated, scrolling candy cane stripe effect */
   .itemProgressBarForeground {
     background: repeating-linear-gradient(45deg, var(--xmas-red), var(--xmas-red) 10px, var(--pure-white) 10px, var(--pure-white) 20px) !important;
     background-size: 50px 50px !important;
@@ -4087,16 +4254,14 @@ body,
     border-radius: 5px !important;
   }
 
-  @keyframes candyCaneScroll {
-    0% { background-position: 0 0; }
-    100% { background-position: 50px 50px; }
-  }
-
+  /* --- 18E. SLIDERS & CONTROLS (SNOWFLAKE/ORNAMENT THUMBS) --- */
+  
+  /* 1. DIV based sliders (Emby Web App) */
   .emby-slider-thumb,
   .videoOsdBottom .emby-slider-thumb,
   .nowPlayingBar .emby-slider-thumb {
     -webkit-appearance: none !important;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M14.5 10l3.8-3.8-1.4-1.4L13 8.6V2h-2v6.6L7.1 4.8 5.7 6.2 9.5 10H2v2h7.5l-3.8 3.8 1.4 1.4L11 13.4V20h2v-6.6l3.9 3.9 1.4-1.4-3.8-3.8H22v-2h-7.5z'/%3E%3C/svg%3E") center / 65% 65% no-repeat, radial-gradient(circle at 35% 35%, var(--xmas-green) 0%, var(--xmas-bg-dark-1) 100%) center / 100% 100% no-repeat !important;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M14.5 10l3.8-3.8-1.4-1.4L13 8.6V2h-2v6.6L7.1 4.8 5.7 6.2 9.5 10H2v2h7.5l-3.8 3.8 1.4-1.4L11 13.4V20h2v-6.6l3.9 3.9 1.4-1.4-3.8-3.8H22v-2h-7.5z'/%3E%3C/svg%3E") center / 65% 65% no-repeat, radial-gradient(circle at 35% 35%, var(--xmas-green) 0%, var(--xmas-bg-dark-1) 100%) center / 100% 100% no-repeat !important;
     border: 2px solid var(--xmas-red) !important;
     border-radius: 50% !important;
     box-shadow: 0 0 10px var(--xmas-green), 0 0 20px var(--xmas-red) !important;
@@ -4105,6 +4270,44 @@ body,
     transform: translateY(-13px) !important;
   }
 
+  /* 2. Webkit native sliders */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M14.5 10l3.8-3.8-1.4-1.4L13 8.6V2h-2v6.6L7.1 4.8 5.7 6.2 9.5 10H2v2h7.5l-3.8 3.8 1.4-1.4L11 13.4V20h2v-6.6l3.9 3.9 1.4-1.4-3.8-3.8H22v-2h-7.5z'/%3E%3C/svg%3E") center / 65% 65% no-repeat, radial-gradient(circle at 35% 35%, var(--xmas-green) 0%, var(--xmas-bg-dark-1) 100%) center / 100% 100% no-repeat !important;
+    border: 2px solid var(--xmas-red) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 0 10px var(--xmas-green), 0 0 20px var(--xmas-red) !important;
+    width: 34px !important; height: 34px !important;
+    cursor: pointer !important;
+    transform: translateY(0) !important;
+  }
+
+  /* 3. Mozilla native sliders */
+  input[type="range"]::-moz-range-thumb {
+    appearance: none !important;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M14.5 10l3.8-3.8-1.4-1.4L13 8.6V2h-2v6.6L7.1 4.8 5.7 6.2 9.5 10H2v2h7.5l-3.8 3.8 1.4-1.4L11 13.4V20h2v-6.6l3.9 3.9 1.4-1.4-3.8-3.8H22v-2h-7.5z'/%3E%3C/svg%3E") center / 65% 65% no-repeat, radial-gradient(circle at 35% 35%, var(--xmas-green) 0%, var(--xmas-bg-dark-1) 100%) center / 100% 100% no-repeat !important;
+    border: 2px solid var(--xmas-red) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 0 10px var(--xmas-green), 0 0 20px var(--xmas-red) !important;
+    width: 34px !important; height: 34px !important;
+    cursor: pointer !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Hover states for snowflake thumbs */
+  .emby-slider-thumb:hover {
+    box-shadow: 0 0 15px var(--pure-white), 0 0 25px var(--xmas-green), 0 0 35px var(--xmas-red) !important;
+    transform: translateY(-15px) scale(1.15) !important;
+  }
+
+  input[type="range"]:hover::-webkit-slider-thumb,
+  input[type="range"]:hover::-moz-range-thumb {
+    box-shadow: 0 0 15px var(--pure-white), 0 0 25px var(--xmas-green), 0 0 35px var(--xmas-red) !important;
+    transform: translateY(-2px) scale(1.15) !important;
+  }
+
+  /* --- 18F. TABS, BUTTONS & FORM ELEMENTS --- */
+  /* Active tabs (Home, Favorites, etc.) */
   .videoOsdBottom .emby-tab-button-active,
   .emby-tab-button-active {
     background: var(--xmas-green-alpha-30) !important;
@@ -4113,6 +4316,40 @@ body,
     box-shadow: 0 4px 10px var(--black-alpha-50), 0 0 15px var(--xmas-green-alpha-50) !important;
   }
 
+  /* General dialog buttons */
+  .button-submit {
+    border: 2px solid var(--xmas-white) !important;
+    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--xmas-green-alpha-50) !important;
+    transform: none !important;
+  }
+  
+  .button-submit:active {
+    border: 2px solid var(--xmas-green) !important;
+    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
+    transform: scale(0.98) !important;
+  }
+
+  /* Christmas-colored Checkboxes & Toggles */
+  .emby-checkbox:checked + span::before {
+    background-color: var(--xmas-green) !important;
+    border-color: var(--xmas-green) !important;
+  }
+
+  .emby-checkbox:focus + span::before {
+    border-color: var(--xmas-green) !important;
+    box-shadow: 0 0 10px var(--xmas-green-alpha-50) !important;
+  }
+
+  .emby-toggle:checked ~ .toggleSwitch {
+    background-color: var(--xmas-green) !important;
+  }
+
+  .emby-toggle:focus:checked ~ .toggleSwitch {
+    box-shadow: 0 0 10px var(--xmas-green-alpha-50) !important;
+  }
+
+  /* --- 18G. GLOBAL BACKGROUNDS (SNOW & AURORA) --- */
+  /* Base container setup for full-screen effects */
   .backgroundContainer::before, 
   body::before, 
   body::after {
@@ -4123,13 +4360,15 @@ body,
     z-index: -1; 
   }
 
-body::before {
+  /* Layer 1: Fast foreground falling snow */
+  body::before {
     background: 
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cdefs%3E%3Cg id='sf' stroke='%23ffffff' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M0,-10 L0,10 M-10,0 L10,0 M-7,-7 L7,7 M-7,7 L7,-7 M0,-5 L-3,-8 M0,-5 L3,-8 M0,5 L-3,8 M0,5 L3,8 M-5,0 L-8,-3 M-5,0 L-8,3 M5,0 L8,-3 M5,0 L8,3'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23sf' transform='translate(50,50) scale(0.4)' opacity='0.9'/%3E%3Cuse href='%23sf' transform='translate(150,250) scale(0.3)' opacity='0.8'/%3E%3Cuse href='%23sf' transform='translate(350,100) scale(0.5)' opacity='0.9'/%3E%3Cuse href='%23sf' transform='translate(450,400) scale(0.4)' opacity='0.7'/%3E%3Cuse href='%23sf' transform='translate(250,350) scale(0.45)' opacity='0.85'/%3E%3C/svg%3E") 0 0 / 500px 500px,
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3Cg id='sf' stroke='%23ffffff' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M0,-10 L0,10 M-10,0 L10,0 M-7,-7 L7,7 M-7,7 L7,-7 M0,-5 L-3,-8 M0,-5 L3,-8 M0,5 L-3,8 M0,5 L3,8 M-5,0 L-8,-3 M-5,0 L-8,3 M5,0 L8,-3 M5,0 L8,3'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23sf' transform='translate(100,100) scale(0.3)' opacity='0.8'/%3E%3Cuse href='%23sf' transform='translate(300,300) scale(0.4)' opacity='0.9'/%3E%3Cuse href='%23sf' transform='translate(200,50) scale(0.35)' opacity='0.85'/%3E%3C/svg%3E") 50px 50px / 400px 400px;
     animation: snow-fall-1 15s linear infinite, snow-sway 6s ease-in-out infinite alternate;
   }
 
+  /* Layer 2: Slower, blurred midground snow */
   body::after {
     background: 
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cdefs%3E%3Cg id='sf' stroke='%23ffffff' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M0,-10 L0,10 M-10,0 L10,0 M-7,-7 L7,7 M-7,7 L7,-7 M0,-5 L-3,-8 M0,-5 L3,-8 M0,5 L-3,8 M0,5 L3,8 M-5,0 L-8,-3 M-5,0 L-8,3 M5,0 L8,-3 M5,0 L8,3'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23sf' transform='translate(40,40) scale(0.2)' opacity='0.6'/%3E%3Cuse href='%23sf' transform='translate(180,120) scale(0.25)' opacity='0.7'/%3E%3Cuse href='%23sf' transform='translate(80,250) scale(0.2)' opacity='0.5'/%3E%3Cuse href='%23sf' transform='translate(250,60) scale(0.15)' opacity='0.6'/%3E%3Cuse href='%23sf' transform='translate(220,220) scale(0.2)' opacity='0.7'/%3E%3C/svg%3E") 0 0 / 300px 300px,
@@ -4139,6 +4378,7 @@ body::before {
     opacity: 0.8;
   }
 
+  /* Layer 3: Distant background snow */
   .backgroundContainer::before {
     background: 
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3Cg id='sf' stroke='%23ffffff' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M0,-10 L0,10 M-10,0 L10,0 M-7,-7 L7,7 M-7,7 L7,-7 M0,-5 L-3,-8 M0,-5 L3,-8 M0,5 L-3,8 M0,5 L3,8 M-5,0 L-8,-3 M-5,0 L-8,3 M5,0 L8,-3 M5,0 L8,3'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23sf' transform='translate(20,20) scale(0.1)' opacity='0.4'/%3E%3Cuse href='%23sf' transform='translate(80,150) scale(0.15)' opacity='0.5'/%3E%3Cuse href='%23sf' transform='translate(140,60) scale(0.1)' opacity='0.4'/%3E%3Cuse href='%23sf' transform='translate(180,180) scale(0.1)' opacity='0.3'/%3E%3Cuse href='%23sf' transform='translate(100,90) scale(0.15)' opacity='0.5'/%3E%3C/svg%3E") 0 0 / 200px 200px;
@@ -4147,7 +4387,8 @@ body::before {
     opacity: 0.6;
   }
 
-   @keyframes snow-fall-1 { 
+  /* Snow Animation Keyframes */
+  @keyframes snow-fall-1 { 
     from { background-position: 0 0, 50px 50px; } 
     to { background-position: 0 1000px, 50px 1200px; } 
   }
@@ -4159,35 +4400,12 @@ body::before {
     from { background-position: 0 0; } 
     to { background-position: 0 800px; } 
   }
-
   @keyframes snow-sway { 
     0% { transform: translateX(-20px); } 
     100% { transform: translateX(20px); } 
   }
 
-  .backdropContainer::after {
-    content: "🦌🦌🦌🛷🎅";
-    position: fixed; top: 20vh; right: -50vw; font-size: 3.75rem; z-index: -1; pointer-events: none; color: transparent;
-    text-shadow: 0 0 4px var(--pure-white), 0 0 15px var(--xmas-white-alpha-60);
-    animation: sleighFly 20s linear infinite;
-  }
-
-  @keyframes sleighFly {
-    0% { right: -50vw; top: 20vh; transform: scale(1.2) rotate(3deg); }
-    100% { right: 120vw; top: 18vh; transform: scale(1.2) rotate(2deg); }
-  }
-
-  .button-submit {
-    border: 2px solid var(--xmas-white) !important;
-    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--xmas-green-alpha-50) !important;
-    transform: none !important;
-  }
-  .button-submit:active {
-    border: 2px solid var(--xmas-green) !important;
-    box-shadow: 0 2px 5px var(--black-alpha-50) !important;
-    transform: scale(0.98) !important;
-  }
-
+  /* Layer 4: Distant Mountain / Landscape Silhouette */
   .backgroundContainer::after {
     content: '';
     position: fixed;
@@ -4205,7 +4423,8 @@ body::before {
     filter: drop-shadow(0 -5px 15px var(--black-alpha-50));
   }
 
-.backdropContainer::before {
+  /* Layer 5: Waving Aurora Borealis in the upper sky */
+  .backdropContainer::before {
     content: '';
     position: fixed;
     top: -20%; 
@@ -4229,22 +4448,31 @@ body::before {
     animation: auroraWave 25s infinite alternate ease-in-out;
   }
 
-  .emby-checkbox:checked + span::before {
-    background-color: var(--xmas-green) !important;
-    border-color: var(--xmas-green) !important;
+  @keyframes auroraWave {
+    0% { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.1) translate(-5%, 5%); }
   }
 
-  .emby-checkbox:focus + span::before {
-    border-color: var(--xmas-green) !important;
-    box-shadow: 0 0 10px var(--xmas-green-alpha-50) !important;
+/* --- 18H. FLYING SLEIGH --- */
+  .backdropContainer::after {
+    content: "🦌🦌🦌🛷🎅";
+    position: fixed; 
+    top: 20vh; 
+    right: -50vw; 
+    font-size: 3.75rem; 
+    z-index: -1; 
+    pointer-events: none; 
+    color: transparent;
+    text-shadow: 0 0 4px var(--pure-white), 0 0 15px var(--xmas-white-alpha-60);
+    animation: sleighFly 20s linear infinite;
+    filter: drop-shadow(0 0 5px var(--black-alpha-50));
+    /* The Magic Fix: Prevents the emojis from text-wrapping downward */
+    white-space: nowrap; 
   }
 
-  .emby-toggle:checked ~ .toggleSwitch {
-    background-color: var(--xmas-green) !important;
-  }
-
-  .emby-toggle:focus:checked ~ .toggleSwitch {
-    box-shadow: 0 0 10px var(--xmas-green-alpha-50) !important;
+  @keyframes sleighFly {
+    0% { right: -50vw; top: 20vh; transform: scale(1.2) rotate(3deg); }
+    100% { right: 120vw; top: 18vh; transform: scale(1.2) rotate(2deg); }
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
@@ -4257,6 +4485,12 @@ body::before {
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #d4af37) {
 
+  /* --- 19A. HEADERS & TITLES (GOLD SHIMMER) --- */
+  @keyframes goldShimmer {
+    to { background-position: 200% center; }
+  }
+
+  /* Applies a continuous gold/cream shimmering gradient to page titles */
   .pageTitle,
   .sectionTitle {
     background: linear-gradient(to right, var(--nye-gold) 0%, var(--nye-cream) 50%, var(--nye-gold) 100%) !important;
@@ -4267,46 +4501,8 @@ body::before {
     filter: drop-shadow(2px 2px 4px var(--black-alpha-90));
   }
 
-  .videoOsdBottom .emby-tab-button-active,
-  .emby-tab-button-active,
-  .videoOsdBottom .emby-tab-button:focus,
-  .videoOsdBottom .emby-tab-button.show-focus {
-    background: linear-gradient(135deg, var(--nye-gold-alpha-10) 0%, var(--nye-cream-alpha-30) 50%, var(--nye-gold-alpha-10) 100%) !important;
-    background-size: 200% 200% !important;
-    color: var(--nye-cream) !important;
-    border: 2px solid var(--nye-gold) !important;
-    box-shadow: 0 4px 10px var(--black-alpha-80), 0 0 15px var(--nye-gold-alpha-40), inset 0 0 10px var(--nye-cream-alpha-20) !important;
-    animation: goldShimmer 3s linear infinite !important;
-  }
-
-  @keyframes goldShimmer {
-    to { background-position: 200% center; }
-  }
-
-  .videoOsdBottom,
-  .videoOsdBottom-video {
-    background: linear-gradient(to top, var(--nye-gold-alpha-15) 0%, var(--nye-bg-dark-2) 60%, transparent 100%) !important;
-    border-bottom: 3px solid var(--nye-gold) !important;
-  }
-
-  .mediaInfoItems .mediaInfoItem,
-  .mediaInfoItem {
-    background: var(--nye-bg-dark-1) !important; 
-    border: 1px solid var(--nye-gold) !important; 
-    color: var(--nye-cream) !important; 
-    -webkit-text-fill-color: var(--nye-cream) !important;
-    box-shadow: inset 0 0 8px var(--nye-gold-alpha-15) !important;
-  }
-
-  .mediaInfoItems .mediaInfoItem:hover,
-  .mediaInfoItem:hover {
-    background: var(--nye-gold-alpha-15) !important;
-    border-color: var(--nye-cream) !important;
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    box-shadow: 0 0 12px var(--nye-gold-alpha-60) !important;
-  }
-
+  /* --- 19B. MEDIA CARD ACTION OVERLAYS (DIAMOND/GLASS) --- */
+  /* Replaces default play/edit buttons with a dark diamond-like button */
   .cardOverlayFab-primary,
   .cardOverlayButtonIcon,
   .listItemOverlayButtonIcon,
@@ -4337,176 +4533,8 @@ body::before {
     color: var(--pure-white) !important;
   }
 
-  @keyframes glassGlint {
-    0% {
-      border-color: var(--nye-gold);
-      box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 15px var(--nye-gold-alpha-40);
-    }
-    50% {
-      border-color: var(--nye-cream);
-      box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 30px var(--nye-cream-alpha-80), inset 0 0 20px var(--nye-gold-alpha-50);
-    }
-    100% {
-      border-color: var(--nye-gold);
-      box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 15px var(--nye-gold-alpha-40);
-    }
-  }
-
-  .card:hover .cardContent:not(.cardContent-round),
-  .card:hover .cardImageContainer:not(.cardContent-round) {
-    animation: glassGlint 2s infinite ease-in-out !important;
-  }
-
-  .countIndicator {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23111111' stroke='%23d4af37' stroke-width='1.5' d='M12 2 L22 12 L12 22 L2 12 Z'/%3E%3Cpath fill='none' stroke='%23f7e7ce' stroke-width='0.5' d='M12 5 L19 12 L12 19 L5 12 Z'/%3E%3C/svg%3E") !important;
-    background-size: 100% 100% !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    color: var(--nye-cream) !important;
-    min-width: 36px !important;
-    height: 36px !important;
-    border-radius: 0 !important;
-    padding: 6px !important;
-    font-size: 0.8em !important;
-    font-family: 'Oswald', sans-serif !important;
-    filter: drop-shadow(0 4px 6px var(--black-alpha-90));
-  }
-
-  @keyframes champagneBubbles {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 50px 0%; }
-  }
-
-  .itemProgressBarForeground {
-    background: radial-gradient(circle, var(--pure-white) 10%, transparent 20%), radial-gradient(circle, var(--nye-cream) 10%, transparent 20%), var(--nye-gold) !important;
-    background-size: 10px 10px, 15px 15px !important;
-    background-position: 0 0, 5px 5px !important;
-    animation: champagneBubbles 2s linear infinite !important;
-    box-shadow: 0 0 15px var(--nye-gold-alpha-80) !important;
-    border-radius: 5px !important;
-  }
-
-  .emby-slider-thumb,
-  .videoOsdBottom .emby-slider-thumb,
-  .nowPlayingBar .emby-slider-thumb {
-    -webkit-appearance: none !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--nye-cream) 0%, var(--nye-gold) 60%, var(--nye-gold-dark) 100%) !important;
-    background-size: 50% 50%, 100% 100% !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    border: 2px solid var(--pure-white) !important;
-    border-radius: 50% !important;
-    box-shadow: 0 0 10px var(--nye-gold-alpha-80), inset 0 0 5px var(--nye-black-alpha-30) !important;
-    width: 32px !important;
-    height: 32px !important;
-    cursor: pointer !important;
-    transform: translateY(-5px) !important;
-    background-color: transparent !important;
-  }
-
-  input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--nye-cream) 0%, var(--nye-gold) 60%, var(--nye-gold-dark) 100%) !important;
-    background-size: 50% 50%, 100% 100% !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    border: 2px solid var(--pure-white) !important;
-    border-radius: 50% !important;
-    box-shadow: 0 0 10px var(--nye-gold-alpha-80), inset 0 0 5px var(--nye-black-alpha-30) !important;
-    width: 32px !important;
-    height: 32px !important;
-    cursor: pointer !important;
-    transform: translateY(-2px) !important;
-    background-color: transparent !important;
-  }
-
-  .emby-slider-thumb:hover,
-  input[type="range"]:hover::-webkit-slider-thumb {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d4af37' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--pure-white) 0%, var(--nye-cream) 60%, var(--nye-gold) 100%) !important;
-    border-color: var(--nye-gold) !important;
-    box-shadow: 0 0 15px var(--pure-white), 0 0 25px var(--nye-gold-alpha-100) !important;
-    transform: translateY(-5px) scale(1.15) rotate(45deg) !important;
-    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-  }
-
-  input[type="range"]:hover::-webkit-slider-thumb {
-    transform: translateY(-2px) scale(1.15) rotate(45deg) !important;
-  }
-
-  .dialog:not(.sliderBubble):not(.chapterThumbContainer),
-  .formDialog,
-  .actionSheet,
-  .itemSelectionPanel {
-    background: linear-gradient(135deg, var(--nye-black-light) 0%, var(--pure-black) 100%) !important;
-    border: 1px solid var(--nye-gold) !important;
-    box-shadow: 0 15px 40px var(--black-alpha-90), 0 0 30px var(--nye-gold-alpha-15) !important;
-  }
-
-  .backgroundContainer-transparent::before,
-  .backgroundContainer-transparent::after,
-  .view-videoosd::after {
-    display: none !important;
-  }
-
-  .backgroundContainer::before,
-  body::before,
-  body::after {
-    content: '';
-    position: fixed;
-    inset: -100px;
-    pointer-events: none;
-    z-index: -1;
-  }
-
-  body::before {
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Cg transform='translate(400,400)'%3E%3Ccircle cx='0' cy='0' r='20' fill='none' stroke='%23d4af37' stroke-width='4'/%3E%3Ccircle cx='-10' cy='-10' r='4' fill='%23f7e7ce'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 800px 800px,
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cg transform='translate(500,500)'%3E%3Ccircle cx='0' cy='0' r='15' fill='none' stroke='%23d4af37' stroke-width='3'/%3E%3Ccircle cx='-7' cy='-7' r='3' fill='%23f7e7ce'/%3E%3C/g%3E%3C/svg%3E") 100px 200px / 1000px 1000px;
-    animation: bubble-rise-1 40s linear infinite, bubble-sway 4s ease-in-out infinite alternate;
-    opacity: 0.8;
-  }
-
-  body::after {
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 900'%3E%3Cg transform='translate(450,450)'%3E%3Cpath fill='%23f7e7ce' d='M0 -15 C 0 -5, 5 0, 15 0 C 5 0, 0 5, 0 15 C 0 5, -5 0, -15 0 C -5 0, 0 -5, 0 -15 Z'/%3E%3C/g%3E%3C/svg%3E") 300px 100px / 900px 900px,
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1100 1100'%3E%3Cg transform='translate(550,550)'%3E%3Ccircle cx='0' cy='0' r='12' fill='none' stroke='%23f7e7ce' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E") 150px 500px / 1100px 1100px;
-    animation: bubble-rise-2 50s linear infinite, bubble-sway 6s ease-in-out infinite alternate-reverse;
-    filter: blur(1.5px);
-    opacity: 0.6;
-  }
-
-  .backgroundContainer::before {
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='4' fill='%23ffffff'/%3E%3C/svg%3E") 50px 50px / 600px 600px,
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 850 850'%3E%3Ccircle cx='425' cy='425' r='6' fill='%23d4af37'/%3E%3C/svg%3E") 200px 400px / 850px 850px;
-    animation: bubble-rise-3 60s linear infinite, bubble-sway 8s ease-in-out infinite alternate;
-    filter: blur(3px);
-    opacity: 0.4;
-  }
-
-  @keyframes bubble-rise-1 {
-    from { background-position: 0 0, 100px 200px; }
-    to { background-position: 0 -4000px, 100px -3800px; }
-  }
-
-  @keyframes bubble-rise-2 {
-    from { background-position: 300px 100px, 150px 500px; }
-    to { background-position: 300px -3500px, 150px -2800px; }
-  }
-
-  @keyframes bubble-rise-3 {
-    from { background-position: 50px 50px, 200px 400px; }
-    to { background-position: 50px -2350px, 200px -2150px; }
-  }
-
-  @keyframes bubble-sway {
-    from { transform: translateX(-15px); }
-    to { transform: translateX(15px); }
-  }
-
+  /* --- 19C. PORTRAITS & MEDIA CARDS (GOLD BORDERS) --- */
+  /* Gives portraits sharp, classy gold borders instead of rounded corners */
   .peopleSection .cardImageContainer,
   .personCard .cardImageContainer {
     border-radius: 0 !important; 
@@ -4537,17 +4565,186 @@ body::before {
     color: var(--nye-gold) !important;
   }
 
-  .mdl-spinner__layer-1 {
-    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, nye-spinner-colors 5332ms linear infinite !important;
+  @keyframes glassGlint {
+    0% {
+      border-color: var(--nye-gold);
+      box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 15px var(--nye-gold-alpha-40);
+    }
+    50% {
+      border-color: var(--nye-cream);
+      box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 30px var(--nye-cream-alpha-80), inset 0 0 20px var(--nye-gold-alpha-50);
+    }
+    100% {
+      border-color: var(--nye-gold);
+      box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 15px var(--nye-gold-alpha-40);
+    }
   }
 
-  @keyframes nye-spinner-colors {
-    0%, 100% { border-color: var(--nye-gold); }
-    25% { border-color: var(--nye-cream); }
-    50% { border-color: var(--pure-white); }
-    75% { border-color: var(--nye-gold); }
+  /* Shimmering glass glint on hovered media cards */
+  .card:hover .cardContent:not(.cardContent-round),
+  .card:hover .cardImageContainer:not(.cardContent-round) {
+    animation: glassGlint 2s infinite ease-in-out !important;
   }
 
+  /* --- 19D. UI INDICATORS (CHAMPAGNE PROGRESS & COUNTS) --- */
+  /* Unwatched/Played count pills transformed into NYE stars */
+  .countIndicator {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23111111' stroke='%23d4af37' stroke-width='1.5' d='M12 2 L22 12 L12 22 L2 12 Z'/%3E%3Cpath fill='none' stroke='%23f7e7ce' stroke-width='0.5' d='M12 5 L19 12 L12 19 L5 12 Z'/%3E%3C/svg%3E") !important;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    color: var(--nye-cream) !important;
+    min-width: 36px !important;
+    height: 36px !important;
+    border-radius: 0 !important;
+    padding: 6px !important;
+    font-size: 0.8em !important;
+    font-family: 'Oswald', sans-serif !important;
+    filter: drop-shadow(0 4px 6px var(--black-alpha-90));
+  }
+
+  @keyframes champagneBubbles {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 50px 0%; }
+  }
+
+  /* Animated champagne bubble texture inside media progress bars */
+  .itemProgressBarForeground {
+    background: radial-gradient(circle, var(--pure-white) 10%, transparent 20%), radial-gradient(circle, var(--nye-cream) 10%, transparent 20%), var(--nye-gold) !important;
+    background-size: 10px 10px, 15px 15px !important;
+    background-position: 0 0, 5px 5px !important;
+    animation: champagneBubbles 2s linear infinite !important;
+    box-shadow: 0 0 15px var(--nye-gold-alpha-80) !important;
+    border-radius: 5px !important;
+  }
+
+  /* Media info badges (4K, HDR, etc.) */
+  .mediaInfoItems .mediaInfoItem,
+  .mediaInfoItem {
+    background: var(--nye-bg-dark-1) !important; 
+    border: 1px solid var(--nye-gold) !important; 
+    color: var(--nye-cream) !important; 
+    -webkit-text-fill-color: var(--nye-cream) !important;
+    box-shadow: inset 0 0 8px var(--nye-gold-alpha-15) !important;
+  }
+
+  .mediaInfoItems .mediaInfoItem:hover,
+  .mediaInfoItem:hover {
+    background: var(--nye-gold-alpha-15) !important;
+    border-color: var(--nye-cream) !important;
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    box-shadow: 0 0 12px var(--nye-gold-alpha-60) !important;
+  }
+
+  /* --- 19E. SLIDERS & CONTROLS (STAR THUMBS) --- */
+  
+  /* 1. DIV based sliders (Emby Web App) */
+  .emby-slider-thumb,
+  .videoOsdBottom .emby-slider-thumb,
+  .nowPlayingBar .emby-slider-thumb {
+    -webkit-appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--nye-cream) 0%, var(--nye-gold) 60%, var(--nye-gold-dark) 100%) !important;
+    background-size: 50% 50%, 100% 100% !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    border: 2px solid var(--pure-white) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 0 10px var(--nye-gold-alpha-80), inset 0 0 5px var(--nye-black-alpha-30) !important;
+    width: 32px !important;
+    height: 32px !important;
+    cursor: pointer !important;
+    transform: translateY(-5px) !important;
+    background-color: transparent !important;
+  }
+
+  /* 2. Webkit native sliders */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--nye-cream) 0%, var(--nye-gold) 60%, var(--nye-gold-dark) 100%) !important;
+    background-size: 50% 50%, 100% 100% !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    border: 2px solid var(--pure-white) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 0 10px var(--nye-gold-alpha-80), inset 0 0 5px var(--nye-black-alpha-30) !important;
+    width: 32px !important;
+    height: 32px !important;
+    cursor: pointer !important;
+    transform: translateY(-2px) !important;
+    background-color: transparent !important;
+  }
+
+  /* 3. Mozilla native sliders */
+  input[type="range"]::-moz-range-thumb {
+    appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--nye-cream) 0%, var(--nye-gold) 60%, var(--nye-gold-dark) 100%) !important;
+    background-size: 50% 50%, 100% 100% !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    border: 2px solid var(--pure-white) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 0 10px var(--nye-gold-alpha-80), inset 0 0 5px var(--nye-black-alpha-30) !important;
+    width: 32px !important;
+    height: 32px !important;
+    cursor: pointer !important;
+    transform: translateY(-2px) !important;
+    background-color: transparent !important;
+  }
+
+  /* Hover states for star thumbs */
+  .emby-slider-thumb:hover {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d4af37' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--pure-white) 0%, var(--nye-cream) 60%, var(--nye-gold) 100%) !important;
+    border-color: var(--nye-gold) !important;
+    box-shadow: 0 0 15px var(--pure-white), 0 0 25px var(--nye-gold-alpha-100) !important;
+    transform: translateY(-5px) scale(1.15) rotate(45deg) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  input[type="range"]:hover::-webkit-slider-thumb,
+  input[type="range"]:hover::-moz-range-thumb {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d4af37' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--pure-white) 0%, var(--nye-cream) 60%, var(--nye-gold) 100%) !important;
+    border-color: var(--nye-gold) !important;
+    box-shadow: 0 0 15px var(--pure-white), 0 0 25px var(--nye-gold-alpha-100) !important;
+    transform: translateY(-2px) scale(1.15) rotate(45deg) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  /* --- 19F. TABS, DIALOGS & BUTTONS --- */
+  /* Active states for tabs like "Home", "Favorites", etc. */
+  .videoOsdBottom .emby-tab-button-active,
+  .emby-tab-button-active,
+  .videoOsdBottom .emby-tab-button:focus,
+  .videoOsdBottom .emby-tab-button.show-focus {
+    background: linear-gradient(135deg, var(--nye-gold-alpha-10) 0%, var(--nye-cream-alpha-30) 50%, var(--nye-gold-alpha-10) 100%) !important;
+    background-size: 200% 200% !important;
+    color: var(--nye-cream) !important;
+    border: 2px solid var(--nye-gold) !important;
+    box-shadow: 0 4px 10px var(--black-alpha-80), 0 0 15px var(--nye-gold-alpha-40), inset 0 0 10px var(--nye-cream-alpha-20) !important;
+    animation: goldShimmer 3s linear infinite !important;
+  }
+
+  /* Main popup dialog window styling */
+  .dialog:not(.sliderBubble):not(.chapterThumbContainer),
+  .formDialog,
+  .actionSheet,
+  .itemSelectionPanel {
+    background: linear-gradient(135deg, var(--nye-black-light) 0%, var(--pure-black) 100%) !important;
+    border: 1px solid var(--nye-gold) !important;
+    box-shadow: 0 15px 40px var(--black-alpha-90), 0 0 30px var(--nye-gold-alpha-15) !important;
+  }
+
+  /* Video player bottom gradient */
+  .videoOsdBottom,
+  .videoOsdBottom-video {
+    background: linear-gradient(to top, var(--nye-gold-alpha-15) 0%, var(--nye-bg-dark-2) 60%, transparent 100%) !important;
+    border-bottom: 3px solid var(--nye-gold) !important;
+  }
+
+  /* General dialog buttons (Save, Cancel, Play) */
   .button-submit {
     background: linear-gradient(135deg, var(--nye-gold-dark) 0%, var(--nye-gold) 100%) !important;
     color: var(--pure-black) !important;
@@ -4559,14 +4756,96 @@ body::before {
     transition: all 0.2s ease-in-out !important;
     transform: none !important;
   }
+  
   .button-submit:hover {
     background: linear-gradient(135deg, var(--nye-gold) 0%, var(--nye-cream) 100%) !important;
     border-color: var(--pure-white) !important;
     box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--nye-cream-alpha-80) !important;
     transform: translateY(-2px) scale(1.02) !important;
   }
+  
   .button-submit:active {
     transform: scale(0.98) !important;
+  }
+
+  /* Loading Spinner */
+  .mdl-spinner__layer-1 {
+    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, nye-spinner-colors 5332ms linear infinite !important;
+  }
+
+  @keyframes nye-spinner-colors {
+    0%, 100% { border-color: var(--nye-gold); }
+    25% { border-color: var(--nye-cream); }
+    50% { border-color: var(--pure-white); }
+    75% { border-color: var(--nye-gold); }
+  }
+
+  /* --- 19G. GLOBAL BACKGROUNDS (RISING CHAMPAGNE BUBBLES) --- */
+  /* Hides default empty containers */
+  .backgroundContainer-transparent::before,
+  .backgroundContainer-transparent::after,
+  .view-videoosd::after {
+    display: none !important;
+  }
+
+  .backgroundContainer::before,
+  body::before,
+  body::after {
+    content: '';
+    position: fixed;
+    inset: -100px;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Layer 1: Fast foreground rising bubbles */
+  body::before {
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Cg transform='translate(400,400)'%3E%3Ccircle cx='0' cy='0' r='20' fill='none' stroke='%23d4af37' stroke-width='4'/%3E%3Ccircle cx='-10' cy='-10' r='4' fill='%23f7e7ce'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 800px 800px,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cg transform='translate(500,500)'%3E%3Ccircle cx='0' cy='0' r='15' fill='none' stroke='%23d4af37' stroke-width='3'/%3E%3Ccircle cx='-7' cy='-7' r='3' fill='%23f7e7ce'/%3E%3C/g%3E%3C/svg%3E") 100px 200px / 1000px 1000px;
+    animation: bubble-rise-1 40s linear infinite, bubble-sway 4s ease-in-out infinite alternate;
+    opacity: 0.8;
+  }
+
+  /* Layer 2: Slow midground rising bubbles (blurred) */
+  body::after {
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 900'%3E%3Cg transform='translate(450,450)'%3E%3Cpath fill='%23f7e7ce' d='M0 -15 C 0 -5, 5 0, 15 0 C 5 0, 0 5, 0 15 C 0 5, -5 0, -15 0 C -5 0, 0 -5, 0 -15 Z'/%3E%3C/g%3E%3C/svg%3E") 300px 100px / 900px 900px,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1100 1100'%3E%3Cg transform='translate(550,550)'%3E%3Ccircle cx='0' cy='0' r='12' fill='none' stroke='%23f7e7ce' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E") 150px 500px / 1100px 1100px;
+    animation: bubble-rise-2 50s linear infinite, bubble-sway 6s ease-in-out infinite alternate-reverse;
+    filter: blur(1.5px);
+    opacity: 0.6;
+  }
+
+  /* Layer 3: Distant background tiny bubbles */
+  .backgroundContainer::before {
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='4' fill='%23ffffff'/%3E%3C/svg%3E") 50px 50px / 600px 600px,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 850 850'%3E%3Ccircle cx='425' cy='425' r='6' fill='%23d4af37'/%3E%3C/svg%3E") 200px 400px / 850px 850px;
+    animation: bubble-rise-3 60s linear infinite, bubble-sway 8s ease-in-out infinite alternate;
+    filter: blur(3px);
+    opacity: 0.4;
+  }
+
+  /* Bubble Animation Keyframes */
+  @keyframes bubble-rise-1 {
+    from { background-position: 0 0, 100px 200px; }
+    to { background-position: 0 -4000px, 100px -3800px; }
+  }
+
+  @keyframes bubble-rise-2 {
+    from { background-position: 300px 100px, 150px 500px; }
+    to { background-position: 300px -3500px, 150px -2800px; }
+  }
+
+  @keyframes bubble-rise-3 {
+    from { background-position: 50px 50px, 200px 400px; }
+    to { background-position: 50px -2350px, 200px -2150px; }
+  }
+
+  @keyframes bubble-sway {
+    from { transform: translateX(-15px); }
+    to { transform: translateX(15px); }
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
