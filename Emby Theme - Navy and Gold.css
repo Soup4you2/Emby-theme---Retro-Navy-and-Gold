@@ -955,23 +955,27 @@ html, body, .emby-input, .emby-select, .emby-textarea, .label, .fieldDescription
 }
 
 /* --- 2C. Custom Scrollbar --- */
+html, [class*="theme-"] {
+  scrollbar-color: var(--scrollbar-thumb) var(--retro-navy) !important; 
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 8px !important;
+  height: 8px !important;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--retro-navy);
+  background: var(--retro-navy) !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb);
-  border-radius: var(--border-radius-md);
-  border: var(--hover-border-thickness) solid var(--retro-navy);
+  background: var(--scrollbar-thumb) !important;
+  border-radius: var(--border-radius-md) !important;
+  border: var(--hover-border-thickness) solid var(--retro-navy) !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--theme-primary-color);
+  background: var(--theme-primary-color) !important;
 }
 
 /* Quality of life: expand the custom CSS input box in the dashboard */
