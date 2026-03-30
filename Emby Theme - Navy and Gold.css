@@ -4,10 +4,10 @@
    ============================================================ */
 
 /* ============================================================
-   NOTE: YOU NEED TO HAVE YOUR DISPLAY AND SETTINGS THEME
-   SET TO `BLACK` OR THIS THEME WILL NOT DISPLAY PROPERLY
-   BE SURE TO REMEMBER TO UPDATE YOUR USERS ALSO.      
+   NOTE: It's best to have your display theme and settings theme
+         set to black or dark for the theme to display properly.
    ============================================================ */
+
 
 /* ============================================================
    01. IMPORTS & VARIABLES
@@ -875,9 +875,11 @@ html,
    ============================================================ */
 
 /* --- 2A. Global Backgrounds & Containers --- */
-html, 
-body, 
-[class*="theme-"] {
+html[class*="theme-"], 
+body[class*="theme-"],
+[class*="theme-"] .view,
+[class*="theme-"] .page,
+[class*="theme-"] .libraryPage {
     background: radial-gradient(circle, var(--navy-mid-solid) 25%, var(--navy-base-solid) 85%) fixed !important;
     background-color: var(--retro-navy) !important;
 }
