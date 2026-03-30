@@ -2193,114 +2193,72 @@ input[type="range"]::-moz-range-thumb {
    10. DATA GRID (Settings, Server Dashboard, Devices)
    ============================================================ */
 
-/* --- 10A. Data Grid Header --- */
+/* --- 10A. Data Grid Header (Server Dashboard Lists) --- */
+
 .dataGridHeader {
-  background: var(--navy-light-alpha-70) !important;
-  background-image: none !important;
-  backdrop-filter: var(--blur-heavy) !important;
-  -webkit-backdrop-filter: var(--blur-heavy) !important;
-  border-bottom: 2px solid var(--theme-primary-color) !important;
-  box-shadow: 0 5px 15px var(--black-alpha-50) !important;
-  z-index: 100 !important;
+    background: var(--navy-light-alpha-70) !important;
+    background-image: none !important;
+    backdrop-filter: var(--blur-heavy) !important;
+    -webkit-backdrop-filter: var(--blur-heavy) !important;
+    border-bottom: 2px solid var(--theme-primary-color) !important;
+    box-shadow: 0 5px 15px var(--black-alpha-50) !important;
+    z-index: 100 !important;
 }
 
-/* Clean up Emby's native grid backgrounds and borders */
-.dataGridHeader .dataGridHeader-content,
-.dataGridHeader .dataGridItem-content,
-.dataGridHeader .dataGridHeader-content-inner,
-.dataGridHeader .dataGridItemCell,
-.dataGridItem,
-.virtualScrollItem {
-  background: transparent !important;
-  background-image: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* Header Text & Typography */
+/* 1. Header Text: Stylized gold titles for column headers */
 .dataGridHeader .dataGridItemCell,
 .dataGridHeader .dataGridHeaderText,
 .dataGridHeader .primaryText {
-  color: var(--my-gold) !important;
-  font-family: 'Oswald', sans-serif !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1px !important;
-  font-size: 0.95em !important;
-  font-weight: 700 !important;
-  text-shadow: 1px 1px 2px var(--black-alpha-80) !important;
+    color: var(--my-gold) !important;
+    font-family: 'Oswald', sans-serif !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-size: 0.95em !important;
+    font-weight: 700 !important;
 }
 
-/* Header Icons (Sort, filter, etc.) */
-.dataGridHeader .paper-icon-button-light,
-.dataGridHeader .md-icon,
-.dataGridHeader button i.md-icon {
-  color: var(--my-gold) !important;
-  opacity: 0.8 !important;
-  transition: all var(--transition-speed) ease !important;
+
+/* --- 10B. Global Form Titles (Legends) --- */
+
+/* 1. Fieldset Legends: This targets ALL group titles in the dashboard (Maintenance, Updates, etc.) */
+.dashboardGeneralForm legend,
+.settingsContainer legend,
+legend {
+    color: var(--my-gold) !important;
+    font-family: 'Oswald', sans-serif !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-weight: 700 !important;
+    font-size: 1.2em !important;
+    margin-bottom: 10px !important;
+    padding-top: 10px !important;
 }
 
-.dataGridHeader .paper-icon-button-light:hover,
-.dataGridHeader .md-icon:hover,
-.dataGridHeader button:hover i.md-icon {
-  opacity: 1 !important;
-  filter: var(--filter-glow-light) !important;
-  transform: scale(1.1) !important;
-}
 
-/* --- 10B. Data Grid List Items --- */
+/* --- 10C. Data Grid List Items & Hover States --- */
+
+/* 1. Row Content Styling */
 .dataGridItem-content {
-  background-color: var(--navy-light-alpha-40) !important;
-  border: var(--hover-border-thickness) solid transparent !important;
-  border-radius: 8px !important;
-  transition: all var(--transition-speed) ease-in-out !important;
-  font-family: 'Sofia Sans', sans-serif !important;
-  color: var(--text-muted) !important;
-  font-size: 1.05em !important;
+    background-color: var(--navy-light-alpha-40) !important;
+    border: var(--hover-border-thickness) solid transparent !important;
+    border-radius: 8px !important;
+    transition: all var(--transition-speed) ease-in-out !important;
 }
 
-.dataGridItem .secondaryText {
-  color: var(--white-alpha-70) !important;
-  font-size: 0.9em !important;
-  transition: color var(--transition-speed) ease !important;
-}
-
-.dataGridItem .paper-icon-button-light {
-  color: var(--white-alpha-60) !important;
-  transition: all var(--transition-speed) ease !important;
-}
-
-/* Device/User Avatar Images in the grid */
-.dataGridItem img {
-  border-radius: var(--border-radius-sm) !important;
-  border: 1px solid var(--my-gold-transparent) !important;
-  transition: all var(--transition-speed) ease !important;
-}
-
-/* --- 10C. Data Grid Item Hover States --- */
+/* 2. Row Hover: Highlights setting rows when mouse-over */
 .dataGridItem:hover .dataGridItem-content,
 .dataGridItem.show-focus .dataGridItem-content {
-  background-color: var(--my-gold-transparent) !important;
-  border: var(--hover-border-thickness) solid var(--theme-primary-color) !important;
-  box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
-  color: var(--pure-white) !important;
-  text-shadow: 1px 1px 2px var(--black-alpha-80) !important;
-  z-index: 10 !important;
+    background-color: var(--my-gold-transparent) !important;
+    border: var(--hover-border-thickness) solid var(--theme-primary-color) !important;
+    box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+    color: var(--pure-white) !important;
 }
 
-.dataGridItem:hover .secondaryText,
-.dataGridItem:hover .paper-icon-button-light {
-  color: var(--pure-white) !important;
+/* 3. Grid Avatars/Icons: Device and User icons in the dashboard */
+.dataGridItem img {
+    border-radius: var(--border-radius-sm) !important;
+    border: 1px solid var(--my-gold-transparent) !important;
 }
-
-.dataGridItem:hover .paper-icon-button-light {
-  filter: var(--filter-glow-light) !important;
-}
-
-.dataGridItem:hover img {
-  border-color: var(--my-gold) !important;
-  box-shadow: var(--glow-light) !important;
-}
-
 
 /* ============================================================
    11. LOGIN PAGE & MISC TWEAKS
