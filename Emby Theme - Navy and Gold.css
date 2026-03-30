@@ -719,7 +719,7 @@ html,
   */
 
   /* OPTION 8: CHRISTMAS */
-  /*
+  
   --xmas-white-rgb: 255, 255, 255;
   --xmas-red-rgb: 196, 30, 58;
   --xmas-green-rgb: 11, 102, 35;
@@ -779,7 +779,7 @@ html,
   --aurora-green-rgb: 0, 255, 150;
   --aurora-blue-rgb: 0, 200, 255;
   --aurora-deep-green-rgb: 0, 255, 100;
-  */
+  
 
   /* OPTION 9: NEW YEAR'S EVE */
   /*
@@ -4227,6 +4227,24 @@ body::before {
     pointer-events: none;
     z-index: -2;
     animation: auroraWave 25s infinite alternate ease-in-out;
+  }
+
+  .emby-checkbox:checked + span::before {
+    background-color: var(--xmas-green) !important;
+    border-color: var(--xmas-green) !important;
+  }
+
+  .emby-checkbox:focus + span::before {
+    border-color: var(--xmas-green) !important;
+    box-shadow: 0 0 10px var(--xmas-green-alpha-50) !important;
+  }
+
+  .emby-toggle:checked ~ .toggleSwitch {
+    background-color: var(--xmas-green) !important;
+  }
+
+  .emby-toggle:focus:checked ~ .toggleSwitch {
+    box-shadow: 0 0 10px var(--xmas-green-alpha-50) !important;
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
