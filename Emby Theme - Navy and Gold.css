@@ -900,6 +900,15 @@ html[class*="theme-"] .mainAnimatedPages {
     background: transparent !important;
 }
 
+/* UNIVERSAL BACKGROUND FIX: High Specificity to stop solid wall blockages */
+html[class*="theme-"] body .backgroundContainer:not(.withBackdrop) {
+    background: var(--navy-base-alpha-25) !important; 
+}
+
+html[class*="theme-"] body .backgroundContainer.withBackdrop:not(.backgroundContainer-transparent) {
+    background: var(--navy-base-alpha-75) !important;
+}
+
 body,
 .backdropContainer,
 .mainAnimatedPages,
