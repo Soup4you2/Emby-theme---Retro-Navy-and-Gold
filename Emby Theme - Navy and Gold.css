@@ -1263,12 +1263,10 @@ button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
   filter: var(--filter-glow-light) !important;
 }
 
-/* Unwatched / Played Count Pills - Base Styling */
+/* Unwatched / Played Count Pills - Base Shared Styling */
 .playedIndicator,
 .cardIndicator.playedIndicator,
 .countIndicator {
-  font-family: 'Oswald', sans-serif !important;
-  font-weight: 700 !important;
   text-shadow: none !important;
   border-radius: var(--border-radius-pill) !important;
 }
@@ -1280,6 +1278,7 @@ button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
   color: var(--played-indicator-color) !important;
   border: var(--played-indicator-border) !important;
   box-shadow: var(--played-indicator-shadow) !important;
+  /* Font-family is intentionally left default here so the checkmark icon renders */
 }
 
 /* Unwatched Count Pill Variables & Sizing */
@@ -1288,6 +1287,8 @@ button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
   color: var(--count-indicator-color) !important;
   border: var(--count-indicator-border) !important;
   box-shadow: var(--count-indicator-shadow) !important;
+  font-family: 'Oswald', sans-serif !important; /* Only applied to numbers */
+  font-weight: 700 !important;
   font-size: 0.9em !important;
   min-width: 26px !important;
   height: 26px !important;
