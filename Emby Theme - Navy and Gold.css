@@ -59,6 +59,7 @@ html,
   --line-size: 1px !important;
   --background-color: var(--retro-navy) !important;
   --dialog-background-color: var(--navy-light-alpha-80) !important;
+  --theme-text-color-force: var(--text-muted);
 
   /* --- RGBA TRANSLUCENCY VARIABLES --- */
   
@@ -190,7 +191,7 @@ html,
   /* OPTION 1: ENABLED (Default) */
   --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);
   --button-popout-transform: translate(-3px, -3px);
-  --button-popout-active-shadow: 0px 0px 0px var(--my-gold), 0px 0px 5px var(--black-alpha-80);
+  --button-popout-active-shadow: 0px 0px 5px var(--black-alpha-80);
   --button-popout-active-transform: translate(0px, 0px);
 
   /* OPTION 2: DISABLED */
@@ -328,7 +329,7 @@ html,
   --seasonal-bg-anim-state: paused !important;
   */
 
-  /* ============================================================
+/* ============================================================
      SEASONAL EVENT TOGGLE
      Uncomment ONE block below to activate a holiday theme
 
@@ -338,7 +339,6 @@ html,
     themes in Firefox, you must manually comment out the @container wrapper 
     line and its corresponding closing bracket within the seasonal CSS section.
     -----------------------------------------------------------
-
      ============================================================ */
 
   /* OPTION 1: BASE RETRO NAVY & GOLD (Default) */
@@ -385,24 +385,18 @@ html,
   --navy-mid-alpha-70: rgba(var(--vday-navy-mid-rgb), 0.7) !important;
   --navy-mid-alpha-90: rgba(var(--vday-navy-mid-rgb), 0.9) !important;
   --vday-red: #e60049;
-  --vday-red-alpha-80: rgba(var(--vday-red-rgb), 0.8);
   --vday-red-alpha-60: rgba(var(--vday-red-rgb), 0.6);
   --vday-red-alpha-50: rgba(var(--vday-red-rgb), 0.5);
   --vday-red-alpha-40: rgba(var(--vday-red-rgb), 0.4);
   --vday-red-alpha-30: rgba(var(--vday-red-rgb), 0.3);
-  --vday-red-alpha-25: rgba(var(--vday-red-rgb), 0.25);
   --vday-pink-deep: #ff1493;
   --vday-pink-deep-alpha-100: rgba(var(--vday-pink-deep-rgb), 1);
   --vday-pink-deep-alpha-90: rgba(var(--vday-pink-deep-rgb), 0.9);
   --vday-pink-deep-alpha-80: rgba(var(--vday-pink-deep-rgb), 0.8);
-  --vday-pink-deep-alpha-50: rgba(var(--vday-pink-deep-rgb), 0.5);
   --vday-pink-deep-alpha-30: rgba(var(--vday-pink-deep-rgb), 0.3);
   --vday-pink-light: #ffb6c1;
-  --vday-pink-light-alpha-60: rgba(var(--vday-pink-light-rgb), 0.6);
   --vday-pink-light-alpha-50: rgba(var(--vday-pink-light-rgb), 0.5);
   --vday-pink-light-alpha-20: rgba(var(--vday-pink-light-rgb), 0.2);
-  --vday-maroon: #8a002b;
-  --vday-coral: #ff6b81;
   --vday-bg-dark: rgba(var(--vday-navy-base-rgb), 0.9);
   --vday-pulse-light: rgba(var(--vday-pink-light-rgb), 0.4);
   --vday-pulse-heavy: rgba(var(--vday-pink-deep-rgb), 0.6);
@@ -450,20 +444,14 @@ html,
   --navy-mid-alpha-70: rgba(var(--stpat-navy-mid-rgb), 0.7) !important;
   --navy-mid-alpha-90: rgba(var(--stpat-navy-mid-rgb), 0.9) !important;
   --stpat-green-bright: #00ff85;
-  --stpat-green-bright-alpha-100: rgba(var(--stpat-green-bright-rgb), 1);
   --stpat-green-bright-alpha-80: rgba(var(--stpat-green-bright-rgb), 0.8);
-  --stpat-green-bright-alpha-60: rgba(var(--stpat-green-bright-rgb), 0.6);
-  --stpat-green-bright-alpha-50: rgba(var(--stpat-green-bright-rgb), 0.5);
   --stpat-green-bright-alpha-40: rgba(var(--stpat-green-bright-rgb), 0.4);
   --stpat-green-bright-alpha-15: rgba(var(--stpat-green-bright-rgb), 0.15);
   --stpat-gold: #ffd700;
   --stpat-gold-alpha-80: rgba(var(--stpat-gold-rgb), 0.8);
-  --stpat-gold-alpha-70: rgba(var(--stpat-gold-rgb), 0.7);
   --stpat-gold-alpha-60: rgba(var(--stpat-gold-rgb), 0.6);
   --stpat-gold-alpha-30: rgba(var(--stpat-gold-rgb), 0.3);
-  --stpat-gold-alpha-10: rgba(var(--stpat-gold-rgb), 0.1);
   --stpat-green-mid: #009e60;
-  --stpat-green-mid-alpha-20: rgba(var(--stpat-green-mid-rgb), 0.2);
   --stpat-gold-light: #fff7a1;
   --stpat-gold-dark: #b8860b;
   --stpat-green-dark: #006400;
@@ -527,9 +515,6 @@ html,
   --easter-yellow-dark: #b38000;
   --easter-brown: #5c3a21;
   --easter-pink: #ffb6c1;
-  --easter-pink-alpha-20: rgba(var(--easter-pink-rgb), 0.2);
-  --easter-pink-alpha-50: rgba(var(--easter-pink-rgb), 0.5);
-  --easter-pink-alpha-60: rgba(var(--easter-pink-rgb), 0.6);
   --easter-pink-alpha-80: rgba(var(--easter-pink-rgb), 0.8);
   --easter-pink-dark: #ff6b6b;
   --easter-blue: #87ceeb;
@@ -568,24 +553,12 @@ html,
   --july4-red: #e0162b;
   --july4-red-alpha-80: rgba(var(--july4-red-rgb), 0.8);
   --july4-red-alpha-60: rgba(var(--july4-red-rgb), 0.6);
-  --july4-red-alpha-50: rgba(var(--july4-red-rgb), 0.5);
-  --july4-red-alpha-30: rgba(var(--july4-red-rgb), 0.3);
-  --july4-red-alpha-20: rgba(var(--july4-red-rgb), 0.2);
   --july4-blue: #0052a5;
   --july4-blue-alpha-80: rgba(var(--july4-blue-rgb), 0.8);
-  --july4-blue-alpha-60: rgba(var(--july4-blue-rgb), 0.6);
   --july4-blue-alpha-50: rgba(var(--july4-blue-rgb), 0.5);
-  --july4-blue-alpha-40: rgba(var(--july4-blue-rgb), 0.4);
-  --july4-blue-alpha-30: rgba(var(--july4-blue-rgb), 0.3);
-  --july4-blue-alpha-20: rgba(var(--july4-blue-rgb), 0.2);
   --july4-navy: #001d3d;
-  --july4-bg-dark: #000814;
   --july4-white: #ffffff;
-  --july4-white-alpha-70: rgba(var(--july4-white-rgb), 0.7);
-  --july4-white-alpha-60: rgba(var(--july4-white-rgb), 0.6);
   --july4-white-alpha-50: rgba(var(--july4-white-rgb), 0.5);
-  --july4-white-alpha-20: rgba(var(--july4-white-rgb), 0.2);
-  --july4-gray: #e0e0e0;
   --july4-sky-red-glow: rgba(var(--july4-red-rgb), 0.03);
   --july4-sky-blue-glow: rgba(var(--july4-blue-rgb), 0.03);
   --july4-firework-red: var(--july4-red);
@@ -636,15 +609,11 @@ html,
   --hw-orange-alpha-90: rgba(var(--hw-orange-rgb), 0.9);
   --hw-orange-alpha-50: rgba(var(--hw-orange-rgb), 0.5);
   --hw-orange-alpha-40: rgba(var(--hw-orange-rgb), 0.4);
-  --hw-orange-alpha-30: rgba(var(--hw-orange-rgb), 0.3);
-  --hw-orange-alpha-20: rgba(var(--hw-orange-rgb), 0.2);
-  --hw-orange-alpha-04: rgba(var(--hw-orange-rgb), 0.04);
   --hw-purple: #8a2be2;
   --hw-purple-alpha-80: rgba(var(--hw-purple-rgb), 0.8);
   --hw-purple-alpha-60: rgba(var(--hw-purple-rgb), 0.6);
   --hw-purple-alpha-50: rgba(var(--hw-purple-rgb), 0.5);
   --hw-purple-alpha-30: rgba(var(--hw-purple-rgb), 0.3);
-  --hw-purple-alpha-05: rgba(var(--hw-purple-rgb), 0.05);
   --hw-green: #39ff14;
   --hw-bg-dark-1: #1a1a1a;
   --hw-bg-dark-2: #170026;
@@ -655,9 +624,6 @@ html,
   --hw-bg-dark-3-alpha-60: rgba(var(--hw-navy-base-rgb), 0.6);
   --hw-gray-1: #444444;
   --hw-gray-2: #555555;
-  --hw-gray-3: #888888;
-  --hw-white-alpha-10: rgba(var(--hw-white-rgb), 0.1);
-  --hw-white-alpha-05: rgba(var(--hw-white-rgb), 0.05);
   */
 
   /* OPTION 7: THANKSGIVING / AUTUMN HARVEST */
@@ -702,28 +668,18 @@ html,
   --navy-mid-alpha-90: rgba(var(--tg-navy-mid-rgb), 0.9) !important;
   --tg-orange: #d95c14;
   --tg-orange-alpha-60: rgba(var(--tg-orange-rgb), 0.6);
-  --tg-orange-alpha-50: rgba(var(--tg-orange-rgb), 0.5);
-  --tg-orange-alpha-40: rgba(var(--tg-orange-rgb), 0.4);
   --tg-orange-alpha-30: rgba(var(--tg-orange-rgb), 0.3);
-  --tg-orange-alpha-25: rgba(var(--tg-orange-rgb), 0.25);
   --tg-orange-alpha-20: rgba(var(--tg-orange-rgb), 0.2);
-  --tg-orange-alpha-15: rgba(var(--tg-orange-rgb), 0.15);
   --tg-gold: #e3a01b;
   --tg-gold-alpha-80: rgba(var(--tg-gold-rgb), 0.8);
-  --tg-gold-alpha-70: rgba(var(--tg-gold-rgb), 0.7);
   --tg-gold-alpha-40: rgba(var(--tg-gold-rgb), 0.4);
-  --tg-gold-alpha-30: rgba(var(--tg-gold-rgb), 0.3);
   --tg-brown: #8b4513;
   --tg-brown-alpha-50: rgba(var(--tg-brown-rgb), 0.5);
-  --tg-brown-alpha-15: rgba(var(--tg-brown-rgb), 0.15);
   --tg-brown-dark: #5c2605;
-  --tg-yellow: #ffd700;
   --tg-bg-dark-1: #2c1612;
   --tg-bg-dark-2: #1a0b09;
-  --tg-bg-dark-3: rgba(var(--tg-navy-mid-rgb), 0.8);
   --tg-bg-dark-4: rgba(var(--tg-navy-base-rgb), 0.9);
   --tg-bg-dark-5: rgba(var(--tg-navy-base-rgb), 0.8);
-  --tg-black-alpha-40: rgba(var(--tg-black-rgb), 0.4);
   */
 
   /* OPTION 8: CHRISTMAS */
@@ -768,21 +724,12 @@ html,
   --navy-mid-alpha-70: rgba(var(--xmas-navy-mid-rgb), 0.7) !important;
   --navy-mid-alpha-90: rgba(var(--xmas-navy-mid-rgb), 0.9) !important;
   --xmas-red: #c41e3a;
-  --xmas-red-alpha-80: rgba(var(--xmas-red-rgb), 0.8);
-  --xmas-red-alpha-30: rgba(var(--xmas-red-rgb), 0.3);
   --xmas-red-light: #ff8a8a;
   --xmas-red-dark: #5a0000;
   --xmas-green: #0b6623;
   --xmas-green-alpha-50: rgba(var(--xmas-green-rgb), 0.5);
-  --xmas-green-alpha-30: rgba(var(--xmas-green-rgb), 0.3);
   --xmas-bg-dark-1: #051829;
-  --xmas-bg-dark-2: #020a14;
-  --xmas-bg-dark-2-alpha-85: rgba(var(--xmas-navy-base-rgb), 0.85);
-  --xmas-blue-light-alpha-30: rgba(var(--xmas-blue-light-rgb), 0.3);
   --xmas-white: #ffffff;
-  --xmas-white-alpha-60: rgba(var(--xmas-white-rgb), 0.6);
-  --xmas-gray: #e0e0e0;
-  --xmas-black-alpha-30: rgba(var(--xmas-black-rgb), 0.3);
   --aurora-pink-rgb: 255, 40, 150;   
   --aurora-green-rgb: 0, 255, 150;
   --aurora-blue-rgb: 0, 200, 255;
@@ -829,22 +776,16 @@ html,
   --navy-mid-alpha-70: rgba(var(--nye-navy-mid-rgb), 0.7) !important;
   --navy-mid-alpha-90: rgba(var(--nye-navy-mid-rgb), 0.9) !important;
   --nye-gold: #d4af37;
-  --nye-gold-alpha-100: rgba(var(--nye-gold-rgb), 1);
   --nye-gold-alpha-80: rgba(var(--nye-gold-rgb), 0.8);
-  --nye-gold-alpha-60: rgba(var(--nye-gold-rgb), 0.6);
-  --nye-gold-alpha-50: rgba(var(--nye-gold-rgb), 0.5);
   --nye-gold-alpha-40: rgba(var(--nye-gold-rgb), 0.4);
-  --nye-gold-alpha-15: rgba(var(--nye-gold-rgb), 0.15);
   --nye-gold-alpha-10: rgba(var(--nye-gold-rgb), 0.1);
   --nye-cream: #f7e7ce;
   --nye-cream-alpha-80: rgba(var(--nye-cream-rgb), 0.8);
-  --nye-cream-alpha-30: rgba(var(--nye-cream-rgb), 0.3);
   --nye-cream-alpha-20: rgba(var(--nye-cream-rgb), 0.2);
   --nye-gold-dark: #8a6a1c;
   --nye-black-light: #111111;
   --nye-bg-dark-1: rgba(var(--nye-navy-mid-rgb), 0.8);
   --nye-bg-dark-2: rgba(var(--nye-navy-base-rgb), 0.95);
-  --nye-black-alpha-30: rgba(var(--nye-black-rgb), 0.3);
   */
 
   /* ============================================================
@@ -877,14 +818,84 @@ html,
 /* ============================================================
    END OF USER VARIABLES AND OPTIONS
    ============================================================ */
-
+  
 /* ============================================================
    02. BASE STYLES & LAYOUT
    ============================================================ */
 
 /* --- 2A. Global Backgrounds & Containers --- */
 
-/* 1. Base App Background: Applies the radial navy gradient as the global foundation */
+/* 1. Force all Emby text and background variables to our dark defaults */
+html[class*="theme-"] {
+    --theme-background: var(--retro-navy) !important;
+    --background-color: var(--retro-navy) !important;
+    --theme-text-color: var(--text-muted) !important;
+    --theme-text-color-opaque: var(--pure-white) !important;
+    --theme-secondary-text-color: var(--white-alpha-70) !important;
+    --line-background: var(--gold-alpha-15) !important;
+    --dialog-background-color: var(--navy-light-alpha-80) !important;
+}
+
+/* 2. Force the radial gradient background on the body of ALL themes */
+html[class*="theme-"] body {
+    background: radial-gradient(circle, var(--navy-mid-solid) 25%, var(--navy-base-solid) 85%) fixed !important;
+    background-color: var(--retro-navy) !important;
+    color: var(--text-muted) !important;
+}
+
+/* 3. Nuke Emby's solid background curtains that block our gradient */
+html[class*="theme-"] .backgroundContainer:not(.backgroundContainer-transparent) {
+    background-color: var(--navy-base-alpha-25) !important;
+    background-image: none !important;
+}
+
+html[class*="theme-"] .backgroundContainer.withBackdrop:not(.backgroundContainer-transparent) {
+    background-color: var(--navy-base-alpha-75) !important;
+    background-image: none !important;
+}
+
+/* 4. Ensure dialog boxes, cards, and text inputs stay dark */
+html[class*="theme-"] .formDialog, 
+html[class*="theme-"] .dialog,
+html[class*="theme-"] .cardContent, 
+html[class*="theme-"] .cardImageContainer,
+html[class*="theme-"] .emby-input, 
+html[class*="theme-"] .emby-select, 
+html[class*="theme-"] .emby-textarea {
+    background-color: var(--navy-light-alpha-80) !important;
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+/* 5. Theme Enforcer Exemptions (Fix for Unwatched Pills, Played Checkmarks, Play Buttons, and Media Info Badges) */
+html[class*="theme-"] .countIndicator {
+    -webkit-text-fill-color: var(--count-indicator-color) !important;
+}
+
+html[class*="theme-"] .playedIndicator,
+html[class*="theme-"] .playedIndicator .md-icon {
+    -webkit-text-fill-color: var(--played-indicator-color) !important;
+}
+
+html[class*="theme-"] .cardOverlayFab-primary,
+html[class*="theme-"] .cardOverlayButtonIcon,
+html[class*="theme-"] .cardOverlayFab-primary *,
+html[class*="theme-"] .cardOverlayButtonIcon * {
+    -webkit-text-fill-color: var(--pure-black) !important;
+}
+
+/* Fixes the Year, Rating, Runtime, and Genre pills */
+html[class*="theme-"] .mediaInfoItem,
+html[class*="theme-"] .mediaInfoItem * {
+    -webkit-text-fill-color: var(--media-badge-color) !important;
+}
+
+html[class*="theme-"] .mediaInfoItem:hover,
+html[class*="theme-"] .mediaInfoItem:hover * {
+    -webkit-text-fill-color: var(--media-badge-hover-color) !important;
+}
+
+/* 6. Base App Background: Applies the radial navy gradient as the global foundation */
 html[class*="theme-"], 
 body[class*="theme-"],
 [class*="theme-"] .view,
@@ -894,7 +905,7 @@ body[class*="theme-"],
     background-color: var(--retro-navy) !important;
 }
 
-/* 2. Transparency Resets: Prevents solid page backgrounds from acting as a curtain over backdrops and video players */
+/* 7. Transparency Resets: Prevents solid page backgrounds from acting as a curtain over backdrops and video players */
 body,
 .backdropContainer,
 .mainAnimatedPages,
@@ -907,7 +918,7 @@ html[class*="theme-"] .mainAnimatedPages {
     background: transparent !important;
 }
 
-/* 3. Container Dimming: Adjusts overlay darkness for text readability (with and without backdrops) */
+/* 8. Container Dimming: Adjusts overlay darkness for text readability (with and without backdrops) */
 .backgroundContainer:not(.backgroundContainer-transparent),
 html[class*="theme-"] body .backgroundContainer:not(.withBackdrop) {
     background-color: var(--navy-base-alpha-25) !important; 
@@ -918,7 +929,7 @@ html[class*="theme-"] body .backgroundContainer.withBackdrop:not(.backgroundCont
     background-color: var(--navy-base-alpha-75) !important;
 }
 
-/* 4. Global Backdrop Opacity: Dims backdrop fanart slightly so the UI pops */
+/* 9. Global Backdrop Opacity: Dims backdrop fanart slightly so the UI pops */
 .backdropImage {
     opacity: 0.9 !important;
 }
@@ -965,13 +976,17 @@ body,
     font-weight: 600;
 }
 
-/* 5. Secondary Text: Subtitles, Cast Roles, Muted Descriptions (Ensures readability in light/dark skins) */
+/* 5. Secondary Text Support: Subtitles, Cast Roles, and Muted Descriptions 
+      Forces readability across standard, Light, and Apple TV themes. */
 .secondaryText, 
 .fieldDescription, 
 .cardText-secondary,
 .theme-light .secondaryText,
 .theme-light .textActionButton,
-.theme-light .cardText-secondary {
+.theme-light .cardText-secondary,
+.theme-appletv .secondaryText,
+.theme-appletv .fieldDescription,
+.theme-appletv .cardText-secondary {
     color: var(--white-alpha-70) !important;
 }
 
@@ -2193,30 +2208,53 @@ input[type="range"]::-moz-range-thumb {
    10. DATA GRID (Settings, Server Dashboard, Devices)
    ============================================================ */
 
-/* --- 10A. Data Grid Header (Server Dashboard Lists) --- */
+/* --- 10A. Data Grid Header (Server Dashboard Lists & Media Lists) --- */
 
-.dataGridHeader {
-    background: var(--navy-light-alpha-70) !important;
+/* 1. Master Header Container Background */
+html[class*="theme-"] .dataGridHeader,
+html[class*="theme-"] .itemsContainer_header {
+    background-color: var(--navy-mid-solid) !important; /* Rich solid blue */
     background-image: none !important;
     backdrop-filter: var(--blur-heavy) !important;
     -webkit-backdrop-filter: var(--blur-heavy) !important;
     border-bottom: 2px solid var(--theme-primary-color) !important;
     box-shadow: 0 5px 15px var(--black-alpha-50) !important;
     z-index: 100 !important;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
 }
 
-/* 1. Header Text: Stylized gold titles for column headers */
-.dataGridHeader .dataGridItemCell,
-.dataGridHeader .dataGridHeaderText,
-.dataGridHeader .primaryText {
+/* 2. Strip dark backgrounds off the inner layers so the blue shows through */
+html[class*="theme-"] .dataGridHeader .dataGridHeader-content,
+html[class*="theme-"] .dataGridHeader .dataGridItem-content,
+html[class*="theme-"] .dataGridHeader .dataGridHeader-content-inner,
+html[class*="theme-"] .itemsContainer_header .dataGridHeader-content,
+html[class*="theme-"] .itemsContainer_header .dataGridItem-content,
+html[class*="theme-"] .itemsContainer_header .dataGridHeader-content-inner {
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+}
+
+/* 3. Header Text: Stylized gold titles for column headers */
+html[class*="theme-"] .dataGridHeader .dataGridItemCell,
+html[class*="theme-"] .dataGridHeader .dataGridHeaderText,
+html[class*="theme-"] .dataGridHeader .primaryText,
+html[class*="theme-"] .dataGridHeader .button-link,
+html[class*="theme-"] .dataGridHeader .button-link *,
+html[class*="theme-"] .itemsContainer_header .button-link,
+html[class*="theme-"] .itemsContainer_header .button-link * {
     color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
     font-family: 'Oswald', sans-serif !important;
     text-transform: uppercase !important;
     letter-spacing: 1px !important;
     font-size: 0.95em !important;
     font-weight: 700 !important;
 }
-
 
 /* --- 10B. Global Form Titles (Legends) --- */
 
@@ -2233,7 +2271,6 @@ legend {
     margin-bottom: 10px !important;
     padding-top: 10px !important;
 }
-
 
 /* --- 10C. Data Grid List Items & Hover States --- */
 
@@ -2258,6 +2295,66 @@ legend {
 .dataGridItem img {
     border-radius: var(--border-radius-sm) !important;
     border: 1px solid var(--my-gold-transparent) !important;
+}
+
+/* --- 10D. Advanced Data Grids (Music Tracks, Detailed List Views) --- */
+
+/* 1. Base Row Styling & Removing Zebra Stripes */
+html[class*="theme-"] .dataGridItem:nth-child(even) .dataGridItem-content,
+html[class*="theme-"] .dataGridItem:nth-child(odd) .dataGridItem-content,
+html[class*="theme-"] .dataGridItem-content {
+    background-color: var(--navy-light-alpha-40) !important;
+    border: var(--standard-border-thickness) solid transparent !important;
+    border-radius: var(--border-radius-sm) !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+    /* Adding a tiny margin inside the container so the rows don't touch */
+    margin-top: 2px !important;
+    margin-bottom: 2px !important; 
+}
+
+/* 2. Row Hover State (Pops out and glows) */
+html[class*="theme-"] .dataGridItem:hover .dataGridItem-content,
+html[class*="theme-"] .dataGridItem.show-focus .dataGridItem-content {
+    background-color: var(--my-gold-transparent) !important;
+    border-color: var(--theme-primary-color) !important;
+    box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+    transform: scale(1.01) !important;
+    z-index: 10 !important;
+}
+
+/* 3. Base Text Colors for Grid Cells */
+html[class*="theme-"] .dataGridItemCell {
+    color: var(--white-alpha-70) !important;
+    -webkit-text-fill-color: var(--white-alpha-70) !important;
+    transition: color var(--transition-speed) ease-in-out !important;
+}
+
+/* Ensures the primary column (like Song Title) is brighter than the rest */
+html[class*="theme-"] .dataGridItemCell.primaryText {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    font-weight: 600 !important;
+}
+
+/* 4. Highlight all text in the row to pure white when hovered */
+html[class*="theme-"] .dataGridItem:hover .dataGridItemCell,
+html[class*="theme-"] .dataGridItem:hover .dataGridItemCell * {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+/* 5. Right-side action buttons (Play, Heart, 3 Dots) */
+html[class*="theme-"] .dataGridItemCell .paper-icon-button-light {
+    color: var(--white-alpha-60) !important;
+    -webkit-text-fill-color: var(--white-alpha-60) !important;
+    transition: transform var(--transition-speed) ease, color var(--transition-speed) ease, filter var(--transition-speed) ease !important;
+}
+
+html[class*="theme-"] .dataGridItemCell .paper-icon-button-light:hover {
+    color: var(--theme-primary-color) !important;
+    -webkit-text-fill-color: var(--theme-primary-color) !important;
+    transform: scale(1.2) !important;
+    filter: var(--filter-glow-light) !important;
 }
 
 /* ============================================================
