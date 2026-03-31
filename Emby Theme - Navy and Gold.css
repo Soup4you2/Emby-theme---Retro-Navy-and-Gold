@@ -816,6 +816,16 @@ html,
   --table-text-secondary: var(--white-alpha-70);
   --table-text-hover: var(--pure-white);
 
+  /* --- Toggle Switch Variables --- */
+  --toggle-track-off: var(--navy-light-alpha-80); /* Dark track when off */
+  --toggle-thumb-off: var(--white-alpha-60);      /* Muted white thumb when off */
+  --toggle-track-on: var(--theme-primary-color);  /* Gold track when on */
+  --toggle-thumb-on: var(--pure-white);           /* Bright white thumb when on */
+
+  /* --- Banner & Horizontal Card Variables --- */
+  --banner-card-bg: rgb(35, 38, 39);                   
+  --banner-card-hover-bg: var(--my-gold-transparent);
+
   /* --- Effects & Animations --- */
   --transition-speed: 0.2s;
   --blur-light: blur(10px);
@@ -1299,9 +1309,9 @@ html[class*="theme-"] .videoOsdBottom .emby-tab-button:hover:not(.emby-tab-butto
 /* --- 4B. Text Inputs, Dropdowns & Textareas --- */
 
 /* 1. Base Input Styling */
-.emby-input,
-.emby-select,
-.emby-textarea {
+html[class*="theme-"] .emby-input,
+html[class*="theme-"] .emby-select,
+html[class*="theme-"] .emby-textarea {
     background-color: var(--navy-light-alpha-80) !important;
     border: var(--standard-border-thickness) solid var(--white-alpha-10) !important;
     border-radius: var(--border-radius-sm) !important;
@@ -1310,30 +1320,37 @@ html[class*="theme-"] .videoOsdBottom .emby-tab-button:hover:not(.emby-tab-butto
     transition: border-color var(--transition-speed), box-shadow var(--transition-speed) !important;
 }
 
-/* 2. Dropdown Height Fix: Ensures native select dropdowns don't collapse */
-.emby-select,
-.emby-select[disabled],
-.trackSelectionField .emby-select {
+/* 2. Dropdown Height Fix & Option Styling */
+html[class*="theme-"] .emby-select,
+html[class*="theme-"] .emby-select[disabled],
+html[class*="theme-"] .trackSelectionField .emby-select {
     height: auto !important;
     min-height: 35px !important;
     line-height: normal !important;
 }
 
+/* NEW: Explicitly style the native dropdown <option> list so base themes don't hijack it */
+html[class*="theme-"] option,
+html[class*="theme-"] optgroup {
+    background-color: var(--navy-light-alpha-80) !important;
+    color: var(--pure-white) !important;
+}
+
 /* 3. Input Focus States (Glowing borders when typing/selecting) */
-.emby-input:focus,
-.emby-textarea:focus,
-select.emby-select:focus,
-select.emby-select:active,
-select.emby-select:focus-visible,
-select.emby-select.emby-select-focusscale:focus {
+html[class*="theme-"] .emby-input:focus,
+html[class*="theme-"] .emby-textarea:focus,
+html[class*="theme-"] select.emby-select:focus,
+html[class*="theme-"] select.emby-select:active,
+html[class*="theme-"] select.emby-select:focus-visible,
+html[class*="theme-"] select.emby-select.emby-select-focusscale:focus {
     border: var(--hover-border-thickness) solid var(--theme-primary-color) !important;
     box-shadow: var(--shadow-glow-standard) !important;
     outline: none !important;
 }
 
 /* 4. Search Bar Fix: Prevents text from overlapping the magnifying glass icon */
-input[type="search"].emby-input,
-.emby-input.searchInput {
+html[class*="theme-"] input[type="search"].emby-input,
+html[class*="theme-"] .emby-input.searchInput {
     padding-left: 2.5em !important;
 }
 
@@ -1341,54 +1358,84 @@ input[type="search"].emby-input,
 /* --- 4C. Checkboxes & Toggles --- */
 
 /* 1. Checkboxes */
-.emby-checkbox:checked + span::before {
-    background-color: var(--my-gold) !important;
-    border-color: var(--my-gold) !important;
+html[class*="theme-"] .emby-checkbox:checked + span::before {
+    background-color: var(--theme-primary-color) !important;
+    border-color: var(--theme-primary-color) !important;
 }
 
-.emby-checkbox:focus + span::before {
-    border-color: var(--my-gold) !important;
+html[class*="theme-"] .emby-checkbox:focus + span::before {
+    border-color: var(--theme-primary-color) !important;
     box-shadow: var(--shadow-glow-standard) !important;
 }
 
 /* 2. Toggles (On/Off Switches) */
-.emby-toggle:checked ~ .toggleSwitch {
-    background-color: var(--my-gold) !important;
+
+/* Base "OFF" State (Forces all themes to our dark variables) */
+html[class*="theme-"] .toggleSwitch {
+    background-color: var(--toggle-track-off) !important;
+    border: var(--standard-border-thickness) solid var(--white-alpha-10) !important;
+    transition: all var(--transition-speed) ease-in-out !important;
 }
 
-.emby-toggle:focus:checked ~ .toggleSwitch {
+/* The sliding circle "Thumb" (OFF State) */
+html[class*="theme-"] .toggleSwitch::before {
+    background-color: var(--toggle-thumb-off) !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+}
+
+/* "ON" State */
+html[class*="theme-"] .emby-toggle:checked ~ .toggleSwitch {
+    background-color: var(--toggle-track-on) !important;
+    border-color: var(--toggle-track-on) !important;
+}
+
+/* The sliding circle "Thumb" (ON State) */
+html[class*="theme-"] .emby-toggle:checked ~ .toggleSwitch::before {
+    background-color: var(--toggle-thumb-on) !important;
+}
+
+/* Focus / Hover States for Toggles */
+html[class*="theme-"] .emby-toggle:focus ~ .toggleSwitch {
+    border-color: var(--theme-primary-color) !important;
+}
+
+html[class*="theme-"] .emby-toggle:focus:checked ~ .toggleSwitch {
     box-shadow: var(--shadow-glow-standard) !important;
 }
-
 
 /* --- 4D. Standard Buttons & List Selections --- */
 
 /* 1. Primary "Submit" Action Buttons (Save, Enter, etc.) */
-.button-submit,
-.button-accent-flat {
+html[class*="theme-"] .button-submit,
+html[class*="theme-"] .button-accent-flat {
     background-color: var(--theme-primary-color) !important;
     color: var(--pure-black) !important;
 }
 
-/* 2. List Item Selection & Hover States */
-.actionSheetMenuItem-selected,
-.listItem-selected,
-.paperListbox-selected {
+/* 2. List Item Selection & Hover States (Custom Dropdowns & Menus) */
+html[class*="theme-"] .paperListbox {
+    background-color: var(--navy-light-alpha-80) !important;
+}
+
+html[class*="theme-"] .actionSheetMenuItem-selected,
+html[class*="theme-"] .listItem-selected,
+html[class*="theme-"] .paperListbox-selected {
     background-color: var(--my-gold-transparent) !important;
     color: var(--my-gold) !important;
 }
 
-.actionSheetMenuItem:hover,
-.listItem.listItem-button:hover {
+html[class*="theme-"] .actionSheetMenuItem:hover,
+html[class*="theme-"] .listItem.listItem-button:hover,
+html[class*="theme-"] .paperListbox .listItem:hover {
     background-color: var(--white-alpha-10) !important;
     color: var(--my-gold) !important;
 }
 
 /* 3. Media Overlay Buttons (The small floating Play/Edit buttons on posters) */
-.cardOverlayFab-primary,
-.cardOverlayButtonIcon,
-.listItemOverlayButtonIcon,
-.listItemImageButton {
+html[class*="theme-"] .cardOverlayFab-primary,
+html[class*="theme-"] .cardOverlayButtonIcon,
+html[class*="theme-"] .listItemOverlayButtonIcon,
+html[class*="theme-"] .listItemImageButton {
     background-color: var(--my-gold) !important;
     color: var(--pure-black) !important;
     will-change: transform, box-shadow;
@@ -1725,6 +1772,41 @@ html[class*="theme-"] .listTotalRecordCount {
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
+}
+
+/* --- 5E. Horizontal & Banner Cards (Music Tracks, Playlists) --- */
+
+/* 1. Base Background & Border styling for horizontal cards */
+html[class*="theme-"] .card-horiz .visualCardBox,
+html[class*="theme-"] .bannerCard .visualCardBox,
+html[class*="theme-"] .sideFooterCard .visualCardBox {
+    background-color: var(--banner-card-bg) !important;
+    background-image: none !important;
+    border: var(--standard-border-thickness) solid transparent !important;
+    border-radius: var(--border-radius-md) !important;
+    box-shadow: 0px 5px 15px var(--black-alpha-50) !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+}
+
+/* 2. Hover states for horizontal cards */
+html[class*="theme-"] .card-horiz:hover .visualCardBox,
+html[class*="theme-"] .bannerCard:hover .visualCardBox,
+html[class*="theme-"] .sideFooterCard:hover .visualCardBox,
+html[class*="theme-"] .card-horiz.show-focus .visualCardBox {
+    background-color: var(--banner-card-hover-bg) !important;
+    border-color: var(--theme-primary-color) !important;
+    box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+}
+
+/* 3. Text color enforcements against Light/Apple TV themes */
+html[class*="theme-"] .card-horiz .cardText-first {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+html[class*="theme-"] .card-horiz .cardText-secondary {
+    color: var(--white-alpha-70) !important;
+    -webkit-text-fill-color: var(--white-alpha-70) !important;
 }
 
 /* ============================================================
