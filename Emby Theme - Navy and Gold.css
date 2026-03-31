@@ -28,19 +28,28 @@ html,
   --navy-base-rgb: 0, 8, 20;
   --navy-light-rgb: 0, 20, 40;
   --navy-mid-rgb: 0, 29, 61;
-
+  
   /* --- Custom Master Palette --- */
   --my-gold: #ffb900;                                /* Main accent color for text, borders, and buttons */
   --my-gold-light: #ffca3a;                          /* Lighter gold used for gradient transitions */
   --my-gold-transparent: rgba(var(--my-gold-rgb), 0.2);     /* Used for selected items, hover backgrounds, and subtle highlights */
   --retro-navy: #000814;                             /* Primary dark background color (used for sidebars, headers) */
   --retro-navy-light: #001d3d;                       /* Lighter background accent (used for panels, popups) */
-  
+  --nav-pill-bg: rgba(40, 44, 52, 0.9);              /* Locked charcoal grey for the navigation pill */
+
   /* --- Core Solid Colors --- */
   --pure-white: #ffffff;                             /* Standard absolute white for text and high-contrast icons */
   --pure-black: #000000;                             /* Absolute black for deep shadows and background resets */
   --text-muted: #ececec;                             /* Standard off-white for primary paragraph text */
   --scrollbar-thumb: #333333;                        /* Dark grey for custom scrollbars */
+
+  /* --- Live TV Guide Program Type Colors --- */
+  --guide-premiere: #592347;                        /* Premieres: Used for first-run episodes or season debuts. Usually a high-energy color. */
+  --guide-new: #1f4b5e;                             /* New Content: Standard "New" episode indicator. Typically green for easy recognition. */
+  --guide-live: #4c6357;                            /* Live Events: Sports, News, or Real-time broadcasts. Red provides a sense of urgency. */
+  --guide-repeat: #1f4b5e;                          /* Repeats/Reruns: The most common type. Muted blue keeps the grid from looking cluttered. */
+  --guide-movie: #453b6d;                           /* Movies: Feature films. Purple/Violet distinguishes cinematic content from TV shows. */
+  --guide-generic: #273243;                         /* Generic/Catchall: Background for programs without specific metadata tags. Matches theme base. */
 
   /* --- Emby Theme Overrides (Enforces our colors globally for the base theme) --- */
   --theme-primary-color: var(--my-gold) !important;          /* Overrides Emby's main brand color */
@@ -1130,38 +1139,57 @@ html .backdropContainer::after {
     display: none !important;
 }
 
-
 /* --- 3C. Pill Navigation Tabs (Home, Favorites, Live TV, etc.) --- */
 
 /* 1. Tab Container: Creates the floating pill-box housing the navigation buttons */
-.videoOsdBottom .emby-tabs-container,
-.emby-tabs-container {
-    display: flex !important;
+html[class*="theme-"] .videoOsdBottom .emby-tabs-container,
+html[class*="theme-"] .tabs-viewmenubar {
+    display: inline-flex !important;
     flex-wrap: nowrap !important;
     justify-content: center !important;
     align-items: center !important;
     gap: 12px !important;
-    background: var(--navy-base-alpha-40) !important;
+    background: var(--nav-pill-bg) !important; /* Maps to our locked custom variable */
+    background-color: var(--nav-pill-bg) !important;
+    background-image: none !important;
     backdrop-filter: var(--blur-light) !important;
     -webkit-backdrop-filter: var(--blur-light) !important;
-    border-radius: var(--border-radius-pill) !important;
-    padding: 10px 20px !important;
-    margin: 10px auto !important;
+    border-radius: 100em !important;
+    padding-top: 0.25em !important;
+    padding-bottom: 0.25em !important;
+    padding-left: 1em !important; 
+    padding-right: 1em !important;
+    margin: 5px auto !important; 
     width: auto !important;
     max-width: 98% !important;
     overflow-x: auto !important;
     overflow-y: hidden !important;
-    scrollbar-width: none; /* Hides scrollbar on Firefox */
+    scrollbar-width: none; 
+    border: none !important; 
+    box-shadow: 0 4px 10px var(--black-alpha-50) !important; 
+}
+
+/* Strip any rogue native slider backgrounds inside the top menu */
+html[class*="theme-"] .tabs-viewmenubar-slider {
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 /* Hides scrollbar in Webkit browsers for the tab container */
-.emby-tabs-container::-webkit-scrollbar {
+html[class*="theme-"] .tabs-viewmenubar::-webkit-scrollbar,
+html[class*="theme-"] .tabs-viewmenubar-backgroundcontainer::-webkit-scrollbar,
+html[class*="theme-"] .videoOsdBottom .emby-tabs-container::-webkit-scrollbar {
     display: none !important;
 }
 
-/* 2. Base Tab Buttons: Standard inactive state for the navigation text */
-.videoOsdBottom .emby-tab-button,
-.emby-tab-button {
+/* 2. Base Tab Buttons: Standard inactive state */
+html[class*="theme-"] .tabs-viewmenubar .emby-tab-button,
+html[class*="theme-"] .tabs-viewmenubar-backgroundcontainer .emby-tab-button,
+html[class*="theme-"] .videoOsdBottom .emby-tab-button {
     display: inline-flex;
     align-items: center !important;
     justify-content: center !important;
@@ -1172,42 +1200,51 @@ html .backdropContainer::after {
     text-transform: uppercase !important;
     letter-spacing: 1px !important;
     color: var(--white-alpha-60) !important;
-    border-radius: var(--border-radius-pill) !important;
+    -webkit-text-fill-color: var(--white-alpha-60) !important; 
+    background: transparent !important;
+    border-radius: 100em !important;
     padding: 0.6em 1.4em !important;
     margin: 0 !important;
-    border: none !important;
+    border: 2px solid transparent !important; 
     transition: all var(--transition-speed) ease-in-out !important;
     line-height: 1.2 !important;
     height: auto !important;
     will-change: background, transform;
 }
 
-.emby-tab-button.hide {
+html[class*="theme-"] .emby-tab-button.hide {
     display: none !important;
 }
 
 /* 3. Cleanup: Removes default Emby underline effects on tabs */
-.videoOsdBottom .emby-tab-button::after,
-.videoOsdBottom .emby-tab-button::before {
+html[class*="theme-"] .tabs-viewmenubar .emby-tab-button::after,
+html[class*="theme-"] .tabs-viewmenubar .emby-tab-button::before,
+html[class*="theme-"] .videoOsdBottom .emby-tab-button::after,
+html[class*="theme-"] .videoOsdBottom .emby-tab-button::before {
     display: none !important;
 }
 
 /* 4. Active & Focused Tab States (Driven by Section 1 Toggles) */
-.videoOsdBottom .emby-tab-button-active,
-.emby-tab-button-active,
-.videoOsdBottom .emby-tab-button:focus,
-.videoOsdBottom .emby-tab-button.show-focus {
+html[class*="theme-"] .tabs-viewmenubar .emby-tab-button-active,
+html[class*="theme-"] .tabs-viewmenubar .emby-tab-button:focus,
+html[class*="theme-"] .tabs-viewmenubar .emby-tab-button.show-focus,
+html[class*="theme-"] .videoOsdBottom .emby-tab-button-active,
+html[class*="theme-"] .videoOsdBottom .emby-tab-button:focus,
+html[class*="theme-"] .videoOsdBottom .emby-tab-button.show-focus {
     background: var(--nav-active-background) !important;
     color: var(--nav-active-color) !important;
+    -webkit-text-fill-color: var(--nav-active-color) !important; 
     border: var(--nav-active-border) !important;
     box-shadow: var(--nav-active-shadow) !important;
     opacity: 1 !important;
 }
 
 /* 5. Hover State for Inactive Tabs */
-.emby-tab-button:hover:not(.emby-tab-button-active) {
+html[class*="theme-"] .tabs-viewmenubar .emby-tab-button:hover:not(.emby-tab-button-active),
+html[class*="theme-"] .videoOsdBottom .emby-tab-button:hover:not(.emby-tab-button-active) {
     background: var(--white-alpha-10) !important;
     color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
 }
 
 /* ============================================================
@@ -1416,6 +1453,110 @@ button[data-played="true"].cardOverlayButton-fab .playstatebutton-icon-played {
     justify-content: center !important;
     padding: 0 6px !important;
     line-height: 1 !important;
+}
+
+/* --- 4F. Filter & Tag Pills (Live TV Guide, Libraries, etc.) --- */
+
+/* 1. Base Styling for Inactive Filter Pills */
+html[class*="theme-"] .guide-filter-button,
+html[class*="theme-"] .btnGuideTag {
+    font-family: 'Oswald', sans-serif !important;
+    font-size: 0.72em !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    color: var(--white-alpha-60) !important;
+    -webkit-text-fill-color: var(--white-alpha-60) !important;
+    background: transparent !important;
+    border-radius: var(--border-radius-pill) !important;
+    padding: 0.5em 1.2em !important;
+    margin: 0 4px !important;
+    border: 2px solid var(--white-alpha-10) !important; /* Gives a subtle outline to inactive filters */
+    transition: all var(--transition-speed) ease-in-out !important;
+    box-shadow: none !important;
+}
+
+/* 2. Active & Focused States (Matches the Top Navigation Pills) */
+html[class*="theme-"] .guide-filter-button.emby-tab-button-active,
+html[class*="theme-"] .btnGuideTag.emby-tab-button-active,
+html[class*="theme-"] .guide-filter-button:focus,
+html[class*="theme-"] .btnGuideTag:focus {
+    background: var(--nav-active-background) !important;
+    color: var(--nav-active-color) !important;
+    -webkit-text-fill-color: var(--nav-active-color) !important;
+    border: var(--nav-active-border) !important;
+    box-shadow: var(--nav-active-shadow) !important;
+    opacity: 1 !important;
+}
+
+/* Fixes the checkmark icon so it matches the dark text inside the gold active pill */
+html[class*="theme-"] .guide-filter-button.emby-tab-button-active .md-icon,
+html[class*="theme-"] .btnGuideTag.emby-tab-button-active .md-icon {
+    color: var(--nav-active-color) !important;
+    -webkit-text-fill-color: var(--nav-active-color) !important;
+}
+
+/* 3. Hover State for Inactive Filter Pills */
+html[class*="theme-"] .guide-filter-button:hover:not(.emby-tab-button-active),
+html[class*="theme-"] .btnGuideTag:hover:not(.emby-tab-button-active) {
+    background: var(--white-alpha-10) !important;
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    border-color: var(--my-gold) !important;
+}
+
+/* --- 4G. List View Settings Buttons (Play, Shuffle, Sort, Filter) --- */
+
+/* 1. Base styling for the list action buttons (Scaled up by ~10%) */
+html[class*="theme-"] .itemsViewSettingsContainer-button {
+    background: var(--navy-light-alpha-60) !important;
+    background-color: var(--navy-light-alpha-60) !important;
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    border: var(--standard-border-thickness) solid var(--gold-alpha-30) !important;
+    border-radius: var(--border-radius-pill) !important;
+    font-family: 'Oswald', sans-serif !important;
+    font-size: 0.82em !important; /* Increased from 0.75em */
+    padding: 0.4em 0.9em !important; /* Increased from 0.35em 0.8em */
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-weight: 500 !important;
+    box-shadow: 0 4px 10px var(--black-alpha-50) !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+    margin: 0 4px !important; /* Increased from 3px */
+}
+
+/* 2. Force the inner icons and text to inherit the correct colors */
+html[class*="theme-"] .itemsViewSettingsContainer-button .md-icon,
+html[class*="theme-"] .itemsViewSettingsContainer-button span {
+    color: inherit !important;
+    -webkit-text-fill-color: inherit !important;
+    font-size: 1.2em !important; /* Increased from 1.1em to balance with text */
+}
+
+/* 3. Hover and Focus States (Pops to solid gold) */
+html[class*="theme-"] .itemsViewSettingsContainer-button:hover,
+html[class*="theme-"] .itemsViewSettingsContainer-button:focus,
+html[class*="theme-"] .itemsViewSettingsContainer-button.show-focus {
+    background: var(--theme-primary-color) !important;
+    background-color: var(--theme-primary-color) !important;
+    color: var(--pure-black) !important;
+    -webkit-text-fill-color: var(--pure-black) !important;
+    border-color: var(--theme-primary-color) !important;
+    box-shadow: var(--shadow-glow-standard) !important;
+    transform: scale(1.05) !important;
+}
+
+/* 4. Stylize the "X Items" record count text to match the theme headers */
+html[class*="theme-"] .listTotalRecordCount {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    font-family: 'Oswald', sans-serif !important;
+    font-size: 1.0em !important; /* Increased from 0.9em */
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-weight: 700 !important;
+    margin-right: 15px !important;
 }
 
 /* ============================================================
@@ -1817,8 +1958,21 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
 
 /* --- 7A. Grid Cells & Channels --- */
 
+/* 0. Fix Emby native light backgrounds bleeding through the cells */
+html[class*="theme-"] .tvguide,
+html[class*="theme-"] .guideContainer,
+html[class*="theme-"] .tabContent,
+html[class*="theme-"] .epgItemsContainer,
+html[class*="theme-"] .virtualItemsContainer {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
 /* 1. Base TV Program Cell */
-.programCell {
+html[class*="theme-"] .programCell,
+html[class*="theme-"] .epgRow {
+    background: var(--navy-light-alpha-40) !important;
     background-color: var(--navy-light-alpha-40) !important;
     border: var(--standard-border-thickness) solid var(--gold-alpha-05) !important;
     backdrop-filter: var(--blur-light) !important;
@@ -1827,23 +1981,82 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
     will-change: background-color, box-shadow;
 }
 
-/* 2. Left Column: Channel Names & Logos */
-.guide-channelHeader {
+/* --- 7A. Grid Cells & Channels --- */
+
+/* 1. THE BASE COLOR (Using the new Catchall variable) */
+html[class*="theme-"] .programCellInner {
+    background: var(--guide-generic) !important; 
+    border: var(--standard-border-thickness) solid var(--gold-alpha-05) !important;
+    backdrop-filter: var(--blur-light) !important;
+    -webkit-backdrop-filter: var(--blur-light) !important;
+    transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease !important;
+}
+
+/* 2. THE SPECIAL OVERRIDES */
+/* Premiere */
+html[class*="theme-"] .programCell:has(.premiereTvProgram) .programCellInner { 
+    background-color: var(--guide-premiere) !important; 
+}
+
+/* New */
+html[class*="theme-"] .programCell:has(.newTvProgram) .programCellInner { 
+    background-color: var(--guide-new) !important; 
+}
+
+/* Live */
+html[class*="theme-"] .programCell:has(.liveTvProgram) .programCellInner { 
+    background-color: var(--guide-live) !important; 
+}
+
+/* Repeat */
+html[class*="theme-"] .programCell:has(.repeatTvProgram) .programCellInner { 
+    background-color: var(--guide-repeat) !important; 
+}
+
+/* Movies */
+html[class*="theme-"] .programCell:has(.movieTvProgram) .programCellInner { 
+    background-color: var(--guide-movie) !important; 
+}
+
+/* 3. Hover & Active TV Programs */
+/* This stays at the bottom so the Gold hover always wins over the type colors */
+html[class*="theme-"] .programCell-active .programCellInner,
+html[class*="theme-"] .programCell:hover .programCellInner {
+    background: var(--my-gold-transparent) !important;
+    border-color: transparent !important;
+    box-shadow: inset 0 0 0 var(--hover-border-thickness) var(--theme-primary-color),
+                var(--shadow-glow-standard), 
+                inset 0 0 10px var(--gold-alpha-10) !important;
+    z-index: 10 !important;
+}
+
+/* 3. Left Column: Channel Names & Logos */
+html[class*="theme-"] .guide-channelHeader,
+html[class*="theme-"] .channelCell {
+    background: var(--retro-navy) !important;
     background-color: var(--retro-navy) !important;
     border-top: var(--standard-border-thickness) solid var(--gold-alpha-05) !important;
     border-bottom: var(--standard-border-thickness) solid var(--gold-alpha-05) !important;
     border-left: var(--standard-border-thickness) solid var(--gold-alpha-05) !important;
-    border-right: var(--hover-border-thickness) solid var(--theme-primary-color) !important;
+    border-right: var(--standard-border-thickness) solid var(--gold-alpha-15) !important; 
     backdrop-filter: var(--blur-light) !important;
     -webkit-backdrop-filter: var(--blur-light) !important;
 }
 
-/* 3. Hover & Active TV Programs */
-.programCell-active,
-.programCell:hover {
+/* Force the inner channel container to be transparent */
+html[class*="theme-"] .channelCellInner,
+html[class*="theme-"] .epgChannelCellInner-twoline,
+html[class*="theme-"] .epgChannelCellInner {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* 4. Hover & Active TV Programs */
+html[class*="theme-"] .programCell-active,
+html[class*="theme-"] .programCell:hover {
+    background: var(--my-gold-transparent) !important;
     background-color: var(--my-gold-transparent) !important;
     border-color: transparent !important;
-    /* Uses an inset shadow for the border to prevent the grid from jittering/resizing on hover */
     box-shadow: inset 0 0 0 var(--hover-border-thickness) var(--theme-primary-color),
                 var(--shadow-glow-standard), 
                 inset 0 0 10px var(--gold-alpha-10) !important;
@@ -1851,8 +2064,11 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
     z-index: 10 !important;
 }
 
-/* 4. Vertical Current Time Bar */
-.guide-currentTimeIndicator {
+/* 5. Vertical Current Time Bar */
+html[class*="theme-"] .guide-currentTimeIndicator,
+html[class*="theme-"] .guideCurrentTimeIndicator,
+html[class*="theme-"] .epgCurrentTimeIndicator {
+    background: var(--theme-primary-color) !important;
     background-color: var(--theme-primary-color) !important;
     width: var(--hover-border-thickness) !important;
     box-shadow: 0 0 10px var(--theme-primary-color) !important;
@@ -1861,27 +2077,34 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
 /* --- 7B. Guide Headers (Top Bar) --- */
 
 /* 1. Top Left Actions (Filter/Search buttons above channels) */
-.guide-headerButtons {
+html[class*="theme-"] .guide-headerButtons {
+    background: var(--retro-navy-light) !important;
     background-color: var(--retro-navy-light) !important;
-    border-bottom: var(--standard-border-thickness) solid var(--theme-primary-color) !important;
+    background-image: none !important;
+    border-bottom: none !important; 
 }
 
 /* 2. Top Time Ruler (The hours spanning across the top) */
-.guide-headerTimes {
+html[class*="theme-"] .guide-headerTimes {
+    background: var(--retro-navy) !important;
     background-color: var(--retro-navy) !important;
-    border-bottom: var(--standard-border-thickness) solid var(--my-gold-transparent) !important;
+    background-image: none !important;
+    border-bottom: none !important; 
     color: var(--theme-primary-color) !important;
+    -webkit-text-fill-color: var(--theme-primary-color) !important;
     font-family: 'Oswald', sans-serif !important;
 }
 
 /* --- 7C. Program Info Typography Reset --- */
 
 /* 1. Strip native badge styling and shadows from media text inside the grid */
-body .programCell .mediaInfoItem,
-body .programCell .guideProgramName,
-body .programCell:hover .mediaInfoItem,
-body .programCell:hover .guideProgramName {
+html[class*="theme-"] body .programCell .mediaInfoItem,
+html[class*="theme-"] body .programCell .guideProgramName,
+html[class*="theme-"] body .programCell .guideProgramNameText,
+html[class*="theme-"] body .programCell:hover .mediaInfoItem,
+html[class*="theme-"] body .programCell:hover .guideProgramName {
     background: transparent !important;
+    background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
@@ -1895,7 +2118,8 @@ body .programCell:hover .guideProgramName {
 }
 
 /* 2. Program Name: Prevent long titles from wrapping and breaking row heights */
-.programCell .guideProgramName {
+html[class*="theme-"] .programCell .guideProgramName,
+html[class*="theme-"] .programCell .guideProgramNameText {
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
@@ -1903,25 +2127,34 @@ body .programCell:hover .guideProgramName {
 }
 
 /* 3. Program Air Time */
-.programCell .guideProgramTime {
+html[class*="theme-"] .programCell .guideProgramTime {
     color: var(--white-alpha-60) !important;
+    -webkit-text-fill-color: var(--white-alpha-60) !important;
     font-family: 'Sofia Sans', sans-serif !important;
     font-size: 0.9em !important;
     margin-top: 2px !important;
-}
+} 
 
 /* --- 7D. Misc Guide Tweaks --- */
-
-/* 1. Clutter Cleanup: Hides repetitive Emby text tags to keep the grid clean */
-.premiereTvProgram,
-.newTvProgram,
-.liveTvProgram,
-.repeatTvProgram {
+.programCellInner .premiereTvProgram,
+.programCellInner .newTvProgram,
+.programCellInner .liveTvProgram,
+.programCellInner .repeatTvProgram,
+.programCellInner .movieTvProgram {
     display: none !important;
 }
 
+/* Use this in 7D to hide the text without removing the element from the "eyes" of the CSS */
+.premiereTvProgram, .newTvProgram, .liveTvProgram, .repeatTvProgram {
+    opacity: 0 !important;
+    position: absolute !important;
+    width: 0 !important;
+    height: 0 !important;
+    pointer-events: none !important;
+}
+
 /* 2. Channel Logo Shadows */
-.guideChannelImage {
+html[class*="theme-"] .guideChannelImage {
     filter: drop-shadow(0px 4px 6px var(--black-alpha-60)) !important;
 }
 
@@ -2211,8 +2444,7 @@ input[type="range"]::-moz-range-thumb {
 /* --- 10A. Data Grid Header (Server Dashboard Lists & Media Lists) --- */
 
 /* 1. Master Header Container Background */
-html[class*="theme-"] .dataGridHeader,
-html[class*="theme-"] .itemsContainer_header {
+html[class*="theme-"] .dataGridHeader {
     background-color: var(--navy-mid-solid) !important; /* Rich solid blue */
     background-image: none !important;
     backdrop-filter: var(--blur-heavy) !important;
@@ -2227,10 +2459,7 @@ html[class*="theme-"] .itemsContainer_header {
 /* 2. Strip dark backgrounds off the inner layers so the blue shows through */
 html[class*="theme-"] .dataGridHeader .dataGridHeader-content,
 html[class*="theme-"] .dataGridHeader .dataGridItem-content,
-html[class*="theme-"] .dataGridHeader .dataGridHeader-content-inner,
-html[class*="theme-"] .itemsContainer_header .dataGridHeader-content,
-html[class*="theme-"] .itemsContainer_header .dataGridItem-content,
-html[class*="theme-"] .itemsContainer_header .dataGridHeader-content-inner {
+html[class*="theme-"] .dataGridHeader .dataGridHeader-content-inner {
     background-color: transparent !important;
     background-image: none !important;
     border: none !important;
@@ -2244,9 +2473,7 @@ html[class*="theme-"] .dataGridHeader .dataGridItemCell,
 html[class*="theme-"] .dataGridHeader .dataGridHeaderText,
 html[class*="theme-"] .dataGridHeader .primaryText,
 html[class*="theme-"] .dataGridHeader .button-link,
-html[class*="theme-"] .dataGridHeader .button-link *,
-html[class*="theme-"] .itemsContainer_header .button-link,
-html[class*="theme-"] .itemsContainer_header .button-link * {
+html[class*="theme-"] .dataGridHeader .button-link * {
     color: var(--my-gold) !important;
     -webkit-text-fill-color: var(--my-gold) !important;
     font-family: 'Oswald', sans-serif !important;
