@@ -748,7 +748,7 @@ html,
   */
 
   /* OPTION 9: NEW YEAR'S EVE */
-  
+  /*
   --nye-cream-rgb: 247, 231, 206;
   --nye-gold-rgb: 212, 175, 55;
   --nye-navy-base-rgb: 5, 5, 5;
@@ -798,7 +798,7 @@ html,
   --nye-bg-dark-1: rgba(var(--nye-navy-mid-rgb), 0.8);
   --nye-bg-dark-2: rgba(var(--nye-navy-base-rgb), 0.95);
   --scrollbar-thumb: #d4af37 !important;
-
+  */
 
   /* ============================================================
      END OF SEASONAL EVENT TOGGLES
