@@ -4,14 +4,17 @@
    ============================================================ */
 
 /* ============================================================
-   NOTE: YOU NEED TO HAVE YOUR DISPLAY AND SETTINGS THEME
-   SET TO `BLACK` OR THIS THEME WILL NOT DISPLAY PROPERLY
-   BE SURE TO REMEMBER TO UPDATE YOUR USERS ALSO.      
+   NOTE: ALTHOUGH THIS THEME AIMS TO REMAIN NEUTRAL TO USER-SELECTED THEMES, 
+   SOME VISUAL INCONSISTENCIES MAY STILL APPEAR. FOR THE BEST EXPERIENCE, 
+   IT IS RECOMMENDED TO SET BOTH THE USER AND ADMIN THEMES TO BLACK.  
    ============================================================ */
 
 /* ============================================================
    01. IMPORTS & VARIABLES
    ============================================================ */
+
+/* Pulling in Oswald (for headers) and Sofia Sans (for body text) from Google Fonts */   
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap');
 
 /* Pulling in Oswald (for headers) and Sofia Sans (for body text) from Google Fonts */   
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap');
@@ -22,116 +25,108 @@ html,
 .selection-accent-color {
 
   /* --- Core RGB Values (The Source of Truth for Transparencies) --- */
-  --pure-black-rgb: 0, 0, 0;
-  --pure-white-rgb: 255, 255, 255;
-  --my-gold-rgb: 255, 185, 0;
-  --navy-base-rgb: 0, 8, 20;
-  --navy-light-rgb: 0, 20, 40;
-  --navy-mid-rgb: 0, 29, 61;
+  --pure-black-rgb: 0, 0, 0;                    /* RGB: Absolute black base */
+  --pure-white-rgb: 255, 255, 255;              /* RGB: Absolute white base */
+  --my-gold-rgb: 255, 185, 0;                   /* RGB: Primary theme gold */
+  --navy-base-rgb: 0, 8, 20;                    /* RGB: Deep background navy */
+  --navy-light-rgb: 0, 20, 40;                  /* RGB: Panel surface navy */
+  --navy-mid-rgb: 0, 29, 61;                    /* RGB: Transition/Gradient navy */
   
   /* --- Custom Master Palette --- */
-  --my-gold: #ffb900;                                /* Main accent color for text, borders, and buttons */
-  --my-gold-light: #ffca3a;                          /* Lighter gold used for gradient transitions */
-  --my-gold-transparent: rgba(var(--my-gold-rgb), 0.2);     /* Used for selected items, hover backgrounds, and subtle highlights */
-  --retro-navy: #000814;                             /* Primary dark background color (used for sidebars, headers) */
-  --retro-navy-light: #001d3d;                       /* Lighter background accent (used for panels, popups) */
-  --nav-pill-bg: rgba(40, 44, 52, 0.9);              /* Locked charcoal grey for the navigation pill */
+  --my-gold: rgb(255, 185, 0);                  /* Solid gold for borders and text accents */
+  --my-gold-light: rgb(255, 202, 58);           /* Brighter gold for highlight gradients */
+  --my-gold-transparent: rgba(var(--my-gold-rgb), 0.2); /* Soft gold tint for selection backgrounds */
+  --retro-navy: rgb(0, 8, 20);                  /* Darkest navy for main backgrounds */
+  --retro-navy-light: rgb(0, 29, 61);           /* Mid-tone navy for panels and cards */
+  --nav-pill-bg: rgba(40, 44, 52, 0.9);         /* Charcoal grey base for floating nav bars */
 
   /* --- Core Solid Colors --- */
-  --pure-white: #ffffff;                             /* Standard absolute white for text and high-contrast icons */
-  --pure-black: #000000;                             /* Absolute black for deep shadows and background resets */
-  --text-muted: #ececec;                             /* Standard off-white for primary paragraph text */
-  --scrollbar-thumb: #333333;                        /* Dark grey for custom scrollbars */
+  --pure-white: rgb(255, 255, 255);             /* Absolute white for high-contrast icons */
+  --pure-black: rgb(0, 0, 0);                   /* Absolute black for deep shadows */
+  --text-muted: rgb(236, 236, 236);             /* Soft white for primary paragraph text */
+  --scrollbar-thumb: rgb(51, 51, 51);           /* Grey color for scrollbar handles */
 
   /* --- Live TV Guide Program Type Colors --- */
-  --guide-premiere: #592347;                        /* Premieres: Used for first-run episodes or season debuts. Usually a high-energy color. */
-  --guide-new: #1f4b5e;                             /* New Content: Standard "New" episode indicator. Typically green for easy recognition. */
-  --guide-live: #4c6357;                            /* Live Events: Sports, News, or Real-time broadcasts. Red provides a sense of urgency. */
-  --guide-repeat: #1f4b5e;                          /* Repeats/Reruns: The most common type. Muted blue keeps the grid from looking cluttered. */
-  --guide-movie: #453b6d;                           /* Movies: Feature films. Purple/Violet distinguishes cinematic content from TV shows. */
-  --guide-generic: #273243;                         /* Generic/Catchall: Background for programs without specific metadata tags. Matches theme base. */
+  --guide-premiere: rgb(89, 35, 71);            /* Background color for TV Premieres */
+  --guide-new: rgb(31, 75, 94);                 /* Background color for New episodes */
+  --guide-live: rgb(76, 99, 87);                /* Background color for Live events */
+  --guide-repeat: rgb(31, 75, 94);              /* Background color for Reruns/Repeats */
+  --guide-movie: rgb(69, 59, 109);              /* Background color for Movies */
+  --guide-generic: rgb(39, 50, 67);             /* Fallback color for generic programs */
 
-  /* --- Emby Theme Overrides (Enforces our colors globally for the base theme) --- */
-  --theme-primary-color: var(--my-gold) !important;          /* Overrides Emby's main brand color */
-  --theme-accent-color: var(--my-gold) !important;           /* Overrides secondary accent colors */
-  --theme-accent-text-color: var(--my-gold) !important;      /* Forces accent color on text links/icons */
-  --theme-checked-color: var(--my-gold) !important;          /* Color for checked checkboxes and toggles */
-  --theme-icon-focus-background: var(--my-gold-transparent) !important; /* Background for focused icons */
-  --theme-selection-background: var(--my-gold-transparent) !important;  /* Background for selected list items */
-  --theme-primary-color-lightened: var(--my-gold) !important; /* Secondary lighter primary color used in some Emby skins */
-  --button-accent-flat-background: var(--my-gold-transparent) !important; /* Base color for flat/borderless accent buttons */
-  --theme-background: var(--retro-navy) !important;
-  --theme-text-color: var(--text-muted) !important;
-  --theme-text-color-opaque: var(--pure-white) !important;
-  --theme-secondary-text-color: var(--white-alpha-70) !important;
-  --line-background: var(--gold-alpha-15) !important;
-  --line-size: 1px !important;
-  --background-color: var(--retro-navy) !important;
-  --dialog-background-color: var(--navy-light-alpha-80) !important;
-  --theme-text-color-force: var(--text-muted);
+  /* --- Emby Theme Overrides (Enforces our colors globally) --- */
+  --theme-primary-color: var(--my-gold) !important;           /* Forces gold as brand primary */
+  --theme-accent-color: var(--my-gold) !important;            /* Forces gold as brand accent */
+  --theme-accent-text-color: var(--my-gold) !important;       /* Forces gold on active links */
+  --theme-checked-color: var(--my-gold) !important;           /* Forces gold on checked toggles */
+  --theme-icon-focus-background: var(--my-gold-transparent) !important; /* Focus glow for buttons */
+  --theme-selection-background: var(--my-gold-transparent) !important;  /* Focus glow for list items */
+  --theme-primary-color-lightened: var(--my-gold) !important;  /* Secondary primary color override */
+  --button-accent-flat-background: var(--my-gold-transparent) !important; /* Flat button background base */
+  --theme-background: var(--retro-navy) !important;           /* Master background override */
+  --theme-text-color: var(--text-muted) !important;           /* Master text color override */
+  --theme-text-color-opaque: var(--pure-white) !important;    /* High contrast text override */
+  --theme-secondary-text-color: var(--white-alpha-70) !important; /* Sub-text color override */
+  --line-background: var(--gold-alpha-15) !important;         /* Divider line color override */
+  --line-size: 1px !important;                                /* Divider line thickness */
+  --background-color: var(--retro-navy) !important;           /* Safety background override */
+  --dialog-background-color: var(--navy-light-alpha-80) !important; /* Popup background override */
+  --theme-text-color-force: var(--text-muted);                /* Custom variable for text logic */
 
   /* --- RGBA TRANSLUCENCY VARIABLES --- */
-  
-  /* Black Transparencies (Shadows, Overlays & Dimming) */
-  --black-alpha-20: rgba(var(--pure-black-rgb), 0.2);     /* Faint dimming applied to form dialog headers */
-  --black-alpha-50: rgba(var(--pure-black-rgb), 0.5);     /* Medium shadow drop for page titles and basic buttons */
-  --black-alpha-60: rgba(var(--pure-black-rgb), 0.6);     /* Darker shadow drop behind Live TV channel images */
-  --black-alpha-70: rgba(var(--pure-black-rgb), 0.7);     /* Heavy screen-dimming overlay behind open dialog popups */
-  --black-alpha-75: rgba(var(--pure-black-rgb), 0.75);    /* Standard drop shadow depth beneath media cards */
-  --black-alpha-80: rgba(var(--pure-black-rgb), 0.8);     /* Deep shadow effect to lift text, posters, and the Now Playing bar */
-  --black-alpha-90: rgba(var(--pure-black-rgb), 0.9);     /* Maximum shadow depth used specifically for hovered cards and popups */
+  --black-alpha-20: rgba(var(--pure-black-rgb), 0.2);           /* Faint dimming for headers */
+  --black-alpha-50: rgba(var(--pure-black-rgb), 0.5);           /* Medium shadow depth */
+  --black-alpha-60: rgba(var(--pure-black-rgb), 0.6);           /* Strong shadow depth */
+  --black-alpha-70: rgba(var(--pure-black-rgb), 0.7);           /* Heavy popup overlay dimming */
+  --black-alpha-75: rgba(var(--pure-black-rgb), 0.75);          /* Standard card shadow depth */
+  --black-alpha-80: rgba(var(--pure-black-rgb), 0.8);           /* Deep text and OSD shadows */
+  --black-alpha-90: rgba(var(--pure-black-rgb), 0.9);           /* Maximum shadow for hovered items */
 
-  /* White Transparencies (Text Colors & Highlights) */
-  --white-alpha-10: rgba(var(--pure-white-rgb), 0.1); /* Very faint white for inactive tab hovers and input field borders */
-  --white-alpha-60: rgba(var(--pure-white-rgb), 0.6); /* Muted white text color for inactive tabs and timestamps */
-  --white-alpha-70: rgba(var(--pure-white-rgb), 0.7); /* Standard secondary text color (e.g., cast roles, track info) */
-  --white-alpha-80: rgba(var(--pure-white-rgb), 0.8); /* Slightly brighter secondary text color and inactive icons */
+  --white-alpha-10: rgba(var(--pure-white-rgb), 0.1);           /* Subtle highlight/border */
+  --white-alpha-60: rgba(var(--pure-white-rgb), 0.6);           /* Muted secondary text color */
+  --white-alpha-70: rgba(var(--pure-white-rgb), 0.7);           /* Standard secondary text color */
+  --white-alpha-80: rgba(var(--pure-white-rgb), 0.8);           /* Bright secondary text color */
 
-  /* Gold Transparencies (Borders, Selections & Accents) */
-  --gold-alpha-05: rgba(var(--my-gold-rgb), 0.05); /* Extremely subtle gold tint for faint borders in the Live TV Guide */
-  --gold-alpha-10: rgba(var(--my-gold-rgb), 0.1);  /* Very light gold used for inner shadows and selected item highlights */
-  --gold-alpha-15: rgba(var(--my-gold-rgb), 0.15); /* Light gold applied as a subtle divider border (e.g., sidebar edge) */
-  --gold-alpha-25: rgba(var(--my-gold-rgb), 0.25); /* Medium gold specifically defining the outer borders of dialog boxes */
-  --gold-alpha-30: rgba(var(--my-gold-rgb), 0.3);  /* Stronger gold used to outline small media info badges (4K, HDR, etc.) */
+  --gold-alpha-05: rgba(var(--my-gold-rgb), 0.05);              /* Barely visible gold tint */
+  --gold-alpha-10: rgba(var(--my-gold-rgb), 0.1);               /* Soft inner selection glow */
+  --gold-alpha-15: rgba(var(--my-gold-rgb), 0.15);              /* Subtle divider/sidebar border */
+  --gold-alpha-25: rgba(var(--my-gold-rgb), 0.25);              /* Medium gold for modal borders */
+  --gold-alpha-30: rgba(var(--my-gold-rgb), 0.3);               /* Stronger badge/outline gold */
 
-  /* Navy Base Transparencies (Main Background Overlays) */
-  --navy-base-solid: #000814;                 /* Solid dark navy used at the very bottom edge of the home background gradient */
-  --navy-base-alpha-25: rgba(var(--navy-base-rgb), 0.25); /* Light navy tint layered over the primary background art on the home screen */
-  --navy-base-alpha-40: rgba(var(--navy-base-rgb), 0.4);  /* Medium navy tint providing contrast behind pill-shaped navigation tabs */
-  --navy-base-alpha-60: rgba(var(--navy-base-rgb), 0.6);  /* Dark navy tint used for small input fields (like the track selector dropdown) */
-  --navy-base-alpha-75: rgba(var(--navy-base-rgb), 0.75); /* Heavy navy tint used to significantly dim backdrop art to improve text readability */
-  --navy-base-alpha-95: rgba(var(--navy-base-rgb), 0.95); /* Nearly solid navy used to ground the video controls and Now Playing audio bar */
+  --navy-base-solid: rgb(0, 8, 20);                             /* Deepest navy for footer gradients */
+  --navy-base-alpha-25: rgba(var(--navy-base-rgb), 0.25);       /* Light tint for home backgrounds */
+  --navy-base-alpha-40: rgba(var(--navy-base-rgb), 0.4);        /* Mid tint for nav pill backgrounds */
+  --navy-base-alpha-60: rgba(var(--navy-base-rgb), 0.6);        /* Dark tint for dropdown menus */
+  --navy-base-alpha-75: rgba(var(--navy-base-rgb), 0.75);       /* Heavy backdrop art dimming */
+  --navy-base-alpha-95: rgba(var(--navy-base-rgb), 0.95);       /* Solid navy for OSD foundation */
 
-  /* Navy Light Transparencies (Panels, Inputs & Buttons) */
-  --navy-light-alpha-40: rgba(var(--navy-light-rgb), 0.4); /* Faint light-navy providing the base color for Live TV program cells */
-  --navy-light-alpha-60: rgba(var(--navy-light-rgb), 0.6); /* Medium light-navy used for detail page action buttons and login screen panels */
-  --navy-light-alpha-70: rgba(var(--navy-light-rgb), 0.7); /* Solid light-navy forming the background of the Media Info summary boxes */
-  --navy-light-alpha-80: rgba(var(--navy-light-rgb), 0.8); /* Heavy light-navy used for main popups, dialog boxes, and text input fields */
+  --navy-light-alpha-40: rgba(var(--navy-light-rgb), 0.4);      /* Transparent navy for guide cells */
+  --navy-light-alpha-60: rgba(var(--navy-light-rgb), 0.6);      /* Transparent navy for buttons */
+  --navy-light-alpha-70: rgba(var(--navy-light-rgb), 0.7);      /* Transparent navy for info cards */
+  --navy-light-alpha-80: rgba(var(--navy-light-rgb), 0.8);      /* Semi-solid navy for popups */
 
-  /* Navy Mid/Bright Transparencies (Accents & Background Gradients) */
-  --navy-mid-solid: #001d3d;                  /* Solid bright navy establishing the center core color of the global background gradient */
-  --navy-mid-alpha-45: rgba(var(--navy-mid-rgb), 0.45); /* Translucent bright navy used as the background fill for media info badges */
-  --navy-mid-alpha-70: rgba(var(--navy-mid-rgb), 0.7);  /* Transition color step inside the video player controls gradient */
-  --navy-mid-alpha-90: rgba(var(--navy-mid-rgb), 0.9);  /* Nearly solid bright navy defining the background of the "Up Next" episode dialog */
+  --navy-mid-solid: rgb(0, 29, 61);                             /* Brightest navy for gradient centers */
+  --navy-mid-alpha-45: rgba(var(--navy-mid-rgb), 0.45);         /* Translucent fill for media badges */
+  --navy-mid-alpha-70: rgba(var(--navy-mid-rgb), 0.7);          /* Mid-gradient player controls */
+  --navy-mid-alpha-90: rgba(var(--navy-mid-rgb), 0.9);          /* Near-solid navy for Up Next */
 
   /* --- Glow & Shadow Presets --- */
-  --retro-glow: rgba(var(--my-gold-rgb), 0.4);                               /* Color and opacity of the glowing drop shadows */
-  --glow-none: none;                                                 /* Option to completely disable box-glow */
-  --glow-light: 0 0 5px var(--retro-glow);                           /* Subtle box-glow for small highlights */
-  --glow-medium: 0 0 10px var(--retro-glow);                         /* Standard box-glow for play buttons and badges */
-  --shadow-glow-standard: 0 0 15px var(--retro-glow);                /* Core box-glow for active tabs, card hovers, and selections */
-  --glow-heavy: 0 0 20px var(--retro-glow);                          /* Intense box-glow for login cards and skip buttons */
-  --glow-extreme: 0 0 30px var(--retro-glow);                        /* Massive box-glow used behind fullscreen album art */
+  --retro-glow: rgba(var(--my-gold-rgb), 0.4);                  /* Base color for all neon glows */
+  --glow-none: none;                                            /* Utility: Remove all box glows */
+  --glow-light: 0 0 5px var(--retro-glow);                      /* Subtle outline lighting */
+  --glow-medium: 0 0 10px var(--retro-glow);                    /* Standard UI lighting */
+  --shadow-glow-standard: 0 0 15px var(--retro-glow);           /* Primary focus/hover lighting */
+  --glow-heavy: 0 0 20px var(--retro-glow);                     /* Intense glow for skip buttons */
+  --glow-extreme: 0 0 30px var(--retro-glow);                   /* Massive glow for album art */
   
-  --glow-slider-track: 0 0 12px var(--my-gold), var(--shadow-glow-standard);   /* Complex multi-layer glow for progress tracks */
-  --glow-slider-thumb: 0 0 15px var(--my-gold), 0 0 25px var(--retro-glow);    /* Complex multi-layer glow for slider handles */
-  --glow-progress-bar: var(--glow-medium), 0 0 5px var(--theme-primary-color); /* Compound glow for card progress bars */
+  --glow-slider-track: 0 0 12px var(--my-gold), var(--shadow-glow-standard); /* Neon lighting for sliders */
+  --glow-slider-thumb: 0 0 15px var(--my-gold), 0 0 25px var(--retro-glow);  /* Neon handle lighting */
+  --glow-progress-bar: var(--glow-medium), 0 0 5px var(--theme-primary-color); /* Media card progress lighting */
   
-  --filter-glow-none: none;                                          /* Option to completely disable CSS filter glow */
-  --filter-glow-light: drop-shadow(0 0 5px var(--retro-glow));       /* CSS filter equivalent of glow-light (for icons/images) */
-  --filter-glow-medium: drop-shadow(0 0 8px var(--retro-glow));      /* CSS filter equivalent for hovered control buttons */
-  --filter-glow-gold-solid: drop-shadow(0 0 5px var(--my-gold));     /* Solid gold CSS filter for active audio states (like repeat/shuffle) */
-
+  --filter-glow-none: none;                                     /* Utility: Remove all icon filters */
+  --filter-glow-light: drop-shadow(0 0 5px var(--retro-glow));  /* Soft drop-shadow glow for icons */
+  --filter-glow-medium: drop-shadow(0 0 8px var(--retro-glow)); /* Medium drop-shadow glow for icons */
+  --filter-glow-gold-solid: drop-shadow(0 0 5px var(--my-gold)); /* Solid gold shadow for active states */
 
   /* ============================================================
      USER OPTIONS FOR VISUALS BELOW
@@ -809,6 +804,17 @@ html,
   --border-radius-lg: 12px;
   --border-radius-xl: 15px;
   --border-radius-pill: 50px;
+
+/* --- Data Grid & Table View Variables --- */
+  --table-header-bg: var(--navy-mid-solid);
+  --table-row-bg-even: var(--navy-light-alpha-40);
+  --table-row-bg-odd: var(--navy-base-alpha-60);
+  --table-row-hover-bg: var(--my-gold-transparent);
+  --table-row-border: transparent;
+  --table-row-hover-border: var(--theme-primary-color);
+  --table-text-primary: var(--pure-white);
+  --table-text-secondary: var(--white-alpha-70);
+  --table-text-hover: var(--pure-white);
 
   /* --- Effects & Animations --- */
   --transition-speed: 0.2s;
@@ -2445,7 +2451,7 @@ input[type="range"]::-moz-range-thumb {
 
 /* 1. Master Header Container Background */
 html[class*="theme-"] .dataGridHeader {
-    background-color: var(--navy-mid-solid) !important; /* Rich solid blue */
+    background-color: var(--table-header-bg) !important; 
     background-image: none !important;
     backdrop-filter: var(--blur-heavy) !important;
     -webkit-backdrop-filter: var(--blur-heavy) !important;
@@ -2457,6 +2463,7 @@ html[class*="theme-"] .dataGridHeader {
 }
 
 /* 2. Strip dark backgrounds off the inner layers so the blue shows through */
+/* Removed margin resets so Emby's native X-axis alignment is preserved */
 html[class*="theme-"] .dataGridHeader .dataGridHeader-content,
 html[class*="theme-"] .dataGridHeader .dataGridItem-content,
 html[class*="theme-"] .dataGridHeader .dataGridHeader-content-inner {
@@ -2464,11 +2471,9 @@ html[class*="theme-"] .dataGridHeader .dataGridHeader-content-inner {
     background-image: none !important;
     border: none !important;
     box-shadow: none !important;
-    margin: 0 !important;
-    border-radius: 0 !important;
 }
 
-/* 3. Header Text: Stylized gold titles for column headers */
+/* 3. Header Colors (Applies gold to both text and icons) */
 html[class*="theme-"] .dataGridHeader .dataGridItemCell,
 html[class*="theme-"] .dataGridHeader .dataGridHeaderText,
 html[class*="theme-"] .dataGridHeader .primaryText,
@@ -2476,11 +2481,17 @@ html[class*="theme-"] .dataGridHeader .button-link,
 html[class*="theme-"] .dataGridHeader .button-link * {
     color: var(--my-gold) !important;
     -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* 4. Header Fonts (Excludes cells/icons to prevent missing glyphs and flex stretching) */
+html[class*="theme-"] .dataGridHeader .dataGridHeaderText,
+html[class*="theme-"] .dataGridHeader .primaryText {
     font-family: 'Oswald', sans-serif !important;
     text-transform: uppercase !important;
-    letter-spacing: 1px !important;
-    font-size: 0.95em !important;
+    letter-spacing: 0.5px !important; /* Scaled back to prevent stretching */
+    font-size: 0.85em !important; /* Scaled back to fit native flex widths */
     font-weight: 700 !important;
+    white-space: nowrap !important; /* Forces text to stay on one line */
 }
 
 /* --- 10B. Global Form Titles (Legends) --- */
@@ -2503,8 +2514,8 @@ legend {
 
 /* 1. Row Content Styling */
 .dataGridItem-content {
-    background-color: var(--navy-light-alpha-40) !important;
-    border: var(--hover-border-thickness) solid transparent !important;
+    background-color: var(--table-row-bg) !important;
+    border: var(--hover-border-thickness) solid var(--table-row-border) !important;
     border-radius: 8px !important;
     transition: all var(--transition-speed) ease-in-out !important;
 }
@@ -2512,8 +2523,8 @@ legend {
 /* 2. Row Hover: Highlights setting rows when mouse-over */
 .dataGridItem:hover .dataGridItem-content,
 .dataGridItem.show-focus .dataGridItem-content {
-    background-color: var(--my-gold-transparent) !important;
-    border: var(--hover-border-thickness) solid var(--theme-primary-color) !important;
+    background-color: var(--table-row-hover-bg) !important;
+    border: var(--hover-border-thickness) solid var(--table-row-hover-border) !important;
     box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
     color: var(--pure-white) !important;
 }
@@ -2526,15 +2537,35 @@ legend {
 
 /* --- 10D. Advanced Data Grids (Music Tracks, Detailed List Views) --- */
 
-/* 1. Base Row Styling & Removing Zebra Stripes */
-html[class*="theme-"] .dataGridItem:nth-child(even) .dataGridItem-content,
-html[class*="theme-"] .dataGridItem:nth-child(odd) .dataGridItem-content,
-html[class*="theme-"] .dataGridItem-content {
-    background-color: var(--navy-light-alpha-40) !important;
-    border: var(--standard-border-thickness) solid transparent !important;
+/* 1. Base Row Styling & Removing Native Zebra Stripes */
+
+/* Nuke native zebra striping from outer wrappers and inner cells */
+html[class*="theme-"] .dataGridItem,
+html[class*="theme-"] .virtualScrollerItem,
+html[class*="theme-"] .dataGridItem:nth-child(even) .dataGridItemCell,
+html[class*="theme-"] .dataGridItem:nth-child(odd) .dataGridItemCell,
+html[class*="theme-"] .dataGridItemCell {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Apply our Custom Even Row Color */
+html[class*="theme-"] .dataGridItem:nth-child(even) .dataGridItem-content {
+    background-color: var(--table-row-bg-even) !important;
+    border: var(--standard-border-thickness) solid var(--table-row-border) !important;
     border-radius: var(--border-radius-sm) !important;
     transition: all var(--transition-speed) ease-in-out !important;
-    /* Adding a tiny margin inside the container so the rows don't touch */
+    margin-top: 2px !important;
+    margin-bottom: 2px !important; 
+}
+
+/* Apply our Custom Odd Row Color */
+html[class*="theme-"] .dataGridItem:nth-child(odd) .dataGridItem-content,
+html[class*="theme-"] .dataGridItem-content {
+    background-color: var(--table-row-bg-odd) !important;
+    border: var(--standard-border-thickness) solid var(--table-row-border) !important;
+    border-radius: var(--border-radius-sm) !important;
+    transition: all var(--transition-speed) ease-in-out !important;
     margin-top: 2px !important;
     margin-bottom: 2px !important; 
 }
@@ -2542,8 +2573,8 @@ html[class*="theme-"] .dataGridItem-content {
 /* 2. Row Hover State (Pops out and glows) */
 html[class*="theme-"] .dataGridItem:hover .dataGridItem-content,
 html[class*="theme-"] .dataGridItem.show-focus .dataGridItem-content {
-    background-color: var(--my-gold-transparent) !important;
-    border-color: var(--theme-primary-color) !important;
+    background-color: var(--table-row-hover-bg) !important;
+    border-color: var(--table-row-hover-border) !important;
     box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
     transform: scale(1.01) !important;
     z-index: 10 !important;
@@ -2551,23 +2582,23 @@ html[class*="theme-"] .dataGridItem.show-focus .dataGridItem-content {
 
 /* 3. Base Text Colors for Grid Cells */
 html[class*="theme-"] .dataGridItemCell {
-    color: var(--white-alpha-70) !important;
-    -webkit-text-fill-color: var(--white-alpha-70) !important;
+    color: var(--table-text-secondary) !important;
+    -webkit-text-fill-color: var(--table-text-secondary) !important;
     transition: color var(--transition-speed) ease-in-out !important;
 }
 
 /* Ensures the primary column (like Song Title) is brighter than the rest */
 html[class*="theme-"] .dataGridItemCell.primaryText {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color: var(--table-text-primary) !important;
+    -webkit-text-fill-color: var(--table-text-primary) !important;
     font-weight: 600 !important;
 }
 
 /* 4. Highlight all text in the row to pure white when hovered */
 html[class*="theme-"] .dataGridItem:hover .dataGridItemCell,
 html[class*="theme-"] .dataGridItem:hover .dataGridItemCell * {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color: var(--table-text-hover) !important;
+    -webkit-text-fill-color: var(--table-text-hover) !important;
 }
 
 /* 5. Right-side action buttons (Play, Heart, 3 Dots) */
@@ -2583,6 +2614,60 @@ html[class*="theme-"] .dataGridItemCell .paper-icon-button-light:hover {
     transform: scale(1.2) !important;
     filter: var(--filter-glow-light) !important;
 }
+
+/* --- 10E. Theme Consistency Fix (Apple TV, Light, etc.) --- */
+  
+  /* 1. EXPLICIT LIGHT THEME OVERRIDES (High Specificity) */
+  html.theme-light .dataGridItem:nth-child(even) .dataGridItem-content {
+      background-color: var(--table-row-bg-even) !important;
+  }
+  
+  html.theme-light .dataGridItem:nth-child(odd) .dataGridItem-content,
+  html.theme-light .dataGridItem-content {
+      background-color: var(--table-row-bg-odd) !important;
+  }
+
+  html.theme-light .dataGridItem-content,
+  html.theme-light .dataGridHeader-content {
+      border: var(--standard-border-thickness) solid var(--table-row-border) !important;
+      margin-top: 2px !important;
+      margin-bottom: 2px !important;
+      padding: 0 !important;
+      background-image: none !important;
+  }
+
+  /* Extreme specificity to crush light theme cell backgrounds */
+  html.theme-light .dataGridItem:nth-child(even) .dataGridItemCell,
+  html.theme-light .dataGridItem:nth-child(odd) .dataGridItemCell,
+  html.theme-light .dataGridItemCell {
+      background-color: transparent !important;
+      background: transparent !important;
+      border: none !important; 
+      color: var(--table-text-secondary) !important;
+      -webkit-text-fill-color: var(--table-text-secondary) !important;
+  }
+  
+  html.theme-light .dataGridItemCell.primaryText {
+      color: var(--table-text-primary) !important;
+      -webkit-text-fill-color: var(--table-text-primary) !important;
+  }
+
+  /* 2. EXPLICIT APPLE TV THEME OVERRIDES */
+  html.theme-appletv .dataGridItem:nth-child(even) .dataGridItem-content {
+      background-color: var(--table-row-bg-even) !important;
+  }
+  
+  html.theme-appletv .dataGridItem:nth-child(odd) .dataGridItem-content,
+  html.theme-appletv .dataGridItem-content {
+      background-color: var(--table-row-bg-odd) !important;
+  }
+
+  html.theme-appletv .dataGridItem-content,
+  html.theme-appletv .dataGridHeader-content {
+      margin: 0 !important;
+      padding: 0 !important;
+      background-image: none !important;
+  }
 
 /* ============================================================
    11. LOGIN PAGE & MISC TWEAKS
