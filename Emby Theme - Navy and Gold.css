@@ -39,17 +39,6 @@ html,
   --retro-navy: rgb(0, 8, 20);                  /* Darkest navy for main backgrounds */
   --retro-navy-light: rgb(0, 29, 61);           /* Mid-tone navy for panels and cards */
 
-/* --- MASTER NAV PILL VARIABLES (BASE THEME) --- */
-  --nav-pill-bg-inactive:   rgb(28, 34, 44);     /* Dark translucent navy for resting pills */
-  --nav-pill-hover:         rgba(255, 255, 255, 0.1); /* Subtle white highlight on hover */
-  --nav-pill-active:        linear-gradient(135deg, rgb(255, 202, 58) 0%, rgb(255, 185, 0) 100%); 
-  --nav-pill-text:          rgba(236, 236, 236, 1.0); /* Muted white text */
-  --nav-pill-active-text:   rgba(0, 8, 20, 1.0);      /* Dark navy text for active tab */
-  --nav-pill-active-border: 2px solid rgba(0, 8, 20, 1.0); 
-  --nav-pill-active-glow:   0 4px 8px rgba(0, 0, 0, 0.8), 0 0 0px rgba(255, 185, 0, 0.4);
-  --nav-pill-bar-bg:        rgb(28, 34, 44);      /* 90% opaque dark navy container */
-  --nav-pill-bar-border:    0px solid rgba(255, 187, 0, 0.836); /* Subtle gold container border */
-
   /* --- Core Solid Colors --- */
   --pure-white: rgb(255, 255, 255);             /* Absolute white for high-contrast icons */
   --pure-black: rgb(0, 0, 0);                   /* Absolute black for deep shadows */
@@ -63,6 +52,20 @@ html,
   --guide-repeat: rgb(31, 75, 94);              /* Background color for Reruns/Repeats */
   --guide-movie: rgb(69, 59, 109);              /* Background color for Movies */
   --guide-generic: rgb(39, 50, 67);             /* Fallback color for generic programs */
+
+  /* --- Navigation Pill Bars --- */
+  --nav-pill-bg-inactive:    rgb(28, 34, 44);
+  --nav-pill-hover:          rgba(255, 255, 255, 0.1);
+  --nav-pill-hover-text:     rgb(255, 202, 58); /* New: Gold hover text */
+  --nav-pill-hover-border-color: transparent;   /* New: Invisible by default */
+  --nav-pill-active:         linear-gradient(135deg, rgb(255, 202, 58) 0%, rgb(255, 185, 0) 100%); 
+  --nav-pill-text:           rgba(236, 236, 236, 1.0);
+  --nav-pill-active-text:    rgba(0, 8, 20, 1.0);
+  --nav-pill-active-border-color: rgba(0, 8, 20, 1.0); 
+  --nav-pill-active-border:  2px solid var(--nav-pill-active-border-color);
+  --nav-pill-active-glow:    0 4px 8px rgba(0, 0, 0, 0.8), 0 0 0px rgba(255, 185, 0, 0.4);
+  --nav-pill-bar-bg:         rgb(28, 34, 44);
+  --nav-pill-bar-border:     0px solid rgba(255, 187, 0, 0.836);
 
   /* --- Emby Theme Overrides (Enforces our colors globally) --- */
   --theme-primary-color: var(--my-gold) !important;           /* Forces gold as brand primary */
@@ -435,15 +438,19 @@ html,
   --vday-text-glow: 0 0 8px rgba(var(--vday-pink-deep-rgb), 0.8);
   --vday-osd-border-width: 3px;
   --scrollbar-thumb: #ec78b6 !important;
-  --nav-pill-bg-inactive:   rgba(248, 187, 208, 0.8) !important; 
-  --nav-pill-hover:         rgba(252, 228, 236, 1.0) !important;  
-  --nav-pill-active:        rgba(233, 30, 99, 1.0) !important;  
-  --nav-pill-text:          rgba(136, 14, 79, 1.0) !important;    
-  --nav-pill-active-text:   rgba(255, 255, 255, 1.0) !important;  
-  --nav-pill-bar-bg:        rgba(248, 187, 208, 0.8) !important;  
-  --nav-pill-bar-border:    1px solid rgba(136, 14, 79, 1.0) !important; 
+  --nav-pill-bg-inactive: transparent !important;
+  --nav-pill-hover: rgba(255, 0, 85, 0.15) !important;
+  --nav-pill-hover-text: rgba(255, 190, 205, 1.0) !important;
+  --nav-pill-hover-border-color: rgba(255, 0, 85, 0.5) !important;
+  --nav-pill-active: rgba(90, 15, 40, 0.8) !important; 
+  --nav-pill-text: rgba(180, 170, 175, 1.0) !important;
+  --nav-pill-active-text: rgba(255, 190, 205, 1.0) !important;
+  --nav-pill-active-border-color: rgba(255, 0, 85, 1.0) !important;
+  --nav-pill-active-glow: 0 0 12px rgba(255, 0, 85, 0.6), inset 0 0 8px rgba(255, 0, 85, 0.3) !important;
+  --nav-pill-bar-bg: rgba(35, 20, 28, 0.9) !important;
+  --nav-pill-bar-border: 1px solid rgba(0, 0, 0, 0.4) !important;
   --season-star-color: rgb(255, 185, 0) !important;
-  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important; 
   */
 
   /* OPTION 3: ST. PATRICK'S DAY */
@@ -511,13 +518,17 @@ html,
   --stpat-dialog-bg-light: #022b12;
   --stpat-dialog-bg-dark: #011408;
   --scrollbar-thumb: #009e60 !important;
-  --nav-pill-bg-inactive: rgba(0, 26, 13, 0.8) !important;
-  --nav-pill-hover: rgba(0, 255, 133, 0.2) !important;
-  --nav-pill-active: rgba(0, 255, 133, 1.0) !important;
+  --nav-pill-bg-inactive: rgba(0, 10, 5, 0.8) !important;
+  --nav-pill-hover: rgba(0, 255, 133, 0.15) !important;
+  --nav-pill-hover-text: rgba(0, 255, 133, 1.0) !important;
+  --nav-pill-hover-border-color: rgba(0, 255, 133, 0.4) !important;
+  --nav-pill-active: linear-gradient(135deg, rgb(0, 255, 133) 0%, rgb(0, 158, 96) 100%) !important;
   --nav-pill-text: rgba(255, 215, 0, 1.0) !important;
   --nav-pill-active-text: rgba(0, 10, 5, 1.0) !important;
+  --nav-pill-active-border-color: rgba(255, 215, 0, 1.0) !important;
+  --nav-pill-active-glow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 255, 133, 0.5) !important;
   --nav-pill-bar-bg: rgba(0, 10, 5, 0.9) !important;
-  --nav-pill-bar-border: 1px solid rgba(255, 215, 0, 0.4) !important;  
+  --nav-pill-bar-border: 1px solid rgba(255, 215, 0, 0.3) !important;
   --season-star-color: rgb(255, 185, 0) !important;
   --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
   */
@@ -581,13 +592,17 @@ html,
   --easter-black-alpha-15: rgba(0, 0, 0, 0.15);
   --easter-black-alpha-30: rgba(0, 0, 0, 0.3);
   --scrollbar-thumb: #ffb7b2 !important;
-  --nav-pill-bg-inactive: rgba(47, 39, 64, 0.8) !important;
-  --nav-pill-hover: rgba(135, 206, 235, 0.3) !important;
-  --nav-pill-active: rgba(255, 183, 178, 1.0) !important;
-  --nav-pill-text: rgba(255, 255, 255, 0.8) !important;
-  --nav-pill-active-text: rgba(26, 22, 37, 1.0) !important;
-  --nav-pill-bar-bg: rgba(26, 22, 37, 0.8) !important;
-  --nav-pill-bar-border: 1px solid rgba(135, 206, 235, 0.5) !important;
+  --nav-pill-bg-inactive: transparent !important;
+  --nav-pill-hover: rgba(135, 206, 235, 0.15) !important;
+  --nav-pill-hover-text: rgba(178, 235, 242, 1.0) !important;
+  --nav-pill-hover-border-color: rgba(77, 182, 172, 0.5) !important;
+  --nav-pill-active: linear-gradient(180deg, rgb(178, 235, 242) 0%, rgb(129, 212, 250) 100%) !important; 
+  --nav-pill-text: rgba(180, 180, 180, 1.0) !important;
+  --nav-pill-active-text: rgba(20, 30, 40, 1.0) !important;
+  --nav-pill-active-border-color: rgba(77, 182, 172, 1.0) !important;
+  --nav-pill-active-glow: 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+  --nav-pill-bar-bg: rgba(35, 35, 45, 0.9) !important;
+  --nav-pill-bar-border: 1px solid rgba(255, 255, 255, 0.05) !important;
   --season-star-color: rgb(255, 185, 0) !important;
   --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important; 
   */
@@ -628,10 +643,14 @@ html,
   --july4-firework-white: var(--july4-white);
   --scrollbar-thumb: #e0162b !important;
   --nav-pill-bg-inactive: rgba(0, 29, 61, 0.8) !important;
-  --nav-pill-hover: rgba(0, 82, 165, 0.4) !important;
-  --nav-pill-active: rgba(224, 22, 43, 1.0) !important;
+  --nav-pill-hover: rgba(224, 22, 43, 0.2) !important;
+  --nav-pill-hover-text: rgba(224, 22, 43, 1.0) !important;
+  --nav-pill-hover-border-color: rgba(224, 22, 43, 0.5) !important;
+  --nav-pill-active: linear-gradient(135deg, rgb(0, 82, 165) 0%, rgb(224, 22, 43) 100%) !important;
   --nav-pill-text: rgba(255, 255, 255, 0.9) !important;
   --nav-pill-active-text: rgba(255, 255, 255, 1.0) !important;
+  --nav-pill-active-border-color: rgba(255, 255, 255, 1.0) !important;
+  --nav-pill-active-glow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 0 15px rgba(224, 22, 43, 0.6) !important;
   --nav-pill-bar-bg: rgba(0, 29, 61, 0.9) !important;
   --nav-pill-bar-border: 1px solid rgba(255, 255, 255, 0.3) !important;
   --season-star-color: rgb(255, 185, 0) !important;
@@ -697,13 +716,17 @@ html,
   --hw-gray-1: #444444;
   --hw-gray-2: #555555;
   --scrollbar-thumb: #ff6600 !important;
-  --nav-pill-bg-inactive: rgba(20, 0, 35, 0.8) !important;
-  --nav-pill-hover: rgba(138, 43, 226, 0.4) !important;
-  --nav-pill-active: rgba(255, 102, 0, 1.0) !important;
-  --nav-pill-text: rgba(255, 255, 255, 0.8) !important;
-  --nav-pill-active-text: rgba(13, 0, 21, 1.0) !important;
-  --nav-pill-bar-bg: rgba(13, 0, 21, 0.9) !important;
-  --nav-pill-bar-border: 1px solid rgba(138, 43, 226, 0.5) !important;
+  --nav-pill-bg-inactive: transparent !important;
+  --nav-pill-text: rgba(180, 170, 175, 1.0) !important;
+  --nav-pill-active: rgba(20, 10, 25, 0.9) !important; 
+  --nav-pill-active-text: rgb(255, 140, 0) !important; 
+  --nav-pill-active-border-color: rgb(180, 0, 255) !important; 
+  --nav-pill-active-glow: 0 0 15px rgba(180, 0, 255, 0.6), 0 0 5px rgba(180, 0, 255, 0.8), inset 0 0 10px rgba(255, 140, 0, 0.3) !important;
+  --nav-pill-hover: rgba(67, 64, 69, 0.692) !important;
+  --nav-pill-hover-text: rgb(255, 140, 0) !important; 
+  --nav-pill-hover-border-color: rgba(179, 0, 255, 0) !important;
+  --nav-pill-bar-bg: rgba(15, 10, 20, 0.95) !important;
+  --nav-pill-bar-border: 1px solid rgba(180, 0, 255, 0.2) !important;
   --season-star-color: rgb(255, 185, 0) !important;
   --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
   */
@@ -763,11 +786,15 @@ html,
   --tg-bg-dark-4: rgba(var(--tg-navy-base-rgb), 0.9);
   --tg-bg-dark-5: rgba(var(--tg-navy-base-rgb), 0.8);
   --scrollbar-thumb: #d95c14 !important;
-  --nav-pill-bg-inactive: rgba(36, 17, 14, 0.8) !important;
-  --nav-pill-hover: rgba(227, 160, 27, 0.3) !important;
-  --nav-pill-active: rgba(217, 92, 20, 1.0) !important;
-  --nav-pill-text: rgba(227, 160, 27, 0.9) !important;
+  --nav-pill-bg-inactive: rgba(26, 11, 9, 0.8) !important;
+  --nav-pill-hover: rgba(227, 160, 27, 0.15) !important;
+  --nav-pill-hover-text: rgba(227, 160, 27, 1.0) !important;
+  --nav-pill-hover-border-color: rgba(227, 160, 27, 0.5) !important;
+  --nav-pill-active: linear-gradient(135deg, rgb(227, 160, 27) 0%, rgb(217, 92, 20) 100%) !important;
+  --nav-pill-text: rgba(255, 255, 255, 0.8) !important;
   --nav-pill-active-text: rgba(26, 11, 9, 1.0) !important;
+  --nav-pill-active-border-color: rgba(139, 69, 19, 1.0) !important;
+  --nav-pill-active-glow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 0 15px rgba(217, 92, 20, 0.5) !important;
   --nav-pill-bar-bg: rgba(26, 11, 9, 0.9) !important;
   --nav-pill-bar-border: 1px solid rgba(227, 160, 27, 0.4) !important;
   --season-star-color: rgb(255, 185, 0) !important;
@@ -827,11 +854,15 @@ html,
   --aurora-blue-rgb: 0, 200, 255;
   --aurora-deep-green-rgb: 0, 255, 100;
   --scrollbar-thumb: #c41e3a !important;
-  --nav-pill-bg-inactive: rgba(5, 24, 41, 0.8) !important;
-  --nav-pill-hover: rgba(11, 102, 35, 0.4) !important;
-  --nav-pill-active: rgba(196, 30, 58, 1.0) !important;
+  --nav-pill-bg-inactive: rgba(2, 10, 20, 0.8) !important;
+  --nav-pill-hover: rgba(11, 102, 35, 0.3) !important;
+  --nav-pill-hover-text: rgba(196, 30, 58, 1.0) !important;
+  --nav-pill-hover-border-color: rgba(196, 30, 58, 0.5) !important;
+  --nav-pill-active: linear-gradient(135deg, rgb(196, 30, 58) 0%, rgb(139, 0, 0) 100%) !important;
   --nav-pill-text: rgba(255, 255, 255, 0.9) !important;
   --nav-pill-active-text: rgba(255, 255, 255, 1.0) !important;
+  --nav-pill-active-border-color: rgba(11, 102, 35, 1.0) !important;
+  --nav-pill-active-glow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 0 15px rgba(196, 30, 58, 0.6) !important;
   --nav-pill-bar-bg: rgba(2, 10, 20, 0.9) !important;
   --nav-pill-bar-border: 1px solid rgba(11, 102, 35, 0.5) !important;
   --season-star-color: rgb(255, 185, 0) !important;
@@ -889,13 +920,17 @@ html,
   --nye-bg-dark-1: rgba(var(--nye-navy-mid-rgb), 0.8);
   --nye-bg-dark-2: rgba(var(--nye-navy-base-rgb), 0.95);
   --scrollbar-thumb: #d4af37 !important;
-  --nav-pill-bg-inactive: rgba(17, 17, 17, 0.8) !important;
-  --nav-pill-hover: rgba(247, 231, 206, 0.15) !important;
-  --nav-pill-active: rgba(212, 175, 55, 1.0) !important;
-  --nav-pill-text: rgba(247, 231, 206, 0.8) !important;
+  --nav-pill-bg-inactive: rgba(5, 5, 5, 0.8) !important;
+  --nav-pill-hover: rgba(247, 231, 206, 0.1) !important;
+  --nav-pill-hover-text: rgba(212, 175, 55, 1.0) !important;
+  --nav-pill-hover-border-color: rgba(212, 175, 55, 0.4) !important;
+  --nav-pill-active: linear-gradient(135deg, rgb(247, 231, 206) 0%, rgb(212, 175, 55) 100%) !important;
+  --nav-pill-text: rgba(212, 175, 55, 0.8) !important;
   --nav-pill-active-text: rgba(5, 5, 5, 1.0) !important;
+  --nav-pill-active-border-color: rgba(247, 231, 206, 1.0) !important;
+  --nav-pill-active-glow: 0 4px 8px rgba(0, 0, 0, 0.9), 0 0 15px rgba(212, 175, 55, 0.4) !important;
   --nav-pill-bar-bg: rgba(5, 5, 5, 0.9) !important;
-  --nav-pill-bar-border: 1px solid rgba(212, 175, 55, 0.4) !important;
+  --nav-pill-bar-border: 1px solid rgba(212, 175, 55, 0.3) !important;
   --season-star-color: rgb(255, 185, 0) !important;
   --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
   */
@@ -1021,11 +1056,6 @@ html[class*="theme-"] .cardOverlayButtonIcon * {
 html[class*="theme-"] .mediaInfoItem,
 html[class*="theme-"] .mediaInfoItem * {
     -webkit-text-fill-color: var(--media-badge-color) !important;
-}
-
-html[class*="theme-"] .mediaInfoItem:hover,
-html[class*="theme-"] .mediaInfoItem:hover * {
-    -webkit-text-fill-color: var(--media-badge-hover-color) !important;
 }
 
 /* 6. Base App Background: Applies the radial navy gradient as the global foundation */
@@ -1337,19 +1367,15 @@ html[class*="theme-"] .tabs-viewmenubar .emby-tab-button::before {
 html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button:hover:not(.emby-tab-button-active),
 html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-container) .emby-tab-button:hover:not(.emby-tab-button-active) {
     background-color: var(--nav-pill-hover) !important;
-    color: var(--nav-pill-active) !important;
-    -webkit-text-fill-color: var(--nav-pill-active) !important;
+    color: var(--nav-pill-hover-text) !important;
+    -webkit-text-fill-color: var(--nav-pill-hover-text) !important;
+    border-color: var(--nav-pill-hover-border-color) !important;
 }
-
-/* 4. Active/Selected Pill */
+/* 4. Active/Selected Pill  */
 html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button-active,
 html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button-active *,
-html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button:focus,
-html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button:focus *,
 html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-container) .emby-tab-button-active,
-html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-container) .emby-tab-button-active *,
-html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-container) .emby-tab-button:focus,
-html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-container) .emby-tab-button:focus * {
+html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-container) .emby-tab-button-active * {
     background: var(--nav-pill-active) !important;
     color: var(--nav-pill-active-text) !important; 
     -webkit-text-fill-color: var(--nav-pill-active-text) !important;
@@ -1987,15 +2013,6 @@ div.verticalSection.aboutSection       { order: var(--order-about) !important; }
     margin: 0 8px 8px 0 !important;
     transition: all var(--transition-speed) ease-in-out;
     will-change: transform;
-}
-
-/* 2. Badge Hover: Causes technical tags to scale and glint when hovered */
-.mediaInfoItem:hover {
-    background: var(--media-badge-hover-bg) !important;
-    color: var(--media-badge-hover-color) !important;
-    border: var(--media-badge-hover-border) !important;
-    box-shadow: var(--media-badge-hover-shadow) !important;
-    transform: scale(1.05);
 }
 
 /* 3. Rating Star Icon Formatting */
@@ -2824,27 +2841,6 @@ html[class*="theme-"] .dataGridItemCell button[data-played="true"]:hover .md-ico
     filter: drop-shadow(0 0 10px rgba(255, 185, 0, 0.8)) !important;
 }
 
-/* --- Favorite Heart Fix (Forces Red & Survives Row Hovers) --- */
-html[class*="theme-"] .dataGridItemCell button[data-isfavorite="true"],
-html[class*="theme-"] .dataGridItemCell button[data-isfavorite="true"] .md-icon,
-html[class*="theme-"] .dataGridItemCell .ratingbutton-icon-withrating,
-html[class*="theme-"] .dataGridItem:hover .dataGridItemCell button[data-isfavorite="true"],
-html[class*="theme-"] .dataGridItem:hover .dataGridItemCell button[data-isfavorite="true"] .md-icon,
-html[class*="theme-"] .dataGridItem:hover .dataGridItemCell .ratingbutton-icon-withrating {
-    color: #ff3366 !important; /* Bright Crimson Red */
-    -webkit-text-fill-color: #ff3366 !important;
-    filter: drop-shadow(0 0 5px rgba(255, 51, 102, 0.5)) !important;
-}
-
-/* Keep the heart red and scale it up when directly hovered */
-html[class*="theme-"] .dataGridItemCell button[data-isfavorite="true"]:hover,
-html[class*="theme-"] .dataGridItemCell button[data-isfavorite="true"]:hover .md-icon {
-    color: #ff0044 !important; /* Slightly deeper red on hover */
-    -webkit-text-fill-color: #ff0044 !important;
-    transform: scale(1.2) !important;
-    filter: drop-shadow(0 0 10px rgba(255, 0, 68, 0.8)) !important;
-}
-
 /* --- 10E. Theme Consistency Fix (Apple TV, Light, etc.) --- */
   
   /* 1. EXPLICIT LIGHT THEME OVERRIDES (High Specificity) */
@@ -2984,6 +2980,58 @@ html[class*="theme-"] body .programCell .mediaInfoItem * {
     -webkit-text-fill-color: inherit !important;
 }
 
+/* 3. Universal Status Icon Fixes (Favorites & Played) */
+
+/* --- Favorite Heart (Always Red) --- */
+html[class*="theme-"] body .ratingbutton-icon-withrating,
+html[class*="theme-"] body .paper-icon-button-light.ratingbutton-icon-withrating,
+html[class*="theme-"] body button[data-isfavorite="true"],
+html[class*="theme-"] body button[data-isfavorite="true"] *,
+html[class*="theme-"] body .dataGridItem .ratingbutton-icon-withrating,
+html[class*="theme-"] body .listItem .ratingbutton-icon-withrating,
+html[class*="theme-"] body .dataGridItemCell button[data-isfavorite="true"] *,
+html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"] * {
+    color: #ff3366 !important; 
+    -webkit-text-fill-color: #ff3366 !important;
+    filter: drop-shadow(0 0 5px rgba(255, 51, 102, 0.5)) !important;
+    opacity: 1 !important;
+}
+
+/* Keep the heart red and scale it up when directly hovered */
+html[class*="theme-"] body button[data-isfavorite="true"]:hover,
+html[class*="theme-"] body button[data-isfavorite="true"]:hover *,
+html[class*="theme-"] body .ratingbutton-icon-withrating:hover {
+    color: #ff0044 !important; 
+    -webkit-text-fill-color: #ff0044 !important;
+    transform: scale(1.2) !important;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 68, 0.8)) !important;
+}
+
+/* --- Played Checkmark (Always Gold) --- */
+html[class*="theme-"] body .playstatebutton-icon-played,
+html[class*="theme-"] body .paper-icon-button-light.playstatebutton-icon-played,
+html[class*="theme-"] body button[data-played="true"],
+html[class*="theme-"] body button[data-played="true"] *,
+html[class*="theme-"] body .dataGridItem .playstatebutton-icon-played,
+html[class*="theme-"] body .listItem .playstatebutton-icon-played,
+html[class*="theme-"] body .dataGridItemCell button[data-played="true"] *,
+html[class*="theme-"] body .dataGridItem:hover button[data-played="true"] * {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    filter: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;
+    opacity: 1 !important;
+}
+
+/* Keep the checkmark gold and scale it up when directly hovered */
+html[class*="theme-"] body button[data-played="true"]:hover,
+html[class*="theme-"] body button[data-played="true"]:hover *,
+html[class*="theme-"] body .playstatebutton-icon-played:hover {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    transform: scale(1.2) !important;
+    filter: drop-shadow(0 0 10px rgba(255, 185, 0, 0.8)) !important;
+}
+
 /* ============================================================
    UNIVERSAL SEASONAL LOGIC
    ============================================================ */
@@ -3007,8 +3055,8 @@ html[class*="theme-"] body .button-submit {
     background: var(--season-btn-bg) !important;
     color: var(--season-btn-text) !important;
     -webkit-text-fill-color: var(--season-btn-text) !important;
-    font-family: 'Oswald', sans-serif !important;
-    text-transform: uppercase !important;
+    font-family: Arial, Roboto, "Helvetica Neue", Helvetica, sans-serif !important;
+    font-size: 0.95rem !important;
     border-radius: var(--border-radius-pill) !important;
     border: 2px solid var(--season-btn-border) !important;
     box-shadow: var(--season-btn-shadow) !important;
@@ -3025,6 +3073,53 @@ html[class*="theme-"] body .button-submit:hover {
 }
 html[class*="theme-"] body .button-submit:active {
     transform: scale(0.98) !important;
+}
+
+/* 4. Universal Live TV Guide Grid Fix (Stops button themes from bleeding into the EPG) */
+
+/* A. Clean up the Cell Hover State (Kills the crazy gradients and neon borders) */
+html[class*="theme-"] body .epgRow .programCell.itemAction:hover,
+html[class*="theme-"] body .epgRow .programCell.itemAction:focus,
+html[class*="theme-"] body .programCell:hover,
+html[class*="theme-"] body .programCell:focus {
+    background: rgba(255, 255, 255, 0.15) !important; /* Clean, subtle highlight */
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid transparent !important;
+    box-shadow: none !important;
+    border-radius: 4px !important;
+}
+
+/* B & C. The TV Guide Nuke: Strips all backgrounds and forces white text using high-specificity */
+html[class*="theme-"] body .epgItemsContainer .programCell .mediaInfoItem,
+html[class*="theme-"] body .epgItemsContainer .programCell:hover .mediaInfoItem,
+html[class*="theme-"] body .epgItemsContainer .programCell .mediaInfoItem:hover,
+html[class*="theme-"] body .epgItemsContainer .programCell .guideProgramNameText,
+html[class*="theme-"] body .epgItemsContainer .programCell:hover .guideProgramNameText,
+html[class*="theme-"] body .epgItemsContainer .programCell .guideProgramNameText:hover,
+html[class*="theme-"] body .epgItemsContainer .programCellInner .mediaInfoItems,
+html[class*="theme-"] body .epgItemsContainer .programCell:hover .programCellInner {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    
+    /* Force text to stay bright white */
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8) !important; 
+}
+
+/* Eradicate any pseudo-elements just in case */
+html[class*="theme-"] body .epgItemsContainer .programCell .guideProgramNameText::before,
+html[class*="theme-"] body .epgItemsContainer .programCell .guideProgramNameText::after,
+html[class*="theme-"] body .epgItemsContainer .programCell .mediaInfoItem::before,
+html[class*="theme-"] body .epgItemsContainer .programCell .mediaInfoItem::after {
+    display: none !important;
+    background: transparent !important;
+    background-image: none !important;
 }
 
 /* ============================================================
