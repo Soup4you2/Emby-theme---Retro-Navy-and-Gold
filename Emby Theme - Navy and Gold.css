@@ -38,7 +38,17 @@ html,
   --my-gold-transparent: rgba(var(--my-gold-rgb), 0.2); /* Soft gold tint for selection backgrounds */
   --retro-navy: rgb(0, 8, 20);                  /* Darkest navy for main backgrounds */
   --retro-navy-light: rgb(0, 29, 61);           /* Mid-tone navy for panels and cards */
-  --nav-pill-bg: rgba(40, 44, 52, 0.9);         /* Charcoal grey base for floating nav bars */
+
+/* --- MASTER NAV PILL VARIABLES (BASE THEME) --- */
+  --nav-pill-bg-inactive:   rgb(28, 34, 44);     /* Dark translucent navy for resting pills */
+  --nav-pill-hover:         rgba(255, 255, 255, 0.1); /* Subtle white highlight on hover */
+  --nav-pill-active:        linear-gradient(135deg, rgb(255, 202, 58) 0%, rgb(255, 185, 0) 100%); 
+  --nav-pill-text:          rgba(236, 236, 236, 1.0); /* Muted white text */
+  --nav-pill-active-text:   rgba(0, 8, 20, 1.0);      /* Dark navy text for active tab */
+  --nav-pill-active-border: 2px solid rgba(0, 8, 20, 1.0); 
+  --nav-pill-active-glow:   0 4px 8px rgba(0, 0, 0, 0.8), 0 0 0px rgba(255, 185, 0, 0.4);
+  --nav-pill-bar-bg:        rgb(28, 34, 44);      /* 90% opaque dark navy container */
+  --nav-pill-bar-border:    0px solid rgba(255, 187, 0, 0.836); /* Subtle gold container border */
 
   /* --- Core Solid Colors --- */
   --pure-white: rgb(255, 255, 255);             /* Absolute white for high-contrast icons */
@@ -127,6 +137,24 @@ html,
   --filter-glow-light: drop-shadow(0 0 5px var(--retro-glow));  /* Soft drop-shadow glow for icons */
   --filter-glow-medium: drop-shadow(0 0 8px var(--retro-glow)); /* Medium drop-shadow glow for icons */
   --filter-glow-gold-solid: drop-shadow(0 0 5px var(--my-gold)); /* Solid gold shadow for active states */
+
+  /* Star Icon Defaults (Black for Base Theme) */
+  --season-star-color: var(--pure-black);
+  --season-star-glow: none;
+
+  /* Actor Names Defaults */
+  --season-actor-name: var(--my-gold);
+  --season-actor-role: var(--white-alpha-70);
+
+  /* Submit Button Defaults */
+  --season-btn-bg: var(--theme-primary-color);
+  --season-btn-bg-hover: var(--my-gold);
+  --season-btn-text: var(--pure-black);
+  --season-btn-text-hover: var(--pure-black);
+  --season-btn-border: transparent;
+  --season-btn-border-hover: var(--pure-white);
+  --season-btn-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  --season-btn-shadow-hover: var(--shadow-glow-standard);  
 
   /* ============================================================
      USER OPTIONS FOR VISUALS BELOW
@@ -407,6 +435,15 @@ html,
   --vday-text-glow: 0 0 8px rgba(var(--vday-pink-deep-rgb), 0.8);
   --vday-osd-border-width: 3px;
   --scrollbar-thumb: #ec78b6 !important;
+  --nav-pill-bg-inactive:   rgba(248, 187, 208, 0.8) !important; 
+  --nav-pill-hover:         rgba(252, 228, 236, 1.0) !important;  
+  --nav-pill-active:        rgba(233, 30, 99, 1.0) !important;  
+  --nav-pill-text:          rgba(136, 14, 79, 1.0) !important;    
+  --nav-pill-active-text:   rgba(255, 255, 255, 1.0) !important;  
+  --nav-pill-bar-bg:        rgba(248, 187, 208, 0.8) !important;  
+  --nav-pill-bar-border:    1px solid rgba(136, 14, 79, 1.0) !important; 
+  --season-star-color: rgb(255, 185, 0) !important;
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
   */
 
   /* OPTION 3: ST. PATRICK'S DAY */
@@ -474,6 +511,15 @@ html,
   --stpat-dialog-bg-light: #022b12;
   --stpat-dialog-bg-dark: #011408;
   --scrollbar-thumb: #009e60 !important;
+  --nav-pill-bg-inactive: rgba(0, 26, 13, 0.8) !important;
+  --nav-pill-hover: rgba(0, 255, 133, 0.2) !important;
+  --nav-pill-active: rgba(0, 255, 133, 1.0) !important;
+  --nav-pill-text: rgba(255, 215, 0, 1.0) !important;
+  --nav-pill-active-text: rgba(0, 10, 5, 1.0) !important;
+  --nav-pill-bar-bg: rgba(0, 10, 5, 0.9) !important;
+  --nav-pill-bar-border: 1px solid rgba(255, 215, 0, 0.4) !important;  
+  --season-star-color: rgb(255, 185, 0) !important;
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
   */
 
   /* OPTION 4: EASTER / CHERRY BLOSSOM */
@@ -535,6 +581,15 @@ html,
   --easter-black-alpha-15: rgba(0, 0, 0, 0.15);
   --easter-black-alpha-30: rgba(0, 0, 0, 0.3);
   --scrollbar-thumb: #ffb7b2 !important;
+  --nav-pill-bg-inactive: rgba(47, 39, 64, 0.8) !important;
+  --nav-pill-hover: rgba(135, 206, 235, 0.3) !important;
+  --nav-pill-active: rgba(255, 183, 178, 1.0) !important;
+  --nav-pill-text: rgba(255, 255, 255, 0.8) !important;
+  --nav-pill-active-text: rgba(26, 22, 37, 1.0) !important;
+  --nav-pill-bar-bg: rgba(26, 22, 37, 0.8) !important;
+  --nav-pill-bar-border: 1px solid rgba(135, 206, 235, 0.5) !important;
+  --season-star-color: rgb(255, 185, 0) !important;
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important; 
   */
 
   /* OPTION 5: 4TH OF JULY */
@@ -572,6 +627,15 @@ html,
   --july4-firework-blue: var(--july4-blue);
   --july4-firework-white: var(--july4-white);
   --scrollbar-thumb: #e0162b !important;
+  --nav-pill-bg-inactive: rgba(0, 29, 61, 0.8) !important;
+  --nav-pill-hover: rgba(0, 82, 165, 0.4) !important;
+  --nav-pill-active: rgba(224, 22, 43, 1.0) !important;
+  --nav-pill-text: rgba(255, 255, 255, 0.9) !important;
+  --nav-pill-active-text: rgba(255, 255, 255, 1.0) !important;
+  --nav-pill-bar-bg: rgba(0, 29, 61, 0.9) !important;
+  --nav-pill-bar-border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  --season-star-color: rgb(255, 185, 0) !important;
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
   */
 
   /* OPTION 6: HALLOWEEN */
@@ -633,6 +697,15 @@ html,
   --hw-gray-1: #444444;
   --hw-gray-2: #555555;
   --scrollbar-thumb: #ff6600 !important;
+  --nav-pill-bg-inactive: rgba(20, 0, 35, 0.8) !important;
+  --nav-pill-hover: rgba(138, 43, 226, 0.4) !important;
+  --nav-pill-active: rgba(255, 102, 0, 1.0) !important;
+  --nav-pill-text: rgba(255, 255, 255, 0.8) !important;
+  --nav-pill-active-text: rgba(13, 0, 21, 1.0) !important;
+  --nav-pill-bar-bg: rgba(13, 0, 21, 0.9) !important;
+  --nav-pill-bar-border: 1px solid rgba(138, 43, 226, 0.5) !important;
+  --season-star-color: rgb(255, 185, 0) !important;
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
   */
 
   /* OPTION 7: THANKSGIVING / AUTUMN HARVEST */
@@ -690,6 +763,15 @@ html,
   --tg-bg-dark-4: rgba(var(--tg-navy-base-rgb), 0.9);
   --tg-bg-dark-5: rgba(var(--tg-navy-base-rgb), 0.8);
   --scrollbar-thumb: #d95c14 !important;
+  --nav-pill-bg-inactive: rgba(36, 17, 14, 0.8) !important;
+  --nav-pill-hover: rgba(227, 160, 27, 0.3) !important;
+  --nav-pill-active: rgba(217, 92, 20, 1.0) !important;
+  --nav-pill-text: rgba(227, 160, 27, 0.9) !important;
+  --nav-pill-active-text: rgba(26, 11, 9, 1.0) !important;
+  --nav-pill-bar-bg: rgba(26, 11, 9, 0.9) !important;
+  --nav-pill-bar-border: 1px solid rgba(227, 160, 27, 0.4) !important;
+  --season-star-color: rgb(255, 185, 0) !important;
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
   */
 
   /* OPTION 8: CHRISTMAS */
@@ -745,6 +827,15 @@ html,
   --aurora-blue-rgb: 0, 200, 255;
   --aurora-deep-green-rgb: 0, 255, 100;
   --scrollbar-thumb: #c41e3a !important;
+  --nav-pill-bg-inactive: rgba(5, 24, 41, 0.8) !important;
+  --nav-pill-hover: rgba(11, 102, 35, 0.4) !important;
+  --nav-pill-active: rgba(196, 30, 58, 1.0) !important;
+  --nav-pill-text: rgba(255, 255, 255, 0.9) !important;
+  --nav-pill-active-text: rgba(255, 255, 255, 1.0) !important;
+  --nav-pill-bar-bg: rgba(2, 10, 20, 0.9) !important;
+  --nav-pill-bar-border: 1px solid rgba(11, 102, 35, 0.5) !important;
+  --season-star-color: rgb(255, 185, 0) !important;
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
   */
 
   /* OPTION 9: NEW YEAR'S EVE */
@@ -798,6 +889,15 @@ html,
   --nye-bg-dark-1: rgba(var(--nye-navy-mid-rgb), 0.8);
   --nye-bg-dark-2: rgba(var(--nye-navy-base-rgb), 0.95);
   --scrollbar-thumb: #d4af37 !important;
+  --nav-pill-bg-inactive: rgba(17, 17, 17, 0.8) !important;
+  --nav-pill-hover: rgba(247, 231, 206, 0.15) !important;
+  --nav-pill-active: rgba(212, 175, 55, 1.0) !important;
+  --nav-pill-text: rgba(247, 231, 206, 0.8) !important;
+  --nav-pill-active-text: rgba(5, 5, 5, 1.0) !important;
+  --nav-pill-bar-bg: rgba(5, 5, 5, 0.9) !important;
+  --nav-pill-bar-border: 1px solid rgba(212, 175, 55, 0.4) !important;
+  --season-star-color: rgb(255, 185, 0) !important;
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
   */
 
   /* ============================================================
@@ -1163,112 +1263,108 @@ html .backdropContainer::after {
     display: none !important;
 }
 
-/* --- 3C. Pill Navigation Tabs (Home, Favorites, Live TV, etc.) --- */
+/* --- 3C. Pill Navigation Tabs (Home, Favorites, Libraries) --- */
 
-/* 1. Tab Container: Creates the floating pill-box housing the navigation buttons */
-html[class*="theme-"] .videoOsdBottom .emby-tabs-container,
-html[class*="theme-"] .tabs-viewmenubar {
+/* 1. The Main Wrapper/Bar */
+html[class*="theme-"] body .tabs-viewmenubar,
+html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-container) {
+    background: var(--nav-pill-bar-bg) !important;
+    background-color: var(--nav-pill-bar-bg) !important;
+    border: var(--nav-pill-bar-border) !important;
+    border-radius: 50px !important;
+    padding: 4px 8px !important; /* Shrunk back down for a tighter fit */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5) !important;
     display: inline-flex !important;
     flex-wrap: nowrap !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 12px !important;
-    background: var(--nav-pill-bg) !important; /* Maps to our locked custom variable */
-    background-color: var(--nav-pill-bg) !important;
-    background-image: none !important;
-    backdrop-filter: var(--blur-light) !important;
-    -webkit-backdrop-filter: var(--blur-light) !important;
-    border-radius: 100em !important;
-    padding-top: 0.25em !important;
-    padding-bottom: 0.25em !important;
-    padding-left: 1em !important; 
-    padding-right: 1em !important;
-    margin: 5px auto !important; 
-    width: auto !important;
+    margin: 5px auto !important;
     max-width: 98% !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scrollbar-width: none; 
-    border: none !important; 
-    box-shadow: 0 4px 10px var(--black-alpha-50) !important; 
+    overflow: visible !important; 
+    scrollbar-width: none !important;
 }
 
-/* Strip any rogue native slider backgrounds inside the top menu */
-html[class*="theme-"] .tabs-viewmenubar-slider {
-    background: transparent !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-/* Hides scrollbar in Webkit browsers for the tab container */
+/* Hide scrollbars for the bar */
 html[class*="theme-"] .tabs-viewmenubar::-webkit-scrollbar,
-html[class*="theme-"] .tabs-viewmenubar-backgroundcontainer::-webkit-scrollbar,
-html[class*="theme-"] .videoOsdBottom .emby-tabs-container::-webkit-scrollbar {
+html[class*="theme-"] .emby-tabs-container:not(.videoOsdBottom .emby-tabs-container)::-webkit-scrollbar {
     display: none !important;
 }
 
-/* 2. Base Tab Buttons: Standard inactive state */
-html[class*="theme-"] .tabs-viewmenubar .emby-tab-button,
-html[class*="theme-"] .tabs-viewmenubar-backgroundcontainer .emby-tab-button,
-html[class*="theme-"] .videoOsdBottom .emby-tab-button {
-    display: inline-flex;
-    align-items: center !important;
-    justify-content: center !important;
-    flex-shrink: 0 !important;
+/* 2. Inactive Pills */
+html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button,
+html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-container) .emby-tab-button {
+    background: var(--nav-pill-bg-inactive) !important;
+    background-color: var(--nav-pill-bg-inactive) !important;
+    border: 2px solid transparent !important; 
+    color: var(--nav-pill-text) !important;
+    -webkit-text-fill-color: var(--nav-pill-text) !important;
+    border-radius: 50px !important;
+    margin: 0 4px !important;
+    
+    /* Shrunk these values back down to match the original compact look */
+    padding: 4px 14px !important; 
     font-family: 'Oswald', sans-serif !important;
-    font-size: 0.72em !important;
+    font-size: 0.72em !important; 
     font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: 1px !important;
-    color: var(--white-alpha-60) !important;
-    -webkit-text-fill-color: var(--white-alpha-60) !important; 
-    background: transparent !important;
-    border-radius: 100em !important;
-    padding: 0.6em 1.4em !important;
-    margin: 0 !important;
-    border: 2px solid transparent !important; 
-    transition: all var(--transition-speed) ease-in-out !important;
-    line-height: 1.2 !important;
+    
+    height: auto !important; 
+    min-height: 28px !important; /* Dialed down from 36px */
+    overflow: visible !important; 
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+/* THE NUKE: Keeps text and glow from clipping */
+html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button *,
+html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-container) .emby-tab-button * {
+    overflow: visible !important;
     height: auto !important;
-    will-change: background, transform;
+    line-height: normal !important;
+    margin: 0 !important;
 }
 
-html[class*="theme-"] .emby-tab-button.hide {
-    display: none !important;
-}
-
-/* 3. Cleanup: Removes default Emby underline effects on tabs */
+/* Strip native underlines */
 html[class*="theme-"] .tabs-viewmenubar .emby-tab-button::after,
-html[class*="theme-"] .tabs-viewmenubar .emby-tab-button::before,
-html[class*="theme-"] .videoOsdBottom .emby-tab-button::after,
-html[class*="theme-"] .videoOsdBottom .emby-tab-button::before {
+html[class*="theme-"] .tabs-viewmenubar .emby-tab-button::before {
     display: none !important;
 }
 
-/* 4. Active & Focused Tab States (Driven by Section 1 Toggles) */
-html[class*="theme-"] .tabs-viewmenubar .emby-tab-button-active,
-html[class*="theme-"] .tabs-viewmenubar .emby-tab-button:focus,
-html[class*="theme-"] .tabs-viewmenubar .emby-tab-button.show-focus,
-html[class*="theme-"] .videoOsdBottom .emby-tab-button-active,
-html[class*="theme-"] .videoOsdBottom .emby-tab-button:focus,
-html[class*="theme-"] .videoOsdBottom .emby-tab-button.show-focus {
-    background: var(--nav-active-background) !important;
-    color: var(--nav-active-color) !important;
-    -webkit-text-fill-color: var(--nav-active-color) !important; 
-    border: var(--nav-active-border) !important;
-    box-shadow: var(--nav-active-shadow) !important;
-    opacity: 1 !important;
+/* 3. Hover State */
+html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button:hover:not(.emby-tab-button-active),
+html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-container) .emby-tab-button:hover:not(.emby-tab-button-active) {
+    background-color: var(--nav-pill-hover) !important;
+    color: var(--nav-pill-active) !important;
+    -webkit-text-fill-color: var(--nav-pill-active) !important;
 }
 
-/* 5. Hover State for Inactive Tabs */
-html[class*="theme-"] .tabs-viewmenubar .emby-tab-button:hover:not(.emby-tab-button-active),
-html[class*="theme-"] .videoOsdBottom .emby-tab-button:hover:not(.emby-tab-button-active) {
-    background: var(--white-alpha-10) !important;
-    color: var(--my-gold) !important;
-    -webkit-text-fill-color: var(--my-gold) !important;
+/* 4. Active/Selected Pill */
+html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button-active,
+html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button-active *,
+html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button:focus,
+html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button:focus *,
+html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-container) .emby-tab-button-active,
+html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-container) .emby-tab-button-active *,
+html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-container) .emby-tab-button:focus,
+html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-container) .emby-tab-button:focus * {
+    background: var(--nav-pill-active) !important;
+    color: var(--nav-pill-active-text) !important; 
+    -webkit-text-fill-color: var(--nav-pill-active-text) !important;
+    border: var(--nav-pill-active-border) !important;
+    box-shadow: var(--nav-pill-active-glow) !important;
+}
+
+/* 5. Keep Hidden Tabs Hidden (Fixes cross-library tab bleeding) */
+html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button.hide,
+html[class*="theme-"] body .emby-tabs-container .emby-tab-button.hide,
+html[class*="theme-"] body .emby-tab-button[style*="display: none"] {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 0 !important;
 }
 
 /* ============================================================
@@ -2705,6 +2801,50 @@ html[class*="theme-"] .dataGridItemCell .paper-icon-button-light:hover {
     filter: var(--filter-glow-light) !important;
 }
 
+/* 6. Active State Overrides for Table Buttons (Played & Favorite) */
+
+/* --- Played Checkmark Fix (Forces Gold & Survives Row Hovers) --- */
+html[class*="theme-"] .dataGridItemCell button[data-played="true"],
+html[class*="theme-"] .dataGridItemCell button[data-played="true"] .md-icon,
+html[class*="theme-"] .dataGridItemCell .playstatebutton-icon-played,
+html[class*="theme-"] .dataGridItem:hover .dataGridItemCell button[data-played="true"],
+html[class*="theme-"] .dataGridItem:hover .dataGridItemCell button[data-played="true"] .md-icon,
+html[class*="theme-"] .dataGridItem:hover .dataGridItemCell .playstatebutton-icon-played {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    filter: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;
+}
+
+/* Keep the checkmark gold and scale it up when directly hovered */
+html[class*="theme-"] .dataGridItemCell button[data-played="true"]:hover,
+html[class*="theme-"] .dataGridItemCell button[data-played="true"]:hover .md-icon {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    transform: scale(1.2) !important;
+    filter: drop-shadow(0 0 10px rgba(255, 185, 0, 0.8)) !important;
+}
+
+/* --- Favorite Heart Fix (Forces Red & Survives Row Hovers) --- */
+html[class*="theme-"] .dataGridItemCell button[data-isfavorite="true"],
+html[class*="theme-"] .dataGridItemCell button[data-isfavorite="true"] .md-icon,
+html[class*="theme-"] .dataGridItemCell .ratingbutton-icon-withrating,
+html[class*="theme-"] .dataGridItem:hover .dataGridItemCell button[data-isfavorite="true"],
+html[class*="theme-"] .dataGridItem:hover .dataGridItemCell button[data-isfavorite="true"] .md-icon,
+html[class*="theme-"] .dataGridItem:hover .dataGridItemCell .ratingbutton-icon-withrating {
+    color: #ff3366 !important; /* Bright Crimson Red */
+    -webkit-text-fill-color: #ff3366 !important;
+    filter: drop-shadow(0 0 5px rgba(255, 51, 102, 0.5)) !important;
+}
+
+/* Keep the heart red and scale it up when directly hovered */
+html[class*="theme-"] .dataGridItemCell button[data-isfavorite="true"]:hover,
+html[class*="theme-"] .dataGridItemCell button[data-isfavorite="true"]:hover .md-icon {
+    color: #ff0044 !important; /* Slightly deeper red on hover */
+    -webkit-text-fill-color: #ff0044 !important;
+    transform: scale(1.2) !important;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 68, 0.8)) !important;
+}
+
 /* --- 10E. Theme Consistency Fix (Apple TV, Light, etc.) --- */
   
   /* 1. EXPLICIT LIGHT THEME OVERRIDES (High Specificity) */
@@ -2811,6 +2951,80 @@ body:has(.view-login) .skinHeader {
 .button-submit:active {
  box-shadow: var(--button-popout-active-shadow) !important;
  transform: var(--button-popout-active-transform) !important;
+}
+
+/* ============================================================
+   GLOBAL FIXES (Applies to all themes & seasons)
+   ============================================================ */
+
+/* 1. Universal Star Fix */
+html[class*="theme-"] body .mediaInfoItem .starIcon,
+html[class*="theme-"] body .starIcon {
+    color: var(--season-star-color) !important;
+    -webkit-text-fill-color: var(--season-star-color) !important;
+    filter: var(--season-star-glow) !important;
+}
+
+/* 2. Universal TV Guide Badge Fix (Strips heavy styles in the grid) */
+html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem,
+html[class*="theme-"] body .programCell .mediaInfoItem,
+html[class*="theme-"] body .programCell:hover .mediaInfoItem {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--white-alpha-60) !important;
+    -webkit-text-fill-color: var(--white-alpha-60) !important;
+    padding: 0 !important;
+    margin: 0 6px 0 0 !important;
+    text-shadow: none !important;
+}
+html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem *,
+html[class*="theme-"] body .programCell .mediaInfoItem * {
+    color: inherit !important;
+    -webkit-text-fill-color: inherit !important;
+}
+
+/* ============================================================
+   UNIVERSAL SEASONAL LOGIC
+   ============================================================ */
+
+/* 1. Universal Actor Names */
+html[class*="theme-"] body .peopleSection .cardText-first {
+    color: var(--season-actor-name) !important;
+    -webkit-text-fill-color: var(--season-actor-name) !important;
+    text-shadow: 1px 1px 2px var(--black-alpha-80) !important;
+    font-weight: 700 !important;
+}
+html[class*="theme-"] body .peopleSection .cardText-secondary {
+    color: var(--season-actor-role) !important;
+    -webkit-text-fill-color: var(--season-actor-role) !important;
+    opacity: 0.8 !important;
+    font-style: italic !important;
+}
+
+/* 2. Universal Submit Buttons */
+html[class*="theme-"] body .button-submit {
+    background: var(--season-btn-bg) !important;
+    color: var(--season-btn-text) !important;
+    -webkit-text-fill-color: var(--season-btn-text) !important;
+    font-family: 'Oswald', sans-serif !important;
+    text-transform: uppercase !important;
+    border-radius: var(--border-radius-pill) !important;
+    border: 2px solid var(--season-btn-border) !important;
+    box-shadow: var(--season-btn-shadow) !important;
+    transition: all 0.2s ease-in-out !important;
+    transform: none !important;
+}
+html[class*="theme-"] body .button-submit:hover {
+    background: var(--season-btn-bg-hover) !important;
+    border-color: var(--season-btn-border-hover) !important;
+    color: var(--season-btn-text-hover) !important;
+    -webkit-text-fill-color: var(--season-btn-text-hover) !important;
+    box-shadow: var(--season-btn-shadow-hover) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+}
+html[class*="theme-"] body .button-submit:active {
+    transform: scale(0.98) !important;
 }
 
 /* ============================================================
@@ -3200,59 +3414,6 @@ body:has(.view-login) .skinHeader {
     border-bottom: var(--vday-osd-border-width) solid var(--vday-pink-deep) !important; 
   }
 
- /* --- 12K. SUBMIT & ACTION BUTTONS --- */
-  /* General dialog buttons (Save, Cancel, Play) */
-  html[class*="theme-"] body .button-submit {
-    background: linear-gradient(135deg, var(--vday-red) 0%, var(--vday-pink-deep) 100%) !important;
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important; /* Forces text to white */
-    text-shadow: 1px 1px 3px var(--black-alpha-50) !important;
-    font-family: 'Oswald', sans-serif !important;
-    text-transform: uppercase !important;
-    border-radius: var(--border-radius-pill) !important;
-    border: 2px solid var(--vday-pink-light) !important;
-    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--vday-red-alpha-40) !important;
-    transition: all 0.2s ease-in-out !important;
-    transform: none !important;
-  }
-  
-  html[class*="theme-"] body .button-submit:hover {
-    background: linear-gradient(135deg, var(--vday-pink-deep) 0%, var(--vday-pink-light) 100%) !important;
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important; /* Locks white on hover */
-    text-shadow: 1px 1px 3px var(--black-alpha-50) !important;
-    border-color: var(--pure-white) !important;
-    box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--vday-pink-deep-alpha-80) !important;
-    transform: translateY(-2px) scale(1.02) !important;
-  }
-  
-  html[class*="theme-"] body .button-submit:active {
-    transform: scale(0.98) !important;
-  }
-
-/* --- 12L. ACTOR NAMES --- */
-  html[class*="theme-"] body .peopleSection .cardText-first {
-    color: var(--vday-pink-light) !important;
-    -webkit-text-fill-color: var(--vday-pink-light) !important;
-    text-shadow: 1px 1px 2px var(--black-alpha-80) !important;
-    font-weight: 700 !important;
-  }
-  
-  html[class*="theme-"] body .peopleSection .cardText-secondary {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    opacity: 0.8 !important;
-    font-style: italic !important;
-  }
-
-/* --- 12M. YELLOW STAR FIX --- */
-  html[class*="theme-"] body .mediaInfoItem .starIcon,
-  html[class*="theme-"] body .starIcon {
-    color: rgb(255, 185, 0) !important;
-    -webkit-text-fill-color: rgb(255, 185, 0) !important;
-    filter: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;
-  }
-
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
@@ -3570,76 +3731,6 @@ body:has(.view-login) .skinHeader {
     border-bottom: 3px solid #ffd700 !important; /* St. Pat's Gold border */
   }
 
-  /* General dialog buttons (Save, Cancel, Play) */
-  html[class*="theme-"] body .button-submit {
-    background: linear-gradient(135deg, var(--stpat-green-mid) 0%, var(--stpat-green-bright) 100%) !important;
-    color: var(--pure-black) !important;
-    -webkit-text-fill-color: var(--pure-black) !important;
-    font-family: 'Oswald', sans-serif !important;
-    text-transform: uppercase !important;
-    border-radius: var(--border-radius-pill) !important;
-    border: 2px solid var(--stpat-gold) !important;
-    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--stpat-green-bright-alpha-40) !important;
-    transition: all 0.2s ease-in-out !important;
-    transform: none !important;
-  }
-  
-  html[class*="theme-"] body .button-submit:hover {
-    background: linear-gradient(135deg, var(--stpat-green-bright) 0%, var(--stpat-gold) 100%) !important;
-    color: var(--pure-black) !important;
-    -webkit-text-fill-color: var(--pure-black) !important;
-    border-color: var(--pure-white) !important;
-    box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--stpat-green-bright-alpha-80) !important;
-    transform: translateY(-2px) scale(1.02) !important;
-  }
-  
-  html[class*="theme-"] body .button-submit:active {
-    transform: scale(0.98) !important;
-  }
-
-  /* --- 13I. ACTOR NAMES --- */
-  html[class*="theme-"] body .peopleSection .cardText-first {
-    color: var(--stpat-green-bright) !important;
-    -webkit-text-fill-color: var(--stpat-green-bright) !important;
-    text-shadow: 1px 1px 2px var(--black-alpha-80) !important;
-    font-weight: 700 !important;
-  }
-  
-  html[class*="theme-"] body .peopleSection .cardText-secondary {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    opacity: 0.8 !important;
-    font-style: italic !important;
-  }
-
-  /* --- 13J. YELLOW STAR FIX --- */
-  html[class*="theme-"] body .mediaInfoItem .starIcon,
-  html[class*="theme-"] body .starIcon {
-    color: rgb(255, 185, 0) !important;
-    -webkit-text-fill-color: rgb(255, 185, 0) !important;
-    filter: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;
-  }
-
-  /* --- 13K. TV GUIDE BADGE FIX --- */
-  /* Strips the heavy badge styling when items are inside the TV guide grid */
-  html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem,
-  html[class*="theme-"] body .programCell .mediaInfoItem,
-  html[class*="theme-"] body .programCell:hover .mediaInfoItem {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    color: var(--white-alpha-60) !important;
-    -webkit-text-fill-color: var(--white-alpha-60) !important;
-    padding: 0 !important;
-    margin: 0 6px 0 0 !important;
-  }
-
-  html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem *,
-  html[class*="theme-"] body .programCell .mediaInfoItem * {
-    color: inherit !important;
-    -webkit-text-fill-color: inherit !important;
-  }  
-
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
@@ -3839,33 +3930,6 @@ body:has(.view-login) .skinHeader {
     border: 3px solid var(--theme-primary-color) !important; 
   }
 
-  /* General dialog buttons (Save, Cancel, Play) */
-  html[class*="theme-"] body .button-submit {
-    background: linear-gradient(135deg, var(--easter-blue-light) 0%, var(--easter-pink) 100%) !important;
-    color: var(--retro-navy) !important;
-    -webkit-text-fill-color: var(--retro-navy) !important;
-    font-family: 'Oswald', sans-serif !important;
-    text-transform: uppercase !important;
-    border-radius: var(--border-radius-pill) !important;
-    border: 2px solid var(--pure-white) !important;
-    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--easter-pink-alpha-50) !important;
-    transition: all 0.2s ease-in-out !important;
-    transform: none !important;
-  }
-  
-  html[class*="theme-"] body .button-submit:hover {
-    background: linear-gradient(135deg, var(--easter-pink) 0%, var(--easter-yellow-light) 100%) !important;
-    border-color: var(--pure-white) !important;
-    color: var(--retro-navy) !important;
-    -webkit-text-fill-color: var(--retro-navy) !important;
-    box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--easter-blue-light) !important;
-    transform: translateY(-2px) scale(1.02) !important;
-  }
-  
-  html[class*="theme-"] body .button-submit:active {
-    transform: scale(0.98) !important;
-  }
-
   /* --- 14G. GLOBAL BACKGROUNDS (CHERRY BLOSSOMS & LANDSCAPE) --- */
   /* Hide default empty containers */
   .backgroundContainer-transparent::before,
@@ -4003,49 +4067,6 @@ body:has(.view-login) .skinHeader {
     color: var(--retro-navy) !important;
     -webkit-text-fill-color: var(--retro-navy) !important;
   }
-
-  /* --- 14I. ACTOR NAMES --- */
-  html[class*="theme-"] body .peopleSection .cardText-first {
-    color: var(--theme-primary-color) !important;
-    -webkit-text-fill-color: var(--theme-primary-color) !important;
-    text-shadow: 1px 1px 2px var(--black-alpha-80) !important;
-    font-weight: 700 !important;
-  }
-  
-  html[class*="theme-"] body .peopleSection .cardText-secondary {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    opacity: 0.8 !important;
-    font-style: italic !important;
-  }
-
-  /* --- 14J. YELLOW STAR FIX --- */
-  html[class*="theme-"] body .mediaInfoItem .starIcon,
-  html[class*="theme-"] body .starIcon {
-    color: rgb(255, 185, 0) !important;
-    -webkit-text-fill-color: rgb(255, 185, 0) !important;
-    filter: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;
-  }
-
-  /* --- 14K. TV GUIDE BADGE FIX --- */
-  /* Strips the heavy badge styling when items are inside the TV guide grid */
-  html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem,
-  html[class*="theme-"] body .programCell .mediaInfoItem,
-  html[class*="theme-"] body .programCell:hover .mediaInfoItem {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    color: var(--white-alpha-60) !important;
-    -webkit-text-fill-color: var(--white-alpha-60) !important;
-    padding: 0 !important;
-    margin: 0 6px 0 0 !important;
-  }
-
-  html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem *,
-  html[class*="theme-"] body .programCell .mediaInfoItem * {
-    color: inherit !important;
-    -webkit-text-fill-color: inherit !important;
-  }  
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
@@ -4259,32 +4280,6 @@ body:has(.view-login) .skinHeader {
     border-bottom: 3px solid var(--july4-red) !important; 
   }
 
-  html[class*="theme-"] body .button-submit {
-    background: linear-gradient(135deg, var(--july4-blue) 0%, var(--july4-red) 100%) !important;
-    color: var(--july4-white) !important;
-    -webkit-text-fill-color: var(--july4-white) !important;
-    font-family: 'Oswald', sans-serif !important;
-    text-transform: uppercase !important;
-    border-radius: var(--border-radius-pill) !important;
-    border: 2px solid var(--july4-white) !important;
-    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--july4-blue-alpha-50) !important;
-    transition: all 0.2s ease-in-out !important;
-    transform: none !important;
-  }
-  
-  html[class*="theme-"] body .button-submit:hover {
-    background: linear-gradient(135deg, var(--july4-red) 0%, var(--july4-white) 100%) !important;
-    color: var(--july4-navy) !important;
-    -webkit-text-fill-color: var(--july4-navy) !important;
-    border-color: var(--july4-white) !important;
-    box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--july4-red-alpha-80) !important;
-    transform: translateY(-2px) scale(1.02) !important;
-  }
-  
-  html[class*="theme-"] body .button-submit:active {
-    transform: scale(0.98) !important;
-  } 
-
   /* --- 15F. MEDIA INFO BADGES --- */
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem,
   html[class*="theme-"] body .mediaInfoItem {
@@ -4317,49 +4312,6 @@ body:has(.view-login) .skinHeader {
   html[class*="theme-"] body .mediaInfoItem:hover * {
     color: var(--pure-white) !important;
     -webkit-text-fill-color: var(--pure-white) !important;
-  }
-
-  /* --- 15G. ACTOR NAMES --- */
-  html[class*="theme-"] body .peopleSection .cardText-first {
-    color: var(--july4-red) !important;
-    -webkit-text-fill-color: var(--july4-red) !important;
-    text-shadow: 1px 1px 2px var(--black-alpha-80) !important;
-    font-weight: 700 !important;
-  }
-  
-  html[class*="theme-"] body .peopleSection .cardText-secondary {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    opacity: 0.8 !important;
-    font-style: italic !important;
-  }
-
-  /* --- 15H. YELLOW STAR FIX --- */
-  html[class*="theme-"] body .mediaInfoItem .starIcon,
-  html[class*="theme-"] body .starIcon {
-    color: rgb(255, 185, 0) !important;
-    -webkit-text-fill-color: rgb(255, 185, 0) !important;
-    filter: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;
-  }
-
-  /* --- 15I. TV GUIDE BADGE FIX --- */
-  /* Strips the heavy badge styling when items are inside the TV guide grid */
-  html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem,
-  html[class*="theme-"] body .programCell .mediaInfoItem,
-  html[class*="theme-"] body .programCell:hover .mediaInfoItem {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    color: var(--white-alpha-60) !important;
-    -webkit-text-fill-color: var(--white-alpha-60) !important;
-    padding: 0 !important;
-    margin: 0 6px 0 0 !important;
-  }
-
-  html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem *,
-  html[class*="theme-"] body .programCell .mediaInfoItem * {
-    color: inherit !important;
-    -webkit-text-fill-color: inherit !important;
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
@@ -4627,32 +4579,6 @@ body:has(.view-login) .skinHeader {
     -webkit-backdrop-filter: blur(25px) saturate(80%) !important;
   }
 
-  /* General dialog buttons (Save, Cancel, Play) */
-  html[class*="theme-"] body .button-submit {
-    background: linear-gradient(135deg, var(--hw-orange) 0%, #cc5200 100%) !important;
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    font-family: 'Oswald', sans-serif !important;
-    text-transform: uppercase !important;
-    border-radius: var(--border-radius-pill) !important;
-    border: 2px solid var(--hw-purple) !important;
-    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--hw-purple-alpha-50) !important;
-    transform: none !important;
-  }
-  
-  html[class*="theme-"] body .button-submit:hover {
-    background: linear-gradient(135deg, var(--hw-purple) 0%, #6a1b9a 100%) !important;
-    color: var(--hw-orange) !important;
-    -webkit-text-fill-color: var(--hw-orange) !important;
-    border-color: var(--hw-orange) !important;
-    box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--hw-orange-alpha-80) !important;
-    transform: translateY(-2px) scale(1.02) !important;
-  }
-
-  html[class*="theme-"] body .button-submit:active {
-    transform: scale(0.98) !important;
-  }
-
   /* Loading Spinner */
   .mdl-spinner__layer-1 {
     animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, halloween-spinner-colors 5332ms linear infinite !important;
@@ -4789,49 +4715,6 @@ body:has(.view-login) .skinHeader {
   html[class*="theme-"] body .mediaInfoItem:hover * {
     color: var(--pure-white) !important;
     -webkit-text-fill-color: var(--pure-white) !important;
-  }
-
-  /* --- 16H. ACTOR NAMES --- */
-  html[class*="theme-"] body .peopleSection .cardText-first {
-    color: var(--hw-orange) !important;
-    -webkit-text-fill-color: var(--hw-orange) !important;
-    text-shadow: 1px 1px 2px var(--pure-black), -1px -1px 0 var(--white-alpha-10) !important;
-    font-weight: 700 !important;
-  }
-  
-  html[class*="theme-"] body .peopleSection .cardText-secondary {
-    color: var(--hw-gray-2) !important;
-    -webkit-text-fill-color: var(--hw-gray-2) !important;
-    opacity: 0.8 !important;
-    font-style: italic !important;
-  }
-
-  /* --- 16I. YELLOW STAR FIX --- */
-  html[class*="theme-"] body .mediaInfoItem .starIcon,
-  html[class*="theme-"] body .starIcon {
-    color: rgb(255, 185, 0) !important;
-    -webkit-text-fill-color: rgb(255, 185, 0) !important;
-    filter: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;
-  }
-
-  /* --- 16J. TV GUIDE BADGE FIX --- */
-  /* Strips the heavy badge styling when items are inside the TV guide grid */
-  html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem,
-  html[class*="theme-"] body .programCell .mediaInfoItem,
-  html[class*="theme-"] body .programCell:hover .mediaInfoItem {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    color: var(--white-alpha-60) !important;
-    -webkit-text-fill-color: var(--white-alpha-60) !important;
-    padding: 0 !important;
-    margin: 0 6px 0 0 !important;
-  }
-
-  html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem *,
-  html[class*="theme-"] body .programCell .mediaInfoItem * {
-    color: inherit !important;
-    -webkit-text-fill-color: inherit !important;
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
@@ -5133,33 +5016,6 @@ body:has(.view-login) .skinHeader {
     filter: drop-shadow(2px 2px 3px var(--black-alpha-80));
   }
 
-  /* General dialog buttons (Save, Cancel, Play) */
-  html[class*="theme-"] body .button-submit {
-    background: linear-gradient(135deg, var(--tg-brown) 0%, var(--tg-orange) 100%) !important;
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    font-family: 'Oswald', sans-serif !important;
-    text-transform: uppercase !important;
-    border-radius: var(--border-radius-pill) !important;
-    border: 2px solid var(--tg-gold) !important;
-    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--tg-orange-alpha-40) !important;
-    transition: all 0.2s ease-in-out !important;
-    transform: none !important;
-  }
-  
-  html[class*="theme-"] body .button-submit:hover {
-    background: linear-gradient(135deg, var(--tg-orange) 0%, var(--tg-gold) 100%) !important;
-    border-color: var(--pure-white) !important;
-    color: var(--pure-black) !important;
-    -webkit-text-fill-color: var(--pure-black) !important;
-    box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--tg-gold-alpha-80) !important;
-    transform: translateY(-2px) scale(1.02) !important;
-  }
-  
-  html[class*="theme-"] body .button-submit:active {
-    transform: scale(0.98) !important;
-  }
-
   /* --- 17H. GLOBAL BACKGROUNDS (FALLING LEAVES) --- */
   /* Hides default empty containers */
   .backgroundContainer-transparent::before,
@@ -5225,49 +5081,6 @@ body:has(.view-login) .skinHeader {
   @keyframes leaf-sway {
     from { transform: translateX(-30px) rotate(-10deg); }
     to { transform: translateX(30px) rotate(10deg); }
-  }
-
-  /* --- 17I. ACTOR NAMES --- */
-  html[class*="theme-"] body .peopleSection .cardText-first {
-    color: var(--tg-gold) !important;
-    -webkit-text-fill-color: var(--tg-gold) !important;
-    text-shadow: 1px 1px 2px var(--black-alpha-80) !important;
-    font-weight: 700 !important;
-  }
-  
-  html[class*="theme-"] body .peopleSection .cardText-secondary {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    opacity: 0.8 !important;
-    font-style: italic !important;
-  }
-
-  /* --- 17J. YELLOW STAR FIX --- */
-  html[class*="theme-"] body .mediaInfoItem .starIcon,
-  html[class*="theme-"] body .starIcon {
-    color: rgb(255, 185, 0) !important;
-    -webkit-text-fill-color: rgb(255, 185, 0) !important;
-    filter: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;
-  }
-
-  /* --- 17K. TV GUIDE BADGE FIX --- */
-  /* Strips the heavy badge styling when items are inside the TV guide grid */
-  html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem,
-  html[class*="theme-"] body .programCell .mediaInfoItem,
-  html[class*="theme-"] body .programCell:hover .mediaInfoItem {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    color: var(--white-alpha-60) !important;
-    -webkit-text-fill-color: var(--white-alpha-60) !important;
-    padding: 0 !important;
-    margin: 0 6px 0 0 !important;
-  }
-
-  html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem *,
-  html[class*="theme-"] body .programCell .mediaInfoItem * {
-    color: inherit !important;
-    -webkit-text-fill-color: inherit !important;
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
@@ -5472,33 +5285,6 @@ body:has(.view-login) .skinHeader {
     border-bottom: 3px solid var(--xmas-red) !important; 
   }
 
-  /* General dialog buttons */
-  html[class*="theme-"] body .button-submit {
-    background: linear-gradient(135deg, var(--xmas-red) 0%, var(--xmas-red-dark) 100%) !important;
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    font-family: 'Oswald', sans-serif !important;
-    text-transform: uppercase !important;
-    border-radius: var(--border-radius-pill) !important;
-    border: 2px solid var(--xmas-white) !important;
-    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--xmas-red-alpha-80) !important;
-    transition: all 0.2s ease-in-out !important;
-    transform: none !important;
-  }
- 
-  html[class*="theme-"] body .button-submit:hover {
-    background: linear-gradient(135deg, var(--xmas-green) 0%, var(--xmas-bg-dark-1) 100%) !important;
-    border-color: var(--pure-white) !important;
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--xmas-green-alpha-50) !important;
-    transform: translateY(-2px) scale(1.02) !important;
-  }
- 
-  html[class*="theme-"] body .button-submit:active {
-    transform: scale(0.98) !important;
-  }
-
   /* Christmas-colored Checkboxes & Toggles */
   html[class*="theme-"] body .emby-checkbox:checked + span::before {
     background-color: var(--xmas-green) !important;
@@ -5665,49 +5451,6 @@ body:has(.view-login) .skinHeader {
   html[class*="theme-"] body .mediaInfoItem:hover * {
     color: var(--pure-white) !important;
     -webkit-text-fill-color: var(--pure-white) !important;
-  }
-
-  /* --- 18J. ACTOR NAMES --- */
-  html[class*="theme-"] body .peopleSection .cardText-first {
-    color: var(--xmas-red-light) !important;
-    -webkit-text-fill-color: var(--xmas-red-light) !important;
-    text-shadow: 1px 1px 2px var(--black-alpha-80) !important;
-    font-weight: 700 !important;
-  }
-  
-  html[class*="theme-"] body .peopleSection .cardText-secondary {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    opacity: 0.8 !important;
-    font-style: italic !important;
-  }
-
-  /* --- 18K. YELLOW STAR FIX --- */
-  html[class*="theme-"] body .mediaInfoItem .starIcon,
-  html[class*="theme-"] body .starIcon {
-    color: rgb(255, 185, 0) !important;
-    -webkit-text-fill-color: rgb(255, 185, 0) !important;
-    filter: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;
-  }
-
-  /* --- 18L. TV GUIDE BADGE FIX --- */
-  /* Strips the heavy badge styling when items are inside the TV guide grid */
-  html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem,
-  html[class*="theme-"] body .programCell .mediaInfoItem,
-  html[class*="theme-"] body .programCell:hover .mediaInfoItem {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    color: var(--white-alpha-60) !important;
-    -webkit-text-fill-color: var(--white-alpha-60) !important;
-    padding: 0 !important;
-    margin: 0 6px 0 0 !important;
-  }
-
-  html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem *,
-  html[class*="theme-"] body .programCell .mediaInfoItem * {
-    color: inherit !important;
-    -webkit-text-fill-color: inherit !important;
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
@@ -5963,33 +5706,6 @@ body:has(.view-login) .skinHeader {
     border-bottom: 3px solid var(--nye-gold) !important;
   }
 
-  /* General dialog buttons (Save, Cancel, Play) */
-  html[class*="theme-"] body .button-submit {
-    background: linear-gradient(135deg, var(--nye-gold-dark) 0%, var(--nye-gold) 100%) !important;
-    color: var(--pure-black) !important;
-    -webkit-text-fill-color: var(--pure-black) !important;
-    font-family: 'Oswald', sans-serif !important;
-    text-transform: uppercase !important;
-    border-radius: var(--border-radius-pill) !important;
-    border: 2px solid var(--nye-cream) !important;
-    box-shadow: 0 5px 15px var(--black-alpha-50), 0 0 15px var(--nye-gold-alpha-40) !important;
-    transition: all 0.2s ease-in-out !important;
-    transform: none !important;
-  }
-  
-  html[class*="theme-"] body .button-submit:hover {
-    background: linear-gradient(135deg, var(--nye-gold) 0%, var(--nye-cream) 100%) !important;
-    border-color: var(--pure-white) !important;
-    color: var(--pure-black) !important;
-    -webkit-text-fill-color: var(--pure-black) !important;
-    box-shadow: 0 8px 20px var(--black-alpha-50), 0 0 25px var(--nye-cream-alpha-80) !important;
-    transform: translateY(-2px) scale(1.02) !important;
-  }
-  
-  html[class*="theme-"] body .button-submit:active {
-    transform: scale(0.98) !important;
-  }
-
   /* Loading Spinner */
   html[class*="theme-"] body .mdl-spinner__layer-1 {
     animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, nye-spinner-colors 5332ms linear infinite !important;
@@ -6113,48 +5829,6 @@ body:has(.view-login) .skinHeader {
   html[class*="theme-"] body .mediaInfoItem:hover * {
     color: var(--pure-black) !important;
     -webkit-text-fill-color: var(--pure-black) !important;
-  }
-
-  /* --- 19I. ACTOR NAMES --- */
-  html[class*="theme-"] body .peopleSection .cardText-first {
-    color: var(--nye-gold) !important;
-    -webkit-text-fill-color: var(--nye-gold) !important;
-    text-shadow: 1px 1px 2px var(--black-alpha-80) !important;
-    font-weight: 700 !important;
-  }
-  
-  html[class*="theme-"] body .peopleSection .cardText-secondary {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    opacity: 0.8 !important;
-    font-style: italic !important;
-  }
-
-  /* --- 19J. YELLOW STAR FIX --- */
-  html[class*="theme-"] body .mediaInfoItem .starIcon,
-  html[class*="theme-"] body .starIcon {
-    color: rgb(255, 185, 0) !important;
-    -webkit-text-fill-color: rgb(255, 185, 0) !important;
-    filter: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;
-  }
-
-  /* --- 19K. TV GUIDE BADGE FIX --- */
-  html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem,
-  html[class*="theme-"] body .programCell .mediaInfoItem,
-  html[class*="theme-"] body .programCell:hover .mediaInfoItem {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    color: var(--white-alpha-60) !important;
-    -webkit-text-fill-color: var(--white-alpha-60) !important;
-    padding: 0 !important;
-    margin: 0 6px 0 0 !important;
-  }
-
-  html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem *,
-  html[class*="theme-"] body .programCell .mediaInfoItem * {
-    color: inherit !important;
-    -webkit-text-fill-color: inherit !important;
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
