@@ -2513,42 +2513,47 @@ input[type="range"]::-moz-range-thumb {
 
 /* 1. Master Header Container Background */
 html[class*="theme-"] .dataGridHeader {
-  background-color:        var(--navy-mid-solid) !important; /* Rich solid blue */
-  background-image:        none !important;
-  backdrop-filter:         var(--blur-heavy) !important;
-  -webkit-backdrop-filter: var(--blur-heavy) !important;
-  border-bottom:           2px solid var(--theme-primary-color) !important;
-  box-shadow:              0 5px 15px var(--black-alpha-50) !important;
-  z-index:                 100 !important;
-  padding-top:             4px !important;
-  padding-bottom:          4px !important;
+    background-color: var(--table-header-bg) !important; 
+    background-image: none !important;
+    backdrop-filter: var(--blur-heavy) !important;
+    -webkit-backdrop-filter: var(--blur-heavy) !important;
+    border-bottom: 2px solid var(--theme-primary-color) !important;
+    box-shadow: 0 5px 15px var(--black-alpha-50) !important;
+    z-index: 100 !important;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
 }
 
 /* 2. Strip dark backgrounds off the inner layers so the blue shows through */
+/* Removed margin resets so Emby's native X-axis alignment is preserved */
 html[class*="theme-"] .dataGridHeader .dataGridHeader-content,
 html[class*="theme-"] .dataGridHeader .dataGridItem-content,
 html[class*="theme-"] .dataGridHeader .dataGridHeader-content-inner {
-  background-color:        transparent !important;
-  background-image:        none !important;
-  border:                  none !important;
-  box-shadow:              none !important;
-  margin:                  0 !important;
-  border-radius:           0 !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
-/* 3. Header Text: Stylized gold titles for column headers */
+/* 3. Header Colors (Applies gold to both text and icons) */
 html[class*="theme-"] .dataGridHeader .dataGridItemCell,
 html[class*="theme-"] .dataGridHeader .dataGridHeaderText,
 html[class*="theme-"] .dataGridHeader .primaryText,
 html[class*="theme-"] .dataGridHeader .button-link,
 html[class*="theme-"] .dataGridHeader .button-link * {
-  color:                   var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
-  font-family:             'Oswald', sans-serif !important;
-  text-transform:          uppercase !important;
-  letter-spacing:          1px !important;
-  font-size:               0.95em !important;
-  font-weight:             700 !important;
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* 4. Header Fonts (Excludes cells/icons to prevent missing glyphs and flex stretching) */
+html[class*="theme-"] .dataGridHeader .dataGridHeaderText,
+html[class*="theme-"] .dataGridHeader .primaryText {
+    font-family: 'Oswald', sans-serif !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important; /* Scaled back to prevent stretching */
+    font-size: 0.85em !important; /* Scaled back to fit native flex widths */
+    font-weight: 700 !important;
+    white-space: nowrap !important; /* Forces text to stay on one line */
 }
 
 /* --- 10B. Global Form Titles (Legends) --- */
@@ -2720,20 +2725,25 @@ html[class*="theme-"] body .starIcon {
 /* 2. Universal TV Guide Badge Fix: Strips heavy styles from grid badges */
 html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem,
 html[class*="theme-"] body .programCell .mediaInfoItem,
-html[class*="theme-"] body .programCell:hover .mediaInfoItem {
-  background:              transparent !important;
-  border:                  none !important;
-  box-shadow:              none !important;
-  color:                   var(--white-alpha-60) !important;
+html[class*="theme-"] body .programCell:hover .mediaInfoItem,
+html[class*="theme-"] body .programCell:hover .mediaInfoItems .mediaInfoItem,
+html[class*="theme-"] body .programCell .mediaInfoItem:hover,
+html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem:hover {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--white-alpha-60) !important;
   -webkit-text-fill-color: var(--white-alpha-60) !important;
-  padding:                 0 !important;
-  margin:                  0 6px 0 0 !important;
-  text-shadow:             none !important;
+  padding: 0 !important;
+  margin: 0 6px 0 0 !important;
+  text-shadow: none !important;
 }
 
 html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem *,
-html[class*="theme-"] body .programCell .mediaInfoItem * {
-  color:                   inherit !important;
+html[class*="theme-"] body .programCell .mediaInfoItem *,
+html[class*="theme-"] body .programCell .mediaInfoItem:hover *,
+html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem:hover * {
+  color: inherit !important;
   -webkit-text-fill-color: inherit !important;
 }
 
