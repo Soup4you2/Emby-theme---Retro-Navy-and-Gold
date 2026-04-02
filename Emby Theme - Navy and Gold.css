@@ -71,7 +71,10 @@ html,
   --nav-pill-active-glow: 0 4px 8px var(--black-alpha-80), 0 0 5px var(--gold-alpha-40); /* Outer glow for active pills */
   --nav-pill-bar-bg: rgb(var(--navy-accent-rgb));                  /* Background color for the pill container bar */
   --nav-pill-bar-border: 0px solid var(--gold-alpha-80);           /* Border for the pill container bar */
-
+  --nav-active-background: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);   /* TODO: Old code used in LiveTV Pills */
+  --nav-active-color: var(--retro-navy);                           /* TODO: Old code used in LiveTV Pills */
+  --nav-active-border: 2px solid var(--retro-navy);                /* TODO: Old code used in LiveTV Pills */
+  --nav-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* TODO: Old code used in LiveTV Pills */
   /* --- EMBY THEME ENFORCERS --- */
   --theme-primary-color: var(--my-gold) !important;                /* Global brand primary */
   --theme-accent-color: var(--my-gold) !important;                 /* Global brand accent */
@@ -231,44 +234,6 @@ html,
   --button-popout-transform: none;
   --button-popout-active-shadow: none;
   --button-popout-active-transform: none;
-  */
-
-  /* ============================================================
-      THE "POP-OUT MEDIA ART" TOGGLE (DEFAULT: OFF)
-      (Makes the cards jump out at you when you hover over them)
-      Uncomment ONE of the blocks below to enable/disable
-      ============================================================ */
-  
-  /* OPTION 1: DISABLED */
-  --popout-perspective: none;
-  --popout-transform: none;
-  --popout-shadow: none;
-
-  /* OPTION 2: ENABLED */
-  /*
-  --popout-perspective: 1000px;
-  --popout-transform: scale(1.05) rotateX(4deg) translateY(-5px);
-  --popout-shadow: 0px 20px 30px var(--black-alpha-90), var(--shadow-glow-standard);
-  */
-
-  /* ============================================================
-      THE "ACTIVE TAB STYLE" TOGGLE (DEFAULT: POP-OUT)
-      (ie: Pill buttons like Home/Favotites, etc..)
-      Uncomment ONE of the blocks below to change the active tab style.
-      ============================================================ */
-
-  /* OPTION 1: POP-OUT PILL (Matches Unwatched Counts - Default) */
-  --nav-active-background: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);
-  --nav-active-color: var(--retro-navy);
-  --nav-active-border: 2px solid var(--retro-navy);
-  --nav-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);
-
-  /* OPTION 2: STANDARD FLAT (Original Theme Style) */
-  /*
-  --nav-active-background: var(--my-gold);
-  --nav-active-color: var(--pure-black);
-  --nav-active-border: 2px solid transparent; 
-  --nav-active-shadow: var(--shadow-glow-standard);
   */
 
   /* ============================================================
