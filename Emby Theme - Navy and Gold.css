@@ -3409,7 +3409,7 @@ html[class*="theme-"] body .button-submit {
     border: 1px solid rgba(0, 0, 0, 0.2) !important;
 }
 
-/* HOTIX PATCH: SIDEBAR HEADER FIXES (LOGO BOX, CLOSE BUTTON, LIGHT THEME) */
+/* HOTFIX PATCH: SIDEBAR HEADER FIXES (LOGO BOX, CLOSE BUTTON, LIGHT THEME) */
 
 /* 1. Nuke the Box: Overrides your global button border specifically for the logo */
 html[class*="theme-"] body .mainDrawer a.btnNavDrawerLogo,
@@ -3455,7 +3455,7 @@ html[class*="theme-"] body .mainDrawer .btnPinNavDrawer:hover .md-icon {
     opacity: 1 !important;
 }
 
-/* HOTIX PATCH: MINI DRAWER (COLLAPSED SIDEBAR) */
+/* HOTFIX PATCH: MINI DRAWER (COLLAPSED SIDEBAR) */
 
 /* 1. Re-centers the icons and fixes the cutoff in the collapsed state */
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption {
@@ -3497,7 +3497,7 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption.navMenuOpt
     -webkit-text-fill-color: var(--my-gold) !important;
 }
 
-/* HOTIX PATCH: MINI DRAWER ICON COLORS (WHITE ICONS / GOLD HAMBURGER) */
+/* HOTFIX: MINI DRAWER ICON COLORS (WHITE ICONS / GOLD HAMBURGER) */
 
 /* 1. Forces all inactive menu icons to white when collapsed */
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected) .md-icon,
@@ -3525,7 +3525,7 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini .btnToggleNavDrawer .md-i
     opacity: 1 !important;
 }
 
-/* HOTIX PATCH: HAMBURGER MENU COLOR RESTORATION */
+/* HOTFIX PATCH: HAMBURGER MENU COLOR RESTORATION */
 
 /* Forces the top-header hamburger menu (and its icon) to always be Gold */
 html[class*="theme-"] body .skinHeader .headerMenuButton,
@@ -3689,6 +3689,72 @@ html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton:hover i.md-ico
     color: var(--retro-navy) !important;
     -webkit-text-fill-color: var(--retro-navy) !important;
     filter: none !important;
+}
+
+/* HOTFIX PATCH: ADMIN LIBRARY FOOTERS */
+
+/* 1. Base Card Container: Charcoal foundation */
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardContent,
+html[class*="theme-"] body .view-librarysetup-librarysetup .visualCardBox {
+    background-color: rgba(var(--navy-banner-rgb), 0.8) !important; 
+    background-image: none !important;
+    border: none !important;
+    overflow: visible !important; 
+    border-radius: var(--border-radius-lg) !important;
+}
+
+/* 2. Resting Image State: Pre-sets a transparent border to prevent layout jumping */
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardImageContainer {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9) !important;
+    transform: translateY(-2px) scale(1.01) !important;
+    z-index: 10 !important;
+    border-radius: var(--border-radius-md) !important;
+    border: var(--hover-border-thickness) solid transparent !important; /* Placeholder border */
+    transition: transform var(--transition-speed) ease, border-color var(--transition-speed) ease !important;
+}
+
+/* 3. THE GOLD HOVER: Replicates the Home Screen media card look */
+html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardImageContainer {
+    transform: translateY(-8px) scale(1.04) !important; /* Lifts higher like media cards */
+    border-color: var(--my-gold) !important;          /* Solid Gold Border */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 1), 
+                var(--shadow-glow-standard) !important; /* Standard Gold Glow */
+}
+
+/* 4. Footer & Text Layout */
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardFooter {
+    background: transparent !important;
+    padding: 18px 10px 12px 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+/* 5. Typography Fixes */
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardText-first {
+    color: var(--pure-white) !important;
+    font-weight: 600 !important;
+}
+
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardText-secondary {
+    color: var(--white-alpha-60) !important;
+    font-size: 0.82em !important;
+    margin-top: 4px !important;
+}
+
+/* Gold for Interactive Library Links (Oswald font) */
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardMediaInfoItem .button-link,
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardMediaInfoItem .button-link * {
+    color: var(--my-gold) !important;
+    font-family: 'Oswald', sans-serif !important;
+    text-transform: uppercase !important;
+    font-size: 1.15em !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Subtle background darkening of the charcoal base on hover */
+html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardContent {
+    background-color: rgb(var(--navy-banner-rgb)) !important;
 }
 
 /* ============================================================
