@@ -3097,30 +3097,24 @@ html[class*="theme-"] body .dataGridItem:hover .mediaInfoItem * {
     -webkit-text-fill-color: var(--media-badge-color) !important;
 }
 
-/* --- 10E. LIST VIEW ZEBRA STRIPING (LIGHT THEME OVERRIDE) --- */
+/* --- 10E. LIST VIEW ZEBRA STRIPING (EXCLUDING SEASON PAGES) --- */
 
-/* 1. Target rows strictly inside the main content window (.view), protecting the sidebar */
-html[class*="theme-"] body .view .listItem,
-html[class*="theme-"] body .view .listItem-border,
-html[class*="theme-"] body .view .dataGridItem,
-html[class*="theme-"] body .view .dataGridRow {
+/* 1. Target rows Strictly NOT in the series items section */
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem,
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem-border,
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItem,
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridRow {
     background-color: transparent !important;
     border: none !important;
 }
 
-/* 2. Odd Rows (Darker Navy) */
-html[class*="theme-"] body .view .listItem:nth-child(odd),
-html[class*="theme-"] body .view .listItem-border:nth-child(odd),
-html[class*="theme-"] body .view .dataGridItem:nth-child(odd),
-html[class*="theme-"] body .view .dataGridRow:nth-child(odd) {
+/* 2. Odd Rows (Darker Navy) - Excludes Season Page */
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem:nth-child(odd) {
     background-color: var(--table-row-bg-odd) !important;
 }
 
-/* 3. Even Rows (Lighter Navy) */
-html[class*="theme-"] body .view .listItem:nth-child(even),
-html[class*="theme-"] body .view .listItem-border:nth-child(even),
-html[class*="theme-"] body .view .dataGridItem:nth-child(even),
-html[class*="theme-"] body .view .dataGridRow:nth-child(even) {
+/* 3. Even Rows (Lighter Navy) - Excludes Season Page */
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem:nth-child(even) {
     background-color: var(--table-row-bg-even) !important;
 }
 
@@ -3675,6 +3669,64 @@ html[class*="theme-"] body .view-librarysetup-librarysetup .cardMediaInfoItem .b
 /* Subtle background darkening of the charcoal base on hover */
 html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardContent {
     background-color: rgb(var(--navy-banner-rgb)) !important;
+}
+
+/* 3. The "Transform Angle" to nudge the image and text together */
+html[class*="theme-"] body .seriesItemsSection .listItem-innerwrapper {
+    transform: translateX(40px) !important; /* Shoves the whole row 40px right */
+    width: calc(100% - 40px) !important;    /* Prevents the right side from clipping */
+}
+
+/* 4. Fixes the selection highlight/hover to match the new position */
+html[class*="theme-"] body .seriesItemsSection .listItem:hover {
+    transform: translateX(40px) !important;
+    width: calc(100% - 40px) !important;
+}
+
+/* ============================================================
+   13. UNIVERSAL SEASONAL LOGIC
+   ============================================================ */
+
+/* 1. Universal Actor Names */
+html[class*="theme-"] body .peopleSection .cardText-first {
+  color:                   var(--season-actor-name) !important;
+  -webkit-text-fill-color: var(--season-actor-name) !important;
+  text-shadow:             1px 1px 2px var(--black-alpha-80) !important;
+  font-weight:             700 !important;
+}
+
+html[class*="theme-"] body .peopleSection .cardText-secondary {
+  color:                   var(--season-actor-role) !important;
+  -webkit-text-fill-color: var(--season-actor-role) !important;
+  opacity:                 0.8 !important;
+  font-style:              italic !important;
+}
+
+/* 2. Universal Submit Buttons */
+html[class*="theme-"] body .button-submit {
+  background:              var(--season-btn-bg) !important;
+  color:                   var(--season-btn-text) !important;
+  -webkit-text-fill-color: var(--season-btn-text) !important;
+  font-family:             'Oswald', sans-serif !important;
+  font-size:               0.95rem !important;
+  border-radius:           var(--border-radius-pill) !important;
+  border:                  2px solid var(--season-btn-border) !important;
+  box-shadow:              var(--season-btn-shadow) !important;
+  transition:              all var(--transition-speed) ease-in-out !important;
+  transform:               none !important;
+}
+
+html[class*="theme-"] body .button-submit:hover {
+  background:              var(--season-btn-bg-hover) !important;
+  border-color:            var(--season-btn-border-hover) !important;
+  color:                   var(--season-btn-text-hover) !important;
+  -webkit-text-fill-color: var(--season-btn-text-hover) !important;
+  box-shadow:              var(--season-btn-shadow-hover) !important;
+  transform:               translateY(-2px) scale(1.02) !important;
+}
+
+html[class*="theme-"] body .button-submit:active {
+  transform:               scale(0.98) !important;
 }
 
 /* ============================================================
