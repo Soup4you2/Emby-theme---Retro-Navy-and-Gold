@@ -1770,6 +1770,11 @@ html[class*="theme-"] .emby-checkbox:focus + span::before {
   box-shadow:              var(--shadow-glow-standard) !important;
 }
 
+html[class*="theme-"] .emby-checkbox:not(:checked) + span::before {
+    border-color: var(--white-alpha-70) !important; 
+    background-color: var(--black-alpha-20) !important; /* Adds a slight contrast to the inside */
+}
+
 /* 2. Toggles (Switches): Styled using the Toggle Track/Thumb variables */
 html[class*="theme-"] .toggleSwitch {
   background-color:        var(--toggle-track-off) !important;
@@ -3727,6 +3732,31 @@ html[class*="theme-"] body .ratingbutton-icon-withrating:hover {
   -webkit-text-fill-color: #ff0044 !important;
   transform:               scale(1.2) !important;
   filter:                  drop-shadow(0 0 10px rgba(255, 0, 68, 0.8)) !important;
+}
+
+/* ============================================================
+   HOTFIX: TRAKT PLUGIN - PAPERLIST / CHECKBOX TABLES (Exclude Folders, etc.)
+   ============================================================ */
+
+/* 1. Nuke the ugly solid grey and replace with a sleek navy panel */
+html[class*="theme-"] body .paperList,
+html[class*="theme-"] body .checkboxList-paperList {
+    background: var(--navy-light-alpha-60) !important;
+    background-color: var(--navy-light-alpha-60) !important;
+    border: var(--standard-border-thickness) solid var(--gold-alpha-30) !important;
+    border-radius: var(--border-radius-md) !important;
+    box-shadow: 0 5px 15px var(--black-alpha-50) !important;
+    padding: 8px 0 !important;
+}
+
+/* 2. Text color fix and layout adjustment for the rows */
+html[class*="theme-"] body .paperList .emby-checkbox-label {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    border-radius: var(--border-radius-sm) !important;
+    margin: 2px 8px !important;
+    padding: 8px 10px !important;
+    transition: all var(--transition-speed) ease-in-out !important;
 }
 
 /* ============================================================
