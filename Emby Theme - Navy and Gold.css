@@ -1304,6 +1304,13 @@ html[class*="theme-"] body .itemsViewSettingsContainer-button:hover * {
     -webkit-text-fill-color: var(--pure-black) !important;
 }
 
+/* 2b. Library Header Play Button Fix (Overrides the Action Buttons logic above) */
+html[class*="theme-"] body .itemsViewSettingsContainer .btnPlay:not(:hover),
+html[class*="theme-"] body .itemsViewSettingsContainer .btnPlay:not(:hover) * {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+}
+
 /* 3. Link Hover Accent (Mapped to: Gold) */
 /* Forces text links to stay Gold even on hover/focus */
 html[class*="theme-"] body .button-link:hover,
@@ -1690,6 +1697,14 @@ html[class*="theme-"] body .actionSheet {
   color:                   var(--pure-white) !important;
 }
 
+/* 5. Action Sheet Links: Forces titles in action sheets to black text for contrast */
+html[class*="theme-"] body .actionSheet .button-link,
+html[class*="theme-"] body .actionSheet .button-link * {
+  color: var(--pure-black) !important;
+  -webkit-text-fill-color: var(--pure-black) !important;
+  opacity: 1 !important;
+}
+
 /* --- 4B. TEXT INPUTS, DROPDOWNS & TEXTAREAS --- */
 
 /* 1. Base Input Styling: Standardizes the look of all text fields */
@@ -1818,16 +1833,28 @@ html[class*="theme-"] .listItemImageButton {
 }
 
 /* 2. Played Checkmarks: Overrides default green with theme gold */
-.playstatebutton-icon-played,
-button[data-played="true"] .playstatebutton-icon,
-.listViewPlayedButton.playstatebutton-icon-played,
-button[data-played="true"].cardOverlayButton-fab {
+html[class*="theme-"] body .playstatebutton-icon-played,
+html[class*="theme-"] body .paper-icon-button-light.playstatebutton-icon-played,
+html[class*="theme-"] body button[data-played="true"],
+html[class*="theme-"] body button[data-played="true"] *,
+html[class*="theme-"] body .dataGridItem .playstatebutton-icon-played,
+html[class*="theme-"] body .listItem .playstatebutton-icon-played,
+html[class*="theme-"] body .dataGridItemCell button[data-played="true"] *,
+html[class*="theme-"] body .dataGridItem:hover button[data-played="true"] * {
   color:                   var(--my-gold) !important;
-  border-color:            var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  filter:                  drop-shadow(0 0 5px var(--gold-alpha-40)) !important;
+  opacity:                 1 !important;
 }
 
-button[data-played="true"].cardOverlayButton-fab {
-  filter:                  drop-shadow(0 0 5px var(--gold-alpha-40)) !important;
+/* 2b. Played Checkmarks Hover State */
+html[class*="theme-"] body button[data-played="true"]:hover,
+html[class*="theme-"] body button[data-played="true"]:hover *,
+html[class*="theme-"] body .playstatebutton-icon-played:hover {
+  color:                   var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  transform:               scale(1.2) !important;
+  filter:                  drop-shadow(0 0 10px var(--gold-alpha-80)) !important;
 }
 
 /* 3. Played Indicator Pills: Floating status in card corners */
@@ -3013,13 +3040,15 @@ html[class*="theme-"] .videoOsdBottom .emby-tab-button:hover:not(.emby-tab-butto
     border-color: var(--nav-pill-hover-border-color) !important;
 }
 
-/* Active OSD Tab: Gold Gradient & Glow */
-html[class*="theme-"] .videoOsdBottom .emby-tab-button-active {
+/* Active OSD Tab: Gold Gradient & Glow (Includes High Specificity Text Color Fix) */
+html[class*="theme-"] body .videoOsdBottom .emby-tab-button.emby-tab-button-active,
+html[class*="theme-"] body .videoOsdBottom .emby-tab-button.emby-tab-button-active * {
     background: var(--nav-pill-active) !important;
-    color: var(--nav-pill-active-text) !important;
-    -webkit-text-fill-color: var(--nav-pill-active-text) !important;
+    color: var(--pure-black) !important;
+    -webkit-text-fill-color: var(--pure-black) !important;
     border: var(--nav-pill-active-border) !important;
     box-shadow: var(--nav-pill-active-glow) !important;
+    opacity: 1 !important;
 }
 
 /* Kills the native grey Emby background layer inside the tabs */
@@ -3515,6 +3544,30 @@ html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardCont
   background-color: rgb(var(--navy-banner-rgb)) !important;
 }
 
+/* --- 10K. USER TABLE (LIGHT THEME FIX) --- */
+
+/* 1. Forces main list text to pure white when Light Theme is active */
+html.theme-light body .view .listItem .listItemBodyText,
+html.theme-light body .view .listItem .listItemBodyText-first,
+html.theme-light body .view .emby-checkbox-label {
+  color: var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+/* 2. Forces descriptions and secondary text to muted white (EXCLUDING BUTTONS) */
+html.theme-light body .view .listItem .secondaryText:not(button),
+html.theme-light body .view .fieldDescription {
+  color: var(--white-alpha-70) !important;
+  -webkit-text-fill-color: var(--white-alpha-70) !important;
+}
+
+/* 3. Fixes the blinding white background box behind the lists in the Light Theme */
+html.theme-light body .view .navDrawerItemsContainer-shaded,
+html.theme-light body .view .defaultCardBackground {
+  background-color: var(--navy-light-alpha-40) !important;
+  border: var(--standard-border-thickness) solid var(--gold-alpha-15) !important;
+}
+
 /* ============================================================
    11. LOGIN PAGE & MISC TWEAKS
    ============================================================ */
@@ -3569,9 +3622,23 @@ body:has(.view-login) .skinHeader {
   transform:               var(--button-popout-active-transform) !important;
 }
 
+/* 3D Popout Contrast Fix: Changes the 3D 'side' shadow to Navy for gold buttons so they pop */
+html[class*="theme-"] body .btnPlay,
+html[class*="theme-"] body .btnStartNow,
+html[class*="theme-"] body .button-submit,
+html[class*="theme-"] body .detailButton:hover {
+  --button-popout-shadow: 3px 3px 0px var(--retro-navy), 6px 6px 15px var(--black-alpha-80) !important;
+}
+
+/* Border contrast fix for the popout buttons */
+html[class*="theme-"] body .btnPlay,
+html[class*="theme-"] body .btnStartNow,
+html[class*="theme-"] body .button-submit {
+  border: var(--standard-border-thickness) solid var(--black-alpha-20) !important;
+}
+
 /* ============================================================
-   12. GLOBAL FIXES / HOTFIX ZONE
-   ALSO A TEMP CODE AREA TO INTEGRATE LATER ON
+   12. GLOBAL FIXES / HOTFIX (WIP) ZONE
    ============================================================ */
 
 /* 1. Universal Star Fix: Keeps rating stars visible and glowing */
@@ -3631,98 +3698,6 @@ html[class*="theme-"] body .ratingbutton-icon-withrating:hover {
   -webkit-text-fill-color: #ff0044 !important;
   transform:               scale(1.2) !important;
   filter:                  drop-shadow(0 0 10px rgba(255, 0, 68, 0.8)) !important;
-}
-
-/* --- Played Checkmark (Always Gold) --- */
-html[class*="theme-"] body .playstatebutton-icon-played,
-html[class*="theme-"] body .paper-icon-button-light.playstatebutton-icon-played,
-html[class*="theme-"] body button[data-played="true"],
-html[class*="theme-"] body button[data-played="true"] *,
-html[class*="theme-"] body .dataGridItem .playstatebutton-icon-played,
-html[class*="theme-"] body .listItem .playstatebutton-icon-played,
-html[class*="theme-"] body .dataGridItemCell button[data-played="true"] *,
-html[class*="theme-"] body .dataGridItem:hover button[data-played="true"] * {
-  color:                   var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
-  filter:                  drop-shadow(0 0 5px var(--gold-alpha-40)) !important;
-  opacity:                 1 !important;
-}
-
-html[class*="theme-"] body button[data-played="true"]:hover,
-html[class*="theme-"] body button[data-played="true"]:hover *,
-html[class*="theme-"] body .playstatebutton-icon-played:hover {
-  color:                   var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
-  transform:               scale(1.2) !important;
-  filter:                  drop-shadow(0 0 10px var(--gold-alpha-80)) !important;
-}
-
-/* --- LIBRARY HEADER PLAY BUTTON FIX --- */
-/* Target using lowercase 'i' as seen in the inspector to override section 2H.2 */
-html[class*="theme-"] body .itemsViewSettingsContainer .btnPlay:not(:hover),
-html[class*="theme-"] body .itemsViewSettingsContainer .btnPlay:not(:hover) * {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-}
-
-/* --- OSD ACTIVE TAB TEXT COLOR FIX (HIGH SPECIFICITY) --- */
-/* Forces OSD active tabs to black text, overriding the broad gold/white rules in Section 2 */
-html[class*="theme-"] body .videoOsdBottom .emby-tab-button.emby-tab-button-active,
-html[class*="theme-"] body .videoOsdBottom .emby-tab-button.emby-tab-button-active * {
-    color: var(--pure-black) !important;
-    -webkit-text-fill-color: var(--pure-black) !important;
-    opacity: 1 !important;
-}
-
-/* --- ACTION SHEET / CONTINUED WATCHING BUTTON FIX --- */
-/* Forces titles in the 'Continued Watching' action sheet to black text against the gold background */
-html[class*="theme-"] body .actionSheet .button-link,
-html[class*="theme-"] body .actionSheet .button-link * {
-    color: var(--pure-black) !important;
-    -webkit-text-fill-color: var(--pure-black) !important;
-    opacity: 1 !important;
-}
-
-/* --- 3D POPOUT CONTRAST FIX --- */
-/* For buttons with Gold backgrounds, we change the 3D 'side' shadow to Navy so it actually pops */
-html[class*="theme-"] body .btnPlay,
-html[class*="theme-"] body .btnStartNow,
-html[class*="theme-"] body .button-submit,
-html[class*="theme-"] body .detailButton:hover {
-    --button-popout-shadow: 3px 3px 0px var(--retro-navy), 6px 6px 15px var(--black-alpha-80) !important;
-}
-
-html[class*="theme-"] body .btnPlay,
-html[class*="theme-"] body .btnStartNow,
-html[class*="theme-"] body .button-submit {
-    border: 1px solid rgba(0, 0, 0, 0.2) !important;
-}
-
-
-
-
-/* HOTFIX: USER TABLE FIX (EDITING A USERS PREFERENCES) */
-
-/* Forces main list text to pure white when Light Theme is active */
-html.theme-light body .view .listItem .listItemBodyText,
-html.theme-light body .view .listItem .listItemBodyText-first,
-html.theme-light body .view .emby-checkbox-label {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-}
-
-/* Forces descriptions and secondary text to muted white (EXCLUDING BUTTONS) */
-html.theme-light body .view .listItem .secondaryText:not(button),
-html.theme-light body .view .fieldDescription {
-  color: var(--white-alpha-70) !important;
-  -webkit-text-fill-color: var(--white-alpha-70) !important;
-}
-
-/* Fixes the blinding white background box behind the lists in the Light Theme */
-html.theme-light body .view .navDrawerItemsContainer-shaded,
-html.theme-light body .view .defaultCardBackground {
-    background-color: var(--navy-light-alpha-40) !important;
-    border: 1px solid var(--gold-alpha-15) !important;
 }
 
 /* ============================================================
