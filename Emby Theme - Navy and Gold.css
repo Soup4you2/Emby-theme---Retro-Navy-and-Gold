@@ -1569,6 +1569,74 @@ html[class*="theme-"] body .mainDrawer .navMenuOption.navMenuOption-selected .na
     -webkit-text-fill-color: var(--my-gold) !important;
 }
 
+/* --- 3E. MINI DRAWER (COLLAPSED SIDEBAR) --- */
+
+/* 1. Re-centers the icons and fixes the cutoff in the collapsed state */
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption {
+  margin: 5px auto !important;
+  padding: 0 !important;
+  width: 48px !important;  /* Forces a fixed size so it fits perfectly */
+  height: 48px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border-radius: 50% !important; /* Makes the active highlight a perfect circle */
+  overflow: hidden !important;
+}
+
+/* Prevents the internal icon wrapper from pushing itself off-center */
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption .listItem-content,
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption .listItemImageContainer {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important; /* Strips any native blue bleeding through */
+}
+
+/* 2. Fixes the blinding blue background on the active item in the Light Theme */
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption.navMenuOption-selected {
+  background: var(--theme-icon-focus-background) !important;
+  box-shadow: inset 0 0 15px var(--gold-alpha-10) !important;
+  border: none !important;
+}
+
+/* 3. Keeps the icon Gold when selected */
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption.navMenuOption-selected .md-icon,
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption.navMenuOption-selected .navDrawerListItemIcon {
+  color: var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* 4. Forces all inactive menu icons to white when collapsed */
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected) .md-icon,
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected) .navDrawerListItemIcon {
+  color: var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
+  opacity: 0.8 !important; /* Slight dimming so they aren't blinding */
+  transition: all var(--transition-speed) ease !important;
+}
+
+/* 5. Hover state: turns the white icons gold when you mouse over them */
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected):hover .md-icon,
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected):hover .navDrawerListItemIcon {
+  color: var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 5px var(--my-gold)) !important;
+}
+
+/* 6. Protects the Hamburger Menu (Toggle Button) so it stays Gold */
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .btnToggleNavDrawer,
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .btnToggleNavDrawer .md-icon {
+  color: var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  opacity: 1 !important;
+}
+
 /* ============================================================
    04. FORMS, BUTTONS, & DIALOGS
    ============================================================ */
@@ -3464,76 +3532,6 @@ html[class*="theme-"] body .btnPlay,
 html[class*="theme-"] body .btnStartNow,
 html[class*="theme-"] body .button-submit {
     border: 1px solid rgba(0, 0, 0, 0.2) !important;
-}
-
-/* HOTFIX PATCH: MINI DRAWER (COLLAPSED SIDEBAR) */
-
-/* 1. Re-centers the icons and fixes the cutoff in the collapsed state */
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption {
-    margin: 5px auto !important;
-    padding: 0 !important;
-    width: 48px !important;  /* Forces a fixed size so it fits perfectly */
-    height: 48px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    border-radius: 50% !important; /* Makes the active highlight a perfect circle */
-    overflow: hidden !important;
-}
-
-/* Prevents the internal icon wrapper from pushing itself off-center */
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption .listItem-content,
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption .listItemImageContainer {
-    margin: 0 !important;
-    padding: 0 !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-    height: 100% !important;
-    background: transparent !important; /* Strips any native blue bleeding through */
-}
-
-/* 2. Fixes the blinding blue background on the active item in the Light Theme */
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption.navMenuOption-selected {
-    background: var(--theme-icon-focus-background) !important;
-    box-shadow: inset 0 0 15px var(--gold-alpha-10) !important;
-    border: none !important;
-}
-
-/* Keeps the icon Gold when selected */
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption.navMenuOption-selected .md-icon,
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption.navMenuOption-selected .navDrawerListItemIcon {
-    color: var(--my-gold) !important;
-    -webkit-text-fill-color: var(--my-gold) !important;
-}
-
-/* HOTFIX: MINI DRAWER ICON COLORS (WHITE ICONS / GOLD HAMBURGER) */
-
-/* 1. Forces all inactive menu icons to white when collapsed */
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected) .md-icon,
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected) .navDrawerListItemIcon {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    opacity: 0.8 !important; /* Slight dimming so they aren't blinding */
-    transition: all var(--transition-speed) ease !important;
-}
-
-/* 2. Hover state: turns the white icons gold when you mouse over them */
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected):hover .md-icon,
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected):hover .navDrawerListItemIcon {
-    color: var(--my-gold) !important;
-    -webkit-text-fill-color: var(--my-gold) !important;
-    opacity: 1 !important;
-    filter: drop-shadow(0 0 5px var(--my-gold)) !important;
-}
-
-/* 3. Protects the Hamburger Menu (Toggle Button) so it stays Gold */
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini .btnToggleNavDrawer,
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini .btnToggleNavDrawer .md-icon {
-    color: var(--my-gold) !important;
-    -webkit-text-fill-color: var(--my-gold) !important;
-    opacity: 1 !important;
 }
 
 /* HOTFIX PATCH: HAMBURGER MENU COLOR RESTORATION */
