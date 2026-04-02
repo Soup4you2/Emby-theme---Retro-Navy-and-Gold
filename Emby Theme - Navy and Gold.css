@@ -3733,6 +3733,29 @@ html.theme-light body .view .defaultCardBackground {
     border: 1px solid var(--gold-alpha-15) !important;
 }
 
+/* HOTFIX: DIALOG & POPUP - GOLD BORDER ENFORCER */
+
+/* Targets all main popups, metadata editors (formDialogs), 
+   and the right-click/context menus (actionSheets). */
+html[class*="theme-"] body .dialog,
+html[class*="theme-"] body .formDialog,
+html[class*="theme-"] body .actionSheet {
+    /* Solid Gold Border */
+    border: 2px solid var(--my-gold) !important;
+    
+    /* Adds depth: A heavy shadow + a subtle Gold glow */
+    box-shadow: 0 15px 40px var(--black-alpha-90), 
+                0 0 15px var(--gold-alpha-30) !important;
+
+    /* Ensures the inner content doesn't bleed over our new border */
+    overflow: hidden !important;
+}
+
+/* Fix for the 'Sign Out' style context menus specifically */
+html[class*="theme-"] body .actionSheet {
+    border-radius: var(--border-radius-md) !important;
+}
+
 /* ============================================================
    13. UNIVERSAL SEASONAL LOGIC
    ============================================================ */
