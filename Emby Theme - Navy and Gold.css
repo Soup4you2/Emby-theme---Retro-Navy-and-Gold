@@ -3683,6 +3683,56 @@ html[class*="theme-"] body .seriesItemsSection .listItem:hover {
     width: calc(100% - 40px) !important;
 }
 
+/* HOTFIX: USER PROFILE EDIT LINK HIGHLIGHT */
+
+/* Targets the exact class of the edit link */
+p.lnkEditUserPreferencesContainer > a.lnkEditUserPreferences {
+    border: 2px solid var(--my-gold) !important;
+    border-radius: var(--border-radius-pill) !important;
+    padding: 8px 16px !important;
+ 
+  
+    box-shadow: var(--shadow-glow-standard) !important;
+    text-decoration: none !important;
+    transition: all var(--transition-speed) ease !important;
+    margin-top: 10px !important;
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+}
+    
+/* Hover state for the edit link */
+p.lnkEditUserPreferencesContainer > a.lnkEditUserPreferences:hover {
+    background-color: var(--my-gold) !important;
+    color: var(--pure-black) !important;
+    -webkit-text-fill-color: var(--pure-black) !important;
+    box-shadow: 0 0 15px var(--my-gold) !important;
+    transform: scale(1.02) !important;
+}
+
+/* HOTFIX: USER TABLE FIX (EDITING A USERS PREFERENCES) */
+
+/* Forces main list text to pure white when Light Theme is active */
+html.theme-light body .view .listItem .listItemBodyText,
+html.theme-light body .view .listItem .listItemBodyText-first,
+html.theme-light body .view .emby-checkbox-label {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+/* Forces descriptions and secondary text to muted white */
+html.theme-light body .view .listItem .secondaryText,
+html.theme-light body .view .fieldDescription {
+    color: var(--white-alpha-70) !important;
+    -webkit-text-fill-color: var(--white-alpha-70) !important;
+}
+
+/* Fixes the blinding white background box behind the lists in the Light Theme */
+html.theme-light body .view .navDrawerItemsContainer-shaded,
+html.theme-light body .view .defaultCardBackground {
+    background-color: var(--navy-light-alpha-40) !important;
+    border: 1px solid var(--gold-alpha-15) !important;
+}
+
 /* ============================================================
    13. UNIVERSAL SEASONAL LOGIC
    ============================================================ */
