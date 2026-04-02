@@ -2476,6 +2476,23 @@ div.verticalSection.aboutSection       { order: var(--order-about) !important; }
     will-change: transform;
 }
 
+/* 2. Media Badge Hover States: Prevents links from turning gold and overrides native hover backgrounds */
+html[class*="theme-"] body .mediaInfoItem .button-link:hover,
+html[class*="theme-"] body .mediaInfoItem .button-link:focus,
+html[class*="theme-"] body .mediaInfoItem:hover * {
+    color: var(--media-badge-color) !important;
+    -webkit-text-fill-color: var(--media-badge-color) !important;
+    text-decoration: none !important;
+}
+
+html[class*="theme-"] body .mediaInfoItem:hover,
+html[class*="theme-"] body .mediaInfoItem.mediaInfoItem-button:hover {
+    background: var(--media-badge-bg) !important;
+    box-shadow: var(--media-badge-shadow) !important;
+    border: var(--media-badge-border) !important;
+    transform: none !important;
+}
+
 /* 3. Rating Star Icon Formatting */
 .starIcon {
     color: var(--my-gold) !important;
