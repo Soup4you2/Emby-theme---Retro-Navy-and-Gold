@@ -76,10 +76,8 @@ html,
   --nav-pill-active-glow: 0 4px 8px var(--black-alpha-80), 0 0 5px var(--gold-alpha-40); /* Outer glow for active pills */
   --nav-pill-bar-bg: rgb(var(--navy-accent-rgb));                  /* Background color for the pill container bar */
   --nav-pill-bar-border: 0px solid var(--gold-alpha-80);           /* Border for the pill container bar */
-  --nav-active-background: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);   /* TODO: Old code used in LiveTV Pills */
-  --nav-active-color: var(--retro-navy);                           /* TODO: Old code used in LiveTV Pills */
-  --nav-active-border: 2px solid var(--retro-navy);                /* TODO: Old code used in LiveTV Pills */
-  --nav-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* TODO: Old code used in LiveTV Pills */
+  --nav-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Border shadow */
+  
   /* --- EMBY THEME ENFORCERS --- */
   --theme-primary-color: var(--my-gold) !important;                /* Global brand primary */
   --theme-accent-color: var(--my-gold) !important;                 /* Global brand accent */
@@ -1889,11 +1887,11 @@ html[class*="theme-"] .btnGuideTag {
 /* 2. Active Filter State: Highlights current selection using gold variables */
 html[class*="theme-"] .guide-filter-button.emby-tab-button-active,
 html[class*="theme-"] .btnGuideTag.emby-tab-button-active {
-  background:              var(--nav-active-background) !important;
-  color:                   var(--nav-active-color) !important;
-  -webkit-text-fill-color: var(--nav-active-color) !important;
-  border:                  var(--nav-active-border) !important;
-  box-shadow:              var(--nav-active-shadow) !important;
+  background:              var(--nav-pill-active) !important;
+  color:                   var(--nav-pill-active-text) !important;
+  -webkit-text-fill-color: var(--nav-pill-active-text) !important;
+  border:                  var(--nav-pill-active-border-color) !important;
+  box-shadow:              var(--nav-pill-active-shadow) !important;
 }
 
 /* 3. Hover State: Glows gold when hovering over inactive filters */
