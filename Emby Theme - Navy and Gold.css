@@ -3220,6 +3220,29 @@ html[class*="theme-"] body .userActivityItems .listItemImageContainer {
     margin-left: 16px !important;
 }
 
+/* --- 10I. LIST ITEM ACTIONS (ALWAYS VISIBLE) --- */
+
+/* 1. Forces the Heart and Checkmark buttons to stay visible without needing to hover */
+html[class*="theme-"] body .listItem .listViewUserDataButtons,
+html[class*="theme-"] body .listItem .listItemButton-autohide {
+    display: inline-flex !important;
+    align-items: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* 2. Prevents the indicators from being squished or buried by long titles */
+html[class*="theme-"] body .listItem .listViewUserDataButtons {
+    flex-shrink: 0 !important;
+    z-index: 100 !important;
+}
+
+/* 3. Forces the played indicator to stay on top of all images */
+html[class*="theme-"] body .listItem .playedIndicator,
+html[class*="theme-"] body .card .playedIndicator {
+    z-index: 100 !important; 
+}
+
 /* ============================================================
    11. LOGIN PAGE & MISC TWEAKS
    ============================================================ */
@@ -3671,18 +3694,6 @@ html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardCont
     background-color: rgb(var(--navy-banner-rgb)) !important;
 }
 
-/* 3. The "Transform Angle" to nudge the image and text together */
-html[class*="theme-"] body .seriesItemsSection .listItem-innerwrapper {
-    transform: translateX(40px) !important; /* Shoves the whole row 40px right */
-    width: calc(100% - 40px) !important;    /* Prevents the right side from clipping */
-}
-
-/* 4. Fixes the selection highlight/hover to match the new position */
-html[class*="theme-"] body .seriesItemsSection .listItem:hover {
-    transform: translateX(40px) !important;
-    width: calc(100% - 40px) !important;
-}
-
 /* HOTFIX: USER PROFILE EDIT LINK HIGHLIGHT */
 
 /* Targets the exact class of the edit link */
@@ -3719,11 +3730,11 @@ html.theme-light body .view .emby-checkbox-label {
     -webkit-text-fill-color: var(--pure-white) !important;
 }
 
-/* Forces descriptions and secondary text to muted white */
-html.theme-light body .view .listItem .secondaryText,
+/* Forces descriptions and secondary text to muted white (EXCLUDING BUTTONS) */
+html.theme-light body .view .listItem .secondaryText:not(button),
 html.theme-light body .view .fieldDescription {
-    color: var(--white-alpha-70) !important;
-    -webkit-text-fill-color: var(--white-alpha-70) !important;
+  color: var(--white-alpha-70) !important;
+  -webkit-text-fill-color: var(--white-alpha-70) !important;
 }
 
 /* Fixes the blinding white background box behind the lists in the Light Theme */
@@ -3754,6 +3765,22 @@ html[class*="theme-"] body .actionSheet {
 /* Fix for the 'Sign Out' style context menus specifically */
 html[class*="theme-"] body .actionSheet {
     border-radius: var(--border-radius-md) !important;
+}
+
+/* HOTFIX: EPISODE LIST - SAFE NUDGE & VISIBLE ICONS */
+
+/* 1. Nudge the images to the right safely without pushing the row off-screen */
+html[class*="theme-"] body .seriesItemsSection .listItemImageContainer-large {
+    margin-left: 30px !important; /* Adjust this to push the image further right */
+}
+
+/* 2. Force the Heart and Checkmark icons to always stay visible */
+html[class*="theme-"] body .listItem .listViewUserDataButtons,
+html[class*="theme-"] body .listItem .listItemButton-autohide {
+    display: inline-flex !important;
+    align-items: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 /* ============================================================
