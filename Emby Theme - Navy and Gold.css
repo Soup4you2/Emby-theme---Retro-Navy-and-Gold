@@ -3350,34 +3350,40 @@ html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridRow {
 }
 
 /* 2. Odd Rows (Darker Navy) - Excludes Season Page */
-html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem:nth-child(odd) {
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem:nth-child(odd),
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem-border:nth-child(odd),
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItem:nth-child(odd),
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridRow:nth-child(odd) {
     background-color: var(--table-row-bg-odd) !important;
 }
 
 /* 3. Even Rows (Lighter Navy) - Excludes Season Page */
-html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem:nth-child(even) {
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem:nth-child(even),
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem-border:nth-child(even),
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItem:nth-child(even),
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridRow:nth-child(even) {
     background-color: var(--table-row-bg-even) !important;
 }
 
-/* 4. Hover State (Gold Tint) */
-html[class*="theme-"] body .view .listItem:hover,
-html[class*="theme-"] body .view .listItem-border:hover,
-html[class*="theme-"] body .view .dataGridItem:hover,
-html[class*="theme-"] body .view .dataGridRow:hover {
+/* 4. Hover State (Gold Tint) - Excludes Season Page */
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem:hover,
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem-border:hover,
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItem:hover,
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridRow:hover {
     background-color: var(--table-row-hover-bg) !important;
 }
 
 /* 5. Override Light Theme's Black Text (Safeguards Action Buttons) */
-html[class*="theme-"] body .view .listItem .secondaryText:not(button),
-html[class*="theme-"] body .view .listItem-border .secondaryText:not(button),
-html[class*="theme-"] body .view .dataGridItemCell {
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem .secondaryText:not(button),
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem-border .secondaryText:not(button),
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItemCell {
     color: var(--white-alpha-70) !important;
     -webkit-text-fill-color: var(--white-alpha-70) !important;
 }
 
-html[class*="theme-"] body .view .listItem .listItemBodyText-first,
-html[class*="theme-"] body .view .listItem-border .listItemBodyText-first,
-html[class*="theme-"] body .view .dataGridItemCell.primaryText {
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem .listItemBodyText-first,
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem-border .listItemBodyText-first,
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItemCell.primaryText {
     color: var(--pure-white) !important;
     -webkit-text-fill-color: var(--pure-white) !important;
 }
