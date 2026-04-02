@@ -46,6 +46,12 @@ html,
   --guide-movie: rgb(69, 59, 109);              /* Background color for Movies */
   --guide-generic: rgb(39, 50, 67);             /* Fallback color for generic programs */
 
+  /* --- DANGER / CANCEL BUTTONS --- */
+  --danger-red-rgb: 204, 0, 0;
+  --danger-red: rgb(var(--danger-red-rgb));
+  --danger-red-light: rgb(255, 51, 51);
+  --danger-red-glow: 0 0 20px rgba(var(--danger-red-rgb), 0.6), 0 0 10px rgba(255, 51, 51, 0.4);
+
   /* --- NAVIGATION PILL BARS --- */
   --nav-pill-bg-inactive: rgb(var(--navy-accent-rgb));             /* Background for inactive navigation tabs */
   --nav-pill-hover: var(--white-alpha-10);                         /* Hover background tint for pills */
@@ -1486,6 +1492,43 @@ html[class*="theme-"] body .emby-tab-button[style*="display: none"] {
   width:                   0 !important;
 }
 
+/* --- 3D. SIDEBAR HOVER & SELECTION FIX (20px ROUNDED) --- */
+
+/* 1. BASE STATE: Applies the 20px rounding and traps any bleeding backgrounds */
+html[class*="theme-"] body .mainDrawer .navMenuOption {
+    border-radius: 20px !important;
+    overflow: hidden !important; /* The magic bullet that stops backgrounds from clipping outside the curves! */
+    margin: 2px 10px !important; /* Adds a tiny bit of breathing room so the curves don't hit the screen edges */
+    width: auto !important;
+    transition: all var(--transition-speed) ease !important;
+}
+
+/* 2. HOVER STATE: Adds a visible highlight and turns text/icons Gold when mousing over */
+html[class*="theme-"] body .mainDrawer .navMenuOption:hover {
+    background-color: var(--white-alpha-10) !important;
+    cursor: pointer !important;
+}
+
+html[class*="theme-"] body .mainDrawer .navMenuOption:hover .navDrawerListItemIcon,
+html[class*="theme-"] body .mainDrawer .navMenuOption:hover .navMenuOptionText {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* 3. SELECTED STATE: Kills the bright blue background and applies the theme glow */
+html[class*="theme-"] body .mainDrawer .navMenuOption.navMenuOption-selected {
+    background-color: var(--theme-icon-focus-background) !important;
+    background-image: none !important; /* Strips any native gradient bleeds */
+    box-shadow: inset 10px 0 15px var(--gold-alpha-10) !important;
+    border-left: none !important;
+}
+
+html[class*="theme-"] body .mainDrawer .navMenuOption.navMenuOption-selected .navDrawerListItemIcon,
+html[class*="theme-"] body .mainDrawer .navMenuOption.navMenuOption-selected .navMenuOptionText {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+}
+
 /* ============================================================
    04. FORMS, BUTTONS, & DIALOGS
    ============================================================ */
@@ -1876,6 +1919,61 @@ html[class*="theme-"] input[type="datetime-local"]::-webkit-calendar-picker-indi
     opacity: 1 !important;
     filter: drop-shadow(0 0 5px var(--my-gold)) !important;
 }
+
+/* --- 4K. VARIOUS BUTTON CORRECTIONS (GLOBALIZED & FIXED) --- */
+
+/* 1. Global Typography & Shapes 
+   Restored to explicit targets to stop Oswald from blowing up list items and small UI elements */
+html[class*="theme-"] body .button-submit,
+html[class*="theme-"] body .button-cancel,
+html[class*="theme-"] body .emby-button.cancel,
+html[class*="theme-"] body .emby-button.button-delete,
+html[class*="theme-"] body .sectionTitleButton {
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    border-radius: var(--border-radius-pill) !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+}
+
+/* 2. Base Navy State (Default for standard UI buttons like Add, Save, Cancel, etc.)
+   Excludes sidebar collapsible headers, nav items, and live TV guide tags */
+html[class*="theme-"] body .emby-button:not(.paper-icon-button-light, .emby-tab-button, [class*="cardOverlay"], .button-link, .detailButton, .btnPlay, .headerButton, .listItemImageButton, .button-submit, .emby-collapsible-button, .navMenuOption, .btnGuideTag, .guide-filter-button) {
+    background: var(--navy-light-alpha-80) !important;
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    border: 1px solid var(--white-alpha-10) !important;
+    box-shadow: 0 4px 10px var(--black-alpha-50) !important;
+    transform: none !important;
+}
+
+/* Ensure icons inside these buttons inherit the white text color */
+html[class*="theme-"] body .emby-button:not(.paper-icon-button-light, .emby-tab-button, [class*="cardOverlay"], .button-link, .detailButton, .btnPlay, .headerButton, .listItemImageButton, .button-submit, .emby-collapsible-button, .navMenuOption, .btnGuideTag, .guide-filter-button) * {
+    color: inherit !important;
+    -webkit-text-fill-color: inherit !important;
+}
+
+/* 3. Hover: Action Style (Gold - Default hover for all non-cancel global buttons) */
+html[class*="theme-"] body .emby-button:hover:not(.paper-icon-button-light, .emby-tab-button, [class*="cardOverlay"], .button-link, .detailButton, .btnPlay, .headerButton, .listItemImageButton, .button-cancel, .cancel, .button-delete, .emby-collapsible-button, .navMenuOption, .btnGuideTag, .guide-filter-button) {
+    background: var(--theme-primary-color) !important;
+    color: var(--retro-navy) !important;
+    -webkit-text-fill-color: var(--retro-navy) !important;
+    border-color: var(--theme-primary-color) !important;
+    box-shadow: var(--shadow-glow-standard) !important;
+    transform: scale(1.02) !important;
+}
+
+/* 4. Hover: Danger Style (Red - Specifically for Cancel/Delete buttons) */
+html[class*="theme-"] body .emby-button.button-cancel:hover,
+html[class*="theme-"] body .emby-button.cancel:hover,
+html[class*="theme-"] body .emby-button.button-delete:hover {
+    background: var(--danger-red) !important;
+    border-color: var(--danger-red-light) !important;
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    box-shadow: var(--danger-red-glow) !important;
+    transform: scale(1.03) !important;
+}
+
 
 /* ============================================================
    05. CARDS & PORTRAITS (POSTERS)
@@ -3062,6 +3160,72 @@ html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navMenuOptionTex
     -webkit-text-fill-color: var(--my-gold) !important;
 }
 
+/* --- 10G. DASHBOARD NOW PLAYING ZEBRA STRIPING FIX --- */
+
+/* 1. Ensure the card base is dark so the translucent stripes look correct */
+html[class*="theme-"] body .sideFooterCard .visualCardBox {
+    background-color: var(--banner-card-bg) !important;
+    border: none !important;
+}
+
+/* 2. Apply Custom Striping (Fixed Case Sensitivity!) */
+html[class*="theme-"] body .activeSession-bottomsection {
+    border: none !important;
+}
+
+html[class*="theme-"] body .activeSession-bottomsection:nth-child(odd) {
+    background-color: var(--table-row-bg-odd) !important;
+}
+
+html[class*="theme-"] body .activeSession-bottomsection:nth-child(even) {
+    background-color: var(--table-row-bg-even) !important;
+}
+
+/* 3. Override Light Theme's Black Text */
+html[class*="theme-"] body .activeSession-bottomsection,
+html[class*="theme-"] body .activeSession-bottomsection .secondaryText {
+    color: var(--white-alpha-70) !important;
+    -webkit-text-fill-color: var(--white-alpha-70) !important;
+}
+
+/* 4. Highlight the Row Labels (Stream, Video, Audio) in Gold */
+html[class*="theme-"] body .activeSession-bottomsection-title {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    font-family: 'Oswald', sans-serif !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* 5. Ensure icons inside these rows pop */
+html[class*="theme-"] body .activeSession-bottomsection .md-icon {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+/* 6. Disable Hover Glow on Dashboard Now Playing Cards */
+html[class*="theme-"] body .dashboardSection .sideFooterCard:hover .visualCardBox,
+html[class*="theme-"] body .dashboardSection .sideFooterCard.show-focus .visualCardBox {
+    border-color: transparent !important;
+    box-shadow: 0px 5px 15px var(--black-alpha-50) !important; /* Restores the resting shadow */
+    background-color: var(--banner-card-bg) !important;
+    transform: none !important;
+}
+
+/* --- 10H. ACTIVITY LOG & LIST ITEM IMAGE FIX --- */
+
+/* 1. Forces Emby to smartly crop images rather than stretching/squishing them into square containers */
+html[class*="theme-"] body .listItemImage,
+html[class*="theme-"] body .listItemImageContainer img,
+html[class*="theme-"] body .coveredImage-noScale {
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+/* 2. Pushes the avatar off the left wall so it aligns properly with the rest of the UI */
+html[class*="theme-"] body .userActivityItems .listItemImageContainer {
+    margin-left: 16px !important;
+}
+
 /* ============================================================
    11. LOGIN PAGE & MISC TWEAKS
    ============================================================ */
@@ -3245,50 +3409,286 @@ html[class*="theme-"] body .button-submit {
     border: 1px solid rgba(0, 0, 0, 0.2) !important;
 }
 
-/* ============================================================
-   13. UNIVERSAL SEASONAL LOGIC
-   ============================================================ */
+/* HOTIX PATCH: SIDEBAR HEADER FIXES (LOGO BOX, CLOSE BUTTON, LIGHT THEME) */
 
-/* 1. Universal Actor Names */
-html[class*="theme-"] body .peopleSection .cardText-first {
-  color:                   var(--season-actor-name) !important;
-  -webkit-text-fill-color: var(--season-actor-name) !important;
-  text-shadow:             1px 1px 2px var(--black-alpha-80) !important;
-  font-weight:             700 !important;
+/* 1. Nuke the Box: Overrides your global button border specifically for the logo */
+html[class*="theme-"] body .mainDrawer a.btnNavDrawerLogo,
+html[class*="theme-"] body .mainDrawer a.btnNavDrawerLogo:hover,
+html[class*="theme-"] body .mainDrawer a.btnNavDrawerLogo:focus {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
 }
 
-html[class*="theme-"] body .peopleSection .cardText-secondary {
-  color:                   var(--season-actor-role) !important;
-  -webkit-text-fill-color: var(--season-actor-role) !important;
-  opacity:                 0.8 !important;
-  font-style:              italic !important;
+/* 2. Light Theme Logo Fix: The Magic Filter 
+   Inverts the black text to white, then hue-rotates the magenta icon back to green! */
+html[class*="theme-light"] body .navDrawerLogo,
+html[class*="theme-light"] body .pageTitleWithDefaultLogo {
+    filter: invert(1) hue-rotate(180deg) brightness(1.2) !important;
 }
 
-/* 2. Universal Submit Buttons */
-html[class*="theme-"] body .button-submit {
-  background:              var(--season-btn-bg) !important;
-  color:                   var(--season-btn-text) !important;
-  -webkit-text-fill-color: var(--season-btn-text) !important;
-  font-family:             'Oswald', sans-serif !important;
-  font-size:               0.95rem !important;
-  border-radius:           var(--border-radius-pill) !important;
-  border:                  2px solid var(--season-btn-border) !important;
-  box-shadow:              var(--season-btn-shadow) !important;
-  transition:              all var(--transition-speed) ease-in-out !important;
-  transform:               none !important;
+/* 3. The Always-Visible 'X' Close Button Fix 
+   Overrides Emby's native 'hovershow' class that hides the button */
+html[class*="theme-"] body .mainDrawer .btnPinNavDrawer,
+html[class*="theme-"] body .mainDrawer .btnPinNavDrawer-hovershow {
+    opacity: 0.7 !important;
+    visibility: visible !important;
+    display: inline-block !important;
 }
 
-html[class*="theme-"] body .button-submit:hover {
-  background:              var(--season-btn-bg-hover) !important;
-  border-color:            var(--season-btn-border-hover) !important;
-  color:                   var(--season-btn-text-hover) !important;
-  -webkit-text-fill-color: var(--season-btn-text-hover) !important;
-  box-shadow:              var(--season-btn-shadow-hover) !important;
-  transform:               translateY(-2px) scale(1.02) !important;
+/* Ensures the X icon itself stays white */
+html[class*="theme-"] body .mainDrawer .btnPinNavDrawer .md-icon,
+html[class*="theme-"] body .mainDrawer .btnPinNavDrawer-hovershow .md-icon {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
 }
 
-html[class*="theme-"] body .button-submit:active {
-  transform:               scale(0.98) !important;
+/* 4. Hover state for the 'X' Close Button */
+html[class*="theme-"] body .mainDrawer .btnPinNavDrawer:hover,
+html[class*="theme-"] body .mainDrawer .btnPinNavDrawer:hover .md-icon {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    filter: drop-shadow(0 0 5px var(--my-gold)) !important;
+    transform: scale(1.1) !important;
+    opacity: 1 !important;
+}
+
+/* HOTIX PATCH: MINI DRAWER (COLLAPSED SIDEBAR) */
+
+/* 1. Re-centers the icons and fixes the cutoff in the collapsed state */
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption {
+    margin: 5px auto !important;
+    padding: 0 !important;
+    width: 48px !important;  /* Forces a fixed size so it fits perfectly */
+    height: 48px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 50% !important; /* Makes the active highlight a perfect circle */
+    overflow: hidden !important;
+}
+
+/* Prevents the internal icon wrapper from pushing itself off-center */
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption .listItem-content,
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption .listItemImageContainer {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important; /* Strips any native blue bleeding through */
+}
+
+/* 2. Fixes the blinding blue background on the active item in the Light Theme */
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption.navMenuOption-selected {
+    background: var(--theme-icon-focus-background) !important;
+    box-shadow: inset 0 0 15px var(--gold-alpha-10) !important;
+    border: none !important;
+}
+
+/* Keeps the icon Gold when selected */
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption.navMenuOption-selected .md-icon,
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption.navMenuOption-selected .navDrawerListItemIcon {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* HOTIX PATCH: MINI DRAWER ICON COLORS (WHITE ICONS / GOLD HAMBURGER) */
+
+/* 1. Forces all inactive menu icons to white when collapsed */
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected) .md-icon,
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected) .navDrawerListItemIcon {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    opacity: 0.8 !important; /* Slight dimming so they aren't blinding */
+    transition: all var(--transition-speed) ease !important;
+}
+
+/* 2. Hover state: turns the white icons gold when you mouse over them */
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected):hover .md-icon,
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected):hover .navDrawerListItemIcon {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    opacity: 1 !important;
+    filter: drop-shadow(0 0 5px var(--my-gold)) !important;
+}
+
+/* 3. Protects the Hamburger Menu (Toggle Button) so it stays Gold */
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .btnToggleNavDrawer,
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .btnToggleNavDrawer .md-icon {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    opacity: 1 !important;
+}
+
+/* HOTIX PATCH: HAMBURGER MENU COLOR RESTORATION */
+
+/* Forces the top-header hamburger menu (and its icon) to always be Gold */
+html[class*="theme-"] body .skinHeader .headerMenuButton,
+html[class*="theme-"] body .skinHeader .headerButton[title="Menu"],
+html[class*="theme-"] body .skinHeader .headerMenuButton .md-icon,
+html[class*="theme-"] body .skinHeader .headerButton[title="Menu"] .md-icon {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    opacity: 1 !important;
+}
+
+/* Adds the gold glow when you hover over the hamburger menu */
+html[class*="theme-"] body .skinHeader .headerMenuButton:hover,
+html[class*="theme-"] body .skinHeader .headerButton[title="Menu"]:hover {
+    filter: drop-shadow(0 0 5px var(--my-gold)) !important;
+    transform: scale(1.1) !important;
+    transition: all var(--transition-speed) ease !important;
+}
+
+/* HOTIX PATCH: USER PROFILE EDIT LINK HIGHLIGHT */
+
+/* 1. The Ghost Killer: Removes invisible square layers behind the text */
+html[class*="theme-"] body .view .listItem::before,
+html[class*="theme-"] body .view .listItem::after,
+html[class*="theme-"] body .view .listItem-content::before,
+html[class*="theme-"] body .view .listItem-content::after,
+html[class*="theme-"] body .actionSheet .listItem::before,
+html[class*="theme-"] body .actionSheet .listItem::after,
+html[class*="theme-"] body .actionSheet .listItem-content::before,
+html[class*="theme-"] body .actionSheet .listItem-content::after {
+    background: none !important;
+    background-color: transparent !important;
+    content: none !important; 
+    display: none !important;
+}
+
+/* 2. Transparency Strike: Clears all standard backgrounds */
+html[class*="theme-"] body .view .listItem,
+html[class*="theme-"] body .view .listItem-bg,
+html[class*="theme-"] body .view .listItem-content,
+html[class*="theme-"] body .view .listItem-content-bg,
+html[class*="theme-"] body .actionSheet .listItem,
+html[class*="theme-"] body .actionSheet .listItem-content,
+html[class*="theme-"] body .actionSheet .listItem-bg,
+html[class*="theme-"] body .actionSheet .listItem-content-bg {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 3. The Pill Shape & Breathing Room (COZY & TIDY VERSION): 
+      Reduced horizontal margins and wider width to fill the container. */
+html[class*="theme-"] body .view .listItem,
+html[class*="theme-"] body .actionSheet .listItem,
+html[class*="theme-"] body .actionSheetMenuItem {
+    border-radius: 20px !important; 
+    margin: 2px 5px !important;     /* Tighter 5px gap on the sides */
+    padding: 0 20px !important;     /* Balanced internal breathing room */
+    width: calc(100% - 10px) !important; /* Adjusted width to match 5px margins */
+    min-height: 38px !important;    
+    display: flex !important;
+    align-items: center !important;
+    transition: background-color var(--transition-speed) ease !important;
+    overflow: hidden !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    background-color: transparent !important;
+}
+
+/* 4. Hover State: Soft white highlight ONLY */
+html[class*="theme-"] body .view .listItem:hover,
+html[class*="theme-"] body .actionSheet .listItem:hover {
+    background-color: var(--white-alpha-10) !important;
+    cursor: pointer !important;
+}
+
+/* 5. Selected State: Gold highlight for active settings */
+html[class*="theme-"] body .view .listItem-selected,
+html[class*="theme-"] body .actionSheet .listItem-selected {
+    background-color: var(--theme-icon-focus-background) !important;
+    box-shadow: inset 10px 0 15px var(--gold-alpha-10) !important;
+}
+
+/* 6. Internal Text Cleanup: Stops internal margins from fighting our padding */
+html[class*="theme-"] body .actionSheetMenuItem .listItemText,
+html[class*="theme-"] body .paperListbox .listItem .listItemBodyText,
+html[class*="theme-"] body .actionSheet .listItemTitle {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Keeps the icons and text Gold ONLY when an item is actually selected */
+html[class*="theme-"] body .view .listItem-selected *,
+html[class*="theme-"] body .actionSheet .listItem-selected * {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* HOTFIX PATCH: CHROME-PLATED SCROLL ARROWS (GOLD & NAVY) */
+
+/* 1. The Button Container: Now with True Center alignment */
+html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton {
+    background: var(--navy-light-alpha-80) !important;
+    background-color: var(--navy-light-alpha-80) !important;
+    border: 2px solid var(--my-gold) !important;
+    border-radius: 50% !important;
+    width: 44px !important;
+    height: 44px !important;
+    opacity: 1 !important;
+    box-shadow: 0 4px 15px var(--black-alpha-80), 0 0 10px var(--gold-alpha-20) !important;
+    transition: all var(--transition-speed) ease !important;
+    
+    /* The Fix: Forces the icon inside to stay dead-center */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important;
+    overflow: visible !important;
+}
+
+/* 2. The Arrow (Chevron): Resetting its position */
+html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton i.md-icon {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    font-size: 32px !important;
+    font-weight: bold !important;
+    filter: drop-shadow(0 0 2px var(--black-alpha-50)) !important;
+    
+    /* Strips Emby's native "pushing" styles */
+    margin: 0 !important;
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    line-height: 1 !important;
+    text-align: center !important;
+}
+
+/* 3. Visual Nudge: 
+      Chevron characters often look a bit "left-heavy" to the eye. 
+      This rule adds a tiny pixel nudge to make it look visually perfect. */
+html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton[data-direction="backwards"] i.md-icon {
+    transform: translateX(-1px) !important;
+}
+
+html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton[data-direction="forwards"] i.md-icon {
+    transform: translateX(1px) !important;
+}
+
+/* 4. Hover State: Remains the same Gold pop */
+html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton:hover {
+    background: var(--my-gold) !important;
+    background-color: var(--my-gold) !important;
+    box-shadow: 0 0 20px var(--my-gold) !important;
+    transform: scale(1.1) !important;
+}
+
+html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton:hover i.md-icon {
+    color: var(--retro-navy) !important;
+    -webkit-text-fill-color: var(--retro-navy) !important;
+    filter: none !important;
 }
 
 /* ============================================================
