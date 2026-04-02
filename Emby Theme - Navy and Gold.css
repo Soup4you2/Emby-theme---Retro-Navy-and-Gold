@@ -1394,6 +1394,46 @@ html[class*="theme-"] body .itemAction:hover .cardText {
     -webkit-text-fill-color: var(--my-gold) !important;
 }
 
+/* 6. Sidebar Header Logo: Overrides global button borders to keep the logo clean */
+html[class*="theme-"] body .mainDrawer a.btnNavDrawerLogo,
+html[class*="theme-"] body .mainDrawer a.btnNavDrawerLogo:hover,
+html[class*="theme-"] body .mainDrawer a.btnNavDrawerLogo:focus {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* 7. Light Theme Logo Fix: Inverts black text to white, hue-rotates magenta to green */
+html[class*="theme-light"] body .navDrawerLogo,
+html[class*="theme-light"] body .pageTitleWithDefaultLogo {
+  filter: invert(1) hue-rotate(180deg) brightness(1.2) !important;
+}
+
+/* 8. Sidebar Close Button: Keeps the 'X' button always visible (overrides native hide) */
+html[class*="theme-"] body .mainDrawer .btnPinNavDrawer,
+html[class*="theme-"] body .mainDrawer .btnPinNavDrawer-hovershow {
+  opacity: 0.7 !important;
+  visibility: visible !important;
+  display: inline-block !important;
+}
+
+html[class*="theme-"] body .mainDrawer .btnPinNavDrawer .md-icon,
+html[class*="theme-"] body .mainDrawer .btnPinNavDrawer-hovershow .md-icon {
+  color: var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+html[class*="theme-"] body .mainDrawer .btnPinNavDrawer:hover,
+html[class*="theme-"] body .mainDrawer .btnPinNavDrawer:hover .md-icon {
+  color: var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  filter: drop-shadow(0 0 5px var(--my-gold)) !important;
+  transform: scale(1.1) !important;
+  opacity: 1 !important;
+}
+
 /* --- 3C. PILL NAVIGATION TABS (Home, Favorites, Libraries) --- */
 
 /* 1. The Main Wrapper Bar: Uses flexbox to center the floating navigation */
@@ -3424,52 +3464,6 @@ html[class*="theme-"] body .btnPlay,
 html[class*="theme-"] body .btnStartNow,
 html[class*="theme-"] body .button-submit {
     border: 1px solid rgba(0, 0, 0, 0.2) !important;
-}
-
-/* HOTFIX PATCH: SIDEBAR HEADER FIXES (LOGO BOX, CLOSE BUTTON, LIGHT THEME) */
-
-/* 1. Nuke the Box: Overrides your global button border specifically for the logo */
-html[class*="theme-"] body .mainDrawer a.btnNavDrawerLogo,
-html[class*="theme-"] body .mainDrawer a.btnNavDrawerLogo:hover,
-html[class*="theme-"] body .mainDrawer a.btnNavDrawerLogo:focus {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    outline: none !important;
-}
-
-/* 2. Light Theme Logo Fix: The Magic Filter 
-   Inverts the black text to white, then hue-rotates the magenta icon back to green! */
-html[class*="theme-light"] body .navDrawerLogo,
-html[class*="theme-light"] body .pageTitleWithDefaultLogo {
-    filter: invert(1) hue-rotate(180deg) brightness(1.2) !important;
-}
-
-/* 3. The Always-Visible 'X' Close Button Fix 
-   Overrides Emby's native 'hovershow' class that hides the button */
-html[class*="theme-"] body .mainDrawer .btnPinNavDrawer,
-html[class*="theme-"] body .mainDrawer .btnPinNavDrawer-hovershow {
-    opacity: 0.7 !important;
-    visibility: visible !important;
-    display: inline-block !important;
-}
-
-/* Ensures the X icon itself stays white */
-html[class*="theme-"] body .mainDrawer .btnPinNavDrawer .md-icon,
-html[class*="theme-"] body .mainDrawer .btnPinNavDrawer-hovershow .md-icon {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-}
-
-/* 4. Hover state for the 'X' Close Button */
-html[class*="theme-"] body .mainDrawer .btnPinNavDrawer:hover,
-html[class*="theme-"] body .mainDrawer .btnPinNavDrawer:hover .md-icon {
-    color: var(--my-gold) !important;
-    -webkit-text-fill-color: var(--my-gold) !important;
-    filter: drop-shadow(0 0 5px var(--my-gold)) !important;
-    transform: scale(1.1) !important;
-    opacity: 1 !important;
 }
 
 /* HOTFIX PATCH: MINI DRAWER (COLLAPSED SIDEBAR) */
