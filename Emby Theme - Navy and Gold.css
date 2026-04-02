@@ -3735,7 +3735,7 @@ html[class*="theme-"] body .ratingbutton-icon-withrating:hover {
 }
 
 /* ============================================================
-   HOTFIX: TRAKT PLUGIN - PAPERLIST / CHECKBOX TABLES (Exclude Folders, etc.)
+   HOTFIX: PLUGIN - TRAKT - PAPERLIST / CHECKBOX TABLES (Exclude Folders, etc.)
    ============================================================ */
 
 /* 1. Nuke the ugly solid grey and replace with a sleek navy panel */
@@ -3757,6 +3757,20 @@ html[class*="theme-"] body .paperList .emby-checkbox-label {
     margin: 2px 8px !important;
     padding: 8px 10px !important;
     transition: all var(--transition-speed) ease-in-out !important;
+}
+
+/* ============================================================
+   HOTFIX: PLUGIN - EXPLORE DATA ITEM - METADATA & IDENTIFY TABLES (SOLID GREY FIX)
+   ============================================================ */
+
+/* Removes the solid block background from table containers in dialogs */
+html[class*="theme-"] body .formDialog .visualCardBox,
+html[class*="theme-"] body .dialog .visualCardBox,
+html[class*="theme-"] body table.dataExplorerTable {
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 /* ============================================================
