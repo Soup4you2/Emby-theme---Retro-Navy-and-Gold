@@ -1351,10 +1351,21 @@ html[class*="theme-"] body .itemAction:hover .cardText {
   display:                 none !important;
 }
 
-/* 3. Main Menu Button: Forces the hamburger icon to theme gold */
-.headerButton[title="Menu"],
-.headerButton.btnMenu {
-  color:                   var(--theme-primary-color) !important;
+/* 3. Main Menu Button: Forces the hamburger icon to theme gold and adds a hover glow */
+html[class*="theme-"] body .skinHeader .headerMenuButton,
+html[class*="theme-"] body .skinHeader .headerButton[title="Menu"],
+html[class*="theme-"] body .skinHeader .headerMenuButton .md-icon,
+html[class*="theme-"] body .skinHeader .headerButton[title="Menu"] .md-icon {
+  color: var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  opacity: 1 !important;
+}
+
+html[class*="theme-"] body .skinHeader .headerMenuButton:hover,
+html[class*="theme-"] body .skinHeader .headerButton[title="Menu"]:hover {
+  filter: drop-shadow(0 0 5px var(--my-gold)) !important;
+  transform: scale(1.1) !important;
+  transition: all var(--transition-speed) ease !important;
 }
 
 /* --- 3B. SIDEBAR DRAWER (Slide-out Menu) --- */
@@ -3532,26 +3543,6 @@ html[class*="theme-"] body .btnPlay,
 html[class*="theme-"] body .btnStartNow,
 html[class*="theme-"] body .button-submit {
     border: 1px solid rgba(0, 0, 0, 0.2) !important;
-}
-
-/* HOTFIX PATCH: HAMBURGER MENU COLOR RESTORATION */
-
-/* Forces the top-header hamburger menu (and its icon) to always be Gold */
-html[class*="theme-"] body .skinHeader .headerMenuButton,
-html[class*="theme-"] body .skinHeader .headerButton[title="Menu"],
-html[class*="theme-"] body .skinHeader .headerMenuButton .md-icon,
-html[class*="theme-"] body .skinHeader .headerButton[title="Menu"] .md-icon {
-    color: var(--my-gold) !important;
-    -webkit-text-fill-color: var(--my-gold) !important;
-    opacity: 1 !important;
-}
-
-/* Adds the gold glow when you hover over the hamburger menu */
-html[class*="theme-"] body .skinHeader .headerMenuButton:hover,
-html[class*="theme-"] body .skinHeader .headerButton[title="Menu"]:hover {
-    filter: drop-shadow(0 0 5px var(--my-gold)) !important;
-    transform: scale(1.1) !important;
-    transition: all var(--transition-speed) ease !important;
 }
 
 /* HOTFIX PATCH: CHROME-PLATED SCROLL ARROWS (GOLD & NAVY) */
