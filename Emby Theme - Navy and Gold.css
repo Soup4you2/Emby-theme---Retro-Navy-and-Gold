@@ -138,8 +138,8 @@ html,
   --season-btn-bg-hover: var(--my-gold);                           /* Default submit button hover */
   --season-btn-text: var(--pure-black);                            /* Default button text color */
   --season-btn-text-hover: var(--pure-black);                      /* Default button text hover */
-  --season-btn-border: transparent;                                /* Default button border color */
-  --season-btn-border-hover: var(--pure-white);                    /* Default button border hover */
+  --season-btn-border: var(--pure-black);                           /* Default button border color */
+  --season-btn-border-hover: var(--pure-black);                    /* Default button border hover */
   --season-btn-shadow: 0 4px 10px var(--black-alpha-50);            /* Default button depth shadow */
   --season-btn-shadow-hover: var(--shadow-glow-standard);           /* Default button hover glow */
 
@@ -973,7 +973,7 @@ html,
    ============================================================ */
   
 /* ============================================================
-   02. BASE STYLES & LAYOUT
+   02. BASE STYLES, LAYOUT & GLOBAL MAPPING
    ============================================================ */
 
 /* --- 2A. GLOBAL BACKGROUNDS & CONTAINERS --- */
@@ -1185,6 +1185,140 @@ html .backdropContainer::after {
   animation-play-state: var(--seasonal-bg-anim-state) !important;
 }
 
+/* --- 2G. GLOBAL TEXT & THEME MAPPING --- */
+
+/* 1. BASE BODY TEXT (Mapped to: Muted White) */
+html[class*="theme-"] body,
+html[class*="theme-"] .listItemBodyText,
+html[class*="theme-"] .textActionButton,
+html[class*="theme-"] .navMenuOptionText,
+html[class*="theme-"] .formDialog,
+html[class*="theme-"] .dialog,
+html[class*="theme-"] .detailPageContent {
+    color: var(--text-muted) !important;
+    -webkit-text-fill-color: var(--text-muted) !important;
+}
+
+/* 2. PRIMARY TITLES & GENERAL LINKS (Mapped to: Pure White) */
+html[class*="theme-"] h1, 
+html[class*="theme-"] h2, 
+html[class*="theme-"] h3,
+html[class*="theme-"] h4,
+html[class*="theme-"] .cardText,
+html[class*="theme-"] .cardText-first,
+html[class*="theme-"] .primaryText,
+html[class*="theme-"] .button-link {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+/* 3. SECONDARY TEXT (Mapped to: Translucent White) */
+html[class*="theme-"] .cardText-secondary,
+html[class*="theme-"] .secondaryText,
+html[class*="theme-"] .listItemBodyText-secondary,
+html[class*="theme-"] .fieldDescription,
+html[class*="theme-"] .guideProgramTime {
+    color: var(--white-alpha-70) !important;
+    -webkit-text-fill-color: var(--white-alpha-70) !important;
+}
+
+/* 4. STRUCTURAL HEADERS & LEGENDS (Mapped to: Orange/Gold) */
+html[class*="theme-"] .pageTitle,
+html[class*="theme-"] .sectionTitle,
+html[class*="theme-"] legend,
+html[class*="theme-"] .dashboardGeneralForm legend,
+html[class*="theme-"] .settingsContainer legend {
+    color: var(--theme-primary-color) !important;
+    -webkit-text-fill-color: var(--theme-primary-color) !important;
+}
+
+/* 5. INTERACTIVE LABELS & ACCENTS (Mapped to: Gold) */
+html[class*="theme-"] .selectLabel,
+html[class*="theme-"] .selectLabelText,
+html[class*="theme-"] .inputLabel,
+html[class*="theme-"] .label,
+html[class*="theme-"] .navDrawerListItemIcon,
+html[class*="theme-"] .mediaInfoAttributeLabel {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* 6. IMMUTABLE EXCEPTIONS (Alert Banners & Media Badges) */
+html[class*="theme-"] .infoBanner,
+html[class*="theme-"] .infoBanner *,
+html[class*="theme-"] .mediaInfoItem .button-link,
+html[class*="theme-"] .mediaInfoItem * {
+    color: inherit !important;
+    -webkit-text-fill-color: inherit !important;
+}
+html[class*="theme-"] .infoBanner { color: var(--pure-white) !important; }
+
+/* 7. NATIVE UI BUTTON FIXES (Removes Grey Backgrounds) */
+html[class*="theme-"] body .emby-input-iconbutton,
+html[class*="theme-"] body .paper-icon-button-light,
+html[class*="theme-"] body .cardOverlayButton,
+html[class*="theme-"] body .listItemImageButton {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+html[class*="theme-"] body .emby-input-iconbutton:not(.ratingbutton-icon-withrating):not(.playstatebutton-icon-played) .md-icon,
+html[class*="theme-"] body .paper-icon-button-light:not(.ratingbutton-icon-withrating):not(.playstatebutton-icon-played) .md-icon,
+html[class*="theme-"] body .cardOverlayButton:not(.ratingbutton-icon-withrating):not(.playstatebutton-icon-played) .md-icon {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+/* --- 2H. SURGICAL COMPONENT EXCEPTIONS --- */
+
+/* 1. Restore Cast & Crew Gold Text */
+html[class*="theme-"] body .peopleSection .cardText-first,
+html[class*="theme-"] body .peopleSection .button-link,
+html[class*="theme-"] body .personCard .cardText-first,
+html[class*="theme-"] body .personCard .button-link {
+    color: var(--season-actor-name) !important;
+    -webkit-text-fill-color: var(--season-actor-name) !important;
+}
+
+/* 2. Action Buttons (Solid Gold Backgrounds = Black Text/Icons) */
+/* We use body to ensure highest specificity, but exclude text links */
+html[class*="theme-"] body .btnPlay,
+html[class*="theme-"] body .btnPlay *,
+html[class*="theme-"] body .btnStartNow,
+html[class*="theme-"] body .btnStartNow *,
+html[class*="theme-"] body .button-submit,
+html[class*="theme-"] body .button-submit *,
+html[class*="theme-"] body .detailButton:hover,
+html[class*="theme-"] body .detailButton:hover *,
+html[class*="theme-"] body .itemsViewSettingsContainer-button:hover,
+html[class*="theme-"] body .itemsViewSettingsContainer-button:hover * {
+    color: var(--pure-black) !important;
+    -webkit-text-fill-color: var(--pure-black) !important;
+}
+
+/* 3. Link Hover Accent (Mapped to: Gold) */
+/* Forces text links to stay Gold even on hover/focus */
+html[class*="theme-"] body .button-link:hover,
+html[class*="theme-"] body .button-link:focus,
+html[class*="theme-"] body .itemAction:hover .cardText {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    text-decoration: none !important;
+}
+
+/* 4. Chapter Cleanup (Nukes persistent heart icon) */
+[id*="chaptersSection"] .cardOverlayButton-br,
+[id*="chaptersSection"] .ratingbutton-icon,
+.chaptersSection .cardOverlayButton-br,
+.chaptersSection .ratingbutton-icon,
+.chaptersSection [data-isfavorite] {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
 /* ============================================================
    03. NAVIGATION & SIDEBAR
    ============================================================ */
@@ -1246,6 +1380,12 @@ html .backdropContainer::after {
 .navMenuOption-selected::before,
 .navMenuOption-selected::after {
   display:                 none !important;
+}
+
+/* 5. Global Sidebar Icons: Applies the gold icon color across ALL Emby themes */
+.navDrawerListItemIcon {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
 }
 
 /* --- 3C. PILL NAVIGATION TABS (Home, Favorites, Libraries) --- */
@@ -1634,6 +1774,109 @@ html[class*="theme-"] .listTotalRecordCount {
   margin-right:            15px !important;
 }
 
+/* --- 4H. METADATA EDITOR LOCK ICONS (WRAPPER FIX) --- */
+
+/* 1. LOCKED STATE BACKGROUND (Targets the wrapper span, stripping the blue) */
+html[class*="theme-"] body input.chkLockedField:checked + span.checkboxLabel-lockedfield {
+    background-color: var(--my-gold) !important;
+    border-color: var(--my-gold) !important; 
+    transition: all var(--transition-speed) ease-in-out !important;
+}
+
+/* 2. LOCKED STATE ICON (Dark Navy for contrast against the solid Gold background) */
+html[class*="theme-"] body input.chkLockedField:checked + span.checkboxLabel-lockedfield .lockedfield-lockicon-locked {
+    color: var(--retro-navy) !important;
+    -webkit-text-fill-color: var(--retro-navy) !important;
+    filter: none !important;
+}
+
+/* 3. UNLOCKED STATE BACKGROUND (Keeps transitions smooth) */
+html[class*="theme-"] body input.chkLockedField:not(:checked) + span.checkboxLabel-lockedfield {
+    background-color: transparent !important;
+    background: transparent !important;
+    border-color: transparent !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+}
+
+/* 4. UNLOCKED STATE ICON (Muted white until hovered) */
+html[class*="theme-"] body input.chkLockedField:not(:checked) + span.checkboxLabel-lockedfield .lockedfield-lockicon-unlock {
+    color: var(--white-alpha-60) !important;
+    -webkit-text-fill-color: var(--white-alpha-60) !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+}
+
+/* 5. HOVER STATE: LOCKED (Brightens the gold background and adds a glow) */
+html[class*="theme-"] body .checkboxContainer-lockedfield:hover input.chkLockedField:checked + span.checkboxLabel-lockedfield {
+    background-color: var(--my-gold-light) !important;
+    border-color: var(--my-gold-light) !important;
+    box-shadow: 0 0 10px var(--gold-alpha-40) !important;
+}
+
+/* 6. HOVER STATE: UNLOCKED (Makes the open lock icon glow gold to invite clicking) */
+html[class*="theme-"] body .checkboxContainer-lockedfield:hover input.chkLockedField:not(:checked) + span.checkboxLabel-lockedfield .lockedfield-lockicon-unlock {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    filter: var(--filter-glow-light) !important;
+    transform: scale(1.1) !important;
+}
+
+/* --- 4I. MEDIA CARD HOVER BUTTONS (LIGHT THEME FIX) --- */
+
+/* 1. Base State: Forces a dark translucent background instead of light grey (Excludes Play Button) */
+html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary) {
+    background-color: var(--black-alpha-60) !important;
+    background: var(--black-alpha-60) !important;
+    border: none !important;
+    box-shadow: none !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+}
+
+/* 2. Hover State: Pops the button background to solid Gold */
+html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):hover {
+    background-color: var(--my-gold) !important;
+    background: var(--my-gold) !important;
+    transform: scale(1.15) !important;
+    box-shadow: var(--shadow-glow-standard) !important;
+}
+
+/* 3. Hover Icon Contrast: Forces the icon inside to turn dark navy so it's readable */
+html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):hover,
+html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):hover * {
+    color: var(--retro-navy) !important;
+    -webkit-text-fill-color: var(--retro-navy) !important;
+    filter: none !important;
+}
+
+/* --- 4J. NATIVE DATE PICKER (CUSTOM ICON HIJACK) --- */
+
+/* 1. Forces the popup window to dark mode */
+html[class*="theme-"] input[type="date"].emby-input,
+html[class*="theme-"] input[type="datetime-local"].emby-input {
+    color-scheme: dark !important;
+}
+
+/* 2. Replace the native icon with a custom White SVG */
+html[class*="theme-"] input[type="date"]::-webkit-calendar-picker-indicator,
+html[class*="theme-"] input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='6'/%3E%3Cline x1='8' y1='2' x2='8' y2='6'/%3E%3Cline x1='3' y1='10' x2='21' y2='10'/%3E%3C/svg%3E") !important;
+    background-color: transparent !important;
+    background-size: 80% !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    opacity: 0.6 !important;
+    cursor: pointer !important;
+    filter: none !important; /* Strips any old inversion filters */
+    transition: all var(--transition-speed) ease-in-out !important;
+}
+
+/* 3. Hover State: Swaps the SVG to Gold and adds the glow */
+html[class*="theme-"] input[type="date"]::-webkit-calendar-picker-indicator:hover,
+html[class*="theme-"] input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffb900' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='6'/%3E%3Cline x1='8' y1='2' x2='8' y2='6'/%3E%3Cline x1='3' y1='10' x2='21' y2='10'/%3E%3C/svg%3E") !important;
+    opacity: 1 !important;
+    filter: drop-shadow(0 0 5px var(--my-gold)) !important;
+}
+
 /* ============================================================
    05. CARDS & PORTRAITS (POSTERS)
    ============================================================ */
@@ -1931,6 +2174,44 @@ div.verticalSection.aboutSection       { order: var(--order-about) !important; }
 
 .trackSelectionField .selectArrowContainer {
     color: var(--my-gold) !important;
+}
+
+/* 5. Center-Align & Expand Track Selectors (Video, Audio, Subtitles) */
+
+/* Ensure the outer container allows for wider boxes */
+html[class*="theme-"] .trackSelections .selectContainer-inline {
+    max-width: 100% !important; 
+}
+
+/* Flexbox alignment for the label text and the dropdown wrapper */
+html[class*="theme-"] .trackSelections .selectLabel-inline {
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Clean up text margins and nudge it to true-center */
+html[class*="theme-"] .trackSelections .selectLabelText-inline {
+    margin: 0 10px 0 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    align-self: center !important;
+    transform: translateY(-2px) !important; /* Adjust this value (-1px, -3px) if the text needs a micro-nudge */
+}
+
+/* Strip wrapper margins, allow it to grow, and force its contents to center vertically */
+html[class*="theme-"] .trackSelections .emby-select-wrapper {
+    margin: 0 !important;
+    width: auto !important; 
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Fix text overlapping the arrow and allow wider boxes */
+html[class*="theme-"] .trackSelections .emby-select {
+    margin: 0 !important;
+    max-width: 400px !important; /* Allows much longer text before forcing a cut-off */
+    padding-right: 35px !important; /* Creates a safe zone so text never touches the yellow arrow */
+    text-overflow: ellipsis !important; 
 }
 
 /* --- 6D. Detail Action Buttons (Play, Trailer, More) --- */
@@ -2394,6 +2675,61 @@ input[type="range"]::-moz-range-thumb {
   color:                   var(--white-alpha-70) !important;
 }
 
+/* --- 8F. OSD Tabs (Info, Chapters, Cast & Crew) --- */
+
+/* Align the tab container gracefully inside the player */
+html[class*="theme-"] .videoOsdBottom .emby-tabs-container {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin-bottom: 10px !important;
+}
+
+/* Inactive OSD Tabs: Dark navy with Oswald font */
+html[class*="theme-"] .videoOsdBottom .emby-tab-button {
+    background: var(--nav-pill-bg-inactive) !important;
+    color: var(--nav-pill-text) !important;
+    -webkit-text-fill-color: var(--nav-pill-text) !important;
+    border-radius: var(--border-radius-pill) !important;
+    border: 2px solid transparent !important;
+    font-family: 'Oswald', sans-serif !important;
+    font-size: 0.85em !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    padding: 6px 16px !important;
+    margin: 0 !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+}
+
+/* Hover State for Inactive Tabs */
+html[class*="theme-"] .videoOsdBottom .emby-tab-button:hover:not(.emby-tab-button-active) {
+    background: var(--nav-pill-hover) !important;
+    color: var(--nav-pill-hover-text) !important;
+    -webkit-text-fill-color: var(--nav-pill-hover-text) !important;
+    border-color: var(--nav-pill-hover-border-color) !important;
+}
+
+/* Active OSD Tab: Gold Gradient & Glow */
+html[class*="theme-"] .videoOsdBottom .emby-tab-button-active {
+    background: var(--nav-pill-active) !important;
+    color: var(--nav-pill-active-text) !important;
+    -webkit-text-fill-color: var(--nav-pill-active-text) !important;
+    border: var(--nav-pill-active-border) !important;
+    box-shadow: var(--nav-pill-active-glow) !important;
+}
+
+/* Kills the native grey Emby background layer inside the tabs */
+html[class*="theme-"] .videoOsdBottom .emby-tab-button *,
+html[class*="theme-"] .videoOsdBottom .emby-tab-button-active * {
+    background: transparent !important;
+}
+
+/* Nukes the pseudo-elements Emby uses to draw the grey focus/active pills */
+html[class*="theme-"] .videoOsdBottom .emby-tab-button::before,
+html[class*="theme-"] .videoOsdBottom .emby-tab-button::after {
+    display: none !important;
+}
+
 /* ============================================================
    09. FULLSCREEN AUDIO & PLAYLIST
    ============================================================ */
@@ -2656,6 +2992,76 @@ html[class*="theme-"] .dataGridItemCell .paper-icon-button-light:hover {
   filter:                  var(--filter-glow-light) !important;
 }
 
+/* 6. DATA GRID RATING BADGE HOVER FIX --- */
+html[class*="theme-"] body .dataGridItem:hover .mediaInfoItem,
+html[class*="theme-"] body .dataGridItem:hover .mediaInfoItem * {
+    color: var(--media-badge-color) !important;
+    -webkit-text-fill-color: var(--media-badge-color) !important;
+}
+
+/* --- 10E. LIST VIEW ZEBRA STRIPING (LIGHT THEME OVERRIDE) --- */
+
+/* 1. Target rows strictly inside the main content window (.view), protecting the sidebar */
+html[class*="theme-"] body .view .listItem,
+html[class*="theme-"] body .view .listItem-border,
+html[class*="theme-"] body .view .dataGridItem,
+html[class*="theme-"] body .view .dataGridRow {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+/* 2. Odd Rows (Darker Navy) */
+html[class*="theme-"] body .view .listItem:nth-child(odd),
+html[class*="theme-"] body .view .listItem-border:nth-child(odd),
+html[class*="theme-"] body .view .dataGridItem:nth-child(odd),
+html[class*="theme-"] body .view .dataGridRow:nth-child(odd) {
+    background-color: var(--table-row-bg-odd) !important;
+}
+
+/* 3. Even Rows (Lighter Navy) */
+html[class*="theme-"] body .view .listItem:nth-child(even),
+html[class*="theme-"] body .view .listItem-border:nth-child(even),
+html[class*="theme-"] body .view .dataGridItem:nth-child(even),
+html[class*="theme-"] body .view .dataGridRow:nth-child(even) {
+    background-color: var(--table-row-bg-even) !important;
+}
+
+/* 4. Hover State (Gold Tint) */
+html[class*="theme-"] body .view .listItem:hover,
+html[class*="theme-"] body .view .listItem-border:hover,
+html[class*="theme-"] body .view .dataGridItem:hover,
+html[class*="theme-"] body .view .dataGridRow:hover {
+    background-color: var(--table-row-hover-bg) !important;
+}
+
+/* 5. Override Light Theme's Black Text (Safeguards Action Buttons) */
+html[class*="theme-"] body .view .listItem .secondaryText:not(button),
+html[class*="theme-"] body .view .listItem-border .secondaryText:not(button),
+html[class*="theme-"] body .view .dataGridItemCell {
+    color: var(--white-alpha-70) !important;
+    -webkit-text-fill-color: var(--white-alpha-70) !important;
+}
+
+html[class*="theme-"] body .view .listItem .listItemBodyText-first,
+html[class*="theme-"] body .view .listItem-border .listItemBodyText-first,
+html[class*="theme-"] body .view .dataGridItemCell.primaryText {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+/* --- 10F. SIDEBAR LIGHT THEME FIX --- */
+
+/* Forces the selected sidebar item to use your gold theme instead of native bright blue */
+html[class*="theme-"] body .mainDrawer .navMenuOption-selected {
+    background: var(--theme-icon-focus-background) !important;
+}
+
+html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navDrawerListItemIcon,
+html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navMenuOptionText {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+}
+
 /* ============================================================
    11. LOGIN PAGE & MISC TWEAKS
    ============================================================ */
@@ -2711,7 +3117,8 @@ body:has(.view-login) .skinHeader {
 }
 
 /* ============================================================
-   12. GLOBAL FIXES
+   12. GLOBAL FIXES / HOTFIX ZONE
+   ALSO A TEMP CODE AREA TO INTEGRATE LATER ON
    ============================================================ */
 
 /* 1. Universal Star Fix: Keeps rating stars visible and glowing */
@@ -2795,6 +3202,47 @@ html[class*="theme-"] body .playstatebutton-icon-played:hover {
   -webkit-text-fill-color: var(--my-gold) !important;
   transform:               scale(1.2) !important;
   filter:                  drop-shadow(0 0 10px var(--gold-alpha-80)) !important;
+}
+
+/* --- LIBRARY HEADER PLAY BUTTON FIX --- */
+/* Target using lowercase 'i' as seen in the inspector to override section 2H.2 */
+html[class*="theme-"] body .itemsViewSettingsContainer .btnPlay:not(:hover),
+html[class*="theme-"] body .itemsViewSettingsContainer .btnPlay:not(:hover) * {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+/* --- OSD ACTIVE TAB TEXT COLOR FIX (HIGH SPECIFICITY) --- */
+/* Forces OSD active tabs to black text, overriding the broad gold/white rules in Section 2 */
+html[class*="theme-"] body .videoOsdBottom .emby-tab-button.emby-tab-button-active,
+html[class*="theme-"] body .videoOsdBottom .emby-tab-button.emby-tab-button-active * {
+    color: var(--pure-black) !important;
+    -webkit-text-fill-color: var(--pure-black) !important;
+    opacity: 1 !important;
+}
+
+/* --- ACTION SHEET / CONTINUED WATCHING BUTTON FIX --- */
+/* Forces titles in the 'Continued Watching' action sheet to black text against the gold background */
+html[class*="theme-"] body .actionSheet .button-link,
+html[class*="theme-"] body .actionSheet .button-link * {
+    color: var(--pure-black) !important;
+    -webkit-text-fill-color: var(--pure-black) !important;
+    opacity: 1 !important;
+}
+
+/* --- 3D POPOUT CONTRAST FIX --- */
+/* For buttons with Gold backgrounds, we change the 3D 'side' shadow to Navy so it actually pops */
+html[class*="theme-"] body .btnPlay,
+html[class*="theme-"] body .btnStartNow,
+html[class*="theme-"] body .button-submit,
+html[class*="theme-"] body .detailButton:hover {
+    --button-popout-shadow: 3px 3px 0px var(--retro-navy), 6px 6px 15px var(--black-alpha-80) !important;
+}
+
+html[class*="theme-"] body .btnPlay,
+html[class*="theme-"] body .btnStartNow,
+html[class*="theme-"] body .button-submit {
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
 }
 
 /* ============================================================
