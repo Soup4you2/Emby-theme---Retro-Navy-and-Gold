@@ -2258,6 +2258,29 @@ p.lnkEditUserPreferencesContainer > a.lnkEditUserPreferences:hover {
   text-shadow:             1px 1px 2px var(--black-alpha-80);
 }
 
+/* 6. Button Geometry (Egg Fix): Forces floating action buttons into perfect circles and centers icons */
+html[class*="theme-"] body .cardOverlayButton-fab,
+html[class*="theme-"] body .cardOverlayFab-primary {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Ensures the icon stays dead-center without pushing the borders */
+html[class*="theme-"] body .cardOverlayButton-fab .md-icon,
+html[class*="theme-"] body .cardOverlayFab-primary .md-icon {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 /* --- 5B. CARD HOVER STATES --- */
 
 /* 1. Global Hover Behavior: Applies theme glow and gold border on mouse-over */
