@@ -3767,22 +3767,6 @@ html[class*="theme-"] body .actionSheet {
     border-radius: var(--border-radius-md) !important;
 }
 
-/* HOTFIX: EPISODE LIST - SAFE NUDGE & VISIBLE ICONS */
-
-/* 1. Nudge the images to the right safely without pushing the row off-screen */
-html[class*="theme-"] body .seriesItemsSection .listItemImageContainer-large {
-    margin-left: 30px !important; /* Adjust this to push the image further right */
-}
-
-/* 2. Force the Heart and Checkmark icons to always stay visible */
-html[class*="theme-"] body .listItem .listViewUserDataButtons,
-html[class*="theme-"] body .listItem .listItemButton-autohide {
-    display: inline-flex !important;
-    align-items: center !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
 /* ============================================================
    13. UNIVERSAL SEASONAL LOGIC
    ============================================================ */
