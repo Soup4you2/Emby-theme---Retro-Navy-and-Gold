@@ -2093,6 +2093,69 @@ html[class*="theme-"] body .emby-button.button-delete:hover {
     transform: scale(1.03) !important;
 }
 
+/* --- 4L. HORIZONTAL SCROLL ARROWS --- */
+
+/* 1. The Button Container: True Center alignment */
+html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton {
+  background: var(--navy-light-alpha-80) !important;
+  background-color: var(--navy-light-alpha-80) !important;
+  border: 2px solid var(--my-gold) !important;
+  border-radius: 50% !important;
+  width: 44px !important;
+  height: 44px !important;
+  opacity: 1 !important;
+  box-shadow: 0 4px 15px var(--black-alpha-80), 0 0 10px var(--gold-alpha-20) !important;
+  transition: all var(--transition-speed) ease !important;
+  
+  /* The Fix: Forces the icon inside to stay dead-center */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+/* 2. The Arrow (Chevron): Resetting its position */
+html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton i.md-icon {
+  color: var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  font-size: 32px !important;
+  font-weight: bold !important;
+  filter: drop-shadow(0 0 2px var(--black-alpha-50)) !important;
+  
+  /* Strips Emby's native "pushing" styles */
+  margin: 0 !important;
+  position: relative !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: 1 !important;
+  text-align: center !important;
+}
+
+/* 3. Visual Nudge: Chevron characters often look a bit "left-heavy" to the eye. */
+html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton[data-direction="backwards"] i.md-icon {
+  transform: translateX(-1px) !important;
+}
+
+html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton[data-direction="forwards"] i.md-icon {
+  transform: translateX(1px) !important;
+}
+
+/* 4. Hover State: Gold pop with Navy contrast icon */
+html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton:hover {
+  background: var(--my-gold) !important;
+  background-color: var(--my-gold) !important;
+  box-shadow: 0 0 20px var(--my-gold) !important;
+  transform: scale(1.1) !important;
+}
+
+html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton:hover i.md-icon {
+  color: var(--retro-navy) !important;
+  -webkit-text-fill-color: var(--retro-navy) !important;
+  filter: none !important;
+}
 
 /* ============================================================
    05. CARDS & PORTRAITS (POSTERS)
@@ -3545,71 +3608,7 @@ html[class*="theme-"] body .button-submit {
     border: 1px solid rgba(0, 0, 0, 0.2) !important;
 }
 
-/* HOTFIX PATCH: CHROME-PLATED SCROLL ARROWS (GOLD & NAVY) */
 
-/* 1. The Button Container: Now with True Center alignment */
-html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton {
-    background: var(--navy-light-alpha-80) !important;
-    background-color: var(--navy-light-alpha-80) !important;
-    border: 2px solid var(--my-gold) !important;
-    border-radius: 50% !important;
-    width: 44px !important;
-    height: 44px !important;
-    opacity: 1 !important;
-    box-shadow: 0 4px 15px var(--black-alpha-80), 0 0 10px var(--gold-alpha-20) !important;
-    transition: all var(--transition-speed) ease !important;
-    
-    /* The Fix: Forces the icon inside to stay dead-center */
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    padding: 0 !important;
-    overflow: visible !important;
-}
-
-/* 2. The Arrow (Chevron): Resetting its position */
-html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton i.md-icon {
-    color: var(--my-gold) !important;
-    -webkit-text-fill-color: var(--my-gold) !important;
-    font-size: 32px !important;
-    font-weight: bold !important;
-    filter: drop-shadow(0 0 2px var(--black-alpha-50)) !important;
-    
-    /* Strips Emby's native "pushing" styles */
-    margin: 0 !important;
-    position: relative !important;
-    left: 0 !important;
-    top: 0 !important;
-    width: auto !important;
-    height: auto !important;
-    line-height: 1 !important;
-    text-align: center !important;
-}
-
-/* 3. Visual Nudge: 
-      Chevron characters often look a bit "left-heavy" to the eye. 
-      This rule adds a tiny pixel nudge to make it look visually perfect. */
-html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton[data-direction="backwards"] i.md-icon {
-    transform: translateX(-1px) !important;
-}
-
-html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton[data-direction="forwards"] i.md-icon {
-    transform: translateX(1px) !important;
-}
-
-/* 4. Hover State: Remains the same Gold pop */
-html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton:hover {
-    background: var(--my-gold) !important;
-    background-color: var(--my-gold) !important;
-    box-shadow: 0 0 20px var(--my-gold) !important;
-    transform: scale(1.1) !important;
-}
-
-html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton:hover i.md-icon {
-    color: var(--retro-navy) !important;
-    -webkit-text-fill-color: var(--retro-navy) !important;
-    filter: none !important;
-}
 
 /* HOTFIX PATCH: ADMIN LIBRARY FOOTERS */
 
