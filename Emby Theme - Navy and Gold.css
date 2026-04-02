@@ -2157,6 +2157,30 @@ html[class*="theme-"] body button.emby-scrollbuttons-scrollbutton:hover i.md-ico
   filter: none !important;
 }
 
+/* --- 4M. USER PROFILE EDIT BUTTON --- */
+
+/* 1. Base State: Pill-shaped gold outline */
+p.lnkEditUserPreferencesContainer > a.lnkEditUserPreferences {
+  border: 2px solid var(--my-gold) !important;
+  border-radius: var(--border-radius-pill) !important;
+  padding: 8px 16px !important;
+  box-shadow: var(--shadow-glow-standard) !important;
+  text-decoration: none !important;
+  transition: all var(--transition-speed) ease !important;
+  margin-top: 10px !important;
+  color: var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
+}
+    
+/* 2. Hover State: Solid gold pop */
+p.lnkEditUserPreferencesContainer > a.lnkEditUserPreferences:hover {
+  background-color: var(--my-gold) !important;
+  color: var(--pure-black) !important;
+  -webkit-text-fill-color: var(--pure-black) !important;
+  box-shadow: 0 0 15px var(--my-gold) !important;
+  transform: scale(1.02) !important;
+}
+
 /* ============================================================
    05. CARDS & PORTRAITS (POSTERS)
    ============================================================ */
@@ -3425,6 +3449,72 @@ html[class*="theme-"] body .card .playedIndicator {
     z-index: 100 !important; 
 }
 
+/* --- 10J. ADMIN LIBRARY SETUP CARDS --- */
+
+/* 1. Base Card Container: Charcoal foundation */
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardContent,
+html[class*="theme-"] body .view-librarysetup-librarysetup .visualCardBox {
+  background-color: rgba(var(--navy-banner-rgb), 0.8) !important; 
+  background-image: none !important;
+  border: none !important;
+  overflow: visible !important; 
+  border-radius: var(--border-radius-lg) !important;
+}
+
+/* 2. Resting Image State: Pre-sets a transparent border to prevent layout jumping */
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardImageContainer {
+  box-shadow: 0 10px 25px var(--black-alpha-90) !important;
+  transform: translateY(-2px) scale(1.01) !important;
+  z-index: 10 !important;
+  border-radius: var(--border-radius-md) !important;
+  border: var(--hover-border-thickness) solid transparent !important; /* Placeholder border */
+  transition: transform var(--transition-speed) ease, border-color var(--transition-speed) ease !important;
+}
+
+/* 3. THE GOLD HOVER: Replicates the Home Screen media card look */
+html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardImageContainer {
+  transform: translateY(-8px) scale(1.04) !important; /* Lifts higher like media cards */
+  border-color: var(--my-gold) !important;          /* Solid Gold Border */
+  box-shadow: 0 20px 40px var(--pure-black), 
+              var(--shadow-glow-standard) !important; /* Standard Gold Glow */
+}
+
+/* 4. Footer & Text Layout */
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardFooter {
+  background: transparent !important;
+  padding: 18px 10px 12px 10px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* 5. Typography Fixes */
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardText-first {
+  color: var(--pure-white) !important;
+  font-weight: 600 !important;
+}
+
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardText-secondary {
+  color: var(--white-alpha-60) !important;
+  font-size: 0.82em !important;
+  margin-top: 4px !important;
+}
+
+/* Gold for Interactive Library Links (Oswald font) */
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardMediaInfoItem .button-link,
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardMediaInfoItem .button-link * {
+  color: var(--my-gold) !important;
+  font-family: 'Oswald', sans-serif !important;
+  text-transform: uppercase !important;
+  font-size: 1.15em !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Subtle background darkening of the charcoal base on hover */
+html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardContent {
+  background-color: rgb(var(--navy-banner-rgb)) !important;
+}
+
 /* ============================================================
    11. LOGIN PAGE & MISC TWEAKS
    ============================================================ */
@@ -3610,97 +3700,6 @@ html[class*="theme-"] body .button-submit {
 
 
 
-/* HOTFIX PATCH: ADMIN LIBRARY FOOTERS */
-
-/* 1. Base Card Container: Charcoal foundation */
-html[class*="theme-"] body .view-librarysetup-librarysetup .cardContent,
-html[class*="theme-"] body .view-librarysetup-librarysetup .visualCardBox {
-    background-color: rgba(var(--navy-banner-rgb), 0.8) !important; 
-    background-image: none !important;
-    border: none !important;
-    overflow: visible !important; 
-    border-radius: var(--border-radius-lg) !important;
-}
-
-/* 2. Resting Image State: Pre-sets a transparent border to prevent layout jumping */
-html[class*="theme-"] body .view-librarysetup-librarysetup .cardImageContainer {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9) !important;
-    transform: translateY(-2px) scale(1.01) !important;
-    z-index: 10 !important;
-    border-radius: var(--border-radius-md) !important;
-    border: var(--hover-border-thickness) solid transparent !important; /* Placeholder border */
-    transition: transform var(--transition-speed) ease, border-color var(--transition-speed) ease !important;
-}
-
-/* 3. THE GOLD HOVER: Replicates the Home Screen media card look */
-html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardImageContainer {
-    transform: translateY(-8px) scale(1.04) !important; /* Lifts higher like media cards */
-    border-color: var(--my-gold) !important;          /* Solid Gold Border */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 1), 
-                var(--shadow-glow-standard) !important; /* Standard Gold Glow */
-}
-
-/* 4. Footer & Text Layout */
-html[class*="theme-"] body .view-librarysetup-librarysetup .cardFooter {
-    background: transparent !important;
-    padding: 18px 10px 12px 10px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-}
-
-/* 5. Typography Fixes */
-html[class*="theme-"] body .view-librarysetup-librarysetup .cardText-first {
-    color: var(--pure-white) !important;
-    font-weight: 600 !important;
-}
-
-html[class*="theme-"] body .view-librarysetup-librarysetup .cardText-secondary {
-    color: var(--white-alpha-60) !important;
-    font-size: 0.82em !important;
-    margin-top: 4px !important;
-}
-
-/* Gold for Interactive Library Links (Oswald font) */
-html[class*="theme-"] body .view-librarysetup-librarysetup .cardMediaInfoItem .button-link,
-html[class*="theme-"] body .view-librarysetup-librarysetup .cardMediaInfoItem .button-link * {
-    color: var(--my-gold) !important;
-    font-family: 'Oswald', sans-serif !important;
-    text-transform: uppercase !important;
-    font-size: 1.15em !important;
-    letter-spacing: 0.5px !important;
-}
-
-/* Subtle background darkening of the charcoal base on hover */
-html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardContent {
-    background-color: rgb(var(--navy-banner-rgb)) !important;
-}
-
-/* HOTFIX: USER PROFILE EDIT LINK HIGHLIGHT */
-
-/* Targets the exact class of the edit link */
-p.lnkEditUserPreferencesContainer > a.lnkEditUserPreferences {
-    border: 2px solid var(--my-gold) !important;
-    border-radius: var(--border-radius-pill) !important;
-    padding: 8px 16px !important;
- 
-  
-    box-shadow: var(--shadow-glow-standard) !important;
-    text-decoration: none !important;
-    transition: all var(--transition-speed) ease !important;
-    margin-top: 10px !important;
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-}
-    
-/* Hover state for the edit link */
-p.lnkEditUserPreferencesContainer > a.lnkEditUserPreferences:hover {
-    background-color: var(--my-gold) !important;
-    color: var(--pure-black) !important;
-    -webkit-text-fill-color: var(--pure-black) !important;
-    box-shadow: 0 0 15px var(--my-gold) !important;
-    transform: scale(1.02) !important;
-}
 
 /* HOTFIX: USER TABLE FIX (EDITING A USERS PREFERENCES) */
 
