@@ -902,6 +902,13 @@ html[class*="theme-"] body .backgroundContainer.withBackdrop:not(.backgroundCont
   background-image: var(--backdrop-gradient) !important;
 }
 
+/* 3b. Video Playback Fix: Prevents the dynamic backdrop from tinting or dimming active video playback */
+html[class*="theme-"] body:has(.view-videoosd-videoosd:not(.hide)) .backgroundContainer,
+html[class*="theme-"] body:has(.videoBackdropContainer:not(.hide)) .backgroundContainer {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
 /* 4. Core Container Darkness: Ensures settings dialogs and inputs utilize our navy variables */
 html[class*="theme-"] .formDialog, 
 html[class*="theme-"] .dialog,
