@@ -179,7 +179,7 @@ html,
 
   /* BACKDROP & FANART STYLE */
   --backdrop-opacity: 0.9;                                          /* DIMMING (Traditional full-screen dark overlay) */
-  --backdrop-bg-color: rgba(0, 8, 20, 0.75);                 /* DIMMING (Traditional full-screen dark overlay) */
+  --backdrop-bg-color: rgba(0, 8, 20, 0.75);                      /* DIMMING (Traditional full-screen dark overlay) */
   --backdrop-gradient: none;                                        /* DIMMING (Traditional full-screen dark overlay) */
   --backdrop-text-shadow: none;                                     /* DIMMING (Traditional full-screen dark overlay) */
   /* --backdrop-opacity: 1; */                                      /* NO DIMMING */
@@ -2396,6 +2396,16 @@ div.verticalSection.aboutSection       { order: var(--order-about) !important; }
     will-change: transform;
 }
 
+/* 1b. Parental Rating Badges: Forces bordered badges (PG-13, R) to match the geometry of standard badges */
+html[class*="theme-"] body .mediaInfoItem.mediaInfoItem-border {
+    font-size: 1em !important;
+    line-height: inherit !important;
+    padding: 2px 10px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
 /* 2. High-Specificity Badge Colors & Hover Fix (Prevents links in LiveTV/Lists from warping or changing colors) */
 html[class*="theme-"] body .mediaInfoItems .mediaInfoItem,
 html[class*="theme-"] body .mediaInfoItem,
@@ -2428,17 +2438,15 @@ html[class*="theme-"] body .mediaInfoItem:focus * {
     -webkit-text-fill-color: var(--media-badge-color) !important;
 }
 
-/* 3. Rating Star Icon Formatting */
-.starIcon {
-    color: var(--my-gold) !important;
-    filter: var(--filter-glow-light) !important;
-    margin-right: 2px; 
-}
-
-/* Forces stars inside the rating badges to match the dark text color so they don't vanish */
-.mediaInfoItem .starIcon {
-    color: inherit !important;
-    filter: none !important;
+/* 3. Rating Star Icon Formatting: Keeps stars visible and glowing (blocks hover interference) */
+html[class*="theme-"] body .mediaInfoItem .starIcon,
+html[class*="theme-"] body .starIcon,
+html[class*="theme-"] body .mediaInfoItem:hover .starIcon,
+html[class*="theme-"] body .starIcon:hover {
+    color: var(--season-star-color) !important;
+    -webkit-text-fill-color: var(--season-star-color) !important;
+    filter: var(--season-star-glow) !important;
+    margin-right: 2px !important;
 }
 
 /* 4. Track Selector Dropdowns (Audio/Subtitle menus) */
@@ -3713,7 +3721,7 @@ html[class*="theme-"] body table.dataExplorerTable {
 }
 
 /* ============================================================
-   HOTFIX: CARD FOOTERS & HORIZONTAL CARD FOOTERS
+   HOTFIX: CARD FOOTERS (Music)
    ============================================================ */
 
 /* 1. Forces portrait card footers (Albums, Movies) to use the dynamic seasonal color */
@@ -3737,20 +3745,6 @@ html[class*="theme-"] body .card-horiz:hover .visualCardBox,
 html[class*="theme-"] body .bannerCard:hover .visualCardBox,
 html[class*="theme-"] body .card-horiz.show-focus .visualCardBox {
     background-color: var(--theme-icon-focus-background) !important;
-}
-
-/* ============================================================
-   HOTFIX: PARENTAL RATING BADGE SIZE
-   ============================================================ */
-
-/* Forces the parental rating badge to match the font size and padding of standard badges */
-html[class*="theme-"] body .mediaInfoItem.mediaInfoItem-border {
-    font-size: 1em !important;
-    line-height: inherit !important;
-    padding: 2px 10px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
 }
 
 /* ============================================================
