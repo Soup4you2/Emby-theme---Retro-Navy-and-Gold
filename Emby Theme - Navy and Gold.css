@@ -177,6 +177,16 @@ html,
   --play-button-display: inline-block;                              /* Enabled */
   /* --play-button-display: none; */                                /* Disabled */
 
+  /* BACKDROP & FANART STYLE */
+  --backdrop-opacity: 0.9;                                          /* DIMMING (Traditional full-screen dark overlay) */
+  --backdrop-bg-color: var(--navy-base-alpha-75);                   /* DIMMING (Traditional full-screen dark overlay) */
+  --backdrop-gradient: none;                                        /* DIMMING (Traditional full-screen dark overlay) */
+  --backdrop-text-shadow: none;                                     /* DIMMING (Traditional full-screen dark overlay) */
+  /* --backdrop-opacity: 1; */                                      /* NO DIMMING */
+  /* --backdrop-bg-color: transparent; */                           /* NO DIMMING */
+  /* --backdrop-gradient: linear-gradient(to right, var(--navy-base-solid) 0%, var(--navy-base-alpha-75) 30%, transparent 75%); */   /* NO DIMMING */
+  /* --backdrop-text-shadow: 0 2px 5px var(--pure-black), 0 0 12px var(--pure-black); */   /* NO DIMMING */
+
   /* BUTTONS AND INDICATORS */
   --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
   --button-popout-transform: translate(-3px, -3px);                 /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
@@ -880,15 +890,16 @@ body[class*="theme-"],
   background-color: var(--retro-navy) !important;
 }
 
-/* 3. Curtain Removal: Nukes Emby's solid overlays that block the radial gradient background */
+/* 3. Curtain Removal & Dynamic Backdrop: Manages overlays blocking the background */
 html[class*="theme-"] .backgroundContainer:not(.backgroundContainer-transparent) {
   background-color: var(--navy-base-alpha-25) !important;
   background-image: none !important;
 }
 
-html[class*="theme-"] .backgroundContainer.withBackdrop:not(.backgroundContainer-transparent) {
-  background-color: var(--navy-base-alpha-75) !important;
-  background-image: none !important;
+html[class*="theme-"] body .backgroundContainer.withBackdrop,
+html[class*="theme-"] body .backgroundContainer.withBackdrop:not(.backgroundContainer-transparent) {
+  background-color: var(--backdrop-bg-color) !important;
+  background-image: var(--backdrop-gradient) !important;
 }
 
 /* 4. Core Container Darkness: Ensures settings dialogs and inputs utilize our navy variables */
@@ -939,9 +950,10 @@ html[class*="theme-"] .mainAnimatedPages {
   background: transparent !important;
 }
 
-/* 7. Fanart Intensity: Dims backdrop images slightly to keep UI text legible */
-.backdropImage {
-  opacity: 0.9 !important;
+/* 7. Fanart Intensity: Dynamically controls backdrop brightness */
+html[class*="theme-"] body .backdropImage {
+  opacity: var(--backdrop-opacity) !important;
+  filter: none !important;
 }
 
 /* --- 2B. GLOBAL TYPOGRAPHY & FONTS --- */
