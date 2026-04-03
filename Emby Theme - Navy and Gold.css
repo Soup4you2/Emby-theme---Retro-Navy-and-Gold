@@ -2227,7 +2227,23 @@ p.lnkEditUserPreferencesContainer > a.lnkEditUserPreferences:hover {
 }
 
 /* 6. Button Geometry (Egg Fix): Forces floating action buttons into perfect circles and centers icons */
-html[class*="theme-"] body .cardOverlayButton-fab,
+
+/* Secondary Action Buttons (Heart, Checkmark, More) */
+html[class*="theme-"] body .cardOverlayButton-fab {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    max-width: 36px !important;
+    max-height: 36px !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Primary Action Button (Play) */
 html[class*="theme-"] body .cardOverlayFab-primary {
     width: 48px !important;
     height: 48px !important;
@@ -2235,11 +2251,6 @@ html[class*="theme-"] body .cardOverlayFab-primary {
     min-height: 48px !important;
     max-width: 48px !important;
     max-height: 48px !important;
-    border-radius: 50% !important;
-    padding: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
 }
 
 /* Ensures the icon stays dead-center without pushing the borders */
