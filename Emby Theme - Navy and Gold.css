@@ -76,8 +76,8 @@ html,
   --nav-pill-active-glow: 0 4px 8px var(--black-alpha-80), 0 0 5px var(--gold-alpha-40); /* Outer glow for active pills */
   --nav-pill-bar-bg: rgb(var(--navy-accent-rgb));                  /* Background color for the pill container bar */
   --nav-pill-bar-border: 0px solid var(--gold-alpha-80);           /* Border for the pill container bar */
-  --nav-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Border shadow */
-  
+  --nav-pill-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light); /* Active Pill Shadow */
+
   /* --- EMBY THEME ENFORCERS --- */
   --theme-primary-color: var(--my-gold) !important;                /* Global brand primary */
   --theme-accent-color: var(--my-gold) !important;                 /* Global brand accent */
@@ -1643,14 +1643,14 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini .btnToggleNavDrawer .md-i
 }
 
 /* 2. Main Dialog Box: Styling for metadata editors, settings, and menus */
-html[class*="theme-"] body .dialog,
-html[class*="theme-"] body .formDialog,
-html[class*="theme-"] body .actionSheet {
+.dialog,
+.formDialog,
+.actionSheet {
   background-color:        var(--navy-light-alpha-80) !important;
   backdrop-filter:         var(--blur-extreme) saturate(160%) !important;
   -webkit-backdrop-filter: var(--blur-extreme) saturate(160%) !important;
-  border:                  2px solid var(--my-gold) !important;
-  box-shadow:              0 15px 40px var(--black-alpha-90), 0 0 15px var(--gold-alpha-30) !important;
+  border:                  var(--standard-border-thickness) solid var(--gold-alpha-25) !important;
+  box-shadow:              0 15px 40px var(--black-alpha-90) !important;
   border-radius:           var(--border-radius-md) !important;
   color:                   var(--text-muted) !important;
   overflow:                hidden !important;
@@ -3762,6 +3762,31 @@ html[class*="theme-"] body table.dataExplorerTable {
     background-image: none !important;
     border: none !important;
     box-shadow: none !important;
+}
+
+/* ============================================================
+   HOTFIX: DIALOG & POPUP - GOLD BORDER ENFORCER 
+  =========================================================== */
+  
+/* Targets all main popups, metadata editors (formDialogs), 
+   and the right-click/context menus (actionSheets). */
+html[class*="theme-"] body .dialog,
+html[class*="theme-"] body .formDialog,
+html[class*="theme-"] body .actionSheet {
+    /* Solid Gold Border */
+    border: 2px solid var(--my-gold) !important;
+    
+    /* Adds depth: A heavy shadow + a subtle Gold glow */
+    box-shadow: 0 15px 40px var(--black-alpha-90), 
+                0 0 15px var(--gold-alpha-30) !important;
+
+    /* Ensures the inner content doesn't bleed over our new border */
+    overflow: hidden !important;
+}
+
+/* Fix for the 'Sign Out' style context menus specifically */
+html[class*="theme-"] body .actionSheet {
+    border-radius: var(--border-radius-md) !important;
 }
 
 /* ============================================================
