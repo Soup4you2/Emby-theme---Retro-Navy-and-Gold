@@ -2180,6 +2180,27 @@ html[class*="theme-"] body .cardOverlayFab-primary .md-icon {
     padding: 0 !important;
 }
 
+/* 7. Card Footers: Forces portrait card footers to use dynamic seasonal colors */
+html[class*="theme-"] body .cardBox .cardFooter,
+html[class*="theme-"] body .defaultCardBackground {
+    background: var(--navy-light-alpha-80) !important;
+    background-color: var(--navy-light-alpha-80) !important;
+    background-image: none !important;
+    transition: background-color var(--transition-speed) ease-in-out !important;
+}
+
+/* 8. Cast & Crew Safety Shield: Prevents footers from generating rectangular background blocks behind actors */
+html[class*="theme-"] body .peopleSection .cardFooter,
+html[class*="theme-"] body .peopleSection .defaultCardBackground,
+html[class*="theme-"] body .personCard .cardFooter,
+html[class*="theme-"] body .personCard .defaultCardBackground {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
 /* --- 5B. CARD HOVER STATES --- */
 
 /* 1. Global Hover Behavior: Applies theme glow and gold border on mouse-over */
@@ -2256,6 +2277,16 @@ html[class*="theme-"] body .cardOverlayFab-primary .md-icon {
   border-radius:           var(--portrait-radius) !important;
 }
 
+/* 5. Portrait Footer Transparency: Protects Cast & Crew names from receiving the solid background box */
+html[class*="theme-"] body .peopleSection .cardFooter,
+html[class*="theme-"] body .personCard .cardFooter {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
 /* Strip deep content layers to prevent double-border rendering */
 .peopleSection .card:hover .cardContent,
 .personCard:hover .cardContent {
@@ -2295,36 +2326,58 @@ html[class*="theme-"] body .cardOverlayFab-primary .md-icon {
 
 /* --- 5E. HORIZONTAL & BANNER CARDS --- */
 
-/* 1. Base Styling: Applied to Music Tracks and Horizontal media cards */
-html[class*="theme-"] .card-horiz .visualCardBox,
-html[class*="theme-"] .bannerCard .visualCardBox,
-html[class*="theme-"] .sideFooterCard .visualCardBox {
-  background-color:        var(--banner-card-bg) !important;
-  background-image:        none !important;
-  border:                  var(--standard-border-thickness) solid transparent !important;
-  border-radius:           var(--border-radius-md) !important;
-  box-shadow:              0px 5px 15px var(--black-alpha-50) !important;
-  transition:              all var(--transition-speed) ease-in-out !important;
+/* 1. Base Styling: Applied to Music Tracks and Horizontal media cards (Excludes Actors) */
+html[class*="theme-"] body .card-horiz .visualCardBox,
+html[class*="theme-"] body .card-horiz .visualCardBox .cardContent,
+html[class*="theme-"] body .bannerCard .visualCardBox,
+html[class*="theme-"] body .bannerCard .visualCardBox .cardContent,
+html[class*="theme-"] body .sideFooterCard .visualCardBox,
+html[class*="theme-"] body .sideFooterCard .visualCardBox .cardContent {
+    background:              var(--navy-light-alpha-80) !important;
+    background-color:        var(--navy-light-alpha-80) !important;
+    background-image:        none !important;
+    border:                  var(--standard-border-thickness) solid transparent !important;
+    border-radius:           var(--border-radius-md) !important;
+    box-shadow:              0px 5px 15px var(--black-alpha-50) !important;
+    transition:              all var(--transition-speed) ease-in-out !important;
 }
 
-/* 2. Hover States: Horizontal cards pop forward with gold glows */
-html[class*="theme-"] .card-horiz:hover .visualCardBox,
-html[class*="theme-"] .bannerCard:hover .visualCardBox,
-html[class*="theme-"] .card-horiz.show-focus .visualCardBox {
-  background-color:        var(--banner-card-hover-bg) !important;
-  border-color:            var(--theme-primary-color) !important;
-  box-shadow:              var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+/* 2. Hover States: Horizontal cards pop forward with theme glows (Excludes Actors) */
+html[class*="theme-"] body .card-horiz:hover .visualCardBox,
+html[class*="theme-"] body .card-horiz:hover .visualCardBox .cardContent,
+html[class*="theme-"] body .bannerCard:hover .visualCardBox,
+html[class*="theme-"] body .bannerCard:hover .visualCardBox .cardContent,
+html[class*="theme-"] body .card-horiz.show-focus .visualCardBox,
+html[class*="theme-"] body .card-horiz.show-focus .visualCardBox .cardContent {
+    background:              var(--theme-icon-focus-background) !important;
+    background-color:        var(--theme-icon-focus-background) !important;
+    background-image:        none !important;
+    border-color:            var(--theme-primary-color) !important;
+    box-shadow:              var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
 }
 
 /* 3. Text Enforcements: Ensures contrast against varied library themes */
 html[class*="theme-"] .card-horiz .cardText-first {
-  color:                   var(--pure-white) !important;
-  -webkit-text-fill-color: var(--pure-white) !important;
+  color:                     var(--pure-white) !important;
+  -webkit-text-fill-color:   var(--pure-white) !important;
 }
 
 html[class*="theme-"] .card-horiz .cardText-secondary {
-  color:                   var(--white-alpha-70) !important;
-  -webkit-text-fill-color: var(--white-alpha-70) !important;
+  color:                     var(--white-alpha-70) !important;
+  -webkit-text-fill-color:   var(--white-alpha-70) !important;
+}
+
+/* 4. CAST & CREW ANTI-SHIELD: Prevents horizontal card rules from destroying actor portraits */
+html[class*="theme-"] body .peopleSection .card-horiz .cardContent,
+html[class*="theme-"] body .peopleSection .card-horiz:hover .cardContent,
+html[class*="theme-"] body .peopleSection .card-horiz.show-focus .cardContent,
+html[class*="theme-"] body .personCard.card-horiz .cardContent,
+html[class*="theme-"] body .personCard.card-horiz:hover .cardContent {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 /* ============================================================
@@ -3395,8 +3448,11 @@ html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navMenuOptionTex
 /* --- 10G. DASHBOARD NOW PLAYING ZEBRA STRIPING FIX --- */
 
 /* 1. Ensure the card base is dark so the translucent stripes look correct */
-html[class*="theme-"] body .sideFooterCard .visualCardBox {
-    background-color: var(--banner-card-bg) !important;
+html[class*="theme-"] body .sideFooterCard .visualCardBox,
+html[class*="theme-"] body .sideFooterCard .visualCardBox .cardContent {
+    background-color: var(--navy-light-alpha-80) !important;
+    background: var(--navy-light-alpha-80) !important;
+    background-image: none !important;
     border: none !important;
 }
 
@@ -3436,10 +3492,13 @@ html[class*="theme-"] body .activeSession-bottomsection .md-icon {
 
 /* 6. Disable Hover Glow on Dashboard Now Playing Cards */
 html[class*="theme-"] body .dashboardSection .sideFooterCard:hover .visualCardBox,
-html[class*="theme-"] body .dashboardSection .sideFooterCard.show-focus .visualCardBox {
+html[class*="theme-"] body .dashboardSection .sideFooterCard.show-focus .visualCardBox,
+html[class*="theme-"] body .dashboardSection .sideFooterCard:hover .visualCardBox .cardContent,
+html[class*="theme-"] body .dashboardSection .sideFooterCard.show-focus .visualCardBox .cardContent {
     border-color: transparent !important;
-    box-shadow: 0px 5px 15px var(--black-alpha-50) !important; /* Restores the resting shadow */
-    background-color: var(--banner-card-bg) !important;
+    box-shadow: 0px 5px 15px var(--black-alpha-50) !important;
+    background-color: var(--navy-light-alpha-80) !important;
+    background: var(--navy-light-alpha-80) !important;
     transform: none !important;
 }
 
@@ -3740,33 +3799,6 @@ html[class*="theme-"] body table.dataExplorerTable {
     background-image: none !important;
     border: none !important;
     box-shadow: none !important;
-}
-
-/* ============================================================
-   HOTFIX: CARD FOOTERS (Music)
-   ============================================================ */
-
-/* 1. Forces portrait card footers (Albums, Movies) to use the dynamic seasonal color */
-html[class*="theme-"] body .cardFooter,
-html[class*="theme-"] body .defaultCardBackground {
-    background: var(--navy-light-alpha-80) !important;
-    background-color: var(--navy-light-alpha-80) !important;
-    transition: background-color var(--transition-speed) ease-in-out !important;
-}
-
-/* 2. Forces horizontal cards (Music Tracks, Next Up) to use the dynamic seasonal color */
-html[class*="theme-"] body .card-horiz .visualCardBox,
-html[class*="theme-"] body .bannerCard .visualCardBox,
-html[class*="theme-"] body .sideFooterCard .visualCardBox {
-    background: var(--navy-light-alpha-80) !important;
-    background-color: var(--navy-light-alpha-80) !important;
-}
-
-/* 3. Hover state for horizontal cards (Pops to the theme's primary color) */
-html[class*="theme-"] body .card-horiz:hover .visualCardBox,
-html[class*="theme-"] body .bannerCard:hover .visualCardBox,
-html[class*="theme-"] body .card-horiz.show-focus .visualCardBox {
-    background-color: var(--theme-icon-focus-background) !important;
 }
 
 /* ============================================================
