@@ -30,7 +30,6 @@ html,
   --navy-mid-rgb: 0, 29, 61;                    /* Transition/Gradient navy */
   --navy-light-rgb: 0, 20, 40;                  /* Panel surface navy */
   --navy-accent-rgb: 28, 34, 44;                /* Navigation pill/bar navy */
-  --navy-banner-rgb: 35, 38, 39;                /* Banner card background base */
 
   /* --- CUSTOM MASTER PALETTE --- */
   --my-gold: rgb(var(--my-gold-rgb));           /* Solid gold for borders and text accents */
@@ -108,12 +107,10 @@ html,
   --gold-alpha-10: rgba(var(--my-gold-rgb), 0.1);                   /* Soft selection tint */
   --gold-alpha-15: rgba(var(--my-gold-rgb), 0.15);                  /* Sidebar divider border */
   --gold-alpha-20: rgba(var(--my-gold-rgb), 0.2);                   /* Selection/Focus background */
-  --gold-alpha-25: rgba(var(--my-gold-rgb), 0.25);                  /* Modal border gold */
   --gold-alpha-30: rgba(var(--my-gold-rgb), 0.3);                   /* Stronger outline gold */
   --gold-alpha-40: rgba(var(--my-gold-rgb), 0.4);                   /* Standard glow alpha */
   --navy-base-solid: rgb(var(--navy-base-rgb));                     /* Footer/body solid navy */
   --navy-base-alpha-25: rgba(var(--navy-base-rgb), 0.25);           /* Home background tint */
-  --navy-base-alpha-40: rgba(var(--navy-base-rgb), 0.4);           /* Nav pill bar tint */
   --navy-base-alpha-60: rgba(var(--navy-base-rgb), 0.6);           /* Dropdown menu tint */
   --navy-base-alpha-75: rgba(var(--navy-base-rgb), 0.75);           /* Backdrop art dimming */
   --navy-base-alpha-95: rgba(var(--navy-base-rgb), 0.95);           /* OSD background foundation */
@@ -137,7 +134,6 @@ html,
   --glow-slider-track: 0 0 12px var(--my-gold), var(--shadow-glow-standard); /* Slider track neon effect */
   --glow-slider-thumb: 0 0 15px var(--my-gold), 0 0 25px var(--retro-glow);   /* Slider handle neon effect */
   --glow-progress-bar: var(--glow-medium), 0 0 5px var(--theme-primary-color); /* Card progress neon effect */
-  --filter-glow-none: none;                                        /* Utility: Remove icon filters */
   --filter-glow-light: drop-shadow(0 0 5px var(--retro-glow));     /* Icon drop-shadow glow */
   --filter-glow-medium: drop-shadow(0 0 8px var(--retro-glow));    /* Stronger icon drop-shadow */
   --filter-glow-gold-solid: drop-shadow(0 0 5px var(--my-gold));   /* Solid gold icon shadow */
@@ -671,21 +667,12 @@ html,
   --table-row-bg-even: var(--navy-light-alpha-40);                 /* Zebra stripe color (Even rows) */
   --table-row-bg-odd: var(--navy-base-alpha-60);                   /* Zebra stripe color (Odd rows) */
   --table-row-hover-bg: var(--gold-alpha-20);                      /* Background color on row hover */
-  --table-row-border: transparent;                                 /* Default row border color */
-  --table-row-hover-border: var(--theme-primary-color);            /* Border color on row hover */
-  --table-text-primary: var(--pure-white);                         /* Main text color in grid */
-  --table-text-secondary: var(--white-alpha-70);                   /* Sub-text color in grid */
-  --table-text-hover: var(--pure-white);                           /* Text color on row hover */
-
+ 
   /* --- TOGGLE SWITCH VARIABLES --- */
   --toggle-track-off: var(--navy-light-alpha-80);                  /* Background of switch when OFF */
   --toggle-thumb-off: var(--white-alpha-60);                       /* Circle color when OFF */
   --toggle-track-on: var(--theme-primary-color);                   /* Background of switch when ON */
   --toggle-thumb-on: var(--pure-white);                            /* Circle color when ON */
-
-  /* --- BANNER & HORIZONTAL CARD VARIABLES --- */
-  --banner-card-bg: rgb(var(--navy-banner-rgb));                   /* Background for music/track cards */
-  --banner-card-hover-bg: var(--gold-alpha-20);                    /* Hover background for music/track cards */
 
   /* --- EFFECTS & ANIMATIONS --- */
   --transition-speed: 0.2s;                                        /* Global speed for all UI transitions */
