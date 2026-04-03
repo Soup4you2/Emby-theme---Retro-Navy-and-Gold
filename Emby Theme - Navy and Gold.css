@@ -327,6 +327,14 @@ html,
   --nav-pill-bar-border: 1px solid rgba(0, 0, 0, 0.4) !important;
   --season-star-color: rgb(255, 185, 0) !important;
   --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important; 
+  --season-btn-bg: linear-gradient(90deg, #e60049 0%, #ff1493 100%) !important;
+  --season-btn-bg-hover: linear-gradient(90deg, #ff1493 0%, #ffb6c1 100%) !important;
+  --season-btn-text: #ffffff !important;
+  --season-btn-text-hover: #1a000d !important;
+  --season-btn-border: #ffffff !important;
+  --season-btn-border-hover: #ffffff !important;
+  --season-btn-shadow: 0 4px 10px rgba(230, 0, 73, 0.4) !important;
+  --season-btn-shadow-hover: 0 6px 15px rgba(255, 20, 147, 0.6), 0 0 20px rgba(255, 182, 193, 0.6) !important;
   */
   
   /* OPTION 3: ST. PATRICK'S DAY */
@@ -407,6 +415,14 @@ html,
   --nav-pill-bar-border: 1px solid rgba(255, 215, 0, 0.3) !important;
   --season-star-color: rgb(255, 185, 0) !important;
   --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
+  --season-btn-bg: linear-gradient(90deg, #009e60 0%, #00ff85 100%) !important;
+  --season-btn-bg-hover: linear-gradient(90deg, #00ff85 0%, #ffd700 100%) !important;
+  --season-btn-text: #001a0d !important;
+  --season-btn-text-hover: #001a0d !important;
+  --season-btn-border: #ffffff !important;
+  --season-btn-border-hover: #ffffff !important;
+  --season-btn-shadow: 0 4px 10px rgba(0, 158, 96, 0.4) !important;
+  --season-btn-shadow-hover: 0 6px 15px rgba(0, 255, 133, 0.6), 0 0 20px rgba(255, 215, 0, 0.6) !important;
   */
 
   /* OPTION 4: EASTER / CHERRY BLOSSOM */
@@ -481,6 +497,14 @@ html,
   --nav-pill-bar-border: 1px solid rgba(255, 255, 255, 0.05) !important;
   --season-star-color: rgb(255, 185, 0) !important;
   --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important; 
+  --season-btn-bg: linear-gradient(90deg, #add8e6 0%, #ffb6c1 100%) !important;
+  --season-btn-bg-hover: linear-gradient(90deg, #ffb6c1 0%, #fffacd 100%) !important;
+  --season-btn-text: #1a1625 !important;
+  --season-btn-text-hover: #1a1625 !important;
+  --season-btn-border: #ffffff !important;
+  --season-btn-border-hover: #ffffff !important;
+  --season-btn-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), 0 0 10px rgba(255, 182, 193, 0.4) !important;
+  --season-btn-shadow-hover: 0 6px 15px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 182, 193, 0.8) !important;
   */
 
   /* OPTION 5: 4TH OF JULY */
@@ -531,6 +555,14 @@ html,
   --nav-pill-bar-border: 1px solid rgba(255, 255, 255, 0.3) !important;
   --season-star-color: rgb(255, 185, 0) !important;
   --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
+  --season-btn-bg: linear-gradient(90deg, #0052a5 0%, #e0162b 100%) !important;
+  --season-btn-bg-hover: linear-gradient(90deg, #e0162b 0%, #ff4d4d 100%) !important;
+  --season-btn-text: #ffffff !important;
+  --season-btn-text-hover: #ffffff !important;
+  --season-btn-border: #ffffff !important;
+  --season-btn-border-hover: #ffffff !important;
+  --season-btn-shadow: 0 4px 10px rgba(0, 82, 165, 0.4) !important;
+  --season-btn-shadow-hover: 0 6px 15px rgba(224, 22, 43, 0.6), 0 0 20px rgba(255, 77, 77, 0.6) !important;
   */
 
   /* OPTION 6: HALLOWEEN */
@@ -604,7 +636,15 @@ html,
   --nav-pill-bar-bg: rgba(15, 10, 20, 0.95) !important;
   --nav-pill-bar-border: 1px solid rgba(180, 0, 255, 0.2) !important;
   --season-star-color: rgb(255, 185, 0) !important;
-  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important; 
+  --season-btn-bg: linear-gradient(90deg, #8a2be2 0%, #ff6600 100%) !important;
+  --season-btn-bg-hover: linear-gradient(90deg, #ff6600 0%, #ff8533 100%) !important;
+  --season-btn-text: #ffffff !important;
+  --season-btn-text-hover: #0d0015 !important;
+  --season-btn-border: #ffffff !important;
+  --season-btn-border-hover: #ffffff !important;
+  --season-btn-shadow: 0 4px 10px rgba(138, 43, 226, 0.4) !important;
+  --season-btn-shadow-hover: 0 6px 15px rgba(255, 102, 0, 0.6), 0 0 20px rgba(255, 133, 51, 0.6) !important;
   */
 
   /* OPTION 7: THANKSGIVING / AUTUMN HARVEST */
@@ -674,7 +714,15 @@ html,
   --nav-pill-bar-bg: rgba(26, 11, 9, 0.9) !important;
   --nav-pill-bar-border: 1px solid rgba(227, 160, 27, 0.4) !important;
   --season-star-color: rgb(255, 185, 0) !important;
-  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important; 
+  --season-btn-bg: linear-gradient(90deg, #8b4513 0%, #d95c14 100%) !important;
+  --season-btn-bg-hover: linear-gradient(90deg, #d95c14 0%, #e3a01b 100%) !important;
+  --season-btn-text: #ffffff !important;
+  --season-btn-text-hover: #1a0b09 !important;
+  --season-btn-border: #ffffff !important;
+  --season-btn-border-hover: #ffffff !important;
+  --season-btn-shadow: 0 4px 10px rgba(217, 92, 20, 0.4) !important;
+  --season-btn-shadow-hover: 0 6px 15px rgba(227, 160, 27, 0.6), 0 0 20px rgba(227, 160, 27, 0.6) !important;
   */
 
   /* OPTION 8: CHRISTMAS */
@@ -743,6 +791,14 @@ html,
   --nav-pill-bar-border: 1px solid rgba(11, 102, 35, 0.5) !important;
   --season-star-color: rgb(255, 185, 0) !important;
   --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
+  --season-btn-bg: linear-gradient(90deg, #0b6623 0%, #c41e3a 100%) !important;
+  --season-btn-bg-hover: linear-gradient(90deg, #c41e3a 0%, #ff8a8a 100%) !important;
+  --season-btn-text: #ffffff !important;
+  --season-btn-text-hover: #ffffff !important;
+  --season-btn-border: #ffffff !important;
+  --season-btn-border-hover: #ffffff !important;
+  --season-btn-shadow: 0 4px 10px rgba(11, 102, 35, 0.4) !important;
+  --season-btn-shadow-hover: 0 6px 15px rgba(196, 30, 58, 0.6), 0 0 20px rgba(255, 138, 138, 0.6) !important;
   */
 
   /* OPTION 9: NEW YEAR'S EVE */
@@ -808,7 +864,15 @@ html,
   --nav-pill-bar-bg: rgba(5, 5, 5, 0.9) !important;
   --nav-pill-bar-border: 1px solid rgba(212, 175, 55, 0.3) !important;
   --season-star-color: rgb(255, 185, 0) !important;
-  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;
+  --season-btn-bg: linear-gradient(90deg, #8a6a1c 0%, #d4af37 100%) !important;
+  --season-btn-bg-hover: linear-gradient(90deg, #d4af37 0%, #f7e7ce 100%) !important;
+  --season-btn-text: #ffffff !important;
+  --season-btn-text-hover: #050505 !important;
+  --season-btn-border: #ffffff !important;
+  --season-btn-border-hover: #ffffff !important;
+  --season-btn-shadow: 0 4px 10px rgba(212, 175, 55, 0.4) !important;
+  --season-btn-shadow-hover: 0 6px 15px rgba(247, 231, 206, 0.6), 0 0 20px rgba(247, 231, 206, 0.6) !important; 
   */
 
   /* ============================================================
@@ -1998,13 +2062,13 @@ html[class*="theme-"] body .emby-button:not(.paper-icon-button-light, .emby-tab-
 }
 
 /* 3. Hover: Action Style (Gold - Default hover for all non-cancel global buttons) */
-html[class*="theme-"] body .emby-button:hover:not(.paper-icon-button-light, .emby-tab-button, [class*="cardOverlay"], .button-link, .detailButton, .btnPlay, .headerButton, .listItemImageButton, .button-cancel, .cancel, .button-delete, .emby-collapsible-button, .navMenuOption, .btnGuideTag, .guide-filter-button) {
-    background: var(--theme-primary-color) !important;
-    color: var(--retro-navy) !important;
-    -webkit-text-fill-color: var(--retro-navy) !important;
-    border-color: var(--theme-primary-color) !important;
-    box-shadow: var(--shadow-glow-standard) !important;
-    transform: scale(1.02) !important;
+html[class*="theme-"] body .emby-button:hover:not(.paper-icon-button-light, .emby-tab-button, [class*="cardOverlay"], .button-link, .detailButton, .btnPlay, .headerButton, .listItemImageButton, .button-cancel, .cancel, .button-delete, .emby-collapsible-button, .navMenuOption, .btnGuideTag, .guide-filter-button, .button-submit) {
+  background: var(--theme-primary-color) !important;
+  color: var(--retro-navy) !important;
+  -webkit-text-fill-color: var(--retro-navy) !important;
+  border-color: var(--theme-primary-color) !important;
+  box-shadow: var(--shadow-glow-standard) !important;
+  transform: scale(1.02) !important;
 }
 
 /* 4. Hover: Danger Style (Red - Specifically for Cancel/Delete buttons) */
@@ -3845,21 +3909,24 @@ html[class*="theme-"] body .button-submit {
   border-radius:           var(--border-radius-pill) !important;
   border:                  2px solid var(--season-btn-border) !important;
   box-shadow:              var(--season-btn-shadow) !important;
-  transition:              all var(--transition-speed) ease-in-out !important;
+  transition:              transform var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1), box-shadow var(--transition-speed) ease-in-out !important;
   transform:               none !important;
 }
 
-html[class*="theme-"] body .button-submit:hover {
+html[class*="theme-"] body .button-submit:hover,
+html[class*="theme-"] body .button-submit:focus {
   background:              var(--season-btn-bg-hover) !important;
   border-color:            var(--season-btn-border-hover) !important;
   color:                   var(--season-btn-text-hover) !important;
   -webkit-text-fill-color: var(--season-btn-text-hover) !important;
   box-shadow:              var(--season-btn-shadow-hover) !important;
-  transform:               translateY(-2px) scale(1.02) !important;
+  transform:               translateY(-3px) scale(1.02) !important;
+  outline:                 none !important;
 }
 
 html[class*="theme-"] body .button-submit:active {
-  transform:               scale(0.98) !important;
+  transform:               translateY(0) scale(0.98) !important;
+  box-shadow:              var(--season-btn-shadow) !important;
 }
 
 /* ============================================================
