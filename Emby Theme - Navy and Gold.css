@@ -142,19 +142,19 @@ html,
   --filter-glow-medium: drop-shadow(0 0 8px var(--retro-glow));    /* Stronger icon drop-shadow */
   --filter-glow-gold-solid: drop-shadow(0 0 5px var(--my-gold));   /* Solid gold icon shadow */
 
-  /* --- SEASONAL DEFAULTS (Applied globally unless overridden by event) --- */
+  /* --- DEFAULTS (Applied globally unless overridden by a seasonal event) --- */
   --season-star-color: var(--pure-black);                          /* Default star rating color */
   --season-star-glow: var(--glow-none);                            /* Default star icon glow */
   --season-actor-name: var(--my-gold);                             /* Default cast name color */
   --season-actor-role: var(--white-alpha-70);                      /* Default character role color */
-  --season-btn-bg: var(--theme-primary-color);                     /* Default submit button color */
-  --season-btn-bg-hover: var(--my-gold);                           /* Default submit button hover */
-  --season-btn-text: var(--pure-black);                            /* Default button text color */
-  --season-btn-text-hover: var(--pure-black);                      /* Default button text hover */
-  --season-btn-border: var(--pure-black);                           /* Default button border color */
-  --season-btn-border-hover: var(--pure-black);                    /* Default button border hover */
-  --season-btn-shadow: 0 4px 10px var(--black-alpha-50);            /* Default button depth shadow */
-  --season-btn-shadow-hover: var(--shadow-glow-standard);           /* Default button hover glow */
+  --season-btn-bg: var(--my-gold);                                         /* Solid gold resting state */
+  --season-btn-bg-hover: var(--my-gold-light);                             /* Brighter gold pop on hover */
+  --season-btn-text: var(--retro-navy);                                    /* Deep navy text for elegant contrast */
+  --season-btn-text-hover: var(--retro-navy);                              /* Keeps text navy on hover */
+  --season-btn-border: var(--my-gold);                                     /* Blends border into background */
+  --season-btn-border-hover: var(--my-gold-light);                         /* Matches border to hover color */
+  --season-btn-shadow: 0 4px 10px var(--black-alpha-50);                   /* Standard depth shadow */
+  --season-btn-shadow-hover: 0 6px 15px var(--black-alpha-80), 0 0 15px var(--gold-alpha-40); /* Beautiful gold aura */
 
   /* ============================================================
       USER OPTIONS FOR VISUALS BELOW
