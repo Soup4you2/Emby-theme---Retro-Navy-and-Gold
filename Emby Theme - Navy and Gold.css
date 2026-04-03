@@ -142,11 +142,15 @@ html,
   --filter-glow-medium: drop-shadow(0 0 8px var(--retro-glow));    /* Stronger icon drop-shadow */
   --filter-glow-gold-solid: drop-shadow(0 0 5px var(--my-gold));   /* Solid gold icon shadow */
 
-  /* --- DEFAULTS (Applied globally unless overridden by a seasonal event) --- */
+   /* Media Badge Star Icon (Applied globally unless overridden by a seasonal event) */
   --season-star-color: var(--pure-black);                          /* Default star rating color */
   --season-star-glow: var(--glow-none);                            /* Default star icon glow */
+
+  /* Cast & Crew Name Text (Applied globally unless overridden by a seasonal event) */
   --season-actor-name: var(--my-gold);                             /* Default cast name color */
   --season-actor-role: var(--white-alpha-70);                      /* Default character role color */
+
+  /* Submit Button (Applied globally unless overridden by a seasonal event) */
   --season-btn-bg: var(--my-gold);                                         /* Solid gold resting state */
   --season-btn-bg-hover: var(--my-gold-light);                             /* Brighter gold pop on hover */
   --season-btn-text: var(--retro-navy);                                    /* Deep navy text for elegant contrast */
@@ -155,6 +159,14 @@ html,
   --season-btn-border-hover: var(--my-gold-light);                         /* Matches border to hover color */
   --season-btn-shadow: 0 4px 10px var(--black-alpha-50);                   /* Standard depth shadow */
   --season-btn-shadow-hover: 0 6px 15px var(--black-alpha-80), 0 0 15px var(--gold-alpha-40); /* Beautiful gold aura */
+
+  /* --- FAVORITE HEART COLORS --- */
+  --favorite-heart-rgb: 255, 51, 102;
+  --favorite-heart-hover-rgb: 255, 0, 68;
+  --favorite-heart: rgb(var(--favorite-heart-rgb));
+  --favorite-heart-hover: rgb(var(--favorite-heart-hover-rgb));
+  --favorite-heart-alpha-50: rgba(var(--favorite-heart-rgb), 0.5);
+  --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8);
 
   /* ============================================================
       USER OPTIONS FOR VISUALS BELOW
@@ -3826,19 +3838,19 @@ html[class*="theme-"] body .dataGridItem .ratingbutton-icon-withrating,
 html[class*="theme-"] body .listItem .ratingbutton-icon-withrating,
 html[class*="theme-"] body .dataGridItemCell button[data-isfavorite="true"] *,
 html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"] * {
-  color:                   #ff3366 !important; 
-  -webkit-text-fill-color: #ff3366 !important;
-  filter:                  drop-shadow(0 0 5px rgba(255, 51, 102, 0.5)) !important;
+  color:                   var(--favorite-heart) !important; 
+  -webkit-text-fill-color: var(--favorite-heart) !important;
+  filter:                  drop-shadow(0 0 5px var(--favorite-heart-alpha-50)) !important;
   opacity:                 1 !important;
 }
 
 html[class*="theme-"] body button[data-isfavorite="true"]:hover,
 html[class*="theme-"] body button[data-isfavorite="true"]:hover *,
 html[class*="theme-"] body .ratingbutton-icon-withrating:hover {
-  color:                   #ff0044 !important; 
-  -webkit-text-fill-color: #ff0044 !important;
+  color:                   var(--favorite-heart-hover) !important; 
+  -webkit-text-fill-color: var(--favorite-heart-hover) !important;
   transform:               scale(1.2) !important;
-  filter:                  drop-shadow(0 0 10px rgba(255, 0, 68, 0.8)) !important;
+  filter:                  drop-shadow(0 0 10px var(--favorite-heart-hover-alpha-80)) !important;
 }
 
 /* ============================================================
