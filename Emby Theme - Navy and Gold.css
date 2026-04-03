@@ -31,7 +31,7 @@ html,
   --navy-light-rgb: 0, 20, 40;                  /* Panel surface navy */
   --navy-accent-rgb: 28, 34, 44;                /* Navigation pill/bar navy */
   --navy-banner-rgb: 35, 38, 39;                /* Banner card background base */
-  
+
   /* --- CUSTOM MASTER PALETTE --- */
   --my-gold: rgb(var(--my-gold-rgb));           /* Solid gold for borders and text accents */
   --my-gold-light: rgb(var(--my-gold-light-rgb)); /* Brighter gold for highlight gradients */
@@ -179,7 +179,7 @@ html,
 
   /* BACKDROP & FANART STYLE */
   --backdrop-opacity: 0.9;                                          /* DIMMING (Traditional full-screen dark overlay) */
-  --backdrop-bg-color: var(--navy-base-alpha-75);                   /* DIMMING (Traditional full-screen dark overlay) */
+  --backdrop-bg-color: rgba(0, 8, 20, 0.75);                 /* DIMMING (Traditional full-screen dark overlay) */
   --backdrop-gradient: none;                                        /* DIMMING (Traditional full-screen dark overlay) */
   --backdrop-text-shadow: none;                                     /* DIMMING (Traditional full-screen dark overlay) */
   /* --backdrop-opacity: 1; */                                      /* NO DIMMING */
