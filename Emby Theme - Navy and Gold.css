@@ -855,6 +855,7 @@ html,
   */
 
   /* OPTION 9: NEW YEAR'S EVE */
+  /*
   --nye-pure-white: #ffffff;
   --nye-pure-black: #000000;
   --nye-glass-glow: rgba(212, 175, 55, 0.4);
@@ -936,7 +937,7 @@ html,
   --season-btn-border-hover: #ffffff !important;
   --season-btn-shadow: 0 4px 10px rgba(212, 175, 55, 0.4) !important;
   --season-btn-shadow-hover: 0 6px 15px rgba(247, 231, 206, 0.6), 0 0 20px rgba(247, 231, 206, 0.6) !important; 
-  
+  */
 
   /* ============================================================
       END OF SEASONAL EVENT TOGGLES
@@ -6294,9 +6295,9 @@ html[class*="theme-"] body .button-submit:active {
     filter:                  drop-shadow(2px 2px 4px var(--black-alpha-90));
   }
 
-  /* --- 21B. MEDIA CARD ACTION OVERLAYS (DIAMOND/GLASS) --- */
+  /* --- 21B. MEDIA CARD ACTION OVERLAYS (GLASS STYLE) --- */
 
-  /* 1. Glass Buttons: Replaces the blob with a clean dark glass gradient */
+  /* 1. Glass Buttons: Clean dark glass gradient (No SVG Diamond to avoid icon overlap) */
   html[class*="theme-"] body .cardOverlayFab-primary,
   html[class*="theme-"] body .cardOverlayButtonIcon,
   html[class*="theme-"] body .listItemOverlayButtonIcon,
@@ -6352,7 +6353,6 @@ html[class*="theme-"] body .button-submit:active {
     box-shadow:    0 0 0 3px var(--nye-black-light), 0 0 0 5px var(--nye-cream), 0 20px 40px var(--nye-gold-alpha-40) !important;
   }
 
-  /* 3. Glass Glint: Animated sparkling effect */
   @keyframes glassGlint {
     0%   { border-color: var(--nye-gold);  box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 15px var(--nye-gold-alpha-40); }
     50%  { border-color: var(--nye-cream); box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 30px var(--nye-cream-alpha-80), inset 0 0 20px var(--nye-gold-alpha-50); }
@@ -6370,7 +6370,7 @@ html[class*="theme-"] body .button-submit:active {
     background:              transparent !important;
     border:                  none !important;
     box-shadow:              none !important;
-    background-image:        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23111111' stroke='%23d4af37' stroke-width='1.5' d='M12 2 L22 12 L12 22 L2 12 Z'/%3E%3Cpath fill='none' stroke='%23f7e7ce' stroke-width='0.5' d='M12 5 L19 12 L12 19 L5 12 Z'/%3E%3C/svg%3E") !important;
+    background-image:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23111111' stroke='%23d4af37' stroke-width='1.5' d='M12 2 L22 12 L12 22 L2 12 Z'/%3E%3Cpath fill='none' stroke='%23f7e7ce' stroke-width='0.5' d='M12 5 L19 12 L12 19 L5 12 Z'/%3E%3C/svg%3E") !important;
     background-size:         100% 100% !important;
     background-repeat:       no-repeat !important;
     background-position:     center !important;
@@ -6444,23 +6444,6 @@ html[class*="theme-"] body .button-submit:active {
     cursor:              pointer !important;
   }
 
-  /* 4. Thumb Hover Logic */
-  .emby-slider-thumb:hover {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d4af37' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--nye-pure-white) 0%, var(--nye-cream) 60%, var(--nye-gold) 100%) !important;
-    border-color:     var(--nye-gold) !important;
-    box-shadow:       0 0 15px var(--nye-pure-white), 0 0 25px var(--nye-gold-alpha-100) !important;
-    transform:        translateY(-5px) scale(1.15) rotate(45deg) !important;
-    transition:       transform 0.2s ease, box-shadow 0.2s ease !important;
-  }
-
-  input[type="range"]:hover::-webkit-slider-thumb,
-  input[type="range"]:hover::-moz-range-thumb {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d4af37' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--nye-pure-white) 0%, var(--nye-cream) 60%, var(--nye-gold) 100%) !important;
-    border-color:     var(--nye-gold) !important;
-    box-shadow:       0 0 15px var(--nye-pure-white), 0 0 25px var(--nye-gold-alpha-100) !important;
-    transform:        translateY(-2px) scale(1.15) rotate(45deg) !important;
-  }
-
   /* --- 21F. TABS, DIALOGS & BUTTONS --- */
 
   html[class*="theme-"] body .videoOsdBottom .emby-tab-button-active,
@@ -6491,6 +6474,58 @@ html[class*="theme-"] body .button-submit:active {
       border:          2px solid var(--nye-gold) !important;
       box-shadow:      0 15px 40px var(--black-alpha-90), 0 0 30px var(--nye-gold-alpha-15) !important;
   }
+
+  /* --- 21G. GLOBAL BACKGROUNDS (RISING CHAMPAGNE BUBBLES) --- */
+
+  /* 1. Curtain Removal */
+  .backgroundContainer-transparent::before,
+  .backgroundContainer-transparent::after,
+  .view-videoosd::after {
+    display: none !important;
+  }
+
+  .backgroundContainer::before,
+  body::before,
+  body::after {
+    content:        '';
+    position:       fixed;
+    inset:          -100px;
+    pointer-events: none;
+    z-index:        -1;
+  }
+
+  /* Layer 1: Fast foreground bubbles */
+  body::before {
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Cg transform='translate(400,400)'%3E%3Ccircle cx='0' cy='0' r='20' fill='none' stroke='%23d4af37' stroke-width='4'/%3E%3Ccircle cx='-10' cy='-10' r='4' fill='%23f7e7ce'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 800px 800px,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cg transform='translate(500,500)'%3E%3Ccircle cx='0' cy='0' r='15' fill='none' stroke='%23d4af37' stroke-width='3'/%3E%3Ccircle cx='-7' cy='-7' r='3' fill='%23f7e7ce'/%3E%3C/g%3E%3C/svg%3E") 100px 200px / 1000px 1000px;
+    animation:  bubble-rise-1 40s linear infinite, bubble-sway 4s ease-in-out infinite alternate;
+    opacity:    0.8;
+  }
+
+  /* Layer 2: Muted midground star glints */
+  body::after {
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 900'%3E%3Cg transform='translate(450,450)'%3E%3Cpath fill='%23f7e7ce' d='M0 -15 C 0 -5, 5 0, 15 0 C 5 0, 0 5, 0 15 C 0 5, -5 0, -15 0 C -5 0, 0 -5, 0 -15 Z'/%3E%3C/g%3E%3C/svg%3E") 300px 100px / 900px 900px,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1100 1100'%3E%3Cg transform='translate(550,550)'%3E%3Ccircle cx='0' cy='0' r='12' fill='none' stroke='%23f7e7ce' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E") 150px 500px / 1100px 1100px;
+    animation:  bubble-rise-2 50s linear infinite, bubble-sway 6s ease-in-out infinite alternate-reverse;
+    filter:     blur(1.5px);
+    opacity:    0.6;
+  }
+
+  .backgroundContainer::before {
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='4' fill='%23ffffff'/%3E%3C/svg%3E") 50px 50px / 600px 600px,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 850 850'%3E%3Ccircle cx='425' cy='425' r='6' fill='%23d4af37'/%3E%3C/svg%3E") 200px 400px / 850px 850px;
+    animation:  bubble-rise-3 60s linear infinite, bubble-sway 8s ease-in-out infinite alternate;
+    filter:     blur(3px);
+    opacity:    0.4;
+  }
+
+  @keyframes bubble-rise-1 { from { background-position: 0 0, 100px 200px;  } to { background-position: 0 -4000px, 100px -3800px; } }
+  @keyframes bubble-rise-2 { from { background-position: 300px 100px, 150px 500px; } to { background-position: 300px -3500px, 150px -2800px; } }
+  @keyframes bubble-rise-3 { from { background-position: 50px 50px, 200px 400px;   } to { background-position: 50px -2350px, 200px -2150px; } }
+  @keyframes bubble-sway   { from { transform: translateX(-15px); } to { transform: translateX(15px); } }
 
   /* --- 21H. MEDIA INFO BADGES --- */
 
