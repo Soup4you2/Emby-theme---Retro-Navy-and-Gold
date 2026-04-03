@@ -318,7 +318,7 @@ html,
   --season-star-color: rgb(255, 185, 0) !important;
   --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important; 
   */
-
+  
   /* OPTION 3: ST. PATRICK'S DAY */
   /*
   --stpat-green-bright-rgb: 0, 255, 133;
@@ -2384,21 +2384,36 @@ div.verticalSection.aboutSection       { order: var(--order-about) !important; }
     will-change: transform;
 }
 
-/* 2. Media Badge Hover States: Prevents links from turning gold and overrides native hover backgrounds */
-html[class*="theme-"] body .mediaInfoItem .button-link:hover,
-html[class*="theme-"] body .mediaInfoItem .button-link:focus,
-html[class*="theme-"] body .mediaInfoItem:hover * {
+/* 2. High-Specificity Badge Colors & Hover Fix (Prevents links in LiveTV/Lists from warping or changing colors) */
+html[class*="theme-"] body .mediaInfoItems .mediaInfoItem,
+html[class*="theme-"] body .mediaInfoItem,
+html[class*="theme-"] body .mediaInfoItems .mediaInfoItem *,
+html[class*="theme-"] body .mediaInfoItem * {
     color: var(--media-badge-color) !important;
     -webkit-text-fill-color: var(--media-badge-color) !important;
+    font-weight: 700 !important;
     text-decoration: none !important;
 }
 
+html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover,
 html[class*="theme-"] body .mediaInfoItem:hover,
-html[class*="theme-"] body .mediaInfoItem.mediaInfoItem-button:hover {
+html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:focus,
+html[class*="theme-"] body .mediaInfoItem:focus {
     background: var(--media-badge-bg) !important;
-    box-shadow: var(--media-badge-shadow) !important;
+    color: var(--media-badge-color) !important;
+    -webkit-text-fill-color: var(--media-badge-color) !important;
     border: var(--media-badge-border) !important;
+    box-shadow: var(--media-badge-shadow) !important;
     transform: none !important;
+    text-decoration: none !important;
+}
+
+html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover *,
+html[class*="theme-"] body .mediaInfoItem:hover *,
+html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:focus *,
+html[class*="theme-"] body .mediaInfoItem:focus * {
+    color: var(--media-badge-color) !important;
+    -webkit-text-fill-color: var(--media-badge-color) !important;
 }
 
 /* 3. Rating Star Icon Formatting */
@@ -3710,43 +3725,6 @@ html[class*="theme-"] body .card-horiz:hover .visualCardBox,
 html[class*="theme-"] body .bannerCard:hover .visualCardBox,
 html[class*="theme-"] body .card-horiz.show-focus .visualCardBox {
     background-color: var(--theme-icon-focus-background) !important;
-}
-
-/* ============================================================
-   HOTFIX: LIVETV CLICKABLE MEDIA BADGES & CHANNEL TAGS
-   ============================================================ */
-
-/* 1. Boosts the specificity of badges so they beat the global "white link" rules */
-html[class*="theme-"] body .mediaInfoItems .mediaInfoItem,
-html[class*="theme-"] body .mediaInfoItem,
-html[class*="theme-"] body .mediaInfoItems .mediaInfoItem *,
-html[class*="theme-"] body .mediaInfoItem * {
-    color: var(--media-badge-color) !important;
-    -webkit-text-fill-color: var(--media-badge-color) !important;
-    font-weight: 700 !important;
-    text-decoration: none !important;
-}
-
-/* 2. Overrides the link hover effect so they don't change color or bounce */
-html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover,
-html[class*="theme-"] body .mediaInfoItem:hover,
-html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:focus,
-html[class*="theme-"] body .mediaInfoItem:focus {
-    background: var(--media-badge-bg) !important;
-    color: var(--media-badge-color) !important;
-    -webkit-text-fill-color: var(--media-badge-color) !important;
-    border: var(--media-badge-border) !important;
-    box-shadow: var(--media-badge-shadow) !important;
-    transform: none !important;
-    text-decoration: none !important;
-}
-
-html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover *,
-html[class*="theme-"] body .mediaInfoItem:hover *,
-html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:focus *,
-html[class*="theme-"] body .mediaInfoItem:focus * {
-    color: var(--media-badge-color) !important;
-    -webkit-text-fill-color: var(--media-badge-color) !important;
 }
 
 /* ============================================================
