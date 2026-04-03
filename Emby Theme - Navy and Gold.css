@@ -269,6 +269,10 @@ html,
 
   /* OPTION 2: VALENTINE'S DAY */
   /*
+  --vday-pure-white: #ffffff;
+  --vday-heart-icon-red: #e60049;
+  --vday-heart-icon-pink: #ff1493;
+  --vday-sepia-tint: rgba(var(--vday-red-rgb), 0.15);
   --vday-red-rgb: 230, 0, 73;
   --vday-pink-deep-rgb: 255, 20, 147;
   --vday-pink-light-rgb: 255, 182, 193;
@@ -351,6 +355,9 @@ html,
   
   /* OPTION 3: ST. PATRICK'S DAY */
   /*
+  --stpat-pure-white: #ffffff;
+  --stpat-pure-black: #000000;
+  --stpat-luck-glow: rgba(var(--stpat-green-bright-rgb), 0.5);
   --stpat-green-bright-rgb: 0, 255, 133;
   --stpat-green-mid-rgb: 0, 158, 96;
   --stpat-gold-rgb: 255, 215, 0;
@@ -439,6 +446,16 @@ html,
 
   /* OPTION 4: EASTER / CHERRY BLOSSOM */
   /*
+  --easter-pure-white: #ffffff;
+  --easter-pure-black: #000000;
+  --easter-badge-bg-1: #4a3e63;
+  --easter-badge-bg-2: #3c3050;
+  --easter-grass-1: #98fb98;
+  --easter-grass-2: #6dc26d;
+  --easter-grass-3: #5f9ea0;
+  --easter-branch-brown: #2d1b13;
+  --easter-osd-glow: rgba(152, 251, 152, 0.25);
+  --easter-osd-bg: rgba(26, 22, 37, 0.9); 
   --easter-primary-rgb: 255, 183, 178;
   --easter-navy-base-rgb: 26, 22, 37;
   --easter-navy-mid-rgb: 47, 39, 64;
@@ -521,6 +538,14 @@ html,
 
   /* OPTION 5: 4TH OF JULY */
   /*
+  --july4-pure-white: #ffffff;
+  --july4-pure-black: #000000;
+  --july4-navy-dark: #001d3d;
+  --july4-osd-glow: rgba(0, 82, 165, 0.25);
+  --july4-osd-bg: rgba(0, 29, 61, 0.9);
+  --july4-badge-bg-1: #001d3d;
+  --july4-badge-bg-2: #0052a5;
+  --july4-red-hover: #ff4d4d;
   --july4-red-rgb: 224, 22, 43;
   --july4-blue-rgb: 0, 82, 165;
   --july4-white-rgb: 255, 255, 255;
@@ -579,6 +604,11 @@ html,
 
   /* OPTION 6: HALLOWEEN */
   /*
+  --hw-pure-white: #ffffff;
+  --hw-pure-black: #000000;
+  --hw-osd-glow: rgba(138, 43, 226, 0.25);
+  --hw-osd-bg: rgba(13, 0, 21, 0.9);
+  --hw-badge-hover-purple: #a020f0;
   --hw-orange-rgb: 255, 102, 0;
   --hw-purple-rgb: 138, 43, 226;
   --hw-navy-base-rgb: 13, 0, 21;
@@ -661,6 +691,11 @@ html,
 
   /* OPTION 7: THANKSGIVING / AUTUMN HARVEST */
   /*
+  --tg-pure-white: #ffffff;
+  --tg-pure-black: #000000;
+  --tg-vignette-alpha-70: rgba(var(--tg-brown-rgb), 0.7);
+  --tg-osd-glow: rgba(217, 92, 20, 0.25);
+  --tg-osd-bg: rgba(26, 11, 9, 0.9);
   --tg-gold-rgb: 227, 160, 27;
   --tg-orange-rgb: 217, 92, 20;
   --tg-brown-rgb: 139, 69, 19;
@@ -739,6 +774,12 @@ html,
 
   /* OPTION 8: CHRISTMAS */
   /*
+  --xmas-pure-white: #ffffff;
+  --xmas-pure-black: #000000;
+  --xmas-osd-glow: rgba(var(--xmas-green-rgb), 0.25);
+  --xmas-osd-bg: rgba(var(--xmas-navy-light-rgb), 0.9);
+  --xmas-badge-bg-1: #051829;
+  --xmas-badge-bg-2: #0b6623;
   --xmas-white-rgb: 255, 255, 255;
   --xmas-red-rgb: 196, 30, 58;
   --xmas-green-rgb: 11, 102, 35;
@@ -814,7 +855,17 @@ html,
   */
 
   /* OPTION 9: NEW YEAR'S EVE */
-  /*
+  --nye-pure-white: #ffffff;
+  --nye-pure-black: #000000;
+  --nye-glass-glow: rgba(212, 175, 55, 0.4);
+  --nye-glass-glint: rgba(247, 231, 206, 0.8);
+  --nye-tab-gold-alpha: rgba(212, 175, 55, 0.1);
+  --nye-tab-cream-alpha: rgba(247, 231, 206, 0.3);
+  --nye-osd-glow: rgba(212, 175, 55, 0.15);
+  --nye-osd-bg: rgba(5, 5, 5, 0.95);
+  --nye-badge-bg-1: #111111;
+  --nye-badge-bg-2: #050505;
+  --nye-inner-gold-glow: rgba(212, 175, 55, 0.15);
   --nye-cream-rgb: 247, 231, 206;
   --nye-gold-rgb: 212, 175, 55;
   --nye-navy-base-rgb: 5, 5, 5;
@@ -885,7 +936,7 @@ html,
   --season-btn-border-hover: #ffffff !important;
   --season-btn-shadow: 0 4px 10px rgba(212, 175, 55, 0.4) !important;
   --season-btn-shadow-hover: 0 6px 15px rgba(247, 231, 206, 0.6), 0 0 20px rgba(247, 231, 206, 0.6) !important; 
-  */
+  
 
   /* ============================================================
       END OF SEASONAL EVENT TOGGLES
@@ -3960,8 +4011,8 @@ html[class*="theme-"] body .button-submit:active {
     border:                  none !important; 
     box-shadow:              none !important; 
     border-radius:           0 !important; 
-    color:                   var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color:                   var(--vday-pure-white) !important;
+    -webkit-text-fill-color: var(--vday-pure-white) !important;
     background-image:        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23e60049'/%3E%3C/svg%3E") !important;
     background-size:         100% 100% !important; 
     background-repeat:       no-repeat !important; 
@@ -3975,8 +4026,8 @@ html[class*="theme-"] body .button-submit:active {
   html[class*="theme-"] body .card:hover .cardOverlayFab-primary { 
     animation:               heartbeat 1.2s infinite !important; 
     background-image:        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23ff1493'/%3E%3C/svg%3E") !important;
-    color:                   var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color:                   var(--vday-pure-white) !important;
+    -webkit-text-fill-color: var(--vday-pure-white) !important;
     transition:              none !important;
   }
 
@@ -4002,7 +4053,7 @@ html[class*="theme-"] body .button-submit:active {
     content:        "";
     position:       absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background:     radial-gradient(circle, transparent 50%, rgba(var(--vday-red-rgb), 0.15) 100%);
+    background:     radial-gradient(circle, transparent 50%, var(--vday-sepia-overlay) 100%);
     pointer-events: none;
     transition:     all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
     z-index:        1;
@@ -4046,11 +4097,11 @@ html[class*="theme-"] body .button-submit:active {
     0%, 100% { 
       box-shadow:   0px 15px 30px var(--black-alpha-90), 0 0 20px var(--vday-red-alpha-50), inset 0 0 15px var(--vday-pink-light-alpha-20); 
       border-color: var(--vday-red); 
-    }
+    } 
     50% { 
       box-shadow:   0px 15px 30px var(--black-alpha-90), 0 0 45px var(--vday-pink-deep-alpha-90), inset 0 0 25px var(--vday-pulse-light); 
       border-color: var(--vday-pink-light); 
-    }
+    } 
   }
 
   .card:hover .cardContent:not(.cardContent-round), 
@@ -4089,7 +4140,7 @@ html[class*="theme-"] body .button-submit:active {
     transform:       translateY(-8px) !important; 
   }
 
-  /* 3. Webkit Heart Slider Thumb (Chrome/Safari/Edge) - Kept separate to prevent icon loss */
+  /* 3. Webkit Heart Slider Thumb (Chrome/Safari/Edge) */
   input[type="range"]::-webkit-slider-thumb { 
     -webkit-appearance: none !important; 
     appearance:         none !important; 
@@ -4104,7 +4155,7 @@ html[class*="theme-"] body .button-submit:active {
     transform:          translateY(-6px) !important; 
   }
 
-  /* 4. Mozilla Heart Slider Thumb (Firefox) - Kept separate to prevent icon loss */
+  /* 4. Mozilla Heart Slider Thumb (Firefox) */
   input[type="range"]::-moz-range-thumb { 
     -moz-appearance: none !important; 
     appearance:      none !important; 
@@ -4149,7 +4200,7 @@ html[class*="theme-"] body .button-submit:active {
     0%, 100% { border-color: var(--vday-red); }
     25%      { border-color: var(--vday-pink-light); }
     50%      { border-color: var(--vday-pink-deep); }
-    75%      { border-color: var(--pure-white); }
+    75%      { border-color: var(--vday-pure-white); }
   }
 
   /* --- 14G. TYPOGRAPHY & HEADERS --- */
@@ -4172,7 +4223,7 @@ html[class*="theme-"] body .button-submit:active {
   .aboutSection .itemSecondaryText,
   .aboutSection .audioVideoMediaInfo {
       -webkit-background-clip: initial !important;
-      -webkit-text-fill-color: var(--pure-white) !important; 
+      -webkit-text-fill-color: var(--vday-pure-white) !important; 
       text-shadow:             none !important;
       filter:                  none !important;
       opacity:                 1 !important;
@@ -4268,8 +4319,8 @@ html[class*="theme-"] body .button-submit:active {
     background-size:     100% 100% !important; 
     background-repeat:   no-repeat !important; 
     background-position: center !important; 
-    color:               var(--pure-white) !important; 
-    -webkit-text-fill-color: var(--pure-white) !important; 
+    color:               var(--vday-pure-white) !important; 
+    -webkit-text-fill-color: var(--vday-pure-white) !important; 
     min-width:           36px !important; 
     height:              28px !important; 
     border-radius:       0 !important; 
@@ -4303,8 +4354,8 @@ html[class*="theme-"] body .button-submit:active {
       transform:    scale(1.05); 
       box-shadow:   0 0 15px var(--vday-red), 0 0 20px var(--vday-pink-deep), inset 0 0 10px var(--vday-red) !important; 
       border-color: var(--vday-pink-deep) !important; 
-      color:        var(--pure-white) !important; 
-      -webkit-text-fill-color: var(--pure-white) !important;
+      color:        var(--vday-pure-white) !important; 
+      -webkit-text-fill-color: var(--vday-pure-white) !important;
     } 
   }
 
@@ -4366,8 +4417,8 @@ html[class*="theme-"] body .button-submit:active {
 
   html[class*="theme-"] body .card:hover .cardOverlayFab-primary { 
     animation:               coinFlipHover 1.5s infinite alternate !important; 
-    color:                   var(--pure-black) !important; 
-    -webkit-text-fill-color: var(--pure-black) !important; 
+    color:                   var(--stpat-pure-black) !important; 
+    -webkit-text-fill-color: var(--stpat-pure-black) !important; 
   }
 
   /* --- 15C. CARD HOVER EFFECTS (GOLD DUST & AURA) --- */
@@ -4417,8 +4468,8 @@ html[class*="theme-"] body .button-submit:active {
     background:              radial-gradient(circle at 30% 30%, var(--stpat-gold-light) 0%, var(--stpat-gold) 60%, var(--stpat-gold-dark) 100%) !important; 
     border:                  2px solid var(--stpat-gold-dark) !important; 
     box-shadow:              0 4px 8px var(--black-alpha-60), inset -2px -2px 5px var(--stpat-black-alpha-30) !important; 
-    color:                   var(--pure-black) !important; 
-    -webkit-text-fill-color: var(--pure-black) !important; 
+    color:                   var(--stpat-pure-black) !important; 
+    -webkit-text-fill-color: var(--stpat-pure-black) !important; 
     min-width:               32px !important; 
     height:                  32px !important; 
     border-radius:           50% !important; 
@@ -4453,7 +4504,7 @@ html[class*="theme-"] body .button-submit:active {
     -webkit-text-fill-color: var(--stpat-gold) !important; 
     border-radius:           var(--border-radius-pill) !important; 
     box-shadow:              0 4px 8px var(--black-alpha-50), inset 0 0 8px var(--stpat-black-alpha-30) !important; 
-    text-shadow:             1px 1px 2px var(--pure-black) !important; 
+    text-shadow:             1px 1px 2px var(--stpat-pure-black) !important; 
   }
 
   /* 2. Nested Text: Forces all internal labels (Genre, Studio) to match gold */
@@ -4467,17 +4518,17 @@ html[class*="theme-"] body .button-submit:active {
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover,
   html[class*="theme-"] body .mediaInfoItem:hover {
     background:              linear-gradient(135deg, var(--stpat-green-mid) 0%, var(--stpat-green-bright) 100%) !important;
-    border-color:            var(--pure-white) !important;
-    color:                   var(--pure-black) !important;
-    -webkit-text-fill-color: var(--pure-black) !important;
+    border-color:            var(--stpat-pure-white) !important;
+    color:                   var(--stpat-pure-black) !important;
+    -webkit-text-fill-color: var(--stpat-pure-black) !important;
     box-shadow:              0 6px 12px var(--black-alpha-80), 0 0 15px var(--stpat-green-bright-alpha-60) !important;
     text-shadow:             none !important;
   }
 
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover *,
   html[class*="theme-"] body .mediaInfoItem:hover * {
-    color:                   var(--pure-black) !important;
-    -webkit-text-fill-color: var(--pure-black) !important;
+    color:                   var(--stpat-pure-black) !important;
+    -webkit-text-fill-color: var(--stpat-pure-black) !important;
   }
 
   /* --- 15F. SLIDERS & CONTROLS (SHAMROCK THUMBS) --- */
@@ -4502,8 +4553,8 @@ html[class*="theme-"] body .button-submit:active {
   /* 2. Webkit Shamrock Slider Thumb (Chrome/Safari/Edge) */
   input[type="range"]::-webkit-slider-thumb { 
     -webkit-appearance: none !important; 
-    appearance:         none !important; 
-    background-image:   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='15' fill='%23006400'/%3E%3Ccircle cx='35' cy='60' r='15' fill='%23006400'/%3E%3Ccircle cx='65' cy='60' r='15' fill='%23006400'/%3E%3Cpath d='M50 50 Q 60 90 45 95 Q 55 90 50 50' fill='%23006400'/%3E%3C/svg%3E"), radial-gradient(circle at 30% 30%, var(--stpat-gold-light) 0%, var(--stpat-gold) 60%, var(--stpat-gold-dark) 100%) !important; 
+    appearance:          none !important; 
+    background-image:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='15' fill='%23006400'/%3E%3Ccircle cx='35' cy='60' r='15' fill='%23006400'/%3E%3Ccircle cx='65' cy='60' r='15' fill='%23006400'/%3E%3Cpath d='M50 50 Q 60 90 45 95 Q 55 90 50 50' fill='%23006400'/%3E%3C/svg%3E"), radial-gradient(circle at 30% 30%, var(--stpat-gold-light) 0%, var(--stpat-gold) 60%, var(--stpat-gold-dark) 100%) !important; 
     background-size:    60% 60%, 100% 100% !important; 
     background-repeat:  no-repeat !important; 
     background-position: center !important; 
@@ -4520,7 +4571,7 @@ html[class*="theme-"] body .button-submit:active {
   input[type="range"]::-moz-range-thumb { 
     -moz-appearance: none !important; 
     appearance:      none !important; 
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='15' fill='%23006400'/%3E%3Ccircle cx='35' cy='60' r='15' fill='%23006400'/%3E%3Ccircle cx='65' cy='60' r='15' fill='%23006400'/%3E%3Cpath d='M50 50 Q 60 90 45 95 Q 55 90 50 50' fill='%23006400'/%3E%3C/svg%3E"), radial-gradient(circle at 30% 30%, var(--pure-white) 0%, var(--stpat-gold-light) 60%, var(--stpat-gold) 100%) !important; 
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='15' fill='%23006400'/%3E%3Ccircle cx='35' cy='60' r='15' fill='%23006400'/%3E%3Ccircle cx='65' cy='60' r='15' fill='%23006400'/%3E%3Cpath d='M50 50 Q 60 90 45 95 Q 55 90 50 50' fill='%23006400'/%3E%3C/svg%3E"), radial-gradient(circle at 30% 30%, var(--stpat-pure-white) 0%, var(--stpat-gold-light) 60%, var(--stpat-gold) 100%) !important; 
     background-size:    60% 60%, 100% 100% !important; 
     background-repeat:  no-repeat !important; 
     background-position: center !important; 
@@ -4537,9 +4588,9 @@ html[class*="theme-"] body .button-submit:active {
   .emby-slider-thumb:hover, 
   input[type="range"]:hover::-webkit-slider-thumb,
   input[type="range"]:hover::-moz-range-thumb { 
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='15' fill='%2300ff85'/%3E%3Ccircle cx='35' cy='60' r='15' fill='%2300ff85'/%3E%3Ccircle cx='65' cy='60' r='15' fill='%2300ff85'/%3E%3Cpath d='M50 50 Q 60 90 45 95 Q 55 90 50 50' fill='%2300ff85'/%3E%3C/svg%3E"), radial-gradient(circle at 30% 30%, var(--pure-white) 0%, var(--stpat-gold-light) 60%, var(--stpat-gold) 100%) !important; 
-    border-color:     var(--pure-white) !important; 
-    box-shadow:       0 0 15px var(--pure-white), 0 0 25px var(--stpat-green-bright-alpha-100) !important; 
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='15' fill='%2300ff85'/%3E%3Ccircle cx='35' cy='60' r='15' fill='%2300ff85'/%3E%3Ccircle cx='65' cy='60' r='15' fill='%2300ff85'/%3E%3Cpath d='M50 50 Q 60 90 45 95 Q 55 90 50 50' fill='%2300ff85'/%3E%3C/svg%3E"), radial-gradient(circle at 30% 30%, var(--stpat-pure-white) 0%, var(--stpat-gold-light) 60%, var(--stpat-gold) 100%) !important; 
+    border-color:     var(--stpat-pure-white) !important; 
+    box-shadow:       0 0 15px var(--stpat-pure-white), 0 0 25px var(--stpat-green-bright-alpha-100) !important; 
     transition:       transform 0.2s ease, box-shadow 0.2s ease !important; 
   }
 
@@ -4568,7 +4619,7 @@ html[class*="theme-"] body .button-submit:active {
     0%, 100% { border-color: var(--stpat-green-bright); }
     25%      { border-color: var(--stpat-gold); }
     50%      { border-color: var(--stpat-green-mid); }
-    75%      { border-color: var(--pure-white); }
+    75%      { border-color: var(--stpat-pure-white); }
   }
 
   /* --- 15H. GLOBAL BACKGROUNDS (FALLING CLOVERS) --- */
@@ -4647,8 +4698,8 @@ html[class*="theme-"] body .button-submit:active {
       transform:    scale(1.05); 
       box-shadow:   0 0 15px var(--stpat-green-mid), 0 0 20px var(--stpat-green-bright), inset 0 0 10px var(--stpat-green-mid) !important; 
       border-color: var(--stpat-green-bright) !important; 
-      color:        var(--pure-white) !important; 
-      -webkit-text-fill-color: var(--pure-white) !important;
+      color:        var(--stpat-pure-white) !important; 
+      -webkit-text-fill-color: var(--stpat-pure-white) !important;
     } 
   }
 
@@ -4656,7 +4707,7 @@ html[class*="theme-"] body .button-submit:active {
   html[class*="theme-"] body .videoOsdBottom, 
   html[class*="theme-"] body .videoOsdBottom-video { 
     background:    linear-gradient(to top, rgba(0, 158, 96, 0.25) 0%, rgba(0, 26, 13, 0.9) 55%, transparent 100%) !important; 
-    border-bottom: 3px solid #ffd700 !important; 
+    border-bottom: 3px solid var(--stpat-gold) !important; 
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
@@ -4694,8 +4745,8 @@ html[class*="theme-"] body .button-submit:active {
     background-color:        transparent !important;
     border:                  none !important;
     box-shadow:              0 5px 15px var(--black-alpha-80), inset -2px -4px 8px var(--easter-black-alpha-30) !important; 
-    color:                   var(--pure-black) !important; 
-    -webkit-text-fill-color: var(--pure-black) !important; 
+    color:                   var(--easter-pure-black) !important; 
+    -webkit-text-fill-color: var(--easter-pure-black) !important; 
     transition:              none !important; 
     transform-origin:        center !important; 
   }
@@ -4710,8 +4761,8 @@ html[class*="theme-"] body .button-submit:active {
   
   html[class*="theme-"] body .card:hover .cardOverlayFab-primary { 
     animation:               eggWobble 0.6s ease-in-out infinite !important; 
-    color:                   var(--pure-black) !important; 
-    -webkit-text-fill-color: var(--pure-black) !important; 
+    color:                   var(--easter-pure-black) !important; 
+    -webkit-text-fill-color: var(--easter-pure-black) !important; 
   }
 
   /* --- 16C. PORTRAITS & MEDIA CARDS (EGG CLIPPING) --- */
@@ -4848,7 +4899,7 @@ html[class*="theme-"] body .button-submit:active {
   /* 2. Video Player OSD Gradient: Spring green edge fade */
   html[class*="theme-"] body .videoOsdBottom, 
   html[class*="theme-"] body .videoOsdBottom-video { 
-    background:    linear-gradient(to top, rgba(152, 251, 152, 0.25) 0%, rgba(26, 22, 37, 0.9) 55%, transparent 100%) !important; 
+    background:    linear-gradient(to top, var(--easter-osd-glow) 0%, var(--easter-osd-bg) 55%, transparent 100%) !important; 
     border-bottom: 3px solid var(--easter-green) !important; 
   }
   
@@ -4877,7 +4928,7 @@ html[class*="theme-"] body .button-submit:active {
   body::before,
   body::after {
     content:        '';
-    position:       fixed;
+    position:        fixed;
     pointer-events: none;
     z-index:        -1;
   }
@@ -4903,9 +4954,9 @@ html[class*="theme-"] body .button-submit:active {
 
   /* Layer 3: Grass hills silhouette */
   .backgroundContainer::after {
-    bottom:           -15px; 
-    left:             -100px; right: -100px; 
-    height:           18vh; min-height: 140px; top: auto;
+    bottom:            -15px; 
+    left:              -100px; right: -100px; 
+    height:            18vh; min-height: 140px; top: auto;
     background:       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='%2398fb98' d='M0,100 L100,100 L100,105 L0,105 Z M0,100 Q15,60 5,10 Q25,50 12,100 M8,100 Q20,60 35,25 Q25,60 18,100 M15,100 Q25,50 22,5 Q32,50 25,100 M20,100 Q25,70 15,40 Q30,70 28,100 M25,100 Q45,60 65,15 Q45,60 35,100 M32,100 Q35,70 38,35 Q45,70 42,100 M38,100 Q40,50 25,20 Q50,60 48,100 M45,100 Q55,50 65,5 Q60,50 55,100 M52,100 Q45,60 25,30 Q55,60 62,100 M60,100 Q65,40 70,0 Q75,50 70,100 M68,100 Q80,70 90,45 Q82,70 76,100 M75,100 Q80,50 60,10 Q85,50 85,100 M82,100 Q90,60 100,20 Q95,60 92,100 M90,100 Q95,70 98,40 Q102,70 98,100'/%3E%3C/svg%3E") 0 bottom / 140px 100% repeat-x,
                       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='%236dc26d' d='M0,100 L100,100 L100,105 L0,105 Z M0,100 Q15,60 5,10 Q25,50 12,100 M8,100 Q20,60 35,25 Q25,60 18,100 M15,100 Q25,50 22,5 Q32,50 25,100 M20,100 Q25,70 15,40 Q30,70 28,100 M25,100 Q45,60 65,15 Q45,60 35,100 M32,100 Q35,70 38,35 Q45,70 42,100 M38,100 Q40,50 25,20 Q50,60 48,100 M45,100 Q55,50 65,5 Q60,50 55,100 M52,100 Q45,60 25,30 Q55,60 62,100 M60,100 Q65,40 70,0 Q75,50 70,100 M68,100 Q80,70 90,45 Q82,70 76,100 M75,100 Q80,50 60,10 Q85,50 85,100 M82,100 Q90,60 100,20 Q95,60 92,100 M90,100 Q95,70 98,40 Q102,70 98,100'/%3E%3C/svg%3E") 30px bottom / 190px 85% repeat-x,
                       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='%235f9ea0' d='M0,100 L100,100 L100,105 L0,105 Z M0,100 Q15,60 5,10 Q25,50 12,100 M8,100 Q20,60 35,25 Q25,60 18,100 M15,100 Q25,50 22,5 Q32,50 25,100 M20,100 Q25,70 15,40 Q30,70 28,100 M25,100 Q45,60 65,15 Q45,60 35,100 M32,100 Q35,70 38,35 Q45,70 42,100 M38,100 Q40,50 25,20 Q50,60 48,100 M45,100 Q55,50 65,5 Q60,50 55,100 M52,100 Q45,60 25,30 Q55,60 62,100 M60,100 Q65,40 70,0 Q75,50 70,100 M68,100 Q80,70 90,45 Q82,70 76,100 M75,100 Q80,50 60,10 Q85,50 85,100 M82,100 Q90,60 100,20 Q95,60 92,100 M90,100 Q95,70 98,40 Q102,70 98,100'/%3E%3C/svg%3E") 80px bottom / 240px 115% repeat-x;
@@ -4917,15 +4968,15 @@ html[class*="theme-"] body .button-submit:active {
   /* Layer 4: Cherry Blossom branch art */
   .backdropContainer::before {
     content:          '';
-    position:         fixed;
-    bottom:           8vh; 
-    right:            5%; 
-    width:            54vw; 
-    max-width:        720px; 
-    min-width:        420px;
-    height:           78vh; 
-    max-height:       960px;
-    background:       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 1000'%3E%3Cdefs%3E%3Cg id='a'%3E%3Cpath d='M0,40 C-40,20 -40,-20 0,-40 C40,-20 40,20 0,40 Z' transform='translate(0,0) rotate(15)' fill='%23ffb7b2' opacity='0.95'/%3E%3Cpath d='M0,35 C-35,17 -35,-17 0,-35 C35,-17 35,17 0,35 Z' transform='translate(-20,-20) rotate(-40)' fill='%23ffdac1' opacity='0.85'/%3E%3Cpath d='M0,35 C-35,17 -35,-17 0,-35 C35,-17 35,17 0,35 Z' transform='translate(25,-15) rotate(60)' fill='%23ffb6c1' opacity='0.9'/%3E%3Cpath d='M0,30 C-30,15 -30,-15 0,-30 C30,-15 30,15 0,30 Z' transform='translate(-10,20) rotate(-15)' fill='%23ff9aa2' opacity='0.9'/%3E%3Cpath d='M0,30 C-30,15 -30,-15 0,-30 C30,-15 30,15 0,30 Z' transform='translate(20,20) rotate(80)' fill='%23ffb7b2' opacity='0.85'/%3E%3Cpath d='M0,25 C-25,12 -25,-12 0,-25 C25,-12 25,12 0,25 Z' transform='translate(0,-30) rotate(-75)' fill='%23ffc4c4' opacity='0.8'/%3E%3C/g%3E%3Cg id='b'%3E%3Cpath d='M0,28 C-28,14 -28,-14 0,-28 C28,-14 28,14 0,28 Z' transform='translate(0,0) rotate(35)' fill='%23ffb7b2' opacity='0.95'/%3E%3Cpath d='M0,24 C-24,12 -24,-12 0,-24 C24,-12 24,12 0,24 Z' transform='translate(-14,-14) rotate(-25)' fill='%23ffdac1' opacity='0.85'/%3E%3Cpath d='M0,24 C-24,12 -24,-12 0,-24 C24,-12 24,12 0,24 Z' transform='translate(17,-10) rotate(55)' fill='%23ffb6c1' opacity='0.9'/%3E%3Cpath d='M0,21 C-21,10 -21,-10 0,-21 C21,-10 21,10 0,21 Z' transform='translate(-7,14) rotate(-60)' fill='%23ff9aa2' opacity='0.9'/%3E%3Cpath d='M0,21 C-21,10 -21,-10 0,-21 C21,-10 21,10 0,21 Z' transform='translate(14,14) rotate(15)' fill='%23ffb7b2' opacity='0.85'/%3E%3C/g%3E%3Cg id='c'%3E%3Cpath d='M0,16 C-16,8 -16,-8 0,-16 C16,-8 16,8 0,16 Z' transform='translate(0,0) rotate(-15)' fill='%23ffb7b2' opacity='0.95'/%3E%3Cpath d='M0,14 C-14,7 -14,-7 0,-14 C14,-7 14,7 0,14 Z' transform='translate(-8,-8) rotate(45)' fill='%23ffdac1' opacity='0.85'/%3E%3Cpath d='M0,14 C-14,7 -14,-7 0,-14 C14,-7 14,7 0,14 Z' transform='translate(10,-6) rotate(-75)' fill='%23ffb6c1' opacity='0.9'/%3E%3Cpath d='M0,12 C-12,6 -12,-6 0,-12 C12,-6 12,6 0,12 Z' transform='translate(-4,8) rotate(30)' fill='%23ff9aa2' opacity='0.9'/%3E%3Cpath d='M0,12 C-12,6 -12,-6 0,-12 C12,-6 12,6 0,12 Z' transform='translate(8,8) rotate(-50)' fill='%23ffb7b2' opacity='0.85'/%3E%3C/g%3E%3C/defs%3E%3Cg stroke='%232d1b13' stroke-linecap='round' fill='none'%3E%3Cpath stroke-width='60' d='M400,1000 C400,800 380,600 400,450'/%3E%3Cpath stroke-width='40' d='M395,550 C350,450 250,400 150,300'/%3E%3Cpath stroke-width='35' d='M405,500 C480,400 550,350 650,250'/%3E%3Cpath stroke-width='25' d='M390,450 C380,300 300,200 250,150'/%3E%3Cpath stroke-width='20' d='M410,480 C450,350 500,250 480,100'/%3E%3Cpath stroke-width='15' d='M250,400 C200,350 150,250 100,200'/%3E%3Cpath stroke-width='15' d='M500,380 C580,300 650,200 700,150'/%3E%3Cpath stroke-width='12' d='M330,300 C280,200 200,150 150,100'/%3E%3Cpath stroke-width='12' d='M470,250 C550,150 600,100 650,50'/%3E%3C/g%3E%3Cuse href='%23a' x='400' y='450'/%3E%3Cuse href='%23a' x='350' y='400'/%3E%3Cuse href='%23a' x='450' y='400'/%3E%3Cuse href='%23a' x='300' y='320'/%3E%3Cuse href='%23a' x='500' y='320'/%3E%3Cuse href='%23a' x='380' y='300'/%3E%3Cuse href='%23a' x='420' y='280'/%3E%3Cuse href='%23a' x='350' y='200'/%3E%3Cuse href='%23a' x='460' y='200'/%3E%3Cuse href='%23b' x='250' y='400'/%3E%3Cuse href='%23b' x='200' y='350'/%3E%3Cuse href='%23b' x='150' y='300'/%3E%3Cuse href='%23c' x='120' y='280'/%3E%3Cuse href='%23b' x='550' y='350'/%3E%3Cuse href='%23b' x='600' y='300'/%3E%3Cuse href='%23b' x='650' y='250'/%3E%3Cuse href='%23c' x='680' y='220'/%3E%3Cuse href='%23b' x='250' y='250'/%3E%3Cuse href='%23b' x='200' y='200'/%3E%3Cuse href='%23c' x='150' y='150'/%3E%3Cuse href='%23b' x='500' y='250'/%3E%3Cuse href='%23b' x='550' y='180'/%3E%3Cuse href='%23c' x='600' y='120'/%3E%3Cuse href='%23c' x='100' y='200'/%3E%3Cuse href='%23c' x='80' y='180'/%3E%3Cuse href='%23c' x='700' y='150'/%3E%3Cuse href='%23c' x='730' y='130'/%3E%3Cuse href='%23b' x='280' y='150'/%3E%3Cuse href='%23c' x='220' y='100'/%3E%3Cuse href='%23c' x='150' y='80'/%3E%3Cuse href='%23b' x='500' y='100'/%3E%3Cuse href='%23c' x='550' y='60'/%3E%3Cuse href='%23c' x='650' y='50'/%3E%3Cuse href='%23c' x='680' y='30'/%3E%3Cuse href='%23b' x='320' y='250'/%3E%3Cuse href='%23b' x='480' y='250'/%3E%3Cuse href='%23a' x='400' y='350'/%3E%3Cuse href='%23b' x='350' y='480'/%3E%3Cuse href='%23b' x='450' y='480'/%3E%3Cuse href='%23c' x='300' y='450'/%3E%3Cuse href='%23c' x='500' y='450'/%3E%3Cuse href='%23b' x='280' y='280'/%3E%3Cuse href='%23b' x='520' y='280'/%3E%3Cuse href='%23b' x='400' y='150'/%3E%3Cuse href='%23c' x='400' y='80'/%3E%3Cuse href='%23c' x='350' y='100'/%3E%3Cuse href='%23c' x='450' y='100'/%3E%3C/svg%3E") center bottom / contain no-repeat;
+    position:          fixed;
+    bottom:            8vh; 
+    right:             5%; 
+    width:             54vw; 
+    max-width:         720px; 
+    min-width:         420px;
+    height:            78vh; 
+    max-height:        960px;
+    background:        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 1000'%3E%3Cdefs%3E%3Cg id='a'%3E%3Cpath d='M0,40 C-40,20 -40,-20 0,-40 C40,-20 40,20 0,40 Z' transform='translate(0,0) rotate(15)' fill='%23ffb7b2' opacity='0.95'/%3E%3Cpath d='M0,35 C-35,17 -35,-17 0,-35 C35,-17 35,17 0,35 Z' transform='translate(-20,-20) rotate(-40)' fill='%23ffdac1' opacity='0.85'/%3E%3Cpath d='M0,35 C-35,17 -35,-17 0,-35 C35,-17 35,17 0,35 Z' transform='translate(25,-15) rotate(60)' fill='%23ffb6c1' opacity='0.9'/%3E%3Cpath d='M0,30 C-30,15 -30,-15 0,-30 C30,-15 30,15 0,30 Z' transform='translate(-10,20) rotate(-15)' fill='%23ff9aa2' opacity='0.9'/%3E%3Cpath d='M0,30 C-30,15 -30,-15 0,-30 C30,-15 30,15 0,30 Z' transform='translate(20,20) rotate(80)' fill='%23ffb7b2' opacity='0.85'/%3E%3Cpath d='M0,25 C-25,12 -25,-12 0,-25 C25,-12 25,12 0,25 Z' transform='translate(0,-30) rotate(-75)' fill='%23ffc4c4' opacity='0.8'/%3E%3C/g%3E%3Cg id='b'%3E%3Cpath d='M0,28 C-28,14 -28,-14 0,-28 C28,-14 28,14 0,28 Z' transform='translate(0,0) rotate(35)' fill='%23ffb7b2' opacity='0.95'/%3E%3Cpath d='M0,24 C-24,12 -24,-12 0,-24 C24,-12 24,12 0,24 Z' transform='translate(-14,-14) rotate(-25)' fill='%23ffdac1' opacity='0.85'/%3E%3Cpath d='M0,24 C-24,12 -24,-12 0,-24 C24,-12 24,12 0,24 Z' transform='translate(17,-10) rotate(55)' fill='%23ffb6c1' opacity='0.9'/%3E%3Cpath d='M0,21 C-21,10 -21,-10 0,-21 C21,-10 21,10 0,21 Z' transform='translate(-7,14) rotate(-60)' fill='%23ff9aa2' opacity='0.9'/%3E%3Cpath d='M0,21 C-21,10 -21,-10 0,-21 C21,-10 21,10 0,21 Z' transform='translate(14,14) rotate(15)' fill='%23ffb7b2' opacity='0.85'/%3E%3C/g%3E%3Cg id='c'%3E%3Cpath d='M0,16 C-16,8 -16,-8 0,-16 C16,-8 16,8 0,16 Z' transform='translate(0,0) rotate(-15)' fill='%23ffb7b2' opacity='0.95'/%3E%3Cpath d='M0,14 C-14,7 -14,-7 0,-14 C14,-7 14,7 0,14 Z' transform='translate(-8,-8) rotate(45)' fill='%23ffdac1' opacity='0.85'/%3E%3Cpath d='M0,14 C-14,7 -14,-7 0,-14 C14,-7 14,7 0,14 Z' transform='translate(10,-6) rotate(-75)' fill='%23ffb6c1' opacity='0.9'/%3E%3Cpath d='M0,12 C-12,6 -12,-6 0,-12 C12,-6 12,6 0,12 Z' transform='translate(-4,8) rotate(30)' fill='%23ff9aa2' opacity='0.9'/%3E%3Cpath d='M0,12 C-12,6 -12,-6 0,-12 C12,-6 12,6 0,12 Z' transform='translate(8,8) rotate(-50)' fill='%23ffb7b2' opacity='0.85'/%3E%3C/g%3E%3C/defs%3E%3Cg stroke='%232d1b13' stroke-linecap='round' fill='none'%3E%3Cpath stroke-width='60' d='M400,1000 C400,800 380,600 400,450'/%3E%3Cpath stroke-width='40' d='M395,550 C350,450 250,400 150,300'/%3E%3Cpath stroke-width='35' d='M405,500 C480,400 550,350 650,250'/%3E%3Cpath stroke-width='25' d='M390,450 C380,300 300,200 250,150'/%3E%3Cpath stroke-width='20' d='M410,480 C450,350 500,250 480,100'/%3E%3Cpath stroke-width='15' d='M250,400 C200,350 150,250 100,200'/%3E%3Cpath stroke-width='15' d='M500,380 C580,300 650,200 700,150'/%3E%3Cpath stroke-width='12' d='M330,300 C280,200 200,150 150,100'/%3E%3Cpath stroke-width='12' d='M470,250 C550,150 600,100 650,50'/%3E%3C/g%3E%3Cuse href='%23a' x='400' y='450'/%3E%3Cuse href='%23a' x='350' y='400'/%3E%3Cuse href='%23a' x='450' y='400'/%3E%3Cuse href='%23a' x='300' y='320'/%3E%3Cuse href='%23a' x='500' y='320'/%3E%3Cuse href='%23a' x='380' y='300'/%3E%3Cuse href='%23a' x='420' y='280'/%3E%3Cuse href='%23a' x='350' y='200'/%3E%3Cuse href='%23a' x='460' y='200'/%3E%3Cuse href='%23b' x='250' y='400'/%3E%3Cuse href='%23b' x='200' y='350'/%3E%3Cuse href='%23b' x='150' y='300'/%3E%3Cuse href='%23c' x='120' y='280'/%3E%3Cuse href='%23b' x='550' y='350'/%3E%3Cuse href='%23b' x='600' y='300'/%3E%3Cuse href='%23b' x='650' y='250'/%3E%3Cuse href='%23c' x='680' y='220'/%3E%3Cuse href='%23b' x='250' y='250'/%3E%3Cuse href='%23b' x='200' y='200'/%3E%3Cuse href='%23c' x='150' y='150'/%3E%3Cuse href='%23b' x='500' y='250'/%3E%3Cuse href='%23b' x='550' y='180'/%3E%3Cuse href='%23c' x='600' y='120'/%3E%3Cuse href='%23c' x='100' y='200'/%3E%3Cuse href='%23c' x='80' y='180'/%3E%3Cuse href='%23c' x='700' y='150'/%3E%3Cuse href='%23c' x='730' y='130'/%3E%3Cuse href='%23b' x='280' y='150'/%3E%3Cuse href='%23c' x='220' y='100'/%3E%3Cuse href='%23c' x='150' y='80'/%3E%3Cuse href='%23b' x='500' y='100'/%3E%3Cuse href='%23c' x='550' y='60'/%3E%3Cuse href='%23c' x='650' y='50'/%3E%3Cuse href='%23c' x='680' y='30'/%3E%3Cuse href='%23b' x='320' y='250'/%3E%3Cuse href='%23b' x='480' y='250'/%3E%3Cuse href='%23a' x='400' y='350'/%3E%3Cuse href='%23b' x='350' y='480'/%3E%3Cuse href='%23b' x='450' y='480'/%3E%3Cuse href='%23c' x='300' y='450'/%3E%3Cuse href='%23c' x='500' y='450'/%3E%3Cuse href='%23b' x='280' y='280'/%3E%3Cuse href='%23b' x='520' y='280'/%3E%3Cuse href='%23b' x='400' y='150'/%3E%3Cuse href='%23c' x='400' y='80'/%3E%3Cuse href='%23c' x='350' y='100'/%3E%3Cuse href='%23c' x='450' y='100'/%3E%3C/svg%3E") center bottom / contain no-repeat;
     filter:           drop-shadow(0 15px 25px var(--black-alpha-50)); 
     z-index:          -2;
     transform-origin: bottom center;
@@ -4949,13 +5000,13 @@ html[class*="theme-"] body .button-submit:active {
   /* 1. Badge Base Styling: Soft Easter purple gradients with pink borders */
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem,
   html[class*="theme-"] body .mediaInfoItem {
-    background:              linear-gradient(135deg, #4a3e63 0%, #3c3050 100%) !important; 
+    background:              linear-gradient(135deg, var(--easter-badge-bg-1) 0%, var(--easter-badge-bg-2) 100%) !important; 
     border:                  2px solid var(--theme-primary-color) !important; 
     color:                   var(--theme-primary-color) !important; 
     -webkit-text-fill-color: var(--theme-primary-color) !important;
     border-radius:           var(--border-radius-pill) !important; 
     box-shadow:              0 4px 8px var(--black-alpha-50), inset 0 0 8px rgba(0,0,0,0.2) !important; 
-    text-shadow:             1px 1px 2px var(--pure-black) !important; 
+    text-shadow:             1px 1px 2px var(--easter-pure-black) !important; 
   }
 
   /* 2. Nested Text: Forces all internal labels to match seasonal pink */
@@ -4969,10 +5020,10 @@ html[class*="theme-"] body .button-submit:active {
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover,
   html[class*="theme-"] body .mediaInfoItem:hover {
     background:              linear-gradient(135deg, var(--easter-blue-light) 0%, var(--easter-pink) 100%) !important;
-    border-color:            var(--pure-white) !important;
+    border-color:            var(--easter-pure-white) !important;
     color:                   var(--retro-navy) !important;
     -webkit-text-fill-color: var(--retro-navy) !important;
-    box-shadow:              0 6px 12px var(--black-alpha-80), 0 0 15px rgba(255, 182, 193, 0.6) !important;
+    box-shadow:              0 6px 12px var(--black-alpha-80), 0 0 15px var(--white-alpha-60) !important;
     text-shadow:             none !important;
   }
 
@@ -5018,10 +5069,10 @@ html[class*="theme-"] body .button-submit:active {
     inset:           0;
     border-radius:   0;
     background-image: 
-      radial-gradient(1px 1px at 15% 15%, var(--pure-white), transparent),
-      radial-gradient(1.5px 1.5px at 40% 70%, var(--pure-white), transparent),
-      radial-gradient(1px 1px at 70% 30%, var(--pure-white), transparent),
-      radial-gradient(2px 2px at 85% 85%, var(--pure-white), transparent);
+      radial-gradient(1px 1px at 15% 15%, var(--july4-pure-white), transparent),
+      radial-gradient(1.5px 1.5px at 40% 70%, var(--july4-pure-white), transparent),
+      radial-gradient(1px 1px at 70% 30%, var(--july4-pure-white), transparent),
+      radial-gradient(2px 2px at 85% 85%, var(--july4-pure-white), transparent);
     background-size: 300px 300px;
     animation:       starTwinkle 5s infinite ease-in-out;
     opacity:         0.5;
@@ -5049,7 +5100,6 @@ html[class*="theme-"] body .button-submit:active {
 
   /* --- 17B. FIREWORK ANIMATIONS (USING BOX-SHADOW) --- */
 
-  /* 1. Firework Physics: Scaling and falling burst effect */
   @keyframes firework-burst {
     0%   { transform: scale(0.1) translateY(0); opacity: 0; filter: brightness(2) blur(1px); }
     10%  { opacity: 1; filter: brightness(1.5) blur(0px); }
@@ -5063,9 +5113,9 @@ html[class*="theme-"] body .button-submit:active {
       0 -50px var(--july4-firework-red), 35px -35px var(--july4-firework-red), 50px 0 var(--july4-firework-red), 
       35px 35px var(--july4-firework-red), 0 50px var(--july4-firework-red), -35px 35px var(--july4-firework-red), 
       -50px 0 var(--july4-firework-red), -35px -35px var(--july4-firework-red),
-      0 -25px var(--july4-white), 18px -18px var(--july4-white), 25px 0 var(--july4-white), 
-      18px 18px var(--july4-white), 0 25px var(--july4-white), -18px 18px var(--july4-white), 
-      -25px 0 var(--july4-white), -18px -18px var(--july4-white);
+      0 -25px var(--july4-firework-white), 18px -18px var(--july4-firework-white), 25px 0 var(--july4-firework-white), 
+      18px 18px var(--july4-firework-white), 0 25px var(--july4-firework-white), -18px 18px var(--july4-firework-white), 
+      -25px 0 var(--july4-firework-white), -18px -18px var(--july4-firework-white);
     animation: firework-burst 3.2s infinite ease-out 0.5s;
   }
 
@@ -5076,9 +5126,9 @@ html[class*="theme-"] body .button-submit:active {
       0 -45px var(--july4-firework-blue), 32px -32px var(--july4-firework-blue), 45px 0 var(--july4-firework-blue), 
       32px 32px var(--july4-firework-blue), 0 45px var(--july4-firework-blue), -32px 32px var(--july4-firework-blue), 
       -45px 0 var(--july4-firework-blue), -32px -32px var(--july4-firework-blue),
-      0 -20px var(--july4-white), 14px -14px var(--july4-white), 20px 0 var(--july4-white), 
-      14px 14px var(--july4-white), 0 20px var(--july4-white), -14px 14px var(--july4-white), 
-      -20px 0 var(--july4-white), -14px -14px var(--july4-white);
+      0 -20px var(--july4-firework-white), 14px -14px var(--july4-firework-white), 20px 0 var(--july4-firework-white), 
+      14px 14px var(--july4-firework-white), 0 20px var(--july4-firework-white), -14px 14px var(--july4-firework-white), 
+      -20px 0 var(--july4-firework-white), -14px -14px var(--july4-firework-white);
     animation: firework-burst 3.8s infinite ease-out 1.2s;
   }
 
@@ -5102,24 +5152,24 @@ html[class*="theme-"] body .button-submit:active {
       0 -40px var(--july4-firework-red), 28px -28px var(--july4-firework-blue), 40px 0 var(--july4-firework-red), 
       28px 28px var(--july4-firework-blue), 0 40px var(--july4-firework-red), -28px 28px var(--july4-firework-blue), 
       -40px 0 var(--july4-firework-red), -28px -28px var(--july4-firework-blue),
-      0 -15px var(--july4-white), 11px -11px var(--july4-white), 15px 0 var(--july4-white), 
-      11px 11px var(--july4-white), 0 15px var(--july4-white), -11px 11px var(--july4-white), 
-      -15px 0 var(--july4-white), -11px -11px var(--july4-white);
+      0 -15px var(--july4-firework-white), 11px -11px var(--july4-firework-white), 15px 0 var(--july4-firework-white), 
+      11px 11px var(--july4-firework-white), 0 15px var(--july4-firework-white), -11px 11px var(--july4-firework-white), 
+      -15px 0 var(--july4-firework-white), -11px -11px var(--july4-firework-white);
     animation: firework-burst 2.8s infinite ease-out 0.8s;
   }
 
   /* --- 17C. MEDIA CARD ACTION OVERLAYS (SHIELDS) --- */
 
-  /* 1. Patriotic Shields: Replaces buttons with a custom red/white/blue shield icon */
+  /* 1. Patriotic Shields: Replaces buttons with custom colors */
   html[class*="theme-"] body .cardOverlayFab-primary, 
   html[class*="theme-"] body .cardOverlayButtonIcon, 
   html[class*="theme-"] body .listItemOverlayButtonIcon, 
   html[class*="theme-"] body .listItemImageButton { 
     background:              var(--july4-blue) !important; 
     border:                  4px solid var(--july4-red) !important; 
-    box-shadow:              0 0 0 3px var(--july4-white) inset, 0 0 15px var(--july4-red-alpha-60) !important; 
-    color:                   var(--july4-white) !important;
-    -webkit-text-fill-color: var(--july4-white) !important;
+    box-shadow:              0 0 0 3px var(--july4-pure-white) inset, 0 0 15px var(--july4-red-alpha-60) !important; 
+    color:                   var(--july4-pure-white) !important;
+    -webkit-text-fill-color: var(--july4-pure-white) !important;
     border-radius:           50% !important; 
     display:                 inline-flex !important; 
     align-items:             center; 
@@ -5130,14 +5180,14 @@ html[class*="theme-"] body .button-submit:active {
 
   /* 2. Shield Pulse: Hover state expansion for interactive cards */
   @keyframes shieldPulse { 
-    0%   { transform: scale(1);    box-shadow: 0 0 0 3px var(--july4-white) inset, 0 0 15px var(--july4-red-alpha-60); } 
-    100% { transform: scale(1.05); box-shadow: 0 0 0 3px var(--july4-white) inset, 0 0 25px var(--july4-blue-alpha-80); } 
+    0%   { transform: scale(1);    box-shadow: 0 0 0 3px var(--july4-pure-white) inset, 0 0 15px var(--july4-red-alpha-60); } 
+    100% { transform: scale(1.05); box-shadow: 0 0 0 3px var(--july4-pure-white) inset, 0 0 25px var(--july4-blue-alpha-80); } 
   }
 
   html[class*="theme-"] body .card:hover .cardOverlayFab-primary { 
     animation:               shieldPulse 1s ease-in-out infinite alternate !important; 
-    color:                   var(--pure-white) !important; 
-    -webkit-text-fill-color: var(--pure-white) !important; 
+    color:                   var(--july4-pure-white) !important; 
+    -webkit-text-fill-color: var(--july4-pure-white) !important; 
   }
 
   /* 3. Mini Firework Burst: Triggered behind card on hover */
@@ -5146,7 +5196,7 @@ html[class*="theme-"] body .button-submit:active {
     position:       absolute; 
     inset:          0; 
     border-radius:  inherit;
-    background:     radial-gradient(circle, var(--july4-white) 10%, transparent 70%); 
+    background:     radial-gradient(circle, var(--july4-pure-white) 10%, transparent 70%); 
     opacity:        0; 
     pointer-events: none; 
     animation:      fireworkBurst 0.6s ease-out; 
@@ -5162,10 +5212,10 @@ html[class*="theme-"] body .button-submit:active {
   /* 1. Count Indicator: Standard blue notification pills with white borders */
   html[class*="theme-"] body .countIndicator { 
     background:              var(--july4-blue) !important; 
-    color:                   var(--july4-white) !important; 
-    -webkit-text-fill-color: var(--july4-white) !important; 
-    border:                  2px solid var(--july4-white) !important; 
-    box-shadow:              0 0 10px var(--july4-red-alpha-80), inset 0 0 5px var(--black-alpha-50) !important; 
+    color:                   var(--july4-pure-white) !important; 
+    -webkit-text-fill-color: var(--july4-pure-white) !important; 
+    border:                  2px solid var(--july4-pure-white) !important; 
+    box-shadow:              0 0 10px var(--july4-red-alpha-80), inset 0 0 5px var(--july4-pure-black) !important; 
   }
 
   /* 2. Flag Wave: Scrolling patriotic gradient for progress bars */
@@ -5189,7 +5239,7 @@ html[class*="theme-"] body .button-submit:active {
   .nowPlayingBar .emby-slider-thumb { 
     background:      var(--july4-blue) !important; 
     border:          4px solid var(--july4-red) !important; 
-    box-shadow:      0 0 0 3px var(--july4-white) inset, 0 0 15px var(--july4-red-alpha-60) !important; 
+    box-shadow:      0 0 0 3px var(--july4-pure-white) inset, 0 0 15px var(--july4-red-alpha-60) !important; 
     border-radius:   50% !important; 
     width:           30px !important; 
     height:          30px !important; 
@@ -5200,15 +5250,15 @@ html[class*="theme-"] body .button-submit:active {
   /* 2. Webkit Shield Slider Thumb (Chrome/Safari/Edge) */
   input[type="range"]::-webkit-slider-thumb { 
     -webkit-appearance: none !important; 
-    appearance:         none !important; 
-    background:         var(--july4-blue) !important; 
-    border:             4px solid var(--july4-red) !important; 
-    box-shadow:         0 0 0 3px var(--july4-white) inset, 0 0 15px var(--july4-red-alpha-60) !important; 
-    border-radius:      50% !important; 
-    width:              30px !important; 
-    height:             30px !important; 
-    cursor:             pointer !important; 
-    transform:          translateY(-2px) !important; 
+    appearance:          none !important; 
+    background:          var(--july4-blue) !important; 
+    border:              4px solid var(--july4-red) !important; 
+    box-shadow:          0 0 0 3px var(--july4-pure-white) inset, 0 0 15px var(--july4-red-alpha-60) !important; 
+    border-radius:       50% !important; 
+    width:               30px !important; 
+    height:              30px !important; 
+    cursor:              pointer !important; 
+    transform:           translateY(-2px) !important; 
   }
 
   /* 3. Mozilla Shield Slider Thumb (Firefox) */
@@ -5217,7 +5267,7 @@ html[class*="theme-"] body .button-submit:active {
     appearance:      none !important; 
     background:      var(--july4-blue) !important; 
     border:          4px solid var(--july4-red) !important; 
-    box-shadow:      0 0 0 3px var(--july4-white) inset, 0 0 15px var(--july4-red-alpha-60) !important; 
+    box-shadow:      0 0 0 3px var(--july4-pure-white) inset, 0 0 15px var(--july4-red-alpha-60) !important; 
     border-radius:   50% !important; 
     width:           30px !important; 
     height:          30px !important; 
@@ -5232,16 +5282,16 @@ html[class*="theme-"] body .button-submit:active {
   html[class*="theme-"] body .videoOsdBottom .emby-tab-button:focus, 
   html[class*="theme-"] body .videoOsdBottom .emby-tab-button.show-focus {
     background:  linear-gradient(135deg, var(--july4-blue) 0%, var(--july4-red) 100%) !important;
-    color:       var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    border:      2px solid var(--july4-white) !important;
+    color:       var(--july4-pure-white) !important;
+    -webkit-text-fill-color: var(--july4-pure-white) !important;
+    border:      2px solid var(--july4-pure-white) !important;
     box-shadow:  0 4px 10px var(--black-alpha-50), inset 0 0 5px var(--black-alpha-50) !important;
   }
 
   /* 2. Video Player OSD Gradient: Patriotic blue foundation */
   html[class*="theme-"] body .videoOsdBottom, 
   html[class*="theme-"] body .videoOsdBottom-video { 
-    background:    linear-gradient(to top, rgba(0, 82, 165, 0.25) 0%, rgba(0, 29, 61, 0.9) 60%, transparent 100%) !important; 
+    background:    linear-gradient(to top, var(--july4-osd-glow) 0%, var(--july4-osd-bg) 60%, transparent 100%) !important; 
     border-bottom: 3px solid var(--july4-red) !important; 
   }
 
@@ -5250,37 +5300,37 @@ html[class*="theme-"] body .button-submit:active {
   /* 1. Badge Base Styling: Navy gradients with red borders */
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem,
   html[class*="theme-"] body .mediaInfoItem {
-    background:              linear-gradient(135deg, #001d3d 0%, #0052a5 100%) !important; 
+    background:              linear-gradient(135deg, var(--july4-badge-bg-1) 0%, var(--july4-badge-bg-2) 100%) !important; 
     border:                  2px solid var(--july4-red) !important; 
-    color:                   var(--pure-white) !important; 
-    -webkit-text-fill-color: var(--pure-white) !important; 
+    color:                   var(--july4-pure-white) !important; 
+    -webkit-text-fill-color: var(--july4-pure-white) !important; 
     border-radius:           var(--border-radius-pill) !important; 
     box-shadow:              0 4px 8px var(--black-alpha-50) !important; 
-    text-shadow:             1px 1px 2px var(--pure-black) !important; 
+    text-shadow:             1px 1px 2px var(--july4-pure-black) !important; 
   }
 
   /* 2. Nested Text: Standardizes all internal labels to white */
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem *,
   html[class*="theme-"] body .mediaInfoItem * {
-    color:                   var(--pure-white) !important; 
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color:                   var(--july4-pure-white) !important; 
+    -webkit-text-fill-color: var(--july4-pure-white) !important;
   }
 
   /* 3. Badge Hover: Bright red pop with white borders */
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover,
   html[class*="theme-"] body .mediaInfoItem:hover {
-    background:              linear-gradient(135deg, var(--july4-red) 0%, #ff4d4d 100%) !important;
-    border-color:            var(--pure-white) !important;
-    color:                   var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    box-shadow:              0 6px 12px var(--black-alpha-80), 0 0 15px rgba(224, 22, 43, 0.6) !important;
+    background:              linear-gradient(135deg, var(--july4-red) 0%, var(--july4-red-hover) 100%) !important;
+    border-color:            var(--july4-pure-white) !important;
+    color:                   var(--july4-pure-white) !important;
+    -webkit-text-fill-color: var(--july4-pure-white) !important;
+    box-shadow:              0 6px 12px var(--black-alpha-80), 0 0 15px var(--july4-red-alpha-60) !important;
     text-shadow:             none !important;
   }
 
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover *,
   html[class*="theme-"] body .mediaInfoItem:hover * {
-    color:                   var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color:                   var(--july4-pure-white) !important;
+    -webkit-text-fill-color: var(--july4-pure-white) !important;
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
@@ -5295,13 +5345,11 @@ html[class*="theme-"] body .button-submit:active {
 
   /* --- 18A. PORTRAITS & MEDIA CARDS (TOMBSTONE SHAPES) --- */
 
-  /* 1. Layout Adjustments: Tweaks the aspect ratio of person cards to fit the taller tombstone mask */
   .peopleSection .card,
   .personCard {
     aspect-ratio: 2 / 3.5 !important;
   }
 
-  /* 2. Tombstone Base: Shapes the top of images with a heavy curve to mimic cemetery stones */
   .peopleSection .cardContent-background,
   .peopleSection .cardImageContainer,
   .personCard .cardImageContainer {
@@ -5313,7 +5361,6 @@ html[class*="theme-"] body .button-submit:active {
     overflow:         hidden !important;
   }
 
-  /* 3. Desaturated Portraits: Applies a spooky, faded sepia filter to actor faces */
   .peopleSection .cardImageContainer img,
   .personCard .cardImageContainer img {
     border-radius: 45% 45% 0 0 / 18% 18% 0 0 !important;
@@ -5322,7 +5369,6 @@ html[class*="theme-"] body .button-submit:active {
     transition:    filter 0.3s ease !important;
   }
 
-  /* 4. Tombstone Interaction: Hovering lifts the card and triggers an orange glow */
   body .peopleSection .card:hover .cardImageContainer,
   body .personCard:hover .cardImageContainer,
   body .peopleSection .card:hover .cardContent.cardContent-round,
@@ -5335,7 +5381,6 @@ html[class*="theme-"] body .button-submit:active {
     transform:     translateY(-5px) !important;
   }
 
-  /* 5. Poster Overrides: Standard media cards get a sinister tint shift on hover */
   .card:hover .cardContent:not(.cardContent-round),
   .card:hover .cardImageContainer:not(.cardContent-round) {
     border-color: var(--hw-orange) !important;
@@ -5343,13 +5388,12 @@ html[class*="theme-"] body .button-submit:active {
   }
 
   .card:hover .cardImageContainer img {
-    filter:     grayscale(80%) sepia(40%) hue-rotate(250deg) contrast(1.3) !important;
+    filter:      grayscale(80%) sepia(40%) hue-rotate(250deg) contrast(1.3) !important;
     transition: filter 0.4s ease-in-out !important;
   }
 
   /* --- 18B. UI INDICATORS (PUMPKIN COUNTS) --- */
 
-  /* 1. Pumpkin Counts: Transforms notification pills into glowing Jack-o'-Lanterns */
   html[class*="theme-"] body .countIndicator {
     background:              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23170026' stroke='%23ff6600' stroke-width='1.5' stroke-linejoin='round' d='M12 21.5C6 22.5 2 18 2 12.5 2 7 6 4 11 4.5V2c0-.6.4-1 1-1s1 .4 1 1v2.5c5-.5 9 2.5 9 8 0 5.5-4 10-10 9z'/%3E%3C/svg%3E") center / 100% 100% no-repeat transparent !important;
     border:                  none !important;
@@ -5369,12 +5413,6 @@ html[class*="theme-"] body .button-submit:active {
     50%      { transform: scale(1.1); filter: drop-shadow(0 6px 10px var(--black-alpha-90)) drop-shadow(0 0 15px var(--hw-orange-alpha-90)); }
   }
 
-  /* 2. Toxic Progress: Flowing green/purple gradient for media progress bars */
-  @keyframes potionBubble {
-    0%, 100% { background-position: 0% 50%; }
-    50%      { background-position: 100% 50%; }
-  }
-
   .itemProgressBarForeground {
     background:    linear-gradient(90deg, var(--hw-orange), var(--hw-purple), var(--hw-green), var(--hw-orange)) left center / 300% 100% !important;
     animation:     potionBubble 4s linear infinite !important;
@@ -5384,7 +5422,6 @@ html[class*="theme-"] body .button-submit:active {
 
   /* --- 18C. MEDIA CARD ACTION OVERLAYS (SPECTRAL BUTTONS) --- */
 
-  /* 1. Spectral Orb: Replaces default buttons with a hollow purple ring SVG */
   html[class*="theme-"] body .cardOverlayFab-primary,
   html[class*="theme-"] body .cardOverlayButtonIcon,
   html[class*="theme-"] body .listItemOverlayButtonIcon,
@@ -5394,13 +5431,12 @@ html[class*="theme-"] body .button-submit:active {
     border:                  none !important;
     box-shadow:              none !important;
     border-radius:           0 !important;
-    color:                   var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color:                   var(--hw-pure-white) !important;
+    -webkit-text-fill-color: var(--hw-pure-white) !important;
     transition:              none !important;
     transform-origin:        center !important;
   }
 
-  /* 2. Ethereal Pulse: Interactive hover state for poster overlays */
   @keyframes spectralPulse {
     0%   { filter: drop-shadow(0 0 5px var(--hw-purple-alpha-60)); transform: scale(1);    opacity: 0.8; }
     100% { filter: drop-shadow(0 0 20px var(--hw-purple));        transform: scale(1.15); opacity: 1;   }
@@ -5409,13 +5445,12 @@ html[class*="theme-"] body .button-submit:active {
   html[class*="theme-"] body .card:hover .cardOverlayFab-primary {
     animation:               spectralPulse 1.2s infinite alternate ease-in-out !important;
     filter:                  drop-shadow(0 0 15px var(--hw-purple)) !important;
-    color:                   var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color:                   var(--hw-pure-white) !important;
+    -webkit-text-fill-color: var(--hw-pure-white) !important;
   }
 
   /* --- 18D. SLIDERS & CONTROLS (GHOST THUMBS) --- */
 
-  /* 1. Standard Ghost Thumb (Emby Web App) */
   .emby-slider-thumb,
   .videoOsdBottom .emby-slider-thumb,
   .nowPlayingBar .emby-slider-thumb {
@@ -5430,7 +5465,6 @@ html[class*="theme-"] body .button-submit:active {
     transform:     translateY(-13px) !important;
   }
 
-  /* 2. Webkit Ghost Thumb (Chrome/Safari/Edge) */
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none !important;
     background:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 2C8.69 2 6 4.69 6 8v9.64L7.5 16 9 17.5 10.5 16l1.5 1.5 1.5-1.5 1.5 1.5 1.5-1.5 1.5 1.5L18 17.64V8c0-3.31-2.69-6-6-6zm-2 7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-2 4c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2z'/%3E%3C/svg%3E") center / 65% 65% no-repeat, radial-gradient(circle at 35% 35%, var(--hw-purple) 0%, var(--hw-bg-dark-2) 100%) center / 100% 100% no-repeat !important;
@@ -5443,7 +5477,6 @@ html[class*="theme-"] body .button-submit:active {
     transform:     translateY(0) !important;
   }
 
-  /* 3. Mozilla Ghost Thumb (Firefox) */
   input[type="range"]::-moz-range-thumb {
     background:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 2C8.69 2 6 4.69 6 8v9.64L7.5 16 9 17.5 10.5 16l1.5 1.5 1.5-1.5 1.5 1.5 1.5-1.5 1.5 1.5L18 17.64V8c0-3.31-2.69-6-6-6zm-2 7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-2 4c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2z'/%3E%3C/svg%3E") center / 65% 65% no-repeat, radial-gradient(circle at 35% 35%, var(--hw-purple) 0%, var(--hw-bg-dark-2) 100%) center / 100% 100% no-repeat !important;
     border:        2px solid var(--hw-orange) !important;
@@ -5455,21 +5488,19 @@ html[class*="theme-"] body .button-submit:active {
     transform:     translateY(0) !important;
   }
 
-  /* 4. Thumb Hover States */
   .emby-slider-thumb:hover {
-    box-shadow: 0 0 15px var(--pure-white), 0 0 30px var(--hw-purple), 0 0 45px var(--hw-orange) !important;
+    box-shadow: 0 0 15px var(--hw-pure-white), 0 0 30px var(--hw-purple), 0 0 45px var(--hw-orange) !important;
     transform:  translateY(-15px) scale(1.15) !important;
   }
 
   input[type="range"]:hover::-webkit-slider-thumb,
   input[type="range"]:hover::-moz-range-thumb {
-    box-shadow: 0 0 15px var(--pure-white), 0 0 30px var(--hw-purple), 0 0 45px var(--hw-orange) !important;
+    box-shadow: 0 0 15px var(--hw-pure-white), 0 0 30px var(--hw-purple), 0 0 45px var(--hw-orange) !important;
     transform:  translateY(-2px) scale(1.15) !important;
   }
 
   /* --- 18E. TABS, DIALOGS, OSD & BUTTONS --- */
 
-  /* 1. Active Tabs: Glowing purple and orange pill state for selected navigation */
   html[class*="theme-"] body .videoOsdBottom .emby-tab-button-active,
   html[class*="theme-"] body .emby-tab-button-active,
   html[class*="theme-"] body .videoOsdBottom .emby-tab-button:focus,
@@ -5481,25 +5512,22 @@ html[class*="theme-"] body .button-submit:active {
     box-shadow:      0 4px 10px var(--black-alpha-50), 0 0 15px var(--hw-purple-alpha-50), inset 0 0 10px var(--hw-orange-alpha-20) !important;
   }
 
-  /* 2. Video Player OSD Gradient: Spooky purple mist foundation for the control bar */
   html[class*="theme-"] body .videoOsdBottom, 
   html[class*="theme-"] body .videoOsdBottom-video { 
-    background:    linear-gradient(to top, rgba(138, 43, 226, 0.25) 0%, rgba(13, 0, 21, 0.9) 60%, transparent 100%) !important; 
+    background:    linear-gradient(to top, var(--hw-osd-glow) 0%, var(--hw-osd-bg) 60%, transparent 100%) !important; 
     border-bottom: 3px solid var(--hw-orange) !important; 
   }
 
-  /* 3. Modal Boxes: High-contrast purple and orange borders for popup windows */
   .dialog:not(.sliderBubble):not(.chapterThumbContainer),
   .formDialog,
   .actionSheet,
   .itemSelectionPanel {
-    background:    linear-gradient(135deg, var(--hw-bg-dark-3) 0%, var(--pure-black) 100%) !important;
+    background:    linear-gradient(135deg, var(--hw-bg-dark-3) 0%, var(--hw-pure-black) 100%) !important;
     border:        2px solid var(--hw-purple) !important;
     border-top:    2px solid var(--hw-orange) !important;
     box-shadow:    0 15px 40px var(--black-alpha-90), 0 -5px 20px var(--hw-purple-alpha-30), 0 5px 20px var(--hw-orange-alpha-30) !important;
   }
 
-  /* 4. Loading Spinner Cycle */
   .mdl-spinner__layer-1 {
     animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, halloween-spinner-colors 5332ms linear infinite !important;
   }
@@ -5508,21 +5536,11 @@ html[class*="theme-"] body .button-submit:active {
     0%, 100% { border-color: var(--hw-orange); }
     25%      { border-color: var(--hw-purple); }
     50%      { border-color: var(--hw-green);  }
-    75%      { border-color: var(--pure-white); }
+    75%      { border-color: var(--hw-pure-white); }
   }
 
   /* --- 18F. GLOBAL BACKGROUNDS (GHOSTS & MIST) --- */
 
-  /* 1. Animation Timing Variables: Controls the various speeds of floating particles */
-  body,
-  .backgroundContainer {
-    --ghost-speed-front: 30s; 
-    --ghost-speed-mid:   52s;    
-    --ghost-speed-back:  15s; 
-    --ghost-sway-speed:  6.5s;  
-  }
-
-  /* 2. Ghost Container Setup: Layers of fixed particle elements for background depth */
   .backgroundContainer::before,
   body::before,
   body::after {
@@ -5533,29 +5551,25 @@ html[class*="theme-"] body .button-submit:active {
     z-index:        -1;
   }
 
-  /* Layer 1: Fast foreground ghosts */
   body::before {
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cg transform='translate(24, 24)'%3E%3Cpath fill='rgba(255, 255, 255, 0.05)' d='M12 2C8.13 2 5 5.13 5 9v13l2.5-1.5L10 22l2-1.5 2 1.5 2.5-1.5 2.5 1.5V9c0-3.87-3.13-7-7-7zm-2 6c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm4 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 600px 600px;
-    animation:  ghost-fly-1 var(--ghost-speed-front) linear infinite, ghost-sway var(--ghost-sway-speed) ease-in-out infinite alternate;
+    animation:  ghost-fly-1 30s linear infinite, ghost-sway 6.5s ease-in-out infinite alternate;
     opacity:    0.98;
   }
 
-  /* Layer 2: Midground orange-tinted ghosts */
   body::after {
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Cg transform='translate(36, 36)'%3E%3Cpath fill='rgba(255, 102, 0, 0.04)' d='M12 2C8.13 2 5 5.13 5 9v13l2.5-1.5L10 22l2-1.5 2 1.5 2.5-1.5 2.5 1.5V9c0-3.87-3.13-7-7-7zm-2 6c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm4 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z'/%3E%3C/g%3E%3C/svg%3E") 50px 50px / 800px 800px;
-    animation:  ghost-fly-2 var(--ghost-speed-mid) linear infinite, ghost-sway 18s ease-in-out infinite alternate-reverse;
+    animation:  ghost-fly-2 52s linear infinite, ghost-sway 18s ease-in-out infinite alternate-reverse;
     opacity:    0.85;
   }
 
-  /* Layer 3: Creeping mist and distant particles */
   .backgroundContainer::before {
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cg transform='translate(24, 24)'%3E%3Cpath fill='rgba(138, 43, 226, 0.05)' d='M12 2C8.13 2 5 5.13 5 9v13l2.5-1.5L10 22l2-1.5 2 1.5 2.5-1.5 2.5 1.5V9c0-3.87-3.13-7-7-7zm-2 6c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm4 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z'/%3E%3C/g%3E%3C/svg%3E") 100px 100px / 500px 500px, radial-gradient(circle at center, var(--hw-bg-dark-3-alpha-00) 0%, var(--hw-bg-dark-3-alpha-60) 80%, var(--hw-bg-dark-3-alpha-90) 100%);
     filter:     blur(2px);
     opacity:    0.75;
-    animation:  ghost-fly-3 var(--ghost-speed-back) linear infinite, ghost-sway 14s ease-in-out infinite alternate, mist-creep 60s ease-in-out infinite alternate;
+    animation:  ghost-fly-3 15s linear infinite, ghost-sway 14s ease-in-out infinite alternate, mist-creep 60s ease-in-out infinite alternate;
   }
 
-  /* 3. Rolling Mist: Graveyard skyline silhouette at the bottom of the screen */
   .backgroundContainer::after {
     content:           '';
     position:          fixed;
@@ -5579,7 +5593,6 @@ html[class*="theme-"] body .button-submit:active {
 
   /* --- 18G. MEDIA INFO BADGES --- */
 
-  /* 1. Badge Base Styling: Spooky purple gradients with glowing orange borders */
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem,
   html[class*="theme-"] body .mediaInfoItem {
     background:              linear-gradient(135deg, #170026 0%, #0d0015 100%) !important; 
@@ -5588,31 +5601,29 @@ html[class*="theme-"] body .button-submit:active {
     -webkit-text-fill-color: var(--hw-orange) !important; 
     border-radius:           var(--border-radius-pill) !important; 
     box-shadow:              0 4px 8px var(--black-alpha-50) !important; 
-    text-shadow:             1px 1px 2px var(--pure-black) !important; 
+    text-shadow:             1px 1px 2px var(--hw-pure-black) !important; 
   }
 
-  /* 2. Nested Text: Standardizes all internal labels to match seasonal orange */
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem *,
   html[class*="theme-"] body .mediaInfoItem * {
     color:                   var(--hw-orange) !important; 
     -webkit-text-fill-color: var(--hw-orange) !important;
   }
 
-  /* 3. Badge Hover: Transition to bright spectral purple with white text */
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover,
   html[class*="theme-"] body .mediaInfoItem:hover {
-    background:              linear-gradient(135deg, var(--hw-purple) 0%, #a020f0 100%) !important;
+    background:              linear-gradient(135deg, var(--hw-purple) 0%, var(--hw-badge-hover-purple) 100%) !important;
     border-color:            var(--hw-orange) !important;
-    color:                   var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    box-shadow:              0 6px 12px var(--black-alpha-80), 0 0 15px rgba(138, 43, 226, 0.6) !important;
+    color:                   var(--hw-pure-white) !important;
+    -webkit-text-fill-color: var(--hw-pure-white) !important;
+    box-shadow:              0 6px 12px var(--black-alpha-80), 0 0 15px var(--hw-purple-alpha-60) !important;
     text-shadow:             none !important;
   }
 
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover *,
   html[class*="theme-"] body .mediaInfoItem:hover * {
-    color:                   var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color:                   var(--hw-pure-white) !important;
+    -webkit-text-fill-color: var(--hw-pure-white) !important;
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
@@ -5627,23 +5638,23 @@ html[class*="theme-"] body .button-submit:active {
 
   /* --- 19A. UI INDICATORS (TURKEY COUNTS) --- */
 
-  /* 1. Turkey Counts: Transforms notification pills into a custom Turkey SVG */
+  /* 1. Count Indicator: Transforms notification pills into a custom Turkey SVG */
   html[class*="theme-"] body .countIndicator { 
-    background:              transparent !important; 
-    border:                  none !important; 
-    box-shadow:              none !important; 
-    background-image:        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%235c2605' d='M18 10h-12c-1.1 0-2-.9-2-2s.9-2 2-2h3v-2c0-.55.45-1 1-1s1 .45 1 1v2h4c1.1 0 2 .9 2 2s-.9 2-2 2z'/%3E%3Cpath fill='%23d95c14' d='M6 11h12v2c0 3.31-2.69 6-6 6s-6-2.69-6-6v-2z'/%3E%3C/svg%3E") !important; 
-    background-size:         100% 100% !important; 
-    background-repeat:       no-repeat !important; 
-    background-position:     center !important; 
-    color:                   var(--pure-white) !important; 
-    -webkit-text-fill-color: var(--pure-white) !important; 
-    min-width:               32px !important; 
-    height:                  32px !important; 
-    border-radius:           0 !important; 
-    padding:                 8px 6px 0 6px !important; 
-    font-size:               0.8em !important; 
-    filter:                  drop-shadow(0 4px 6px var(--black-alpha-60)); 
+    background:          transparent !important; 
+    border:              none !important; 
+    box-shadow:          none !important; 
+    background-image:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%235c2605' d='M18 10h-12c-1.1 0-2-.9-2-2s.9-2 2-2h3v-2c0-.55.45-1 1-1s1 .45 1 1v2h4c1.1 0 2 .9 2 2s-.9 2-2 2z'/%3E%3Cpath fill='%23d95c14' d='M6 11h12v2c0 3.31-2.69 6-6 6s-6-2.69-6-6v-2z'/%3E%3C/svg%3E") !important; 
+    background-size:     100% 100% !important; 
+    background-repeat:   no-repeat !important; 
+    background-position: center !important; 
+    color:               var(--tg-pure-white) !important; 
+    -webkit-text-fill-color: var(--tg-pure-white) !important; 
+    min-width:           32px !important; 
+    height:              32px !important; 
+    border-radius:       0 !important; 
+    padding:             8px 6px 0 6px !important; 
+    font-size:           0.8em !important; 
+    filter:              drop-shadow(0 4px 6px var(--black-alpha-60)); 
   }
 
   /* --- 19B. MEDIA CARD ACTION OVERLAYS (PIE BUTTONS) --- */
@@ -5689,19 +5700,19 @@ html[class*="theme-"] body .button-submit:active {
     transition: filter 0.6s ease-in-out !important;
   }
 
-  /* 2. Vignette Layer: Adds a deep brown inner shadow to media images */
+  /* 2. Vignette Layer: Adds a deep brown inner shadow */
   .card .cardImageContainer::after {
     content:        "";
     position:       absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    box-shadow:     inset 0 0 40px rgba(var(--tg-brown-rgb), 0.7) !important;
+    box-shadow:     inset 0 0 40px var(--tg-vignette-alpha-70) !important;
     pointer-events: none;
     transition:     box-shadow 0.6s ease-in-out !important;
     z-index:        1;
     border-radius:  inherit;
   }
 
-  /* 3. Hover Interaction: Intensifies the colors and adds an orange inner glow */
+  /* 3. Hover Interaction: Intensifies the colors */
   .card:hover .cardImageContainer img {
     filter: sepia(10%) saturate(140%) contrast(1.15) brightness(1.1) hue-rotate(0deg) !important;
   }
@@ -5710,7 +5721,7 @@ html[class*="theme-"] body .button-submit:active {
     box-shadow: inset 0 -40px 60px var(--tg-orange-alpha-60), inset 0 0 15px var(--tg-gold-alpha-40) !important;
   }
 
-  /* 4. Hearth Flicker: Pulsing warm border glow for hovered posters */
+  /* 4. Hearth Flicker: Pulsing warm border glow */
   @keyframes hearthFlicker {
     0%, 100% { box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 15px var(--tg-orange-alpha-40); border-color: var(--tg-orange); }
     33%      { box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 25px var(--tg-gold-alpha-70);   border-color: var(--tg-gold);   }
@@ -5724,7 +5735,7 @@ html[class*="theme-"] body .button-submit:active {
 
   /* --- 19D. PROGRESS BARS & LOADERS --- */
 
-  /* 1. Harvest Wind: Flowing autumnal gradient for progress bars */
+  /* 1. Harvest Wind: Flowing autumnal gradient */
   @keyframes harvestWind {
     0%   { background-position: 0% 50%; }
     100% { background-position: 100% 50%; }
@@ -5747,12 +5758,11 @@ html[class*="theme-"] body .button-submit:active {
     0%, 100% { border-color: var(--tg-orange); }
     25%      { border-color: var(--tg-gold);   }
     50%      { border-color: var(--tg-brown);  }
-    75%      { border-color: var(--pure-white); }
+    75%      { border-color: var(--tg-pure-white); }
   }
 
   /* --- 19E. SLIDERS & CONTROLS (LEAF THUMBS) --- */
 
-  /* 1. Standard Leaf Thumb (Emby Web App) */
   .emby-slider-thumb,
   .videoOsdBottom .emby-slider-thumb,
   .nowPlayingBar .emby-slider-thumb { 
@@ -5770,7 +5780,6 @@ html[class*="theme-"] body .button-submit:active {
     transform:           translateY(-13px) rotate(45deg) !important; 
   }
 
-  /* 2. Webkit Leaf Thumb (Chrome/Safari/Edge) */
   input[type="range"]::-webkit-slider-thumb { 
     -webkit-appearance: none !important; 
     background-image:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg transform='translate(0, -1)'%3E%3Cpath fill='%23ffffff' d='M20.2,13.4l-3-2.6l1.8-5.3l-5.2,1.3L12,1.5L10.2,6.8L5,5.5l1.8,5.3l-3,2.6l4.6,2.4l-0.6,5h3l1.2-4.5l1.2,4.5h3l-0.6-5L20.2,13.4z'/%3E%3C/g%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--tg-gold) 0%, var(--tg-brown) 100%) !important; 
@@ -5786,7 +5795,6 @@ html[class*="theme-"] body .button-submit:active {
     transform:           translateY(0px) rotate(45deg) !important; 
   }
 
-  /* 3. Mozilla Leaf Thumb (Firefox) */
   input[type="range"]::-moz-range-thumb { 
     appearance:          none !important; 
     background-image:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg transform='translate(0, -1)'%3E%3Cpath fill='%23ffffff' d='M20.2,13.4l-3-2.6l1.8-5.3l-5.2,1.3L12,1.5L10.2,6.8L5,5.5l1.8,5.3l-3,2.6l4.6,2.4l-0.6,5h3l1.2-4.5l1.2,4.5h3l-0.6-5L20.2,13.4z'/%3E%3C/g%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--tg-gold) 0%, var(--tg-brown) 100%) !important; 
@@ -5802,23 +5810,22 @@ html[class*="theme-"] body .button-submit:active {
     transform:           translateY(0px) rotate(45deg) !important; 
   }
 
-  /* 4. Thumb Hover States */
   .emby-slider-thumb:hover { 
     background-color: var(--tg-gold) !important; 
-    box-shadow:       0 0 15px var(--pure-white), 0 0 30px var(--tg-orange) !important; 
+    box-shadow:       0 0 15px var(--tg-pure-white), 0 0 30px var(--tg-orange) !important; 
     transform:        translateY(-15px) scale(1.1) rotate(45deg) !important; 
   }
 
   input[type="range"]:hover::-webkit-slider-thumb,
   input[type="range"]:hover::-moz-range-thumb { 
     background-color: var(--tg-gold) !important; 
-    box-shadow:       0 0 15px var(--pure-white), 0 0 30px var(--tg-orange) !important; 
+    box-shadow:       0 0 15px var(--tg-pure-white), 0 0 30px var(--tg-orange) !important; 
     transform:        translateY(-2px) scale(1.1) rotate(45deg) !important; 
   }
 
   /* --- 19F. TABS, DIALOGS & BUTTONS --- */
 
-  /* 1. Modal Boxes: Earthy brown and orange gradients for popup windows */
+  /* 1. Modal Boxes: Earthy brown and orange gradients */
   .dialog:not(.sliderBubble):not(.chapterThumbContainer),
   .formDialog,
   .actionSheet,
@@ -5829,14 +5836,14 @@ html[class*="theme-"] body .button-submit:active {
     box-shadow:   0 15px 40px var(--black-alpha-90), 0 -5px 20px var(--tg-orange-alpha-20) !important;
   }
 
-  /* 2. Video Player OSD Gradient: Warm harvest glow edge foundation */
+  /* 2. Video Player OSD Gradient: Warm harvest glow foundation */
   html[class*="theme-"] body .videoOsdBottom,
   html[class*="theme-"] body .videoOsdBottom-video { 
-    background:    linear-gradient(to top, rgba(217, 92, 20, 0.25) 0%, rgba(26, 11, 9, 0.9) 60%, transparent 100%) !important; 
+    background:    linear-gradient(to top, var(--tg-osd-glow) 0%, var(--tg-osd-bg) 60%, transparent 100%) !important; 
     border-bottom: 3px solid var(--tg-gold) !important; 
   }
 
-  /* 3. Active Tabs: Plaid-inspired pattern for selected navigation pills */
+  /* 3. Active Tabs: Plaid-inspired pattern */
   html[class*="theme-"] body .videoOsdBottom .emby-tab-button-active,
   html[class*="theme-"] body .emby-tab-button-active,
   html[class*="theme-"] body .videoOsdBottom .emby-tab-button:focus,
@@ -5869,7 +5876,7 @@ html[class*="theme-"] body .button-submit:active {
     display: none !important; 
   }
 
-  /* 2. Particle Container Foundation: Fixed layers for the falling leaf animation */
+  /* 2. Particle Container Foundation */
   .backgroundContainer::before, 
   body::before, 
   body::after {
@@ -5917,12 +5924,12 @@ html[class*="theme-"] body .button-submit:active {
   /* 1. Badge Base: Wood-tone gradients with orange borders */
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem,
   html[class*="theme-"] body .mediaInfoItem {
-    background:              linear-gradient(135deg, #5c2605 0%, #8b4513 100%) !important; 
+    background:              linear-gradient(135deg, var(--tg-brown-dark) 0%, var(--tg-brown) 100%) !important; 
     border:                  2px solid var(--tg-orange) !important; 
     color:                   var(--tg-gold) !important; 
     -webkit-text-fill-color: var(--tg-gold) !important; 
     border-radius:           var(--border-radius-pill) !important; 
-    box-shadow:              0 4px 8px var(--black-alpha-50), inset 0 0 8px var(--tg-black-alpha-30) !important; 
+    box-shadow:              0 4px 8px var(--black-alpha-50), inset 0 0 8px var(--black-alpha-20) !important; 
     text-shadow:             1px 1px 2px var(--pure-black) !important; 
   }
 
@@ -5933,21 +5940,21 @@ html[class*="theme-"] body .button-submit:active {
     -webkit-text-fill-color: var(--tg-gold) !important;
   }
 
-  /* 3. Badge Hover: Bright orange-gold pop with white text */
+  /* 3. Badge Hover: Bright orange-gold pop */
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover,
   html[class*="theme-"] body .mediaInfoItem:hover {
     background:              linear-gradient(135deg, var(--tg-orange) 0%, var(--tg-gold) 100%) !important;
-    border-color:            var(--pure-white) !important;
-    color:                   var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    border-color:            var(--tg-pure-white) !important;
+    color:                   var(--tg-pure-white) !important;
+    -webkit-text-fill-color: var(--tg-pure-white) !important;
     box-shadow:              0 6px 12px var(--black-alpha-80), 0 0 15px var(--tg-orange-alpha-60) !important;
     text-shadow:             1px 1px 2px var(--pure-black) !important;
   }
 
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover *,
   html[class*="theme-"] body .mediaInfoItem:hover * {
-    color:                   var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color:                   var(--tg-pure-white) !important;
+    -webkit-text-fill-color: var(--tg-pure-white) !important;
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
@@ -5971,8 +5978,8 @@ html[class*="theme-"] body .button-submit:active {
     background-size:         100% 100% !important;
     background-repeat:       no-repeat !important;
     background-position:     center !important;
-    color:                   var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color:                   var(--xmas-pure-white) !important;
+    -webkit-text-fill-color: var(--xmas-pure-white) !important;
     min-width:               32px !important;
     height:                  36px !important;
     border-radius:           0 !important;
@@ -5996,8 +6003,8 @@ html[class*="theme-"] body .button-submit:active {
     filter:                  drop-shadow(0 4px 6px var(--black-alpha-80));
     transition:              none !important;
     transform-origin:        center !important;
-    color:                   var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color:                   var(--xmas-pure-white) !important;
+    -webkit-text-fill-color: var(--xmas-pure-white) !important;
   }
 
   /* 2. Wreath Pulse: Hover state for interactive cards */
@@ -6042,7 +6049,7 @@ html[class*="theme-"] body .button-submit:active {
   }
 
   .itemProgressBarForeground {
-    background:      linear-gradient(90deg, var(--xmas-red), var(--xmas-red-dark), var(--xmas-green), var(--pure-white), var(--xmas-green), var(--xmas-red-dark), var(--xmas-red)) !important;
+    background:      linear-gradient(90deg, var(--xmas-red), var(--xmas-red-dark), var(--xmas-green), var(--xmas-pure-white), var(--xmas-green), var(--xmas-red-dark), var(--xmas-red)) !important;
     background-size: 200% 100% !important;
     animation:       xmasRibbonFlow 4s linear infinite !important;
     box-shadow:      0 0 12px var(--xmas-red-alpha-80), inset 0 0 4px var(--black-alpha-30) !important;
@@ -6093,13 +6100,13 @@ html[class*="theme-"] body .button-submit:active {
 
   /* 4. Thumb Hover States */
   .emby-slider-thumb:hover {
-    box-shadow: 0 0 15px var(--pure-white), 0 0 25px var(--xmas-green), 0 0 35px var(--xmas-red) !important;
+    box-shadow: 0 0 15px var(--xmas-pure-white), 0 0 25px var(--xmas-green), 0 0 35px var(--xmas-red) !important;
     transform:  translateY(-15px) scale(1.15) !important;
   }
 
   input[type="range"]:hover::-webkit-slider-thumb,
   input[type="range"]:hover::-moz-range-thumb {
-    box-shadow: 0 0 15px var(--pure-white), 0 0 25px var(--xmas-green), 0 0 35px var(--xmas-red) !important;
+    box-shadow: 0 0 15px var(--xmas-pure-white), 0 0 25px var(--xmas-green), 0 0 35px var(--xmas-red) !important;
     transform:  translateY(-2px) scale(1.15) !important;
   }
 
@@ -6111,8 +6118,8 @@ html[class*="theme-"] body .button-submit:active {
   html[class*="theme-"] body .videoOsdBottom .emby-tab-button:focus,
   html[class*="theme-"] body .videoOsdBottom .emby-tab-button.show-focus {
     background:      var(--xmas-green-alpha-30) !important;
-    color:           var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color:           var(--xmas-pure-white) !important;
+    -webkit-text-fill-color: var(--xmas-pure-white) !important;
     border:          2px solid var(--xmas-green) !important;
     box-shadow:      0 4px 10px var(--black-alpha-50), 0 0 15px var(--xmas-green-alpha-50) !important;
   }
@@ -6120,7 +6127,7 @@ html[class*="theme-"] body .button-submit:active {
   /* 2. Video Player OSD Gradient: Deep winter foundation for the player bar */
   html[class*="theme-"] body .videoOsdBottom,
   html[class*="theme-"] body .videoOsdBottom-video {
-    background:    linear-gradient(to top, rgba(11, 102, 35, 0.25) 0%, rgba(5, 24, 41, 0.9) 60%, transparent 100% ) !important; 
+    background:    linear-gradient(to top, var(--xmas-osd-glow) 0%, var(--xmas-osd-bg) 60%, transparent 100% ) !important; 
     border-bottom: 3px solid var(--xmas-red) !important; 
   }
 
@@ -6135,7 +6142,7 @@ html[class*="theme-"] body .button-submit:active {
   .itemSelectionPanel {
       background:      linear-gradient(135deg, var(--xmas-red-alpha-30) 25%, var(--xmas-green-alpha-30) 25%, var(--xmas-green-alpha-30) 50%, var(--xmas-red-alpha-30) 50%, var(--xmas-red-alpha-30) 75%, var(--xmas-green-alpha-30) 75%, var(--xmas-green-alpha-30) 100%) !important;
       background-size: 50px 50px !important;
-      border:          3px solid var(--pure-white) !important;
+      border:          3px solid var(--xmas-pure-white) !important;
   }
 
   /* --- 20G. GLOBAL BACKGROUNDS (SNOW & AURORA) --- */
@@ -6187,8 +6194,8 @@ html[class*="theme-"] body .button-submit:active {
 
   @keyframes snow-fall-1 { from { background-position: 0 0, 50px 50px;   } to { background-position: 0 1000px, 50px 1200px; } }
   @keyframes snow-fall-2 { from { background-position: 0 0, 100px 100px; } to { background-position: 0 900px, 100px 1100px;  } }
-  @keyframes snow-fall-3 { from { background-position: 0 0;              } to { background-position: 0 800px;               } }
-  @keyframes snow-sway   { 0%   { transform: translateX(-20px);         } 100% { transform: translateX(20px);             } }
+  @keyframes snow-fall-3 { from { background-position: 0 0;               } to { background-position: 0 800px;                } }
+  @keyframes snow-sway   { 0%   { transform: translateX(-20px);         } 100% { transform: translateX(20px);              } }
 
   /* Layer 4: Distant Mountain landscapes */
   .backgroundContainer::after {
@@ -6227,13 +6234,13 @@ html[class*="theme-"] body .button-submit:active {
 
   /* --- 20I. MEDIA INFO BADGES --- */
 
-  /* 1. Badge Base: Deep pine gradients with red borders */
+  /* 1. Badge Base Styling: Deep pine gradients with red borders */
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem,
   html[class*="theme-"] body .mediaInfoItem {
-    background:              linear-gradient(135deg, #051829 0%, #0b6623 100%) !important; 
+    background:              linear-gradient(135deg, var(--xmas-badge-bg-1) 0%, var(--xmas-badge-bg-2) 100%) !important; 
     border:                  2px solid var(--xmas-red) !important; 
-    color:                   var(--pure-white) !important; 
-    -webkit-text-fill-color: var(--pure-white) !important; 
+    color:                   var(--xmas-pure-white) !important; 
+    -webkit-text-fill-color: var(--xmas-pure-white) !important; 
     border-radius:           var(--border-radius-pill) !important; 
     box-shadow:              0 4px 8px var(--black-alpha-50), inset 0 0 8px rgba(0,0,0,0.3) !important; 
     text-shadow:             1px 1px 2px var(--pure-black) !important; 
@@ -6242,25 +6249,25 @@ html[class*="theme-"] body .button-submit:active {
   /* 2. Nested Text Reset: Standardizes internal labels to white */
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem *,
   html[class*="theme-"] body .mediaInfoItem * {
-    color:                   var(--pure-white) !important; 
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color:                   var(--xmas-pure-white) !important; 
+    -webkit-text-fill-color: var(--xmas-pure-white) !important;
   }
 
   /* 3. Badge Hover: Brighter red shift with white borders */
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover,
   html[class*="theme-"] body .mediaInfoItem:hover {
     background:              linear-gradient(135deg, var(--xmas-red) 0%, var(--xmas-red-dark) 100%) !important;
-    border-color:            var(--pure-white) !important;
-    color:                   var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    border-color:            var(--xmas-pure-white) !important;
+    color:                   var(--xmas-pure-white) !important;
+    -webkit-text-fill-color: var(--xmas-pure-white) !important;
     box-shadow:              0 6px 12px var(--black-alpha-80), 0 0 15px rgba(196, 30, 58, 0.6) !important;
     text-shadow:             none !important;
   }
 
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover *,
   html[class*="theme-"] body .mediaInfoItem:hover * {
-    color:                   var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color:                   var(--xmas-pure-white) !important;
+    -webkit-text-fill-color: var(--xmas-pure-white) !important;
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
@@ -6275,7 +6282,6 @@ html[class*="theme-"] body .button-submit:active {
 
   /* --- 21A. HEADERS & TITLES (GOLD SHIMMER) --- */
 
-  /* 1. Shimmer Animation: Continuous gold/cream gradient scrolling for titles */
   @keyframes goldShimmer { to { background-position: 200% center; } }
 
   html[class*="theme-"] body .pageTitle,
@@ -6290,17 +6296,20 @@ html[class*="theme-"] body .button-submit:active {
 
   /* --- 21B. MEDIA CARD ACTION OVERLAYS (DIAMOND/GLASS) --- */
 
-  /* 1. Diamond Buttons: Replaces play icons with a dark glass diamond SVG */
+  /* 1. Glass Buttons: Replaces the blob with a clean dark glass gradient */
   html[class*="theme-"] body .cardOverlayFab-primary,
   html[class*="theme-"] body .cardOverlayButtonIcon,
   html[class*="theme-"] body .listItemOverlayButtonIcon,
   html[class*="theme-"] body .listItemImageButton {
-    background:              linear-gradient(135deg, var(--nye-black-light) 0%, var(--pure-black) 100%) !important;
-    background-color:        var(--pure-black) !important;
+    background-color:        var(--nye-pure-black) !important;
+    background-image:        linear-gradient(135deg, var(--nye-black-light) 0%, var(--nye-pure-black) 100%) !important;
+    background-size:         100% 100% !important;
+    background-repeat:       no-repeat !important;
+    background-position:     center !important;
     border:                  2px solid var(--nye-gold) !important;
     box-shadow:              0 0 15px var(--nye-gold-alpha-40), inset 0 0 10px var(--nye-cream-alpha-20) !important;
-    color:                   var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color:                   var(--nye-pure-white) !important;
+    -webkit-text-fill-color: var(--nye-pure-white) !important;
     border-radius:           50% !important;
     display:                 inline-flex !important;
     align-items:             center;
@@ -6311,20 +6320,19 @@ html[class*="theme-"] body .button-submit:active {
 
   /* 2. Glass Shimmer: Hover state expansion and glint */
   @keyframes diamondShimmer {
-    0%   { box-shadow: 0 0 15px var(--nye-gold-alpha-40); border-color: var(--nye-gold);  }
-    50%  { box-shadow: 0 0 25px var(--nye-cream-alpha-80); border-color: var(--pure-white); }
-    100% { box-shadow: 0 0 15px var(--nye-gold-alpha-40); border-color: var(--nye-gold);  }
+    0%   { box-shadow: 0 0 15px var(--nye-glass-glow);  border-color: var(--nye-gold);  }
+    50%  { box-shadow: 0 0 25px var(--nye-glass-glint); border-color: var(--nye-pure-white); }
+    100% { box-shadow: 0 0 15px var(--nye-glass-glow);  border-color: var(--nye-gold);  }
   }
 
   html[class*="theme-"] body .card:hover .cardOverlayFab-primary {
     animation:               diamondShimmer 1.5s infinite alternate !important;
-    color:                   var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color:                   var(--nye-pure-white) !important;
+    -webkit-text-fill-color: var(--nye-pure-white) !important;
   }
 
   /* --- 21C. PORTRAITS & MEDIA CARDS (GOLD BORDERS) --- */
 
-  /* 1. Sharp Aesthetics: Strips corner rounding for actor portraits for a formal look */
   html[class*="theme-"] body .peopleSection .cardImageContainer,
   html[class*="theme-"] body .personCard .cardImageContainer {
     border-radius: 0 !important; 
@@ -6333,7 +6341,6 @@ html[class*="theme-"] body .button-submit:active {
     transition:    transform 0.3s ease, box-shadow 0.3s ease !important;
   }
 
-  /* 2. Formal Interaction: Scales and glows posters on hover */
   html[class*="theme-"] body .peopleSection .card:hover .cardImageContainer,
   html[class*="theme-"] body .personCard:hover .cardImageContainer,
   html[class*="theme-"] body .peopleSection .card:hover .cardContent.cardContent-round,
@@ -6345,14 +6352,7 @@ html[class*="theme-"] body .button-submit:active {
     box-shadow:    0 0 0 3px var(--nye-black-light), 0 0 0 5px var(--nye-cream), 0 20px 40px var(--nye-gold-alpha-40) !important;
   }
 
-  html[class*="theme-"] body .peopleSection .card-hoverable:hover .cardOverlayContainer,
-  html[class*="theme-"] body .personCard.card-hoverable:hover .cardOverlayContainer,
-  html[class*="theme-"] body .peopleSection .cardBox .cardContent-round ~ .cardOverlayContainer,
-  html[class*="theme-"] body .personCard .cardBox .cardContent-round ~ .cardOverlayContainer {
-    border-radius: 0 !important;
-  }
-
-  /* 3. Glass Glint: Animated sparkling effect on hovered cards */
+  /* 3. Glass Glint: Animated sparkling effect */
   @keyframes glassGlint {
     0%   { border-color: var(--nye-gold);  box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 15px var(--nye-gold-alpha-40); }
     50%  { border-color: var(--nye-cream); box-shadow: 0px 15px 30px var(--black-alpha-90), 0 0 30px var(--nye-cream-alpha-80), inset 0 0 20px var(--nye-gold-alpha-50); }
@@ -6366,7 +6366,6 @@ html[class*="theme-"] body .button-submit:active {
 
   /* --- 21D. UI INDICATORS (CHAMPAGNE PROGRESS & COUNTS) --- */
 
-  /* 1. Count Indicator: Transforms pills into dark NYE star icons */
   html[class*="theme-"] body .countIndicator {
     background:              transparent !important;
     border:                  none !important;
@@ -6386,11 +6385,10 @@ html[class*="theme-"] body .button-submit:active {
     filter:                  drop-shadow(0 4px 6px var(--black-alpha-90));
   }
 
-  /* 2. Champagne Progress: Animated bubble texture inside media progress bars */
   @keyframes champagneBubbles { 0% { background-position: 0% 0%; } 100% { background-position: 50px 0%; } }
 
   html[class*="theme-"] body .itemProgressBarForeground {
-    background:      radial-gradient(circle, var(--pure-white) 10%, transparent 20%), radial-gradient(circle, var(--nye-cream) 10%, transparent 20%), var(--nye-gold) !important;
+    background:      radial-gradient(circle, var(--nye-pure-white) 10%, transparent 20%), radial-gradient(circle, var(--nye-cream) 10%, transparent 20%), var(--nye-gold) !important;
     background-size: 10px 10px, 15px 15px !important;
     background-position: 0 0, 5px 5px !important;
     animation:       champagneBubbles 2s linear infinite !important;
@@ -6400,7 +6398,6 @@ html[class*="theme-"] body .button-submit:active {
 
   /* --- 21E. SLIDERS & CONTROLS (STAR THUMBS) --- */
 
-  /* 1. Standard Star Slider Thumb (Emby Web App) */
   .emby-slider-thumb,
   .videoOsdBottom .emby-slider-thumb,
   .nowPlayingBar .emby-slider-thumb {
@@ -6409,7 +6406,7 @@ html[class*="theme-"] body .button-submit:active {
     background-size:     50% 50%, 100% 100% !important;
     background-repeat:   no-repeat !important;
     background-position: center center !important;
-    border:              2px solid var(--pure-white) !important;
+    border:              2px solid var(--nye-pure-white) !important;
     border-radius:       50% !important;
     box-shadow:          0 0 10px var(--nye-gold-alpha-80), inset 0 0 5px var(--nye-black-alpha-30) !important;
     width:               32px !important;
@@ -6419,14 +6416,13 @@ html[class*="theme-"] body .button-submit:active {
     background-color:    transparent !important;
   }
 
-  /* 2. Webkit Star Slider Thumb (Chrome/Safari/Edge) */
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none !important;
     background-image:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--nye-cream) 0%, var(--nye-gold) 60%, var(--nye-gold-dark) 100%) !important;
     background-size:     50% 50%, 100% 100% !important;
     background-repeat:   no-repeat !important;
     background-position: center center !important;
-    border:              2px solid var(--pure-white) !important;
+    border:              2px solid var(--nye-pure-white) !important;
     border-radius:       50% !important;
     box-shadow:          0 0 10px var(--nye-gold-alpha-80), inset 0 0 5px var(--nye-black-alpha-30) !important;
     width:               32px !important;
@@ -6435,13 +6431,12 @@ html[class*="theme-"] body .button-submit:active {
     transform:           translateY(-2px) !important;
   }
 
-  /* 3. Mozilla Star Slider Thumb (Firefox) */
   input[type="range"]::-moz-range-thumb {
     background-image:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--nye-cream) 0%, var(--nye-gold) 60%, var(--nye-gold-dark) 100%) !important;
     background-size:     50% 50%, 100% 100% !important;
     background-repeat:   no-repeat !important;
     background-position: center center !important;
-    border:              2px solid var(--pure-white) !important;
+    border:              2px solid var(--nye-pure-white) !important;
     border-radius:       50% !important;
     box-shadow:          0 0 10px var(--nye-gold-alpha-80), inset 0 0 5px var(--nye-black-alpha-30) !important;
     width:               32px !important;
@@ -6451,29 +6446,28 @@ html[class*="theme-"] body .button-submit:active {
 
   /* 4. Thumb Hover Logic */
   .emby-slider-thumb:hover {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d4af37' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--pure-white) 0%, var(--nye-cream) 60%, var(--nye-gold) 100%) !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d4af37' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--nye-pure-white) 0%, var(--nye-cream) 60%, var(--nye-gold) 100%) !important;
     border-color:     var(--nye-gold) !important;
-    box-shadow:       0 0 15px var(--pure-white), 0 0 25px var(--nye-gold-alpha-100) !important;
+    box-shadow:       0 0 15px var(--nye-pure-white), 0 0 25px var(--nye-gold-alpha-100) !important;
     transform:        translateY(-5px) scale(1.15) rotate(45deg) !important;
     transition:       transform 0.2s ease, box-shadow 0.2s ease !important;
   }
 
   input[type="range"]:hover::-webkit-slider-thumb,
   input[type="range"]:hover::-moz-range-thumb {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d4af37' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--pure-white) 0%, var(--nye-cream) 60%, var(--nye-gold) 100%) !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d4af37' d='M12 0 C12 10 14 12 24 12 C14 12 12 14 12 24 C12 14 10 12 0 12 C10 12 12 10 12 0 Z'/%3E%3C/svg%3E"), radial-gradient(circle at 35% 35%, var(--nye-pure-white) 0%, var(--nye-cream) 60%, var(--nye-gold) 100%) !important;
     border-color:     var(--nye-gold) !important;
-    box-shadow:       0 0 15px var(--pure-white), 0 0 25px var(--nye-gold-alpha-100) !important;
+    box-shadow:       0 0 15px var(--nye-pure-white), 0 0 25px var(--nye-gold-alpha-100) !important;
     transform:        translateY(-2px) scale(1.15) rotate(45deg) !important;
   }
 
   /* --- 21F. TABS, DIALOGS & BUTTONS --- */
 
-  /* 1. Active Tabs: Cream and gold gradient pills for selected nav items */
   html[class*="theme-"] body .videoOsdBottom .emby-tab-button-active,
   html[class*="theme-"] body .emby-tab-button-active,
   html[class*="theme-"] body .videoOsdBottom .emby-tab-button:focus,
   html[class*="theme-"] body .videoOsdBottom .emby-tab-button.show-focus {
-    background:      linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(247, 231, 206, 0.3) 50%, rgba(212, 175, 55, 0.1) 100%) !important;
+    background:  linear-gradient(135deg, var(--nye-tab-gold-alpha) 0%, var(--nye-tab-cream-alpha) 50%, var(--nye-tab-gold-alpha) 100%) !important;
     background-size: 200% 200% !important;
     color:           var(--nye-cream) !important;
     -webkit-text-fill-color: var(--nye-cream) !important;
@@ -6482,26 +6476,12 @@ html[class*="theme-"] body .button-submit:active {
     animation:       goldShimmer 3s linear infinite !important;
   }
 
-  /* 2. Video Player OSD Gradient: Classy gold edge fade into solid black */
   html[class*="theme-"] body .videoOsdBottom,
   html[class*="theme-"] body .videoOsdBottom-video {
-    background:    linear-gradient(to top, rgba(212, 175, 55, 0.15) 0%, rgba(5, 5, 5, 0.95) 60%, transparent 100%) !important;
+    background:    linear-gradient(to top, var(--nye-osd-glow) 0%, var(--nye-osd-bg) 60%, transparent 100%) !important;
     border-bottom: 3px solid var(--nye-gold) !important;
   }
 
-  /* 3. Spinner Colors: NYE palette cycle */
-  html[class*="theme-"] body .mdl-spinner__layer-1 {
-    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, nye-spinner-colors 5332ms linear infinite !important;
-  }
-
-  @keyframes nye-spinner-colors {
-    0%, 100% { border-color: var(--nye-gold);  }
-    25%      { border-color: var(--nye-cream); }
-    50%      { border-color: var(--pure-white); }
-    75%      { border-color: var(--nye-gold);  }
-  }
-
-  /* 4. Modal Boxes: Specialized diamond-pattern background for popup dialogs */
   html[class*="theme-"] body .dialog:not(.sliderBubble):not(.chapterThumbContainer),
   html[class*="theme-"] body .formDialog,
   html[class*="theme-"] body .actionSheet,
@@ -6512,96 +6492,39 @@ html[class*="theme-"] body .button-submit:active {
       box-shadow:      0 15px 40px var(--black-alpha-90), 0 0 30px var(--nye-gold-alpha-15) !important;
   }
 
-  /* --- 21G. GLOBAL BACKGROUNDS (RISING CHAMPAGNE BUBBLES) --- */
-
-  /* 1. Curtain Removal */
-  .backgroundContainer-transparent::before,
-  .backgroundContainer-transparent::after,
-  .view-videoosd::after {
-    display: none !important;
-  }
-
-  /* 2. Particle Container Setup: Multi-layered bubbles rising from bottom edge */
-  .backgroundContainer::before,
-  body::before,
-  body::after {
-    content:        '';
-    position:       fixed;
-    inset:          -100px;
-    pointer-events: none;
-    z-index:        -1;
-  }
-
-  /* Layer 1: Fast foreground bubbles */
-  body::before {
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Cg transform='translate(400,400)'%3E%3Ccircle cx='0' cy='0' r='20' fill='none' stroke='%23d4af37' stroke-width='4'/%3E%3Ccircle cx='-10' cy='-10' r='4' fill='%23f7e7ce'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 800px 800px,
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cg transform='translate(500,500)'%3E%3Ccircle cx='0' cy='0' r='15' fill='none' stroke='%23d4af37' stroke-width='3'/%3E%3Ccircle cx='-7' cy='-7' r='3' fill='%23f7e7ce'/%3E%3C/g%3E%3C/svg%3E") 100px 200px / 1000px 1000px;
-    animation:  bubble-rise-1 40s linear infinite, bubble-sway 4s ease-in-out infinite alternate;
-    opacity:    0.8;
-  }
-
-  /* Layer 2: Muted midground star glints (blurred) */
-  body::after {
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 900'%3E%3Cg transform='translate(450,450)'%3E%3Cpath fill='%23f7e7ce' d='M0 -15 C 0 -5, 5 0, 15 0 C 5 0, 0 5, 0 15 C 0 5, -5 0, -15 0 C -5 0, 0 -5, 0 -15 Z'/%3E%3C/g%3E%3C/svg%3E") 300px 100px / 900px 900px,
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1100 1100'%3E%3Cg transform='translate(550,550)'%3E%3Ccircle cx='0' cy='0' r='12' fill='none' stroke='%23f7e7ce' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E") 150px 500px / 1100px 1100px;
-    animation:  bubble-rise-2 50s linear infinite, bubble-sway 6s ease-in-out infinite alternate-reverse;
-    filter:     blur(1.5px);
-    opacity:    0.6;
-  }
-
-  /* Layer 3: Distant background micro-particles */
-  .backgroundContainer::before {
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='4' fill='%23ffffff'/%3E%3C/svg%3E") 50px 50px / 600px 600px,
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 850 850'%3E%3Ccircle cx='425' cy='425' r='6' fill='%23d4af37'/%3E%3C/svg%3E") 200px 400px / 850px 850px;
-    animation:  bubble-rise-3 60s linear infinite, bubble-sway 8s ease-in-out infinite alternate;
-    filter:     blur(3px);
-    opacity:    0.4;
-  }
-
-  @keyframes bubble-rise-1 { from { background-position: 0 0, 100px 200px;  } to { background-position: 0 -4000px, 100px -3800px; } }
-  @keyframes bubble-rise-2 { from { background-position: 300px 100px, 150px 500px; } to { background-position: 300px -3500px, 150px -2800px; } }
-  @keyframes bubble-rise-3 { from { background-position: 50px 50px, 200px 400px;   } to { background-position: 50px -2350px, 200px -2150px; } }
-  @keyframes bubble-sway   { from { transform: translateX(-15px); } to { transform: translateX(15px); } }
-
   /* --- 21H. MEDIA INFO BADGES --- */
 
-  /* 1. Badge Base Styling: Sophisticated dark gradients with gold borders */
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem,
   html[class*="theme-"] body .mediaInfoItem {
-    background:              linear-gradient(135deg, #111111 0%, #050505 100%) !important; 
+    background:              linear-gradient(135deg, var(--nye-badge-bg-1) 0%, var(--nye-badge-bg-2) 100%) !important; 
     border:                  2px solid var(--nye-gold) !important; 
     color:                   var(--nye-cream) !important; 
     -webkit-text-fill-color: var(--nye-cream) !important; 
     border-radius:           var(--border-radius-pill) !important; 
-    box-shadow:              0 4px 8px var(--black-alpha-50), inset 0 0 8px rgba(212, 175, 55, 0.15) !important; 
+    box-shadow:              0 4px 8px var(--black-alpha-50), inset 0 0 8px var(--nye-inner-gold-glow) !important; 
     text-shadow:             1px 1px 2px var(--pure-black) !important; 
   }
 
-  /* 2. Nested Text: Forces labels to match cream themes */
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem *,
   html[class*="theme-"] body .mediaInfoItem * {
     color:                   var(--nye-cream) !important; 
     -webkit-text-fill-color: var(--nye-cream) !important;
   }
 
-  /* 3. Badge Hover: Transition to bright gold/cream shift */
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover,
   html[class*="theme-"] body .mediaInfoItem:hover {
     background:              linear-gradient(135deg, var(--nye-gold) 0%, var(--nye-cream) 100%) !important;
-    border-color:            var(--pure-white) !important;
-    color:                   var(--pure-black) !important;
-    -webkit-text-fill-color: var(--pure-black) !important;
-    box-shadow:              0 6px 12px var(--black-alpha-80), 0 0 15px rgba(212, 175, 55, 0.6) !important;
+    border-color:            var(--nye-pure-white) !important;
+    color:                   var(--nye-pure-black) !important;
+    -webkit-text-fill-color: var(--nye-pure-black) !important;
+    box-shadow:              0 6px 12px var(--black-alpha-80), 0 0 15px var(--nye-glass-glow) !important;
     text-shadow:             none !important;
   }
 
   html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover *,
   html[class*="theme-"] body .mediaInfoItem:hover * {
-    color:                   var(--pure-black) !important;
-    -webkit-text-fill-color: var(--pure-black) !important;
+    color:                   var(--nye-pure-black) !important;
+    -webkit-text-fill-color: var(--nye-pure-black) !important;
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
