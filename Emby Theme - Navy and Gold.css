@@ -58,12 +58,7 @@ html,
   --danger-red-light: rgb(255, 51, 51);
   --danger-red-glow: 0 0 20px rgba(var(--danger-red-rgb), 0.6), 0 0 10px rgba(255, 51, 51, 0.4);
 
-  /* MEDIA CARD POPOUT EFFECTS --- */
-  --popout-perspective: none;
-  --popout-transform: none;
-  --popout-shadow: none;
-
-  /* --- NAVIGATION PILL BARS --- */
+   /* --- NAVIGATION PILL BARS --- */
   --nav-pill-bg-inactive: rgb(var(--navy-accent-rgb));             /* Background for inactive navigation tabs */
   --nav-pill-hover: var(--white-alpha-10);                         /* Hover background tint for pills */
   --nav-pill-hover-text: var(--my-gold-light);                     /* Gold text color on pill hover */
@@ -165,169 +160,75 @@ html,
       USER OPTIONS FOR VISUALS BELOW
      ============================================================ */
 
-  /* ============================================================
-      THE "NO GLOW" KILL SWITCH
-      To instantly remove all glow effects from the entire theme, 
-      remove the /* and */ /* wrapping the block below to uncomment it.
-      ============================================================ 
-  */
+  /* MEDIA CARD POPOUT EFFECTS --- */
+  --popout-perspective: none;                                       /* Effects can be made when hovering over media cards */
+  --popout-transform: none;                                         /* Effects can be made when hovering over media cards */
+  --popout-shadow: none;                                            /* Effects can be made when hovering over media cards */
+
+  /* CAST & CREW PORTRAIT SHAPES (DEFAULT: OVAL) */
+  --portrait-radius: 50% / 40%;                                     /* Oval Shaped */
+  --portrait-ratio: 2 / 3;                                          /* Oval Shaped */
+  /* --portrait-radius: 50%; */                                     /* Circle Shaped */
+  /* --portrait-ratio: 1 / 1; */                                    /* Circle Shaped */
+  /* --portrait-radius: var(--border-radius-lg);                    /* Default - Rectangle */
+  /* --portrait-ratio: 2 / 3;                                       /* Default - Rectangle */
   
-  /*
-  --glow-light: var(--glow-none);
-  --glow-medium: var(--glow-none);
-  --shadow-glow-standard: var(--glow-none);
-  --glow-heavy: var(--glow-none);
-  --glow-extreme: var(--glow-none);
-  --glow-slider-track: var(--glow-none);
-  --glow-slider-thumb: var(--glow-none);
-  --glow-progress-bar: var(--glow-none);
-  --filter-glow-light: var(--filter-glow-none);
-  --filter-glow-medium: var(--filter-glow-none);
-  --filter-glow-gold-solid: var(--filter-glow-none);
-  */
+  /* PLAY BUTTON VISABILITY WHEN HOVERING OVER MEDIA CARDS */
+  --play-button-display: inline-block;                              /* Enabled */
+  /* --play-button-display: none; */                                /* Disabled */
 
-  /* ============================================================
-      CAST & CREW PORTRAIT SHAPES (DEFAULT: OVAL)
-      Uncomment ONE of the blocks below to change the portrait shapes.
-      ============================================================ 
-  */
+  /* BUTTONS AND INDICATORS */
+  --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
+  --button-popout-transform: translate(-3px, -3px);                 /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
+  --button-popout-active-shadow: 0px 0px 5px var(--black-alpha-80); /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
+  --button-popout-active-transform: translate(0px, 0px);            /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
+  --count-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Popout - Unwatched count style */
+  --count-indicator-color: var(--retro-navy);                       /* Popout - Unwatched count style */
+  --count-indicator-border: 2px solid var(--retro-navy);            /* Popout - Unwatched count style */
+  --count-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Popout - Unwatched count style */
+  --played-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);   /* Popout - Played Indicator */
+  --played-indicator-color: var(--retro-navy);                      /* Popout - Played Indicator */
+  --played-indicator-border: 2px solid var(--retro-navy);           /* Popout - Played Indicator */
+  --played-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);    /* Popout - Played Indicator */
+  --media-badge-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Popout - Media Info Badges */
+  --media-badge-color: var(--retro-navy);                           /* Popout - Media Info Badges */
+  --media-badge-border: 2px solid var(--retro-navy);                /* Popout - Media Info Badges */
+  --media-badge-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Popout - Media Info Badges */
+  --media-badge-radius: var(--border-radius-pill);                  /* Popout - Media Info Badges */
+  --media-badge-hover-bg: var(--pure-white);                        /* Popout - Media Info Badges */
+  --media-badge-hover-color: var(--pure-black);                     /* Popout - Media Info Badges */
+  --media-badge-hover-border: 2px solid var(--pure-black);          /* Popout - Media Info Badges */
+  --media-badge-hover-shadow: var(--shadow-glow-standard);          /* Popout - Media Info Badges */
+  /* --button-popout-shadow: none; */                               /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
+  /* --button-popout-transform: none; */                            /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
+  /* --button-popout-active-shadow: none; */                        /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
+  /* --button-popout-active-transform: none; */                     /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
+  /* --count-indicator-bg: var(--my-gold); */                       /* Flat - Unwatched count style */
+  /* --count-indicator-color: var(--pure-black); */                 /* Flat - Unwatched count style */
+  /* --count-indicator-border: 2px solid transparent; */            /* Flat - Unwatched count style */
+  /* --count-indicator-shadow: var(--glow-medium); */               /* Flat - Unwatched count style */
+  /* --played-indicator-bg: var(--my-gold); */                      /* Flat - Played Indicator */
+  /* --played-indicator-color: var(--pure-black); */                /* Flat - Played Indicator */
+  /* --played-indicator-border: 2px solid transparent; */           /* Flat - Played Indicator */
+  /* --played-indicator-shadow: var(--glow-medium); */              /* Flat - Played Indicator */
+  /* --media-badge-bg: var(--navy-mid-alpha-45); */                 /* Flat - Media Info Badges */
+  /* --media-badge-color: var(--my-gold); */                        /* Flat - Media Info Badges */
+  /* --media-badge-border: var(--standard-border-thickness) solid var(--gold-alpha-30); */    /* Flat - Media Info Badges */
+  /* --media-badge-shadow: none; */                                 /* Flat - Media Info Badges */
+  /* --media-badge-radius: 5px; */                                  /* Flat - Media Info Badges */
+  /* --media-badge-hover-bg: var(--my-gold-transparent); */         /* Flat - Media Info Badges */
+  /* --media-badge-hover-color: var(--my-gold); */                  /* Flat - Media Info Badges */
+  /* --media-badge-hover-border: var(--standard-border-thickness) solid var(--my-gold); */    /* Flat - Media Info Badges */
+  /* --media-badge-hover-shadow: var(--glow-medium); */             /* Flat - Media Info Badges */
+ 
+  /* SEASONAL BACKGROUND ANIMATIONS */
+  --seasonal-bg-visibility: visible;                                /* Fully Enabled */
+  --seasonal-bg-anim-state: running;                                /* Fully Enabled */
+  /* --seasonal-bg-anim-state: paused !important; */                /* Paused Animations (Keeps art, stops the motion) */
+  /* --seasonal-bg-visibility: hidden !important; */                /* Fully Disabled */
+  /* --seasonal-bg-anim-state: paused !important; */                /* Fully Disabled */
 
-  /* OPTION 1: OVAL (Theme Default) */
-  --portrait-radius: 50% / 40%;
-  --portrait-ratio: 2 / 3;
-
-  /* OPTION 2: CIRCLE */
-  /*
-  --portrait-radius: 50%;
-  --portrait-ratio: 1 / 1;
-  */
-
-  /* OPTION 3: DEFAULT RECTANGLE (Matches your other media cards) */
-  /*
-  --portrait-radius: var(--border-radius-lg);
-  --portrait-ratio: 2 / 3;
-  */
-
-  /* ============================================================
-      PLAY BUTTON VISIBILITY (DEFAULT: ON)
-      By default, the floating play button on media cards is shown.
-      To DISABLE the play button, uncomment the block below.
-      ============================================================ 
-  */
-  --play-button-display: inline-block;
-  /*
-  --play-button-display: none; 
-  */
-
-  /* ============================================================
-      THE "POP-OUT BUTTONS" TOGGLE (DEFAULT: ON)
-      ie: (Resume, Play, Play from Beginaning, etc...)
-      Uncomment ONE of the blocks below to enable/disable
-      ============================================================ */
   
-  /* OPTION 1: ENABLED (Default) */
-  --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);
-  --button-popout-transform: translate(-3px, -3px);
-  --button-popout-active-shadow: 0px 0px 5px var(--black-alpha-80);
-  --button-popout-active-transform: translate(0px, 0px);
-
-  /* OPTION 2: DISABLED */
-  /*
-  --button-popout-shadow: none;
-  --button-popout-transform: none;
-  --button-popout-active-shadow: none;
-  --button-popout-active-transform: none;
-  */
-
-  /* ============================================================
-      THE "UNWATCHED COUNT STYLE" TOGGLE (DEFAULT: POP-OUT)
-      Uncomment ONE of the blocks below to change the indicator style.
-      ============================================================ */
-
-  /* OPTION 1: POP-OUT PILL (Default) */
-  --count-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);
-  --count-indicator-color: var(--retro-navy);
-  --count-indicator-border: 2px solid var(--retro-navy);
-  --count-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);
-
-  /* OPTION 2: STANDARD FLAT */
-  /*
-  --count-indicator-bg: var(--my-gold);
-  --count-indicator-color: var(--pure-black);
-  --count-indicator-border: 2px solid transparent; 
-  --count-indicator-shadow: var(--glow-medium);
-  */
-
-  /* ============================================================
-      THE "PLAYED INDICATOR STYLE" TOGGLE (DEFAULT: POP-OUT)
-     (Unwatched counts on media images)
-      Uncomment ONE of the blocks below to change the indicator style.
-      ============================================================ */
-
-  /* OPTION 1: POP-OUT PILL (Default) */
-  --played-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);
-  --played-indicator-color: var(--retro-navy);
-  --played-indicator-border: 2px solid var(--retro-navy);
-  --played-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);
-
-  /* OPTION 2: STANDARD FLAT */
-  /*
-  --played-indicator-bg: var(--my-gold);
-  --played-indicator-color: var(--pure-black);
-  --played-indicator-border: 2px solid transparent; 
-  --played-indicator-shadow: var(--glow-medium);
-  */
-
-  /* ============================================================
-      THE "MEDIA INFO BADGES STYLE" TOGGLE (DEFAULT: POP-OUT)
-      Uncomment ONE of the blocks below to change the badge style.
-      ============================================================ */
-
-  /* OPTION 1: POP-OUT PILL */
-  --media-badge-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);
-  --media-badge-color: var(--retro-navy);
-  --media-badge-border: 2px solid var(--retro-navy);
-  --media-badge-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);
-  --media-badge-radius: var(--border-radius-pill);
-  --media-badge-hover-bg: var(--pure-white);
-  --media-badge-hover-color: var(--pure-black);
-  --media-badge-hover-border: 2px solid var(--pure-black);
-  --media-badge-hover-shadow: var(--shadow-glow-standard);
-  
-  /* OPTION 2: STANDARD FLAT */
-  /*
-  --media-badge-bg: var(--navy-mid-alpha-45);
-  --media-badge-color: var(--my-gold);
-  --media-badge-border: var(--standard-border-thickness) solid var(--gold-alpha-30);
-  --media-badge-shadow: none;
-  --media-badge-radius: 5px;
-  --media-badge-hover-bg: var(--my-gold-transparent);
-  --media-badge-hover-color: var(--my-gold);
-  --media-badge-hover-border: var(--standard-border-thickness) solid var(--my-gold);
-  --media-badge-hover-shadow: var(--glow-medium);
-  */
-
-  /* ============================================================
-       THE "SEASONAL BACKGROUND" TOGGLES (DEFAULT: ON)
-       Controls the heavy background layers (snow, petals, fireworks).
-       Uncomment ONE of the blocks below to change the behavior.
-       ============================================================ */
-
-  /* OPTION 1: FULLY ENABLED (Default) */
-  --seasonal-bg-visibility: visible;
-  --seasonal-bg-anim-state: running;
-
-  /* OPTION 2: PAUSE ANIMATIONS (Keeps the art, stops the motion) */
-  /*
-  --seasonal-bg-anim-state: paused !important;
-  */
-
-  /* OPTION 3: HIDE COMPLETELY (Removes the art and animations entirely) */
-  /*
-  --seasonal-bg-visibility: hidden !important;
-  --seasonal-bg-anim-state: paused !important;
-  */
-
   /* ============================================================
       SEASONAL EVENT TOGGLE
       Uncomment ONE block below to activate a holiday theme
