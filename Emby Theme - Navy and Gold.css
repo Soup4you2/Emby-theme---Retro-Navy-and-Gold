@@ -819,8 +819,8 @@ body,
 }
 
 /* 3. Primary Headers: Oswald font stylization for a cinematic header look */
-.pageTitle,
-.sectionTitle {
+html[class*="theme-"] .pageTitle,
+html[class*="theme-"] .sectionTitle {
   font-family:    var(--font-header) !important;
   color:          var(--theme-primary-color) !important;
   text-transform: uppercase !important;
@@ -829,10 +829,10 @@ body,
 }
 
 /* 4. Setting Labels: Highlights form labels in Gold for better visibility in the dashboard */
-.inputLabel, 
-.selectLabel, 
-.checkboxListLabel, 
-.textareaLabel {
+html[class*="theme-"] .inputLabel, 
+html[class*="theme-"] .selectLabel, 
+html[class*="theme-"] .checkboxListLabel, 
+html[class*="theme-"] .textareaLabel {
   color:       var(--my-gold) !important; 
   font-weight: 600;
 }
@@ -1386,7 +1386,7 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini .btnToggleNavDrawer .md-i
 /* --- 4A. MODAL DIALOGS & POPUPS --- */
 
 /* 1. Backdrop Overlay: Dims the interface when a modal is active */
-.dialogBackdrop {
+html[class*="theme-"] .dialogBackdrop {
   background:              var(--black-alpha-70) !important;
   backdrop-filter:         none !important;
   -webkit-backdrop-filter: none !important;
@@ -1414,8 +1414,8 @@ html[class*="theme-"] body .actionSheet {
 }
 
 /* 4. Selection Panels: The floating bar for multi-selecting media */
-.itemSelectionPanel,
-.selectionCommandsPanel {
+html[class*="theme-"] .itemSelectionPanel,
+html[class*="theme-"] .selectionCommandsPanel {
   background-color:        var(--retro-navy-light) !important;
   border:                  var(--standard-border-thickness) solid var(--theme-primary-color) !important;
   color:                   var(--pure-white) !important;
@@ -1554,9 +1554,9 @@ html[class*="theme-"] .listItemImageButton {
 /* --- 4E. MEDIA STATUS INDICATORS (UNWATCHED & PLAYED) --- */
 
 /* 1. Shared Indicator Properties */
-.playedIndicator,
-.cardIndicator.playedIndicator,
-.countIndicator {
+html[class*="theme-"] .playedIndicator,
+html[class*="theme-"] .cardIndicator.playedIndicator,
+html[class*="theme-"] .countIndicator {
   text-shadow:             none !important;
   border-radius:           var(--border-radius-pill) !important;
 }
@@ -1587,20 +1587,20 @@ html[class*="theme-"] body .playstatebutton-icon-played:hover {
 }
 
 /* 3. Played Indicator Pills: Floating status in card corners */
-.playedIndicator,
-.cardIndicator.playedIndicator {
+html[class*="theme-"] .playedIndicator,
+html[class*="theme-"] .cardIndicator.playedIndicator {
   background:              var(--played-indicator-bg) !important;
   color:                   var(--played-indicator-color) !important;
   border:                  var(--played-indicator-border) !important;
   box-shadow:              var(--played-indicator-shadow) !important;
 }
 
-.playedIndicator .md-icon {
+html[class*="theme-"] .playedIndicator .md-icon {
   color:                   var(--played-indicator-color) !important;
 }
 
 /* 4. Unwatched Count Pills: High-visibility notification numbers */
-.countIndicator {
+html[class*="theme-"] .countIndicator {
   background:              var(--count-indicator-bg) !important;
   color:                   var(--count-indicator-color) !important;
   border:                  var(--count-indicator-border) !important;
@@ -1951,8 +1951,8 @@ p.lnkEditUserPreferencesContainer > a.lnkEditUserPreferences:hover {
 }
 
 /* 2. Card Content & Images: Defines the standard look of movie and show posters */
-.cardContent,
-.cardImageContainer {
+html[class*="theme-"] .cardContent,
+html[class*="theme-"] .cardImageContainer {
   box-shadow:              0px 10px 20px var(--black-alpha-75) !important;
   border:                  var(--hover-border-thickness) solid transparent !important;
   transition:              border-color var(--transition-speed) ease-out, box-shadow var(--transition-speed) ease-out !important;
@@ -1960,7 +1960,7 @@ p.lnkEditUserPreferencesContainer > a.lnkEditUserPreferences:hover {
 }
 
 /* 3. Progress Bar: The "watch progress" line at the bottom of posters */
-.itemProgressBarForeground {
+html[class*="theme-"] .itemProgressBarForeground {
   background-color:        var(--theme-primary-color) !important;
   box-shadow:              var(--glow-progress-bar) !important;
   border-radius:           var(--hover-border-thickness) !important;
@@ -2709,18 +2709,13 @@ html[class*="theme-"] .guideChannelImage {
    ============================================================ */
 
 /* --- 8A. Video OSD Overlays (Bottom Controls) --- */
-.videoOsdBottom,
-.videoOsdBottom-video {
+html[class*="theme-"] .videoOsdBottom,
+html[class*="theme-"] .videoOsdBottom-video {
   background:              linear-gradient(to top, var(--navy-base-alpha-95) 0%, var(--navy-mid-alpha-70) 60%, transparent 100%) !important;
-  
-  /* The "typo" in the old code prevented these blurs from loading. 
-     We explicitly disable them here because blurring the container 
-     creates a sharp, hard edge that ruins the smooth gradient fade. */
   backdrop-filter:         none !important; 
   -webkit-backdrop-filter: none !important;
-  
   padding-bottom:          20px !important;
-  transform:               translateZ(0); /* Hardware acceleration for smooth UI rendering */
+  transform:               translateZ(0); 
 }
 
 /* Small poster shown in the video player */
@@ -2864,7 +2859,7 @@ html[class*="theme-"] body .chapterThumbContainer {
 }
 
 /* --- 8E. Global Bottom "Now Playing" Bar --- */
-.nowPlayingBar {
+html[class*="theme-"] .nowPlayingBar {
   background:              var(--navy-base-alpha-95) !important;
   backdrop-filter:         var(--blur-heavy) !important;
   -webkit-backdrop-filter: var(--blur-heavy) !important;
@@ -2948,7 +2943,7 @@ html[class*="theme-"] .videoOsdBottom .emby-tab-button::after {
    ============================================================ */
 
 /* --- 9A. Audio Player Background & Layout --- */
-.nowPlayingPage {
+html[class*="theme-"] .nowPlayingPage {
   background:              linear-gradient(to right, var(--navy-base-alpha-40) 0%, var(--black-alpha-80) 100%) !important;
   backdrop-filter:         none !important;
   -webkit-backdrop-filter: none !important;
