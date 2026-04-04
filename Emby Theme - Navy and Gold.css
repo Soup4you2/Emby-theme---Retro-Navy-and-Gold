@@ -1055,6 +1055,37 @@ html[class*="theme-"] body .itemAction:hover .cardText {
     visibility: hidden !important;
 }
 
+/* --- 2H. UI COMPONENT ENFORCER (Bulletproof Borders) --- */
+
+/* 1. Global Border Enforcement (Main Containers & Focused Inputs) */
+html[class*="theme-"] body div[class*="infoBanner"],
+html[class*="theme-"] body .emby-input:focus,
+html[class*="theme-"] body .emby-textarea:focus,
+html[class*="theme-"] body select.emby-select:focus,
+html[class*="theme-"] body .emby-select-withicon:focus {
+    border: var(--hover-border-thickness, 2px) solid var(--theme-primary-color) !important;
+    box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+    background-color: var(--navy-light-alpha-80) !important;
+    background-image: none !important;
+    outline: none !important;
+    border-radius: var(--border-radius-lg, 12px) !important;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed) !important;
+}
+
+/* 2. CHILD BORDER KILLER: This removes the unwanted inner border from the text */
+html[class*="theme-"] body div[class*="infoBanner"] * {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 3. Universal Text Protection for Banners */
+html[class*="theme-"] body div[class*="infoBanner"],
+html[class*="theme-"] body div[class*="infoBanner"] * {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    text-shadow: 1px 1px 2px var(--pure-black) !important;
+}
+
 /* ============================================================
    03. NAVIGATION & SIDEBAR
    ============================================================ */
@@ -2373,23 +2404,26 @@ div.verticalSection.aboutSection       { order: var(--order-about) !important; }
 
 /* --- 6B. Info Banner & Panels --- */
 
-/* 1. Top Info Banner: The horizontal bar containing the general metadata summary */
-.infoBanner {
-    display: flex;
+/* 1. Top Info Banner: High-specificity to ensure borders stay during seasonal events */
+html[class*="theme-"] body .infoBanner {
+    display: flex !important;
     align-items: center;
     gap: 15px;
     background: var(--retro-navy-light) !important;
     backdrop-filter: var(--blur-light) !important;
     -webkit-backdrop-filter: var(--blur-light) !important;
+    
+    /* This re-asserts the border using the seasonal primary color */
     border: var(--hover-border-thickness) solid var(--theme-primary-color) !important;
     box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+    
     border-radius: var(--border-radius-lg) !important;
     color: var(--pure-white) !important;
     font-weight: 600 !important;
     padding: 12px 20px !important;
 }
 
-/* 2. Media Info Panel: The background card for the description and tech details */
+/* 2. Media Info Panel: The background card for description */
 .mediaInfoPanel {
     background: var(--navy-light-alpha-70) !important;
     backdrop-filter: var(--blur-heavy) !important;
