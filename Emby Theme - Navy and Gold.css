@@ -3816,13 +3816,6 @@ html[class*="theme-"] body .button-submit {
    12. GLOBAL FIXES / HOTFIX (WIP) ZONE
    ============================================================ */
 
-/* 1. Universal Star Fix: Keeps rating stars visible and glowing */
-html[class*="theme-"] body .mediaInfoItem .starIcon,
-html[class*="theme-"] body .starIcon {
-  color:                   var(--season-star-color) !important;
-  -webkit-text-fill-color: var(--season-star-color) !important;
-  filter:                  var(--season-star-glow) !important;
-}
 
 /* ============================================================
    HOTFIX: PLUGIN - TRAKT - PAPERLIST / CHECKBOX TABLES
