@@ -1063,7 +1063,10 @@ html[class*="theme-"] body .emby-input:focus,
 html[class*="theme-"] body .emby-textarea:focus,
 html[class*="theme-"] body select.emby-select:focus,
 html[class*="theme-"] body .emby-select-withicon:focus {
+    /* Forces the outer border to use the seasonal primary color */
     border: var(--hover-border-thickness, 2px) solid var(--theme-primary-color) !important;
+    
+    /* UI styling and Glow */
     box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
     background-color: var(--navy-light-alpha-80) !important;
     background-image: none !important;
@@ -1072,10 +1075,13 @@ html[class*="theme-"] body .emby-select-withicon:focus {
     transition: border-color var(--transition-speed), box-shadow var(--transition-speed) !important;
 }
 
-/* 2. CHILD BORDER KILLER: This removes the unwanted inner border from the text */
+/* 2. INNER PILL/CIRCLE KILLER: Strips the secondary shell from inside the banner */
 html[class*="theme-"] body div[class*="infoBanner"] * {
     border: none !important;
     box-shadow: none !important;
+    background: transparent !important;       /* Kills the translucent "pill" color */
+    background-color: transparent !important; /* Extra safety for seasonal overrides */
+    border-radius: 0 !important;              /* flattens the internal geometry */
 }
 
 /* 3. Universal Text Protection for Banners */
