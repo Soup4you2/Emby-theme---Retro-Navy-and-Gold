@@ -703,6 +703,7 @@ html,
 
 /* 1. Theme Variables Enforcer: Overwrites Emby's internal logic to use our custom palette */
 html[class*="theme-"] {
+  color-scheme: dark !important; /* Forces browser native elements to dark mode */
   --theme-background:             var(--retro-navy) !important;
   --background-color:             var(--retro-navy) !important;
   --theme-text-color:             var(--text-muted) !important;
@@ -1150,8 +1151,10 @@ html[class*="theme-"] body .mainDrawer a.btnNavDrawerLogo:focus {
 /* 7. Light Theme Logo Fix: Inverts black text to white strictly on themes that need it */
 html[class*="theme-light"] body .navDrawerLogo,
 html[class*="theme-light"] body .pageTitleWithDefaultLogo,
+html[class*="theme-light"] .splashLogo,
 html[class*="theme-appletv"] body .navDrawerLogo,
-html[class*="theme-appletv"] body .pageTitleWithDefaultLogo {
+html[class*="theme-appletv"] body .pageTitleWithDefaultLogo,
+html[class*="theme-appletv"] .splashLogo {
   filter: invert(1) hue-rotate(180deg) brightness(1.2) !important;
 }
 
