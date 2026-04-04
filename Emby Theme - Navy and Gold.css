@@ -167,6 +167,11 @@ html,
   --favorite-heart-alpha-50: rgba(var(--favorite-heart-rgb), 0.5);
   --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8);
 
+  /* Error & Maintenance Banner Colors */
+  --error-bg: #b30000;      /* The solid deep crimson background */
+  --error-text: #ffffff;    /* The text color */
+  --error-border: #ff4d4d;  /* The bright light-red border */
+
   /* ============================================================
       USER OPTIONS FOR VISUALS BELOW
      ============================================================ */
@@ -1007,6 +1012,28 @@ html[class*="theme-"] .infoBanner a.raised.button-submit.emby-button:hover * {
 html[class*="theme-"] .infoBanner p a {
     color: var(--pure-white) !important;
     -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+/* 6.2 ERROR & MAINTENANCE BANNERS */
+html[class*="theme-"] .errorBanner {
+    background-color: var(--error-bg) !important;
+    border: 2px solid var(--error-border) !important; 
+    border-radius: 8px !important; 
+}
+
+/* Force Text Color */
+html[class*="theme-"] .errorBanner,
+html[class*="theme-"] .errorBanner * {
+    color: var(--error-text) !important;
+    -webkit-text-fill-color: var(--error-text) !important;
+}
+
+/* Inject the hazard glyph before the text */
+html[class*="theme-"] .errorBanner h3::before {
+    content: "⚠️"; 
+    font-size: 1.2em; 
+    margin-right: 10px; 
+    vertical-align: middle; 
 }
 
 /* 7. NATIVE UI BUTTON FIXES (Removes Grey Backgrounds) */
