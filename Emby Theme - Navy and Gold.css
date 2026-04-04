@@ -2406,6 +2406,16 @@ div.verticalSection.aboutSection       { order: var(--order-about) !important; }
     text-transform: uppercase;
 }
 
+/* 3. Alert Banner Text Color Fix (Forces White) */
+html[class*="theme-"] body .infoBanner,
+html[class*="theme-"] body .infoBanner *,
+html[class*="theme-"] body .warningBanner,
+html[class*="theme-"] body .warningBanner * {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    text-shadow: none !important;
+}
+
 /* --- 6C. Media Badges & Selectors (4K, HDR, Audio Tracks, etc.) --- */
 
 /* 1. Base Badge Styling: The pill-shaped technical icons */
