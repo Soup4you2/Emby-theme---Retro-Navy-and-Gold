@@ -6106,6 +6106,25 @@ html[class*="theme-"] body .button-submit:active {
 
   @keyframes auroraWave { 0% { transform: scale(1) translate(0, 0); } 100% { transform: scale(1.1) translate(-5%, 5%); } }
 
+  /* Layer 6: Santa's Sleigh (Foreground Sky) */
+  .backdropContainer::after {
+    content: "🦌🦌🦌🛷🎅";
+    position: fixed; 
+    top: 20vh; 
+    right: -50vw; 
+    font-size: 3.75rem; 
+    z-index: -1; 
+    pointer-events: none; 
+    white-space: nowrap; /* Prevents the emojis from text-wrapping downward */
+    filter: brightness(0) invert(1) drop-shadow(0 0 5px var(--pure-white)) drop-shadow(0 0 15px var(--white-alpha-60));
+    animation: sleighFly 20s linear infinite;
+  }
+
+  @keyframes sleighFly {
+    0% { right: -50vw; top: 20vh; transform: scale(1.2) rotate(3deg); }
+    100% { right: 120vw; top: 18vh; transform: scale(1.2) rotate(2deg); }
+  }
+
   /* --- 20I. MEDIA INFO BADGES --- */
 
   /* 1. Badge Base Styling: Deep pine gradients with red borders */
