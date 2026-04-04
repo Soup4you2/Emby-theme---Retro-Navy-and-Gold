@@ -3294,6 +3294,7 @@ html[class*="theme-"] body .listItem:hover .mediaInfoItem {
     background: var(--media-badge-bg) !important;
     border: var(--media-badge-border) !important;
     box-shadow: var(--media-badge-shadow) !important;
+    text-shadow: none !important; /* Kills the shadow on the badge container */
 }
 
 /* Forces text to stay Navy, but explicitly excludes the Star Icon so it stays Gold */
@@ -3304,6 +3305,7 @@ html[class*="theme-"] body .listItem:hover .mediaInfoItem,
 html[class*="theme-"] body .listItem:hover .mediaInfoItem *:not(.starIcon) {
     color: var(--media-badge-color) !important;
     -webkit-text-fill-color: var(--media-badge-color) !important;
+    text-shadow: none !important; /* Kills the shadow on the text itself */
 }
 
 /* --- 10E. LIST VIEW ZEBRA STRIPING (EXCLUDING SEASON PAGES) --- */
@@ -4947,23 +4949,6 @@ html[class*="theme-"] body .button-submit:active {
     animation:               shieldPulse 1s ease-in-out infinite alternate !important; 
     color:                   var(--pure-white) !important; 
     -webkit-text-fill-color: var(--pure-white) !important; 
-  }
-
-  /* 3. Mini Firework Burst: Triggered behind card on hover */
-  .card:hover .cardImageContainer::after { 
-    content:        ""; 
-    position:       absolute; 
-    inset:          0; 
-    border-radius:  inherit;
-    background:     radial-gradient(circle, var(--pure-white) 10%, transparent 70%); 
-    opacity:        0; 
-    pointer-events: none; 
-    animation:      fireworkBurst 0.6s ease-out; 
-  }
-
-  @keyframes fireworkBurst { 
-    0%   { transform: scale(0.1); opacity: 1; filter: brightness(2); } 
-    100% { transform: scale(1.8); opacity: 0; filter: brightness(1); } 
   }
 
   /* --- 17D. UI INDICATORS (COUNT & PROGRESS) --- */
