@@ -180,24 +180,24 @@ html,
   /* CAST & CREW PORTRAIT SHAPES (DEFAULT: OVAL) */
   --portrait-radius: 50% / 40%;                                     /* Oval Shaped */
   --portrait-ratio: 2 / 3;                                          /* Oval Shaped */
-  /* --portrait-radius: 50%; */                                     /* Circle Shaped */
-  /* --portrait-ratio: 1 / 1; */                                    /* Circle Shaped */
+  /* --portrait-radius: 50%;                                      /* Circle Shaped */
+  /* --portrait-ratio: 1 / 1;                                     /* Circle Shaped */
   /* --portrait-radius: var(--border-radius-lg);                    /* Default - Rectangle */
   /* --portrait-ratio: 2 / 3;                                       /* Default - Rectangle */
   
   /* PLAY BUTTON VISABILITY WHEN HOVERING OVER MEDIA CARDS */
   --play-button-display: inline-block;                              /* Enabled */
-  /* --play-button-display: none; */                                /* Disabled */
+  /* --play-button-display: none;                                 /* Disabled */
 
   /* BACKDROP & FANART STYLE */
   --backdrop-opacity: 0.9;                                          /* DIMMING (Traditional full-screen dark overlay) */
   --backdrop-bg-color: var(--navy-base-alpha-75);                   /* DIMMING (Traditional full-screen dark overlay) */
   --backdrop-gradient: none;                                        /* DIMMING (Traditional full-screen dark overlay) */
   --backdrop-text-shadow: none;                                     /* DIMMING (Traditional full-screen dark overlay) */
-  /* --backdrop-opacity: 1; */                                      /* NO DIMMING */
-  /* --backdrop-bg-color: transparent; */                           /* NO DIMMING */
-  /* --backdrop-gradient: linear-gradient(to right, var(--navy-base-solid) 0%, var(--navy-base-alpha-75) 30%, transparent 75%); */   /* NO DIMMING */
-  /* --backdrop-text-shadow: 0 2px 5px var(--pure-black), 0 0 12px var(--pure-black); */   /* NO DIMMING */
+  /* --backdrop-opacity: 1;                                       /* NO DIMMING */
+  /* --backdrop-bg-color: transparent;                            /* NO DIMMING */
+  /* --backdrop-gradient: linear-gradient(to right, var(--navy-base-solid) 0%, var(--navy-base-alpha-75) 30%, transparent 75%);    /* NO DIMMING */
+  /* --backdrop-text-shadow: 0 2px 5px var(--pure-black), 0 0 12px var(--pure-black);    /* NO DIMMING */
 
   /* BUTTONS AND INDICATORS */
   --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
@@ -221,34 +221,34 @@ html,
   --media-badge-hover-color: var(--pure-black);                     /* Popout - Media Info Badges */
   --media-badge-hover-border: 2px solid var(--pure-black);          /* Popout - Media Info Badges */
   --media-badge-hover-shadow: var(--shadow-glow-standard);          /* Popout - Media Info Badges */
-  /* --button-popout-shadow: none; */                               /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
-  /* --button-popout-transform: none; */                            /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
-  /* --button-popout-active-shadow: none; */                        /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
-  /* --button-popout-active-transform: none; */                     /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
-  /* --count-indicator-bg: var(--my-gold); */                       /* Flat - Unwatched count style */
-  /* --count-indicator-color: var(--pure-black); */                 /* Flat - Unwatched count style */
-  /* --count-indicator-border: 2px solid transparent; */            /* Flat - Unwatched count style */
-  /* --count-indicator-shadow: var(--glow-medium); */               /* Flat - Unwatched count style */
-  /* --played-indicator-bg: var(--my-gold); */                      /* Flat - Played Indicator */
-  /* --played-indicator-color: var(--pure-black); */                /* Flat - Played Indicator */
-  /* --played-indicator-border: 2px solid transparent; */           /* Flat - Played Indicator */
-  /* --played-indicator-shadow: var(--glow-medium); */              /* Flat - Played Indicator */
-  /* --media-badge-bg: var(--navy-mid-alpha-45); */                 /* Flat - Media Info Badges */
-  /* --media-badge-color: var(--my-gold); */                        /* Flat - Media Info Badges */
-  /* --media-badge-border: var(--standard-border-thickness) solid var(--gold-alpha-30); */    /* Flat - Media Info Badges */
-  /* --media-badge-shadow: none; */                                 /* Flat - Media Info Badges */
-  /* --media-badge-radius: 5px; */                                  /* Flat - Media Info Badges */
-  /* --media-badge-hover-bg: var(--my-gold-transparent); */         /* Flat - Media Info Badges */
-  /* --media-badge-hover-color: var(--my-gold); */                  /* Flat - Media Info Badges */
-  /* --media-badge-hover-border: var(--standard-border-thickness) solid var(--my-gold); */    /* Flat - Media Info Badges */
-  /* --media-badge-hover-shadow: var(--glow-medium); */             /* Flat - Media Info Badges */
+  /* --button-popout-shadow: none;                                  /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
+  /* --button-popout-transform: none;                               /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
+  /* --button-popout-active-shadow: none;                           /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
+  /* --button-popout-active-transform: none;                        /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
+  /* --count-indicator-bg: var(--my-gold);                          /* Flat - Unwatched count style */
+  /* --count-indicator-color: var(--pure-black);                    /* Flat - Unwatched count style */
+  /* --count-indicator-border: 2px solid transparent;               /* Flat - Unwatched count style */
+  /* --count-indicator-shadow: var(--glow-medium);                  /* Flat - Unwatched count style */
+  /* --played-indicator-bg: var(--my-gold);                         /* Flat - Played Indicator */
+  /* --played-indicator-color: var(--pure-black);                   /* Flat - Played Indicator */
+  /* --played-indicator-border: 2px solid transparent;              /* Flat - Played Indicator */
+  /* --played-indicator-shadow: var(--glow-medium);                 /* Flat - Played Indicator */
+  /* --media-badge-bg: var(--navy-mid-alpha-45);                    /* Flat - Media Info Badges */
+  /* --media-badge-color: var(--my-gold);                           /* Flat - Media Info Badges */
+  /* --media-badge-border: var(--standard-border-thickness) solid var(--gold-alpha-30);     /* Flat - Media Info Badges */
+  /* --media-badge-shadow: none;                                    /* Flat - Media Info Badges */
+  /* --media-badge-radius: 5px;                                     /* Flat - Media Info Badges */
+  /* --media-badge-hover-bg: var(--pure-white);                     /* Flat - Media Info Badges */
+  /* --media-badge-hover-color: var(--my-gold);                     /* Flat - Media Info Badges */
+  /* --media-badge-hover-border: var(--standard-border-thickness) solid var(--my-gold);     /* Flat - Media Info Badges */
+  /* --media-badge-hover-shadow: var(--glow-medium);                /* Flat - Media Info Badges */
  
   /* SEASONAL BACKGROUND ANIMATIONS */
-  --seasonal-bg-visibility: visible;                                /* Fully Enabled */
-  --seasonal-bg-anim-state: running;                                /* Fully Enabled */
-  /* --seasonal-bg-anim-state: paused !important; */                /* Paused Animations (Keeps art, stops the motion) */
-  /* --seasonal-bg-visibility: hidden !important; */                /* Fully Disabled */
-  /* --seasonal-bg-anim-state: paused !important; */                /* Fully Disabled */
+  --seasonal-bg-visibility: visible;                               /* Fully Enabled */
+  --seasonal-bg-anim-state: running;                               /* Fully Enabled */
+  /* --seasonal-bg-anim-state: paused !important;                  /* Paused Animations (Keeps art, stops the motion) */
+  /* --seasonal-bg-visibility: hidden !important;                  /* Fully Disabled */
+  /* --seasonal-bg-anim-state: paused !important;                  /* Fully Disabled */
 
 
   /* ============================================================
