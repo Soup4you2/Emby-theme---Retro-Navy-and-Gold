@@ -1293,7 +1293,7 @@ html[class*="theme-"] body .navMenuOption {
     transition: all var(--transition-speed) ease !important;
 }
 
-/* 2. HOVER STATE: Adds a visible highlight and turns text/icons Pure White when mousing over */
+/* 2. HOVER STATE: Adds highlight, turns text White, keeps icons Gold */
 html[class*="theme-"] body .navMenuOption:hover {
     background: var(--white-alpha-10) !important; 
     background-color: var(--white-alpha-10) !important;
@@ -1301,11 +1301,35 @@ html[class*="theme-"] body .navMenuOption:hover {
     cursor: pointer !important;
 }
 
-html[class*="theme-"] body .navMenuOption:hover .navDrawerListItemIcon,
-html[class*="theme-"] body .navMenuOption:hover .navMenuOptionText,
-html[class*="theme-"] body .navMenuOption:hover .md-icon {
+html[class*="theme-"] body .navMenuOption:hover .navMenuOptionText {
     color: var(--pure-white) !important;
     -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+html[class*="theme-"] body .navMenuOption:hover .navDrawerListItemIcon,
+html[class*="theme-"] body .navMenuOption:hover .md-icon {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* 3. SELECTED STATE: Kills the bright blue background and applies the theme glow */
+html[class*="theme-"] body .navMenuOption.navMenuOption-selected,
+html[class*="theme-"] body .navMenuOption.background-theme-a {
+    background: var(--theme-icon-focus-background) !important; 
+    background-color: var(--theme-icon-focus-background) !important;
+    background-image: none !important; 
+    box-shadow: inset 10px 0 15px var(--gold-alpha-10) !important;
+    border-left: none !important;
+}
+
+html[class*="theme-"] body .navMenuOption.navMenuOption-selected .navDrawerListItemIcon,
+html[class*="theme-"] body .navMenuOption.navMenuOption-selected .navMenuOptionText,
+html[class*="theme-"] body .navMenuOption.navMenuOption-selected .md-icon,
+html[class*="theme-"] body .navMenuOption.background-theme-a .navDrawerListItemIcon,
+html[class*="theme-"] body .navMenuOption.background-theme-a .navMenuOptionText,
+html[class*="theme-"] body .navMenuOption.background-theme-a .md-icon {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
 }
 
 /* 3. SELECTED STATE: Kills the bright blue background and applies the theme glow */
@@ -1578,9 +1602,15 @@ html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected)
   -webkit-text-fill-color: var(--pure-white) !important;
 }
 
+/* Keep hover icons Gold */
 html[class*="theme-"] body .actionSheetMenuItem:hover .md-icon,
 html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .md-icon,
-html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected):not(.background-theme-a) .md-icon,
+html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected):not(.background-theme-a) .md-icon {
+  color:                   var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* Keep hover text White */
 html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .listItemBodyText {
   color:                   var(--pure-white) !important;
   -webkit-text-fill-color: var(--pure-white) !important;
