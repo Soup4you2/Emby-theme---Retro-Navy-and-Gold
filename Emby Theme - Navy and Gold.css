@@ -1036,6 +1036,33 @@ html[class*="theme-"] .errorBanner h3::before {
     vertical-align: middle; 
 }
 
+/* 6.2 ERROR & MAINTENANCE BANNERS */
+html[class*="theme-"] body .errorBanner,
+html[class*="theme-"] body .warningBanner {
+    background-color: var(--error-bg) !important;
+    border: 2px solid var(--error-border) !important; 
+    border-radius: 8px !important; 
+}
+
+/* Force Text Color (Protects action buttons inside the banner) */
+html[class*="theme-"] body .errorBanner,
+html[class*="theme-"] body .errorBanner *:not(button):not(button *),
+html[class*="theme-"] body .warningBanner,
+html[class*="theme-"] body .warningBanner *:not(button):not(button *) {
+    color: var(--error-text) !important;
+    -webkit-text-fill-color: var(--error-text) !important;
+    text-shadow: none !important;
+}
+
+/* Inject the hazard glyph before the text */
+html[class*="theme-"] body .errorBanner h3::before,
+html[class*="theme-"] body .warningBanner .infoBannerContent::before {
+    content: "⚠️"; 
+    font-size: 1.2em; 
+    margin-right: 10px; 
+    vertical-align: middle; 
+}
+
 /* 7. NATIVE UI BUTTON FIXES (Removes Grey Backgrounds) */
 html[class*="theme-"] body .emby-input-iconbutton,
 html[class*="theme-"] body .paper-icon-button-light,
