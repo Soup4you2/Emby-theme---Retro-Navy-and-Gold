@@ -1147,9 +1147,9 @@ html[class*="theme-"] body .mainDrawer a.btnNavDrawerLogo:focus {
   outline: none !important;
 }
 
-/* 7. Universal Theme Logo Fix: Inverts black text to white, hue-rotates magenta to green across all themes */
-html[class*="theme-"] body .navDrawerLogo,
-html[class*="theme-"] body .pageTitleWithDefaultLogo {
+/* 7. Universal Theme Logo Fix: Inverts black text to white, but ignores themes that already have white logos natively */
+html[class*="theme-"]:not(.theme-dark):not(.theme-black) body .navDrawerLogo,
+html[class*="theme-"]:not(.theme-dark):not(.theme-black) body .pageTitleWithDefaultLogo {
   filter: invert(1) hue-rotate(180deg) brightness(1.2) !important;
 }
 
