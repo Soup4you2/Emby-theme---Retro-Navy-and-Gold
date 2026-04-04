@@ -2515,6 +2515,7 @@ html[class*="theme-"] body .mediaInfoItem * {
     -webkit-text-fill-color: var(--media-badge-color) !important;
     font-weight: 700 !important;
     text-decoration: none !important;
+    text-shadow: none !important;
 }
 
 html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover,
@@ -2528,6 +2529,7 @@ html[class*="theme-"] body .mediaInfoItem:focus {
     box-shadow: var(--media-badge-shadow) !important;
     transform: none !important;
     text-decoration: none !important;
+    text-shadow: none !important;
 }
 
 html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:hover *,
@@ -2536,6 +2538,7 @@ html[class*="theme-"] body .mediaInfoItems .mediaInfoItem:focus *,
 html[class*="theme-"] body .mediaInfoItem:focus * {
     color: var(--media-badge-color) !important;
     -webkit-text-fill-color: var(--media-badge-color) !important;
+    text-shadow: none !important;
 }
 
 /* 3. Rating Star Icon Formatting: Keeps stars visible and glowing (blocks hover interference) */
