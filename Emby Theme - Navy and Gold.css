@@ -2909,10 +2909,17 @@ html[class*="theme-"] .nowPlayingBar {
   -webkit-backdrop-filter: var(--blur-heavy) !important;
   border-top:              var(--hover-border-thickness) solid var(--my-gold) !important;
   box-shadow:              0 -10px 30px var(--black-alpha-80) !important;
-  transform:               translateZ(0);
+  /* Removed transform: translateZ(0) so Emby can natively slide the bar off-screen */
 }
 
-.nowPlayingBarText {
+/* Safety Net: Ensures the bar completely disappears when Emby tells it to hide */
+html[class*="theme-"] .nowPlayingBar.hide,
+html[class*="theme-"] .nowPlayingBar-hidden {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+html[class*="theme-"] .nowPlayingBarText {
   font-family:             var(--font-header) !important;
   color:                   var(--my-gold) !important;
   font-size:               1.1em !important;
@@ -2920,7 +2927,7 @@ html[class*="theme-"] .nowPlayingBar {
   text-shadow:             1px 1px 3px var(--black-alpha-80) !important;
 }
 
-.nowPlayingBarSecondaryText {
+html[class*="theme-"] .nowPlayingBarSecondaryText {
   font-family:             var(--font-body) !important;
   color:                   var(--white-alpha-70) !important;
 }
