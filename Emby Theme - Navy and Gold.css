@@ -2379,7 +2379,6 @@ div.verticalSection.aboutSection       { order: var(--order-about) !important; }
 
 /* 1. Top Info Banner: High-specificity to ensure borders stay during seasonal events */
 html[class*="theme-"] body .infoBanner {
-    display: flex !important;
     align-items: center;
     gap: 15px;
     background: var(--retro-navy-light) !important;
