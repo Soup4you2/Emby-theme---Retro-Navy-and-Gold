@@ -187,7 +187,7 @@ html,
 
   /* BACKDROP & FANART STYLE */
   --backdrop-opacity: 0.9;                                          /* DIMMING (Traditional full-screen dark overlay) */
-  --backdrop-bg-color: rgba(0, 8, 20, 0.75);                      /* DIMMING (Traditional full-screen dark overlay) */
+  --backdrop-bg-color: var(--navy-base-alpha-75);                   /* DIMMING (Traditional full-screen dark overlay) */
   --backdrop-gradient: none;                                        /* DIMMING (Traditional full-screen dark overlay) */
   --backdrop-text-shadow: none;                                     /* DIMMING (Traditional full-screen dark overlay) */
   /* --backdrop-opacity: 1; */                                      /* NO DIMMING */
