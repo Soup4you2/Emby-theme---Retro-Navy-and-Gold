@@ -22,8 +22,8 @@ html,
 .selection-accent-color {
 
   /* --- GLOBAL TYPOGRAPHY --- */
-  --font-header: 'Oswald', sans-serif;                             /* Primary cinematic header font */
-  --font-body: 'Sofia Sans', sans-serif;                           /* Standard readable body font */
+  --font-header: 'Oswald', sans-serif;           /* Primary cinematic header font */
+  --font-body: 'Sofia Sans', sans-serif;         /* Standard readable body font */
 
   /* --- CORE RGB VALUES (The Source of Truth for Transparencies) --- */
   --pure-black-rgb: 0, 0, 0;                    /* Controls the absolute darkest shadows and UI overlays */
@@ -44,21 +44,21 @@ html,
   /* --- CORE SOLID COLORS --- */
   --pure-white: rgb(var(--pure-white-rgb));     /* Solid white for high-contrast icons */
   --pure-black: rgb(var(--pure-black-rgb));     /* Solid black for deep shadow foundations */
-  --text-muted: rgb(236, 236, 236);             /* Soft white used globally for primary paragraph/body text */
-  --scrollbar-thumb: rgb(51, 51, 51);           /* Color of the draggable handle on the browser scrollbar */
+  --text-muted: rgb(236, 236, 236);           /* Soft white used globally for primary paragraph/body text */
+  --scrollbar-thumb: rgb(51, 51, 51);         /* Color of the draggable handle on the browser scrollbar */
 
   /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
-  --guide-premiere: rgb(89, 35, 71);            /* Cell background for TV Series Premieres */
-  --guide-new: rgb(31, 75, 94);                 /* Cell background for brand new episodes */
-  --guide-live: rgb(76, 99, 87);                /* Cell background for currently airing live events (Sports/News) */
-  --guide-repeat: rgb(31, 75, 94);              /* Cell background for older reruns */
-  --guide-movie: rgb(69, 59, 109);              /* Cell background for Movies airing on Live TV */
-  --guide-generic: rgb(39, 50, 67);             /* Default cell background for generic programs */
+  --guide-premiere: rgb(89, 35, 71);          /* Cell background for TV Series Premieres */
+  --guide-new: rgb(31, 75, 94);               /* Cell background for brand new episodes */
+  --guide-live: rgb(76, 99, 87);              /* Cell background for currently airing live events (Sports/News) */
+  --guide-repeat: rgb(31, 75, 94);            /* Cell background for older reruns */
+  --guide-movie: rgb(69, 59, 109);            /* Cell background for Movies airing on Live TV */
+  --guide-generic: rgb(39, 50, 67);           /* Default cell background for generic programs */
 
   /* --- DANGER / CANCEL BUTTONS --- */
   --danger-red-rgb: 204, 0, 0;                  /* Base RGB for destructive actions */
   --danger-red: rgb(var(--danger-red-rgb));     /* Solid red for delete/cancel buttons */
-  --danger-red-light: rgb(255, 51, 51);         /* Brighter red for hovering over delete/cancel buttons */
+  --danger-red-light: rgb(255, 51, 51);       /* Brighter red for hovering over delete/cancel buttons */
   --danger-red-glow: 0 0 20px rgba(var(--danger-red-rgb), 0.6), 0 0 10px rgba(255, 51, 51, 0.4); /* Glow effect on hover */
 
    /* --- NAVIGATION PILL BARS --- */
@@ -151,13 +151,13 @@ html,
   --season-actor-role: var(--white-alpha-70);                      /* Default character role color */
 
   /* Submit Button */
-  --season-btn-bg: var(--my-gold);                                         /* Resting background of primary actions (Save/Done) */
-  --season-btn-bg-hover: var(--my-gold-light);                             /* Background of primary actions when hovered */
-  --season-btn-text: var(--retro-navy);                                    /* Text color inside resting primary buttons */
-  --season-btn-text-hover: var(--retro-navy);                              /* Text color inside hovered primary buttons */
-  --season-btn-border: var(--my-gold);                                     /* Border of resting primary buttons */
-  --season-btn-border-hover: var(--my-gold-light);                         /* Border of hovered primary buttons */
-  --season-btn-shadow: 0 4px 10px var(--black-alpha-50);                   /* Shadow depth of resting primary buttons */
+  --season-btn-bg: var(--my-gold);                                 /* Resting background of primary actions (Save/Done) */
+  --season-btn-bg-hover: var(--my-gold-light);                     /* Background of primary actions when hovered */
+  --season-btn-text: var(--retro-navy);                            /* Text color inside resting primary buttons */
+  --season-btn-text-hover: var(--retro-navy);                      /* Text color inside hovered primary buttons */
+  --season-btn-border: var(--my-gold);                             /* Border of resting primary buttons */
+  --season-btn-border-hover: var(--my-gold-light);                 /* Border of hovered primary buttons */
+  --season-btn-shadow: 0 4px 10px var(--black-alpha-50);           /* Shadow depth of resting primary buttons */
   --season-btn-shadow-hover: 0 6px 15px var(--black-alpha-80), 0 0 15px var(--gold-alpha-40); /* Golden aura on hovered primary buttons */
 
   /* --- FAVORITE HEART COLORS --- */
@@ -180,22 +180,22 @@ html,
   /* CAST & CREW PORTRAIT SHAPES (DEFAULT: OVAL) */
   --portrait-radius: 50% / 40%;                                     /* Oval Shaped */
   --portrait-ratio: 2 / 3;                                          /* Oval Shaped */
-  /* --portrait-radius: 50%;                                      /* Circle Shaped */
-  /* --portrait-ratio: 1 / 1;                                     /* Circle Shaped */
+  /* --portrait-radius: 50%;                                        /* Circle Shaped */
+  /* --portrait-ratio: 1 / 1;                                       /* Circle Shaped */
   /* --portrait-radius: var(--border-radius-lg);                    /* Default - Rectangle */
   /* --portrait-ratio: 2 / 3;                                       /* Default - Rectangle */
   
   /* PLAY BUTTON VISABILITY WHEN HOVERING OVER MEDIA CARDS */
   --play-button-display: inline-block;                              /* Enabled */
-  /* --play-button-display: none;                                 /* Disabled */
+  /* --play-button-display: none;                                   /* Disabled */
 
   /* BACKDROP & FANART STYLE */
   --backdrop-opacity: 0.9;                                          /* DIMMING (Traditional full-screen dark overlay) */
   --backdrop-bg-color: var(--navy-base-alpha-75);                   /* DIMMING (Traditional full-screen dark overlay) */
   --backdrop-gradient: none;                                        /* DIMMING (Traditional full-screen dark overlay) */
   --backdrop-text-shadow: none;                                     /* DIMMING (Traditional full-screen dark overlay) */
-  /* --backdrop-opacity: 1;                                       /* NO DIMMING */
-  /* --backdrop-bg-color: transparent;                            /* NO DIMMING */
+  /* --backdrop-opacity: 1;                                         /* NO DIMMING */
+  /* --backdrop-bg-color: transparent;                              /* NO DIMMING */
   /* --backdrop-gradient: linear-gradient(to right, var(--navy-base-solid) 0%, var(--navy-base-alpha-75) 30%, transparent 75%);    /* NO DIMMING */
   /* --backdrop-text-shadow: 0 2px 5px var(--pure-black), 0 0 12px var(--pure-black);    /* NO DIMMING */
 
