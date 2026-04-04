@@ -1679,7 +1679,7 @@ html[class*="theme-"] body .listItemOverlayButton-hover:hover .md-icon {
     filter: drop-shadow(0 0 10px var(--my-gold)) !important;
 }
 
-/* --- 4E. MEDIA STATUS INDICATORS (UNWATCHED & PLAYED) --- */
+/* --- 4E. MEDIA STATUS INDICATORS (UNWATCHED, PLAYED & FAVORITES) --- */
 
 /* 1. Shared Indicator Properties */
 html[class*="theme-"] .playedIndicator,
@@ -1758,6 +1758,60 @@ html[class*="theme-"] .countIndicator {
   align-items:             center !important;
   justify-content:         center !important;
   padding:                 0 6px !important;
+}
+
+/* 5. Favorite Hearts: Resting & Row-Hover State (Always Red) */
+html[class*="theme-"] body button[data-isfavorite="true"],
+html[class*="theme-"] body button[data-isfavorite="true"] .md-icon,
+html[class*="theme-"] body .ratingbutton-icon-withrating,
+html[class*="theme-"] body .ratingbutton-icon-withrating .md-icon,
+html[class*="theme-"] body .dataGridItemCell button[data-isfavorite="true"],
+html[class*="theme-"] body .dataGridItemCell button[data-isfavorite="true"] .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="true"],
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="true"] .md-icon,
+html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"],
+html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"] .md-icon,
+html[class*="theme-"] body .dataGridRow:hover button[data-isfavorite="true"],
+html[class*="theme-"] body .dataGridRow:hover button[data-isfavorite="true"] .md-icon {
+  color:                   var(--favorite-heart) !important; 
+  -webkit-text-fill-color: var(--favorite-heart) !important;
+  filter:                  drop-shadow(0 0 5px var(--favorite-heart-alpha-50)) !important;
+  opacity:                 1 !important;
+}
+
+/* 6. Favorite Hearts: Hover Directly Over Heart (Brighter Red and Pop) */
+html[class*="theme-"] body button[data-isfavorite="true"]:hover,
+html[class*="theme-"] body button[data-isfavorite="true"]:hover .md-icon,
+html[class*="theme-"] body .ratingbutton-icon-withrating:hover,
+html[class*="theme-"] body .ratingbutton-icon-withrating:hover .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="true"]:hover,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="true"]:hover .md-icon,
+html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"]:hover,
+html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"]:hover .md-icon {
+  color:                   var(--favorite-heart-hover) !important; 
+  -webkit-text-fill-color: var(--favorite-heart-hover) !important;
+  transform:               scale(1.2) !important;
+  filter:                  drop-shadow(0 0 10px var(--favorite-heart-hover-alpha-80)) !important;
+}
+
+/* 7. Favorite Hearts: Un-favorited State (Keep white/gray, protect from row-hover gold) */
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="false"],
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="false"] .md-icon,
+html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="false"],
+html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="false"] .md-icon {
+  color:                   var(--white-alpha-60) !important;
+  -webkit-text-fill-color: var(--white-alpha-60) !important;
+  filter:                  none !important;
+}
+
+html[class*="theme-"] body button[data-isfavorite="false"]:hover,
+html[class*="theme-"] body button[data-isfavorite="false"]:hover .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="false"]:hover,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="false"]:hover .md-icon {
+  color:                   var(--favorite-heart-hover) !important; 
+  -webkit-text-fill-color: var(--favorite-heart-hover) !important;
+  transform:               scale(1.2) !important;
+  filter:                  drop-shadow(0 0 10px var(--favorite-heart-hover-alpha-80)) !important;
 }
 
 /* --- 4F. FILTER & TAG PILLS --- */
@@ -3769,62 +3823,6 @@ html[class*="theme-"] body .programCell .mediaInfoItem:hover *,
 html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem:hover * {
   color: inherit !important;
   -webkit-text-fill-color: inherit !important;
-}
-
-/* 3. Universal Status Icon Fixes (Favorites & Played) */
-
-/* A. RESTING & ROW-HOVER STATE: Always Red */
-html[class*="theme-"] body button[data-isfavorite="true"],
-html[class*="theme-"] body button[data-isfavorite="true"] .md-icon,
-html[class*="theme-"] body .ratingbutton-icon-withrating,
-html[class*="theme-"] body .ratingbutton-icon-withrating .md-icon,
-html[class*="theme-"] body .dataGridItemCell button[data-isfavorite="true"],
-html[class*="theme-"] body .dataGridItemCell button[data-isfavorite="true"] .md-icon,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="true"],
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="true"] .md-icon,
-html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"],
-html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"] .md-icon,
-html[class*="theme-"] body .dataGridRow:hover button[data-isfavorite="true"],
-html[class*="theme-"] body .dataGridRow:hover button[data-isfavorite="true"] .md-icon {
-  color:                   var(--favorite-heart) !important; 
-  -webkit-text-fill-color: var(--favorite-heart) !important;
-  filter:                  drop-shadow(0 0 5px var(--favorite-heart-alpha-50)) !important;
-  opacity:                 1 !important;
-}
-
-/* B. HOVER DIRECTLY OVER HEART: Brighter Red and Pop */
-html[class*="theme-"] body button[data-isfavorite="true"]:hover,
-html[class*="theme-"] body button[data-isfavorite="true"]:hover .md-icon,
-html[class*="theme-"] body .ratingbutton-icon-withrating:hover,
-html[class*="theme-"] body .ratingbutton-icon-withrating:hover .md-icon,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="true"]:hover,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="true"]:hover .md-icon,
-html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"]:hover,
-html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"]:hover .md-icon {
-  color:                   var(--favorite-heart-hover) !important; 
-  -webkit-text-fill-color: var(--favorite-heart-hover) !important;
-  transform:               scale(1.2) !important;
-  filter:                  drop-shadow(0 0 10px var(--favorite-heart-hover-alpha-80)) !important;
-}
-
-/* C. UN-FAVORITED HEART: Keep white/gray, protect from row-hover gold */
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="false"],
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="false"] .md-icon,
-html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="false"],
-html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="false"] .md-icon {
-  color:                   var(--white-alpha-60) !important;
-  -webkit-text-fill-color: var(--white-alpha-60) !important;
-  filter:                  none !important;
-}
-
-html[class*="theme-"] body button[data-isfavorite="false"]:hover,
-html[class*="theme-"] body button[data-isfavorite="false"]:hover .md-icon,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="false"]:hover,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="false"]:hover .md-icon {
-  color:                   var(--favorite-heart-hover) !important; 
-  -webkit-text-fill-color: var(--favorite-heart-hover) !important;
-  transform:               scale(1.2) !important;
-  filter:                  drop-shadow(0 0 10px var(--favorite-heart-hover-alpha-80)) !important;
 }
 
 /* ============================================================
