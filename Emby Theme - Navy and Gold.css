@@ -1036,7 +1036,7 @@ html[class*="theme-"] .errorBanner h3::before {
     vertical-align: middle; 
 }
 
-/* 6.2 ERROR & MAINTENANCE BANNERS */
+/* 6.2 ERROR & MAINTENANCE BANNERS (ADMIN DASHBOARD) */
 html[class*="theme-"] body .errorBanner,
 html[class*="theme-"] body .warningBanner {
     background-color: var(--error-bg) !important;
