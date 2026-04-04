@@ -1014,7 +1014,6 @@ html[class*="theme-"] body .personCard .button-link {
 }
 
 /* 2. Action Buttons (Solid Gold Backgrounds = Black Text/Icons) */
-/* We use body to ensure highest specificity, but exclude text links */
 html[class*="theme-"] body .btnPlay,
 html[class*="theme-"] body .btnPlay *,
 html[class*="theme-"] body .btnStartNow,
@@ -1037,7 +1036,6 @@ html[class*="theme-"] body .itemsViewSettingsContainer .btnPlay:not(:hover) * {
 }
 
 /* 3. Link Hover Accent (Mapped to: Gold) */
-/* Forces text links to stay Gold even on hover/focus */
 html[class*="theme-"] body .button-link:hover,
 html[class*="theme-"] body .button-link:focus,
 html[class*="theme-"] body .itemAction:hover .cardText {
@@ -1531,7 +1529,7 @@ html[class*="theme-"] .emby-checkbox:focus + span::before {
 
 html[class*="theme-"] .emby-checkbox:not(:checked) + span::before {
     border-color: var(--white-alpha-70) !important; 
-    background-color: var(--black-alpha-20) !important; /* Adds a slight contrast to the inside */
+    background-color: var(--black-alpha-20) !important; 
 }
 
 /* 2. Toggles (Switches): Styled using the Toggle Track/Thumb variables */
@@ -1597,7 +1595,7 @@ html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.backgrou
 html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected):not(.background-theme-a) {
   background:              var(--white-alpha-10) !important;
   background-color:        var(--white-alpha-10) !important;
-  background-image:        none !important; /* The Hammer: Strips ALL native hover gradients/greys */
+  background-image:        none !important; 
   color:                   var(--pure-white) !important;
   -webkit-text-fill-color: var(--pure-white) !important;
 }
@@ -1648,11 +1646,11 @@ html[class*="theme-"] body .listItemOverlayButtonIcon {
     background-color: var(--black-alpha-60) !important; 
     border: 2px solid var(--pure-white) !important;
     border-radius: 50% !important;
-    font-size: 18px !important;   /* Shrinks the triangle to fit the smaller circle */
+    font-size: 18px !important;   
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    margin: 0 !important;         /* Removed auto margin so it snaps to the corner correctly */
+    margin: 0 !important; 
     filter: drop-shadow(0 4px 8px var(--pure-black)) !important;
     transition: all var(--transition-speed) ease !important;
 }
@@ -1880,7 +1878,7 @@ html[class*="theme-"] body .checkboxContainer-lockedfield:hover input.chkLockedF
     transform: scale(1.1) !important;
 }
 
-/* --- 4I. MEDIA CARD HOVER BUTTONS (UNIVERSAL THEME FIX) --- */
+/* --- 4I. MEDIA CARD HOVER BUTTONS --- */
 
 /* 1. Base State: Forces a dark translucent background instead of light grey (Excludes Play Button) */
 html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary) {
@@ -1907,7 +1905,7 @@ html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):h
     filter: none !important;
 }
 
-/* --- 4J. NATIVE DATE PICKER (CUSTOM ICON HIJACK) --- */
+/* --- 4J. NATIVE DATE PICKER --- */
 
 /* 1. Forces the popup window to dark mode */
 html[class*="theme-"] input[type="date"].emby-input,
@@ -1940,7 +1938,7 @@ html[class*="theme-"] input[type="datetime-local"]::-webkit-calendar-picker-indi
 /* --- 4K. VARIOUS BUTTON CORRECTIONS (GLOBALIZED & FIXED) --- */
 
 /* 1. Global Typography & Shapes 
-   Restored to explicit targets to stop Oswald from blowing up list items and small UI elements */
+   Restored to explicit targets to stop Oswald from blowing up list items and small UI element*/
 html[class*="theme-"] body .button-submit,
 html[class*="theme-"] body .button-cancel,
 html[class*="theme-"] body .emby-button.cancel,
@@ -2744,12 +2742,15 @@ html[class*="theme-"] .epgChannelCellInner {
 /* 5. Cell Hover State: Preserves program colors (Movies, Live, etc.) while adding the gold glow */
 html[class*="theme-"] .programCell-active .programCellInner,
 html[class*="theme-"] .programCell:hover .programCellInner {
-  /* Using background-image ensures we tint the cell rather than wiping out the category color */
-  background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)) !important;
+  /* Swapped to white-alpha-10 variable to ensure seasonal compatibility */
+  background-image: linear-gradient(var(--white-alpha-10), var(--white-alpha-10)) !important;
   border-color: transparent !important;
+  
+  /* Unified box-shadow using theme variables */
   box-shadow: inset 0 0 0 var(--hover-border-thickness) var(--theme-primary-color),
               var(--shadow-glow-standard), 
               inset 0 0 10px var(--gold-alpha-10) !important;
+              
   border-radius: var(--border-radius-sm) !important;
   z-index: 10 !important;
 }
@@ -3010,7 +3011,6 @@ html[class*="theme-"] .nowPlayingBar {
   -webkit-backdrop-filter: var(--blur-heavy) !important;
   border-top:              var(--hover-border-thickness) solid var(--my-gold) !important;
   box-shadow:              0 -10px 30px var(--black-alpha-80) !important;
-  /* Removed transform: translateZ(0) so Emby can natively slide the bar off-screen */
 }
 
 /* Safety Net: Ensures the bar completely disappears when Emby tells it to hide */
@@ -3221,7 +3221,6 @@ html[class*="theme-"] .dataGridHeader {
 }
 
 /* 2. Strip dark backgrounds off the inner layers so the blue shows through */
-/* Removed margin resets so Emby's native X-axis alignment is preserved */
 html[class*="theme-"] .dataGridHeader .dataGridHeader-content,
 html[class*="theme-"] .dataGridHeader .dataGridItem-content,
 html[class*="theme-"] .dataGridHeader .dataGridHeader-content-inner {
@@ -3410,7 +3409,7 @@ html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridRow {
     border-radius: var(--border-radius-md) !important;
     transition: all var(--transition-speed) ease-in-out !important;
     margin-bottom: 2px !important; 
-    box-sizing: border-box !important; /* THE MAGIC FIX: Draws borders inward so it never exceeds 100% width! */
+    box-sizing: border-box !important; 
 }
 
 /* 3. Odd Rows (Darker Navy) - Excludes Season Page */
@@ -3565,7 +3564,7 @@ html[class*="theme-"] body .card .playedIndicator {
 /* 1. Base Card Container: Charcoal foundation */
 html[class*="theme-"] body .view-librarysetup-librarysetup .cardContent,
 html[class*="theme-"] body .view-librarysetup-librarysetup .visualCardBox {
-  background-color: var(--navy-light-alpha-80) !important; /* FIXED MISSING VARIABLE */
+  background-color: var(--navy-light-alpha-80) !important; 
   background-image: none !important;
   border: none !important;
   overflow: visible !important; 
@@ -3623,10 +3622,10 @@ html[class*="theme-"] body .view-librarysetup-librarysetup .cardMediaInfoItem .b
 
 /* Subtle background darkening of the charcoal base on hover */
 html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardContent {
-  background-color: var(--navy-mid-solid) !important; /* FIXED MISSING VARIABLE */
+  background-color: var(--navy-mid-solid) !important; 
 }
 
-/* --- 10K. USER TABLE (UNIVERSAL THEME FIX) --- */
+/* --- 10K. USER TABLE --- */
 
 /* 1. Forces main list text to pure white across all base themes */
 html[class*="theme-"] body .view .listItem .listItemBodyText,
@@ -3813,10 +3812,9 @@ html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.backgrou
 }
 
 /* ============================================================
-   HOTFIX: PLUGIN - TRAKT - PAPERLIST / CHECKBOX TABLES (Exclude Folders, etc.)
+   HOTFIX: PLUGIN - TRAKT - PAPERLIST / CHECKBOX TABLES
    ============================================================ */
 
-/* 1. Nuke the ugly solid grey and replace with a sleek navy panel */
 html[class*="theme-"] body .paperList,
 html[class*="theme-"] body .checkboxList-paperList {
     background: var(--navy-light-alpha-60) !important;
@@ -3827,7 +3825,6 @@ html[class*="theme-"] body .checkboxList-paperList {
     padding: 8px 0 !important;
 }
 
-/* 2. Text color fix and layout adjustment for the rows */
 html[class*="theme-"] body .paperList .emby-checkbox-label {
     color: var(--pure-white) !important;
     -webkit-text-fill-color: var(--pure-white) !important;
@@ -3841,7 +3838,6 @@ html[class*="theme-"] body .paperList .emby-checkbox-label {
    HOTFIX: PLUGIN - EXPLORE DATA ITEM - METADATA & IDENTIFY TABLES (SOLID GREY FIX)
    ============================================================ */
 
-/* Removes the solid block background from table containers in dialogs */
 html[class*="theme-"] body .formDialog .visualCardBox,
 html[class*="theme-"] body .dialog .visualCardBox,
 html[class*="theme-"] body table.dataExplorerTable {
