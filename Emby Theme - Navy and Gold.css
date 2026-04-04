@@ -190,7 +190,7 @@ html,
 
   /* BACKDROP & FANART STYLE */
   --backdrop-opacity: 0.9;                                          /* DIMMING (Traditional full-screen dark overlay) */
-  --backdrop-bg-color: var(--navy-base-alpha-75);                   /* DIMMING (Traditional full-screen dark overlay) */
+  --backdrop-bg-color: rgba(0, 8, 20, 0.75);                      /* DIMMING (Traditional full-screen dark overlay) */
   --backdrop-gradient: none;                                        /* DIMMING (Traditional full-screen dark overlay) */
   --backdrop-text-shadow: none;                                     /* DIMMING (Traditional full-screen dark overlay) */
   /* --backdrop-opacity: 1;                                         /* NO DIMMING */
@@ -1279,39 +1279,51 @@ html[class*="theme-"] body .emby-tab-button[style*="display: none"] {
   width:                   0 !important;
 }
 
-/* --- 3D. SIDEBAR HOVER & SELECTION FIX (20px ROUNDED) --- */
+/* --- 3D. UNIVERSAL SIDEBAR & SETTINGS MENU FIX (20px ROUNDED) --- */
 
-/* 1. BASE STATE: Applies the 20px rounding and traps any bleeding backgrounds */
-html[class*="theme-"] body .mainDrawer .navMenuOption {
+/* 1. BASE STATE: Applies the 20px rounding to ALL sidebar menus (Main & Settings) */
+html[class*="theme-"] body .navMenuOption {
+    background: transparent !important; 
+    background-color: transparent !important;
+    background-image: none !important; 
     border-radius: 20px !important;
-    overflow: hidden !important; /* The magic bullet that stops backgrounds from clipping outside the curves! */
-    margin: 2px 10px !important; /* Adds a tiny bit of breathing room so the curves don't hit the screen edges */
+    overflow: hidden !important; 
+    margin: 2px 10px !important; 
     width: auto !important;
     transition: all var(--transition-speed) ease !important;
 }
 
-/* 2. HOVER STATE: Adds a visible highlight and turns text/icons Gold when mousing over */
-html[class*="theme-"] body .mainDrawer .navMenuOption:hover {
+/* 2. HOVER STATE: Adds a visible highlight and turns text/icons Pure White when mousing over */
+html[class*="theme-"] body .navMenuOption:hover {
+    background: var(--white-alpha-10) !important; 
     background-color: var(--white-alpha-10) !important;
+    background-image: none !important; 
     cursor: pointer !important;
 }
 
-html[class*="theme-"] body .mainDrawer .navMenuOption:hover .navDrawerListItemIcon,
-html[class*="theme-"] body .mainDrawer .navMenuOption:hover .navMenuOptionText {
-    color: var(--my-gold) !important;
-    -webkit-text-fill-color: var(--my-gold) !important;
+html[class*="theme-"] body .navMenuOption:hover .navDrawerListItemIcon,
+html[class*="theme-"] body .navMenuOption:hover .navMenuOptionText,
+html[class*="theme-"] body .navMenuOption:hover .md-icon {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
 }
 
 /* 3. SELECTED STATE: Kills the bright blue background and applies the theme glow */
-html[class*="theme-"] body .mainDrawer .navMenuOption.navMenuOption-selected {
+html[class*="theme-"] body .navMenuOption.navMenuOption-selected,
+html[class*="theme-"] body .navMenuOption.background-theme-a {
+    background: var(--theme-icon-focus-background) !important; 
     background-color: var(--theme-icon-focus-background) !important;
-    background-image: none !important; /* Strips any native gradient bleeds */
+    background-image: none !important; 
     box-shadow: inset 10px 0 15px var(--gold-alpha-10) !important;
     border-left: none !important;
 }
 
-html[class*="theme-"] body .mainDrawer .navMenuOption.navMenuOption-selected .navDrawerListItemIcon,
-html[class*="theme-"] body .mainDrawer .navMenuOption.navMenuOption-selected .navMenuOptionText {
+html[class*="theme-"] body .navMenuOption.navMenuOption-selected .navDrawerListItemIcon,
+html[class*="theme-"] body .navMenuOption.navMenuOption-selected .navMenuOptionText,
+html[class*="theme-"] body .navMenuOption.navMenuOption-selected .md-icon,
+html[class*="theme-"] body .navMenuOption.background-theme-a .navDrawerListItemIcon,
+html[class*="theme-"] body .navMenuOption.background-theme-a .navMenuOptionText,
+html[class*="theme-"] body .navMenuOption.background-theme-a .md-icon {
     color: var(--my-gold) !important;
     -webkit-text-fill-color: var(--my-gold) !important;
 }
@@ -1528,26 +1540,53 @@ html[class*="theme-"] .button-accent-flat {
   color:                   var(--pure-black) !important;
 }
 
-/* 2. List Item Hovers: Styling for menu items and list selections */
+/* 2. List Item Hovers: Styling for menu items and settings sidebar */
 html[class*="theme-"] .paperListbox {
   background-color:        var(--navy-light-alpha-80) !important;
 }
 
-html[class*="theme-"] .actionSheetMenuItem-selected,
-html[class*="theme-"] .listItem-selected,
-html[class*="theme-"] .paperListbox-selected {
+/* 3. Selected Settings / List Items (Fixes the blinding native blue pill) */
+html[class*="theme-"] body .actionSheetMenuItem-selected,
+html[class*="theme-"] body .listItem-selected,
+html[class*="theme-"] body .paperListbox-selected,
+html[class*="theme-"] body .background-theme-a {
+  background:              var(--gold-alpha-20) !important;
   background-color:        var(--gold-alpha-20) !important;
+  background-image:        none !important; /* Obliterates native blue gradients */
   color:                   var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
 }
 
-html[class*="theme-"] .actionSheetMenuItem:hover,
-html[class*="theme-"] .listItem.listItem-button:hover,
-html[class*="theme-"] .paperListbox .listItem:hover {
+html[class*="theme-"] body .actionSheetMenuItem-selected .md-icon,
+html[class*="theme-"] body .listItem-selected .md-icon,
+html[class*="theme-"] body .paperListbox-selected .md-icon,
+html[class*="theme-"] body .background-theme-a .md-icon,
+html[class*="theme-"] body .listItem-selected .listItemBodyText,
+html[class*="theme-"] body .background-theme-a .listItemBodyText {
+  color:                   var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* 4. Hover State for Settings & Lists (Fixes light vs dark theme bleeding) */
+html[class*="theme-"] body .actionSheetMenuItem:hover,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a),
+html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected):not(.background-theme-a) {
+  background:              var(--white-alpha-10) !important;
   background-color:        var(--white-alpha-10) !important;
-  color:                   var(--my-gold) !important;
+  background-image:        none !important; /* The Hammer: Strips ALL native hover gradients/greys */
+  color:                   var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
 }
 
-/* 3. Media Overlays: Small buttons appearing on poster hover */
+html[class*="theme-"] body .actionSheetMenuItem:hover .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .md-icon,
+html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected):not(.background-theme-a) .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .listItemBodyText {
+  color:                   var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+/* 5. Media Overlays: Small buttons appearing on poster hover */
 html[class*="theme-"] .cardOverlayFab-primary,
 html[class*="theme-"] .cardOverlayButtonIcon,
 html[class*="theme-"] .listItemOverlayButtonIcon,
@@ -3259,7 +3298,9 @@ html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem:hover,
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem-border:hover,
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItem:hover,
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridRow:hover {
+    background:       var(--table-row-hover-bg) !important;
     background-color: var(--table-row-hover-bg) !important;
+    background-image: none !important; /* Stops native theme bleed */
 }
 
 /* 5. Override Light Theme's Black Text (Safeguards Action Buttons) */
