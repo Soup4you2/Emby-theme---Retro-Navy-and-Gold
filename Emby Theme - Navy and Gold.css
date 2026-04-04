@@ -1619,10 +1619,62 @@ html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.backgrou
 /* 5. Media Overlays: Small buttons appearing on poster hover */
 html[class*="theme-"] .cardOverlayFab-primary,
 html[class*="theme-"] .cardOverlayButtonIcon,
-html[class*="theme-"] .listItemOverlayButtonIcon,
-html[class*="theme-"] .listItemImageButton {
+html[class*="theme-"] .listItemOverlayButtonIcon {
   background-color:        var(--my-gold) !important;
   color:                   var(--pure-black) !important;
+}
+
+/* 5b. Episode List Play Buttons (Compact Gold Circle) */
+
+/* Keeps the invisible overlay completely transparent so it doesn't cover the image */
+html[class*="theme-"] body .listItemImageButton,
+html[class*="theme-"] body .listItemOverlayButton-hover,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .listItemImageButton,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .listItemOverlayButton-hover {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    transform: none !important;
+    padding: 0 !important;
+}
+
+/* Resting State: We style the ICON ITSELF to be the compact circle */
+html[class*="theme-"] body .listItemImageButton .md-icon,
+html[class*="theme-"] body .listItemOverlayButtonIcon {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    background-color: var(--black-alpha-60) !important; 
+    border: 2px solid var(--pure-white) !important;
+    border-radius: 50% !important;
+    font-size: 18px !important;   /* Shrinks the triangle to fit the smaller circle */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;         /* Removed auto margin so it snaps to the corner correctly */
+    filter: drop-shadow(0 4px 8px var(--pure-black)) !important;
+    transition: all var(--transition-speed) ease !important;
+}
+
+/* Row Hover State: The icon background turns Gold, the triangle turns Black */
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .listItemImageButton .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .listItemOverlayButtonIcon {
+    background-color: var(--my-gold) !important;
+    border-color: var(--my-gold) !important;
+    color: var(--pure-black) !important;
+    -webkit-text-fill-color: var(--pure-black) !important;
+    filter: drop-shadow(0 0 6px var(--pure-black)) !important;
+}
+
+/* Direct Hover State: Circle glows brighter and gets slightly bigger */
+html[class*="theme-"] body .listItemImageButton:hover .md-icon,
+html[class*="theme-"] body .listItemOverlayButton-hover:hover .md-icon {
+    background-color: var(--my-gold-light) !important;
+    border-color: var(--my-gold-light) !important;
+    color: var(--pure-black) !important;
+    -webkit-text-fill-color: var(--pure-black) !important;
+    filter: drop-shadow(0 0 10px var(--my-gold)) !important;
 }
 
 /* --- 4E. MEDIA STATUS INDICATORS (UNWATCHED & PLAYED) --- */
@@ -1635,42 +1687,58 @@ html[class*="theme-"] .countIndicator {
   border-radius:           var(--border-radius-pill) !important;
 }
 
-/* 2. Played Checkmarks: Overrides default green with theme gold */
+/* 2. Played Checkmarks: Resting and Row-Hover State */
 html[class*="theme-"] body .playstatebutton-icon-played,
 html[class*="theme-"] body .paper-icon-button-light.playstatebutton-icon-played,
 html[class*="theme-"] body button[data-played="true"],
-html[class*="theme-"] body button[data-played="true"] *,
-html[class*="theme-"] body .dataGridItem .playstatebutton-icon-played,
-html[class*="theme-"] body .listItem .playstatebutton-icon-played,
-html[class*="theme-"] body .dataGridItemCell button[data-played="true"] *,
-html[class*="theme-"] body .dataGridItem:hover button[data-played="true"] * {
+html[class*="theme-"] body button[data-played="true"] .md-icon,
+html[class*="theme-"] body .dataGridItemCell button[data-played="true"] .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-played="true"] .md-icon {
   color:                   var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
   filter:                  drop-shadow(0 0 5px var(--gold-alpha-40)) !important;
   opacity:                 1 !important;
+  transition:              all var(--transition-speed) ease !important;
 }
 
-/* 2b. Played Checkmarks Hover State */
+/* 2b. Played Checkmarks Hover State (Gold Circle Background, Black Icon) */
 html[class*="theme-"] body button[data-played="true"]:hover,
-html[class*="theme-"] body button[data-played="true"]:hover *,
-html[class*="theme-"] body .playstatebutton-icon-played:hover {
-  color:                   var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
-  transform:               scale(1.2) !important;
-  filter:                  drop-shadow(0 0 10px var(--gold-alpha-80)) !important;
+html[class*="theme-"] body .playstatebutton-icon-played:hover,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-played="true"]:hover {
+  background-color:        var(--my-gold) !important;
+  border-radius:           50% !important;
+  transform:               scale(1.1) !important;
+  box-shadow:              0 0 10px var(--gold-alpha-40) !important;
 }
 
-/* 3. Played Indicator Pills: Floating status in card corners */
-html[class*="theme-"] .playedIndicator,
-html[class*="theme-"] .cardIndicator.playedIndicator {
+/* Forces the icon to black when the button is hovered */
+html[class*="theme-"] body button[data-played="true"]:hover .md-icon,
+html[class*="theme-"] body .playstatebutton-icon-played:hover .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-played="true"]:hover .md-icon {
+  color:                   var(--pure-black) !important;
+  -webkit-text-fill-color: var(--pure-black) !important;
+  filter:                  none !important;
+}
+
+/* 3. Played Indicator Pills: Floating status in card and thumbnail corners */
+html[class*="theme-"] body .playedIndicator,
+html[class*="theme-"] body .cardIndicator.playedIndicator,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .playedIndicator {
   background:              var(--played-indicator-bg) !important;
-  color:                   var(--played-indicator-color) !important;
   border:                  var(--played-indicator-border) !important;
   box-shadow:              var(--played-indicator-shadow) !important;
+  border-radius:           var(--border-radius-pill) !important;
+  transform:               none !important;
 }
 
-html[class*="theme-"] .playedIndicator .md-icon {
+/* Forces the checkmark icon inside to stay Dark Navy, protecting it from row-hover rules */
+html[class*="theme-"] body .playedIndicator,
+html[class*="theme-"] body .playedIndicator .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .playedIndicator,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .playedIndicator .md-icon {
   color:                   var(--played-indicator-color) !important;
+  -webkit-text-fill-color: var(--played-indicator-color) !important;
+  filter:                  none !important;
 }
 
 /* 4. Unwatched Count Pills: High-visibility notification numbers */
@@ -3310,51 +3378,75 @@ html[class*="theme-"] body .listItem:hover .mediaInfoItem *:not(.starIcon) {
 
 /* --- 10E. LIST VIEW ZEBRA STRIPING (EXCLUDING SEASON PAGES) --- */
 
-/* 1. Target rows Strictly NOT in the series items section */
+/* 1. STRIP THE INNER BOXES (Forces the main background to transparent) */
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem-content,
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItem-content,
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem:hover .listItem-content,
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItem:hover .dataGridItem-content {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* 1b. DESTROY THE PHANTOM HOVER ELEMENTS (Kills the offset gray ghost box!) */
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem-content::before,
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem-content::after,
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItem-content::before,
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItem-content::after {
+    display: none !important;
+    content: none !important;
+    background: transparent !important;
+}
+
+/* 2. Sets up the resting state of the row as a single unified box */
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem,
-html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem-border,
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItem,
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridRow {
     background-color: transparent !important;
-    border: none !important;
+    border: 2px solid transparent !important; /* Keeps geometry stable */
+    border-radius: var(--border-radius-md) !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+    margin-bottom: 2px !important; 
+    box-sizing: border-box !important; /* THE MAGIC FIX: Draws borders inward so it never exceeds 100% width! */
 }
 
-/* 2. Odd Rows (Darker Navy) - Excludes Season Page */
+/* 3. Odd Rows (Darker Navy) - Excludes Season Page */
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem:nth-child(odd),
-html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem-border:nth-child(odd),
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItem:nth-child(odd),
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridRow:nth-child(odd) {
     background-color: var(--table-row-bg-odd) !important;
 }
 
-/* 3. Even Rows (Lighter Navy) - Excludes Season Page */
+/* 4. Even Rows (Lighter Navy) - Excludes Season Page */
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem:nth-child(even),
-html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem-border:nth-child(even),
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItem:nth-child(even),
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridRow:nth-child(even) {
     background-color: var(--table-row-bg-even) !important;
 }
 
-/* 4. Hover State (Gold Tint) - Excludes Season Page */
+/* 5. Hover State (Unified Glow & Border - No scale to prevent edge clipping) */
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem:hover,
-html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem-border:hover,
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItem:hover,
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridRow:hover {
     background:       var(--table-row-hover-bg) !important;
     background-color: var(--table-row-hover-bg) !important;
-    background-image: none !important; /* Stops native theme bleed */
+    background-image: none !important; 
+    border-color:     var(--theme-primary-color) !important;
+    box-shadow:       var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+    z-index:          10 !important;
 }
 
-/* 5. Override Light Theme's Black Text (Safeguards Action Buttons) */
+/* 6. Override Light Theme's Black Text (Safeguards Action Buttons) */
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem .secondaryText:not(button),
-html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem-border .secondaryText:not(button),
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItemCell {
     color: var(--white-alpha-70) !important;
     -webkit-text-fill-color: var(--white-alpha-70) !important;
 }
 
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem .listItemBodyText-first,
-html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem-border .listItemBodyText-first,
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItemCell.primaryText {
     color: var(--pure-white) !important;
     -webkit-text-fill-color: var(--pure-white) !important;
@@ -3473,7 +3565,7 @@ html[class*="theme-"] body .card .playedIndicator {
 /* 1. Base Card Container: Charcoal foundation */
 html[class*="theme-"] body .view-librarysetup-librarysetup .cardContent,
 html[class*="theme-"] body .view-librarysetup-librarysetup .visualCardBox {
-  background-color: rgba(var(--navy-banner-rgb), 0.8) !important; 
+  background-color: var(--navy-light-alpha-80) !important; /* FIXED MISSING VARIABLE */
   background-image: none !important;
   border: none !important;
   overflow: visible !important; 
@@ -3486,16 +3578,16 @@ html[class*="theme-"] body .view-librarysetup-librarysetup .cardImageContainer {
   transform: translateY(-2px) scale(1.01) !important;
   z-index: 10 !important;
   border-radius: var(--border-radius-md) !important;
-  border: var(--hover-border-thickness) solid transparent !important; /* Placeholder border */
+  border: var(--hover-border-thickness) solid transparent !important; 
   transition: transform var(--transition-speed) ease, border-color var(--transition-speed) ease !important;
 }
 
 /* 3. THE GOLD HOVER: Replicates the Home Screen media card look */
 html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardImageContainer {
-  transform: translateY(-8px) scale(1.04) !important; /* Lifts higher like media cards */
-  border-color: var(--my-gold) !important;          /* Solid Gold Border */
+  transform: translateY(-8px) scale(1.04) !important; 
+  border-color: var(--my-gold) !important;          
   box-shadow: 0 20px 40px var(--pure-black), 
-              var(--shadow-glow-standard) !important; /* Standard Gold Glow */
+              var(--shadow-glow-standard) !important; 
 }
 
 /* 4. Footer & Text Layout */
@@ -3519,7 +3611,7 @@ html[class*="theme-"] body .view-librarysetup-librarysetup .cardText-secondary {
   margin-top: 4px !important;
 }
 
-/* Gold for Interactive Library Links (Oswald font) */
+/* Gold for Interactive Library Links */
 html[class*="theme-"] body .view-librarysetup-librarysetup .cardMediaInfoItem .button-link,
 html[class*="theme-"] body .view-librarysetup-librarysetup .cardMediaInfoItem .button-link * {
   color: var(--my-gold) !important;
@@ -3531,7 +3623,7 @@ html[class*="theme-"] body .view-librarysetup-librarysetup .cardMediaInfoItem .b
 
 /* Subtle background darkening of the charcoal base on hover */
 html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardContent {
-  background-color: rgb(var(--navy-banner-rgb)) !important;
+  background-color: var(--navy-mid-solid) !important; /* FIXED MISSING VARIABLE */
 }
 
 /* --- 10K. USER TABLE (UNIVERSAL THEME FIX) --- */
@@ -3666,24 +3758,54 @@ html[class*="theme-"] body .programCell .mediaInfoItems .mediaInfoItem:hover * {
 
 /* 3. Universal Status Icon Fixes (Favorites & Played) */
 
-/* --- Favorite Heart (Always Red) --- */
-html[class*="theme-"] body .ratingbutton-icon-withrating,
-html[class*="theme-"] body .paper-icon-button-light.ratingbutton-icon-withrating,
+/* A. RESTING & ROW-HOVER STATE: Always Red */
 html[class*="theme-"] body button[data-isfavorite="true"],
-html[class*="theme-"] body button[data-isfavorite="true"] *,
-html[class*="theme-"] body .dataGridItem .ratingbutton-icon-withrating,
-html[class*="theme-"] body .listItem .ratingbutton-icon-withrating,
-html[class*="theme-"] body .dataGridItemCell button[data-isfavorite="true"] *,
-html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"] * {
+html[class*="theme-"] body button[data-isfavorite="true"] .md-icon,
+html[class*="theme-"] body .ratingbutton-icon-withrating,
+html[class*="theme-"] body .ratingbutton-icon-withrating .md-icon,
+html[class*="theme-"] body .dataGridItemCell button[data-isfavorite="true"],
+html[class*="theme-"] body .dataGridItemCell button[data-isfavorite="true"] .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="true"],
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="true"] .md-icon,
+html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"],
+html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"] .md-icon,
+html[class*="theme-"] body .dataGridRow:hover button[data-isfavorite="true"],
+html[class*="theme-"] body .dataGridRow:hover button[data-isfavorite="true"] .md-icon {
   color:                   var(--favorite-heart) !important; 
   -webkit-text-fill-color: var(--favorite-heart) !important;
   filter:                  drop-shadow(0 0 5px var(--favorite-heart-alpha-50)) !important;
   opacity:                 1 !important;
 }
 
+/* B. HOVER DIRECTLY OVER HEART: Brighter Red and Pop */
 html[class*="theme-"] body button[data-isfavorite="true"]:hover,
-html[class*="theme-"] body button[data-isfavorite="true"]:hover *,
-html[class*="theme-"] body .ratingbutton-icon-withrating:hover {
+html[class*="theme-"] body button[data-isfavorite="true"]:hover .md-icon,
+html[class*="theme-"] body .ratingbutton-icon-withrating:hover,
+html[class*="theme-"] body .ratingbutton-icon-withrating:hover .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="true"]:hover,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="true"]:hover .md-icon,
+html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"]:hover,
+html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"]:hover .md-icon {
+  color:                   var(--favorite-heart-hover) !important; 
+  -webkit-text-fill-color: var(--favorite-heart-hover) !important;
+  transform:               scale(1.2) !important;
+  filter:                  drop-shadow(0 0 10px var(--favorite-heart-hover-alpha-80)) !important;
+}
+
+/* C. UN-FAVORITED HEART: Keep white/gray, protect from row-hover gold */
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="false"],
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="false"] .md-icon,
+html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="false"],
+html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="false"] .md-icon {
+  color:                   var(--white-alpha-60) !important;
+  -webkit-text-fill-color: var(--white-alpha-60) !important;
+  filter:                  none !important;
+}
+
+html[class*="theme-"] body button[data-isfavorite="false"]:hover,
+html[class*="theme-"] body button[data-isfavorite="false"]:hover .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="false"]:hover,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="false"]:hover .md-icon {
   color:                   var(--favorite-heart-hover) !important; 
   -webkit-text-fill-color: var(--favorite-heart-hover) !important;
   transform:               scale(1.2) !important;
