@@ -976,7 +976,7 @@ html[class*="theme-"] .mediaInfoAttributeLabel {
 
 /* 6. IMMUTABLE EXCEPTIONS (Alert Banners & Media Badges) */
 html[class*="theme-"] .infoBanner,
-html[class*="theme-"] .infoBanner *:not(.button-link) {
+html[class*="theme-"] .infoBanner *:not(.button-link):not(.emby-button):not(.emby-button *) {
     color: var(--pure-white) !important;
     -webkit-text-fill-color: var(--pure-white) !important;
 }
@@ -986,6 +986,27 @@ html[class*="theme-"] .infoBanner .button-link,
 html[class*="theme-"] .infoBanner .button-link * {
     color: var(--my-gold) !important;
     -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* 6.1 INFO BANNER EXCEPTIONS & OVERRIDES */
+/* Target ONLY the Connection Help button using its exact class chain */
+html[class*="theme-"] .infoBanner a.raised.button-submit.emby-button,
+html[class*="theme-"] .infoBanner a.raised.button-submit.emby-button * {
+    color: var(--season-btn-text) !important;
+    -webkit-text-fill-color: var(--season-btn-text) !important;
+}
+
+/* Hover state for just that button */
+html[class*="theme-"] .infoBanner a.raised.button-submit.emby-button:hover,
+html[class*="theme-"] .infoBanner a.raised.button-submit.emby-button:hover * {
+    color: var(--season-btn-text-hover) !important;
+    -webkit-text-fill-color: var(--season-btn-text-hover) !important;
+}
+
+/* Safety net: Force standard text links inside banners back to white */
+html[class*="theme-"] .infoBanner p a {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
 }
 
 /* 7. NATIVE UI BUTTON FIXES (Removes Grey Backgrounds) */
@@ -3818,7 +3839,6 @@ html[class*="theme-"] body .button-submit {
 /* ============================================================
    12. GLOBAL FIXES / HOTFIX (WIP) ZONE
    ============================================================ */
-
 
 /* ============================================================
    HOTFIX: PLUGIN - TRAKT - PAPERLIST / CHECKBOX TABLES
