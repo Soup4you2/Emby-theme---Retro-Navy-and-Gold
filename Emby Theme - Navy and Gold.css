@@ -76,23 +76,23 @@ html,
   --nav-pill-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light); /* Secondary shadow setting for active pills */
 
   /* --- EMBY THEME ENFORCERS (Overrides native Emby logic) --- */
-  --theme-primary-color: var(--my-gold) !important;                /* Emby's native primary color hook */
-  --theme-accent-color: var(--my-gold) !important;                 /* Emby's native accent color hook */
-  --theme-accent-text-color: var(--my-gold) !important;            /* Text links and highlighted active text */
-  --theme-checked-color: var(--my-gold) !important;                /* Active state of checkboxes and switches */
-  --theme-icon-focus-background: var(--gold-alpha-20) !important;  /* Background highlight behind focused icons/menus */
-  --theme-selection-background: var(--gold-alpha-20) !important;   /* Background highlight behind selected list items */
-  --theme-primary-color-lightened: var(--my-gold) !important;      /* Secondary highlight hook used by Emby */
-  --button-accent-flat-background: var(--gold-alpha-20) !important;/* Flat background state for secondary buttons */
-  --theme-background: var(--retro-navy) !important;                /* Emby's native background hook */
-  --theme-text-color: var(--text-muted) !important;                /* Emby's native global text hook */
-  --theme-text-color-opaque: var(--pure-white) !important;         /* Emby's native bright text hook */
-  --theme-secondary-text-color: var(--white-alpha-70) !important;  /* Emby's native muted/sub-text hook */
-  --line-background: var(--gold-alpha-15) !important;              /* Color of horizontal divider lines */
-  --line-size: 1px !important;                                     /* Thickness of horizontal divider lines */
-  --background-color: var(--retro-navy) !important;                /* Safety fallback for the main background */
-  --dialog-background-color: var(--navy-light-alpha-80) !important;/* Default background color of modal popups */
-  --theme-text-color-force: var(--text-muted);                     /* Custom override variable to force text colors */
+  --theme-primary-color: var(--my-gold);                          /* Emby's native primary color hook */
+  --theme-accent-color: var(--my-gold);                           /* Emby's native accent color hook */
+  --theme-accent-text-color: var(--my-gold);                      /* Text links and highlighted active text */
+  --theme-checked-color: var(--my-gold);                          /* Active state of checkboxes and switches */
+  --theme-icon-focus-background: var(--gold-alpha-20);            /* Background highlight behind focused icons/menus */
+  --theme-selection-background: var(--gold-alpha-20);             /* Background highlight behind selected list items */
+  --theme-primary-color-lightened: var(--my-gold);                /* Secondary highlight hook used by Emby */
+  --button-accent-flat-background: var(--gold-alpha-20);          /* Flat background state for secondary buttons */
+  --theme-background: var(--retro-navy);                          /* Emby's native background hook */
+  --theme-text-color: var(--text-muted);                          /* Emby's native global text hook */
+  --theme-text-color-opaque: var(--pure-white);                   /* Emby's native bright text hook */
+  --theme-secondary-text-color: var(--white-alpha-70);            /* Emby's native muted/sub-text hook */
+  --line-background: var(--gold-alpha-15);                        /* Color of horizontal divider lines */
+  --line-size: 1px;                                               /* Thickness of horizontal divider lines */
+  --background-color: var(--retro-navy);                          /* Safety fallback for the main background */
+  --dialog-background-color: var(--navy-light-alpha-80);          /* Default background color of modal popups */
+  --theme-text-color-force: var(--text-muted);                    /* Custom override variable to force text colors */
 
   /* --- RGBA TRANSLUCENCY VARIABLES (The Math) --- */
   --black-alpha-20: rgba(var(--pure-black-rgb), 0.2);              /* Very light shadow */
@@ -268,55 +268,55 @@ html,
 
   /* OPTION 2: VALENTINE'S DAY */
   /*
-  --my-gold-rgb: 255, 182, 193 !important;     
-  --theme-primary-rgb: 230, 0, 73 !important;   
-  --theme-accent-rgb: 255, 20, 147 !important;
-  --navy-base-rgb: 26, 0, 13 !important;
-  --navy-mid-rgb: 35, 0, 17 !important;
-  --navy-light-rgb: 45, 0, 22 !important;
-  --theme-primary-color: #e60049 !important;   
-  --my-gold: rgb(var(--my-gold-rgb)) !important; 
-  --my-gold-light: #ffe4e1 !important;
-  --theme-accent-color: rgb(var(--theme-accent-rgb)) !important;
-  --retro-glow: rgba(var(--theme-primary-rgb), 0.6) !important; 
-  --theme-accent-text-color: var(--my-gold) !important;
-  --theme-checked-color: var(--theme-primary-color) !important;
-  --theme-icon-focus-background: rgba(var(--theme-primary-rgb), 0.2) !important;
-  --theme-selection-background: rgba(var(--theme-primary-rgb), 0.2) !important;
-  --retro-navy: rgb(var(--navy-base-rgb)) !important;             
-  --retro-navy-light: rgb(var(--navy-light-rgb)) !important;        
-  --scrollbar-thumb: #ec78b6 !important;
-  --nav-pill-bg-inactive: transparent !important;
-  --nav-pill-hover: rgba(255, 0, 85, 0.15) !important;
-  --nav-pill-hover-text: rgba(255, 190, 205, 1.0) !important;
-  --nav-pill-hover-border-color: rgba(255, 0, 85, 0.5) !important;
-  --nav-pill-active: rgba(90, 15, 40, 0.8) !important; 
-  --nav-pill-text: rgba(180, 170, 175, 1.0) !important;
-  --nav-pill-active-text: rgba(255, 190, 205, 1.0) !important;
-  --nav-pill-active-border-color: rgba(255, 0, 85, 1.0) !important;
-  --nav-pill-active-glow: 0 0 12px rgba(255, 0, 85, 0.6), inset 0 0 8px rgba(255, 0, 85, 0.3) !important;
-  --nav-pill-bar-bg: rgba(35, 20, 28, 0.9) !important;
-  --nav-pill-bar-border: 1px solid rgba(0, 0, 0, 0.4) !important;
-  --season-star-color: rgb(255, 185, 0) !important;
-  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important; 
-  --season-btn-bg: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--theme-accent-color) 100%) !important;
-  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--my-gold) 100%) !important;
-  --season-btn-text: var(--pure-white) !important;
-  --season-btn-text-hover: #1a000d !important;
-  --season-btn-border: var(--pure-white) !important;
-  --season-btn-border-hover: var(--pure-white) !important;
-  --season-btn-shadow: 0 4px 10px rgba(var(--theme-primary-rgb), 0.4) !important;
-  --season-btn-shadow-hover: 0 6px 15px rgba(var(--theme-accent-rgb), 0.6), 0 0 20px rgba(var(--my-gold-rgb), 0.6) !important;
+  --my-gold-rgb: 255, 182, 193;     
+  --theme-primary-rgb: 230, 0, 73;   
+  --theme-accent-rgb: 255, 20, 147;
+  --navy-base-rgb: 26, 0, 13;
+  --navy-mid-rgb: 35, 0, 17;
+  --navy-light-rgb: 45, 0, 22;
+  --theme-primary-color: #e60049;   
+  --my-gold: rgb(var(--my-gold-rgb)); 
+  --my-gold-light: #ffe4e1;
+  --theme-accent-color: rgb(var(--theme-accent-rgb));
+  --retro-glow: rgba(var(--theme-primary-rgb), 0.6); 
+  --theme-accent-text-color: var(--my-gold);
+  --theme-checked-color: var(--theme-primary-color);
+  --theme-icon-focus-background: rgba(var(--theme-primary-rgb), 0.2);
+  --theme-selection-background: rgba(var(--theme-primary-rgb), 0.2);
+  --retro-navy: rgb(var(--navy-base-rgb));             
+  --retro-navy-light: rgb(var(--navy-light-rgb));        
+  --scrollbar-thumb: #ec78b6;
+  --nav-pill-bg-inactive: transparent;
+  --nav-pill-hover: rgba(255, 0, 85, 0.15);
+  --nav-pill-hover-text: rgba(255, 190, 205, 1.0);
+  --nav-pill-hover-border-color: rgba(255, 0, 85, 0.5);
+  --nav-pill-active: rgba(90, 15, 40, 0.8); 
+  --nav-pill-text: rgba(180, 170, 175, 1.0);
+  --nav-pill-active-text: rgba(255, 190, 205, 1.0);
+  --nav-pill-active-border-color: rgba(255, 0, 85, 1.0);
+  --nav-pill-active-glow: 0 0 12px rgba(255, 0, 85, 0.6), inset 0 0 8px rgba(255, 0, 85, 0.3);
+  --nav-pill-bar-bg: rgba(35, 20, 28, 0.9);
+  --nav-pill-bar-border: 1px solid rgba(0, 0, 0, 0.4);
+  --season-star-color: rgb(255, 185, 0);
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)); 
+  --season-btn-bg: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--theme-accent-color) 100%);
+  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--my-gold) 100%);
+  --season-btn-text: var(--pure-white);
+  --season-btn-text-hover: #1a000d;
+  --season-btn-border: var(--pure-white);
+  --season-btn-border-hover: var(--pure-white);
+  --season-btn-shadow: 0 4px 10px rgba(var(--theme-primary-rgb), 0.4);
+  --season-btn-shadow-hover: 0 6px 15px rgba(var(--theme-accent-rgb), 0.6), 0 0 20px rgba(var(--my-gold-rgb), 0.6);
   */
 
   /* OPTION 3: ST. PATRICK'S DAY */
   /*
-  --my-gold-rgb: 255, 215, 0 !important;
-  --theme-primary-rgb: 0, 255, 133 !important;
-  --theme-accent-rgb: 0, 158, 96 !important;
-  --navy-base-rgb: 0, 10, 5 !important;
-  --navy-mid-rgb: 0, 26, 13 !important;
-  --navy-light-rgb: 0, 35, 20 !important;
+  --my-gold-rgb: 255, 215, 0;
+  --theme-primary-rgb: 0, 255, 133;
+  --theme-accent-rgb: 0, 158, 96;
+  --navy-base-rgb: 0, 10, 5;
+  --navy-mid-rgb: 0, 26, 13;
+  --navy-light-rgb: 0, 35, 20;
   --stpat-gold-dark: #b8860b;
   --stpat-green-dark: #006400;
   --stpat-green-deep: #00331c;
@@ -329,48 +329,48 @@ html,
   --stpat-rb-blue: #0000ff;
   --stpat-rb-indigo: #4b0082;
   --stpat-rb-violet: #9400d3;
-  --theme-primary-color: #00ff85 !important;   
-  --my-gold: rgb(var(--my-gold-rgb)) !important; 
-  --my-gold-light: #fff7a1 !important;
-  --theme-accent-color: rgb(var(--theme-accent-rgb)) !important;
-  --retro-glow: rgba(var(--theme-primary-rgb), 0.5) !important; 
-  --theme-accent-text-color: var(--theme-primary-color) !important;
-  --theme-checked-color: var(--theme-primary-color) !important;
-  --theme-icon-focus-background: rgba(var(--theme-primary-rgb), 0.2) !important;
-  --theme-selection-background: rgba(var(--theme-primary-rgb), 0.2) !important;
-  --retro-navy: rgb(var(--navy-base-rgb)) !important;             
-  --retro-navy-light: rgb(var(--navy-light-rgb)) !important;        
-  --scrollbar-thumb: var(--theme-accent-color) !important;
-  --nav-pill-bg-inactive: rgba(var(--navy-base-rgb), 0.8) !important;
-  --nav-pill-hover: rgba(var(--theme-primary-rgb), 0.15) !important;
-  --nav-pill-hover-text: var(--theme-primary-color) !important;
-  --nav-pill-hover-border-color: rgba(var(--theme-primary-rgb), 0.4) !important;
-  --nav-pill-active: linear-gradient(135deg, var(--theme-primary-color) 0%, var(--theme-accent-color) 100%) !important;
-  --nav-pill-text: var(--my-gold) !important;
-  --nav-pill-active-text: var(--retro-navy) !important;
-  --nav-pill-active-border-color: var(--my-gold) !important;
-  --nav-pill-active-glow: 0 4px 8px rgba(var(--pure-black-rgb), 0.8), 0 0 15px rgba(var(--theme-primary-rgb), 0.5) !important;
-  --nav-pill-bar-bg: rgba(var(--navy-base-rgb), 0.9) !important;
-  --nav-pill-bar-border: 1px solid rgba(var(--my-gold-rgb), 0.3) !important;
-  --season-star-color: var(--my-gold) !important;
-  --season-star-glow: drop-shadow(0 0 5px rgba(var(--my-gold-rgb), 0.4)) !important;  
-  --season-btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%) !important;
-  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold) 100%) !important;
-  --season-btn-text: #001a0d !important;
-  --season-btn-text-hover: #001a0d !important;
-  --season-btn-border: var(--pure-white) !important;
-  --season-btn-border-hover: var(--pure-white) !important;
-  --season-btn-shadow: 0 4px 10px rgba(var(--theme-accent-rgb), 0.4) !important;
-  --season-btn-shadow-hover: 0 6px 15px rgba(var(--theme-primary-rgb), 0.6), 0 0 20px rgba(var(--my-gold-rgb), 0.6) !important;
+  --theme-primary-color: #00ff85;   
+  --my-gold: rgb(var(--my-gold-rgb)); 
+  --my-gold-light: #fff7a1;
+  --theme-accent-color: rgb(var(--theme-accent-rgb));
+  --retro-glow: rgba(var(--theme-primary-rgb), 0.5); 
+  --theme-accent-text-color: var(--theme-primary-color);
+  --theme-checked-color: var(--theme-primary-color);
+  --theme-icon-focus-background: rgba(var(--theme-primary-rgb), 0.2);
+  --theme-selection-background: rgba(var(--theme-primary-rgb), 0.2);
+  --retro-navy: rgb(var(--navy-base-rgb));             
+  --retro-navy-light: rgb(var(--navy-light-rgb));        
+  --scrollbar-thumb: var(--theme-accent-color);
+  --nav-pill-bg-inactive: rgba(var(--navy-base-rgb), 0.8);
+  --nav-pill-hover: rgba(var(--theme-primary-rgb), 0.15);
+  --nav-pill-hover-text: var(--theme-primary-color);
+  --nav-pill-hover-border-color: rgba(var(--theme-primary-rgb), 0.4);
+  --nav-pill-active: linear-gradient(135deg, var(--theme-primary-color) 0%, var(--theme-accent-color) 100%);
+  --nav-pill-text: var(--my-gold);
+  --nav-pill-active-text: var(--retro-navy);
+  --nav-pill-active-border-color: var(--my-gold);
+  --nav-pill-active-glow: 0 4px 8px rgba(var(--pure-black-rgb), 0.8), 0 0 15px rgba(var(--theme-primary-rgb), 0.5);
+  --nav-pill-bar-bg: rgba(var(--navy-base-rgb), 0.9);
+  --nav-pill-bar-border: 1px solid rgba(var(--my-gold-rgb), 0.3);
+  --season-star-color: var(--my-gold);
+  --season-star-glow: drop-shadow(0 0 5px rgba(var(--my-gold-rgb), 0.4));  
+  --season-btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%);
+  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold) 100%);
+  --season-btn-text: #001a0d;
+  --season-btn-text-hover: #001a0d;
+  --season-btn-border: var(--pure-white);
+  --season-btn-border-hover: var(--pure-white);
+  --season-btn-shadow: 0 4px 10px rgba(var(--theme-accent-rgb), 0.4);
+  --season-btn-shadow-hover: 0 6px 15px rgba(var(--theme-primary-rgb), 0.6), 0 0 20px rgba(var(--my-gold-rgb), 0.6);
   */
 
   /* OPTION 4: EASTER / CHERRY BLOSSOM */
   /*
-  --my-gold-rgb: 255, 183, 178 !important;
-  --navy-base-rgb: 26, 22, 37 !important;
-  --navy-mid-rgb: 47, 39, 64 !important;
-  --navy-light-rgb: 74, 62, 99 !important;
-  --navy-dark-rgb: 60, 48, 80 !important;
+  --my-gold-rgb: 255, 183, 178;
+  --navy-base-rgb: 26, 22, 37;
+  --navy-mid-rgb: 47, 39, 64;
+  --navy-light-rgb: 74, 62, 99;
+  --navy-dark-rgb: 60, 48, 80;
   --easter-yellow: #ffdf00;
   --easter-yellow-light: #fffacd;
   --easter-brown: #5c3a21;
@@ -385,271 +385,271 @@ html,
   --easter-badge-bg-2: #3c3050;
   --easter-osd-glow: rgba(152, 251, 152, 0.25);
   --easter-osd-bg: rgba(var(--navy-base-rgb), 0.9);
-  --theme-primary-color: #ffb7b2 !important; 
-  --my-gold: rgb(var(--my-gold-rgb)) !important; 
-  --my-gold-light: #ffdac1 !important;
-  --theme-accent-color: #a7bed3 !important;
-  --retro-glow: rgba(var(--my-gold-rgb), 0.4) !important; 
-  --theme-accent-text-color: var(--theme-primary-color) !important;
-  --theme-checked-color: var(--theme-primary-color) !important;
-  --theme-icon-focus-background: rgba(var(--my-gold-rgb), 0.2) !important;
-  --theme-selection-background: rgba(var(--my-gold-rgb), 0.2) !important;
-  --retro-navy: rgb(var(--navy-base-rgb)) !important;             
-  --retro-navy-light: rgb(var(--navy-light-rgb)) !important;        
-  --scrollbar-thumb: var(--theme-primary-color) !important;
-  --nav-pill-bg-inactive: transparent !important;
-  --nav-pill-hover: rgba(135, 206, 235, 0.15) !important;
-  --nav-pill-hover-text: rgba(178, 235, 242, 1.0) !important;
-  --nav-pill-hover-border-color: rgba(77, 182, 172, 0.5) !important;
-  --nav-pill-active: linear-gradient(180deg, rgb(178, 235, 242) 0%, rgb(129, 212, 250) 100%) !important; 
-  --nav-pill-text: rgba(180, 180, 180, 1.0) !important;
-  --nav-pill-active-text: rgba(20, 30, 40, 1.0) !important;
-  --nav-pill-active-border-color: rgba(77, 182, 172, 1.0) !important;
-  --nav-pill-active-glow: 0 4px 6px rgba(var(--pure-black-rgb), 0.3), inset 0 1px 0 rgba(var(--pure-white-rgb), 0.4) !important;
-  --nav-pill-bar-bg: rgba(35, 35, 45, 0.9) !important;
-  --nav-pill-bar-border: 1px solid rgba(var(--pure-white-rgb), 0.05) !important;
-  --season-star-color: rgb(255, 185, 0) !important;
-  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important; 
-  --season-btn-bg: linear-gradient(90deg, var(--easter-blue-light) 0%, var(--easter-pink) 100%) !important;
-  --season-btn-bg-hover: linear-gradient(90deg, var(--easter-pink) 0%, var(--easter-yellow-light) 100%) !important;
-  --season-btn-text: #1a1625 !important;
-  --season-btn-text-hover: #1a1625 !important;
-  --season-btn-border: var(--pure-white) !important;
-  --season-btn-border-hover: var(--pure-white) !important;
-  --season-btn-shadow: 0 4px 10px rgba(var(--pure-black-rgb), 0.4), 0 0 10px rgba(var(--easter-pink-rgb), 0.4) !important;
-  --season-btn-shadow-hover: 0 6px 15px rgba(var(--pure-black-rgb), 0.6), 0 0 20px rgba(var(--easter-pink-rgb), 0.8) !important;
+  --theme-primary-color: #ffb7b2; 
+  --my-gold: rgb(var(--my-gold-rgb)); 
+  --my-gold-light: #ffdac1;
+  --theme-accent-color: #a7bed3;
+  --retro-glow: rgba(var(--my-gold-rgb), 0.4); 
+  --theme-accent-text-color: var(--theme-primary-color);
+  --theme-checked-color: var(--theme-primary-color);
+  --theme-icon-focus-background: rgba(var(--my-gold-rgb), 0.2);
+  --theme-selection-background: rgba(var(--my-gold-rgb), 0.2);
+  --retro-navy: rgb(var(--navy-base-rgb));             
+  --retro-navy-light: rgb(var(--navy-light-rgb));        
+  --scrollbar-thumb: var(--theme-primary-color);
+  --nav-pill-bg-inactive: transparent;
+  --nav-pill-hover: rgba(135, 206, 235, 0.15);
+  --nav-pill-hover-text: rgba(178, 235, 242, 1.0);
+  --nav-pill-hover-border-color: rgba(77, 182, 172, 0.5);
+  --nav-pill-active: linear-gradient(180deg, rgb(178, 235, 242) 0%, rgb(129, 212, 250) 100%); 
+  --nav-pill-text: rgba(180, 180, 180, 1.0);
+  --nav-pill-active-text: rgba(20, 30, 40, 1.0);
+  --nav-pill-active-border-color: rgba(77, 182, 172, 1.0);
+  --nav-pill-active-glow: 0 4px 6px rgba(var(--pure-black-rgb), 0.3), inset 0 1px 0 rgba(var(--pure-white-rgb), 0.4);
+  --nav-pill-bar-bg: rgba(35, 35, 45, 0.9);
+  --nav-pill-bar-border: 1px solid rgba(var(--pure-white-rgb), 0.05);
+  --season-star-color: rgb(255, 185, 0);
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)); 
+  --season-btn-bg: linear-gradient(90deg, var(--easter-blue-light) 0%, var(--easter-pink) 100%);
+  --season-btn-bg-hover: linear-gradient(90deg, var(--easter-pink) 0%, var(--easter-yellow-light) 100%);
+  --season-btn-text: #1a1625;
+  --season-btn-text-hover: #1a1625;
+  --season-btn-border: var(--pure-white);
+  --season-btn-border-hover: var(--pure-white);
+  --season-btn-shadow: 0 4px 10px rgba(var(--pure-black-rgb), 0.4), 0 0 10px rgba(var(--easter-pink-rgb), 0.4);
+  --season-btn-shadow-hover: 0 6px 15px rgba(var(--pure-black-rgb), 0.6), 0 0 20px rgba(var(--easter-pink-rgb), 0.8);
   */
 
   /* OPTION 5: 4TH OF JULY */
   /*  
-  --my-gold-rgb: 224, 22, 43 !important;
-  --my-gold-light-rgb: 255, 77, 77 !important;
-  --theme-accent-rgb: 0, 82, 165 !important;
-  --navy-base-rgb: 0, 10, 20 !important; 
+  --my-gold-rgb: 224, 22, 43;
+  --my-gold-light-rgb: 255, 77, 77;
+  --theme-accent-rgb: 0, 82, 165;
+  --navy-base-rgb: 0, 10, 20; 
   --july4-navy-dark: #000814;
   --july4-badge-bg-1: #000814;
   --july4-badge-bg-2: #001d3d;
-  --theme-primary-color: #e0162b !important; 
-  --my-gold: rgb(var(--my-gold-rgb)) !important; 
-  --my-gold-light: rgb(var(--my-gold-light-rgb)) !important;
-  --theme-accent-color: rgb(var(--theme-accent-rgb)) !important;
-  --retro-glow: rgba(var(--my-gold-rgb), 0.6) !important;
-  --theme-accent-text-color: var(--pure-white) !important;
-  --theme-checked-color: var(--theme-primary-color) !important;
-  --theme-icon-focus-background: rgba(var(--theme-accent-rgb), 0.3) !important;
-  --theme-selection-background: rgba(var(--theme-accent-rgb), 0.3) !important;
-  --retro-navy: rgb(var(--navy-base-rgb)) !important;
-  --scrollbar-thumb: var(--theme-primary-color) !important;
-  --nav-pill-bg-inactive: rgba(var(--navy-base-rgb), 0.8) !important;
-  --nav-pill-hover: rgba(var(--my-gold-rgb), 0.2) !important;
-  --nav-pill-hover-text: var(--my-gold) !important;
-  --nav-pill-hover-border-color: rgba(var(--my-gold-rgb), 0.5) !important;
-  --nav-pill-active: linear-gradient(135deg, rgb(var(--theme-accent-rgb)) 0%, var(--theme-primary-color) 100%) !important;
-  --nav-pill-text: rgba(var(--pure-white-rgb), 0.9) !important;
-  --nav-pill-active-text: var(--pure-white) !important;
-  --nav-pill-active-border-color: var(--pure-white) !important;
-  --nav-pill-active-glow: 0 4px 8px rgba(var(--pure-black-rgb), 0.8), 0 0 15px rgba(var(--my-gold-rgb), 0.6) !important;
-  --nav-pill-bar-bg: rgba(var(--navy-base-rgb), 0.9) !important;
-  --nav-pill-bar-border: 1px solid rgba(var(--pure-white-rgb), 0.3) !important;
-  --season-star-color: var(--my-gold) !important;
-  --season-star-glow: drop-shadow(0 0 5px rgba(var(--my-gold-rgb), 0.4)) !important;  
-  --season-btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%) !important;
-  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold-light) 100%) !important;
-  --season-btn-text: var(--pure-white) !important;
-  --season-btn-text-hover: var(--pure-white) !important;
-  --season-btn-border: var(--pure-white) !important;
-  --season-btn-border-hover: var(--pure-white) !important;
-  --season-btn-shadow: 0 4px 10px rgba(var(--theme-accent-rgb), 0.4) !important;
-  --season-btn-shadow-hover: 0 6px 15px rgba(var(--my-gold-rgb), 0.6), 0 0 20px rgba(var(--my-gold-light-rgb), 0.6) !important;
+  --theme-primary-color: #e0162b; 
+  --my-gold: rgb(var(--my-gold-rgb)); 
+  --my-gold-light: rgb(var(--my-gold-light-rgb));
+  --theme-accent-color: rgb(var(--theme-accent-rgb));
+  --retro-glow: rgba(var(--my-gold-rgb), 0.6);
+  --theme-accent-text-color: var(--pure-white);
+  --theme-checked-color: var(--theme-primary-color);
+  --theme-icon-focus-background: rgba(var(--theme-accent-rgb), 0.3);
+  --theme-selection-background: rgba(var(--theme-accent-rgb), 0.3);
+  --retro-navy: rgb(var(--navy-base-rgb));
+  --scrollbar-thumb: var(--theme-primary-color);
+  --nav-pill-bg-inactive: rgba(var(--navy-base-rgb), 0.8);
+  --nav-pill-hover: rgba(var(--my-gold-rgb), 0.2);
+  --nav-pill-hover-text: var(--my-gold);
+  --nav-pill-hover-border-color: rgba(var(--my-gold-rgb), 0.5);
+  --nav-pill-active: linear-gradient(135deg, rgb(var(--theme-accent-rgb)) 0%, var(--theme-primary-color) 100%);
+  --nav-pill-text: rgba(var(--pure-white-rgb), 0.9);
+  --nav-pill-active-text: var(--pure-white);
+  --nav-pill-active-border-color: var(--pure-white);
+  --nav-pill-active-glow: 0 4px 8px rgba(var(--pure-black-rgb), 0.8), 0 0 15px rgba(var(--my-gold-rgb), 0.6);
+  --nav-pill-bar-bg: rgba(var(--navy-base-rgb), 0.9);
+  --nav-pill-bar-border: 1px solid rgba(var(--pure-white-rgb), 0.3);
+  --season-star-color: var(--my-gold);
+  --season-star-glow: drop-shadow(0 0 5px rgba(var(--my-gold-rgb), 0.4));  
+  --season-btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%);
+  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold-light) 100%);
+  --season-btn-text: var(--pure-white);
+  --season-btn-text-hover: var(--pure-white);
+  --season-btn-border: var(--pure-white);
+  --season-btn-border-hover: var(--pure-white);
+  --season-btn-shadow: 0 4px 10px rgba(var(--theme-accent-rgb), 0.4);
+  --season-btn-shadow-hover: 0 6px 15px rgba(var(--my-gold-rgb), 0.6), 0 0 20px rgba(var(--my-gold-light-rgb), 0.6);
   */
 
   /* OPTION 6: HALLOWEEN */
   /*
-  --my-gold-rgb: 255, 102, 0 !important;
-  --my-gold-light-rgb: 255, 133, 51 !important;
-  --theme-accent-rgb: 138, 43, 226 !important;
-  --navy-base-rgb: 13, 0, 21 !important;
-  --navy-mid-rgb: 20, 0, 35 !important;
-  --navy-light-rgb: 30, 0, 50 !important;
+  --my-gold-rgb: 255, 102, 0;
+  --my-gold-light-rgb: 255, 133, 51;
+  --theme-accent-rgb: 138, 43, 226;
+  --navy-base-rgb: 13, 0, 21;
+  --navy-mid-rgb: 20, 0, 35;
+  --navy-light-rgb: 30, 0, 50;
   --hw-bg-dark-1: #1a1a1a;
   --hw-gray-1: #444444;
   --hw-badge-hover-purple: #a020f0;
-  --theme-primary-color: #ff6600 !important;   
-  --my-gold: rgb(var(--my-gold-rgb)) !important; 
-  --my-gold-light: rgb(var(--my-gold-light-rgb)) !important;
-  --theme-accent-color: rgb(var(--theme-accent-rgb)) !important;
-  --retro-glow: rgba(var(--theme-accent-rgb), 0.6) !important; 
-  --theme-accent-text-color: var(--my-gold) !important;
-  --theme-checked-color: var(--theme-primary-color) !important;
-  --theme-icon-focus-background: rgba(var(--my-gold-rgb), 0.2) !important;
-  --theme-selection-background: rgba(var(--my-gold-rgb), 0.2) !important;
-  --retro-navy: rgb(var(--navy-base-rgb)) !important;             
-  --retro-navy-light: rgb(var(--navy-light-rgb)) !important;        
-  --scrollbar-thumb: var(--theme-primary-color) !important;
-  --nav-pill-bg-inactive: transparent !important;
-  --nav-pill-hover: rgba(67, 64, 69, 0.69) !important;
-  --nav-pill-hover-text: var(--my-gold) !important;
-  --nav-pill-hover-border-color: transparent !important;
-  --nav-pill-active: rgba(20, 10, 25, 0.9) !important; 
-  --nav-pill-text: rgba(180, 170, 175, 1.0) !important;
-  --nav-pill-active-text: var(--theme-primary-color) !important;
-  --nav-pill-active-border-color: var(--theme-accent-color) !important;
-  --nav-pill-active-glow: 0 0 15px rgba(var(--theme-accent-rgb), 0.6), 0 0 5px rgba(var(--theme-accent-rgb), 0.8), inset 0 0 10px rgba(var(--my-gold-rgb), 0.3) !important;
-  --nav-pill-bar-bg: rgba(15, 10, 20, 0.95) !important;
-  --nav-pill-bar-border: 1px solid rgba(var(--theme-accent-rgb), 0.2) !important;
-  --season-star-color: var(--my-gold) !important;
-  --season-star-glow: drop-shadow(0 0 5px rgba(var(--my-gold-rgb), 0.4)) !important; 
-  --season-btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%) !important;
-  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold-light) 100%) !important;
-  --season-btn-text: var(--pure-white) !important;
-  --season-btn-text-hover: #0d0015 !important;
-  --season-btn-border: var(--pure-white) !important;
-  --season-btn-border-hover: var(--pure-white) !important;
-  --season-btn-shadow: 0 4px 10px rgba(var(--theme-accent-rgb), 0.4) !important;
-  --season-btn-shadow-hover: 0 6px 15px rgba(var(--my-gold-rgb), 0.6), 0 0 20px rgba(var(--my-gold-light-rgb), 0.6) !important;
+  --theme-primary-color: #ff6600;   
+  --my-gold: rgb(var(--my-gold-rgb)); 
+  --my-gold-light: rgb(var(--my-gold-light-rgb));
+  --theme-accent-color: rgb(var(--theme-accent-rgb));
+  --retro-glow: rgba(var(--theme-accent-rgb), 0.6); 
+  --theme-accent-text-color: var(--my-gold);
+  --theme-checked-color: var(--theme-primary-color);
+  --theme-icon-focus-background: rgba(var(--my-gold-rgb), 0.2);
+  --theme-selection-background: rgba(var(--my-gold-rgb), 0.2);
+  --retro-navy: rgb(var(--navy-base-rgb));             
+  --retro-navy-light: rgb(var(--navy-light-rgb));        
+  --scrollbar-thumb: var(--theme-primary-color);
+  --nav-pill-bg-inactive: transparent;
+  --nav-pill-hover: rgba(67, 64, 69, 0.69);
+  --nav-pill-hover-text: var(--my-gold);
+  --nav-pill-hover-border-color: transparent;
+  --nav-pill-active: rgba(20, 10, 25, 0.9); 
+  --nav-pill-text: rgba(180, 170, 175, 1.0);
+  --nav-pill-active-text: var(--theme-primary-color);
+  --nav-pill-active-border-color: var(--theme-accent-color);
+  --nav-pill-active-glow: 0 0 15px rgba(var(--theme-accent-rgb), 0.6), 0 0 5px rgba(var(--theme-accent-rgb), 0.8), inset 0 0 10px rgba(var(--my-gold-rgb), 0.3);
+  --nav-pill-bar-bg: rgba(15, 10, 20, 0.95);
+  --nav-pill-bar-border: 1px solid rgba(var(--theme-accent-rgb), 0.2);
+  --season-star-color: var(--my-gold);
+  --season-star-glow: drop-shadow(0 0 5px rgba(var(--my-gold-rgb), 0.4)); 
+  --season-btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%);
+  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold-light) 100%);
+  --season-btn-text: var(--pure-white);
+  --season-btn-text-hover: #0d0015;
+  --season-btn-border: var(--pure-white);
+  --season-btn-border-hover: var(--pure-white);
+  --season-btn-shadow: 0 4px 10px rgba(var(--theme-accent-rgb), 0.4);
+  --season-btn-shadow-hover: 0 6px 15px rgba(var(--my-gold-rgb), 0.6), 0 0 20px rgba(var(--my-gold-light-rgb), 0.6);
   */
 
   /* OPTION 7: THANKSGIVING / AUTUMN HARVEST */
   /*
-  --my-gold-rgb: 227, 160, 27 !important;
-  --my-gold-light-rgb: 255, 183, 50 !important;
-  --theme-primary-rgb: 217, 92, 20 !important;
-  --theme-accent-rgb: 139, 69, 19 !important;
-  --navy-base-rgb: 26, 11, 9 !important;
-  --navy-mid-rgb: 36, 17, 14 !important;
-  --navy-light-rgb: 44, 22, 18 !important;
+  --my-gold-rgb: 227, 160, 27;
+  --my-gold-light-rgb: 255, 183, 50;
+  --theme-primary-rgb: 217, 92, 20;
+  --theme-accent-rgb: 139, 69, 19;
+  --navy-base-rgb: 26, 11, 9;
+  --navy-mid-rgb: 36, 17, 14;
+  --navy-light-rgb: 44, 22, 18;
   --tg-brown-dark: #5c2605;
   --tg-bg-dark-1: #2c1612;
   --tg-bg-dark-2: #1a0b09;
-  --theme-primary-color: #d95c14 !important;   
-  --my-gold: rgb(var(--my-gold-rgb)) !important; 
-  --my-gold-light: rgb(var(--my-gold-light-rgb)) !important;
-  --theme-accent-color: rgb(var(--theme-accent-rgb)) !important;
-  --retro-glow: rgba(var(--theme-primary-rgb), 0.5) !important; 
-  --theme-accent-text-color: var(--my-gold) !important;
-  --theme-checked-color: var(--theme-primary-color) !important;
-  --theme-icon-focus-background: rgba(var(--theme-primary-rgb), 0.2) !important;
-  --theme-selection-background: rgba(var(--theme-primary-rgb), 0.2) !important;
-  --retro-navy: rgb(var(--navy-base-rgb)) !important;             
-  --retro-navy-light: rgb(var(--navy-light-rgb)) !important;        
-  --scrollbar-thumb: var(--theme-primary-color) !important;
-  --nav-pill-bg-inactive: rgba(var(--navy-base-rgb), 0.8) !important;
-  --nav-pill-hover: rgba(var(--my-gold-rgb), 0.15) !important;
-  --nav-pill-hover-text: var(--my-gold) !important;
-  --nav-pill-hover-border-color: rgba(var(--my-gold-rgb), 0.5) !important;
-  --nav-pill-active: linear-gradient(135deg, var(--my-gold) 0%, var(--theme-primary-color) 100%) !important;
-  --nav-pill-text: rgba(255, 255, 255, 0.8) !important;
-  --nav-pill-active-text: var(--retro-navy) !important;
-  --nav-pill-active-border-color: var(--theme-accent-color) !important;
-  --nav-pill-active-glow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 0 15px rgba(var(--theme-primary-rgb), 0.5) !important;
-  --nav-pill-bar-bg: rgba(var(--navy-base-rgb), 0.9) !important;
-  --nav-pill-bar-border: 1px solid rgba(var(--my-gold-rgb), 0.4) !important;
-  --season-star-color: rgb(255, 185, 0) !important;
-  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important; 
-  --season-btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%) !important;
-  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold) 100%) !important;
-  --season-btn-text: var(--pure-white) !important;
-  --season-btn-text-hover: var(--retro-navy) !important;
-  --season-btn-border: var(--pure-white) !important;
-  --season-btn-border-hover: var(--pure-white) !important;
-  --season-btn-shadow: 0 4px 10px rgba(var(--theme-primary-rgb), 0.4) !important;
-  --season-btn-shadow-hover: 0 6px 15px rgba(var(--my-gold-rgb), 0.6), 0 0 20px rgba(var(--my-gold-rgb), 0.6) !important;
+  --theme-primary-color: #d95c14;   
+  --my-gold: rgb(var(--my-gold-rgb)); 
+  --my-gold-light: rgb(var(--my-gold-light-rgb));
+  --theme-accent-color: rgb(var(--theme-accent-rgb));
+  --retro-glow: rgba(var(--theme-primary-rgb), 0.5); 
+  --theme-accent-text-color: var(--my-gold);
+  --theme-checked-color: var(--theme-primary-color);
+  --theme-icon-focus-background: rgba(var(--theme-primary-rgb), 0.2);
+  --theme-selection-background: rgba(var(--theme-primary-rgb), 0.2);
+  --retro-navy: rgb(var(--navy-base-rgb));             
+  --retro-navy-light: rgb(var(--navy-light-rgb));        
+  --scrollbar-thumb: var(--theme-primary-color);
+  --nav-pill-bg-inactive: rgba(var(--navy-base-rgb), 0.8);
+  --nav-pill-hover: rgba(var(--my-gold-rgb), 0.15);
+  --nav-pill-hover-text: var(--my-gold);
+  --nav-pill-hover-border-color: rgba(var(--my-gold-rgb), 0.5);
+  --nav-pill-active: linear-gradient(135deg, var(--my-gold) 0%, var(--theme-primary-color) 100%);
+  --nav-pill-text: rgba(255, 255, 255, 0.8);
+  --nav-pill-active-text: var(--retro-navy);
+  --nav-pill-active-border-color: var(--theme-accent-color);
+  --nav-pill-active-glow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 0 15px rgba(var(--theme-primary-rgb), 0.5);
+  --nav-pill-bar-bg: rgba(var(--navy-base-rgb), 0.9);
+  --nav-pill-bar-border: 1px solid rgba(var(--my-gold-rgb), 0.4);
+  --season-star-color: rgb(255, 185, 0);
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)); 
+  --season-btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%);
+  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold) 100%);
+  --season-btn-text: var(--pure-white);
+  --season-btn-text-hover: var(--retro-navy);
+  --season-btn-border: var(--pure-white);
+  --season-btn-border-hover: var(--pure-white);
+  --season-btn-shadow: 0 4px 10px rgba(var(--theme-primary-rgb), 0.4);
+  --season-btn-shadow-hover: 0 6px 15px rgba(var(--my-gold-rgb), 0.6), 0 0 20px rgba(var(--my-gold-rgb), 0.6);
   */
 
   /* OPTION 8: CHRISTMAS */
   /*
-  --my-gold-rgb: 255, 255, 255 !important;
-  --my-gold-light-rgb: 240, 240, 240 !important;
-  --theme-primary-rgb: 196, 30, 58 !important;
-  --theme-accent-rgb: 11, 102, 35 !important;
-  --navy-base-rgb: 2, 10, 20 !important;
-  --navy-mid-rgb: 8, 32, 50 !important;
-  --navy-light-rgb: 5, 24, 41 !important;
+  --my-gold-rgb: 255, 255, 255;
+  --my-gold-light-rgb: 240, 240, 240;
+  --theme-primary-rgb: 196, 30, 58;
+  --theme-accent-rgb: 11, 102, 35;
+  --navy-base-rgb: 2, 10, 20;
+  --navy-mid-rgb: 8, 32, 50;
+  --navy-light-rgb: 5, 24, 41;
   --xmas-red-dark: #5a0000;
   --xmas-red-light: #ff8a8a;
   --aurora-pink-rgb: 255, 40, 150;   
   --aurora-green-rgb: 0, 255, 150;
   --aurora-blue-rgb: 0, 200, 255;
   --aurora-deep-green-rgb: 0, 255, 100;
-  --theme-primary-color: #c41e3a !important;   
-  --my-gold: rgb(var(--my-gold-rgb)) !important; 
-  --my-gold-light: rgb(var(--my-gold-light-rgb)) !important;
-  --theme-accent-color: rgb(var(--theme-accent-rgb)) !important;
-  --retro-glow: rgba(var(--my-gold-rgb), 0.6) !important; 
-  --theme-accent-text-color: var(--my-gold) !important;
-  --theme-checked-color: var(--theme-accent-color) !important;
-  --theme-icon-focus-background: rgba(var(--theme-primary-rgb), 0.2) !important;
-  --theme-selection-background: rgba(var(--theme-primary-rgb), 0.2) !important;
-  --retro-navy: rgb(var(--navy-base-rgb)) !important;             
-  --retro-navy-light: rgb(var(--navy-light-rgb)) !important;        
-  --scrollbar-thumb: var(--theme-primary-color) !important;
-  --nav-pill-bg-inactive: rgba(var(--navy-base-rgb), 0.8) !important;
-  --nav-pill-hover: rgba(var(--theme-accent-rgb), 0.3) !important;
-  --nav-pill-hover-text: var(--theme-primary-color) !important;
-  --nav-pill-hover-border-color: rgba(var(--theme-primary-rgb), 0.5) !important;
-  --nav-pill-active: linear-gradient(135deg, var(--theme-primary-color) 0%, var(--xmas-red-dark) 100%) !important;
-  --nav-pill-text: rgba(var(--my-gold-rgb), 0.9) !important;
-  --nav-pill-active-text: var(--my-gold) !important;
-  --nav-pill-active-border-color: var(--theme-accent-color) !important;
-  --nav-pill-active-glow: 0 4px 8px rgba(var(--pure-black-rgb), 0.8), 0 0 15px rgba(var(--theme-primary-rgb), 0.6) !important;
-  --nav-pill-bar-bg: rgba(var(--navy-base-rgb), 0.9) !important;
-  --nav-pill-bar-border: 1px solid rgba(var(--theme-accent-rgb), 0.5) !important;
-  --season-star-color: rgb(255, 185, 0) !important;
-  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;  
-  --season-btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%) !important;
-  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--xmas-red-light) 100%) !important;
-  --season-btn-text: var(--my-gold) !important;
-  --season-btn-text-hover: var(--my-gold) !important;
-  --season-btn-border: var(--my-gold) !important;
-  --season-btn-border-hover: var(--my-gold) !important;
-  --season-btn-shadow: 0 4px 10px rgba(var(--theme-accent-rgb), 0.4) !important;
-  --season-btn-shadow-hover: 0 6px 15px rgba(var(--theme-primary-rgb), 0.6), 0 0 20px rgba(var(--xmas-red-light), 0.6) !important;
+  --theme-primary-color: #c41e3a;   
+  --my-gold: rgb(var(--my-gold-rgb)); 
+  --my-gold-light: rgb(var(--my-gold-light-rgb));
+  --theme-accent-color: rgb(var(--theme-accent-rgb));
+  --retro-glow: rgba(var(--my-gold-rgb), 0.6); 
+  --theme-accent-text-color: var(--my-gold);
+  --theme-checked-color: var(--theme-accent-color);
+  --theme-icon-focus-background: rgba(var(--theme-primary-rgb), 0.2);
+  --theme-selection-background: rgba(var(--theme-primary-rgb), 0.2);
+  --retro-navy: rgb(var(--navy-base-rgb));             
+  --retro-navy-light: rgb(var(--navy-light-rgb));        
+  --scrollbar-thumb: var(--theme-primary-color);
+  --nav-pill-bg-inactive: rgba(var(--navy-base-rgb), 0.8);
+  --nav-pill-hover: rgba(var(--theme-accent-rgb), 0.3);
+  --nav-pill-hover-text: var(--theme-primary-color);
+  --nav-pill-hover-border-color: rgba(var(--theme-primary-rgb), 0.5);
+  --nav-pill-active: linear-gradient(135deg, var(--theme-primary-color) 0%, var(--xmas-red-dark) 100%);
+  --nav-pill-text: rgba(var(--my-gold-rgb), 0.9);
+  --nav-pill-active-text: var(--my-gold);
+  --nav-pill-active-border-color: var(--theme-accent-color);
+  --nav-pill-active-glow: 0 4px 8px rgba(var(--pure-black-rgb), 0.8), 0 0 15px rgba(var(--theme-primary-rgb), 0.6);
+  --nav-pill-bar-bg: rgba(var(--navy-base-rgb), 0.9);
+  --nav-pill-bar-border: 1px solid rgba(var(--theme-accent-rgb), 0.5);
+  --season-star-color: rgb(255, 185, 0);
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));  
+  --season-btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%);
+  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--xmas-red-light) 100%);
+  --season-btn-text: var(--my-gold);
+  --season-btn-text-hover: var(--my-gold);
+  --season-btn-border: var(--my-gold);
+  --season-btn-border-hover: var(--my-gold);
+  --season-btn-shadow: 0 4px 10px rgba(var(--theme-accent-rgb), 0.4);
+  --season-btn-shadow-hover: 0 6px 15px rgba(var(--theme-primary-rgb), 0.6), 0 0 20px rgba(var(--xmas-red-light), 0.6);
   */
 
   /* OPTION 9: NEW YEAR'S EVE */
   /*
-  --my-gold-rgb: 247, 231, 206 !important;  
-  --my-gold-light-rgb: 255, 255, 255 !important;
-  --theme-primary-rgb: 212, 175, 55 !important;  
-  --theme-accent-rgb: 229, 228, 226 !important; 
-  --navy-base-rgb: 5, 5, 5 !important;
-  --navy-mid-rgb: 10, 10, 10 !important;
-  --navy-light-rgb: 17, 17, 17 !important;
+  --my-gold-rgb: 247, 231, 206;  
+  --my-gold-light-rgb: 255, 255, 255;
+  --theme-primary-rgb: 212, 175, 55;  
+  --theme-accent-rgb: 229, 228, 226; 
+  --navy-base-rgb: 5, 5, 5;
+  --navy-mid-rgb: 10, 10, 10;
+  --navy-light-rgb: 17, 17, 17;
   --nye-black-light: #111111;
   --nye-gold-dark: #8a6a1c;
-  --theme-primary-color: #d4af37 !important;   
-  --my-gold: rgb(var(--my-gold-rgb)) !important; 
-  --my-gold-light: rgb(var(--my-gold-light-rgb)) !important;
-  --theme-accent-color: rgb(var(--theme-accent-rgb)) !important;
-  --retro-glow: rgba(var(--theme-primary-rgb), 0.6) !important; 
-  --theme-accent-text-color: var(--my-gold) !important;
-  --theme-checked-color: var(--theme-primary-color) !important;
-  --theme-icon-focus-background: rgba(var(--theme-primary-rgb), 0.2) !important;
-  --theme-selection-background: rgba(var(--theme-primary-rgb), 0.2) !important;
-  --retro-navy: rgb(var(--navy-base-rgb)) !important;             
-  --retro-navy-light: rgb(var(--navy-light-rgb)) !important;        
-  --scrollbar-thumb: var(--theme-primary-color) !important;
-  --nav-pill-bg-inactive: rgba(var(--navy-base-rgb), 0.8) !important;
-  --nav-pill-hover: rgba(var(--my-gold-rgb), 0.1) !important;
-  --nav-pill-hover-text: var(--theme-primary-color) !important;
-  --nav-pill-hover-border-color: rgba(var(--theme-primary-rgb), 0.4) !important;
-  --nav-pill-active: linear-gradient(135deg, var(--my-gold) 0%, var(--theme-primary-color) 100%) !important;
-  --nav-pill-text: rgba(var(--theme-primary-rgb), 0.8) !important;
-  --nav-pill-active-text: var(--retro-navy) !important;
-  --nav-pill-active-border-color: var(--my-gold) !important;
-  --nav-pill-active-glow: 0 4px 8px rgba(var(--pure-black-rgb), 0.9), 0 0 15px rgba(var(--theme-primary-rgb), 0.4) !important;
-  --nav-pill-bar-bg: rgba(var(--navy-base-rgb), 0.9) !important;
-  --nav-pill-bar-border: 1px solid rgba(var(--theme-primary-rgb), 0.3) !important;
-  --season-star-color: rgb(255, 185, 0) !important;
-  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)) !important;
-  --season-btn-bg: linear-gradient(90deg, var(--nye-gold-dark) 0%, var(--theme-primary-color) 100%) !important;
-  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold) 100%) !important;
-  --season-btn-text: var(--pure-white) !important;
-  --season-btn-text-hover: var(--retro-navy) !important;
-  --season-btn-border: var(--pure-white) !important;
-  --season-btn-border-hover: var(--pure-white) !important;
-  --season-btn-shadow: 0 4px 10px rgba(var(--theme-primary-rgb), 0.4) !important;
-  --season-btn-shadow-hover: 0 6px 15px rgba(var(--my-gold-rgb), 0.6), 0 0 20px rgba(var(--my-gold-rgb), 0.6) !important;
+  --theme-primary-color: #d4af37;   
+  --my-gold: rgb(var(--my-gold-rgb)); 
+  --my-gold-light: rgb(var(--my-gold-light-rgb));
+  --theme-accent-color: rgb(var(--theme-accent-rgb));
+  --retro-glow: rgba(var(--theme-primary-rgb), 0.6); 
+  --theme-accent-text-color: var(--my-gold);
+  --theme-checked-color: var(--theme-primary-color);
+  --theme-icon-focus-background: rgba(var(--theme-primary-rgb), 0.2);
+  --theme-selection-background: rgba(var(--theme-primary-rgb), 0.2);
+  --retro-navy: rgb(var(--navy-base-rgb));             
+  --retro-navy-light: rgb(var(--navy-light-rgb));        
+  --scrollbar-thumb: var(--theme-primary-color);
+  --nav-pill-bg-inactive: rgba(var(--navy-base-rgb), 0.8);
+  --nav-pill-hover: rgba(var(--my-gold-rgb), 0.1);
+  --nav-pill-hover-text: var(--theme-primary-color);
+  --nav-pill-hover-border-color: rgba(var(--theme-primary-rgb), 0.4);
+  --nav-pill-active: linear-gradient(135deg, var(--my-gold) 0%, var(--theme-primary-color) 100%);
+  --nav-pill-text: rgba(var(--theme-primary-rgb), 0.8);
+  --nav-pill-active-text: var(--retro-navy);
+  --nav-pill-active-border-color: var(--my-gold);
+  --nav-pill-active-glow: 0 4px 8px rgba(var(--pure-black-rgb), 0.9), 0 0 15px rgba(var(--theme-primary-rgb), 0.4);
+  --nav-pill-bar-bg: rgba(var(--navy-base-rgb), 0.9);
+  --nav-pill-bar-border: 1px solid rgba(var(--theme-primary-rgb), 0.3);
+  --season-star-color: rgb(255, 185, 0);
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));
+  --season-btn-bg: linear-gradient(90deg, var(--nye-gold-dark) 0%, var(--theme-primary-color) 100%);
+  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold) 100%);
+  --season-btn-text: var(--pure-white);
+  --season-btn-text-hover: var(--retro-navy);
+  --season-btn-border: var(--pure-white);
+  --season-btn-border-hover: var(--pure-white);
+  --season-btn-shadow: 0 4px 10px rgba(var(--theme-primary-rgb), 0.4);
+  --season-btn-shadow-hover: 0 6px 15px rgba(var(--my-gold-rgb), 0.6), 0 0 20px rgba(var(--my-gold-rgb), 0.6);
   */
 
   /* ============================================================
@@ -976,13 +976,17 @@ html[class*="theme-"] .mediaInfoAttributeLabel {
 
 /* 6. IMMUTABLE EXCEPTIONS (Alert Banners & Media Badges) */
 html[class*="theme-"] .infoBanner,
-html[class*="theme-"] .infoBanner *,
-html[class*="theme-"] .mediaInfoItem .button-link,
-html[class*="theme-"] .mediaInfoItem * {
-    color: inherit !important;
-    -webkit-text-fill-color: inherit !important;
+html[class*="theme-"] .infoBanner *:not(.button-link) {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
 }
-html[class*="theme-"] .infoBanner { color: var(--pure-white) !important; }
+
+/* Specifically forces Alert Box links to Gold */
+html[class*="theme-"] .infoBanner .button-link,
+html[class*="theme-"] .infoBanner .button-link * {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+}
 
 /* 7. NATIVE UI BUTTON FIXES (Removes Grey Backgrounds) */
 html[class*="theme-"] body .emby-input-iconbutton,
@@ -1053,43 +1057,6 @@ html[class*="theme-"] body .itemAction:hover .cardText {
     display: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
-}
-
-/* --- 2H. UI COMPONENT ENFORCER (Bulletproof Borders) --- */
-
-/* 1. Global Border Enforcement (Main Containers & Focused Inputs) */
-html[class*="theme-"] body div[class*="infoBanner"],
-html[class*="theme-"] body .emby-input:focus,
-html[class*="theme-"] body .emby-textarea:focus,
-html[class*="theme-"] body select.emby-select:focus,
-html[class*="theme-"] body .emby-select-withicon:focus {
-    /* Forces the outer border to use the seasonal primary color */
-    border: var(--hover-border-thickness, 2px) solid var(--theme-primary-color) !important;
-    
-    /* UI styling and Glow */
-    box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
-    background-color: var(--navy-light-alpha-80) !important;
-    background-image: none !important;
-    outline: none !important;
-    border-radius: var(--border-radius-lg, 12px) !important;
-    transition: border-color var(--transition-speed), box-shadow var(--transition-speed) !important;
-}
-
-/* 2. INNER PILL/CIRCLE KILLER: Strips the secondary shell from inside the banner */
-html[class*="theme-"] body div[class*="infoBanner"] * {
-    border: none !important;
-    box-shadow: none !important;
-    background: transparent !important;       /* Kills the translucent "pill" color */
-    background-color: transparent !important; /* Extra safety for seasonal overrides */
-    border-radius: 0 !important;              /* flattens the internal geometry */
-}
-
-/* 3. Universal Text Protection for Banners */
-html[class*="theme-"] body div[class*="infoBanner"],
-html[class*="theme-"] body div[class*="infoBanner"] * {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-    text-shadow: 1px 1px 2px var(--pure-black) !important;
 }
 
 /* ============================================================
