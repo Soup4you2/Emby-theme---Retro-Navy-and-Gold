@@ -21,6 +21,10 @@ html,
 [class*="theme-"],
 .selection-accent-color {
 
+  /* --- GLOBAL TYPOGRAPHY --- */
+  --font-header: 'Oswald', sans-serif;                             /* Primary cinematic header font */
+  --font-body: 'Sofia Sans', sans-serif;                           /* Standard readable body font */
+
   /* --- CORE RGB VALUES (The Source of Truth for Transparencies) --- */
   --pure-black-rgb: 0, 0, 0;                    /* Controls the absolute darkest shadows and UI overlays */
   --pure-white-rgb: 255, 255, 255;              /* Controls high-contrast text and active icons */
@@ -700,12 +704,12 @@ html,
 
 /* 1. Theme Variables Enforcer: Overwrites Emby's internal logic to use our custom palette */
 html[class*="theme-"] {
-  --theme-background:           var(--retro-navy) !important;
-  --background-color:           var(--retro-navy) !important;
-  --theme-text-color:           var(--text-muted) !important;
-  --theme-text-color-opaque:    var(--pure-white) !important;
+  --theme-background:             var(--retro-navy) !important;
+  --background-color:             var(--retro-navy) !important;
+  --theme-text-color:             var(--text-muted) !important;
+  --theme-text-color-opaque:      var(--pure-white) !important;
   --theme-secondary-text-color: var(--white-alpha-70) !important;
-  --line-background:            var(--gold-alpha-15) !important;
+  --line-background:              var(--gold-alpha-15) !important;
   --dialog-background-color:    var(--navy-light-alpha-80) !important;
 }
 
@@ -800,7 +804,7 @@ body,
 .mainAnimatedPages,
 .view,
 .page {
-  font-family: 'Sofia Sans', sans-serif;
+  font-family: var(--font-body);
 }
 
 /* 2. Text Color Enforcer: Forces standard text to our custom muted white variable */
@@ -818,7 +822,7 @@ body,
 /* 3. Primary Headers: Oswald font stylization for a cinematic header look */
 .pageTitle,
 .sectionTitle {
-  font-family:    'Oswald', sans-serif !important;
+  font-family:    var(--font-header) !important;
   color:          var(--theme-primary-color) !important;
   text-transform: uppercase !important;
   letter-spacing: 1.5px !important;
@@ -1213,7 +1217,7 @@ html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-c
   border-radius:           var(--border-radius-pill) !important;
   margin:                  0 4px !important;
   padding:                 4px 14px !important; 
-  font-family:             'Oswald', sans-serif !important;
+  font-family:             var(--font-header) !important;
   font-size:               0.72em !important; 
   font-weight:             700 !important;
   text-transform:          uppercase !important;
@@ -1530,7 +1534,7 @@ html[class*="theme-"] .paperListbox {
 html[class*="theme-"] .actionSheetMenuItem-selected,
 html[class*="theme-"] .listItem-selected,
 html[class*="theme-"] .paperListbox-selected {
-  background-color:        var(--my-gold-transparent) !important;
+  background-color:        var(--gold-alpha-20) !important;
   color:                   var(--my-gold) !important;
 }
 
@@ -1604,7 +1608,7 @@ html[class*="theme-"] body .playstatebutton-icon-played:hover {
   color:                   var(--count-indicator-color) !important;
   border:                  var(--count-indicator-border) !important;
   box-shadow:              var(--count-indicator-shadow) !important;
-  font-family:             'Oswald', sans-serif !important; 
+  font-family:             var(--font-header) !important; 
   font-weight:             700 !important;
   font-size:               0.9em !important;
   min-width:               26px !important;
@@ -1620,7 +1624,7 @@ html[class*="theme-"] body .playstatebutton-icon-played:hover {
 /* 1. Inactive Filter Styling: Muted outline buttons */
 html[class*="theme-"] .guide-filter-button,
 html[class*="theme-"] .btnGuideTag {
-  font-family:             'Oswald', sans-serif !important;
+  font-family:             var(--font-header) !important;
   font-size:               0.72em !important;
   font-weight:             700 !important;
   text-transform:          uppercase !important;
@@ -1661,7 +1665,7 @@ html[class*="theme-"] .itemsViewSettingsContainer-button {
   color:                   var(--pure-white) !important;
   border:                  var(--standard-border-thickness) solid var(--gold-alpha-30) !important;
   border-radius:           var(--border-radius-pill) !important;
-  font-family:             'Oswald', sans-serif !important;
+  font-family:             var(--font-header) !important;
   font-size:               0.82em !important;
   padding:                 0.4em 0.9em !important;
   text-transform:          uppercase !important;
@@ -1684,7 +1688,7 @@ html[class*="theme-"] .itemsViewSettingsContainer-button:focus {
 html[class*="theme-"] .listTotalRecordCount {
   color:                   var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
-  font-family:             'Oswald', sans-serif !important;
+  font-family:             var(--font-header) !important;
   font-size:               1.0em !important;
   text-transform:          uppercase !important;
   font-weight:             700 !important;
@@ -2137,7 +2141,7 @@ html[class*="theme-"] body .personCard .cardFooter {
 
 /* 2. Actor Name: Uppercase gold headers */
 .peopleSection .cardText-first {
-  font-family:             'Oswald', sans-serif !important;
+  font-family:             var(--font-header) !important;
   color:                   var(--my-gold) !important;
   font-size:               1.1em !important;
   font-weight:             700;
@@ -2147,7 +2151,7 @@ html[class*="theme-"] body .personCard .cardFooter {
 
 /* 3. Character Role: Muted italic Sofia Sans text */
 .peopleSection .cardText-secondary {
-  font-family:             'Sofia Sans', sans-serif !important;
+  font-family:             var(--font-body) !important;
   color:                   var(--white-alpha-70) !important;
   font-size:               0.9em !important;
   font-style:              italic;
@@ -2253,7 +2257,7 @@ div.verticalSection.aboutSection       { order: var(--order-about) !important; }
     background: var(--navy-light-alpha-70) !important;
     backdrop-filter: var(--blur-heavy) !important;
     -webkit-backdrop-filter: var(--blur-heavy) !important;
-    border: var(--standard-border-thickness) solid var(--my-gold-transparent) !important;
+    border: var(--standard-border-thickness) solid var(--gold-alpha-15) !important;
     border-radius: var(--border-radius-xl) !important;
     padding: 15px !important;
 }
@@ -2261,7 +2265,7 @@ div.verticalSection.aboutSection       { order: var(--order-about) !important; }
 .mediaInfoPanel h2,
 .mediaInfoPanel .material-icons {
     color: var(--my-gold) !important;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: var(--font-header) !important;
     text-transform: uppercase;
 }
 
@@ -2276,7 +2280,7 @@ div.verticalSection.aboutSection       { order: var(--order-about) !important; }
     border-radius: var(--media-badge-radius) !important;
     color: var(--media-badge-color) !important;
     box-shadow: var(--media-badge-shadow) !important;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: var(--font-header) !important;
     font-weight: 700 !important;
     text-transform: uppercase;
     padding: 2px 10px !important;
@@ -2353,7 +2357,7 @@ html[class*="theme-"] body .starIcon:hover {
 
 .trackSelectionField .emby-select {
     background: var(--navy-base-alpha-60) !important;
-    border: var(--standard-border-thickness) solid var(--my-gold-transparent) !important;
+    border: var(--standard-border-thickness) solid var(--gold-alpha-15) !important;
     color: var(--my-gold) !important;
     padding: 5px 10px !important;
 }
@@ -2636,7 +2640,7 @@ html[class*="theme-"] .guide-headerTimes {
   border-bottom:           none !important; 
   color:                   var(--theme-primary-color) !important;
   -webkit-text-fill-color: var(--theme-primary-color) !important;
-  font-family:             'Oswald', sans-serif !important;
+  font-family:             var(--font-header) !important;
 }
 
 /* --- 7C. PROGRAM INFO TYPOGRAPHY --- */
@@ -2652,7 +2656,7 @@ html[class*="theme-"] body .programCell .guideProgramNameText {
   -webkit-backdrop-filter: none !important;
   color:                   var(--text-muted) !important;
   -webkit-text-fill-color: var(--text-muted) !important;
-  font-family:             'Sofia Sans', sans-serif !important;
+  font-family:             var(--font-body) !important;
   font-weight:             500 !important;
   padding:                 0 !important;
   margin:                  0 !important;
@@ -2671,7 +2675,7 @@ html[class*="theme-"] .programCell .guideProgramNameText {
 html[class*="theme-"] .programCell .guideProgramTime {
   color:                   var(--white-alpha-60) !important;
   -webkit-text-fill-color: var(--white-alpha-60) !important;
-  font-family:             'Sofia Sans', sans-serif !important;
+  font-family:             var(--font-body) !important;
   font-size:               0.9em !important;
   margin-top:              2px !important;
 } 
@@ -2783,7 +2787,7 @@ input[type="range"]::-moz-range-thumb {
 .osdValues,
 .osdTextContainer,
 .osdTitle {
-  font-family:             'Oswald', sans-serif !important;
+  font-family:             var(--font-header) !important;
   text-transform:          uppercase;
   letter-spacing:          1px;
 }
@@ -2795,7 +2799,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .osdSecondaryText {
-  font-family:             'Sofia Sans', sans-serif !important;
+  font-family:             var(--font-body) !important;
   color:                   var(--text-muted) !important;
   opacity:                 0.8;
 }
@@ -2836,7 +2840,7 @@ html[class*="theme-"] body .chapterThumbContainer {
 .btnStartNow {
   background:              var(--my-gold) !important;
   color:                   var(--pure-black) !important;
-  font-family:             'Oswald', sans-serif !important;
+  font-family:             var(--font-header) !important;
   font-weight:             700 !important;
   border-radius:           var(--border-radius-pill) !important;
   box-shadow:              0 0 20px var(--black-alpha-50) !important;
@@ -2873,7 +2877,7 @@ html[class*="theme-"] body .chapterThumbContainer {
 }
 
 .nowPlayingBarText {
-  font-family:             'Oswald', sans-serif !important;
+  font-family:             var(--font-header) !important;
   color:                   var(--my-gold) !important;
   font-size:               1.1em !important;
   letter-spacing:          0.5px !important;
@@ -2881,7 +2885,7 @@ html[class*="theme-"] body .chapterThumbContainer {
 }
 
 .nowPlayingBarSecondaryText {
-  font-family:             'Sofia Sans', sans-serif !important;
+  font-family:             var(--font-body) !important;
   color:                   var(--white-alpha-70) !important;
 }
 
@@ -2902,7 +2906,7 @@ html[class*="theme-"] .videoOsdBottom .emby-tab-button {
     -webkit-text-fill-color: var(--nav-pill-text) !important;
     border-radius: var(--border-radius-pill) !important;
     border: 2px solid transparent !important;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: var(--font-header) !important;
     font-size: 0.85em !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
@@ -2987,13 +2991,13 @@ html[class*="theme-"] .videoOsdBottom .emby-tab-button::after {
 
 /* Playlist Typography */
 .nowPlayingPage .listItemBodyText {
-  font-family:             'Oswald', sans-serif !important;
+  font-family:             var(--font-header) !important;
   color:                   var(--text-muted) !important;
   letter-spacing:          0.5px !important;
 }
 
 .nowPlayingPage .listItemBodyText-secondary {
-  font-family:             'Sofia Sans', sans-serif !important;
+  font-family:             var(--font-body) !important;
   color:                   var(--white-alpha-70) !important;
   font-size:               0.9em !important;
 }
@@ -3026,7 +3030,7 @@ html[class*="theme-"] .videoOsdBottom .emby-tab-button::after {
 
 /* --- 9C. Fullscreen Audio Typography --- */
 .videoOsdText .videoOsdParentTitle {
-  font-family:             'Oswald', sans-serif !important;
+  font-family:             var(--font-header) !important;
   color:                   var(--my-gold) !important;
   font-size:               1.6em !important;
   font-weight:             700 !important;
@@ -3038,7 +3042,7 @@ html[class*="theme-"] .videoOsdBottom .emby-tab-button::after {
 .videoOsdText .videoOsdThirdTitle,
 .videoOsdText .videoOsdTitle .osdTextActionButton,
 .videoOsdText .videoOsdThirdTitle .osdTextActionButton {
-  font-family:             'Sofia Sans', sans-serif !important;
+  font-family:             var(--font-body) !important;
   color:                   var(--white-alpha-70) !important;
   font-weight:             500 !important;
   text-transform:          none !important;
@@ -3096,7 +3100,7 @@ html[class*="theme-"] .dataGridHeader .button-link * {
 /* 4. Header Fonts (Excludes cells/icons to prevent missing glyphs and flex stretching) */
 html[class*="theme-"] .dataGridHeader .dataGridHeaderText,
 html[class*="theme-"] .dataGridHeader .primaryText {
-    font-family: 'Oswald', sans-serif !important;
+    font-family: var(--font-header) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.5px !important; /* Scaled back to prevent stretching */
     font-size: 0.85em !important; /* Scaled back to fit native flex widths */
@@ -3111,7 +3115,7 @@ html[class*="theme-"] .dataGridHeader .primaryText {
 .settingsContainer legend,
 legend {
   color:                   var(--my-gold) !important;
-  font-family:             'Oswald', sans-serif !important;
+  font-family:             var(--font-header) !important;
   text-transform:          uppercase !important;
   letter-spacing:          1px !important;
   font-weight:             700 !important;
@@ -3133,7 +3137,7 @@ legend {
 /* 2. Row Hover: Highlights setting rows when mouse-over */
 .dataGridItem:hover .dataGridItem-content,
 .dataGridItem.show-focus .dataGridItem-content {
-  background-color:        var(--my-gold-transparent) !important;
+  background-color:        var(--gold-alpha-20) !important;
   border:                  var(--hover-border-thickness) solid var(--theme-primary-color) !important;
   box-shadow:              var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
   color:                   var(--pure-white) !important;
@@ -3142,7 +3146,7 @@ legend {
 /* 3. Grid Avatars/Icons: Device and User icons in the dashboard */
 .dataGridItem img {
   border-radius:           var(--border-radius-sm) !important;
-  border:                  1px solid var(--my-gold-transparent) !important;
+  border:                  1px solid var(--gold-alpha-15) !important;
 }
 
 /* --- 10D. Advanced Data Grids (Music Tracks, Detailed List Views) --- */
@@ -3162,7 +3166,7 @@ html[class*="theme-"] .dataGridItem-content {
 /* 2. Row Hover State (Pops out and glows) */
 html[class*="theme-"] .dataGridItem:hover .dataGridItem-content,
 html[class*="theme-"] .dataGridItem.show-focus .dataGridItem-content {
-  background-color:        var(--my-gold-transparent) !important;
+  background-color:        var(--gold-alpha-20) !important;
   border-color:            var(--theme-primary-color) !important;
   box-shadow:              var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
   transform:               scale(1.01) !important;
@@ -3324,7 +3328,7 @@ html[class*="theme-"] body .activeSession-bottomsection .secondaryText {
 html[class*="theme-"] body .activeSession-bottomsection-title {
     color: var(--my-gold) !important;
     -webkit-text-fill-color: var(--my-gold) !important;
-    font-family: 'Oswald', sans-serif !important;
+    font-family: var(--font-header) !important;
     letter-spacing: 0.5px !important;
 }
 
@@ -3439,7 +3443,7 @@ html[class*="theme-"] body .view-librarysetup-librarysetup .cardText-secondary {
 html[class*="theme-"] body .view-librarysetup-librarysetup .cardMediaInfoItem .button-link,
 html[class*="theme-"] body .view-librarysetup-librarysetup .cardMediaInfoItem .button-link * {
   color: var(--my-gold) !important;
-  font-family: 'Oswald', sans-serif !important;
+  font-family: var(--font-header) !important;
   text-transform: uppercase !important;
   font-size: 1.15em !important;
   letter-spacing: 0.5px !important;
@@ -3669,7 +3673,7 @@ html[class*="theme-"] body .button-submit {
   background:              var(--season-btn-bg) !important;
   color:                   var(--season-btn-text) !important;
   -webkit-text-fill-color: var(--season-btn-text) !important;
-  font-family:             'Oswald', sans-serif !important;
+  font-family:             var(--font-header) !important;
   font-size:               0.95rem !important;
   border-radius:           var(--border-radius-pill) !important;
   border:                  2px solid var(--season-btn-border) !important;
