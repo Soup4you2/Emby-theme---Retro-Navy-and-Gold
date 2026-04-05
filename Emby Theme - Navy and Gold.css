@@ -3931,6 +3931,70 @@ html[class*="theme-"] body table.dataExplorerTable {
 }
 
 /* ============================================================
+   HOTFIX: PLUGIN - COVERART - POPUP SCROLLING
+   ============================================================ */
+
+html[class*="theme-"] body div.popupStylePicker.dialog.popup {
+    overflow-y: scroll !important; 
+    overscroll-behavior-y: contain !important;
+    height: auto !important;
+    max-height: 80vh !important;
+}
+
+html[class*="theme-"] body div.popupStylePicker.dialog.popup > div {
+    overflow: visible !important;
+}
+
+/* ============================================================
+   HOTFIX: MEDIA CARD ROUNDING
+   ============================================================ */
+
+/* 1. Resting State for standard cards */
+html[class*="theme-"] body .card .cardContent:not(.cardContent-round),
+html[class*="theme-"] body .card .cardImageContainer:not(.cardContent-round) {
+    border-radius: 15px !important; 
+}
+
+/* 2. Hover State for standard cards */
+html[class*="theme-"] body .card:hover .cardContent:not(.cardContent-round),
+html[class*="theme-"] body .card:hover .cardImageContainer:not(.cardContent-round) {
+    border-radius: 15px !important; 
+}
+
+/* 3. SAFETY SHIELD: Restore the original shape for Cast & Crew Portraits */
+html[class*="theme-"] body .peopleSection .card .cardContent,
+html[class*="theme-"] body .peopleSection .card .cardImageContainer,
+html[class*="theme-"] body .personCard .cardContent,
+html[class*="theme-"] body .personCard .cardImageContainer,
+html[class*="theme-"] body .peopleSection .card:hover .cardContent,
+html[class*="theme-"] body .peopleSection .card:hover .cardImageContainer,
+html[class*="theme-"] body .personCard:hover .cardContent,
+html[class*="theme-"] body .personCard:hover .cardImageContainer {
+    border-radius: var(--portrait-radius) !important;
+}
+
+/* ============================================================
+   HOTFIX: CUSTOM SIDEBAR WIDTH
+   ============================================================ */
+
+  html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) {
+      --custom-sidebar-width: 250px;
+  }
+
+  html[class*="theme-"] body .mainDrawer.drawer-docked:not(.mainDrawer-mini) {
+      width: var(--custom-sidebar-width) !important; 
+  }
+
+  html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) .skinHeader.skinHeader-withfulldrawer {
+      padding-left: var(--custom-sidebar-width) !important; 
+  }
+
+  html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) .view.page-withDockedDrawer,
+  html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) .backgroundContainer.backgroundContainer-withdockeddrawer {
+      left: var(--custom-sidebar-width) !important; 
+  }
+
+/* ============================================================
    13. UNIVERSAL SEASONAL LOGIC
    ============================================================ */
 
