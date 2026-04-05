@@ -42,7 +42,7 @@ html,
    --retro-navy: rgb(var(--navy-base-rgb));      /* Darkest navy fallback for main backgrounds */
    --retro-navy-light: rgb(var(--navy-mid-rgb)); /* Mid-tone navy fallback for panels and cards */  
 
-  /* OPTION 2 - USE THE USERS ACCEPNT COLOR PREFERENCES */
+  /* OPTION 2 - USE THE USERS ACCENT COLOR PREFERENCES */
   /* --my-gold: hsl(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%)); 
   /* --my-gold-light: color-mix(in srgb, var(--my-gold) 70%, white);    /* Solid gold fallback for borders and text accents */
   /* --retro-navy: rgb(var(--navy-base-rgb));         /* Brighter gold fallback for highlight gradients */
@@ -685,12 +685,12 @@ html,
   --border-radius-xl: 15px;                                        /* Extra large rounding for panels */
   --border-radius-pill: 50px;                                      /* Fully circular ends for buttons */
 
-  /* --- DATA GRID & TABLE VIEW VARIABLES --- */
+/* --- DATA GRID & TABLE VIEW VARIABLES --- */
   --table-header-bg: var(--navy-mid-solid);                        /* Background for table headings */
   --table-row-bg-even: var(--navy-light-alpha-40);                 /* Zebra stripe color (Even rows) */
   --table-row-bg-odd: var(--navy-base-alpha-60);                   /* Zebra stripe color (Odd rows) */
-  --table-row-hover-bg: var(--gold-alpha-20);                      /* Background color on row hover */
- 
+  --table-row-hover-bg: var(--navy-mid-solid);                     /* Background color on row hover */
+   
   /* --- TOGGLE SWITCH VARIABLES --- */
   --toggle-track-off: var(--navy-light-alpha-80);                  /* Background of switch when OFF */
   --toggle-thumb-off: var(--white-alpha-60);                       /* Circle color when OFF */
@@ -1690,8 +1690,8 @@ html[class*="theme-"] body .actionSheetMenuItem-selected,
 html[class*="theme-"] body .listItem-selected,
 html[class*="theme-"] body .paperListbox-selected,
 html[class*="theme-"] body .background-theme-a {
-  background:              var(--gold-alpha-20) !important;
-  background-color:        var(--gold-alpha-20) !important;
+  background:              var(--navy-light-alpha-80) !important;
+  background-color:        var(--navy-light-alpha-80) !important;
   background-image:        none !important; /* Obliterates native blue gradients */
   color:                   var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
@@ -3535,7 +3535,7 @@ legend {
 /* 2. Row Hover: Highlights setting rows when mouse-over */
 .dataGridItem:hover .dataGridItem-content,
 .dataGridItem.show-focus .dataGridItem-content {
-  background-color:        var(--gold-alpha-20) !important;
+  background-color:        var(--navy-light-alpha-80) !important;
   border:                  var(--hover-border-thickness) solid var(--theme-primary-color) !important;
   box-shadow:              var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
   color:                   var(--pure-white) !important;
@@ -3564,7 +3564,7 @@ html[class*="theme-"] .dataGridItem-content {
 /* 2. Row Hover State (Pops out and glows) */
 html[class*="theme-"] .dataGridItem:hover .dataGridItem-content,
 html[class*="theme-"] .dataGridItem.show-focus .dataGridItem-content {
-  background-color:        var(--gold-alpha-20) !important;
+  background-color:        var(--navy-light-alpha-80) !important;
   border-color:            var(--theme-primary-color) !important;
   box-shadow:              var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
   transform:               scale(1.01) !important;
