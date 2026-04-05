@@ -2527,21 +2527,20 @@ html[class*="theme-"] body .personCard.card-horiz:hover .cardContent {
     box-shadow: none !important;
 }
 
-/* --- 5F. SPOTLIGHT CARD TEXT SCRIM (Legibility Fix) --- */
+/* --- 5F. SPOTLIGHT CARD TEXT SCRIM (Black/Grey Legibility Fix) --- */
 
 /* Targets the entire bottom text area of the Home Screen Hero section */
 html[class*="theme-"] .spotlightCardFooter {
-    /* Create a deep navy gradient that fades up to transparent.
-       This acts as a 'shadow' behind the white text. */
+    /* We use your --pure-black-rgb to create the gradient stops.
+       0.95 opacity at the bottom for maximum contrast, fading up. */
     background: linear-gradient(to top, 
-        rgba(var(--navy-base-rgb), 0.95) 0%, 
-        rgba(var(--navy-base-rgb), 0.6) 50%, 
+        rgba(var(--pure-black-rgb), 0.95) 0%, 
+        rgba(var(--pure-black-rgb), 0.6) 50%, 
         transparent 100%) !important;
     
-    /* Adds more padding so the text isn't cramped at the bottom */
+    /* Keeps the art clear behind the title but adds shadow where text sits */
     padding: 60px 20px 25px 20px !important;
     
-    /* Forces the text container to stay at the bottom of the card */
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-end !important;
@@ -2551,6 +2550,7 @@ html[class*="theme-"] .spotlightCardFooter {
 
 /* Target ONLY the Description (ignoring the title and badges) */
 html[class*="theme-"] div.spotlightCardText:not(.mediaInfoItems):not(.spotlightCardText-first) {
+    /* We already used your --black-alpha-90 here, which is a perfect match */
     text-shadow: 0px 2px 10px var(--black-alpha-90) !important;
     color: var(--pure-white) !important;
     -webkit-text-fill-color: var(--pure-white) !important;
