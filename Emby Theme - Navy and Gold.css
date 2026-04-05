@@ -37,21 +37,19 @@ html,
   /* --- CUSTOM MASTER PALETTE --- */
 
   /* OPTION 1 - USE THE THEMES GOLD COLOR */
-   --my-gold: rgb(var(--my-gold-rgb));           /* Solid gold fallback for borders and text accents */
-   --my-gold-light: rgb(var(--my-gold-light-rgb)); /* Brighter gold fallback for highlight gradients */
-   --retro-navy: rgb(var(--navy-base-rgb));      /* Darkest navy fallback for main backgrounds */
-   --retro-navy-light: rgb(var(--navy-mid-rgb)); /* Mid-tone navy fallback for panels and cards */  
-   --sidebar-active-icon: var(--my-gold);        /* Color of icon on navigation bar for the selected area */
+  --my-gold: rgb(var(--my-gold-rgb));           /* Solid gold fallback for borders and text accents */
+  --my-gold-light: rgb(var(--my-gold-light-rgb)); /* Brighter gold fallback for highlight gradients */
+  --retro-navy: rgb(var(--navy-base-rgb));      /* Darkest navy fallback for main backgrounds */
+  --retro-navy-light: rgb(var(--navy-mid-rgb)); /* Mid-tone navy fallback for panels and cards */  
 
-  /* OPTION 2 - USE THE USERS ACCENT COLOR PREFERENCES */
-  /* --my-gold: hsl(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%)); 
-  /* --my-gold-light: color-mix(in srgb, var(--my-gold) 70%, white);    /* Solid gold fallback for borders and text accents */
-  /* --retro-navy: rgb(var(--navy-base-rgb));         /* Brighter gold fallback for highlight gradients */
-  /* --retro-navy-light: rgb(var(--navy-mid-rgb));    /* Mid-tone navy fallback for panels and cards */  
-  /* --season-star-color: rgb(255, 185, 0);         /* Media info badge rating star color */
-  /* --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));   /* Media info badge rating star glow */
-  /* --sidebar-active-icon: var(--pure-white);        /* Color of icon on navigation bar for the selected area */
-
+  /* OPTION 2 - USE THE USERS ACCENT COLOR PREFERENCES (* EXPERIMENTAL *) */
+  /*--my-gold: hsl(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%)); 
+  /*--my-gold-light: color-mix(in srgb, var(--my-gold) 70%, white);    /* Solid gold fallback for borders and text accents */
+  /*--retro-navy: rgb(var(--navy-base-rgb));         /* Brighter gold fallback for highlight gradients */
+  /*--retro-navy-light: rgb(var(--navy-mid-rgb));    /* Mid-tone navy fallback for panels and cards */  
+  /*--season-star-color: rgb(255, 185, 0);         /* Media info badge rating star color */
+  /*--season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));   /* Media info badge rating star glow */
+ 
   /* --- CORE SOLID COLORS --- */
   --pure-white: rgb(var(--pure-white-rgb));     /* Solid white for high-contrast icons */
   --pure-black: rgb(var(--pure-black-rgb));     /* Solid black for deep shadow foundations */
@@ -189,9 +187,10 @@ html,
       USER OPTIONS FOR VISUALS BELOW
      ============================================================ */
 
-  /* CUSTOM SIDEBAR WIDTH */
+  /* SIDEBAR OPTIONS */
   --custom-sidebar-width: 250px;                                    /* Define the custom width (Triggered only when the full sidebar is open) */   
-  
+  --sidebar-active-icon: var(--my-gold);                            /* Color of icon on navigation bar for the active state area */
+
   /* STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) */
   --media-card-radius: 15px;                                        /* Adjust the corner rounding of standard posters */
 
@@ -1210,30 +1209,13 @@ html[class*="theme-"] body .skinHeader .headerButton[title="Menu"]:hover {
   font-size:               1.1em !important;
 }
 
-/* 3. Selected Menu Item: Highlights the active page with a soft inner glow */
-.navMenuOption-selected {
-  background:              var(--theme-icon-focus-background) !important;
-  border-left:             none !important;
-  box-shadow:              inset 10px 0 15px var(--gold-alpha-10) !important;
-}
-
-.navMenuOption-selected i.navDrawerListItemIcon {
-  color:                   var(--sidebar-active-icon) !important;
-}
-
-/* 4. Cleanup: Removes default Emby selection indicator lines */
-.navMenuOption-selected::before,
-.navMenuOption-selected::after {
-  display:                 none !important;
-}
-
-/* 5. Global Sidebar Icons: Applies the gold icon color across ALL Emby themes */
+/* 3. Global Sidebar Icons: Applies the gold icon color as a baseline across ALL Emby themes */
 .navDrawerListItemIcon {
     color: var(--my-gold) !important;
     -webkit-text-fill-color: var(--my-gold) !important;
 }
 
-/* 6. Sidebar Header Logo: Overrides global button borders to keep the logo clean */
+/* 4. Sidebar Header Logo: Overrides global button borders to keep the logo clean */
 html[class*="theme-"] body .mainDrawer a.btnNavDrawerLogo,
 html[class*="theme-"] body .mainDrawer a.btnNavDrawerLogo:hover,
 html[class*="theme-"] body .mainDrawer a.btnNavDrawerLogo:focus {
@@ -1244,7 +1226,7 @@ html[class*="theme-"] body .mainDrawer a.btnNavDrawerLogo:focus {
   outline: none !important;
 }
 
-/* 7. Light Theme Logo Fix: Inverts black text to white strictly on themes that need it */
+/* 5. Light Theme Logo Fix: Inverts black text to white strictly on themes that need it */
 html[class*="theme-light"] body .navDrawerLogo,
 html[class*="theme-light"] body .pageTitleWithDefaultLogo,
 html[class*="theme-light"] .splashLogo,
@@ -1254,7 +1236,7 @@ html[class*="theme-appletv"] .splashLogo {
   filter: invert(1) hue-rotate(180deg) brightness(1.2) !important;
 }
 
-/* 8. Sidebar Close Button: Keeps the 'X' button always visible (overrides native hide) */
+/* 6. Sidebar Close Button: Uses your dynamic icon variable */
 html[class*="theme-"] body .mainDrawer .btnPinNavDrawer,
 html[class*="theme-"] body .mainDrawer .btnPinNavDrawer-hovershow {
   opacity: 0.7 !important;
@@ -1264,8 +1246,8 @@ html[class*="theme-"] body .mainDrawer .btnPinNavDrawer-hovershow {
 
 html[class*="theme-"] body .mainDrawer .btnPinNavDrawer .md-icon,
 html[class*="theme-"] body .mainDrawer .btnPinNavDrawer-hovershow .md-icon {
-  color: var(--pure-white) !important;
-  -webkit-text-fill-color: var(--pure-white) !important;
+  color: var(--sidebar-active-icon) !important;
+  -webkit-text-fill-color: var(--sidebar-active-icon) !important;
 }
 
 html[class*="theme-"] body .mainDrawer .btnPinNavDrawer:hover,
@@ -1375,64 +1357,50 @@ html[class*="theme-"] body .emby-tab-button[style*="display: none"] {
   width:                   0 !important;
 }
 
-/* --- 3D. UNIVERSAL SIDEBAR & SETTINGS MENU FIX (20px ROUNDED) --- */
+/* --- 3D. UNIVERSAL SIDEBAR & SETTINGS MENU --- */
 
-/* 1. BASE STATE: Applies the 20px rounding to ALL sidebar menus */
+/* 1. BASE GEOMETRY: Applies the 20px rounding to both outer and inner layers */
 html[class*="theme-"] body .mainDrawer .navMenuOption,
 html[class*="theme-"] body .mainDrawer .navDrawerListItem {
-    background: transparent !important; 
-    background-color: transparent !important;
-    background-image: none !important; 
-    border-radius: 20px !important;
-    overflow: hidden !important; 
     margin: 2px 10px !important; 
     width: auto !important;
+    border-radius: 20px !important;
+    background: transparent !important;
+}
+
+html[class*="theme-"] body .mainDrawer .navMenuOption .listItem-content,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem .listItem-content {
+    border-radius: 20px !important;
     transition: all var(--transition-speed) ease !important;
 }
 
-/* 2. HOVER STATE: Adds highlight, turns text White, keeps icons Gold */
-html[class*="theme-"] body .mainDrawer .navMenuOption:hover,
-html[class*="theme-"] body .mainDrawer .navDrawerListItem:hover {
+/* 2. HOVER STATE (UNSELECTED): Highlight background and Gold Text/Icons */
+html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .listItem-content,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .listItem-content {
     background: var(--white-alpha-10) !important; 
-    background-color: var(--white-alpha-10) !important;
-    background-image: none !important; 
-    cursor: pointer !important;
 }
 
-html[class*="theme-"] body .mainDrawer .navMenuOption:hover .navDrawerListItemBody,
-html[class*="theme-"] body .mainDrawer .navDrawerListItem:hover .listItemBody {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-}
-
-html[class*="theme-"] body .mainDrawer .navMenuOption:hover .navDrawerListItemIcon,
-html[class*="theme-"] body .mainDrawer .navMenuOption:hover .md-icon,
-html[class*="theme-"] body .mainDrawer .navDrawerListItem:hover .navDrawerListItemIcon,
-html[class*="theme-"] body .mainDrawer .navDrawerListItem:hover .md-icon {
+html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .navDrawerListItemBody,
+html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .listItemBody,
+html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .navMenuOptionText,
+html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .navDrawerListItemIcon,
+html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .md-icon,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .navDrawerListItemBody,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .listItemBody,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .navMenuOptionText,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .navDrawerListItemIcon,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .md-icon {
     color: var(--my-gold) !important;
     -webkit-text-fill-color: var(--my-gold) !important;
 }
 
-/* 3. SELECTED STATE BACKGROUND: Applies the frosted glow */
-html[class*="theme-"] body .mainDrawer .navMenuOption-selected,
-html[class*="theme-"] body .mainDrawer .navDrawerListItem.navMenuOption-selected {
-    /* NOTE: If you prefer the dark grey/navy oval instead of the blue-tinted oval, 
-       change the two lines below to var(--navy-light-alpha-80) */
-    background: var(--theme-icon-focus-background) !important; 
-    background-color: var(--theme-icon-focus-background) !important;
-    background-image: none !important; 
-    box-shadow: inset 10px 0 15px var(--gold-alpha-10) !important;
-    border-left: none !important;
-}
-
-/* Nuke Emby's native background color pill which hides inside the inner div */
+/* 3. SELECTED STATE BACKGROUND: Lock the native accent oval */
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .listItem-content,
 html[class*="theme-"] body .mainDrawer .navDrawerListItem.navMenuOption-selected .listItem-content {
-    background: transparent !important;
-    background-color: transparent !important;
+    background: var(--theme-icon-focus-background) !important;
 }
 
-/* 3a. SELECTED STATE TEXT: Stays your accent color */
+/* 4. SELECTED STATE TEXT: Lock to Accent Color */
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navDrawerListItemBody,
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .listItemBody,
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navMenuOptionText {
@@ -1440,7 +1408,7 @@ html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navMenuOptionTex
     -webkit-text-fill-color: var(--my-gold) !important;
 }
 
-/* 3b. SELECTED STATE ICONS: Uses the new variable (White in Option 2) */
+/* 5. SELECTED STATE ICONS: Lock to White (Option 2) or Gold (Option 1) */
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navDrawerListItemIcon,
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .md-icon,
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .listItemImageContainer .md-icon {
@@ -1454,12 +1422,12 @@ html[class*="theme-"] body .mainDrawer .navMenuOption-selected .listItemImageCon
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption {
   margin: 5px auto !important;
   padding: 0 !important;
-  width: 48px !important;  /* Forces a fixed size so it fits perfectly */
+  width: 48px !important;
   height: 48px !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  border-radius: 50% !important; /* Makes the active highlight a perfect circle */
+  border-radius: 50% !important;
   overflow: hidden !important;
 }
 
@@ -1473,7 +1441,7 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption .listItemI
   align-items: center !important;
   width: 100% !important;
   height: 100% !important;
-  background: transparent !important; /* Strips any native blue bleeding through */
+  background: transparent !important;
 }
 
 /* 2. Fixes the blinding blue background on the active item in the Light Theme */
@@ -1483,23 +1451,23 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption.navMenuOpt
   border: none !important;
 }
 
-/* 3. Keeps the icon Gold (or White) when selected */
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption.navMenuOption-selected .md-icon,
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption.navMenuOption-selected .navDrawerListItemIcon {
+/* 3. SELECTED STATE: Uses your active icon variable */
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption-selected .md-icon,
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption-selected .navDrawerListItemIcon {
   color: var(--sidebar-active-icon) !important;
   -webkit-text-fill-color: var(--sidebar-active-icon) !important;
 }
 
-/* 4. Forces all inactive menu icons to white when collapsed */
+/* 4. Forces all inactive menu icons to your theme preference when collapsed */
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected) .md-icon,
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected) .navDrawerListItemIcon {
-  color: var(--pure-white) !important;
-  -webkit-text-fill-color: var(--pure-white) !important;
-  opacity: 0.8 !important; /* Slight dimming so they aren't blinding */
+  color: var(--sidebar-active-icon) !important;
+  -webkit-text-fill-color: var(--sidebar-active-icon) !important;
+  opacity: 0.8 !important;
   transition: all var(--transition-speed) ease !important;
 }
 
-/* 5. Hover state: turns the white icons gold when you mouse over them */
+/* 5. Hover state: turns the icons gold when you mouse over them */
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected):hover .md-icon,
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected):hover .navDrawerListItemIcon {
   color: var(--my-gold) !important;
@@ -1528,10 +1496,10 @@ html[class*="theme-"] body .mainDrawer.drawer-docked:not(.mainDrawer-mini) {
     width: var(--custom-sidebar-width) !important; 
 }
 
-/* 3. Adjust the Top Header to prevent overlap (FIXED: Swapped padding for margin) */
+/* 3. Adjust the Top Header to prevent overlap */
 html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) .skinHeader.skinHeader-withfulldrawer {
     margin-left: var(--custom-sidebar-width) !important; 
-    padding-left: 0 !important; /* Strips out any leftover padding conflicts */
+    padding-left: 0 !important; 
 }
 
 /* 4. Shift the Main Page Content and Background to the right */
@@ -1713,8 +1681,8 @@ html[class*="theme-"] body .background-theme-a .listItemBodyText {
 
 /* 4. Hover State for Settings & Lists (Fixes light vs dark theme bleeding) */
 html[class*="theme-"] body .actionSheetMenuItem:hover,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a),
-html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected):not(.background-theme-a) {
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a),
+html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) {
   background:              var(--white-alpha-10) !important;
   background-color:        var(--white-alpha-10) !important;
   background-image:        none !important; 
@@ -1724,16 +1692,16 @@ html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected)
 
 /* Keep hover icons Gold */
 html[class*="theme-"] body .actionSheetMenuItem:hover .md-icon,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .md-icon,
-html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected):not(.background-theme-a) .md-icon {
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .md-icon,
+html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .md-icon {
   color:                   var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
 }
 
-/* Keep hover text White */
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .listItemBodyText {
-  color:                   var(--pure-white) !important;
-  -webkit-text-fill-color: var(--pure-white) !important;
+/* Keep hover text Dynamic */
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .listItemBodyText {
+  color:                   var(--sidebar-active-icon) !important;
+  -webkit-text-fill-color: var(--sidebar-active-icon) !important;
 }
 
 /* 5. Media Overlays: Small buttons appearing on poster hover */
