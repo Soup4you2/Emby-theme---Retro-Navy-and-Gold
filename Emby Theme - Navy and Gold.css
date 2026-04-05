@@ -41,6 +41,8 @@ html,
   --my-gold-light: rgb(var(--my-gold-light-rgb)); /* Brighter gold fallback for highlight gradients */
   --retro-navy: rgb(var(--navy-base-rgb));      /* Darkest navy fallback for main backgrounds */
   --retro-navy-light: rgb(var(--navy-mid-rgb)); /* Mid-tone navy fallback for panels and cards */  
+  --season-star-color: rgb(179, 80, 0);         /* Media info badge rating star color */
+  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));   /* Media info badge rating star glow */
 
   /* OPTION 2 - USE THE USERS ACCENT COLOR PREFERENCES (* EXPERIMENTAL *) */
   /* NOTE: KEEP IN MIND EVERY USER HAS THEIR OWN ACCENT COLOR SELECTION */
@@ -1486,26 +1488,25 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini .btnToggleNavDrawer .md-i
 
 /* --- 3F. DOCKED SIDEBAR WIDTH --- */
 
-/* 1. Define the custom width (Triggered only when the full sidebar is open) */
-html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) {
-    --custom-sidebar-width: 250px;
-}
+/* Protect mobile/tablet views by only running this on larger screens */
+@media (min-width: 48em) {
+    
+    /* 1. Apply custom width to the Sidebar ONLY when fully docked */
+    html[class*="theme-"] body .mainDrawer.drawer-docked:not(.mainDrawer-mini) {
+        width: var(--custom-sidebar-width) !important; 
+    }
 
-/* 2. Apply width to the Sidebar itself */
-html[class*="theme-"] body .mainDrawer.drawer-docked:not(.mainDrawer-mini) {
-    width: var(--custom-sidebar-width) !important; 
-}
+    /* 2. Adjust the Top Header padding so titles align perfectly with the new width */
+    html[class*="theme-"] body .skinHeader.skinHeader-withfulldrawer {
+        padding-left: var(--custom-sidebar-width) !important; 
+        margin-left: 0 !important; 
+    }
 
-/* 3. Adjust the Top Header to prevent overlap */
-html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) .skinHeader.skinHeader-withfulldrawer {
-    margin-left: var(--custom-sidebar-width) !important; 
-    padding-left: 0 !important; 
-}
-
-/* 4. Shift the Main Page Content and Background to the right */
-html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) .view.page-withDockedDrawer,
-html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) .backgroundContainer.backgroundContainer-withdockeddrawer {
-    left: var(--custom-sidebar-width) !important; 
+    /* 3. Shift the Main Page Content strictly to the edge of the custom sidebar */
+    html[class*="theme-"] body .view.page-withDockedDrawer,
+    html[class*="theme-"] body .backgroundContainer.backgroundContainer-withdockeddrawer {
+        left: var(--custom-sidebar-width) !important; 
+    }
 }
 
 /* ============================================================
