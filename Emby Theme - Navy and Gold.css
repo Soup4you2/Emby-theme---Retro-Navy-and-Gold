@@ -1698,12 +1698,6 @@ html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected)
   -webkit-text-fill-color: var(--my-gold) !important;
 }
 
-/* Keep hover text Dynamic */
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .listItemBodyText {
-  color:                   var(--sidebar-active-icon) !important;
-  -webkit-text-fill-color: var(--sidebar-active-icon) !important;
-}
-
 /* 5. Media Overlays: Small buttons appearing on poster hover */
 html[class*="theme-"] .cardOverlayFab-primary,
 html[class*="theme-"] .cardOverlayButtonIcon,
