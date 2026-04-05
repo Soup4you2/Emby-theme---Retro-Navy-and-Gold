@@ -47,6 +47,8 @@ html,
   /* --my-gold-light: color-mix(in srgb, var(--my-gold) 70%, white);    /* Solid gold fallback for borders and text accents */
   /* --retro-navy: rgb(var(--navy-base-rgb));         /* Brighter gold fallback for highlight gradients */
   /* --retro-navy-light: rgb(var(--navy-mid-rgb));    /* Mid-tone navy fallback for panels and cards */  
+  /* --season-star-color: rgb(255, 185, 0);
+  /* --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));
 
   /* --- CORE SOLID COLORS --- */
   --pure-white: rgb(var(--pure-white-rgb));     /* Solid white for high-contrast icons */
