@@ -247,12 +247,15 @@ html,
   /* --media-badge-hover-border: var(--standard-border-thickness) solid var(--my-gold);     /* Flat - Media Info Badges */
   /* --media-badge-hover-shadow: var(--glow-medium);                /* Flat - Media Info Badges */
  
+  /* CUSTOM SIDEBAR WIDTH */
+  --custom-sidebar-width: 250px;                                    /* Define the custom width (Triggered only when the full sidebar is open) */           
+
   /* SEASONAL BACKGROUND ANIMATIONS */
-  --seasonal-bg-visibility: visible;                               /* Fully Enabled */
-  --seasonal-bg-anim-state: running;                               /* Fully Enabled */
-  /* --seasonal-bg-anim-state: paused !important;                  /* Paused Animations (Keeps art, stops the motion) */
-  /* --seasonal-bg-visibility: hidden !important;                  /* Fully Disabled */
-  /* --seasonal-bg-anim-state: paused !important;                  /* Fully Disabled */
+  --seasonal-bg-visibility: visible;                                /* Fully Enabled */
+  --seasonal-bg-anim-state: running;                                /* Fully Enabled */
+  /* --seasonal-bg-anim-state: paused !important;                   /* Paused Animations (Keeps art, stops the motion) */
+  /* --seasonal-bg-visibility: hidden !important;                   /* Fully Disabled */
+  /* --seasonal-bg-anim-state: paused !important;                   /* Fully Disabled */
 
 
   /* ============================================================
@@ -1495,6 +1498,24 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini .btnToggleNavDrawer .md-i
   color: var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
   opacity: 1 !important;
+}
+
+/* --- 3F. DOCKED SIDEBAR WIDTH --- */
+
+/* 1. Apply width to the Sidebar itself */
+html[class*="theme-"] body .mainDrawer.drawer-docked:not(.mainDrawer-mini) {
+    width: var(--custom-sidebar-width) !important; 
+}
+
+/* 2. Adjust the Top Header to prevent overlap */
+html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) .skinHeader.skinHeader-withfulldrawer {
+    padding-left: var(--custom-sidebar-width) !important; 
+}
+
+/* 3. Shift the Main Page Content and Background to the right */
+html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) .view.page-withDockedDrawer,
+html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) .backgroundContainer.backgroundContainer-withdockeddrawer {
+    left: var(--custom-sidebar-width) !important; 
 }
 
 /* ============================================================
@@ -3949,19 +3970,14 @@ html[class*="theme-"] body div.popupStylePicker.dialog.popup > div {
    HOTFIX: MEDIA CARD ROUNDING
    ============================================================ */
 
-/* 1. Resting State for standard cards */
 html[class*="theme-"] body .card .cardContent:not(.cardContent-round),
-html[class*="theme-"] body .card .cardImageContainer:not(.cardContent-round) {
-    border-radius: 15px !important; 
-}
-
-/* 2. Hover State for standard cards */
+html[class*="theme-"] body .card .cardImageContainer:not(.cardContent-round),
 html[class*="theme-"] body .card:hover .cardContent:not(.cardContent-round),
 html[class*="theme-"] body .card:hover .cardImageContainer:not(.cardContent-round) {
     border-radius: 15px !important; 
 }
 
-/* 3. SAFETY SHIELD: Restore the original shape for Cast & Crew Portraits */
+/* 2. SAFETY SHIELD: Cast & Crew Portraits (Resting & Hover States) */
 html[class*="theme-"] body .peopleSection .card .cardContent,
 html[class*="theme-"] body .peopleSection .card .cardImageContainer,
 html[class*="theme-"] body .personCard .cardContent,
@@ -3973,26 +3989,20 @@ html[class*="theme-"] body .personCard:hover .cardImageContainer {
     border-radius: var(--portrait-radius) !important;
 }
 
-/* ============================================================
-   HOTFIX: CUSTOM SIDEBAR WIDTH
-   ============================================================ */
+@container style(--theme-primary-color: #ffb7b2) {
+    html[class*="theme-"] body .peopleSection .card .cardContent,
+    html[class*="theme-"] body .peopleSection .card .cardImageContainer,
+    html[class*="theme-"] body .personCard .cardContent,
+    html[class*="theme-"] body .personCard .cardImageContainer,
+    html[class*="theme-"] body .peopleSection .card:hover .cardContent,
+    html[class*="theme-"] body .peopleSection .card:hover .cardImageContainer,
+    html[class*="theme-"] body .personCard:hover .cardContent,
+    html[class*="theme-"] body .personCard:hover .cardImageContainer {
+        border-radius: 50% / 60% 60% 40% 40% !important;
+    }
+}
 
-  html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) {
-      --custom-sidebar-width: 250px;
-  }
 
-  html[class*="theme-"] body .mainDrawer.drawer-docked:not(.mainDrawer-mini) {
-      width: var(--custom-sidebar-width) !important; 
-  }
-
-  html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) .skinHeader.skinHeader-withfulldrawer {
-      padding-left: var(--custom-sidebar-width) !important; 
-  }
-
-  html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) .view.page-withDockedDrawer,
-  html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) .backgroundContainer.backgroundContainer-withdockeddrawer {
-      left: var(--custom-sidebar-width) !important; 
-  }
 
 /* ============================================================
    13. UNIVERSAL SEASONAL LOGIC
