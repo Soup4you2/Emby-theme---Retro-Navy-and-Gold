@@ -35,10 +35,18 @@ html,
   --navy-accent-rgb: 28, 34, 44;                /* Controls the default unselected background of navigation pills */
 
   /* --- CUSTOM MASTER PALETTE --- */
-  --my-gold: rgb(var(--my-gold-rgb));           /* Solid gold fallback for borders and text accents */
-  --my-gold-light: rgb(var(--my-gold-light-rgb)); /* Brighter gold fallback for highlight gradients */
-  --retro-navy: rgb(var(--navy-base-rgb));      /* Darkest navy fallback for main backgrounds */
-  --retro-navy-light: rgb(var(--navy-mid-rgb)); /* Mid-tone navy fallback for panels and cards */
+
+  /* OPTION 1 - USE THE THEMES GOLD COLOR */
+   --my-gold: rgb(var(--my-gold-rgb));           /* Solid gold fallback for borders and text accents */
+   --my-gold-light: rgb(var(--my-gold-light-rgb)); /* Brighter gold fallback for highlight gradients */
+   --retro-navy: rgb(var(--navy-base-rgb));      /* Darkest navy fallback for main backgrounds */
+   --retro-navy-light: rgb(var(--navy-mid-rgb)); /* Mid-tone navy fallback for panels and cards */  
+
+  /* OPTION 2 - USE THE USERS ACCEPNT COLOR PREFERENCES */
+  /* --my-gold: hsl(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%)); 
+  /* --my-gold-light: color-mix(in srgb, var(--my-gold) 70%, white);    /* Solid gold fallback for borders and text accents */
+  /* --retro-navy: rgb(var(--navy-base-rgb));         /* Brighter gold fallback for highlight gradients */
+  /* --retro-navy-light: rgb(var(--navy-mid-rgb));    /* Mid-tone navy fallback for panels and cards */  
 
   /* --- CORE SOLID COLORS --- */
   --pure-white: rgb(var(--pure-white-rgb));     /* Solid white for high-contrast icons */
@@ -76,16 +84,17 @@ html,
   --nav-pill-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light); /* Secondary shadow setting for active pills */
 
   /* --- EMBY THEME ENFORCERS (Overrides native Emby logic) --- */
+  
   --theme-primary-color: var(--my-gold);                          /* Emby's native primary color hook */
   --theme-accent-color: var(--my-gold);                           /* Emby's native accent color hook */
   --theme-accent-text-color: var(--my-gold);                      /* Text links and highlighted active text */
+  --theme-text-color: var(--text-muted);                          /* Emby's native global text hook */
   --theme-checked-color: var(--my-gold);                          /* Active state of checkboxes and switches */
   --theme-icon-focus-background: var(--gold-alpha-20);            /* Background highlight behind focused icons/menus */
   --theme-selection-background: var(--gold-alpha-20);             /* Background highlight behind selected list items */
   --theme-primary-color-lightened: var(--my-gold);                /* Secondary highlight hook used by Emby */
   --button-accent-flat-background: var(--gold-alpha-20);          /* Flat background state for secondary buttons */
   --theme-background: var(--retro-navy);                          /* Emby's native background hook */
-  --theme-text-color: var(--text-muted);                          /* Emby's native global text hook */
   --theme-text-color-opaque: var(--pure-white);                   /* Emby's native bright text hook */
   --theme-secondary-text-color: var(--white-alpha-70);            /* Emby's native muted/sub-text hook */
   --line-background: var(--gold-alpha-15);                        /* Color of horizontal divider lines */
@@ -106,12 +115,12 @@ html,
   --white-alpha-60: rgba(var(--pure-white-rgb), 0.6);              /* Heavily muted grey text */
   --white-alpha-70: rgba(var(--pure-white-rgb), 0.7);              /* Standard secondary grey text */
   --white-alpha-80: rgba(var(--pure-white-rgb), 0.8);              /* Brighter secondary text */
-  --gold-alpha-05: rgba(var(--my-gold-rgb), 0.05);                 /* Extremely faint gold tint */
-  --gold-alpha-10: rgba(var(--my-gold-rgb), 0.1);                  /* Soft gold selection background */
-  --gold-alpha-15: rgba(var(--my-gold-rgb), 0.15);                 /* Sidebar divider borders */
-  --gold-alpha-20: rgba(var(--my-gold-rgb), 0.2);                  /* Menu focus/selection background */
-  --gold-alpha-30: rgba(var(--my-gold-rgb), 0.3);                  /* Stronger outline and border golds */
-  --gold-alpha-40: rgba(var(--my-gold-rgb), 0.4);                  /* Standard glow alpha for text and box shadows */
+  --gold-alpha-05: hsla(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%), 0.05);   /* Extremely faint gold tint */
+  --gold-alpha-10: hsla(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%), 0.1);    /* Soft gold selection background */
+  --gold-alpha-15: hsla(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%), 0.15);   /* Sidebar divider borders */
+  --gold-alpha-20: hsla(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%), 0.2);    /* Menu focus/selection background */
+  --gold-alpha-30: hsla(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%), 0.3);    /* Stronger outline and border golds */
+  --gold-alpha-40: hsla(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%), 0.4);    /* Standard glow alpha for text and box shadows */
   --navy-base-solid: rgb(var(--navy-base-rgb));                    /* Solid dark navy fallback */
   --navy-base-alpha-25: rgba(var(--navy-base-rgb), 0.25);          /* Faint navy tint over art */
   --navy-base-alpha-60: rgba(var(--navy-base-rgb), 0.6);           /* Navy tint for dropdown menus */
