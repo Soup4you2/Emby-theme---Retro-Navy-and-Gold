@@ -43,6 +43,7 @@ html,
   --retro-navy-light: rgb(var(--navy-mid-rgb)); /* Mid-tone navy fallback for panels and cards */  
 
   /* OPTION 2 - USE THE USERS ACCENT COLOR PREFERENCES (* EXPERIMENTAL *) */
+  /* NOTE: KEEP IN MIND EVERY USER HAS THEIR OWN ACCENT COLOR SELECTION */
   /* --my-gold: hsl(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%)); 
   /* --my-gold-light: color-mix(in srgb, var(--my-gold) 70%, white);    /* Solid gold fallback for borders and text accents */
   /* --retro-navy: rgb(var(--navy-base-rgb));         /* Brighter gold fallback for highlight gradients */
