@@ -37,16 +37,16 @@ html,
   /* --- CUSTOM MASTER PALETTE --- */
 
   /* OPTION 1 - USE THE THEMES GOLD COLOR */
-   --my-gold: rgb(var(--my-gold-rgb));           /* Solid gold fallback for borders and text accents */
-   --my-gold-light: rgb(var(--my-gold-light-rgb)); /* Brighter gold fallback for highlight gradients */
-   --retro-navy: rgb(var(--navy-base-rgb));      /* Darkest navy fallback for main backgrounds */
-   --retro-navy-light: rgb(var(--navy-mid-rgb)); /* Mid-tone navy fallback for panels and cards */  
+  /* --my-gold: rgb(var(--my-gold-rgb));           /* Solid gold fallback for borders and text accents */
+  /* --my-gold-light: rgb(var(--my-gold-light-rgb)); /* Brighter gold fallback for highlight gradients */
+  /* --retro-navy: rgb(var(--navy-base-rgb));      /* Darkest navy fallback for main backgrounds */
+  /* --retro-navy-light: rgb(var(--navy-mid-rgb)); /* Mid-tone navy fallback for panels and cards */  
 
   /* OPTION 2 - USE THE USERS ACCENT COLOR PREFERENCES */
-  /* --my-gold: hsl(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%)); 
-  /* --my-gold-light: color-mix(in srgb, var(--my-gold) 70%, white);    /* Solid gold fallback for borders and text accents */
-  /* --retro-navy: rgb(var(--navy-base-rgb));         /* Brighter gold fallback for highlight gradients */
-  /* --retro-navy-light: rgb(var(--navy-mid-rgb));    /* Mid-tone navy fallback for panels and cards */  
+   --my-gold: hsl(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%)); 
+   --my-gold-light: color-mix(in srgb, var(--my-gold) 70%, white);    /* Solid gold fallback for borders and text accents */
+   --retro-navy: rgb(var(--navy-base-rgb));         /* Brighter gold fallback for highlight gradients */
+   --retro-navy-light: rgb(var(--navy-mid-rgb));    /* Mid-tone navy fallback for panels and cards */  
 
   /* --- CORE SOLID COLORS --- */
   --pure-white: rgb(var(--pure-white-rgb));     /* Solid white for high-contrast icons */
@@ -115,12 +115,12 @@ html,
   --white-alpha-60: rgba(var(--pure-white-rgb), 0.6);              /* Heavily muted grey text */
   --white-alpha-70: rgba(var(--pure-white-rgb), 0.7);              /* Standard secondary grey text */
   --white-alpha-80: rgba(var(--pure-white-rgb), 0.8);              /* Brighter secondary text */
-  --gold-alpha-05: hsla(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%), 0.05);   /* Extremely faint gold tint */
-  --gold-alpha-10: hsla(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%), 0.1);    /* Soft gold selection background */
-  --gold-alpha-15: hsla(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%), 0.15);   /* Sidebar divider borders */
-  --gold-alpha-20: hsla(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%), 0.2);    /* Menu focus/selection background */
-  --gold-alpha-30: hsla(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%), 0.3);    /* Stronger outline and border golds */
-  --gold-alpha-40: hsla(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%), 0.4);    /* Standard glow alpha for text and box shadows */
+  --gold-alpha-05: color-mix(in srgb, var(--my-gold) 5%, transparent);   /* Extremely faint tint */
+  --gold-alpha-10: color-mix(in srgb, var(--my-gold) 10%, transparent);  /* Soft selection background */
+  --gold-alpha-15: color-mix(in srgb, var(--my-gold) 15%, transparent);  /* Sidebar divider borders */
+  --gold-alpha-20: color-mix(in srgb, var(--my-gold) 20%, transparent);  /* Menu focus/selection background */
+  --gold-alpha-30: color-mix(in srgb, var(--my-gold) 30%, transparent);  /* Stronger outline and border golds */
+  --gold-alpha-40: color-mix(in srgb, var(--my-gold) 40%, transparent);  /* Standard glow alpha for text and box shadows */
   --navy-base-solid: rgb(var(--navy-base-rgb));                    /* Solid dark navy fallback */
   --navy-base-alpha-25: rgba(var(--navy-base-rgb), 0.25);          /* Faint navy tint over art */
   --navy-base-alpha-60: rgba(var(--navy-base-rgb), 0.6);           /* Navy tint for dropdown menus */
@@ -689,7 +689,7 @@ html,
   --table-header-bg: var(--navy-mid-solid);                        /* Background for table headings */
   --table-row-bg-even: var(--navy-light-alpha-40);                 /* Zebra stripe color (Even rows) */
   --table-row-bg-odd: var(--navy-base-alpha-60);                   /* Zebra stripe color (Odd rows) */
-  --table-row-hover-bg: var(--navy-mid-solid);                     /* Background color on row hover */
+  --table-row-hover-bg: var(--gold-alpha-20);                     /* Background color on row hover */
    
   /* --- TOGGLE SWITCH VARIABLES --- */
   --toggle-track-off: var(--navy-light-alpha-80);                  /* Background of switch when OFF */
@@ -1690,9 +1690,9 @@ html[class*="theme-"] body .actionSheetMenuItem-selected,
 html[class*="theme-"] body .listItem-selected,
 html[class*="theme-"] body .paperListbox-selected,
 html[class*="theme-"] body .background-theme-a {
-  background:              var(--navy-light-alpha-80) !important;
-  background-color:        var(--navy-light-alpha-80) !important;
-  background-image:        none !important; /* Obliterates native blue gradients */
+  background:              var(--gold-alpha-20) !important;
+  background-color:        var(--gold-alpha-20) !important;
+  background-image:        none !important; 
   color:                   var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
 }
@@ -3535,7 +3535,7 @@ legend {
 /* 2. Row Hover: Highlights setting rows when mouse-over */
 .dataGridItem:hover .dataGridItem-content,
 .dataGridItem.show-focus .dataGridItem-content {
-  background-color:        var(--navy-light-alpha-80) !important;
+  background-color:        var(--gold-alpha-20) !important;
   border:                  var(--hover-border-thickness) solid var(--theme-primary-color) !important;
   box-shadow:              var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
   color:                   var(--pure-white) !important;
@@ -3564,7 +3564,7 @@ html[class*="theme-"] .dataGridItem-content {
 /* 2. Row Hover State (Pops out and glows) */
 html[class*="theme-"] .dataGridItem:hover .dataGridItem-content,
 html[class*="theme-"] .dataGridItem.show-focus .dataGridItem-content {
-  background-color:        var(--navy-light-alpha-80) !important;
+  background-color:        var(--gold-alpha-20) !important;
   border-color:            var(--theme-primary-color) !important;
   box-shadow:              var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
   transform:               scale(1.01) !important;
