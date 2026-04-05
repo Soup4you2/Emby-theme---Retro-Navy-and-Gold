@@ -176,6 +176,12 @@ html,
       USER OPTIONS FOR VISUALS BELOW
      ============================================================ */
 
+  /* CUSTOM SIDEBAR WIDTH */
+  --custom-sidebar-width: 250px;                                    /* Define the custom width (Triggered only when the full sidebar is open) */   
+  
+  /* STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) */
+  --media-card-radius: 15px;                                        /* Adjust the corner rounding of standard posters */
+
   /* MEDIA CARD POPOUT EFFECTS --- */
   --popout-perspective: none;                                       /* Effects can be made when hovering over media cards */
   --popout-transform: none;                                         /* Effects can be made when hovering over media cards */
@@ -247,9 +253,6 @@ html,
   /* --media-badge-hover-border: var(--standard-border-thickness) solid var(--my-gold);     /* Flat - Media Info Badges */
   /* --media-badge-hover-shadow: var(--glow-medium);                /* Flat - Media Info Badges */
  
-  /* CUSTOM SIDEBAR WIDTH */
-  --custom-sidebar-width: 250px;                                    /* Define the custom width (Triggered only when the full sidebar is open) */           
-
   /* SEASONAL BACKGROUND ANIMATIONS */
   --seasonal-bg-visibility: visible;                                /* Fully Enabled */
   --seasonal-bg-anim-state: running;                                /* Fully Enabled */
@@ -2336,10 +2339,12 @@ html[class*="theme-"] body .personCard .defaultCardBackground {
                            inset 0 0 10px var(--gold-alpha-10) !important;
 }
 
-/* 2. Shape Handling: Ensure rectangular cards maintain correct rounding on hover */
-.card:hover .cardContent:not(.cardContent-round),
-.card:hover .cardImageContainer:not(.cardContent-round) {
-  border-radius:           var(--border-radius-lg) !important;
+/* 2. Shape Handling: Ensures standard cards (movies/shows) maintain specific rounding at rest and on hover */
+html[class*="theme-"] body .card .cardContent:not(.cardContent-round),
+html[class*="theme-"] body .card .cardImageContainer:not(.cardContent-round),
+html[class*="theme-"] body .card:hover .cardContent:not(.cardContent-round),
+html[class*="theme-"] body .card:hover .cardImageContainer:not(.cardContent-round) {
+    border-radius: var(--media-card-radius) !important; 
 }
 
 /* 3. Circular Cards: Ensures Music Artists and Collections stay circular during hover */
@@ -2417,6 +2422,18 @@ html[class*="theme-"] body .personCard .cardFooter {
   border-color:            transparent !important;
   box-shadow:              none !important;
   background:              transparent !important;
+}
+
+/* 6. Portrait Shape Shield: Protects actors from global card rounding rules */
+html[class*="theme-"] body .peopleSection .card .cardContent,
+html[class*="theme-"] body .peopleSection .card .cardImageContainer,
+html[class*="theme-"] body .personCard .cardContent,
+html[class*="theme-"] body .personCard .cardImageContainer,
+html[class*="theme-"] body .peopleSection .card:hover .cardContent,
+html[class*="theme-"] body .peopleSection .card:hover .cardImageContainer,
+html[class*="theme-"] body .personCard:hover .cardContent,
+html[class*="theme-"] body .personCard:hover .cardImageContainer {
+    border-radius: var(--portrait-radius) !important;
 }
 
 /* --- 5D. CAST & CREW TYPOGRAPHY --- */
@@ -3967,44 +3984,6 @@ html[class*="theme-"] body div.popupStylePicker.dialog.popup > div {
 }
 
 /* ============================================================
-   HOTFIX: MEDIA CARD ROUNDING
-   ============================================================ */
-
-html[class*="theme-"] body .card .cardContent:not(.cardContent-round),
-html[class*="theme-"] body .card .cardImageContainer:not(.cardContent-round),
-html[class*="theme-"] body .card:hover .cardContent:not(.cardContent-round),
-html[class*="theme-"] body .card:hover .cardImageContainer:not(.cardContent-round) {
-    border-radius: 15px !important; 
-}
-
-/* 2. SAFETY SHIELD: Cast & Crew Portraits (Resting & Hover States) */
-html[class*="theme-"] body .peopleSection .card .cardContent,
-html[class*="theme-"] body .peopleSection .card .cardImageContainer,
-html[class*="theme-"] body .personCard .cardContent,
-html[class*="theme-"] body .personCard .cardImageContainer,
-html[class*="theme-"] body .peopleSection .card:hover .cardContent,
-html[class*="theme-"] body .peopleSection .card:hover .cardImageContainer,
-html[class*="theme-"] body .personCard:hover .cardContent,
-html[class*="theme-"] body .personCard:hover .cardImageContainer {
-    border-radius: var(--portrait-radius) !important;
-}
-
-@container style(--theme-primary-color: #ffb7b2) {
-    html[class*="theme-"] body .peopleSection .card .cardContent,
-    html[class*="theme-"] body .peopleSection .card .cardImageContainer,
-    html[class*="theme-"] body .personCard .cardContent,
-    html[class*="theme-"] body .personCard .cardImageContainer,
-    html[class*="theme-"] body .peopleSection .card:hover .cardContent,
-    html[class*="theme-"] body .peopleSection .card:hover .cardImageContainer,
-    html[class*="theme-"] body .personCard:hover .cardContent,
-    html[class*="theme-"] body .personCard:hover .cardImageContainer {
-        border-radius: 50% / 60% 60% 40% 40% !important;
-    }
-}
-
-
-
-/* ============================================================
    13. UNIVERSAL SEASONAL LOGIC
    ============================================================ */
 
@@ -4839,6 +4818,20 @@ html[class*="theme-"] body .button-submit:active {
   .card:hover .cardImageContainer:not(.cardContent-round) { 
     border-color: var(--easter-pink) !important; 
     box-shadow:   none !important; 
+  }
+
+  /* 1. Portrait Shaping: Forces cast/crew images to clip into an egg mask with max specificity */
+  html[class*="theme-"] body .peopleSection .card .cardContent,
+  html[class*="theme-"] body .peopleSection .card .cardImageContainer,
+  html[class*="theme-"] body .personCard .cardContent,
+  html[class*="theme-"] body .personCard .cardImageContainer,
+  html[class*="theme-"] body .peopleSection .card:hover .cardContent,
+  html[class*="theme-"] body .peopleSection .card:hover .cardImageContainer,
+  html[class*="theme-"] body .personCard:hover .cardContent,
+  html[class*="theme-"] body .personCard:hover .cardImageContainer,
+  html[class*="theme-"] body .peopleSection .card-hoverable:hover .cardOverlayContainer, 
+  html[class*="theme-"] body .personCard.card-hoverable:hover .cardOverlayContainer { 
+    border-radius: 50% / 60% 60% 40% 40% !important; 
   }
 
   /* --- 16D. PROGRESS BARS & LOADERS --- */
