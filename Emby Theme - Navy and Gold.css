@@ -2527,6 +2527,36 @@ html[class*="theme-"] body .personCard.card-horiz:hover .cardContent {
     box-shadow: none !important;
 }
 
+/* --- 5F. SPOTLIGHT CARD TEXT SCRIM (Legibility Fix) --- */
+
+/* Targets the entire bottom text area of the Home Screen Hero section */
+html[class*="theme-"] .spotlightCardFooter {
+    /* Create a deep navy gradient that fades up to transparent.
+       This acts as a 'shadow' behind the white text. */
+    background: linear-gradient(to top, 
+        rgba(var(--navy-base-rgb), 0.95) 0%, 
+        rgba(var(--navy-base-rgb), 0.6) 50%, 
+        transparent 100%) !important;
+    
+    /* Adds more padding so the text isn't cramped at the bottom */
+    padding: 60px 20px 25px 20px !important;
+    
+    /* Forces the text container to stay at the bottom of the card */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md) !important;
+}
+
+/* Specifically boost the description text readability */
+html[class*="theme-"] .spotlightCardText {
+    text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.9) !important;
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    font-weight: 500 !important;
+}
+
 /* ============================================================
    06. MEDIA DETAIL PAGE
    ============================================================ */
