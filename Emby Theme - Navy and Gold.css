@@ -2549,9 +2549,9 @@ html[class*="theme-"] .spotlightCardFooter {
     border-radius: 0 0 var(--border-radius-md) var(--border-radius-md) !important;
 }
 
-/* Specifically boost the description text readability */
-html[class*="theme-"] .spotlightCardText {
-    text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.9) !important;
+/* Target ONLY the Description (ignoring the title and badges) */
+html[class*="theme-"] div.spotlightCardText:not(.mediaInfoItems):not(.spotlightCardText-first) {
+    text-shadow: 0px 2px 10px var(--black-alpha-90) !important;
     color: var(--pure-white) !important;
     -webkit-text-fill-color: var(--pure-white) !important;
     font-weight: 500 !important;
