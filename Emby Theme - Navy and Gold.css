@@ -1505,17 +1505,23 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini .btnToggleNavDrawer .md-i
 
 /* --- 3F. DOCKED SIDEBAR WIDTH --- */
 
-/* 1. Apply width to the Sidebar itself */
+/* 1. Define the custom width (Triggered only when the full sidebar is open) */
+html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) {
+    --custom-sidebar-width: 250px;
+}
+
+/* 2. Apply width to the Sidebar itself */
 html[class*="theme-"] body .mainDrawer.drawer-docked:not(.mainDrawer-mini) {
     width: var(--custom-sidebar-width) !important; 
 }
 
-/* 2. Adjust the Top Header to prevent overlap */
+/* 3. Adjust the Top Header to prevent overlap (FIXED: Swapped padding for margin) */
 html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) .skinHeader.skinHeader-withfulldrawer {
-    padding-left: var(--custom-sidebar-width) !important; 
+    margin-left: var(--custom-sidebar-width) !important; 
+    padding-left: 0 !important; /* Strips out any leftover padding conflicts */
 }
 
-/* 3. Shift the Main Page Content and Background to the right */
+/* 4. Shift the Main Page Content and Background to the right */
 html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) .view.page-withDockedDrawer,
 html[class*="theme-"] body:has(.mainDrawer:not(.mainDrawer-mini)) .backgroundContainer.backgroundContainer-withdockeddrawer {
     left: var(--custom-sidebar-width) !important; 
