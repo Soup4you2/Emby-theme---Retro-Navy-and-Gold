@@ -189,8 +189,7 @@ html,
 
   /* SIDEBAR OPTIONS */
   --custom-sidebar-width: 250px;                                    /* Define the custom width (Triggered only when the full sidebar is open) */   
-  --sidebar-active-icon: var(--my-gold);                            /* Color of icon on navigation bar for the active state area */
-
+ 
   /* STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) */
   --media-card-radius: 15px;                                        /* Adjust the corner rounding of standard posters */
 
@@ -1246,8 +1245,8 @@ html[class*="theme-"] body .mainDrawer .btnPinNavDrawer-hovershow {
 
 html[class*="theme-"] body .mainDrawer .btnPinNavDrawer .md-icon,
 html[class*="theme-"] body .mainDrawer .btnPinNavDrawer-hovershow .md-icon {
-  color: var(--sidebar-active-icon) !important;
-  -webkit-text-fill-color: var(--sidebar-active-icon) !important;
+  color: var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
 }
 
 html[class*="theme-"] body .mainDrawer .btnPinNavDrawer:hover,
@@ -1412,8 +1411,8 @@ html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navMenuOptionTex
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navDrawerListItemIcon,
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .md-icon,
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .listItemImageContainer .md-icon {
-    color: var(--sidebar-active-icon) !important;
-    -webkit-text-fill-color: var(--sidebar-active-icon) !important;
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
 }
 
 /* --- 3E. MINI DRAWER (COLLAPSED SIDEBAR) --- */
@@ -1454,15 +1453,15 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption.navMenuOpt
 /* 3. SELECTED STATE: Uses your active icon variable */
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption-selected .md-icon,
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption-selected .navDrawerListItemIcon {
-  color: var(--sidebar-active-icon) !important;
-  -webkit-text-fill-color: var(--sidebar-active-icon) !important;
+  color: var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
 }
 
 /* 4. Forces all inactive menu icons to your theme preference when collapsed */
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected) .md-icon,
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected) .navDrawerListItemIcon {
-  color: var(--sidebar-active-icon) !important;
-  -webkit-text-fill-color: var(--sidebar-active-icon) !important;
+  color: var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
   opacity: 0.8 !important;
   transition: all var(--transition-speed) ease !important;
 }
