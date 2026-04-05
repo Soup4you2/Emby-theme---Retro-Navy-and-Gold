@@ -1263,23 +1263,31 @@ html[class*="theme-"] body .mainDrawer .btnPinNavDrawer:hover .md-icon {
 
 /* --- 3C. PILL NAVIGATION TABS (Home, Favorites, Libraries) --- */
 
-/* 1. The Main Wrapper Bar: Uses flexbox to center the floating navigation */
+/* 1. The Main Wrapper Bar: Uses flexbox to gracefully center or scroll the floating navigation */
 html[class*="theme-"] body .tabs-viewmenubar,
 html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-container) {
-  background:              var(--nav-pill-bar-bg) !important;
-  background-color:        var(--nav-pill-bar-bg) !important;
-  border:                  var(--nav-pill-bar-border) !important;
-  border-radius:           var(--border-radius-pill) !important;
-  padding:                 4px 8px !important;
-  box-shadow:              0 4px 10px var(--black-alpha-50) !important;
-  display:                 inline-flex !important;
-  flex-wrap:               nowrap !important;
-  justify-content:         center !important;
-  align-items:             center !important;
-  margin:                  5px auto !important;
-  max-width:               98% !important;
-  overflow:                visible !important; 
-  scrollbar-width:         none !important;
+    background:              var(--nav-pill-bar-bg) !important;
+    background-color:        var(--nav-pill-bar-bg) !important;
+    border:                  var(--nav-pill-bar-border) !important;
+    border-radius:           var(--border-radius-pill) !important;
+    padding:                 4px 8px !important;
+    box-shadow:              0 4px 10px var(--black-alpha-50) !important;
+    display:                 inline-flex !important;
+    flex-wrap:               nowrap !important;
+    
+    /* MOBILE FIX: Start items at the left so they can be scrolled if they exceed screen width */
+    justify-content:         flex-start !important; 
+    align-items:             center !important;
+    
+    /* The container shrinks to fit the items, then centers itself on the page */
+    margin:                  5px auto !important;
+    max-width:               98% !important;
+    
+    /* SCROLLING LOGIC: Allows swiping, hides vertical clipping, enables smooth iOS momentum */
+    overflow-x:              auto !important; 
+    overflow-y:              hidden !important;  
+    -webkit-overflow-scrolling: touch !important; 
+    scrollbar-width:         none !important;
 }
 
 /* Hide scrollbars for the bar on WebKit browsers */
@@ -3079,11 +3087,14 @@ html[class*="theme-"] .guideChannelImage {
 /* --- 8A. Video OSD Overlays (Bottom Controls) --- */
 html[class*="theme-"] .videoOsdBottom,
 html[class*="theme-"] .videoOsdBottom-video {
-  background:              linear-gradient(to top, var(--navy-base-alpha-95) 0%, var(--navy-mid-alpha-70) 60%, transparent 100%) !important;
-  backdrop-filter:         none !important; 
-  -webkit-backdrop-filter: none !important;
-  padding-bottom:          20px !important;
-  transform:               translateZ(0); 
+    background:              linear-gradient(to top, var(--navy-base-alpha-95) 0%, var(--navy-mid-alpha-70) 60%, transparent 100%) !important;
+    backdrop-filter:         none !important; 
+    -webkit-backdrop-filter: none !important;
+    
+    /* MOBILE FIX: Checks the phone's native "safe area" so controls don't hide behind home bars */
+    padding-bottom:          max(20px, env(safe-area-inset-bottom)) !important; 
+    
+    transform:               translateZ(0); 
 }
 
 /* Small poster shown in the video player */
