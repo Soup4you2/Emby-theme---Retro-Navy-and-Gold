@@ -1770,6 +1770,31 @@ html[class*="theme-"] body .listItemOverlayButton-hover:hover .md-icon {
     filter: drop-shadow(0 0 10px var(--my-gold)) !important;
 }
 
+/* 6. DIALOG & ACTION MENU HOVER BOXES (Strips native inner gray boxes from popup menus) */
+
+/* 6a. Strip inner backgrounds from action menu items */
+html[class*="theme-"] body .actionSheetMenuItem .listItem-content,
+html[class*="theme-"] body .paperListbox .listItem .listItem-content,
+html[class*="theme-"] body .actionSheetMenuItem:hover .listItem-content,
+html[class*="theme-"] body .paperListbox .listItem:hover .listItem-content {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* 6b. Destroy phantom hover pseudo-elements inside popups */
+html[class*="theme-"] body .actionSheetMenuItem::before,
+html[class*="theme-"] body .actionSheetMenuItem::after,
+html[class*="theme-"] body .actionSheetMenuItem .listItem-content::before,
+html[class*="theme-"] body .actionSheetMenuItem .listItem-content::after,
+html[class*="theme-"] body .paperListbox .listItem::before,
+html[class*="theme-"] body .paperListbox .listItem::after,
+html[class*="theme-"] body .paperListbox .listItem .listItem-content::before,
+html[class*="theme-"] body .paperListbox .listItem .listItem-content::after {
+    display: none !important;
+    content: none !important;
+    background: transparent !important;
+}
+
 /* --- 4E. MEDIA STATUS INDICATORS (UNWATCHED, PLAYED & FAVORITES) --- */
 
 /* 1. Shared Indicator Properties */
@@ -2874,6 +2899,146 @@ html[class*="theme-"] body .audioVideoMediaInfo .card.show-focus .cardContent {
     border: 2px solid var(--my-gold) !important;
     box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
     transform: translateY(-4px) !important;
+}
+
+/* --- 6F. FILMOGRAPHY --- */
+
+/* 1. Main Container Spacing */
+html[class*="theme-"] body .mainCreditsSection {
+    margin-top: 20px !important;
+}
+
+/* 2. The Tabs Bar (Native Alignment & Shift) */
+html[class*="theme-"] body .mainCreditsSection .emby-tabs {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin-left: 10px !important; /* Nudges the entire pill track 5px to the right */
+}
+
+/* 3. Inactive Tabs */
+html[class*="theme-"] body .mainCreditsSection .emby-tab-button {
+    background: transparent !important;
+    border: 2px solid var(--white-alpha-10) !important; 
+    border-radius: var(--border-radius-pill) !important;
+    color: var(--white-alpha-60) !important;
+    -webkit-text-fill-color: var(--white-alpha-60) !important;
+    margin: 0 8px 0 0 !important; 
+    padding: 0.5em 1.2em !important; 
+    font-family: var(--font-header) !important;
+    font-size: 0.72em !important; 
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    height: auto !important; 
+    min-height: 28px !important;
+    outline: none !important; 
+    transition: all var(--transition-speed) ease-in-out !important;
+}
+
+/* Strips all borders, outlines, and shadows from inner text wrappers */
+html[class*="theme-"] body .mainCreditsSection .emby-tab-button * {
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: inherit !important;
+    -webkit-text-fill-color: inherit !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Strip Emby's native pseudo-elements */
+html[class*="theme-"] body .mainCreditsSection .emby-tab-button::after,
+html[class*="theme-"] body .mainCreditsSection .emby-tab-button::before {
+    display: none !important;
+}
+
+/* 4. Hover State */
+html[class*="theme-"] body .mainCreditsSection .emby-tab-button:hover:not(.emby-tab-button-active) {
+    background: var(--white-alpha-10) !important;
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    border-color: var(--my-gold) !important;
+}
+
+/* 5. Active Tab (Glowing Gold) */
+html[class*="theme-"] body .mainCreditsSection .emby-tab-button.emby-tab-button-active {
+    background: var(--nav-pill-active) !important;
+    border: var(--nav-pill-active-border) !important;
+    box-shadow: var(--nav-pill-active-glow) !important;
+    color: var(--nav-pill-active-text) !important;
+    -webkit-text-fill-color: var(--nav-pill-active-text) !important;
+    outline: none !important;
+}
+
+/* 6. Resting Row State (No Background Panel) */
+html[class*="theme-"] body .creditsItemsContainer .listItem {
+    background: transparent !important;
+    border: 2px solid transparent !important;
+    border-radius: var(--border-radius-md) !important;
+    margin-bottom: 2px !important;
+    padding: 8px 12px !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+}
+
+/* Strip native list backgrounds and phantom hover boxes */
+html[class*="theme-"] body .creditsItemsContainer .listItem-content,
+html[class*="theme-"] body .creditsItemsContainer .listItem:hover .listItem-content,
+html[class*="theme-"] body .creditsItemsContainer .listItem.show-focus .listItem-content {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+html[class*="theme-"] body .creditsItemsContainer .listItem-content::before,
+html[class*="theme-"] body .creditsItemsContainer .listItem-content::after {
+    display: none !important;
+    content: none !important;
+    background: transparent !important;
+}
+
+/* 7. Hover Row State (Pop-out Glow) */
+html[class*="theme-"] body .creditsItemsContainer .listItem:hover,
+html[class*="theme-"] body .creditsItemsContainer .listItem.show-focus {
+    background: var(--table-row-hover-bg) !important;
+    border-color: var(--theme-primary-color) !important;
+    box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+    transform: scale(1.01) !important;
+    z-index: 10 !important;
+}
+
+/* 8. Typography Overrides */
+
+/* Release Year (Increased specificity to override global secondaryText rules) */
+html[class*="theme-"] body .creditsItemsContainer .listItem .listItem-indexnumberleft.secondaryText {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    font-family: var(--font-header) !important;
+    font-weight: 700 !important;
+    font-size: 1.15em !important;
+    opacity: 0.9 !important;
+}
+
+/* Movie/Show Title */
+html[class*="theme-"] body .creditsItemsContainer .listItemBodyText-1f {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    font-weight: 600 !important;
+    font-size: 1.1em !important;
+}
+
+/* Actor Role */
+html[class*="theme-"] body .creditsItemsContainer .secondaryText {
+    color: var(--white-alpha-70) !important;
+    -webkit-text-fill-color: var(--white-alpha-70) !important;
+    font-style: italic !important;
+    font-size: 0.95em !important;
+}
+
+/* High-Contrast Hover Text */
+html[class*="theme-"] body .creditsItemsContainer .listItem:hover .secondaryText {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
 }
 
 /* ============================================================
