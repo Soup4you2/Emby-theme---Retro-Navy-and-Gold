@@ -24,22 +24,6 @@ html,
   --font-header: 'Oswald', sans-serif;                            /* Primary cinematic header font */
   --font-body: 'Sofia Sans', sans-serif;                          /* Standard readable body font */
 
-  /* --- CORE SOLID COLORS --- */
-  --pure-white: rgb(var(--pure-white-rgb));                       /* Solid white for high-contrast icons */
-  --pure-black: rgb(var(--pure-black-rgb));                       /* Solid black for deep shadow foundations */
-  --text-muted: rgb(236, 236, 236);                             /* Soft white used globally for primary paragraph/body text */
-  --scrollbar-thumb: rgb(51, 51, 51);                           /* Color of the draggable handle on the browser scrollbar */
-
-  /* --- CORE RGB VALUES (The Source of Truth for Transparencies) --- */
-  --pure-black-rgb: 0, 0, 0;                                      /* Controls the absolute darkest shadows and UI overlays */
-  --pure-white-rgb: 255, 255, 255;                                /* Controls high-contrast text and active icons */
-  --my-gold-rgb: 255, 185, 0;                                     /* Controls the base primary theme color (Retro Gold) */
-  --my-gold-light-rgb: 255, 202, 58;                              /* Controls hover highlights and brighter gradients */
-  --navy-base-rgb: 0, 8, 20;                                      /* Controls the deepest background color (outer radial edge) */
-  --navy-mid-rgb: 0, 29, 61;                                      /* Controls the center/middle of the background radial gradient */
-  --navy-light-rgb: 0, 20, 40;                                    /* Controls the base surface color for floating panels, dialogs, and cards */
-  --navy-accent-rgb: 28, 34, 44;                                  /* Controls the default unselected background of navigation pills */
-
   /* --- CUSTOM MASTER PALETTE --- */
 
   /* OPTION 1 - USE THE THEMES GOLD COLOR */
@@ -58,6 +42,23 @@ html,
   /* --retro-navy-light: rgb(var(--navy-mid-rgb));                /* Mid-tone navy fallback for panels and cards */  
   /* --star-color: rgb(255, 185, 0);                              /* Media info badge rating star color */
   /* --star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));    /* Media info badge rating star glow */
+
+
+  /* --- CORE SOLID COLORS --- */
+  --pure-white: rgb(var(--pure-white-rgb));                       /* Solid white for high-contrast icons */
+  --pure-black: rgb(var(--pure-black-rgb));                       /* Solid black for deep shadow foundations */
+  --text-muted: rgb(236, 236, 236);                             /* Soft white used globally for primary paragraph/body text */
+  --scrollbar-thumb: rgb(51, 51, 51);                           /* Color of the draggable handle on the browser scrollbar */
+
+  /* --- CORE RGB VALUES (The Source of Truth for Transparencies) --- */
+  --pure-black-rgb: 0, 0, 0;                                      /* Controls the absolute darkest shadows and UI overlays */
+  --pure-white-rgb: 255, 255, 255;                                /* Controls high-contrast text and active icons */
+  --my-gold-rgb: 255, 185, 0;                                     /* Controls the base primary theme color (Retro Gold) */
+  --my-gold-light-rgb: 255, 202, 58;                              /* Controls hover highlights and brighter gradients */
+  --navy-base-rgb: 0, 8, 20;                                      /* Controls the deepest background color (outer radial edge) */
+  --navy-mid-rgb: 0, 29, 61;                                      /* Controls the center/middle of the background radial gradient */
+  --navy-light-rgb: 0, 20, 40;                                    /* Controls the base surface color for floating panels, dialogs, and cards */
+  --navy-accent-rgb: 28, 34, 44;                                  /* Controls the default unselected background of navigation pills */
 
   /* --- EMBY THEME ENFORCERS (Overrides native Emby logic) --- */
   --theme-primary-color: var(--my-gold);                          /* Emby's native primary color hook */
