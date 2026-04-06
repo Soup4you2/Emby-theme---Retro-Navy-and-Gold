@@ -267,6 +267,21 @@ html,
   /* --media-badge-hover-border: var(--standard-border-thickness) solid var(--my-gold);     /* Flat - Media Info Badges */
   /* --media-badge-hover-shadow: var(--glow-medium);                /* Flat - Media Info Badges */
  
+  /* THE "NO GLOW" KILL SWITCH */
+  /*
+  --glow-light: var(--glow-none);
+  --glow-medium: var(--glow-none);
+  --shadow-glow-standard: var(--glow-none);
+  --glow-heavy: var(--glow-none);
+  --glow-extreme: var(--glow-none);
+  --glow-slider-track: var(--glow-none);
+  --glow-slider-thumb: var(--glow-none);
+  --glow-progress-bar: var(--glow-none);
+  --filter-glow-light: var(--filter-glow-none);
+  --filter-glow-medium: var(--filter-glow-none);
+  --filter-glow-gold-solid: var(--filter-glow-none);
+  */
+
   /* SEASONAL BACKGROUND ANIMATIONS */
   --seasonal-bg-visibility: visible;                                /* Fully Enabled */
   --seasonal-bg-anim-state: running;                                /* Fully Enabled */
