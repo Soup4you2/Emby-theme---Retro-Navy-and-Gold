@@ -196,10 +196,6 @@ html,
   --filter-glow-gold-solid: var(--filter-glow-none);
   */
 
-  /* ============================================================
-      USER OPTIONS FOR VISUALS BELOW
-     ============================================================ */
-
   /* SIDEBAR OPTIONS */
   --custom-sidebar-width: 250px;                                    /* Define the custom width (Triggered only when the full sidebar is open) */   
  
@@ -277,6 +273,40 @@ html,
   /* --media-badge-hover-border: var(--standard-border-thickness) solid var(--my-gold);     /* Flat - Media Info Badges */
   /* --media-badge-hover-shadow: var(--glow-medium);                /* Flat - Media Info Badges */
  
+  /* --- UI DIMENSIONS & SHAPES --- */
+  --hover-border-thickness: 2px;                                   /* Thickness for glow borders on hover */
+  --standard-border-thickness: 1px;                                /* Default UI line thickness */
+  --border-radius-sm: 6px;                                         /* Small rounding for inputs */
+  --border-radius-md: 10px;                                        /* Standard card rounding */
+  --border-radius-lg: 12px;                                        /* Large rounding for emphasized cards */
+  --border-radius-xl: 15px;                                        /* Extra large rounding for panels */
+  --border-radius-pill: 50px;                                      /* Fully circular ends for buttons */
+
+/* --- DATA GRID & TABLE VIEW VARIABLES --- */
+  --table-header-bg: var(--navy-mid-solid);                        /* Background for table headings */
+  --table-row-bg-even: var(--navy-light-alpha-40);                 /* Zebra stripe color (Even rows) */
+  --table-row-bg-odd: var(--navy-base-alpha-60);                   /* Zebra stripe color (Odd rows) */
+  --table-row-hover-bg: var(--gold-alpha-20);                     /* Background color on row hover */
+   
+  /* --- TOGGLE SWITCH VARIABLES --- */
+  --toggle-track-off: var(--navy-light-alpha-80);                  /* Background of switch when OFF */
+  --toggle-thumb-off: var(--white-alpha-60);                       /* Circle color when OFF */
+  --toggle-track-on: var(--theme-primary-color);                   /* Background of switch when ON */
+  --toggle-thumb-on: var(--pure-white);                            /* Circle color when ON */
+
+  /* --- EFFECTS & ANIMATIONS --- */
+  --transition-speed: 0.2s;                                        /* Global speed for all UI transitions */
+  --blur-light: blur(10px);                                        /* Soft background blur */
+  --blur-heavy: blur(20px);                                        /* Strong background blur */
+  --blur-extreme: blur(30px);                                      /* Maximum depth blur */
+
+  /* --- LAYOUT & ORDERING --- */
+  --order-seasons: 1;                                              /* Vertical order of Seasons section */
+  --order-next-up: 2;                                              /* Vertical order of Next Up section */
+  --order-cast-crew: 3;                                            /* Vertical order of Cast section */
+  --order-similar: 4;                                              /* Vertical order of Similar section */
+  --order-about: 5;                                                /* Vertical order of About section */
+
   /* SEASONAL BACKGROUND ANIMATIONS */
   --seasonal-bg-visibility: visible;                                /* Fully Enabled */
   --seasonal-bg-anim-state: running;                                /* Fully Enabled */
@@ -687,48 +717,10 @@ html,
   --season-btn-shadow-hover: 0 6px 15px rgba(var(--my-gold-rgb), 0.6), 0 0 20px rgba(var(--my-gold-rgb), 0.6);
   */
 
-  /* ============================================================
-      END OF SEASONAL EVENT TOGGLES
-     ============================================================ */
-
-  /* --- UI DIMENSIONS & SHAPES --- */
-  --hover-border-thickness: 2px;                                   /* Thickness for glow borders on hover */
-  --standard-border-thickness: 1px;                                /* Default UI line thickness */
-  --border-radius-sm: 6px;                                         /* Small rounding for inputs */
-  --border-radius-md: 10px;                                        /* Standard card rounding */
-  --border-radius-lg: 12px;                                        /* Large rounding for emphasized cards */
-  --border-radius-xl: 15px;                                        /* Extra large rounding for panels */
-  --border-radius-pill: 50px;                                      /* Fully circular ends for buttons */
-
-/* --- DATA GRID & TABLE VIEW VARIABLES --- */
-  --table-header-bg: var(--navy-mid-solid);                        /* Background for table headings */
-  --table-row-bg-even: var(--navy-light-alpha-40);                 /* Zebra stripe color (Even rows) */
-  --table-row-bg-odd: var(--navy-base-alpha-60);                   /* Zebra stripe color (Odd rows) */
-  --table-row-hover-bg: var(--gold-alpha-20);                     /* Background color on row hover */
-   
-  /* --- TOGGLE SWITCH VARIABLES --- */
-  --toggle-track-off: var(--navy-light-alpha-80);                  /* Background of switch when OFF */
-  --toggle-thumb-off: var(--white-alpha-60);                       /* Circle color when OFF */
-  --toggle-track-on: var(--theme-primary-color);                   /* Background of switch when ON */
-  --toggle-thumb-on: var(--pure-white);                            /* Circle color when ON */
-
-  /* --- EFFECTS & ANIMATIONS --- */
-  --transition-speed: 0.2s;                                        /* Global speed for all UI transitions */
-  --blur-light: blur(10px);                                        /* Soft background blur */
-  --blur-heavy: blur(20px);                                        /* Strong background blur */
-  --blur-extreme: blur(30px);                                      /* Maximum depth blur */
-
-  /* --- LAYOUT & ORDERING --- */
-  --order-seasons: 1;                                              /* Vertical order of Seasons section */
-  --order-next-up: 2;                                              /* Vertical order of Next Up section */
-  --order-cast-crew: 3;                                            /* Vertical order of Cast section */
-  --order-similar: 4;                                              /* Vertical order of Similar section */
-  --order-about: 5;                                                /* Vertical order of About section */
-}
-
 /* ============================================================
    END OF USER VARIABLES AND OPTIONS
    ============================================================ */
+}
   
 /* ============================================================
    02. BASE STYLES, LAYOUT & GLOBAL MAPPING
