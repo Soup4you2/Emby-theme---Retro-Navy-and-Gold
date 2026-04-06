@@ -24,25 +24,6 @@ html,
   --font-header: 'Oswald', sans-serif;                            /* Primary cinematic header font */
   --font-body: 'Sofia Sans', sans-serif;                          /* Standard readable body font */
 
-  /* --- CUSTOM MASTER PALETTE --- */
-
-  /* OPTION 1 - USE THE THEMES GOLD COLOR */
-  --my-gold: rgb(var(--my-gold-rgb));                             /* Solid gold fallback for borders and text accents */
-  --my-gold-light: rgb(var(--my-gold-light-rgb));                 /* Brighter gold fallback for highlight gradients */
-  --retro-navy: rgb(var(--navy-base-rgb));                        /* Darkest navy fallback for main backgrounds */
-  --retro-navy-light: rgb(var(--navy-mid-rgb));                   /* Mid-tone navy fallback for panels and cards */  
-  --season-star-color: rgb(179, 80, 0);                         /* Media info badge rating star color */
-  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));   /* Media info badge rating star glow */
-
-  /* OPTION 2 - USE THE USERS ACCENT COLOR PREFERENCES */
-  /* NOTE: KEEP IN MIND EVERY USER HAS THEIR OWN ACCENT COLOR OPTION */
-  /* --my-gold: hsl(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%)); 
-  /* --my-gold-light: color-mix(in srgb, var(--my-gold) 70%, white);    /* Solid gold fallback for borders and text accents */
-  /* --retro-navy: rgb(var(--navy-base-rgb));                     /* Brighter gold fallback for highlight gradients */
-  /* --retro-navy-light: rgb(var(--navy-mid-rgb));                /* Mid-tone navy fallback for panels and cards */  
-  /* --season-star-color: rgb(255, 185, 0);                       /* Media info badge rating star color */
-  /* --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));   /* Media info badge rating star glow */
- 
   /* --- CORE SOLID COLORS --- */
   --pure-white: rgb(var(--pure-white-rgb));                       /* Solid white for high-contrast icons */
   --pure-black: rgb(var(--pure-black-rgb));                       /* Solid black for deep shadow foundations */
@@ -58,6 +39,25 @@ html,
   --navy-mid-rgb: 0, 29, 61;                                      /* Controls the center/middle of the background radial gradient */
   --navy-light-rgb: 0, 20, 40;                                    /* Controls the base surface color for floating panels, dialogs, and cards */
   --navy-accent-rgb: 28, 34, 44;                                  /* Controls the default unselected background of navigation pills */
+
+  /* --- CUSTOM MASTER PALETTE --- */
+
+  /* OPTION 1 - USE THE THEMES GOLD COLOR */
+  --my-gold: rgb(var(--my-gold-rgb));                             /* Solid gold fallback for borders and text accents */
+  --my-gold-light: rgb(var(--my-gold-light-rgb));                 /* Brighter gold fallback for highlight gradients */
+  --retro-navy: rgb(var(--navy-base-rgb));                        /* Darkest navy fallback for main backgrounds */
+  --retro-navy-light: rgb(var(--navy-mid-rgb));                   /* Mid-tone navy fallback for panels and cards */  
+  --star-color: var(--retro-navy-light);                          /* Media info badge rating star color */
+  --star-glow: drop-shadow(0 0 5px rgba(7, 5, 0, 0));           /* Media info badge rating star glow */
+
+  /* OPTION 2 - USE THE USERS ACCENT COLOR PREFERENCES */
+  /* NOTE: KEEP IN MIND EVERY USER HAS THEIR OWN ACCENT COLOR OPTION */
+  /* --my-gold: hsl(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%));   /* Theme primary color set by User Accent Color */
+  /* --my-gold-light: color-mix(in srgb, var(--my-gold) 70%, white);    /* Solid gold fallback for borders and text accents */
+  /* --retro-navy: rgb(var(--navy-base-rgb));                     /* Brighter gold fallback for highlight gradients */
+  /* --retro-navy-light: rgb(var(--navy-mid-rgb));                /* Mid-tone navy fallback for panels and cards */  
+  /* --star-color: rgb(255, 185, 0);                              /* Media info badge rating star color */
+  /* --star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));    /* Media info badge rating star glow */
 
   /* --- EMBY THEME ENFORCERS (Overrides native Emby logic) --- */
   --theme-primary-color: var(--my-gold);                          /* Emby's native primary color hook */
@@ -140,18 +140,18 @@ html,
   --danger-red-glow: 0 0 20px rgba(var(--danger-red-rgb), 0.6), 0 0 10px rgba(255, 51, 51, 0.4); /* Glow effect on hover */
 
   /* CAST & CREW NAME TEXT */
-  --season-actor-name: var(--my-gold);                             /* Cast member's actual name color */
-  --season-actor-role: var(--white-alpha-70);                      /* Character role text color */
+  --actor-name: var(--my-gold);                                    /* Cast member's actual name color */
+  --actor-role: var(--white-alpha-70);                             /* Character role text color */
 
   /* SUBMIT BUTTONS */
-  --season-btn-bg: var(--my-gold);                                 /* Resting background of primary actions (Save/Done) */
-  --season-btn-bg-hover: var(--my-gold-light);                     /* Background of primary actions when hovered */
-  --season-btn-text: var(--retro-navy);                            /* Text color inside resting primary buttons */
-  --season-btn-text-hover: var(--retro-navy);                      /* Text color inside hovered primary buttons */
-  --season-btn-border: var(--my-gold);                             /* Border of resting primary buttons */
-  --season-btn-border-hover: var(--my-gold-light);                 /* Border of hovered primary buttons */
-  --season-btn-shadow: 0 4px 10px var(--black-alpha-50);           /* Shadow depth of resting primary buttons */
-  --season-btn-shadow-hover: 0 6px 15px var(--black-alpha-80), 0 0 15px var(--gold-alpha-40); /* Golden aura on hovered primary buttons */
+  --btn-bg: var(--my-gold);                                        /* Resting background of primary actions (Save/Done) */
+  --btn-bg-hover: var(--my-gold-light);                            /* Background of primary actions when hovered */
+  --btn-text: var(--retro-navy);                                   /* Text color inside resting primary buttons */
+  --btn-text-hover: var(--retro-navy);                             /* Text color inside hovered primary buttons */
+  --btn-border: var(--my-gold);                                    /* Border of resting primary buttons */
+  --btn-border-hover: var(--my-gold-light);                        /* Border of hovered primary buttons */
+  --btn-shadow: 0 4px 10px var(--black-alpha-50);                  /* Shadow depth of resting primary buttons */
+  --btn-shadow-hover: 0 6px 15px var(--black-alpha-80), 0 0 15px var(--gold-alpha-40); /* Golden aura on hovered primary buttons */
 
   /* --- FAVORITE HEART COLORS --- */
   --favorite-heart-rgb: 255, 51, 102;                              /* Base red for the favorite heart */
@@ -362,16 +362,16 @@ html,
   --nav-pill-active-glow: 0 0 12px rgba(255, 0, 85, 0.6), inset 0 0 8px rgba(255, 0, 85, 0.3);
   --nav-pill-bar-bg: rgba(35, 20, 28, 0.9);
   --nav-pill-bar-border: 1px solid rgba(0, 0, 0, 0.4);
-  --season-star-color: rgb(255, 185, 0);
-  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)); 
-  --season-btn-bg: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--theme-accent-color) 100%);
-  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--my-gold) 100%);
-  --season-btn-text: var(--pure-white);
-  --season-btn-text-hover: #1a000d;
-  --season-btn-border: var(--pure-white);
-  --season-btn-border-hover: var(--pure-white);
-  --season-btn-shadow: 0 4px 10px rgba(var(--theme-primary-rgb), 0.4);
-  --season-btn-shadow-hover: 0 6px 15px rgba(var(--theme-accent-rgb), 0.6), 0 0 20px rgba(var(--my-gold-rgb), 0.6);
+  --star-color: rgb(255, 185, 0);
+  --star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)); 
+  --btn-bg: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--theme-accent-color) 100%);
+  --btn-bg-hover: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--my-gold) 100%);
+  --btn-text: var(--pure-white);
+  --btn-text-hover: #1a000d;
+  --btn-border: var(--pure-white);
+  --btn-border-hover: var(--pure-white);
+  --btn-shadow: 0 4px 10px rgba(var(--theme-primary-rgb), 0.4);
+  --btn-shadow-hover: 0 6px 15px rgba(var(--theme-accent-rgb), 0.6), 0 0 20px rgba(var(--my-gold-rgb), 0.6);
   */
 
   /* OPTION 3: ST. PATRICK'S DAY */
@@ -417,16 +417,16 @@ html,
   --nav-pill-active-glow: 0 4px 8px rgba(var(--pure-black-rgb), 0.8), 0 0 15px rgba(var(--theme-primary-rgb), 0.5);
   --nav-pill-bar-bg: rgba(var(--navy-base-rgb), 0.9);
   --nav-pill-bar-border: 1px solid rgba(var(--my-gold-rgb), 0.3);
-  --season-star-color: var(--my-gold);
-  --season-star-glow: drop-shadow(0 0 5px rgba(var(--my-gold-rgb), 0.4));  
-  --season-btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%);
-  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold) 100%);
-  --season-btn-text: #001a0d;
-  --season-btn-text-hover: #001a0d;
-  --season-btn-border: var(--pure-white);
-  --season-btn-border-hover: var(--pure-white);
-  --season-btn-shadow: 0 4px 10px rgba(var(--theme-accent-rgb), 0.4);
-  --season-btn-shadow-hover: 0 6px 15px rgba(var(--theme-primary-rgb), 0.6), 0 0 20px rgba(var(--my-gold-rgb), 0.6);
+  --star-color: var(--my-gold);
+  --star-glow: drop-shadow(0 0 5px rgba(var(--my-gold-rgb), 0.4));  
+  --btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%);
+  --btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold) 100%);
+  --btn-text: #001a0d;
+  --btn-text-hover: #001a0d;
+  --btn-border: var(--pure-white);
+  --btn-border-hover: var(--pure-white);
+  --btn-shadow: 0 4px 10px rgba(var(--theme-accent-rgb), 0.4);
+  --btn-shadow-hover: 0 6px 15px rgba(var(--theme-primary-rgb), 0.6), 0 0 20px rgba(var(--my-gold-rgb), 0.6);
   */
 
   /* OPTION 4: EASTER / CHERRY BLOSSOM */
@@ -473,16 +473,16 @@ html,
   --nav-pill-active-glow: 0 4px 6px rgba(var(--pure-black-rgb), 0.3), inset 0 1px 0 rgba(var(--pure-white-rgb), 0.4);
   --nav-pill-bar-bg: rgba(35, 35, 45, 0.9);
   --nav-pill-bar-border: 1px solid rgba(var(--pure-white-rgb), 0.05);
-  --season-star-color: rgb(255, 185, 0);
-  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)); 
-  --season-btn-bg: linear-gradient(90deg, var(--easter-blue-light) 0%, var(--easter-pink) 100%);
-  --season-btn-bg-hover: linear-gradient(90deg, var(--easter-pink) 0%, var(--easter-yellow-light) 100%);
-  --season-btn-text: #1a1625;
-  --season-btn-text-hover: #1a1625;
-  --season-btn-border: var(--pure-white);
-  --season-btn-border-hover: var(--pure-white);
-  --season-btn-shadow: 0 4px 10px rgba(var(--pure-black-rgb), 0.4), 0 0 10px rgba(var(--easter-pink-rgb), 0.4);
-  --season-btn-shadow-hover: 0 6px 15px rgba(var(--pure-black-rgb), 0.6), 0 0 20px rgba(var(--easter-pink-rgb), 0.8);
+  --star-color: rgb(255, 185, 0);
+  --star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)); 
+  --btn-bg: linear-gradient(90deg, var(--easter-blue-light) 0%, var(--easter-pink) 100%);
+  --btn-bg-hover: linear-gradient(90deg, var(--easter-pink) 0%, var(--easter-yellow-light) 100%);
+  --btn-text: #1a1625;
+  --btn-text-hover: #1a1625;
+  --btn-border: var(--pure-white);
+  --btn-border-hover: var(--pure-white);
+  --btn-shadow: 0 4px 10px rgba(var(--pure-black-rgb), 0.4), 0 0 10px rgba(var(--easter-pink-rgb), 0.4);
+  --btn-shadow-hover: 0 6px 15px rgba(var(--pure-black-rgb), 0.6), 0 0 20px rgba(var(--easter-pink-rgb), 0.8);
   */
 
   /* OPTION 5: 4TH OF JULY */
@@ -516,16 +516,16 @@ html,
   --nav-pill-active-glow: 0 4px 8px rgba(var(--pure-black-rgb), 0.8), 0 0 15px rgba(var(--my-gold-rgb), 0.6);
   --nav-pill-bar-bg: rgba(var(--navy-base-rgb), 0.9);
   --nav-pill-bar-border: 1px solid rgba(var(--pure-white-rgb), 0.3);
-  --season-star-color: var(--my-gold);
-  --season-star-glow: drop-shadow(0 0 5px rgba(var(--my-gold-rgb), 0.4));  
-  --season-btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%);
-  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold-light) 100%);
-  --season-btn-text: var(--pure-white);
-  --season-btn-text-hover: var(--pure-white);
-  --season-btn-border: var(--pure-white);
-  --season-btn-border-hover: var(--pure-white);
-  --season-btn-shadow: 0 4px 10px rgba(var(--theme-accent-rgb), 0.4);
-  --season-btn-shadow-hover: 0 6px 15px rgba(var(--my-gold-rgb), 0.6), 0 0 20px rgba(var(--my-gold-light-rgb), 0.6);
+  --star-color: var(--my-gold);
+  --star-glow: drop-shadow(0 0 5px rgba(var(--my-gold-rgb), 0.4));  
+  --btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%);
+  --btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold-light) 100%);
+  --btn-text: var(--pure-white);
+  --btn-text-hover: var(--pure-white);
+  --btn-border: var(--pure-white);
+  --btn-border-hover: var(--pure-white);
+  --btn-shadow: 0 4px 10px rgba(var(--theme-accent-rgb), 0.4);
+  --btn-shadow-hover: 0 6px 15px rgba(var(--my-gold-rgb), 0.6), 0 0 20px rgba(var(--my-gold-light-rgb), 0.6);
   */
 
   /* OPTION 6: HALLOWEEN */
@@ -562,16 +562,16 @@ html,
   --nav-pill-active-glow: 0 0 15px rgba(var(--theme-accent-rgb), 0.6), 0 0 5px rgba(var(--theme-accent-rgb), 0.8), inset 0 0 10px rgba(var(--my-gold-rgb), 0.3);
   --nav-pill-bar-bg: rgba(15, 10, 20, 0.95);
   --nav-pill-bar-border: 1px solid rgba(var(--theme-accent-rgb), 0.2);
-  --season-star-color: var(--my-gold);
-  --season-star-glow: drop-shadow(0 0 5px rgba(var(--my-gold-rgb), 0.4)); 
-  --season-btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%);
-  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold-light) 100%);
-  --season-btn-text: var(--pure-white);
-  --season-btn-text-hover: #0d0015;
-  --season-btn-border: var(--pure-white);
-  --season-btn-border-hover: var(--pure-white);
-  --season-btn-shadow: 0 4px 10px rgba(var(--theme-accent-rgb), 0.4);
-  --season-btn-shadow-hover: 0 6px 15px rgba(var(--my-gold-rgb), 0.6), 0 0 20px rgba(var(--my-gold-light-rgb), 0.6);
+  --star-color: var(--my-gold);
+  --star-glow: drop-shadow(0 0 5px rgba(var(--my-gold-rgb), 0.4)); 
+  --btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%);
+  --btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold-light) 100%);
+  --btn-text: var(--pure-white);
+  --btn-text-hover: #0d0015;
+  --btn-border: var(--pure-white);
+  --btn-border-hover: var(--pure-white);
+  --btn-shadow: 0 4px 10px rgba(var(--theme-accent-rgb), 0.4);
+  --btn-shadow-hover: 0 6px 15px rgba(var(--my-gold-rgb), 0.6), 0 0 20px rgba(var(--my-gold-light-rgb), 0.6);
   */
 
   /* OPTION 7: THANKSGIVING / AUTUMN HARVEST */
@@ -609,16 +609,16 @@ html,
   --nav-pill-active-glow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 0 15px rgba(var(--theme-primary-rgb), 0.5);
   --nav-pill-bar-bg: rgba(var(--navy-base-rgb), 0.9);
   --nav-pill-bar-border: 1px solid rgba(var(--my-gold-rgb), 0.4);
-  --season-star-color: rgb(255, 185, 0);
-  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)); 
-  --season-btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%);
-  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold) 100%);
-  --season-btn-text: var(--pure-white);
-  --season-btn-text-hover: var(--retro-navy);
-  --season-btn-border: var(--pure-white);
-  --season-btn-border-hover: var(--pure-white);
-  --season-btn-shadow: 0 4px 10px rgba(var(--theme-primary-rgb), 0.4);
-  --season-btn-shadow-hover: 0 6px 15px rgba(var(--my-gold-rgb), 0.6), 0 0 20px rgba(var(--my-gold-rgb), 0.6);
+  --star-color: rgb(255, 185, 0);
+  --star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4)); 
+  --btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%);
+  --btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold) 100%);
+  --btn-text: var(--pure-white);
+  --btn-text-hover: var(--retro-navy);
+  --btn-border: var(--pure-white);
+  --btn-border-hover: var(--pure-white);
+  --btn-shadow: 0 4px 10px rgba(var(--theme-primary-rgb), 0.4);
+  --btn-shadow-hover: 0 6px 15px rgba(var(--my-gold-rgb), 0.6), 0 0 20px rgba(var(--my-gold-rgb), 0.6);
   */
 
   /* OPTION 8: CHRISTMAS */
@@ -659,16 +659,16 @@ html,
   --nav-pill-active-glow: 0 4px 8px rgba(var(--pure-black-rgb), 0.8), 0 0 15px rgba(var(--theme-primary-rgb), 0.6);
   --nav-pill-bar-bg: rgba(var(--navy-base-rgb), 0.9);
   --nav-pill-bar-border: 1px solid rgba(var(--theme-accent-rgb), 0.5);
-  --season-star-color: rgb(255, 185, 0);
-  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));  
-  --season-btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%);
-  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--xmas-red-light) 100%);
-  --season-btn-text: var(--my-gold);
-  --season-btn-text-hover: var(--my-gold);
-  --season-btn-border: var(--my-gold);
-  --season-btn-border-hover: var(--my-gold);
-  --season-btn-shadow: 0 4px 10px rgba(var(--theme-accent-rgb), 0.4);
-  --season-btn-shadow-hover: 0 6px 15px rgba(var(--theme-primary-rgb), 0.6), 0 0 20px rgba(var(--xmas-red-light), 0.6);
+  --star-color: rgb(255, 185, 0);
+  --star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));  
+  --btn-bg: linear-gradient(90deg, var(--theme-accent-color) 0%, var(--theme-primary-color) 100%);
+  --btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--xmas-red-light) 100%);
+  --btn-text: var(--my-gold);
+  --btn-text-hover: var(--my-gold);
+  --btn-border: var(--my-gold);
+  --btn-border-hover: var(--my-gold);
+  --btn-shadow: 0 4px 10px rgba(var(--theme-accent-rgb), 0.4);
+  --btn-shadow-hover: 0 6px 15px rgba(var(--theme-primary-rgb), 0.6), 0 0 20px rgba(var(--xmas-red-light), 0.6);
   */
 
   /* OPTION 9: NEW YEAR'S EVE */
@@ -705,16 +705,16 @@ html,
   --nav-pill-active-glow: 0 4px 8px rgba(var(--pure-black-rgb), 0.9), 0 0 15px rgba(var(--theme-primary-rgb), 0.4);
   --nav-pill-bar-bg: rgba(var(--navy-base-rgb), 0.9);
   --nav-pill-bar-border: 1px solid rgba(var(--theme-primary-rgb), 0.3);
-  --season-star-color: rgb(255, 185, 0);
-  --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));
-  --season-btn-bg: linear-gradient(90deg, var(--nye-gold-dark) 0%, var(--theme-primary-color) 100%);
-  --season-btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold) 100%);
-  --season-btn-text: var(--pure-white);
-  --season-btn-text-hover: var(--retro-navy);
-  --season-btn-border: var(--pure-white);
-  --season-btn-border-hover: var(--pure-white);
-  --season-btn-shadow: 0 4px 10px rgba(var(--theme-primary-rgb), 0.4);
-  --season-btn-shadow-hover: 0 6px 15px rgba(var(--my-gold-rgb), 0.6), 0 0 20px rgba(var(--my-gold-rgb), 0.6);
+  --star-color: rgb(255, 185, 0);
+  --star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));
+  --btn-bg: linear-gradient(90deg, var(--nye-gold-dark) 0%, var(--theme-primary-color) 100%);
+  --btn-bg-hover: linear-gradient(90deg, var(--theme-primary-color) 0%, var(--my-gold) 100%);
+  --btn-text: var(--pure-white);
+  --btn-text-hover: var(--retro-navy);
+  --btn-border: var(--pure-white);
+  --btn-border-hover: var(--pure-white);
+  --btn-shadow: 0 4px 10px rgba(var(--theme-primary-rgb), 0.4);
+  --btn-shadow-hover: 0 6px 15px rgba(var(--my-gold-rgb), 0.6), 0 0 20px rgba(var(--my-gold-rgb), 0.6);
   */
 
 /* ============================================================
@@ -1019,15 +1019,15 @@ html[class*="theme-"] .infoBanner .button-link * {
 /* Target ONLY the Connection Help button using its exact class chain */
 html[class*="theme-"] .infoBanner a.raised.button-submit.emby-button,
 html[class*="theme-"] .infoBanner a.raised.button-submit.emby-button * {
-    color: var(--season-btn-text) !important;
-    -webkit-text-fill-color: var(--season-btn-text) !important;
+    color: var(--btn-text) !important;
+    -webkit-text-fill-color: var(--btn-text) !important;
 }
 
 /* Hover state for just that button */
 html[class*="theme-"] .infoBanner a.raised.button-submit.emby-button:hover,
 html[class*="theme-"] .infoBanner a.raised.button-submit.emby-button:hover * {
-    color: var(--season-btn-text-hover) !important;
-    -webkit-text-fill-color: var(--season-btn-text-hover) !important;
+    color: var(--btn-text-hover) !important;
+    -webkit-text-fill-color: var(--btn-text-hover) !important;
 }
 
 /* Safety net: Force standard text links inside banners back to white */
@@ -1110,8 +1110,8 @@ html[class*="theme-"] body .peopleSection .cardText-first,
 html[class*="theme-"] body .peopleSection .button-link,
 html[class*="theme-"] body .personCard .cardText-first,
 html[class*="theme-"] body .personCard .button-link {
-    color: var(--season-actor-name) !important;
-    -webkit-text-fill-color: var(--season-actor-name) !important;
+    color: var(--actor-name) !important;
+    -webkit-text-fill-color: var(--actor-name) !important;
 }
 
 /* 2. Action Buttons (Solid Gold Backgrounds = Black Text/Icons) */
@@ -2681,9 +2681,9 @@ html[class*="theme-"] body .mediaInfoItem .starIcon,
 html[class*="theme-"] body .starIcon,
 html[class*="theme-"] body .mediaInfoItem:hover .starIcon,
 html[class*="theme-"] body .starIcon:hover {
-    color: var(--season-star-color) !important;
-    -webkit-text-fill-color: var(--season-star-color) !important;
-    filter: var(--season-star-glow) !important;
+    color: var(--star-color) !important;
+    -webkit-text-fill-color: var(--star-color) !important;
+    filter: var(--star-glow) !important;
     margin-right: 2px !important;
 }
 
@@ -4037,47 +4037,47 @@ html[class*="theme-"] body div.popupStylePicker.dialog.popup > div {
 
 /* 1. Universal Actor Names */
 html[class*="theme-"] body .peopleSection .cardText-first {
-  color:                   var(--season-actor-name) !important;
-  -webkit-text-fill-color: var(--season-actor-name) !important;
+  color:                   var(--actor-name) !important;
+  -webkit-text-fill-color: var(--actor-name) !important;
   text-shadow:             1px 1px 2px var(--black-alpha-80) !important;
   font-weight:             700 !important;
 }
 
 html[class*="theme-"] body .peopleSection .cardText-secondary {
-  color:                   var(--season-actor-role) !important;
-  -webkit-text-fill-color: var(--season-actor-role) !important;
+  color:                   var(--actor-role) !important;
+  -webkit-text-fill-color: var(--actor-role) !important;
   opacity:                 0.8 !important;
   font-style:              italic !important;
 }
 
 /* 2. Universal Submit Buttons */
 html[class*="theme-"] body .button-submit {
-  background:              var(--season-btn-bg) !important;
-  color:                   var(--season-btn-text) !important;
-  -webkit-text-fill-color: var(--season-btn-text) !important;
+  background:              var(--btn-bg) !important;
+  color:                   var(--btn-text) !important;
+  -webkit-text-fill-color: var(--btn-text) !important;
   font-family:             var(--font-header) !important;
   font-size:               0.95rem !important;
   border-radius:           var(--border-radius-pill) !important;
-  border:                  2px solid var(--season-btn-border) !important;
-  box-shadow:              var(--season-btn-shadow) !important;
+  border:                  2px solid var(--btn-border) !important;
+  box-shadow:              var(--btn-shadow) !important;
   transition:              transform var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1), box-shadow var(--transition-speed) ease-in-out !important;
   transform:               none !important;
 }
 
 html[class*="theme-"] body .button-submit:hover,
 html[class*="theme-"] body .button-submit:focus {
-  background:              var(--season-btn-bg-hover) !important;
-  border-color:            var(--season-btn-border-hover) !important;
-  color:                   var(--season-btn-text-hover) !important;
-  -webkit-text-fill-color: var(--season-btn-text-hover) !important;
-  box-shadow:              var(--season-btn-shadow-hover) !important;
+  background:              var(--btn-bg-hover) !important;
+  border-color:            var(--btn-border-hover) !important;
+  color:                   var(--btn-text-hover) !important;
+  -webkit-text-fill-color: var(--btn-text-hover) !important;
+  box-shadow:              var(--btn-shadow-hover) !important;
   transform:               translateY(-3px) scale(1.02) !important;
   outline:                 none !important;
 }
 
 html[class*="theme-"] body .button-submit:active {
   transform:               translateY(0) scale(0.98) !important;
-  box-shadow:              var(--season-btn-shadow) !important;
+  box-shadow:              var(--btn-shadow) !important;
 }
 
 /* ============================================================
