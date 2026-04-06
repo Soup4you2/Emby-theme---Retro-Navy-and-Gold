@@ -21,43 +21,43 @@ html,
 .selection-accent-color {
 
   /* --- GLOBAL TYPOGRAPHY --- */
-  --font-header: 'Oswald', sans-serif;           /* Primary cinematic header font */
-  --font-body: 'Sofia Sans', sans-serif;         /* Standard readable body font */
+  --font-header: 'Oswald', sans-serif;                            /* Primary cinematic header font */
+  --font-body: 'Sofia Sans', sans-serif;                          /* Standard readable body font */
 
   /* --- CUSTOM MASTER PALETTE --- */
 
   /* OPTION 1 - USE THE THEMES GOLD COLOR */
-  --my-gold: rgb(var(--my-gold-rgb));           /* Solid gold fallback for borders and text accents */
-  --my-gold-light: rgb(var(--my-gold-light-rgb)); /* Brighter gold fallback for highlight gradients */
-  --retro-navy: rgb(var(--navy-base-rgb));      /* Darkest navy fallback for main backgrounds */
-  --retro-navy-light: rgb(var(--navy-mid-rgb)); /* Mid-tone navy fallback for panels and cards */  
-  --season-star-color: rgb(179, 80, 0);         /* Media info badge rating star color */
+  --my-gold: rgb(var(--my-gold-rgb));                             /* Solid gold fallback for borders and text accents */
+  --my-gold-light: rgb(var(--my-gold-light-rgb));                 /* Brighter gold fallback for highlight gradients */
+  --retro-navy: rgb(var(--navy-base-rgb));                        /* Darkest navy fallback for main backgrounds */
+  --retro-navy-light: rgb(var(--navy-mid-rgb));                   /* Mid-tone navy fallback for panels and cards */  
+  --season-star-color: rgb(179, 80, 0);                         /* Media info badge rating star color */
   --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));   /* Media info badge rating star glow */
 
   /* OPTION 2 - USE THE USERS ACCENT COLOR PREFERENCES */
   /* NOTE: KEEP IN MIND EVERY USER HAS THEIR OWN ACCENT COLOR OPTION */
   /* --my-gold: hsl(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%)); 
   /* --my-gold-light: color-mix(in srgb, var(--my-gold) 70%, white);    /* Solid gold fallback for borders and text accents */
-  /* --retro-navy: rgb(var(--navy-base-rgb));         /* Brighter gold fallback for highlight gradients */
-  /* --retro-navy-light: rgb(var(--navy-mid-rgb));    /* Mid-tone navy fallback for panels and cards */  
-  /* --season-star-color: rgb(255, 185, 0);         /* Media info badge rating star color */
+  /* --retro-navy: rgb(var(--navy-base-rgb));                     /* Brighter gold fallback for highlight gradients */
+  /* --retro-navy-light: rgb(var(--navy-mid-rgb));                /* Mid-tone navy fallback for panels and cards */  
+  /* --season-star-color: rgb(255, 185, 0);                       /* Media info badge rating star color */
   /* --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));   /* Media info badge rating star glow */
  
   /* --- CORE SOLID COLORS --- */
-  --pure-white: rgb(var(--pure-white-rgb));     /* Solid white for high-contrast icons */
-  --pure-black: rgb(var(--pure-black-rgb));     /* Solid black for deep shadow foundations */
-  --text-muted: rgb(236, 236, 236);           /* Soft white used globally for primary paragraph/body text */
-  --scrollbar-thumb: rgb(51, 51, 51);         /* Color of the draggable handle on the browser scrollbar */
+  --pure-white: rgb(var(--pure-white-rgb));                       /* Solid white for high-contrast icons */
+  --pure-black: rgb(var(--pure-black-rgb));                       /* Solid black for deep shadow foundations */
+  --text-muted: rgb(236, 236, 236);                             /* Soft white used globally for primary paragraph/body text */
+  --scrollbar-thumb: rgb(51, 51, 51);                           /* Color of the draggable handle on the browser scrollbar */
 
   /* --- CORE RGB VALUES (The Source of Truth for Transparencies) --- */
-  --pure-black-rgb: 0, 0, 0;                    /* Controls the absolute darkest shadows and UI overlays */
-  --pure-white-rgb: 255, 255, 255;              /* Controls high-contrast text and active icons */
-  --my-gold-rgb: 255, 185, 0;                   /* Controls the base primary theme color (Retro Gold) */
-  --my-gold-light-rgb: 255, 202, 58;            /* Controls hover highlights and brighter gradients */
-  --navy-base-rgb: 0, 8, 20;                    /* Controls the deepest background color (outer radial edge) */
-  --navy-mid-rgb: 0, 29, 61;                    /* Controls the center/middle of the background radial gradient */
-  --navy-light-rgb: 0, 20, 40;                  /* Controls the base surface color for floating panels, dialogs, and cards */
-  --navy-accent-rgb: 28, 34, 44;                /* Controls the default unselected background of navigation pills */
+  --pure-black-rgb: 0, 0, 0;                                      /* Controls the absolute darkest shadows and UI overlays */
+  --pure-white-rgb: 255, 255, 255;                                /* Controls high-contrast text and active icons */
+  --my-gold-rgb: 255, 185, 0;                                     /* Controls the base primary theme color (Retro Gold) */
+  --my-gold-light-rgb: 255, 202, 58;                              /* Controls hover highlights and brighter gradients */
+  --navy-base-rgb: 0, 8, 20;                                      /* Controls the deepest background color (outer radial edge) */
+  --navy-mid-rgb: 0, 29, 61;                                      /* Controls the center/middle of the background radial gradient */
+  --navy-light-rgb: 0, 20, 40;                                    /* Controls the base surface color for floating panels, dialogs, and cards */
+  --navy-accent-rgb: 28, 34, 44;                                  /* Controls the default unselected background of navigation pills */
 
   /* --- EMBY THEME ENFORCERS (Overrides native Emby logic) --- */
   --theme-primary-color: var(--my-gold);                          /* Emby's native primary color hook */
@@ -126,17 +126,17 @@ html,
   --nav-pill-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light); /* Secondary shadow setting for active pills */
 
   /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
-  --guide-premiere: rgb(89, 35, 71);          /* Cell background for TV Series Premieres */
-  --guide-new: rgb(31, 75, 94);               /* Cell background for brand new episodes */
-  --guide-live: rgb(76, 99, 87);              /* Cell background for currently airing live events (Sports/News) */
-  --guide-repeat: rgb(31, 75, 94);            /* Cell background for older reruns */
-  --guide-movie: rgb(69, 59, 109);            /* Cell background for Movies airing on Live TV */
-  --guide-generic: rgb(39, 50, 67);           /* Default cell background for generic programs */
+  --guide-premiere: rgb(89, 35, 71);                             /* Cell background for TV Series Premieres */
+  --guide-new: rgb(31, 75, 94);                                  /* Cell background for brand new episodes */
+  --guide-live: rgb(76, 99, 87);                                 /* Cell background for currently airing live events (Sports/News) */
+  --guide-repeat: rgb(31, 75, 94);                               /* Cell background for older reruns */
+  --guide-movie: rgb(69, 59, 109);                               /* Cell background for Movies airing on Live TV */
+  --guide-generic: rgb(39, 50, 67);                              /* Default cell background for generic programs */
 
   /* --- DANGER / CANCEL BUTTONS --- */
-  --danger-red-rgb: 204, 0, 0;                  /* Base RGB for destructive actions */
-  --danger-red: rgb(var(--danger-red-rgb));     /* Solid red for delete/cancel buttons */
-  --danger-red-light: rgb(255, 51, 51);       /* Brighter red for hovering over delete/cancel buttons */
+  --danger-red-rgb: 204, 0, 0;                                     /* Base RGB for destructive actions */
+  --danger-red: rgb(var(--danger-red-rgb));                        /* Solid red for delete/cancel buttons */
+  --danger-red-light: rgb(255, 51, 51);                          /* Brighter red for hovering over delete/cancel buttons */
   --danger-red-glow: 0 0 20px rgba(var(--danger-red-rgb), 0.6), 0 0 10px rgba(255, 51, 51, 0.4); /* Glow effect on hover */
 
   /* CAST & CREW NAME TEXT */
@@ -162,9 +162,9 @@ html,
   --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8);
 
   /* ERROR & MAINTENANCE BANNERS */
-  --error-bg: #b30000;      /* The solid deep crimson background */
-  --error-text: #ffffff;    /* The text color */
-  --error-border: #ff4d4d;  /* The bright light-red border */
+  --error-bg: #b30000;                                           /* The solid deep crimson background */
+  --error-text: #ffffff;                                         /* The text color */
+  --error-border: #ff4d4d;                                       /* The bright light-red border */
 
   /* --- GLOW & SHADOW PRESETS --- */
   --retro-glow: var(--gold-alpha-40);                              /* The base neon glow variable applied to the theme */
@@ -286,7 +286,7 @@ html,
   --table-header-bg: var(--navy-mid-solid);                        /* Background for table headings */
   --table-row-bg-even: var(--navy-light-alpha-40);                 /* Zebra stripe color (Even rows) */
   --table-row-bg-odd: var(--navy-base-alpha-60);                   /* Zebra stripe color (Odd rows) */
-  --table-row-hover-bg: var(--gold-alpha-20);                     /* Background color on row hover */
+  --table-row-hover-bg: var(--gold-alpha-20);                      /* Background color on row hover */
    
   /* --- TOGGLE SWITCH VARIABLES --- */
   --toggle-track-off: var(--navy-light-alpha-80);                  /* Background of switch when OFF */
@@ -721,7 +721,7 @@ html,
    END OF USER VARIABLES AND OPTIONS
    ============================================================ */
 }
-  
+
 /* ============================================================
    02. BASE STYLES, LAYOUT & GLOBAL MAPPING
    ============================================================ */
