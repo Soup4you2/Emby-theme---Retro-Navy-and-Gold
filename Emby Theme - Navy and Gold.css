@@ -3884,6 +3884,29 @@ html[class*="theme-"] body .view .defaultCardBackground {
   border: var(--standard-border-thickness) solid var(--gold-alpha-15) !important;
 }
 
+/* --- 10L. DASHBOARD FOOTER & HYPERLINKS --- */
+
+/* 1. Base State: Forces standard text links in the settings areas to Gold */
+html[class*="theme-"] body .dashboardFooter a.button-link,
+html[class*="theme-"] body .view[class*="view-dashboard"] a.button-link,
+html[class*="theme-"] body .dashboardFooter a.button-link *,
+html[class*="theme-"] body .view[class*="view-dashboard"] a.button-link * {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+}
+
+/* 2. Hover State: Brighter gold, underline, and glow */
+html[class*="theme-"] body .dashboardFooter a.button-link:hover,
+html[class*="theme-"] body .view[class*="view-dashboard"] a.button-link:hover,
+html[class*="theme-"] body .dashboardFooter a.button-link:hover *,
+html[class*="theme-"] body .view[class*="view-dashboard"] a.button-link:hover * {
+    color: var(--my-gold-light) !important;
+    -webkit-text-fill-color: var(--my-gold-light) !important;
+    text-decoration: underline !important;
+    text-shadow: 0 0 8px var(--gold-alpha-40) !important;
+}
+
 /* ============================================================
    11. LOGIN PAGE & MISC TWEAKS
    ============================================================ */
