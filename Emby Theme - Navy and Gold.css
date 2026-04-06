@@ -24,16 +24,6 @@ html,
   --font-header: 'Oswald', sans-serif;           /* Primary cinematic header font */
   --font-body: 'Sofia Sans', sans-serif;         /* Standard readable body font */
 
-  /* --- CORE RGB VALUES (The Source of Truth for Transparencies) --- */
-  --pure-black-rgb: 0, 0, 0;                    /* Controls the absolute darkest shadows and UI overlays */
-  --pure-white-rgb: 255, 255, 255;              /* Controls high-contrast text and active icons */
-  --my-gold-rgb: 255, 185, 0;                   /* Controls the base primary theme color (Retro Gold) */
-  --my-gold-light-rgb: 255, 202, 58;            /* Controls hover highlights and brighter gradients */
-  --navy-base-rgb: 0, 8, 20;                    /* Controls the deepest background color (outer radial edge) */
-  --navy-mid-rgb: 0, 29, 61;                    /* Controls the center/middle of the background radial gradient */
-  --navy-light-rgb: 0, 20, 40;                  /* Controls the base surface color for floating panels, dialogs, and cards */
-  --navy-accent-rgb: 28, 34, 44;                /* Controls the default unselected background of navigation pills */
-
   /* --- CUSTOM MASTER PALETTE --- */
 
   /* OPTION 1 - USE THE THEMES GOLD COLOR */
@@ -44,8 +34,8 @@ html,
   --season-star-color: rgb(179, 80, 0);         /* Media info badge rating star color */
   --season-star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));   /* Media info badge rating star glow */
 
-  /* OPTION 2 - USE THE USERS ACCENT COLOR PREFERENCES (* EXPERIMENTAL *) */
-  /* NOTE: KEEP IN MIND EVERY USER HAS THEIR OWN ACCENT COLOR SELECTION */
+  /* OPTION 2 - USE THE USERS ACCENT COLOR PREFERENCES */
+  /* NOTE: KEEP IN MIND EVERY USER HAS THEIR OWN ACCENT COLOR OPTION */
   /* --my-gold: hsl(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%)); 
   /* --my-gold-light: color-mix(in srgb, var(--my-gold) 70%, white);    /* Solid gold fallback for borders and text accents */
   /* --retro-navy: rgb(var(--navy-base-rgb));         /* Brighter gold fallback for highlight gradients */
@@ -59,37 +49,17 @@ html,
   --text-muted: rgb(236, 236, 236);           /* Soft white used globally for primary paragraph/body text */
   --scrollbar-thumb: rgb(51, 51, 51);         /* Color of the draggable handle on the browser scrollbar */
 
-  /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
-  --guide-premiere: rgb(89, 35, 71);          /* Cell background for TV Series Premieres */
-  --guide-new: rgb(31, 75, 94);               /* Cell background for brand new episodes */
-  --guide-live: rgb(76, 99, 87);              /* Cell background for currently airing live events (Sports/News) */
-  --guide-repeat: rgb(31, 75, 94);            /* Cell background for older reruns */
-  --guide-movie: rgb(69, 59, 109);            /* Cell background for Movies airing on Live TV */
-  --guide-generic: rgb(39, 50, 67);           /* Default cell background for generic programs */
-
-  /* --- DANGER / CANCEL BUTTONS --- */
-  --danger-red-rgb: 204, 0, 0;                  /* Base RGB for destructive actions */
-  --danger-red: rgb(var(--danger-red-rgb));     /* Solid red for delete/cancel buttons */
-  --danger-red-light: rgb(255, 51, 51);       /* Brighter red for hovering over delete/cancel buttons */
-  --danger-red-glow: 0 0 20px rgba(var(--danger-red-rgb), 0.6), 0 0 10px rgba(255, 51, 51, 0.4); /* Glow effect on hover */
-
-   /* --- NAVIGATION PILL BARS --- */
-  --nav-pill-bg-inactive: rgb(var(--navy-accent-rgb));             /* Background color of unselected Home/TV/Movie buttons */
-  --nav-pill-hover: var(--white-alpha-10);                         /* Background tint when hovering over an unselected pill */
-  --nav-pill-hover-text: var(--my-gold-light);                     /* Text color when hovering over an unselected pill */
-  --nav-pill-hover-border-color: transparent;                      /* Border color when hovering over an unselected pill */
-  --nav-pill-active: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%); /* The gradient filling the currently active pill */
-  --nav-pill-text: var(--text-muted);                              /* Standard text color for unselected pills */
-  --nav-pill-active-text: var(--retro-navy);                       /* Text color inside the currently active pill */
-  --nav-pill-active-border-color: var(--retro-navy);               /* Outer border color of the active pill */
-  --nav-pill-active-border: 2px solid var(--nav-pill-active-border-color); /* Border thickness and style for active pills */
-  --nav-pill-active-glow: 0 4px 8px var(--black-alpha-80), 0 0 5px var(--gold-alpha-40); /* The shadow and outer glow around the active pill */
-  --nav-pill-bar-bg: rgb(var(--navy-accent-rgb));                  /* Background of the track containing all the pills */
-  --nav-pill-bar-border: 0px solid var(--gold-alpha-80);           /* Border of the track containing all the pills */
-  --nav-pill-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light); /* Secondary shadow setting for active pills */
+  /* --- CORE RGB VALUES (The Source of Truth for Transparencies) --- */
+  --pure-black-rgb: 0, 0, 0;                    /* Controls the absolute darkest shadows and UI overlays */
+  --pure-white-rgb: 255, 255, 255;              /* Controls high-contrast text and active icons */
+  --my-gold-rgb: 255, 185, 0;                   /* Controls the base primary theme color (Retro Gold) */
+  --my-gold-light-rgb: 255, 202, 58;            /* Controls hover highlights and brighter gradients */
+  --navy-base-rgb: 0, 8, 20;                    /* Controls the deepest background color (outer radial edge) */
+  --navy-mid-rgb: 0, 29, 61;                    /* Controls the center/middle of the background radial gradient */
+  --navy-light-rgb: 0, 20, 40;                  /* Controls the base surface color for floating panels, dialogs, and cards */
+  --navy-accent-rgb: 28, 34, 44;                /* Controls the default unselected background of navigation pills */
 
   /* --- EMBY THEME ENFORCERS (Overrides native Emby logic) --- */
-  
   --theme-primary-color: var(--my-gold);                          /* Emby's native primary color hook */
   --theme-accent-color: var(--my-gold);                           /* Emby's native accent color hook */
   --theme-accent-text-color: var(--my-gold);                      /* Text links and highlighted active text */
@@ -140,30 +110,40 @@ html,
   --navy-mid-alpha-70: rgba(var(--navy-mid-rgb), 0.7);             /* Player control gradient dimming */
   --navy-mid-alpha-90: rgba(var(--navy-mid-rgb), 0.9);             /* Deep dimming for full-screen dialogs */
 
-  /* --- GLOW & SHADOW PRESETS --- */
-  --retro-glow: var(--gold-alpha-40);                              /* The base neon glow variable applied to the theme */
-  --glow-none: none;                                               /* Utility used to disable glows */
-  --glow-light: 0 0 5px var(--retro-glow);                         /* Soft outline lighting for pills */
-  --glow-medium: 0 0 10px var(--retro-glow);                       /* Standard outline lighting for indicators */
-  --shadow-glow-standard: 0 0 15px var(--retro-glow);              /* The primary gold glow seen on hovered media cards */
-  --glow-heavy: 0 0 20px var(--retro-glow);                        /* Intense glow used for primary action buttons */
-  --glow-extreme: 0 0 30px var(--retro-glow);                      /* Massive glow used for full-screen artwork */
-  --glow-slider-track: 0 0 12px var(--my-gold), var(--shadow-glow-standard); /* Makes the played portion of a progress bar neon */
-  --glow-slider-thumb: 0 0 15px var(--my-gold), 0 0 25px var(--retro-glow);  /* Makes the video/audio slider dot neon */
-  --glow-progress-bar: var(--glow-medium), 0 0 5px var(--theme-primary-color); /* The neon effect on poster progress bars */
-  --filter-glow-light: drop-shadow(0 0 5px var(--retro-glow));     /* Applies glow to SVG icons */
-  --filter-glow-medium: drop-shadow(0 0 8px var(--retro-glow));    /* Stronger glow for hovered SVG icons */
-  --filter-glow-gold-solid: drop-shadow(0 0 5px var(--my-gold));   /* Solid hard glow for icons */
+   /* --- NAVIGATION PILL BARS --- */
+  --nav-pill-bg-inactive: rgb(var(--navy-accent-rgb));             /* Background color of unselected Home/TV/Movie buttons */
+  --nav-pill-hover: var(--white-alpha-10);                         /* Background tint when hovering over an unselected pill */
+  --nav-pill-hover-text: var(--my-gold-light);                     /* Text color when hovering over an unselected pill */
+  --nav-pill-hover-border-color: transparent;                      /* Border color when hovering over an unselected pill */
+  --nav-pill-active: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%); /* The gradient filling the currently active pill */
+  --nav-pill-text: var(--text-muted);                              /* Standard text color for unselected pills */
+  --nav-pill-active-text: var(--retro-navy);                       /* Text color inside the currently active pill */
+  --nav-pill-active-border-color: var(--retro-navy);               /* Outer border color of the active pill */
+  --nav-pill-active-border: 2px solid var(--nav-pill-active-border-color); /* Border thickness and style for active pills */
+  --nav-pill-active-glow: 0 4px 8px var(--black-alpha-80), 0 0 5px var(--gold-alpha-40); /* The shadow and outer glow around the active pill */
+  --nav-pill-bar-bg: rgb(var(--navy-accent-rgb));                  /* Background of the track containing all the pills */
+  --nav-pill-bar-border: 0px solid var(--gold-alpha-80);           /* Border of the track containing all the pills */
+  --nav-pill-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light); /* Secondary shadow setting for active pills */
 
-  /* Cast & Crew Name Text */
+  /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
+  --guide-premiere: rgb(89, 35, 71);          /* Cell background for TV Series Premieres */
+  --guide-new: rgb(31, 75, 94);               /* Cell background for brand new episodes */
+  --guide-live: rgb(76, 99, 87);              /* Cell background for currently airing live events (Sports/News) */
+  --guide-repeat: rgb(31, 75, 94);            /* Cell background for older reruns */
+  --guide-movie: rgb(69, 59, 109);            /* Cell background for Movies airing on Live TV */
+  --guide-generic: rgb(39, 50, 67);           /* Default cell background for generic programs */
+
+  /* --- DANGER / CANCEL BUTTONS --- */
+  --danger-red-rgb: 204, 0, 0;                  /* Base RGB for destructive actions */
+  --danger-red: rgb(var(--danger-red-rgb));     /* Solid red for delete/cancel buttons */
+  --danger-red-light: rgb(255, 51, 51);       /* Brighter red for hovering over delete/cancel buttons */
+  --danger-red-glow: 0 0 20px rgba(var(--danger-red-rgb), 0.6), 0 0 10px rgba(255, 51, 51, 0.4); /* Glow effect on hover */
+
+  /* CAST & CREW NAME TEXT */
   --season-actor-name: var(--my-gold);                             /* Cast member's actual name color */
   --season-actor-role: var(--white-alpha-70);                      /* Character role text color */
 
-  /* Cast & Crew Name Text (Applied globally unless overridden by a seasonal event) */
-  --season-actor-name: var(--my-gold);                             /* Default cast name color */
-  --season-actor-role: var(--white-alpha-70);                      /* Default character role color */
-
-  /* Submit Button */
+  /* SUBMIT BUTTONS */
   --season-btn-bg: var(--my-gold);                                 /* Resting background of primary actions (Save/Done) */
   --season-btn-bg-hover: var(--my-gold-light);                     /* Background of primary actions when hovered */
   --season-btn-text: var(--retro-navy);                            /* Text color inside resting primary buttons */
@@ -181,10 +161,40 @@ html,
   --favorite-heart-alpha-50: rgba(var(--favorite-heart-rgb), 0.5);
   --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8);
 
-  /* Error & Maintenance Banner Colors */
+  /* ERROR & MAINTENANCE BANNERS */
   --error-bg: #b30000;      /* The solid deep crimson background */
   --error-text: #ffffff;    /* The text color */
   --error-border: #ff4d4d;  /* The bright light-red border */
+
+  /* --- GLOW & SHADOW PRESETS --- */
+  --retro-glow: var(--gold-alpha-40);                              /* The base neon glow variable applied to the theme */
+  --glow-none: none;                                               /* Utility used to disable glows */
+  --glow-light: 0 0 5px var(--retro-glow);                         /* Soft outline lighting for pills */
+  --glow-medium: 0 0 10px var(--retro-glow);                       /* Standard outline lighting for indicators */
+  --shadow-glow-standard: 0 0 15px var(--retro-glow);              /* The primary gold glow seen on hovered media cards */
+  --glow-heavy: 0 0 20px var(--retro-glow);                        /* Intense glow used for primary action buttons */
+  --glow-extreme: 0 0 30px var(--retro-glow);                      /* Massive glow used for full-screen artwork */
+  --glow-slider-track: 0 0 12px var(--my-gold), var(--shadow-glow-standard); /* Makes the played portion of a progress bar neon */
+  --glow-slider-thumb: 0 0 15px var(--my-gold), 0 0 25px var(--retro-glow);  /* Makes the video/audio slider dot neon */
+  --glow-progress-bar: var(--glow-medium), 0 0 5px var(--theme-primary-color); /* The neon effect on poster progress bars */
+  --filter-glow-light: drop-shadow(0 0 5px var(--retro-glow));     /* Applies glow to SVG icons */
+  --filter-glow-medium: drop-shadow(0 0 8px var(--retro-glow));    /* Stronger glow for hovered SVG icons */
+  --filter-glow-gold-solid: drop-shadow(0 0 5px var(--my-gold));   /* Solid hard glow for icons */
+
+  /* THE "NO GLOW" KILL SWITCH */
+  /*
+  --glow-light: var(--glow-none);
+  --glow-medium: var(--glow-none);
+  --shadow-glow-standard: var(--glow-none);
+  --glow-heavy: var(--glow-none);
+  --glow-extreme: var(--glow-none);
+  --glow-slider-track: var(--glow-none);
+  --glow-slider-thumb: var(--glow-none);
+  --glow-progress-bar: var(--glow-none);
+  --filter-glow-light: var(--filter-glow-none);
+  --filter-glow-medium: var(--filter-glow-none);
+  --filter-glow-gold-solid: var(--filter-glow-none);
+  */
 
   /* ============================================================
       USER OPTIONS FOR VISUALS BELOW
@@ -267,21 +277,6 @@ html,
   /* --media-badge-hover-border: var(--standard-border-thickness) solid var(--my-gold);     /* Flat - Media Info Badges */
   /* --media-badge-hover-shadow: var(--glow-medium);                /* Flat - Media Info Badges */
  
-  /* THE "NO GLOW" KILL SWITCH */
-  /*
-  --glow-light: var(--glow-none);
-  --glow-medium: var(--glow-none);
-  --shadow-glow-standard: var(--glow-none);
-  --glow-heavy: var(--glow-none);
-  --glow-extreme: var(--glow-none);
-  --glow-slider-track: var(--glow-none);
-  --glow-slider-thumb: var(--glow-none);
-  --glow-progress-bar: var(--glow-none);
-  --filter-glow-light: var(--filter-glow-none);
-  --filter-glow-medium: var(--filter-glow-none);
-  --filter-glow-gold-solid: var(--filter-glow-none);
-  */
-
   /* SEASONAL BACKGROUND ANIMATIONS */
   --seasonal-bg-visibility: visible;                                /* Fully Enabled */
   --seasonal-bg-anim-state: running;                                /* Fully Enabled */
