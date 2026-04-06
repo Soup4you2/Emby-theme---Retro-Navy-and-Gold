@@ -2973,6 +2973,13 @@ html[class*="theme-"] body .mainCreditsSection .emby-tab-button.emby-tab-button-
     outline: none !important;
 }
 
+/* Defeat Emby's dynamic min-height math to fix massive empty gaps on smaller tabs */
+html[class*="theme-"] body .creditsItemsContainer {
+    min-height: auto !important;
+    height: auto !important;
+    padding-bottom: 20px !important; /* Gives a little breathing room before the next section */
+}
+
 /* 6. Resting Row State (No Background Panel) */
 html[class*="theme-"] body .creditsItemsContainer .listItem {
     background: transparent !important;
@@ -3010,8 +3017,9 @@ html[class*="theme-"] body .creditsItemsContainer .listItem.show-focus {
 
 /* 8. Typography Overrides */
 
-/* Release Year (Increased specificity to override global secondaryText rules) */
-html[class*="theme-"] body .creditsItemsContainer .listItem .listItem-indexnumberleft.secondaryText {
+/* Release Year (Locked to Gold even on row hover) */
+html[class*="theme-"] body .creditsItemsContainer .listItem .listItem-indexnumberleft.secondaryText,
+html[class*="theme-"] body .creditsItemsContainer .listItem:hover .listItem-indexnumberleft.secondaryText {
     color: var(--my-gold) !important;
     -webkit-text-fill-color: var(--my-gold) !important;
     font-family: var(--font-header) !important;
@@ -3036,10 +3044,10 @@ html[class*="theme-"] body .creditsItemsContainer .secondaryText {
     font-size: 0.95em !important;
 }
 
-/* High-Contrast Hover Text */
+/* Actor Role Hover (Locked to muted white) */
 html[class*="theme-"] body .creditsItemsContainer .listItem:hover .secondaryText {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+    color: var(--white-alpha-70) !important;
+    -webkit-text-fill-color: var(--white-alpha-70) !important;
 }
 
 /* ============================================================
