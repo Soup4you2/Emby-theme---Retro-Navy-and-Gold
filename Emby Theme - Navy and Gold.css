@@ -4354,6 +4354,13 @@ html[class*="theme-"] body .view-dashboard .sideFooterCard.show-focus .visualCar
     transform: none !important;
 }
 
+/* 7. Transcoding Progress Bar: Forces the secondary progress bar to Red */
+html[class*="theme-"] body .sessionTranscodingProgress .itemProgressBarForeground {
+    background-color: var(--danger-red) !important;
+    background: var(--danger-red) !important;
+    box-shadow: 0 0 8px var(--danger-red) !important;
+}
+
 /* --- 10H. ACTIVITY LOG & LIST ITEM IMAGE FIX --- */
 
 /* 1. Forces Emby to smartly crop images rather than stretching/squishing them into square containers */
