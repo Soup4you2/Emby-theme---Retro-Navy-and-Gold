@@ -1185,14 +1185,15 @@ html[class*="theme-"] body .itemAction:hover .cardText {
   display:                 none !important;
 }
 
-/* 3. Header Icons: Targets ONLY icon-based buttons (Menu, Cast, Settings, Profile) and ignores text buttons */
+/* 3. Header Icons: Targets ONLY specific header buttons to avoid styling multi-select panels */
 html[class*="theme-"] body .skinHeader .headerMenuButton,
 html[class*="theme-"] body .skinHeader .headerMenuButton .md-icon,
-html[class*="theme-"] body .skinHeader .paper-icon-button-light,
-html[class*="theme-"] body .skinHeader .paper-icon-button-light .md-icon,
-html[class*="theme-"] body .skinHeader .paper-icon-button-light i,
 html[class*="theme-"] body .skinHeader .headerCastButton,
 html[class*="theme-"] body .skinHeader .headerCastButton .md-icon,
+html[class*="theme-"] body .skinHeader .headerSearchButton,
+html[class*="theme-"] body .skinHeader .headerSearchButton .md-icon,
+html[class*="theme-"] body .skinHeader .headerUserButton,
+html[class*="theme-"] body .skinHeader .headerUserButton .md-icon,
 html[class*="theme-"] body .skinHeader .headerSettingsButton,
 html[class*="theme-"] body .skinHeader .headerSettingsButton .md-icon {
   color: var(--my-gold) !important;
@@ -1201,10 +1202,11 @@ html[class*="theme-"] body .skinHeader .headerSettingsButton .md-icon {
   transition: all var(--transition-speed) ease !important;
 }
 
-/* Hover Glow applied specifically to the icon buttons */
+/* Hover Glow applied specifically to the intended buttons */
 html[class*="theme-"] body .skinHeader .headerMenuButton:hover,
-html[class*="theme-"] body .skinHeader .paper-icon-button-light:hover,
 html[class*="theme-"] body .skinHeader .headerCastButton:hover,
+html[class*="theme-"] body .skinHeader .headerSearchButton:hover,
+html[class*="theme-"] body .skinHeader .headerUserButton:hover,
 html[class*="theme-"] body .skinHeader .headerSettingsButton:hover {
   filter: drop-shadow(0 0 5px var(--my-gold)) !important;
   transform: scale(1.1) !important;
