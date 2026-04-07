@@ -3283,9 +3283,14 @@ html[class*="theme-"] body .creditsItemsContainer .listItem-content::after {
 }
 
 /* 7. Hover Row State (Pop-out Glow) */
+/* We add the container class to increase specificity and ensure it overrides the Zebra stripes */
 html[class*="theme-"] body .creditsItemsContainer .listItem:hover,
-html[class*="theme-"] body .creditsItemsContainer .listItem.show-focus {
+html[class*="theme-"] body .creditsItemsContainer .listItem.show-focus,
+html[class*="theme-"] body .creditsItemsContainer .listItem:nth-child(odd):hover,
+html[class*="theme-"] body .creditsItemsContainer .listItem:nth-child(even):hover {
     background: var(--table-row-hover-bg) !important;
+    background-color: var(--table-row-hover-bg) !important;
+    background-image: none !important; /* Clears any existing gradients */
     border-color: var(--theme-primary-color) !important;
     box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
     transform: scale(1.01) !important;
