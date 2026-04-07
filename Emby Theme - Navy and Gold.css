@@ -198,7 +198,7 @@ html,
   */
 
   /* SIDEBAR OPTIONS */
-  --custom-sidebar-width: 250px;                                    /* Define the custom width (Triggered only when the full sidebar is open) */   
+  --custom-sidebar-width: 250px;                                    /* Define the custom width (Triggered only when the full sidebar is open) */  
  
   /* STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) */
   --media-card-radius: 15px;                                        /* Adjust the corner rounding of standard posters */
@@ -1500,7 +1500,7 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini .btnToggleNavDrawer .md-i
 /* --- 3F. DOCKED SIDEBAR WIDTH --- */
 
 /* Protect mobile/tablet views by only running this on larger screens */
-@media (min-width: 200em) {
+@media (min-width: 50em) {
     
     /* 1. Apply custom width to the Sidebar ONLY when fully docked */
     html[class*="theme-"] body .mainDrawer.drawer-docked:not(.mainDrawer-mini) {
