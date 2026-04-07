@@ -1520,6 +1520,40 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini .btnToggleNavDrawer .md-i
     }
 }
 
+/* --- 3G. MOBILE APP FOOTER --- */
+
+/* 1. App Footer Background: Matches the deep navy aesthetic on all themes */
+html[class*="theme-"] body .appfooter {
+    background: var(--navy-base-alpha-95) !important;
+    background-color: var(--retro-navy) !important;
+    backdrop-filter: var(--blur-heavy) !important;
+    -webkit-backdrop-filter: var(--blur-heavy) !important;
+    border-top: 1px solid var(--gold-alpha-15) !important;
+    border-bottom: none !important;
+    box-shadow: 0 -5px 20px var(--black-alpha-80) !important;
+}
+
+/* 2. Inactive Icons & Text: Forces muted white against the new dark background */
+html[class*="theme-"] body .appfooter .navMenuOptionIcon,
+html[class*="theme-"] body .appfooter .md-icon,
+html[class*="theme-"] body .appfooter .navMenuOptionText {
+    color: var(--white-alpha-60) !important;
+    -webkit-text-fill-color: var(--white-alpha-60) !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+}
+
+/* 3. Hover / Active Icons & Text: Pops them to glowing Gold when selected */
+html[class*="theme-"] body .appfooter .navMenuOption-selected .navMenuOptionIcon,
+html[class*="theme-"] body .appfooter .navMenuOption-selected .md-icon,
+html[class*="theme-"] body .appfooter .navMenuOption-selected .navMenuOptionText,
+html[class*="theme-"] body .appfooter .navMenuOption:hover .navMenuOptionIcon,
+html[class*="theme-"] body .appfooter .navMenuOption:hover .md-icon,
+html[class*="theme-"] body .appfooter .navMenuOption:hover .navMenuOptionText {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    filter: drop-shadow(0 0 5px var(--gold-alpha-40)) !important;
+}
+
 /* ============================================================
    04. FORMS, BUTTONS, & DIALOGS
    ============================================================ */
@@ -2839,6 +2873,101 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
     color: var(--my-gold) !important;
 }
 
+/* 5. MOBILE LAYOUT TWEAKS (Play Pills & Square Tiles) */
+@media (max-width: 50em) {
+    /* 5a. Flex Container to force Play & Trailer to sit side-by-side */
+    html[class*="theme-"] body .mainDetailButtons,
+    html[class*="theme-"] body .detailButtons {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        gap: 10px !important; 
+    }
+
+    /* 5b. Shape, Size, and Padding lock for Play, Resume & Trailer Pills */
+    html[class*="theme-"] body .mainDetailButtons .btnPlay,
+    html[class*="theme-"] body .mainDetailButtons .btnTrailer,
+    html[class*="theme-"] body .mainDetailButtons [data-action="trailer"],
+    html[class*="theme-"] body .mainDetailButtons [data-action="resume"],
+    html[class*="theme-"] body .detailButtons .btnPlay,
+    html[class*="theme-"] body .detailButtons .btnTrailer,
+    html[class*="theme-"] body .detailButtons [data-action="trailer"],
+    html[class*="theme-"] body .detailButtons [data-action="resume"] {
+        box-sizing: border-box !important;
+        min-height: 48px !important;
+        padding: 8px 24px !important;
+        margin: 0 !important; 
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 1.05em !important;
+        border-radius: var(--border-radius-pill) !important;
+    }
+
+    /* 5c. Trailer & Resume Pill Colors (Frosted hollow look) */
+    html[class*="theme-"] body .mainDetailButtons .btnTrailer,
+    html[class*="theme-"] body .mainDetailButtons [data-action="trailer"],
+    html[class*="theme-"] body .mainDetailButtons [data-action="resume"],
+    html[class*="theme-"] body .detailButtons .btnTrailer,
+    html[class*="theme-"] body .detailButtons [data-action="trailer"],
+    html[class*="theme-"] body .detailButtons [data-action="resume"] {
+        background: var(--navy-light-alpha-60) !important;
+        border: 2px solid var(--theme-primary-color) !important;
+        color: var(--pure-white) !important;
+        -webkit-text-fill-color: var(--pure-white) !important;
+        box-shadow: 0 4px 10px var(--black-alpha-50) !important;
+    }
+
+    /* 5d. Play Pill specific overrides (Solid Gold to stand out) */
+    html[class*="theme-"] body .mainDetailButtons .btnPlay,
+    html[class*="theme-"] body .detailButtons .btnPlay {
+        background-color: var(--theme-primary-color) !important;
+        border: 2px solid var(--theme-primary-color) !important; 
+        color: var(--pure-black) !important;
+        -webkit-text-fill-color: var(--pure-black) !important;
+        box-shadow: var(--glow-medium) !important;
+    }
+
+    /* Force Play Icon to Black */
+    html[class*="theme-"] body .mainDetailButtons .btnPlay *,
+    html[class*="theme-"] body .detailButtons .btnPlay * {
+        color: var(--pure-black) !important;
+        -webkit-text-fill-color: var(--pure-black) !important;
+    }
+
+    /* 5e. Resting State: Secondary Square Tiles (Played, Favorite) */
+    html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]) {
+        border-radius: var(--border-radius-md) !important;
+        box-shadow: 0 4px 10px var(--black-alpha-50) !important; 
+        transform: none !important; 
+        border: 1px solid var(--gold-alpha-30) !important; 
+        background: var(--navy-light-alpha-60) !important;
+        margin: 0 !important; 
+        min-height: 48px !important; 
+    }
+
+    /* 5f. Hover State: Secondary Square Tiles */
+    html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]):hover,
+    html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]).show-focus {
+        border-color: var(--my-gold) !important;
+        box-shadow: var(--shadow-glow-standard) !important;
+        transform: scale(1.05) !important;
+        background: var(--theme-primary-color) !important;
+    }
+
+    html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]):hover *,
+    html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]).show-focus * {
+        color: var(--pure-black) !important;
+        -webkit-text-fill-color: var(--pure-black) !important;
+    }
+
+    /* 5g. Active (Click) State: Secondary Square Tiles */
+    html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]):active {
+        transform: scale(0.95) !important;
+        box-shadow: 0 2px 5px var(--black-alpha-80) !important;
+    }
+}
+
 /* --- 6E. About Section Overrides (Fixing Emby's native text issues) --- */
 
 /* 1. Strip Emby's native text clipping and shadow forcing.
@@ -4056,6 +4185,15 @@ html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardCont
   background-color: var(--navy-mid-solid) !important; 
 }
 
+/* 6. Edit Button Fix: Brings the hidden edit circle back to the top layer and syncs its hover animation */
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardOverlayContainer {
+    z-index: 20 !important;
+}
+
+html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardOverlayContainer {
+    transform: translateY(-8px) scale(1.04) !important;
+}
+
 /* --- 10K. USER TABLE --- */
 
 /* 1. Forces main list text to pure white across all base themes */
@@ -4226,158 +4364,6 @@ html[class*="theme-"] body div.popupStylePicker.dialog.popup {
 html[class*="theme-"] body div.popupStylePicker.dialog.popup > div {
     overflow: visible !important;
 }
-
-/* ============================================================
-   HOTFIX: MOBILE APP FOOTER (LIGHT THEME BUG)
-   Forces the bottom navigation bar to dark mode on all screens
-   ============================================================ */
-
-/* 1. App Footer Background (Matches the deep navy aesthetic) */
-html[class*="theme-"] body .appfooter {
-    background: var(--navy-base-alpha-95) !important;
-    background-color: var(--retro-navy) !important;
-    backdrop-filter: var(--blur-heavy) !important;
-    -webkit-backdrop-filter: var(--blur-heavy) !important;
-    border-top: 1px solid var(--gold-alpha-15) !important;
-    border-bottom: none !important;
-    box-shadow: 0 -5px 20px var(--black-alpha-80) !important;
-}
-
-/* 2. Inactive Icons & Text (Forces them to show up against the new dark background) */
-html[class*="theme-"] body .appfooter .navMenuOptionIcon,
-html[class*="theme-"] body .appfooter .md-icon,
-html[class*="theme-"] body .appfooter .navMenuOptionText {
-    color: var(--white-alpha-60) !important;
-    -webkit-text-fill-color: var(--white-alpha-60) !important;
-    transition: all var(--transition-speed) ease-in-out !important;
-}
-
-/* 3. Hover / Active Icons & Text (Pops them to glowing Gold) */
-html[class*="theme-"] body .appfooter .navMenuOption-selected .navMenuOptionIcon,
-html[class*="theme-"] body .appfooter .navMenuOption-selected .md-icon,
-html[class*="theme-"] body .appfooter .navMenuOption-selected .navMenuOptionText,
-html[class*="theme-"] body .appfooter .navMenuOption:hover .navMenuOptionIcon,
-html[class*="theme-"] body .appfooter .navMenuOption:hover .md-icon,
-html[class*="theme-"] body .appfooter .navMenuOption:hover .navMenuOptionText {
-    color: var(--my-gold) !important;
-    -webkit-text-fill-color: var(--my-gold) !important;
-    filter: drop-shadow(0 0 5px var(--gold-alpha-40)) !important;
-}
-
-/* ============================================================
-   HOTFIX: ADMIN LIBRARY SETUP EDIT BUTTON
-   Brings the hidden edit circle back to the top layer
-   ============================================================ */
-
-/* 1. Pull the invisible button layer above the elevated image */
-html[class*="theme-"] body .view-librarysetup-librarysetup .cardOverlayContainer {
-    z-index: 20 !important;
-}
-
-/* 2. Force the button to follow the image exactly when it pops up on hover */
-html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardOverlayContainer {
-    transform: translateY(-8px) scale(1.04) !important;
-}
-
-/* ============================================================
-   HOTFIX: ACTION BUTTONS & ALIGNMENT (MOBILE ONLY)
-   Cleans up square tiles and aligns Play/Trailer into matching pills on mobile
-   ============================================================ */
-
-@media (max-width: 50em) {
-    /* 1. Flex Container to force Play & Trailer to sit side-by-side */
-    html[class*="theme-"] body .mainDetailButtons,
-    html[class*="theme-"] body .detailButtons {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        align-items: center !important;
-        gap: 10px !important; 
-    }
-
-    /* 2. Shape, Size, and Padding lock for Play, Resume & Trailer Pills */
-    html[class*="theme-"] body .mainDetailButtons .btnPlay,
-    html[class*="theme-"] body .mainDetailButtons .btnTrailer,
-    html[class*="theme-"] body .mainDetailButtons [data-action="trailer"],
-    html[class*="theme-"] body .mainDetailButtons [data-action="resume"],
-    html[class*="theme-"] body .detailButtons .btnPlay,
-    html[class*="theme-"] body .detailButtons .btnTrailer,
-    html[class*="theme-"] body .detailButtons [data-action="trailer"],
-    html[class*="theme-"] body .detailButtons [data-action="resume"] {
-        box-sizing: border-box !important;
-        min-height: 48px !important;
-        padding: 8px 24px !important;
-        margin: 0 !important; 
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        font-size: 1.05em !important;
-        border-radius: var(--border-radius-pill) !important;
-    }
-
-    /* 3. Trailer & Resume Pill Colors (Frosted hollow look) */
-    html[class*="theme-"] body .mainDetailButtons .btnTrailer,
-    html[class*="theme-"] body .mainDetailButtons [data-action="trailer"],
-    html[class*="theme-"] body .mainDetailButtons [data-action="resume"],
-    html[class*="theme-"] body .detailButtons .btnTrailer,
-    html[class*="theme-"] body .detailButtons [data-action="trailer"],
-    html[class*="theme-"] body .detailButtons [data-action="resume"] {
-        background: var(--navy-light-alpha-60) !important;
-        border: 2px solid var(--theme-primary-color) !important;
-        color: var(--pure-white) !important;
-        -webkit-text-fill-color: var(--pure-white) !important;
-        box-shadow: 0 4px 10px var(--black-alpha-50) !important;
-    }
-
-    /* 4. Play Pill specific overrides (Solid Gold to stand out) */
-    html[class*="theme-"] body .mainDetailButtons .btnPlay,
-    html[class*="theme-"] body .detailButtons .btnPlay {
-        background-color: var(--theme-primary-color) !important;
-        border: 2px solid var(--theme-primary-color) !important; 
-        color: var(--pure-black) !important;
-        -webkit-text-fill-color: var(--pure-black) !important;
-        box-shadow: var(--glow-medium) !important;
-    }
-
-    /* Force Play Icon to Black */
-    html[class*="theme-"] body .mainDetailButtons .btnPlay *,
-    html[class*="theme-"] body .detailButtons .btnPlay * {
-        color: var(--pure-black) !important;
-        -webkit-text-fill-color: var(--pure-black) !important;
-    }
-
-    /* 5. Resting State: Secondary Square Tiles (Played, Favorite) */
-    html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]) {
-        border-radius: var(--border-radius-md) !important;
-        box-shadow: 0 4px 10px var(--black-alpha-50) !important; 
-        transform: none !important; 
-        border: 1px solid var(--gold-alpha-30) !important; 
-        background: var(--navy-light-alpha-60) !important;
-        margin: 0 !important; 
-        min-height: 48px !important; 
-    }
-
-    /* 6. Hover State: Secondary Square Tiles */
-    html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]):hover,
-    html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]).show-focus {
-        border-color: var(--my-gold) !important;
-        box-shadow: var(--shadow-glow-standard) !important;
-        transform: scale(1.05) !important;
-        background: var(--theme-primary-color) !important;
-    }
-
-    html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]):hover *,
-    html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]).show-focus * {
-        color: var(--pure-black) !important;
-        -webkit-text-fill-color: var(--pure-black) !important;
-    }
-
-    /* 7. Active (Click) State: Secondary Square Tiles */
-    html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]):active {
-        transform: scale(0.95) !important;
-        box-shadow: 0 2px 5px var(--black-alpha-80) !important;
-    }
-}
-
 
 /* ============================================================
    13. UNIVERSAL SEASONAL LOGIC
