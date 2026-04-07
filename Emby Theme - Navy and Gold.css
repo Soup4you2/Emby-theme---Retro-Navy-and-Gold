@@ -3533,6 +3533,7 @@ html[class*="theme-"] .guideChannelImage {
    ============================================================ */
 
 /* --- 8A. Video OSD Overlays (Bottom Controls) --- */
+
 html[class*="theme-"] .videoOsdBottom,
 html[class*="theme-"] .videoOsdBottom-video {
     background:              linear-gradient(to top, var(--navy-base-alpha-95) 0%, var(--navy-mid-alpha-70) 60%, transparent 100%) !important;
@@ -3552,7 +3553,9 @@ html[class*="theme-"] .videoOsdBottom-video {
   border-radius:           var(--border-radius-md) !important;
 }
 
+
 /* --- 8B. Media Sliders (Progress & Volume) --- */
+
 .videoOsdBottom .emby-slider-background,
 .videoOsdBottom .emby-slider-background-inner,
 .nowPlayingBar .emby-slider-background,
@@ -3602,7 +3605,9 @@ input[type="range"]::-moz-range-thumb {
   will-change:             transform, box-shadow;
 }
 
+
 /* --- 8C. OSD Typography & Buttons --- */
+
 .osdValues,
 .osdTextContainer,
 .osdTitle {
@@ -3644,6 +3649,41 @@ input[type="range"]::-moz-range-thumb {
   filter:                  var(--filter-glow-gold-solid) !important;
 }
 
+/* --------------------------------------------------------
+   OSD Favorite Heart Exceptions 
+   (Protects active hearts from the Universal White/Gold rule)
+   -------------------------------------------------------- */
+
+/* 1. Resting State: Forces the favorited heart to stay Red */
+html[class*="theme-"] .videoOsdBottom button[data-isfavorite="true"],
+html[class*="theme-"] .videoOsdBottom button[data-isfavorite="true"] .md-icon,
+html[class*="theme-"] .videoOsdBottom .ratingbutton-icon-withrating,
+html[class*="theme-"] .videoOsdBottom .ratingbutton-icon-withrating .md-icon,
+html[class*="theme-"] .nowPlayingBar button[data-isfavorite="true"],
+html[class*="theme-"] .nowPlayingBar button[data-isfavorite="true"] .md-icon,
+html[class*="theme-"] .nowPlayingBar .ratingbutton-icon-withrating,
+html[class*="theme-"] .nowPlayingBar .ratingbutton-icon-withrating .md-icon {
+    color: var(--favorite-heart) !important;
+    -webkit-text-fill-color: var(--favorite-heart) !important;
+    filter: drop-shadow(0 0 5px var(--favorite-heart-alpha-50)) !important;
+    opacity: 1 !important;
+}
+
+/* 2. Hover State: Brighter Red and Scale pop */
+html[class*="theme-"] .videoOsdBottom button[data-isfavorite="true"]:hover,
+html[class*="theme-"] .videoOsdBottom button[data-isfavorite="true"]:hover .md-icon,
+html[class*="theme-"] .videoOsdBottom .ratingbutton-icon-withrating:hover,
+html[class*="theme-"] .videoOsdBottom .ratingbutton-icon-withrating:hover .md-icon,
+html[class*="theme-"] .nowPlayingBar button[data-isfavorite="true"]:hover,
+html[class*="theme-"] .nowPlayingBar button[data-isfavorite="true"]:hover .md-icon,
+html[class*="theme-"] .nowPlayingBar .ratingbutton-icon-withrating:hover,
+html[class*="theme-"] .nowPlayingBar .ratingbutton-icon-withrating:hover .md-icon {
+    color: var(--favorite-heart-hover) !important;
+    -webkit-text-fill-color: var(--favorite-heart-hover) !important;
+    filter: drop-shadow(0 0 10px var(--favorite-heart-hover-alpha-80)) !important;
+    transform: scale(1.2) !important;
+}
+
 /* OSD Video Scrubber Previews: Adds the gold border and glow to the chapter thumbnails */
 html[class*="theme-"] body .sliderBubble,
 html[class*="theme-"] body .chapterThumbContainer {
@@ -3653,7 +3693,9 @@ html[class*="theme-"] body .chapterThumbContainer {
   background-color: var(--navy-light-alpha-80) !important;
 }
 
+
 /* --- 8D. "Up Next" & Skip Intro Overlays --- */
+
 .btnSkipIntro,
 .upNextDialog .btnStartNow,
 .btnStartNow {
@@ -3685,7 +3727,9 @@ html[class*="theme-"] body .chapterThumbContainer {
   transform:               translateZ(0);
 }
 
+
 /* --- 8E. Global Bottom "Now Playing" Bar --- */
+
 html[class*="theme-"] .nowPlayingBar {
   background:              var(--navy-base-alpha-95) !important;
   backdrop-filter:         var(--blur-heavy) !important;
@@ -3713,6 +3757,7 @@ html[class*="theme-"] .nowPlayingBarSecondaryText {
   font-family:             var(--font-body) !important;
   color:                   var(--white-alpha-70) !important;
 }
+
 
 /* --- 8F. OSD Tabs (Info, Chapters, Cast & Crew) --- */
 
