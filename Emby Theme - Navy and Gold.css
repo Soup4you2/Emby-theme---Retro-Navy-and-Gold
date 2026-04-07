@@ -3186,7 +3186,8 @@ html[class*="theme-"] body .mainCreditsSection .emby-tabs {
 
 /* 3. Inactive Tabs */
 html[class*="theme-"] body .mainCreditsSection .emby-tab-button {
-    background: transparent !important;
+    background: var(--nav-pill-bar-bg) !important;
+    background-color: var(--nav-pill-bar-bg) !important;
     border: 2px solid var(--white-alpha-10) !important; 
     border-radius: var(--border-radius-pill) !important;
     color: var(--white-alpha-60) !important;
