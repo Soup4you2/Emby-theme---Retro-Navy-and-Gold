@@ -1718,10 +1718,15 @@ html[class*="theme-"] .emby-input.searchInput {
 
 /* --- 4C. CHECKBOXES & TOGGLES --- */
 
-/* 1. Checkboxes: Overrides default colors with theme gold */
+/* 1. Checkboxes: Overrides default colors with theme gold and a black tick */
 html[class*="theme-"] .emby-checkbox:checked + span::before {
   background-color:        var(--theme-primary-color) !important;
   border-color:            var(--theme-primary-color) !important;
+}
+
+/* FORCES THE CHECKMARK TICK TO BE BLACK */
+html[class*="theme-"] .emby-checkbox:checked + span::after {
+  border-color:            var(--pure-black) !important;
 }
 
 html[class*="theme-"] .emby-checkbox:focus + span::before {
