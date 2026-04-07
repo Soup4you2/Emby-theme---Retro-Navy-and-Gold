@@ -1828,15 +1828,19 @@ html[class*="theme-"] body .listItemOverlayButton-hover:hover .md-icon {
     filter: drop-shadow(0 0 10px var(--my-gold)) !important;
 }
 
-/* 6. DIALOG & ACTION MENU HOVER BOXES (Strips native inner gray boxes from popup menus) */
+/* 6. DIALOG & ACTION MENU HOVER BOXES (Strips native gray boxes and rogue icon backgrounds) */
 
-/* 6a. Strip inner backgrounds from action menu items */
+/* 6a. Strip inner backgrounds from action menu items and rogue icon wrappers */
 html[class*="theme-"] body .actionSheetMenuItem .listItem-content,
 html[class*="theme-"] body .paperListbox .listItem .listItem-content,
 html[class*="theme-"] body .actionSheetMenuItem:hover .listItem-content,
-html[class*="theme-"] body .paperListbox .listItem:hover .listItem-content {
+html[class*="theme-"] body .paperListbox .listItem:hover .listItem-content,
+html[class*="theme-"] body .actionSheetMenuItem .defaultCardBackground,
+html[class*="theme-"] body .paperListbox .listItem .defaultCardBackground {
     background: transparent !important;
     background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
 }
 
 /* 6b. Destroy phantom hover pseudo-elements inside popups */
