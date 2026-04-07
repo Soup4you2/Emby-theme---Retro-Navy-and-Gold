@@ -1686,11 +1686,14 @@ html[class*="theme-"] .trackSelectionField .emby-select {
   height:                  auto !important;
   min-height:              35px !important;
   line-height:             normal !important;
+  color-scheme:            dark !important; /* Forces the OS to use dark-mode scrollbars & hover states */
 }
 
+/* FIX: Browsers reject transparency on <option> tags. We MUST use a solid color variable. */
 html[class*="theme-"] option,
 html[class*="theme-"] optgroup {
-  background-color:        var(--navy-light-alpha-80) !important;
+  background-color:        var(--navy-mid-solid) !important;
+  background:              var(--navy-mid-solid) !important;
   color:                   var(--pure-white) !important;
 }
 
