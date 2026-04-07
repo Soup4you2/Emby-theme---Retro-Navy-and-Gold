@@ -4344,14 +4344,12 @@ html[class*="theme-"] body .activeSession-bottomsection .md-icon {
     -webkit-text-fill-color: var(--pure-white) !important;
 }
 
-/* 6. Disable Hover Glow ONLY on the Admin Dashboard Now Playing Cards */
-html[class*="theme-"] body .view-dashboard .sideFooterCard:hover .visualCardBox,
-html[class*="theme-"] body .view-dashboard .sideFooterCard.show-focus .visualCardBox {
-    border-color: transparent !important;
-    box-shadow: 0px 5px 15px var(--black-alpha-50) !important;
+/* 6. Dashboard Now Playing Hover Fix: Removes yellow inner tint but keeps the glowing gold border */
+html[class*="theme-"] body .activeSession.card:hover .visualCardBox,
+html[class*="theme-"] body .activeSession.card.show-focus .visualCardBox {
     background-color: var(--navy-light-alpha-80) !important;
     background: var(--navy-light-alpha-80) !important;
-    transform: none !important;
+    box-shadow: var(--shadow-glow-standard) !important; /* Strips out the inset yellow shadow */
 }
 
 /* 7. Transcoding Progress Bar: Forces the secondary progress bar to Red */
