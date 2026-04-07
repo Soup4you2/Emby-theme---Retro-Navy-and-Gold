@@ -1387,7 +1387,30 @@ html[class*="theme-"] body .mainDrawer .navDrawerListItem .listItem-content {
     transition: all var(--transition-speed) ease !important;
 }
 
+/* 1b. DESTROY PHANTOM HOVER BOXES: Kills Emby's native grey ghost highlights */
+html[class*="theme-"] body .mainDrawer .navMenuOption::before,
+html[class*="theme-"] body .mainDrawer .navMenuOption::after,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem::before,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem::after,
+html[class*="theme-"] body .mainDrawer .navMenuOption .listItem-content::before,
+html[class*="theme-"] body .mainDrawer .navMenuOption .listItem-content::after,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem .listItem-content::before,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem .listItem-content::after {
+    display: none !important;
+    content: none !important;
+    background: transparent !important;
+}
+
 /* 2. HOVER STATE (UNSELECTED): Highlight background and Gold Text/Icons */
+
+/* Force outer wrapper to stay transparent so native grey doesn't bleed */
+html[class*="theme-"] body .mainDrawer .navMenuOption:hover,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem:hover {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Apply our custom pill highlight to the inner layer */
 html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .listItem-content,
 html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .listItem-content {
     background: var(--white-alpha-10) !important; 
