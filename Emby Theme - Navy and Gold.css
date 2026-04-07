@@ -4467,7 +4467,55 @@ html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardOver
     transform: translateY(-8px) scale(1.04) !important;
 }
 
-/* --- 10K. USER TABLE --- */
+/* --- 10K. DRAG & DROP REORDERING (LIGHT THEME FIX) --- */
+
+/* 1. THE REAL CULPRIT: Nuke Emby's native pseudo-elements inside the clone */
+html[class*="theme-"] body .dragClone::before,
+html[class*="theme-"] body .dragClone::after,
+html[class*="theme-"] body .dragClone *::before,
+html[class*="theme-"] body .dragClone *::after {
+    display: none !important;
+    content: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* 2. Strip the hardcoded inline white styles from the clone AND all its inner HTML wrappers */
+html[class*="theme-"] body .dragClone,
+html[class*="theme-"] body .dragClone * {
+    background-color: transparent !important;
+    background-image: none !important;
+    background: transparent !important;
+}
+
+/* 3. REBUILD THE SHELL: Apply the dark navy background and gold border ONLY to the outer container */
+/* (Using 'div.dragClone' increases specificity to beat Emby's inline Javascript styles) */
+html[class*="theme-"] body div.dragClone {
+    background-color: var(--navy-mid-solid) !important;
+    background: var(--navy-mid-solid) !important;
+    border: 2px solid var(--theme-primary-color) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 185, 0, 0.4) !important;
+    border-radius: var(--border-radius-md) !important;
+    z-index: 99999 !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* 4. FORCE TEXT VISIBILITY: Ensures all text inside the dragged item stays pure white */
+html[class*="theme-"] body .dragClone *,
+html[class*="theme-"] body .dragClone.dragging * {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    text-shadow: none !important;
+}
+
+/* 5. OVERRIDE LIGHT THEME ICONS: Stops the native blue theme from tinting your icons */
+html[class*="theme-"] body .dragClone .md-icon,
+html[class*="theme-"] body .dragClone .mediaInfoItem {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* --- 10L. USER TABLE --- */
 
 /* 1. Forces main list text to pure white across all base themes */
 html[class*="theme-"] body .view .listItem .listItemBodyText,
@@ -4491,7 +4539,7 @@ html[class*="theme-"] body .view .defaultCardBackground {
   border: var(--standard-border-thickness) solid var(--gold-alpha-15) !important;
 }
 
-/* --- 10L. DASHBOARD FOOTER & HYPERLINKS --- */
+/* --- 10M. DASHBOARD FOOTER & HYPERLINKS --- */
 
 /* 1. Base State: Forces standard text links in the settings areas to Gold */
 html[class*="theme-"] body .dashboardFooter a.button-link,
@@ -4514,7 +4562,7 @@ html[class*="theme-"] body .view[class*="view-dashboard"] a.button-link:hover * 
     text-shadow: 0 0 8px var(--gold-alpha-40) !important;
 }
 
-/* --- 10M. MUSIC, ARTIST, & ALBUM TRACKLISTS (DOUBLE BOX FIX) --- */
+/* --- 10N. MUSIC, ARTIST, & ALBUM TRACKLISTS (DOUBLE BOX FIX) --- */
 
 /* 1. Strip the native Emby background layer inside the track lists */
 html[class*="theme-"] body .artistSongsSection .listItem-content,
