@@ -1210,6 +1210,28 @@ html[class*="theme-"] body .skinHeader .headerSettingsButton:hover {
   transform: scale(1.1) !important;
 }
 
+/* 4. PREMIERE BUTTON REMOVAL (Consolidated) */
+/* Targets by Class, URL, Title, ARIA label, and icon-based detection */
+html[class*="theme-"] body .skinHeader .headerPremiereButton,
+html[class*="theme-"] body .skinHeader .btnHeaderPremiere,
+html[class*="theme-"] body .skinHeader .headerButtonGetPremiere,
+html[class*="theme-"] body .skinHeader .headerButton-premiere,
+html[class*="theme-"] body .skinHeader .btnPremiere,
+html[class*="theme-"] body .skinHeader [href*="premiere" i],
+html[class*="theme-"] body .skinHeader [title*="premiere" i],
+html[class*="theme-"] body .skinHeader [aria-label*="premiere" i],
+html[class*="theme-"] body .skinHeader .headerButton:has(.fa-star),
+html[class*="theme-"] body .skinHeader .headerButton:has(.md-icon-star) {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+}
+
 /* --- 3B. SIDEBAR DRAWER (Slide-out Menu) --- */
 
 /* 1. Drawer Base Styling */
@@ -4680,31 +4702,6 @@ html[class*="theme-"] body div.popupStylePicker.dialog.popup {
 
 html[class*="theme-"] body div.popupStylePicker.dialog.popup > div {
     overflow: visible !important;
-}
-
-/* ============================================================
-   HOTFIX: FINAL REMOVAL OF PREMIERE BUTTON (CONSOLIDATED)
-   ============================================================ */
-
-/* Targets by Class, URL, Title, ARIA label, and user-suggested classes */
-html[class*="theme-"] body .skinHeader .headerPremiereButton,
-html[class*="theme-"] body .skinHeader .btnHeaderPremiere,
-html[class*="theme-"] body .skinHeader .headerButtonGetPremiere,
-html[class*="theme-"] body .skinHeader .headerButton-premiere,
-html[class*="theme-"] body .skinHeader .btnPremiere,
-html[class*="theme-"] body .skinHeader [href*="premiere" i],
-html[class*="theme-"] body .skinHeader [title*="premiere" i],
-html[class*="theme-"] body .skinHeader [aria-label*="premiere" i],
-html[class*="theme-"] body .skinHeader .headerButton:has(.fa-star),
-html[class*="theme-"] body .skinHeader .headerButton:has(.md-icon-star) {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    visibility: hidden !important;
 }
 
 /* ============================================================
