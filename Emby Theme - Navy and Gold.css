@@ -21,8 +21,9 @@ html,
 .selection-accent-color {
 
   /* --- GLOBAL TYPOGRAPHY --- */
-  --font-header: 'Oswald', sans-serif;                            /* Primary cinematic header font */
-  --font-body: 'Sofia Sans', sans-serif;                          /* Standard readable body font */
+  --base-font-size: 90%;                                           /* Adjust global UI text size (Default: 90%. Try 110% or 115% for larger text) */
+  --font-header: 'Oswald', sans-serif;                             /* Primary cinematic header font */
+  --font-body: 'Sofia Sans', sans-serif;                           /* Standard readable body font */
 
   /* --- CUSTOM MASTER PALETTE --- */
 
@@ -732,6 +733,7 @@ html,
 /* 1. Theme Variables Enforcer: Overwrites Emby's internal logic to use our custom palette */
 html[class*="theme-"] {
   color-scheme: dark !important; /* Forces browser native elements to dark mode */
+  font-size: var(--base-font-size) !important; /* Hooks into global text size variable */
   --theme-background:             var(--retro-navy) !important;
   --background-color:             var(--retro-navy) !important;
   --theme-text-color:             var(--text-muted) !important;
@@ -4672,6 +4674,31 @@ html[class*="theme-"] body div.popupStylePicker.dialog.popup {
 
 html[class*="theme-"] body div.popupStylePicker.dialog.popup > div {
     overflow: visible !important;
+}
+
+/* ============================================================
+   HOTFIX: FINAL REMOVAL OF PREMIERE BUTTON (CONSOLIDATED)
+   ============================================================ */
+
+/* Targets by Class, URL, Title, ARIA label, and user-suggested classes */
+html[class*="theme-"] body .skinHeader .headerPremiereButton,
+html[class*="theme-"] body .skinHeader .btnHeaderPremiere,
+html[class*="theme-"] body .skinHeader .headerButtonGetPremiere,
+html[class*="theme-"] body .skinHeader .headerButton-premiere,
+html[class*="theme-"] body .skinHeader .btnPremiere,
+html[class*="theme-"] body .skinHeader [href*="premiere" i],
+html[class*="theme-"] body .skinHeader [title*="premiere" i],
+html[class*="theme-"] body .skinHeader [aria-label*="premiere" i],
+html[class*="theme-"] body .skinHeader .headerButton:has(.fa-star),
+html[class*="theme-"] body .skinHeader .headerButton:has(.md-icon-star) {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
 }
 
 /* ============================================================
