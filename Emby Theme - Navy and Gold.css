@@ -27,28 +27,28 @@ html,
   /* --- CUSTOM MASTER PALETTE --- */
 
   /* OPTION 1 - USE THE THEMES GOLD COLOR */
-  --my-gold: rgb(var(--my-gold-rgb));                             /* Solid gold fallback for borders and text accents */
-  --my-gold-light: rgb(var(--my-gold-light-rgb));                 /* Brighter gold fallback for highlight gradients */
-  --retro-navy: rgb(var(--navy-base-rgb));                        /* Darkest navy fallback for main backgrounds */
-  --retro-navy-light: rgb(var(--navy-mid-rgb));                   /* Mid-tone navy fallback for panels and cards */  
-  --star-color: var(--retro-navy-light);                          /* Media info badge rating star color */
-  --star-glow: drop-shadow(0 0 5px rgba(7, 5, 0, 0));           /* Media info badge rating star glow */
+  --my-gold: rgba(var(--my-gold-rgb), 1);               /* Solid gold fallback for borders and text accents */
+  --my-gold-light: rgba(var(--my-gold-light-rgb), 1);   /* Brighter gold fallback for highlight gradients */
+  --retro-navy: rgba(var(--navy-base-rgb), 1);          /* Darkest navy fallback for main backgrounds */
+  --retro-navy-light: rgba(var(--navy-mid-rgb), 1);     /* Mid-tone navy fallback for panels and cards */  
+  --star-color: var(--retro-navy-light);                /* Media info badge rating star color */
+  --star-glow: drop-shadow(0 0 5px rgba(7, 5, 0, 0));   /* Media info badge rating star glow */
 
   /* OPTION 2 - USE THE USERS ACCENT COLOR PREFERENCES */
   /* NOTE: KEEP IN MIND EVERY USER HAS THEIR OWN ACCENT COLOR OPTION */
   /* --my-gold: hsl(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%));   /* Theme primary color set by User Accent Color */
-  /* --my-gold-light: color-mix(in srgb, var(--my-gold) 70%, white);    /* Solid gold fallback for borders and text accents */
-  /* --retro-navy: rgb(var(--navy-base-rgb));                     /* Brighter gold fallback for highlight gradients */
-  /* --retro-navy-light: rgb(var(--navy-mid-rgb));                /* Mid-tone navy fallback for panels and cards */  
-  /* --star-color: rgb(255, 185, 0);                              /* Media info badge rating star color */
-  /* --star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));    /* Media info badge rating star glow */
+  /* --my-gold-light: color-mix(in srgb, var(--my-gold) 70%, white);  /* Solid gold fallback for borders and text accents */
+  /* --retro-navy: rgba(var(--navy-base-rgb), 1);                     /* Darkest navy fallback */
+  /* --retro-navy-light: rgba(var(--navy-mid-rgb), 1);                /* Mid-tone navy fallback */  
+  /* --star-color: rgba(255, 185, 0, 1);                              /* Direct RGBA for stability */
+  /* --star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));        /* Media info badge rating star glow */
 
 
   /* --- CORE SOLID COLORS --- */
-  --pure-white: rgb(var(--pure-white-rgb));                       /* Solid white for high-contrast icons */
-  --pure-black: rgb(var(--pure-black-rgb));                       /* Solid black for deep shadow foundations */
-  --text-muted: rgb(236, 236, 236);                             /* Soft white used globally for primary paragraph/body text */
-  --scrollbar-thumb: rgb(51, 51, 51);                           /* Color of the draggable handle on the browser scrollbar */
+  --pure-white: rgba(var(--pure-white-rgb), 1);         /* Solid white for high-contrast icons */
+  --pure-black: rgba(var(--pure-black-rgb), 1);         /* Solid black for deep shadow foundations */
+  --text-muted: rgb(236, 236, 236);                     /* Soft white used globally for primary paragraph/body text */
+  --scrollbar-thumb: rgb(51, 51, 51);                   /* Color of the draggable handle on the browser scrollbar */
 
   /* --- CORE RGB VALUES (The Source of Truth for Transparencies) --- */
   --pure-black-rgb: 0, 0, 0;                                      /* Controls the absolute darkest shadows and UI overlays */
@@ -97,7 +97,7 @@ html,
   --gold-alpha-20: color-mix(in srgb, var(--my-gold) 20%, transparent);  /* Menu focus/selection background */
   --gold-alpha-30: color-mix(in srgb, var(--my-gold) 30%, transparent);  /* Stronger outline and border golds */
   --gold-alpha-40: color-mix(in srgb, var(--my-gold) 40%, transparent);  /* Standard glow alpha for text and box shadows */
-  --navy-base-solid: rgb(var(--navy-base-rgb));                    /* Solid dark navy fallback */
+  --navy-base-solid: rgba(var(--navy-base-rgb), 1);                /* Solid dark navy fallback */
   --navy-base-alpha-25: rgba(var(--navy-base-rgb), 0.25);          /* Faint navy tint over art */
   --navy-base-alpha-60: rgba(var(--navy-base-rgb), 0.6);           /* Navy tint for dropdown menus */
   --navy-base-alpha-75: rgba(var(--navy-base-rgb), 0.75);          /* Background dimming over fanart */
@@ -106,13 +106,13 @@ html,
   --navy-light-alpha-60: rgba(var(--navy-light-rgb), 0.6);         /* Transparent backgrounds for standard buttons */
   --navy-light-alpha-70: rgba(var(--navy-light-rgb), 0.7);         /* Backgrounds for Media Info panels */
   --navy-light-alpha-80: rgba(var(--navy-light-rgb), 0.8);         /* Semi-solid backgrounds for dialog popups */
-  --navy-mid-solid: rgb(var(--navy-mid-rgb));                      /* Solid mid-tone navy */
+  --navy-mid-solid: rgba(var(--navy-mid-rgb), 1);                  /* Solid mid-tone navy */
   --navy-mid-alpha-45: rgba(var(--navy-mid-rgb), 0.45);            /* Background fill for media badges (4K, HDR) */
   --navy-mid-alpha-70: rgba(var(--navy-mid-rgb), 0.7);             /* Player control gradient dimming */
   --navy-mid-alpha-90: rgba(var(--navy-mid-rgb), 0.9);             /* Deep dimming for full-screen dialogs */
 
    /* --- NAVIGATION PILL BARS --- */
-  --nav-pill-bg-inactive: rgb(var(--navy-accent-rgb));             /* Background color of unselected Home/TV/Movie buttons */
+  --nav-pill-bg-inactive: rgba(var(--navy-accent-rgb), 1);         /* Background color of unselected Home/TV/Movie buttons */
   --nav-pill-hover: var(--white-alpha-10);                         /* Background tint when hovering over an unselected pill */
   --nav-pill-hover-text: var(--my-gold-light);                     /* Text color when hovering over an unselected pill */
   --nav-pill-hover-border-color: transparent;                      /* Border color when hovering over an unselected pill */
@@ -122,7 +122,7 @@ html,
   --nav-pill-active-border-color: var(--retro-navy);               /* Outer border color of the active pill */
   --nav-pill-active-border: 2px solid var(--nav-pill-active-border-color); /* Border thickness and style for active pills */
   --nav-pill-active-glow: 0 4px 8px var(--black-alpha-80), 0 0 5px var(--gold-alpha-40); /* The shadow and outer glow around the active pill */
-  --nav-pill-bar-bg: rgb(var(--navy-accent-rgb));                  /* Background of the track containing all the pills */
+  --nav-pill-bar-bg: rgba(var(--navy-accent-rgb), 1);              /* Background of the track containing all the pills */
   --nav-pill-bar-border: 0px solid var(--gold-alpha-80);           /* Border of the track containing all the pills */
   --nav-pill-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light); /* Secondary shadow setting for active pills */
 
@@ -136,7 +136,7 @@ html,
 
   /* --- DANGER / CANCEL BUTTONS --- */
   --danger-red-rgb: 204, 0, 0;                                     /* Base RGB for destructive actions */
-  --danger-red: rgb(var(--danger-red-rgb));                        /* Solid red for delete/cancel buttons */
+  --danger-red: rgba(var(--danger-red-rgb), 1);                    /* Solid red for delete/cancel buttons */
   --danger-red-light: rgb(255, 51, 51);                          /* Brighter red for hovering over delete/cancel buttons */
   --danger-red-glow: 0 0 20px rgba(var(--danger-red-rgb), 0.6), 0 0 10px rgba(255, 51, 51, 0.4); /* Glow effect on hover */
 
@@ -157,8 +157,8 @@ html,
   /* --- FAVORITE HEART COLORS --- */
   --favorite-heart-rgb: 255, 51, 102;                              /* Base red for the favorite heart */
   --favorite-heart-hover-rgb: 255, 0, 68;                          /* Brighter red for hovered favorite heart */
-  --favorite-heart: rgb(var(--favorite-heart-rgb));
-  --favorite-heart-hover: rgb(var(--favorite-heart-hover-rgb));
+  --favorite-heart: rgba(var(--favorite-heart-rgb), 1);
+  --favorite-heart-hover: rgba(var(--favorite-heart-hover-rgb), 1);
   --favorite-heart-alpha-50: rgba(var(--favorite-heart-rgb), 0.5);
   --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8);
 
@@ -341,16 +341,16 @@ html,
   --navy-mid-rgb: 35, 0, 17;
   --navy-light-rgb: 45, 0, 22;
   --theme-primary-color: #e60049;   
-  --my-gold: rgb(var(--my-gold-rgb)); 
+  --my-gold: rgba(var(--my-gold-rgb), 1); 
   --my-gold-light: #ffe4e1;
-  --theme-accent-color: rgb(var(--theme-accent-rgb));
+  --theme-accent-color: rgba(var(--theme-accent-rgb), 1);
   --retro-glow: rgba(var(--theme-primary-rgb), 0.6); 
   --theme-accent-text-color: var(--my-gold);
   --theme-checked-color: var(--theme-primary-color);
   --theme-icon-focus-background: rgba(var(--theme-primary-rgb), 0.2);
   --theme-selection-background: rgba(var(--theme-primary-rgb), 0.2);
-  --retro-navy: rgb(var(--navy-base-rgb));             
-  --retro-navy-light: rgb(var(--navy-light-rgb));        
+  --retro-navy: rgba(var(--navy-base-rgb), 1);             
+  --retro-navy-light: rgba(var(--navy-light-rgb), 1);        
   --scrollbar-thumb: #ec78b6;
   --nav-pill-bg-inactive: transparent;
   --nav-pill-hover: rgba(255, 0, 85, 0.15);
@@ -396,16 +396,16 @@ html,
   --stpat-rb-indigo: #4b0082;
   --stpat-rb-violet: #9400d3;
   --theme-primary-color: #00ff85;   
-  --my-gold: rgb(var(--my-gold-rgb)); 
+  --my-gold: rgba(var(--my-gold-rgb), 1); 
   --my-gold-light: #fff7a1;
-  --theme-accent-color: rgb(var(--theme-accent-rgb));
+  --theme-accent-color: rgba(var(--theme-accent-rgb), 1);
   --retro-glow: rgba(var(--theme-primary-rgb), 0.5); 
   --theme-accent-text-color: var(--theme-primary-color);
   --theme-checked-color: var(--theme-primary-color);
   --theme-icon-focus-background: rgba(var(--theme-primary-rgb), 0.2);
   --theme-selection-background: rgba(var(--theme-primary-rgb), 0.2);
-  --retro-navy: rgb(var(--navy-base-rgb));             
-  --retro-navy-light: rgb(var(--navy-light-rgb));        
+  --retro-navy: rgba(var(--navy-base-rgb), 1);             
+  --retro-navy-light: rgba(var(--navy-light-rgb), 1);        
   --scrollbar-thumb: var(--theme-accent-color);
   --nav-pill-bg-inactive: rgba(var(--navy-base-rgb), 0.8);
   --nav-pill-hover: rgba(var(--theme-primary-rgb), 0.15);
@@ -441,7 +441,7 @@ html,
   --easter-yellow-light: #fffacd;
   --easter-brown: #5c3a21;
   --easter-pink-rgb: 255, 182, 193;
-  --easter-pink: rgb(var(--easter-pink-rgb));
+  --easter-pink: rgba(var(--easter-pink-rgb), 1);
   --easter-pink-dark: #ff6b6b;
   --easter-blue: #87ceeb;
   --easter-blue-light: #add8e6;
@@ -452,7 +452,7 @@ html,
   --easter-osd-glow: rgba(152, 251, 152, 0.25);
   --easter-osd-bg: rgba(var(--navy-base-rgb), 0.9);
   --theme-primary-color: #ffb7b2; 
-  --my-gold: rgb(var(--my-gold-rgb)); 
+  --my-gold: rgba(var(--my-gold-rgb), 1); 
   --my-gold-light: #ffdac1;
   --theme-accent-color: #a7bed3;
   --retro-glow: rgba(var(--my-gold-rgb), 0.4); 
@@ -460,8 +460,8 @@ html,
   --theme-checked-color: var(--theme-primary-color);
   --theme-icon-focus-background: rgba(var(--my-gold-rgb), 0.2);
   --theme-selection-background: rgba(var(--my-gold-rgb), 0.2);
-  --retro-navy: rgb(var(--navy-base-rgb));             
-  --retro-navy-light: rgb(var(--navy-light-rgb));        
+  --retro-navy: rgba(var(--navy-base-rgb), 1);             
+  --retro-navy-light: rgba(var(--navy-light-rgb), 1);        
   --scrollbar-thumb: var(--theme-primary-color);
   --nav-pill-bg-inactive: transparent;
   --nav-pill-hover: rgba(135, 206, 235, 0.15);
@@ -496,21 +496,21 @@ html,
   --july4-badge-bg-1: #000814;
   --july4-badge-bg-2: #001d3d;
   --theme-primary-color: #e0162b; 
-  --my-gold: rgb(var(--my-gold-rgb)); 
-  --my-gold-light: rgb(var(--my-gold-light-rgb));
-  --theme-accent-color: rgb(var(--theme-accent-rgb));
+  --my-gold: rgba(var(--my-gold-rgb), 1); 
+  --my-gold-light: rgba(var(--my-gold-light-rgb), 1);
+  --theme-accent-color: rgba(var(--theme-accent-rgb), 1);
   --retro-glow: rgba(var(--my-gold-rgb), 0.6);
   --theme-accent-text-color: var(--pure-white);
   --theme-checked-color: var(--theme-primary-color);
   --theme-icon-focus-background: rgba(var(--theme-accent-rgb), 0.3);
   --theme-selection-background: rgba(var(--theme-accent-rgb), 0.3);
-  --retro-navy: rgb(var(--navy-base-rgb));
+  --retro-navy: rgba(var(--navy-base-rgb), 1);
   --scrollbar-thumb: var(--theme-primary-color);
   --nav-pill-bg-inactive: rgba(var(--navy-base-rgb), 0.8);
   --nav-pill-hover: rgba(var(--my-gold-rgb), 0.2);
   --nav-pill-hover-text: var(--my-gold);
   --nav-pill-hover-border-color: rgba(var(--my-gold-rgb), 0.5);
-  --nav-pill-active: linear-gradient(135deg, rgb(var(--theme-accent-rgb)) 0%, var(--theme-primary-color) 100%);
+  --nav-pill-active: linear-gradient(135deg, rgba(var(--theme-accent-rgb), 1) 0%, var(--theme-primary-color) 100%);
   --nav-pill-text: rgba(var(--pure-white-rgb), 0.9);
   --nav-pill-active-text: var(--pure-white);
   --nav-pill-active-border-color: var(--pure-white);
@@ -541,16 +541,16 @@ html,
   --hw-gray-1: #444444;
   --hw-badge-hover-purple: #a020f0;
   --theme-primary-color: #ff6600;   
-  --my-gold: rgb(var(--my-gold-rgb)); 
-  --my-gold-light: rgb(var(--my-gold-light-rgb));
-  --theme-accent-color: rgb(var(--theme-accent-rgb));
+  --my-gold: rgba(var(--my-gold-rgb), 1); 
+  --my-gold-light: rgba(var(--my-gold-light-rgb), 1);
+  --theme-accent-color: rgba(var(--theme-accent-rgb), 1);
   --retro-glow: rgba(var(--theme-accent-rgb), 0.6); 
   --theme-accent-text-color: var(--my-gold);
   --theme-checked-color: var(--theme-primary-color);
   --theme-icon-focus-background: rgba(var(--my-gold-rgb), 0.2);
   --theme-selection-background: rgba(var(--my-gold-rgb), 0.2);
-  --retro-navy: rgb(var(--navy-base-rgb));             
-  --retro-navy-light: rgb(var(--navy-light-rgb));        
+  --retro-navy: rgba(var(--navy-base-rgb), 1);             
+  --retro-navy-light: rgba(var(--navy-light-rgb), 1);        
   --scrollbar-thumb: var(--theme-primary-color);
   --nav-pill-bg-inactive: transparent;
   --nav-pill-hover: rgba(67, 64, 69, 0.69);
@@ -588,16 +588,16 @@ html,
   --tg-bg-dark-1: #2c1612;
   --tg-bg-dark-2: #1a0b09;
   --theme-primary-color: #d95c14;   
-  --my-gold: rgb(var(--my-gold-rgb)); 
-  --my-gold-light: rgb(var(--my-gold-light-rgb));
-  --theme-accent-color: rgb(var(--theme-accent-rgb));
+  --my-gold: rgba(var(--my-gold-rgb), 1); 
+  --my-gold-light: rgba(var(--my-gold-light-rgb), 1);
+  --theme-accent-color: rgba(var(--theme-accent-rgb), 1);
   --retro-glow: rgba(var(--theme-primary-rgb), 0.5); 
   --theme-accent-text-color: var(--my-gold);
   --theme-checked-color: var(--theme-primary-color);
   --theme-icon-focus-background: rgba(var(--theme-primary-rgb), 0.2);
   --theme-selection-background: rgba(var(--theme-primary-rgb), 0.2);
-  --retro-navy: rgb(var(--navy-base-rgb));             
-  --retro-navy-light: rgb(var(--navy-light-rgb));        
+  --retro-navy: rgba(var(--navy-base-rgb), 1);             
+  --retro-navy-light: rgba(var(--navy-light-rgb), 1);        
   --scrollbar-thumb: var(--theme-primary-color);
   --nav-pill-bg-inactive: rgba(var(--navy-base-rgb), 0.8);
   --nav-pill-hover: rgba(var(--my-gold-rgb), 0.15);
@@ -638,16 +638,16 @@ html,
   --aurora-blue-rgb: 0, 200, 255;
   --aurora-deep-green-rgb: 0, 255, 100;
   --theme-primary-color: #c41e3a;   
-  --my-gold: rgb(var(--my-gold-rgb)); 
-  --my-gold-light: rgb(var(--my-gold-light-rgb));
-  --theme-accent-color: rgb(var(--theme-accent-rgb));
+  --my-gold: rgba(var(--my-gold-rgb), 1); 
+  --my-gold-light: rgba(var(--my-gold-light-rgb), 1);
+  --theme-accent-color: rgba(var(--theme-accent-rgb), 1);
   --retro-glow: rgba(var(--my-gold-rgb), 0.6); 
   --theme-accent-text-color: var(--my-gold);
   --theme-checked-color: var(--theme-accent-color);
   --theme-icon-focus-background: rgba(var(--theme-primary-rgb), 0.2);
   --theme-selection-background: rgba(var(--theme-primary-rgb), 0.2);
-  --retro-navy: rgb(var(--navy-base-rgb));             
-  --retro-navy-light: rgb(var(--navy-light-rgb));        
+  --retro-navy: rgba(var(--navy-base-rgb), 1);             
+  --retro-navy-light: rgba(var(--navy-light-rgb), 1);        
   --scrollbar-thumb: var(--theme-primary-color);
   --nav-pill-bg-inactive: rgba(var(--navy-base-rgb), 0.8);
   --nav-pill-hover: rgba(var(--theme-accent-rgb), 0.3);
@@ -684,16 +684,16 @@ html,
   --nye-black-light: #111111;
   --nye-gold-dark: #8a6a1c;
   --theme-primary-color: #d4af37;   
-  --my-gold: rgb(var(--my-gold-rgb)); 
-  --my-gold-light: rgb(var(--my-gold-light-rgb));
-  --theme-accent-color: rgb(var(--theme-accent-rgb));
+  --my-gold: rgba(var(--my-gold-rgb), 1);
+  --my-gold-light: rgba(var(--my-gold-light-rgb), 1);
+  --theme-accent-color: rgba(var(--theme-accent-rgb), 1);
   --retro-glow: rgba(var(--theme-primary-rgb), 0.6); 
-  --theme-accent-text-color: var(--my-gold);
+  --theme-accent-color: rgba(var(--theme-accent-rgb), 1);
   --theme-checked-color: var(--theme-primary-color);
   --theme-icon-focus-background: rgba(var(--theme-primary-rgb), 0.2);
   --theme-selection-background: rgba(var(--theme-primary-rgb), 0.2);
-  --retro-navy: rgb(var(--navy-base-rgb));             
-  --retro-navy-light: rgb(var(--navy-light-rgb));        
+  --retro-navy: rgba(var(--navy-base-rgb), 1);             
+  --retro-navy-light: rgba(var(--navy-light-rgb), 1);        
   --scrollbar-thumb: var(--theme-primary-color);
   --nav-pill-bg-inactive: rgba(var(--navy-base-rgb), 0.8);
   --nav-pill-hover: rgba(var(--my-gold-rgb), 0.1);
@@ -2313,15 +2313,6 @@ p.lnkEditUserPreferencesContainer > a.lnkEditUserPreferences:hover {
   transform: scale(1.02) !important;
 }
 
-/* 2. Hover State: Solid gold pop */
-p.lnkEditUserPreferencesContainer > a.lnkEditUserPreferences:hover {
-  background-color: var(--my-gold) !important;
-  color: var(--pure-black) !important;
-  -webkit-text-fill-color: var(--pure-black) !important;
-  box-shadow: 0 0 15px var(--my-gold) !important;
-  transform: scale(1.02) !important;
-}
-
 /* --- 4N. SEARCH FILTER PILLS --- */
 
 /* 1. Strip background from the outer container and force centering */
@@ -2638,48 +2629,59 @@ html[class*="theme-"] body .personCard:hover .cardImageContainer {
 
 /* --- 5E. HORIZONTAL & BANNER CARDS --- */
 
-/* 1. Base Styling: Applied to Music Tracks and Horizontal media cards (Excludes Actors) */
+/* 1. Base Styling for Outer Container (Music Tracks, Banner Cards, etc.) */
 html[class*="theme-"] body .card-horiz .visualCardBox,
-html[class*="theme-"] body .card-horiz .visualCardBox .cardContent,
 html[class*="theme-"] body .bannerCard .visualCardBox,
-html[class*="theme-"] body .bannerCard .visualCardBox .cardContent,
-html[class*="theme-"] body .sideFooterCard .visualCardBox,
-html[class*="theme-"] body .sideFooterCard .visualCardBox .cardContent {
+html[class*="theme-"] body .sideFooterCard .visualCardBox {
     background:              var(--navy-light-alpha-80) !important;
     background-color:        var(--navy-light-alpha-80) !important;
     background-image:        none !important;
-    border:                  var(--standard-border-thickness) solid transparent !important;
+    border:                  var(--hover-border-thickness) solid transparent !important;
     border-radius:           var(--border-radius-md) !important;
     box-shadow:              0px 5px 15px var(--black-alpha-50) !important;
     transition:              all var(--transition-speed) ease-in-out !important;
 }
 
-/* 2. Hover States: Horizontal cards pop forward with theme glows (Excludes Actors) */
+/* 2. Clean Inner Container (Strips double borders/backgrounds) */
+html[class*="theme-"] body .card-horiz .visualCardBox .cardContent,
+html[class*="theme-"] body .bannerCard .visualCardBox .cardContent,
+html[class*="theme-"] body .sideFooterCard .visualCardBox .cardContent {
+    background:              transparent !important;
+    background-color:        transparent !important;
+    border:                  none !important;
+    box-shadow:              none !important;
+}
+
+/* 3. Hover States (Applies Gold Glow to Outer Container) */
 html[class*="theme-"] body .card-horiz:hover .visualCardBox,
-html[class*="theme-"] body .card-horiz:hover .visualCardBox .cardContent,
 html[class*="theme-"] body .bannerCard:hover .visualCardBox,
-html[class*="theme-"] body .bannerCard:hover .visualCardBox .cardContent,
+html[class*="theme-"] body .sideFooterCard:hover .visualCardBox,
 html[class*="theme-"] body .card-horiz.show-focus .visualCardBox,
-html[class*="theme-"] body .card-horiz.show-focus .visualCardBox .cardContent {
+html[class*="theme-"] body .bannerCard.show-focus .visualCardBox,
+html[class*="theme-"] body .sideFooterCard.show-focus .visualCardBox {
     background:              var(--theme-icon-focus-background) !important;
     background-color:        var(--theme-icon-focus-background) !important;
-    background-image:        none !important;
     border-color:            var(--theme-primary-color) !important;
     box-shadow:              var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+    transform:               scale(1.02) !important;
 }
 
-/* 3. Text Enforcements: Ensures contrast against varied library themes */
-html[class*="theme-"] .card-horiz .cardText-first {
-  color:                     var(--pure-white) !important;
-  -webkit-text-fill-color:   var(--pure-white) !important;
+/* 4. Text Enforcements: Ensures contrast against varied library themes */
+html[class*="theme-"] .card-horiz .cardText-first,
+html[class*="theme-"] .bannerCard .cardText-first,
+html[class*="theme-"] .sideFooterCard .cardText-first {
+    color:                     var(--pure-white) !important;
+    -webkit-text-fill-color:   var(--pure-white) !important;
 }
 
-html[class*="theme-"] .card-horiz .cardText-secondary {
-  color:                     var(--white-alpha-70) !important;
-  -webkit-text-fill-color:   var(--white-alpha-70) !important;
+html[class*="theme-"] .card-horiz .cardText-secondary,
+html[class*="theme-"] .bannerCard .cardText-secondary,
+html[class*="theme-"] .sideFooterCard .cardText-secondary {
+    color:                     var(--white-alpha-70) !important;
+    -webkit-text-fill-color:   var(--white-alpha-70) !important;
 }
 
-/* 4. CAST & CREW ANTI-SHIELD: Prevents horizontal card rules from destroying actor portraits */
+/* 5. CAST & CREW ANTI-SHIELD: Prevents horizontal card rules from destroying actor portraits */
 html[class*="theme-"] body .peopleSection .card-horiz .cardContent,
 html[class*="theme-"] body .peopleSection .card-horiz:hover .cardContent,
 html[class*="theme-"] body .peopleSection .card-horiz.show-focus .cardContent,
@@ -4146,10 +4148,17 @@ html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navMenuOptionTex
 /* --- 10G. DASHBOARD NOW PLAYING ZEBRA STRIPING FIX --- */
 
 /* 1. Ensure the card base is dark so the translucent stripes look correct */
-html[class*="theme-"] body .sideFooterCard .visualCardBox,
-html[class*="theme-"] body .sideFooterCard .visualCardBox .cardContent {
+html[class*="theme-"] body .sideFooterCard .visualCardBox {
     background-color: var(--navy-light-alpha-80) !important;
     background: var(--navy-light-alpha-80) !important;
+    background-image: none !important;
+    /* Restores the invisible border so the Gold hover border can actually appear! */
+    border: var(--hover-border-thickness) solid transparent !important;
+}
+
+html[class*="theme-"] body .sideFooterCard .visualCardBox .cardContent {
+    background-color: transparent !important;
+    background: transparent !important;
     background-image: none !important;
     border: none !important;
 }
@@ -4188,11 +4197,9 @@ html[class*="theme-"] body .activeSession-bottomsection .md-icon {
     -webkit-text-fill-color: var(--pure-white) !important;
 }
 
-/* 6. Disable Hover Glow on Dashboard Now Playing Cards */
-html[class*="theme-"] body .dashboardSection .sideFooterCard:hover .visualCardBox,
-html[class*="theme-"] body .dashboardSection .sideFooterCard.show-focus .visualCardBox,
-html[class*="theme-"] body .dashboardSection .sideFooterCard:hover .visualCardBox .cardContent,
-html[class*="theme-"] body .dashboardSection .sideFooterCard.show-focus .visualCardBox .cardContent {
+/* 6. Disable Hover Glow ONLY on the Admin Dashboard Now Playing Cards */
+html[class*="theme-"] body .view-dashboard .sideFooterCard:hover .visualCardBox,
+html[class*="theme-"] body .view-dashboard .sideFooterCard.show-focus .visualCardBox {
     border-color: transparent !important;
     box-shadow: 0px 5px 15px var(--black-alpha-50) !important;
     background-color: var(--navy-light-alpha-80) !important;
@@ -4358,6 +4365,81 @@ html[class*="theme-"] body .view[class*="view-dashboard"] a.button-link:hover * 
     -webkit-text-fill-color: var(--my-gold-light) !important;
     text-decoration: underline !important;
     text-shadow: 0 0 8px var(--gold-alpha-40) !important;
+}
+
+/* --- 10M. MUSIC, ARTIST, & ALBUM TRACKLISTS (DOUBLE BOX FIX) --- */
+
+/* 1. Strip the native Emby background layer inside the track lists */
+html[class*="theme-"] body .artistSongsSection .listItem-content,
+html[class*="theme-"] body .artistSongsSection .listItem:hover .listItem-content,
+html[class*="theme-"] body .artistSongsSection .listItem.show-focus .listItem-content,
+html[class*="theme-"] body .trackList .listItem-content,
+html[class*="theme-"] body .trackList .listItem:hover .listItem-content,
+html[class*="theme-"] body .trackList .listItem.show-focus .listItem-content {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* 2. Destroy Emby's phantom hover boxes inside the tracklist */
+html[class*="theme-"] body .artistSongsSection .listItem-content::before,
+html[class*="theme-"] body .artistSongsSection .listItem-content::after,
+html[class*="theme-"] body .trackList .listItem-content::before,
+html[class*="theme-"] body .trackList .listItem-content::after {
+    display: none !important;
+    content: none !important;
+    background: transparent !important;
+}
+
+/* 3. Apply the exact Zebra Striping logic to these items */
+html[class*="theme-"] body .artistSongsSection .listItem,
+html[class*="theme-"] body .trackList .listItem {
+    background-color: transparent !important;
+    border: 2px solid transparent !important;
+    border-radius: var(--border-radius-md) !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+    margin-bottom: 2px !important; 
+    box-sizing: border-box !important; 
+}
+
+/* Odd Rows */
+html[class*="theme-"] body .artistSongsSection .listItem:nth-child(odd),
+html[class*="theme-"] body .trackList .listItem:nth-child(odd) {
+    background-color: var(--table-row-bg-odd) !important;
+}
+
+/* Even Rows */
+html[class*="theme-"] body .artistSongsSection .listItem:nth-child(even),
+html[class*="theme-"] body .trackList .listItem:nth-child(even) {
+    background-color: var(--table-row-bg-even) !important;
+}
+
+/* 4. Hover State for Tracklist Items */
+html[class*="theme-"] body .artistSongsSection .listItem:hover,
+html[class*="theme-"] body .artistSongsSection .listItem.show-focus,
+html[class*="theme-"] body .trackList .listItem:hover,
+html[class*="theme-"] body .trackList .listItem.show-focus {
+    background:       var(--table-row-hover-bg) !important;
+    background-color: var(--table-row-hover-bg) !important;
+    border-color:     var(--theme-primary-color) !important;
+    box-shadow:       var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+    z-index:          10 !important;
+}
+
+/* 5. Text Color Enforcement for Tracklists */
+html[class*="theme-"] body .artistSongsSection .listItem .secondaryText:not(button),
+html[class*="theme-"] body .trackList .listItem .secondaryText:not(button) {
+    color: var(--white-alpha-70) !important;
+    -webkit-text-fill-color: var(--white-alpha-70) !important;
+}
+
+html[class*="theme-"] body .artistSongsSection .listItem .listItemBodyText-first,
+html[class*="theme-"] body .trackList .listItem .listItemBodyText-first {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
 }
 
 /* ============================================================
@@ -4714,19 +4796,19 @@ html[class*="theme-"] body .button-submit:active {
   /* 5. Slider Hover Logic */
   .emby-slider-thumb:hover { 
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffb6c1' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") !important; 
-    filter:           drop-shadow(0 0 20px rgb(var(--theme-accent-rgb))) !important; 
+    filter:           drop-shadow(0 0 20px rgba(var(--theme-accent-rgb), 1)) !important; 
     transform:        translateY(-10px) scale(1.2) !important; 
   }
 
   input[type="range"]:hover::-webkit-slider-thumb {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffb6c1' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") !important; 
-    filter:           drop-shadow(0 0 20px rgb(var(--theme-accent-rgb))) !important; 
+    filter:           drop-shadow(0 0 20px rgba(var(--theme-accent-rgb), 1)) !important; 
     transform:        translateY(-8px) scale(1.2) !important; 
   }
 
   input[type="range"]:hover::-moz-range-thumb {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffb6c1' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") !important; 
-    filter:           drop-shadow(0 0 20px rgb(var(--theme-accent-rgb))) !important; 
+    filter:           drop-shadow(0 0 20px rgba(var(--theme-accent-rgb), 1)) !important; 
     transform:        translateY(-8px) scale(1.2) !important; 
   }
 
