@@ -2980,17 +2980,26 @@ html[class*="theme-"] body .creditsItemsContainer {
     padding-bottom: 20px !important; /* Gives a little breathing room before the next section */
 }
 
-/* 6. Resting Row State (No Background Panel) */
+/* 6. Resting Row State (Zebra Striped Floating Cards) */
 html[class*="theme-"] body .creditsItemsContainer .listItem {
-    background: transparent !important;
     border: 2px solid transparent !important;
     border-radius: var(--border-radius-md) !important;
-    margin-bottom: 2px !important;
     padding: 8px 12px !important;
+    box-shadow: 0 6px 15px var(--black-alpha-50) !important; /* Adds the resting drop shadow */
     transition: all var(--transition-speed) ease-in-out !important;
 }
 
-/* Strip native list backgrounds and phantom hover boxes */
+/* Odd Rows (Darker Navy) */
+html[class*="theme-"] body .creditsItemsContainer .listItem:nth-child(odd) {
+    background-color: var(--table-row-bg-odd) !important;
+}
+
+/* Even Rows (Lighter Navy) */
+html[class*="theme-"] body .creditsItemsContainer .listItem:nth-child(even) {
+    background-color: var(--table-row-bg-even) !important;
+}
+
+/* Strip native list backgrounds */
 html[class*="theme-"] body .creditsItemsContainer .listItem-content,
 html[class*="theme-"] body .creditsItemsContainer .listItem:hover .listItem-content,
 html[class*="theme-"] body .creditsItemsContainer .listItem.show-focus .listItem-content {
@@ -3048,6 +3057,19 @@ html[class*="theme-"] body .creditsItemsContainer .secondaryText {
 html[class*="theme-"] body .creditsItemsContainer .listItem:hover .secondaryText {
     color: var(--white-alpha-70) !important;
     -webkit-text-fill-color: var(--white-alpha-70) !important;
+}
+
+/* 10. Multi-Column Grid Layout */
+html[class*="theme-"] body .creditsItemsContainer {
+    display: grid !important;
+    /* Automatically creates as many 400px columns as will fit on the screen */
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)) !important;
+    gap: 8px 16px !important; /* 8px vertical space, 16px horizontal space between columns */
+}
+
+html[class*="theme-"] body .creditsItemsContainer .listItem {
+    margin-bottom: 0 !important; /* Let the grid gap handle the spacing now */
+    width: 100% !important; /* Force the row to fill its new column cell */
 }
 
 /* ============================================================
