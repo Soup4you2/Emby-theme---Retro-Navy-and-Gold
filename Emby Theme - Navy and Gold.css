@@ -4612,6 +4612,97 @@ html[class*="theme-"] body div.popupStylePicker.dialog.popup > div {
 }
 
 /* ============================================================
+   HOTFIX: MISSING HOVER BORDERS (Live TV Channels & Video OSD)
+   ============================================================ */
+
+/* 1. Video OSD: Up Next Cards */
+/* Targets the poster cards inside the Up Next popup dialog */
+html[class*="theme-"] body .upNextContainer .card .cardContent,
+html[class*="theme-"] body .upNextContainer .card .cardImageContainer,
+html[class*="theme-"] body .upNextDialog .card .cardContent,
+html[class*="theme-"] body .upNextDialog .card .cardImageContainer {
+    border: var(--hover-border-thickness) solid transparent !important;
+    border-radius: var(--border-radius-md) !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+}
+
+html[class*="theme-"] body .upNextContainer .card:hover .cardContent,
+html[class*="theme-"] body .upNextContainer .card:hover .cardImageContainer,
+html[class*="theme-"] body .upNextDialog .card:hover .cardContent,
+html[class*="theme-"] body .upNextDialog .card:hover .cardImageContainer {
+    border-color: var(--theme-primary-color) !important;
+    box-shadow: 0px 15px 30px var(--black-alpha-90), var(--shadow-glow-standard) !important;
+}
+
+/* 2. Video OSD: On Now (Horizontal Cards in OSD) */
+/* Targets the horizontal scrolling cards at the bottom of the video player */
+html[class*="theme-"] body .videoOsdBottom .card-horiz .cardContent,
+html[class*="theme-"] body .videoOsdBottom .card-horiz .cardImageContainer {
+    border: var(--hover-border-thickness) solid transparent !important;
+    background: var(--navy-light-alpha-80) !important; /* Matches your other horiz cards */
+    border-radius: var(--border-radius-md) !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+}
+
+html[class*="theme-"] body .videoOsdBottom .card-horiz:hover .cardContent,
+html[class*="theme-"] body .videoOsdBottom .card-horiz:hover .cardImageContainer,
+html[class*="theme-"] body .videoOsdBottom .card-horiz.show-focus .cardContent {
+    border-color: var(--theme-primary-color) !important;
+    background: var(--theme-icon-focus-background) !important;
+    box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+}
+
+/* 3. Safety Padding for Shadows */
+/* Ensures the glowing borders aren't chopped off by Emby's tight OSD margins */
+html[class*="theme-"] body .videoOsdBottom .itemsContainer,
+html[class*="theme-"] body .upNextContainer .itemsContainer {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+
+/* ============================================================
+   HOTFIX: MULTI-SELECT CHECKMARKS & TOP BAR ALIGNMENT
+   ============================================================ */
+
+/* 1. The Top Action Bar (Selection Commands) */
+/* Syncs the top bar's left edge with your custom sidebar width so it doesn't overlap */
+@media (min-width: 50em) {
+    html[class*="theme-"] body .selectionCommandsPanel.selectionCommandsPanel-withdrawer,
+    html[class*="theme-"] body .selectionCommandsPanel.selectionCommandsPanel-withdockeddrawer,
+    html[class*="theme-"] body:has(.page-withDockedDrawer) .selectionCommandsPanel {
+        left: var(--custom-sidebar-width) !important;
+    }
+}
+
+/* 2. The Unselected Circle */
+/* Adds a subtle dark tint and border so the empty circle is visible on bright posters */
+html[class*="theme-"] body .itemSelectionPanel {
+    border: 2px solid rgba(var(--pure-black-rgb), 0.4) !important;
+    background-color: rgba(var(--pure-black-rgb), 0.2) !important;
+}
+
+/* 3. The Selected Circle Background */
+/* Fills with your primary theme color (Gold/Green/etc) */
+html[class*="theme-"] body .itemSelectionPanel.itemSelectionPanel-active,
+html[class*="theme-"] body .itemSelectionPanel-active {
+    background-color: var(--theme-primary-color) !important;
+    border: 2px solid rgba(var(--pure-black-rgb), 0.6) !important;
+}
+
+/* 4. The Checkmark Itself (Forced Pure Black) */
+/* Targets Emby's exact internal icon class used for media selection */
+html[class*="theme-"] body .itemSelectionPanel.itemSelectionPanel-active .itemSelectionPanelIcon,
+html[class*="theme-"] body .itemSelectionPanel.itemSelectionPanel-active .md-icon,
+html[class*="theme-"] body .itemSelectionPanel-active .itemSelectionPanelIcon,
+html[class*="theme-"] body .itemSelectionPanel-active i {
+    color: var(--pure-black) !important;
+    -webkit-text-fill-color: var(--pure-black) !important;
+    opacity: 1 !important;
+    filter: none !important;
+    text-shadow: none !important;
+}
+
+/* ============================================================
    13. UNIVERSAL SEASONAL LOGIC
    ============================================================ */
 
