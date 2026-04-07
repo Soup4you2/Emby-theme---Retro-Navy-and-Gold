@@ -4265,6 +4265,21 @@ html[class*="theme-"] body .appfooter .navMenuOption:hover .navMenuOptionText {
 }
 
 /* ============================================================
+   HOTFIX: ADMIN LIBRARY SETUP EDIT BUTTON
+   Brings the hidden edit circle back to the top layer
+   ============================================================ */
+
+/* 1. Pull the invisible button layer above the elevated image */
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardOverlayContainer {
+    z-index: 20 !important;
+}
+
+/* 2. Force the button to follow the image exactly when it pops up on hover */
+html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardOverlayContainer {
+    transform: translateY(-8px) scale(1.04) !important;
+}
+
+/* ============================================================
    HOTFIX: ACTION BUTTONS & ALIGNMENT (MOBILE & DESKTOP)
    Cleans up square tiles and aligns Play/Trailer into matching pills
    ============================================================ */
