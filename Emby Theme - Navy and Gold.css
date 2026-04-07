@@ -1183,21 +1183,29 @@ html[class*="theme-"] body .itemAction:hover .cardText {
   display:                 none !important;
 }
 
-/* 3. Main Menu Button: Forces the hamburger icon to theme gold and adds a hover glow */
+/* 3. Header Icons: Targets ONLY icon-based buttons (Menu, Cast, Settings, Profile) and ignores text buttons */
 html[class*="theme-"] body .skinHeader .headerMenuButton,
-html[class*="theme-"] body .skinHeader .headerButton[title="Menu"],
 html[class*="theme-"] body .skinHeader .headerMenuButton .md-icon,
-html[class*="theme-"] body .skinHeader .headerButton[title="Menu"] .md-icon {
+html[class*="theme-"] body .skinHeader .paper-icon-button-light,
+html[class*="theme-"] body .skinHeader .paper-icon-button-light .md-icon,
+html[class*="theme-"] body .skinHeader .paper-icon-button-light i,
+html[class*="theme-"] body .skinHeader .headerCastButton,
+html[class*="theme-"] body .skinHeader .headerCastButton .md-icon,
+html[class*="theme-"] body .skinHeader .headerSettingsButton,
+html[class*="theme-"] body .skinHeader .headerSettingsButton .md-icon {
   color: var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
   opacity: 1 !important;
+  transition: all var(--transition-speed) ease !important;
 }
 
+/* Hover Glow applied specifically to the icon buttons */
 html[class*="theme-"] body .skinHeader .headerMenuButton:hover,
-html[class*="theme-"] body .skinHeader .headerButton[title="Menu"]:hover {
+html[class*="theme-"] body .skinHeader .paper-icon-button-light:hover,
+html[class*="theme-"] body .skinHeader .headerCastButton:hover,
+html[class*="theme-"] body .skinHeader .headerSettingsButton:hover {
   filter: drop-shadow(0 0 5px var(--my-gold)) !important;
   transform: scale(1.1) !important;
-  transition: all var(--transition-speed) ease !important;
 }
 
 /* --- 3B. SIDEBAR DRAWER (Slide-out Menu) --- */
