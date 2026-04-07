@@ -1210,8 +1210,7 @@ html[class*="theme-"] body .skinHeader .headerSettingsButton:hover {
   transform: scale(1.1) !important;
 }
 
-/* 4. PREMIERE BUTTON REMOVAL (Consolidated) */
-/* Targets by Class, URL, Title, ARIA label, and icon-based detection */
+/* 4. PREMIERE BUTTON REMOVAL */
 html[class*="theme-"] body .skinHeader .headerPremiereButton,
 html[class*="theme-"] body .skinHeader .btnHeaderPremiere,
 html[class*="theme-"] body .skinHeader .headerButtonGetPremiere,
