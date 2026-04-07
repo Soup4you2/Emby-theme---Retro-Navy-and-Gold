@@ -1809,8 +1809,8 @@ html[class*="theme-"] body .listItemOverlayButtonIcon {
 }
 
 /* Row Hover State: The icon background turns Gold, the triangle turns Black */
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .listItemImageButton .md-icon,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .listItemOverlayButtonIcon {
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .listItemImageButton .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .listItemOverlayButtonIcon {
     background-color: var(--my-gold) !important;
     border-color: var(--my-gold) !important;
     color: var(--pure-black) !important;
@@ -1863,8 +1863,8 @@ html[class*="theme-"] body .paperListbox .listItem .listItem-content::after {
 html[class*="theme-"] .playedIndicator,
 html[class*="theme-"] .cardIndicator.playedIndicator,
 html[class*="theme-"] .countIndicator {
-  text-shadow:             none !important;
-  border-radius:           var(--border-radius-pill) !important;
+    text-shadow:             none !important;
+    border-radius:           var(--border-radius-pill) !important;
 }
 
 /* 2. Played Checkmarks: Resting and Row-Hover State */
@@ -1873,69 +1873,69 @@ html[class*="theme-"] body .paper-icon-button-light.playstatebutton-icon-played,
 html[class*="theme-"] body button[data-played="true"],
 html[class*="theme-"] body button[data-played="true"] .md-icon,
 html[class*="theme-"] body .dataGridItemCell button[data-played="true"] .md-icon,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-played="true"] .md-icon {
-  color:                   var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
-  filter:                  drop-shadow(0 0 5px var(--gold-alpha-40)) !important;
-  opacity:                 1 !important;
-  transition:              all var(--transition-speed) ease !important;
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-played="true"] .md-icon {
+    color:                   var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    filter:                  drop-shadow(0 0 5px var(--gold-alpha-40)) !important;
+    opacity:                 1 !important;
+    transition:              all var(--transition-speed) ease !important;
 }
 
 /* 2b. Played Checkmarks Hover State (Gold Circle Background, Black Icon) */
 html[class*="theme-"] body button[data-played="true"]:hover,
 html[class*="theme-"] body .playstatebutton-icon-played:hover,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-played="true"]:hover {
-  background-color:        var(--my-gold) !important;
-  border-radius:           50% !important;
-  transform:               scale(1.1) !important;
-  box-shadow:              0 0 10px var(--gold-alpha-40) !important;
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-played="true"]:hover {
+    background-color:        var(--my-gold) !important;
+    border-radius:           50% !important;
+    transform:               scale(1.1) !important;
+    box-shadow:              0 0 10px var(--gold-alpha-40) !important;
 }
 
 /* Forces the icon to black when the button is hovered */
 html[class*="theme-"] body button[data-played="true"]:hover .md-icon,
 html[class*="theme-"] body .playstatebutton-icon-played:hover .md-icon,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-played="true"]:hover .md-icon {
-  color:                   var(--pure-black) !important;
-  -webkit-text-fill-color: var(--pure-black) !important;
-  filter:                  none !important;
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-played="true"]:hover .md-icon {
+    color:                   var(--pure-black) !important;
+    -webkit-text-fill-color: var(--pure-black) !important;
+    filter:                  none !important;
 }
 
 /* 3. Played Indicator Pills: Floating status in card and thumbnail corners */
 html[class*="theme-"] body .playedIndicator,
 html[class*="theme-"] body .cardIndicator.playedIndicator,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .playedIndicator {
-  background:              var(--played-indicator-bg) !important;
-  border:                  var(--played-indicator-border) !important;
-  box-shadow:              var(--played-indicator-shadow) !important;
-  border-radius:           var(--border-radius-pill) !important;
-  transform:               none !important;
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .playedIndicator {
+    background:              var(--played-indicator-bg) !important;
+    border:                  var(--played-indicator-border) !important;
+    box-shadow:              var(--played-indicator-shadow) !important;
+    border-radius:           var(--border-radius-pill) !important;
+    transform:               none !important;
 }
 
 /* Forces the checkmark icon inside to stay Dark Navy, protecting it from row-hover rules */
 html[class*="theme-"] body .playedIndicator,
 html[class*="theme-"] body .playedIndicator .md-icon,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .playedIndicator,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .playedIndicator .md-icon {
-  color:                   var(--played-indicator-color) !important;
-  -webkit-text-fill-color: var(--played-indicator-color) !important;
-  filter:                  none !important;
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .playedIndicator,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .playedIndicator .md-icon {
+    color:                   var(--played-indicator-color) !important;
+    -webkit-text-fill-color: var(--played-indicator-color) !important;
+    filter:                  none !important;
 }
 
 /* 4. Unwatched Count Pills: High-visibility notification numbers */
 html[class*="theme-"] .countIndicator {
-  background:              var(--count-indicator-bg) !important;
-  color:                   var(--count-indicator-color) !important;
-  border:                  var(--count-indicator-border) !important;
-  box-shadow:              var(--count-indicator-shadow) !important;
-  font-family:             var(--font-header) !important; 
-  font-weight:             700 !important;
-  font-size:               0.9em !important;
-  min-width:               26px !important;
-  height:                  26px !important;
-  display:                 inline-flex !important;
-  align-items:             center !important;
-  justify-content:         center !important;
-  padding:                 0 6px !important;
+    background:              var(--count-indicator-bg) !important;
+    color:                   var(--count-indicator-color) !important;
+    border:                  var(--count-indicator-border) !important;
+    box-shadow:              var(--count-indicator-shadow) !important;
+    font-family:             var(--font-header) !important; 
+    font-weight:             700 !important;
+    font-size:               0.9em !important;
+    min-width:               26px !important;
+    height:                  26px !important;
+    display:                 inline-flex !important;
+    align-items:             center !important;
+    justify-content:         center !important;
+    padding:                 0 6px !important;
 }
 
 /* 5. Favorite Hearts: Resting & Row-Hover State (Always Red) */
@@ -1945,16 +1945,16 @@ html[class*="theme-"] body .ratingbutton-icon-withrating,
 html[class*="theme-"] body .ratingbutton-icon-withrating .md-icon,
 html[class*="theme-"] body .dataGridItemCell button[data-isfavorite="true"],
 html[class*="theme-"] body .dataGridItemCell button[data-isfavorite="true"] .md-icon,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="true"],
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="true"] .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-isfavorite="true"],
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-isfavorite="true"] .md-icon,
 html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"],
 html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"] .md-icon,
 html[class*="theme-"] body .dataGridRow:hover button[data-isfavorite="true"],
 html[class*="theme-"] body .dataGridRow:hover button[data-isfavorite="true"] .md-icon {
-  color:                   var(--favorite-heart) !important; 
-  -webkit-text-fill-color: var(--favorite-heart) !important;
-  filter:                  drop-shadow(0 0 5px var(--favorite-heart-alpha-50)) !important;
-  opacity:                 1 !important;
+    color:                   var(--favorite-heart) !important; 
+    -webkit-text-fill-color: var(--favorite-heart) !important;
+    filter:                  drop-shadow(0 0 5px var(--favorite-heart-alpha-50)) !important;
+    opacity:                 1 !important;
 }
 
 /* 6. Favorite Hearts: Hover Directly Over Heart (Brighter Red and Pop) */
@@ -1962,34 +1962,34 @@ html[class*="theme-"] body button[data-isfavorite="true"]:hover,
 html[class*="theme-"] body button[data-isfavorite="true"]:hover .md-icon,
 html[class*="theme-"] body .ratingbutton-icon-withrating:hover,
 html[class*="theme-"] body .ratingbutton-icon-withrating:hover .md-icon,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="true"]:hover,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="true"]:hover .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-isfavorite="true"]:hover,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-isfavorite="true"]:hover .md-icon,
 html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"]:hover,
 html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"]:hover .md-icon {
-  color:                   var(--favorite-heart-hover) !important; 
-  -webkit-text-fill-color: var(--favorite-heart-hover) !important;
-  transform:               scale(1.2) !important;
-  filter:                  drop-shadow(0 0 10px var(--favorite-heart-hover-alpha-80)) !important;
+    color:                   var(--favorite-heart-hover) !important; 
+    -webkit-text-fill-color: var(--favorite-heart-hover) !important;
+    transform:               scale(1.2) !important;
+    filter:                  drop-shadow(0 0 10px var(--favorite-heart-hover-alpha-80)) !important;
 }
 
 /* 7. Favorite Hearts: Un-favorited State (Keep white/gray, protect from row-hover gold) */
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="false"],
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="false"] .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-isfavorite="false"],
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-isfavorite="false"] .md-icon,
 html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="false"],
 html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="false"] .md-icon {
-  color:                   var(--white-alpha-60) !important;
-  -webkit-text-fill-color: var(--white-alpha-60) !important;
-  filter:                  none !important;
+    color:                   var(--white-alpha-60) !important;
+    -webkit-text-fill-color: var(--white-alpha-60) !important;
+    filter:                  none !important;
 }
 
 html[class*="theme-"] body button[data-isfavorite="false"]:hover,
 html[class*="theme-"] body button[data-isfavorite="false"]:hover .md-icon,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="false"]:hover,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite="false"]:hover .md-icon {
-  color:                   var(--favorite-heart-hover) !important; 
-  -webkit-text-fill-color: var(--favorite-heart-hover) !important;
-  transform:               scale(1.2) !important;
-  filter:                  drop-shadow(0 0 10px var(--favorite-heart-hover-alpha-80)) !important;
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-isfavorite="false"]:hover,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-isfavorite="false"]:hover .md-icon {
+    color:                   var(--favorite-heart-hover) !important; 
+    -webkit-text-fill-color: var(--favorite-heart-hover) !important;
+    transform:               scale(1.2) !important;
+    filter:                  drop-shadow(0 0 10px var(--favorite-heart-hover-alpha-80)) !important;
 }
 
 /* --- 4F. FILTER & TAG PILLS --- */
