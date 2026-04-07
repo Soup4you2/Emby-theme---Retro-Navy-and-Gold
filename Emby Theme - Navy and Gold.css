@@ -2313,6 +2313,98 @@ p.lnkEditUserPreferencesContainer > a.lnkEditUserPreferences:hover {
   transform: scale(1.02) !important;
 }
 
+/* 2. Hover State: Solid gold pop */
+p.lnkEditUserPreferencesContainer > a.lnkEditUserPreferences:hover {
+  background-color: var(--my-gold) !important;
+  color: var(--pure-black) !important;
+  -webkit-text-fill-color: var(--pure-black) !important;
+  box-shadow: 0 0 15px var(--my-gold) !important;
+  transform: scale(1.02) !important;
+}
+
+/* --- 4N. SEARCH FILTER PILLS --- */
+
+/* 1. Strip background from the outer container and force centering */
+html[class*="theme-"] body .searchTabs {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+/* 2. Shrink-wrap the pill track to perfectly hug the buttons */
+html[class*="theme-"] body .searchTabs .emby-tabs-slider {
+    background: var(--nav-pill-bar-bg) !important;
+    border: var(--nav-pill-bar-border) !important;
+    border-radius: var(--border-radius-pill) !important;
+    padding: 4px 8px !important;
+    box-shadow: 0 4px 10px var(--black-alpha-50) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 5px auto !important;
+    width: auto !important; /* Stops the bar from stretching full screen */
+    flex-wrap: nowrap !important;
+}
+
+/* 3. Base styles for the INACTIVE search pills (Matched to global Nav Pills) */
+html[class*="theme-"] body .searchTabs .searchTabButton,
+html[class*="theme-"] body .searchTabs .emby-tab-button,
+html[class*="theme-"] body .searchTabs .emby-button-toggle {
+    color: var(--nav-pill-text) !important;
+    font-family: var(--font-header) !important;
+    font-size: 0.72em !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    border-radius: var(--border-radius-pill) !important;
+    background-color: transparent !important;
+    margin: 0 4px !important; 
+    padding: 4px 14px !important;
+    min-height: 28px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all var(--transition-speed) ease-in-out !important;
+}
+
+/* 4. Hover state for inactive pills */
+html[class*="theme-"] body .searchTabs .searchTabButton:hover:not(.emby-tab-button-active),
+html[class*="theme-"] body .searchTabs .emby-tab-button:hover:not(.emby-tab-button-active) {
+    color: var(--nav-pill-hover-text) !important;
+    -webkit-text-fill-color: var(--nav-pill-hover-text) !important;
+    background-color: var(--nav-pill-hover) !important;
+    border-color: var(--nav-pill-hover-border-color) !important;
+}
+
+/* 5. Styles for the ACTIVE pill */
+html[class*="theme-"] body .searchTabs .searchTabButton.emby-tab-button-active,
+html[class*="theme-"] body .searchTabs .emby-tab-button.emby-tab-button-active,
+html[class*="theme-"] body .searchTabs .emby-button-toggle.emby-button-active {
+    background: var(--nav-pill-active) !important;
+    color: var(--nav-pill-active-text) !important; 
+    -webkit-text-fill-color: var(--nav-pill-active-text) !important;
+    border: var(--nav-pill-active-border) !important;
+    box-shadow: var(--nav-pill-active-glow) !important;
+}
+
+/* 6. Hide Emby's default underline on active tabs */
+html[class*="theme-"] body .searchTabs .searchTabButton.emby-tab-button-active::after,
+html[class*="theme-"] body .searchTabs .emby-tab-button.emby-tab-button-active::after,
+html[class*="theme-"] body .searchTabs .searchTabButton.emby-tab-button-active::before,
+html[class*="theme-"] body .searchTabs .emby-tab-button.emby-tab-button-active::before {
+    display: none !important;
+}
+
+/* 7. Hide the full-width horizontal divider line under the search tabs */
+  html[class*="theme-"] body .searchFieldsBottomBorder,
+  html[class*="theme-"] body .searchTabsContainer {
+      border-bottom: none !important;
+      box-shadow: none !important;
+  }
+
 /* ============================================================
    05. CARDS & PORTRAITS (POSTERS)
    ============================================================ */
