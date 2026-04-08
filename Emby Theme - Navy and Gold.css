@@ -2462,20 +2462,7 @@ html[class*="theme-"] .itemProgressBar {
     margin: 0 2px !important;
 }
 
-/* 2. Apply a multi-layered glow to the actual progress line */
-html[class*="theme-"] .itemProgressBarForeground {
-    background-color: var(--theme-primary-color) !important;
-    border-radius: var(--border-radius-pill) !important;
-    /* This creates a triple-layer glow: 
-       1. A tight primary color glow
-       2. A wider theme glow
-       3. A slight white "heat" core in the center */
-    box-shadow: 0 0 8px var(--theme-primary-color), 
-                0 0 15px var(--retro-glow), 
-                0 0 2px var(--pure-white) !important;
-}
-
-/* 3. Card Content & Images: Defines the standard look of movie and show posters */
+/* 2. Card Content & Images: Defines the standard look of movie and show posters */
 html[class*="theme-"] .cardContent,
 html[class*="theme-"] .cardImageContainer {
   box-shadow:              0px 10px 20px var(--black-alpha-75) !important;
@@ -2484,24 +2471,24 @@ html[class*="theme-"] .cardImageContainer {
   will-change:             border-color, box-shadow;
 }
 
-/* 4. Progress Bar: The "watch progress" line at the bottom of posters */
+/* 3. Progress Bar: The "watch progress" line at the bottom of posters */
 html[class*="theme-"] .itemProgressBarForeground {
   background-color:        var(--theme-primary-color) !important;
   box-shadow:              var(--glow-progress-bar) !important;
   border-radius:           var(--hover-border-thickness) !important;
 }
 
-/* 5. Play Button Toggle: Links to the visibility switch in Section 1 */
+/* 4. Play Button Toggle: Links to the visibility switch in Section 1 */
 .cardOverlayFab-primary {
   display:                 var(--play-button-display) !important;
 }
 
-/* 6. Card Footer: Subtle text shadow for readability over background art */
+/* 5. Card Footer: Subtle text shadow for readability over background art */
 .innerCardFooter {
   text-shadow:             1px 1px 2px var(--black-alpha-80);
 }
 
-/* 7. Button Geometry (Egg Fix): Forces floating action buttons into perfect circles and centers icons */
+/* 6. Button Geometry (Egg Fix): Forces floating action buttons into perfect circles and centers icons */
 
 /* Secondary Action Buttons (Heart, Checkmark, More) */
 html[class*="theme-"] body .cardOverlayButton-fab {
@@ -2535,7 +2522,7 @@ html[class*="theme-"] body .cardOverlayFab-primary .md-icon {
     padding: 0 !important;
 }
 
-/* 8. Card Footers: Forces portrait card footers to use dynamic seasonal colors */
+/* 7. Card Footers: Forces portrait card footers to use dynamic seasonal colors */
 html[class*="theme-"] body .cardBox .cardFooter,
 html[class*="theme-"] body .defaultCardBackground {
     background: var(--navy-light-alpha-80) !important;
@@ -2544,7 +2531,7 @@ html[class*="theme-"] body .defaultCardBackground {
     transition: background-color var(--transition-speed) ease-in-out !important;
 }
 
-/* 9. Cast & Crew Safety Shield: Prevents footers from generating rectangular background blocks behind actors */
+/* 8. Cast & Crew Safety Shield: Prevents footers from generating rectangular background blocks behind actors */
 html[class*="theme-"] body .peopleSection .cardFooter,
 html[class*="theme-"] body .peopleSection .defaultCardBackground,
 html[class*="theme-"] body .personCard .cardFooter,
