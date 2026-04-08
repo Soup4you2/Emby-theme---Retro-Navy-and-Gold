@@ -1671,42 +1671,76 @@ html[class*="theme-"] .selectionCommandsPanel {
   color:                   var(--pure-white) !important;
 }
 
-/* 5. Action Sheet Links: Forces titles in action sheets to black text for contrast */
+/* 5. Action Sheet Links & Flat Menu Buttons (Select All / Clear) */
 html[class*="theme-"] body .actionSheet .button-link,
-html[class*="theme-"] body .actionSheet .button-link * {
-  color: var(--pure-black) !important;
-  -webkit-text-fill-color: var(--pure-black) !important;
-  opacity: 1 !important;
+html[class*="theme-"] body .actionSheet .button-link *,
+html[class*="theme-"] body .dialog .button-flat,
+html[class*="theme-"] body .formDialog .button-flat,
+html[class*="theme-"] body .paperListbox .button-flat {
+  color:                   var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
+  background:              transparent !important;
+  box-shadow:              none !important;
+  opacity:                 1 !important;
+  font-weight:             600 !important;
+  transition:              all var(--transition-speed) ease !important;
+}
+
+/* 5b. Hover state makes them pop in your Theme Primary Color */
+html[class*="theme-"] body .actionSheet .button-link:hover,
+html[class*="theme-"] body .actionSheet .button-link:hover *,
+html[class*="theme-"] body .dialog .button-flat:hover,
+html[class*="theme-"] body .formDialog .button-flat:hover,
+html[class*="theme-"] body .paperListbox .button-flat:hover {
+  color:                   var(--theme-primary-color) !important;
+  -webkit-text-fill-color: var(--theme-primary-color) !important;
 }
 
 /* --- 4B. TEXT INPUTS, DROPDOWNS & TEXTAREAS --- */
 
-/* 1. Base Input Styling: Standardizes the look of all text fields */
+/* 1. Base Input & Select Box Styling */
 html[class*="theme-"] .emby-input,
-html[class*="theme-"] .emby-select,
-html[class*="theme-"] .emby-textarea {
+html[class*="theme-"] .emby-textarea,
+html[class*="theme-"] select.emby-select {
   background-color:        var(--navy-light-alpha-80) !important;
   border:                  var(--standard-border-thickness) solid var(--white-alpha-10) !important;
   border-radius:           var(--border-radius-sm) !important;
-  color:                   var(--pure-white) !important;
-  padding:                 0.5em 1em !important;
   transition:              border-color var(--transition-speed), box-shadow var(--transition-speed) !important;
 }
 
-/* 2. Select Styling: Ensures dropdown lists inherit our dark theme */
-html[class*="theme-"] .emby-select,
-html[class*="theme-"] .emby-select[disabled],
-html[class*="theme-"] .trackSelectionField .emby-select {
-  height:                  auto !important;
-  min-height:              35px !important;
-  line-height:             normal !important;
-  color-scheme:            dark !important; /* Forces the OS to use dark-mode scrollbars & hover states */
+/* 2. Text Color & Padding for Text Inputs */
+html[class*="theme-"] .emby-input,
+html[class*="theme-"] .emby-textarea {
+  color:                   var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
+  padding:                 0.6em 1em !important;
 }
 
-/* 2b. Multi-Select Text: Forces the displayed name in custom select boxes to pure white */
-html[class*="theme-"] body .emby-select-selectedName {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+/* 2b. Select Box Glitch Fix (Hides Native Text) */
+html[class*="theme-"] select.emby-select,
+html[class*="theme-"] select.emby-select[disabled],
+html[class*="theme-"] .trackSelectionField select.emby-select {
+  color:                   transparent !important; 
+  -webkit-text-fill-color: transparent !important; 
+  text-shadow:             none !important;
+  cursor:                  pointer !important;
+  color-scheme:            dark !important;
+  margin:                  0 !important;
+  height:                  auto !important; 
+  min-height:              36px !important; /* Increase this (e.g. 38px or 40px) to force the box to be taller */
+  padding:                 0.5em 1em !important; /* The 0.5em controls Top/Bottom breathing room. The 1em controls Left/Right */
+}
+
+/* 2c. The "Real" Text Layer (Emby's Custom Label) */
+html[class*="theme-"] .emby-select-selectedName {
+  color:                   var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
+  font-weight:             500 !important;
+}
+
+/* 2d. Dropdown Arrow Alignment */
+html[class*="theme-"] .selectArrowContainer {
+  color:                   var(--theme-primary-color) !important;
 }
 
 /* FIX: Browsers reject transparency on <option> tags. We MUST use a solid color variable. */
@@ -1715,17 +1749,26 @@ html[class*="theme-"] optgroup {
   background-color:        var(--navy-mid-solid) !important;
   background:              var(--navy-mid-solid) !important;
   color:                   var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
 }
 
-/* 3. Focus States: Applies a gold glow when interacting with form fields */
+/* 3. Focus States: Glows when interacting */
 html[class*="theme-"] .emby-input:focus,
 html[class*="theme-"] .emby-textarea:focus,
 html[class*="theme-"] select.emby-select:focus,
 html[class*="theme-"] select.emby-select:active,
 html[class*="theme-"] select.emby-select:focus-visible {
+  background-color:        var(--navy-light-alpha-80) !important;
   border:                  var(--hover-border-thickness) solid var(--theme-primary-color) !important;
   box-shadow:              var(--shadow-glow-standard) !important;
   outline:                 none !important;
+}
+
+/* 3b. Make the custom text label glow when the select box is focused! */
+html[class*="theme-"] select.emby-select:focus ~ .emby-select-selectedNameContainer .emby-select-selectedName,
+html[class*="theme-"] select.emby-select:active ~ .emby-select-selectedNameContainer .emby-select-selectedName {
+  color:                   var(--theme-primary-color) !important;
+  -webkit-text-fill-color: var(--theme-primary-color) !important;
 }
 
 /* 4. Search Padding: Prevents text from overlapping the magnifying glass icon */
@@ -2463,7 +2506,66 @@ html[class*="theme-"] body .searchTabs .emby-tab-button.emby-tab-button-active::
       box-shadow: none !important;
   }
 
-/* ============================================================
+/* --- 4O. MODAL LISTS & DRAG HANDLES --- */
+
+/* 1. Mute the sub-header instructions (e.g. "Enable and rank...") */
+html[class*="theme-"] body .formDialog .legendDescription,
+html[class*="theme-"] body .dialog .legendDescription {
+    color: var(--white-alpha-70) !important;
+    -webkit-text-fill-color: var(--white-alpha-70) !important;
+}
+
+/* 2. Force primary list titles to pure white (e.g. "TheTVDB") */
+html[class*="theme-"] body .formDialog .listItem .listItemBodyText,
+html[class*="theme-"] body .dialog .listItem .listItemBodyText {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+/* 3. Force secondary list descriptions to muted white */
+html[class*="theme-"] body .formDialog .listItem .secondaryText,
+html[class*="theme-"] body .dialog .listItem .secondaryText {
+    color: var(--white-alpha-70) !important;
+    -webkit-text-fill-color: var(--white-alpha-70) !important;
+}
+
+/* 4. Fix the drag-and-drop hamburger icon color */
+html[class*="theme-"] body .formDialog .listItem .listViewDragHandle,
+html[class*="theme-"] body .dialog .listItem .listViewDragHandle {
+    color: var(--white-alpha-60) !important;
+    -webkit-text-fill-color: var(--white-alpha-60) !important;
+}
+
+/* Make the drag handle pop gold when you hover over the row */
+html[class*="theme-"] body .formDialog .listItem:hover .listViewDragHandle,
+html[class*="theme-"] body .dialog .listItem:hover .listViewDragHandle {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* 5. Strip the native inner background layer inside modal lists */
+html[class*="theme-"] body .formDialog .listItem .listItem-content,
+html[class*="theme-"] body .dialog .listItem .listItem-content,
+html[class*="theme-"] body .formDialog .listItem:hover .listItem-content,
+html[class*="theme-"] body .dialog .listItem:hover .listItem-content {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 6. Destroy Emby's phantom hover pseudo-elements inside modal lists */
+html[class*="theme-"] body .formDialog .listItem .listItem-content::before,
+html[class*="theme-"] body .formDialog .listItem .listItem-content::after,
+html[class*="theme-"] body .dialog .listItem .listItem-content::before,
+html[class*="theme-"] body .dialog .listItem .listItem-content::after {
+    display: none !important;
+    content: none !important;
+    background: transparent !important;
+}
+
+  /* ============================================================
    05. CARDS & PORTRAITS (POSTERS)
    ============================================================ */
 
