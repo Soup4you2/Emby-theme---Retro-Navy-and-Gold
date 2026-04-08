@@ -4364,21 +4364,11 @@ html[class*="theme-"] body .activeSession.card.show-focus .visualCardBox {
     box-shadow: var(--shadow-glow-standard) !important; /* Strips out the inset yellow shadow */
 }
 
-itemProgressBarForeground
-
 /* 7. Transcoding Progress Bar: Forces the secondary progress bar to Red */
 html[class*="theme-"] body .sessionTranscodingProgress .itemProgressBarForeground {
-    background-color: var(--admin-progress-transcoding) !important;
-    background: var(--admin-progress-transcoding) !important;
-    box-shadow: 0 0 8px var(---admin-progress-transcoding) !important;
-}
-
-/* 3. Progress Bar: The "watch progress" line at the bottom of posters */
-html[class*="theme-"] .itemProgressBarForeground {
-  background-color:        var(--progress-bar-primary-bg) !important;
-  background:              var(--progress-bar-primary-bg) !important;
-  box-shadow:              var(--progress-bar-primary-glow) !important;
-  border-radius:           var(--hover-border-thickness) !important;
+    background-color: var(--danger-red) !important;
+    background: var(--danger-red) !important;
+    box-shadow: 0 0 8px var(--danger-red) !important;
 }
 
 /* --- 10H. ACTIVITY LOG & LIST ITEM IMAGE FIX --- */
