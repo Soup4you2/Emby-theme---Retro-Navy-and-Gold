@@ -2237,7 +2237,7 @@ html[class*="theme-"] body .emby-button:not(.paper-icon-button-light, .emby-tab-
     background: var(--navy-light-alpha-80) !important;
     color: var(--pure-white) !important;
     -webkit-text-fill-color: var(--pure-white) !important;
-    border: var(--line-size) var(--white-alpha-10) !important;
+    border: var(--line-size) solid var(--white-alpha-10) !important;
     box-shadow: 0 4px 10px var(--black-alpha-50) !important;
     transform: none !important;
 }
@@ -3106,7 +3106,7 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
         border-radius: var(--border-radius-md) !important;
         box-shadow: 0 4px 10px var(--black-alpha-50) !important; 
         transform: none !important; 
-        border: var(--line-size) var(--gold-alpha-30) !important; 
+        border: var(--line-size) solid var(--gold-alpha-30) !important; 
         background: var(--navy-light-alpha-60) !important;
         margin: 0 !important; 
         min-height: 48px !important; 
