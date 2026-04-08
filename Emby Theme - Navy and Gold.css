@@ -2463,6 +2463,65 @@ html[class*="theme-"] body .searchTabs .emby-tab-button.emby-tab-button-active::
       box-shadow: none !important;
   }
 
+/* --- 4O. MODAL LISTS & DRAG HANDLES --- */
+
+/* 1. Mute the sub-header instructions (e.g. "Enable and rank...") */
+html[class*="theme-"] body .formDialog .legendDescription,
+html[class*="theme-"] body .dialog .legendDescription {
+    color: var(--white-alpha-70) !important;
+    -webkit-text-fill-color: var(--white-alpha-70) !important;
+}
+
+/* 2. Force primary list titles to pure white (e.g. "TheTVDB") */
+html[class*="theme-"] body .formDialog .listItem .listItemBodyText,
+html[class*="theme-"] body .dialog .listItem .listItemBodyText {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+/* 3. Force secondary list descriptions to muted white */
+html[class*="theme-"] body .formDialog .listItem .secondaryText,
+html[class*="theme-"] body .dialog .listItem .secondaryText {
+    color: var(--white-alpha-70) !important;
+    -webkit-text-fill-color: var(--white-alpha-70) !important;
+}
+
+/* 4. Fix the drag-and-drop hamburger icon color */
+html[class*="theme-"] body .formDialog .listItem .listViewDragHandle,
+html[class*="theme-"] body .dialog .listItem .listViewDragHandle {
+    color: var(--white-alpha-60) !important;
+    -webkit-text-fill-color: var(--white-alpha-60) !important;
+}
+
+/* Make the drag handle pop gold when you hover over the row */
+html[class*="theme-"] body .formDialog .listItem:hover .listViewDragHandle,
+html[class*="theme-"] body .dialog .listItem:hover .listViewDragHandle {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* 5. Strip the native inner background layer inside modal lists */
+html[class*="theme-"] body .formDialog .listItem .listItem-content,
+html[class*="theme-"] body .dialog .listItem .listItem-content,
+html[class*="theme-"] body .formDialog .listItem:hover .listItem-content,
+html[class*="theme-"] body .dialog .listItem:hover .listItem-content {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 6. Destroy Emby's phantom hover pseudo-elements inside modal lists */
+html[class*="theme-"] body .formDialog .listItem .listItem-content::before,
+html[class*="theme-"] body .formDialog .listItem .listItem-content::after,
+html[class*="theme-"] body .dialog .listItem .listItem-content::before,
+html[class*="theme-"] body .dialog .listItem .listItem-content::after {
+    display: none !important;
+    content: none !important;
+    background: transparent !important;
+}
+
 /* ============================================================
    05. CARDS & PORTRAITS (POSTERS)
    ============================================================ */
@@ -4868,7 +4927,7 @@ html[class*="theme-"] body div.popupStylePicker.dialog.popup > div {
 /* ============================================================
    HOTFIX: MULTI-SELECT DROPDOWN DOUBLE-TEXT GLITCH
    NOTE: - TO REMOVE ON RELEASE OF EMBY 4.10 (ISSUE ONLY AFFECTS 4.9)
-         - FIX THE SELECT ALL IN BASE BEFORE REMOVING.
+         - FIX THE "SELECT ALL" IN BASE BEFORE REMOVING.
          - AFFECTED AREA: USER PREFERENCES -> PLAYBACK AUDIO.
    ============================================================ */
 
