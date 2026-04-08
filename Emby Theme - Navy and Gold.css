@@ -1556,15 +1556,6 @@ html[class*="theme-"] body .mainDrawer .navDrawerHeader .btnToggleNavDrawer:hove
   transform: scale(1.1) !important;
 }
 
-/* Apply frosted glass to the collapsed Mini Sidebar */
-  html[class*="theme-"] body .mainDrawer.mainDrawer-mini {
-      background: var(--navy-base-alpha-75) !important; 
-      background-color: transparent !important; 
-      backdrop-filter: var(--blur-heavy) !important; 
-      -webkit-backdrop-filter: var(--blur-heavy) !important; 
-      border-right: 1px solid var(--gold-alpha-15) !important; /* Keeps the edge clean */
-  }
-
 /* --- 3F. DOCKED SIDEBAR WIDTH --- */
 
 /* Protect mobile/tablet views by only running this on larger screens */
@@ -4928,7 +4919,7 @@ html[class*="theme-"] body div.popupStylePicker.dialog.popup > div {
    HOTFIX: MULTI-SELECT DROPDOWN DOUBLE-TEXT GLITCH
    NOTE: - TO REMOVE ON RELEASE OF EMBY 4.10 (ISSUE ONLY AFFECTS 4.9)
          - FIX THE "SELECT ALL" IN BASE BEFORE REMOVING.
-         - AFFECTED AREA: USER PREFERENCES -> PLAYBACK AUDIO.
+         - AFFECTED AREA: USER PREFERENCES -> PLAYBACK AUDIO || SUBTITLE LANGUAGE
    ============================================================ */
 
 /* --- PART A: MULTI-SELECT DROPDOWN DOUBLE-TEXT GLITCH --- */
