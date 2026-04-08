@@ -1274,27 +1274,27 @@ html[class*="theme-appletv"] .splashLogo {
   filter: invert(1) hue-rotate(180deg) brightness(1.2) !important;
 }
 
-/* 6. Sidebar Close Button: Uses your dynamic icon variable */
-html[class*="theme-"] body .mainDrawer .btnPinNavDrawer,
-html[class*="theme-"] body .mainDrawer .btnPinNavDrawer-hovershow {
-  opacity: 0.7 !important;
+/* 6. Sidebar Close Button: Uses maximum specificity to stay Gold in all states */
+html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer,
+html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer i.md-icon {
+  color: var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  fill: var(--my-gold) !important;
+  opacity: 0.8 !important; /* Slightly dimmed when resting so it's not too aggressive */
   visibility: visible !important;
   display: inline-block !important;
+  transition: all var(--transition-speed) ease !important;
 }
 
-html[class*="theme-"] body .mainDrawer .btnPinNavDrawer .md-icon,
-html[class*="theme-"] body .mainDrawer .btnPinNavDrawer-hovershow .md-icon {
+/* Hover glow for the Sidebar Close Button */
+html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer:hover,
+html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer:hover i.md-icon {
   color: var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
-}
-
-html[class*="theme-"] body .mainDrawer .btnPinNavDrawer:hover,
-html[class*="theme-"] body .mainDrawer .btnPinNavDrawer:hover .md-icon {
-  color: var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
+  fill: var(--my-gold) !important;
   filter: drop-shadow(0 0 5px var(--my-gold)) !important;
   transform: scale(1.1) !important;
-  opacity: 1 !important;
+  opacity: 1 !important; /* Full brightness on hover */
 }
 
 /* --- 3C. PILL NAVIGATION TABS (Home, Favorites, Libraries) --- */
@@ -1545,12 +1545,24 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMe
   filter: drop-shadow(0 0 5px var(--my-gold)) !important;
 }
 
-/* 6. Protects the Hamburger Menu (Toggle Button) so it stays Gold */
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini .btnToggleNavDrawer,
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini .btnToggleNavDrawer .md-icon {
+/* 6. Protects the Hamburger Menu (Toggle Button) so it stays Gold in ALL states */
+html[class*="theme-"] body .mainDrawer .navDrawerHeader .btnToggleNavDrawer,
+html[class*="theme-"] body .mainDrawer .navDrawerHeader .btnToggleNavDrawer i.md-icon {
   color: var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
+  fill: var(--my-gold) !important;
   opacity: 1 !important;
+  transition: all var(--transition-speed) ease !important;
+}
+
+/* Hover glow for the Hamburger Menu in all states */
+html[class*="theme-"] body .mainDrawer .navDrawerHeader .btnToggleNavDrawer:hover,
+html[class*="theme-"] body .mainDrawer .navDrawerHeader .btnToggleNavDrawer:hover i.md-icon {
+  color: var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  fill: var(--my-gold) !important;
+  filter: drop-shadow(0 0 5px var(--my-gold)) !important;
+  transform: scale(1.1) !important;
 }
 
 /* --- 3F. DOCKED SIDEBAR WIDTH --- */
@@ -4352,11 +4364,21 @@ html[class*="theme-"] body .activeSession.card.show-focus .visualCardBox {
     box-shadow: var(--shadow-glow-standard) !important; /* Strips out the inset yellow shadow */
 }
 
+itemProgressBarForeground
+
 /* 7. Transcoding Progress Bar: Forces the secondary progress bar to Red */
 html[class*="theme-"] body .sessionTranscodingProgress .itemProgressBarForeground {
-    background-color: var(--danger-red) !important;
-    background: var(--danger-red) !important;
-    box-shadow: 0 0 8px var(--danger-red) !important;
+    background-color: var(--admin-progress-transcoding) !important;
+    background: var(--admin-progress-transcoding) !important;
+    box-shadow: 0 0 8px var(---admin-progress-transcoding) !important;
+}
+
+/* 3. Progress Bar: The "watch progress" line at the bottom of posters */
+html[class*="theme-"] .itemProgressBarForeground {
+  background-color:        var(--progress-bar-primary-bg) !important;
+  background:              var(--progress-bar-primary-bg) !important;
+  box-shadow:              var(--progress-bar-primary-glow) !important;
+  border-radius:           var(--hover-border-thickness) !important;
 }
 
 /* --- 10H. ACTIVITY LOG & LIST ITEM IMAGE FIX --- */
