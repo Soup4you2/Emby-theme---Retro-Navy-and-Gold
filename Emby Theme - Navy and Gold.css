@@ -1196,6 +1196,13 @@ html[class*="theme-"] body .skinHeader .headerSettingsButton:hover {
   transform: scale(1.1) !important;
 }
 
+/* 3b. User Profile Icon Fix: Forces the profile avatar to stay gold and avoid global overrides */
+html[class*="theme-"] body .skinHeader button.headerUserButton.paper-icon-button-light .md-icon,
+html[class*="theme-"] body .skinHeader button.headerUserButton.paper-icon-button-light * {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+}
+
 /* 4. PREMIERE BUTTON REMOVAL */
 html[class*="theme-"] body .skinHeader .headerPremiereButton,
 html[class*="theme-"] body .skinHeader .btnHeaderPremiere,
@@ -1694,6 +1701,12 @@ html[class*="theme-"] .trackSelectionField .emby-select {
   min-height:              35px !important;
   line-height:             normal !important;
   color-scheme:            dark !important; /* Forces the OS to use dark-mode scrollbars & hover states */
+}
+
+/* 2b. Multi-Select Text: Forces the displayed name in custom select boxes to pure white */
+html[class*="theme-"] body .emby-select-selectedName {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
 }
 
 /* FIX: Browsers reject transparency on <option> tags. We MUST use a solid color variable. */
@@ -4850,23 +4863,6 @@ html[class*="theme-"] body div.popupStylePicker.dialog.popup {
 
 html[class*="theme-"] body div.popupStylePicker.dialog.popup > div {
     overflow: visible !important;
-}
-
-/* ============================================================
-   HOTFIX: TOP HEADER USER ICON COLOR FIX
-   ============================================================ */
-html[class*="theme-"] body .skinHeader button.headerUserButton.paper-icon-button-light .md-icon,
-html[class*="theme-"] body .skinHeader button.headerUserButton.paper-icon-button-light * {
-    color: var(--my-gold) !important;
-    -webkit-text-fill-color: var(--my-gold) !important;
-}
-
-/* ============================================================
-   HOTFIX: MULTI-SELECT DROPDOWN TEXT COLOR
-   ============================================================ */
-html[class*="theme-"] body .emby-select-selectedName {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
 }
 
 /* ============================================================
