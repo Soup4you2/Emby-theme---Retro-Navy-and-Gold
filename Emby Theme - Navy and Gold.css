@@ -81,7 +81,6 @@ html,
 
   /* --- RGBA TRANSLUCENCY VARIABLES (The Math) --- */
   --black-alpha-20: rgba(var(--pure-black-rgb), 0.2);              /* Very light shadow */
-  --black-alpha-45: rgba(var(--pure-black-rgb), 0.45);             /* Mid-tone shadow for tracks */
   --black-alpha-50: rgba(var(--pure-black-rgb), 0.5);              /* Medium drop shadow */
   --black-alpha-60: rgba(var(--pure-black-rgb), 0.6);              /* Dark drop shadow */
   --black-alpha-70: rgba(var(--pure-black-rgb), 0.7);              /* Heavy backdrop dimming */
@@ -2451,7 +2450,7 @@ html[class*="theme-"] body .searchTabs .emby-tab-button.emby-tab-button-active::
 /* 1. Ensure the container doesn't "clip" the glow and give it a darker track for contrast */
 html[class*="theme-"] .itemProgressBar {
     height: 6px !important; 
-    background: var(--black-alpha-45) !important; /* Variable used here */
+    background: var(--black-alpha-50) !important; /* Variable used here */
     overflow: visible !important; 
     margin: 0 2px !important;
 }
