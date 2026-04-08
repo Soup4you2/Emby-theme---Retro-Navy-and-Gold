@@ -28,12 +28,12 @@ html,
   /* --- CUSTOM MASTER PALETTE --- */
 
   /* OPTION 1 - USE THE THEMES GOLD COLOR */
-  --my-gold: rgba(var(--my-gold-rgb), 1);               /* Solid gold fallback for borders and text accents */
-  --my-gold-light: rgba(var(--my-gold-light-rgb), 1);   /* Brighter gold fallback for highlight gradients */
-  --retro-navy: rgba(var(--navy-base-rgb), 1);          /* Darkest navy fallback for main backgrounds */
-  --retro-navy-light: rgba(var(--navy-mid-rgb), 1);     /* Mid-tone navy fallback for panels and cards */  
-  --star-color: var(--retro-navy-light);                /* Media info badge rating star color */
-  --star-glow: drop-shadow(0 0 5px rgba(7, 5, 0, 0));   /* Media info badge rating star glow */
+  --my-gold: rgba(var(--my-gold-rgb), 1);                           /* Solid gold fallback for borders and text accents */
+  --my-gold-light: rgba(var(--my-gold-light-rgb), 1);               /* Brighter gold fallback for highlight gradients */
+  --retro-navy: rgba(var(--navy-base-rgb), 1);                      /* Darkest navy fallback for main backgrounds */
+  --retro-navy-light: rgba(var(--navy-mid-rgb), 1);                 /* Mid-tone navy fallback for panels and cards */  
+  --star-color: var(--retro-navy-light);                            /* Media info badge rating star color */
+  --star-glow: drop-shadow(0 0 5px rgba(7, 5, 0, 0));             /* Media info badge rating star glow */
 
   /* OPTION 2 - USE THE USERS ACCENT COLOR PREFERENCES */
   /* NOTE: KEEP IN MIND EVERY USER HAS THEIR OWN ACCENT COLOR OPTION */
@@ -46,10 +46,10 @@ html,
 
 
   /* --- CORE SOLID COLORS --- */
-  --pure-white: rgba(var(--pure-white-rgb), 1);         /* Solid white for high-contrast icons */
-  --pure-black: rgba(var(--pure-black-rgb), 1);         /* Solid black for deep shadow foundations */
-  --text-muted: rgb(236, 236, 236);                     /* Soft white used globally for primary paragraph/body text */
-  --scrollbar-thumb: rgb(51, 51, 51);                   /* Color of the draggable handle on the browser scrollbar */
+  --pure-white: rgba(var(--pure-white-rgb), 1);                   /* Solid white for high-contrast icons */
+  --pure-black: rgba(var(--pure-black-rgb), 1);                   /* Solid black for deep shadow foundations */
+  --text-muted: rgb(236, 236, 236);                             /* Soft white used globally for primary paragraph/body text */
+  --scrollbar-thumb: rgb(51, 51, 51);                           /* Color of the draggable handle on the browser scrollbar */
 
   /* --- CORE RGB VALUES (The Source of Truth for Transparencies) --- */
   --pure-black-rgb: 0, 0, 0;                                      /* Controls the absolute darkest shadows and UI overlays */
@@ -70,7 +70,6 @@ html,
   --theme-icon-focus-background: var(--gold-alpha-20);            /* Background highlight behind focused icons/menus */
   --theme-selection-background: var(--gold-alpha-20);             /* Background highlight behind selected list items */
   --theme-primary-color-lightened: var(--my-gold);                /* Secondary highlight hook used by Emby */
-  --button-accent-flat-background: var(--gold-alpha-20);          /* Flat background state for secondary buttons */
   --theme-background: var(--retro-navy);                          /* Emby's native background hook */
   --theme-text-color-opaque: var(--pure-white);                   /* Emby's native bright text hook */
   --theme-secondary-text-color: var(--white-alpha-70);            /* Emby's native muted/sub-text hook */
@@ -182,21 +181,6 @@ html,
   --filter-glow-light: drop-shadow(0 0 5px var(--retro-glow));     /* Applies glow to SVG icons */
   --filter-glow-medium: drop-shadow(0 0 8px var(--retro-glow));    /* Stronger glow for hovered SVG icons */
   --filter-glow-gold-solid: drop-shadow(0 0 5px var(--my-gold));   /* Solid hard glow for icons */
-
-  /* THE "NO GLOW" KILL SWITCH */
-  /*
-  --glow-light: var(--glow-none);
-  --glow-medium: var(--glow-none);
-  --shadow-glow-standard: var(--glow-none);
-  --glow-heavy: var(--glow-none);
-  --glow-extreme: var(--glow-none);
-  --glow-slider-track: var(--glow-none);
-  --glow-slider-thumb: var(--glow-none);
-  --glow-progress-bar: var(--glow-none);
-  --filter-glow-light: var(--filter-glow-none);
-  --filter-glow-medium: var(--filter-glow-none);
-  --filter-glow-gold-solid: var(--filter-glow-none);
-  */
 
   /* SIDEBAR OPTIONS */
   --custom-sidebar-width: 250px;                                    /* Define the custom width (Triggered only when the full sidebar is open) */  
@@ -2253,7 +2237,7 @@ html[class*="theme-"] body .emby-button:not(.paper-icon-button-light, .emby-tab-
     background: var(--navy-light-alpha-80) !important;
     color: var(--pure-white) !important;
     -webkit-text-fill-color: var(--pure-white) !important;
-    border: 1px solid var(--white-alpha-10) !important;
+    border: var(--line-size) var(--white-alpha-10) !important;
     box-shadow: 0 4px 10px var(--black-alpha-50) !important;
     transform: none !important;
 }
@@ -3122,7 +3106,7 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
         border-radius: var(--border-radius-md) !important;
         box-shadow: 0 4px 10px var(--black-alpha-50) !important; 
         transform: none !important; 
-        border: 1px solid var(--gold-alpha-30) !important; 
+        border: var(--line-size) var(--gold-alpha-30) !important; 
         background: var(--navy-light-alpha-60) !important;
         margin: 0 !important; 
         min-height: 48px !important; 
