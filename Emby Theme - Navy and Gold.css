@@ -4867,10 +4867,12 @@ html[class*="theme-"] body div.popupStylePicker.dialog.popup > div {
 
 /* ============================================================
    HOTFIX: MULTI-SELECT DROPDOWN DOUBLE-TEXT GLITCH
-   NOTE: TO REMOVE ON RELEASE OF EMBY 4.10 (ISSUE ONLY AFFECTS 4.9)
+   NOTE: - TO REMOVE ON RELEASE OF EMBY 4.10 (ISSUE ONLY AFFECTS 4.9)
          - FIX THE SELECT ALL IN BASE BEFORE REMOVING.
-         - AFFECTED AREA, USER PREFERENCES PLAYBACK AUDIO.
+         - AFFECTED AREA: USER PREFERENCES -> PLAYBACK AUDIO.
    ============================================================ */
+
+/* --- PART A: MULTI-SELECT DROPDOWN DOUBLE-TEXT GLITCH --- */
 
 /* 1. Kills the native double-text ONLY on multi-select dropdowns */
 html[class*="theme-"] body select.emby-select[multiple] {
@@ -4889,6 +4891,33 @@ html[class*="theme-"] body .emby-select-selectedName {
 /* 3. Makes the custom label glow with your Theme color when clicked/focused */
 html[class*="theme-"] body select.emby-select[multiple]:focus ~ .emby-select-selectedNameContainer .emby-select-selectedName,
 html[class*="theme-"] body select.emby-select[multiple]:active ~ .emby-select-selectedNameContainer .emby-select-selectedName {
+    color: var(--theme-primary-color) !important;
+    -webkit-text-fill-color: var(--theme-primary-color) !important;
+}
+
+/* --- PART B: FLAT BUTTON LEGIBILITY (Select All / Clear) --- */
+
+/* 4. Forces flat buttons in dialogs/action sheets to be pure white */
+html[class*="theme-"] body .actionSheet .button-link,
+html[class*="theme-"] body .actionSheet .button-link *,
+html[class*="theme-"] body .dialog .button-flat,
+html[class*="theme-"] body .formDialog .button-flat,
+html[class*="theme-"] body .paperListbox .button-flat {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+    transition: all var(--transition-speed) ease !important;
+}
+
+/* 5. Hover state makes them pop in your Theme Primary Color */
+html[class*="theme-"] body .actionSheet .button-link:hover,
+html[class*="theme-"] body .actionSheet .button-link:hover *,
+html[class*="theme-"] body .dialog .button-flat:hover,
+html[class*="theme-"] body .formDialog .button-flat:hover,
+html[class*="theme-"] body .paperListbox .button-flat:hover {
     color: var(--theme-primary-color) !important;
     -webkit-text-fill-color: var(--theme-primary-color) !important;
 }
