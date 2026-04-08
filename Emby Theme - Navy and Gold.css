@@ -1751,16 +1751,17 @@ html[class*="theme-"] .emby-checkbox:not(:checked) + span::before {
     background-color: var(--black-alpha-20) !important; 
 }
 
-/* 2. Toggles (Switches): Styled using the Toggle Track/Thumb variables */
+/* 2. Toggles (Switches): Spring-Loaded Physics */
 html[class*="theme-"] .toggleSwitch {
   background-color:        var(--toggle-track-off) !important;
   border:                  var(--standard-border-thickness) solid var(--white-alpha-10) !important;
-  transition:              all var(--transition-speed) ease-in-out !important;
+  transition:              background-color 0.3s ease-in-out, border-color 0.3s ease-in-out !important;
 }
 
 html[class*="theme-"] .toggleSwitch::before {
   background-color:        var(--toggle-thumb-off) !important;
-  transition:              all var(--transition-speed) ease-in-out !important;
+  /* The Magic: A custom cubic-bezier curve makes the dot shoot over and "bounce" against the wall */
+  transition:              transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease !important;
 }
 
 html[class*="theme-"] .emby-toggle:checked ~ .toggleSwitch {
