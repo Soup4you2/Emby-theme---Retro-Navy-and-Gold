@@ -1221,8 +1221,11 @@ html[class*="theme-"] body .skinHeader .headerButton:has(.md-icon-star) {
 
 /* 1. Drawer Base Styling */
 .mainDrawer {
-  background-color:        var(--retro-navy) !important;
-  border-right:            var(--standard-border-thickness) solid var(--gold-alpha-15) !important;
+  background: var(--navy-base-alpha-75) !important; /* Swapped to a translucent navy */
+  background-color: transparent !important; /* Overrides Emby's native solid colors */
+  backdrop-filter: var(--blur-heavy) !important; /* Applies the frosted glass blur */
+  -webkit-backdrop-filter: var(--blur-heavy) !important; /* Safari support */
+  border-right: var(--standard-border-thickness) solid var(--gold-alpha-15) !important;
 }
 
 /* 2. Drawer Text & Title Resizing */
@@ -1548,6 +1551,15 @@ html[class*="theme-"] body .mainDrawer .navDrawerHeader .btnToggleNavDrawer:hove
   filter: drop-shadow(0 0 5px var(--my-gold)) !important;
   transform: scale(1.1) !important;
 }
+
+/* Apply frosted glass to the collapsed Mini Sidebar */
+  html[class*="theme-"] body .mainDrawer.mainDrawer-mini {
+      background: var(--navy-base-alpha-75) !important; 
+      background-color: transparent !important; 
+      backdrop-filter: var(--blur-heavy) !important; 
+      -webkit-backdrop-filter: var(--blur-heavy) !important; 
+      border-right: 1px solid var(--gold-alpha-15) !important; /* Keeps the edge clean */
+  }
 
 /* --- 3F. DOCKED SIDEBAR WIDTH --- */
 
