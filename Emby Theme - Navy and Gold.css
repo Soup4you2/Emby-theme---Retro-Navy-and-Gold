@@ -312,9 +312,9 @@ html,
   /* SEASONAL BACKGROUND ANIMATIONS */
   --seasonal-bg-visibility: visible;                                /* Fully Enabled */
   --seasonal-bg-anim-state: running;                                /* Fully Enabled */
-  /* --seasonal-bg-anim-state: paused !important;                   /* Paused Animations (Keeps art, stops the motion) */
-  /* --seasonal-bg-visibility: hidden !important;                   /* Fully Disabled */
-  /* --seasonal-bg-anim-state: paused !important;                   /* Fully Disabled */
+  /* --seasonal-bg-anim-state: paused;                              /* Paused Animations (Keeps art, stops the motion) */
+  /* --seasonal-bg-visibility: hidden;                              /* Fully Disabled */
+  /* --seasonal-bg-anim-state: paused;                              /* Fully Disabled */
 
 
   /* ============================================================
@@ -4732,6 +4732,12 @@ html[class*="theme-"] body .btnStartNow,
 html[class*="theme-"] body .button-submit {
   border: var(--standard-border-thickness) solid var(--black-alpha-20) !important;
 }
+
+/* --- 11D. Hide Playlists or Collection from the sidebar menu */
+/* .navDrawerCollapseSection:has([data-listtype="playlists"]), */
+.navDrawerCollapseSection:has([data-listtype="collections"]) {
+  display: none !important;
+} 
 
 /* ============================================================
    12. GLOBAL FIXES / HOTFIX (WIP) ZONE
