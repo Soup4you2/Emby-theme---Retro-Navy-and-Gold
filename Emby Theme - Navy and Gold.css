@@ -4665,7 +4665,7 @@ html[class*="theme-"] body .trackList .listItem .listItemBodyText-first {
 }
 
 /* ============================================================
-   11. LOGIN PAGE & MISC TWEAKS
+   11. MISC TWEAKS
    ============================================================ */
 
 /* --- 11A. Login Screen Layout --- */
@@ -4676,16 +4676,82 @@ body:has(.view-login) .skinHeader {
   display:                 none !important;
 }
 
-/* --- 11B. Loading Spinner Animation --- */
-.mdl-spinner__layer-1 {
-  animation:               mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, base-spinner-colors 5332ms linear infinite !important;
+/* --- 11B. Loading Spinner Animation  --- */
+
+/* 1. Hide Emby's native rotating rings */
+html[class*="theme-"] .mdl-spinner__layer {
+    display: none !important;
+    animation: none !important;
 }
 
-@keyframes base-spinner-colors {
-  0%, 100% { border-color: var(--theme-primary-color); }
-  25%      { border-color: var(--pure-white); }
-  50%      { border-color: var(--my-gold); }
-  75%      { border-color: var(--theme-primary-color); }
+/* 2. The Center Bar (The container itself) */
+html[class*="theme-"] .mdl-spinner {
+    position: relative !important;
+    width: 6px !important;
+    height: 32px !important;
+    border-radius: 4px !important;
+    margin: auto !important;
+    
+    /* Dual Animations: Bouncing (1s) and Color Cycling (3s) */
+    animation: audioWave 1s ease-in-out infinite, audioColors 3s linear infinite !important;
+    animation-delay: 0.15s !important;
+}
+
+/* 3. The Left and Right Bars */
+html[class*="theme-"] .mdl-spinner::before,
+html[class*="theme-"] .mdl-spinner::after {
+    content: '';
+    position: absolute !important;
+    top: 0 !important;
+    width: 6px !important;
+    height: 32px !important;
+    border-radius: 4px !important;
+    
+    animation: audioWave 1s ease-in-out infinite, audioColors 3s linear infinite !important;
+}
+
+/* Position the Left Bar */
+html[class*="theme-"] .mdl-spinner::before {
+    left: -14px !important;
+    animation-delay: 0s !important;
+}
+
+/* Position the Right Bar */
+html[class*="theme-"] .mdl-spinner::after {
+    left: 14px !important;
+    animation-delay: 0.3s !important;
+}
+
+/* 4. The Animations */
+
+/* The Bounce (Uses currentColor to link the glow to the active color below) */
+@keyframes audioWave {
+    0%, 100% {
+        transform: scaleY(0.5);
+        box-shadow: 0 0 5px transparent;
+        opacity: 0.5;
+    }
+    50% {
+        transform: scaleY(1.2);
+        box-shadow: 0 0 12px currentColor; 
+        opacity: 1;
+    }
+}
+
+/* The Color Cycle  */
+@keyframes audioColors {
+    0%, 100% { 
+        background-color: var(--theme-primary-color); 
+        color: var(--theme-primary-color);
+    }
+    33% { 
+        background-color: var(--pure-white); 
+        color: var(--pure-white);
+    }
+    66% { 
+        background-color: var(--my-gold-light); 
+        color: var(--my-gold-light);
+    }
 }
 
 /* --- 11C. 3D Pop-out Effects (Driven by Section 1 Toggles) --- */
