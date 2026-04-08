@@ -4973,6 +4973,19 @@ html[class*="theme-"] body .paperListbox .button-flat:hover {
 }
 
 /* ============================================================
+   HOTFIX: DARK FROSTED GLASS SIDEBAR
+   ============================================================ */
+html[class*="theme-"] body .mainDrawer,
+html[class*="theme-"] body .mainDrawer.drawer-docked,
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini {
+    background: none !important; 
+    background-image: none !important; 
+    background-color: var(--navy-base-alpha-75) !important; /* Back to the deep navy tint */
+    backdrop-filter: var(--blur-heavy) !important; 
+    -webkit-backdrop-filter: var(--blur-heavy) !important; 
+}
+
+/* ============================================================
    13. UNIVERSAL SEASONAL LOGIC
    ============================================================ */
 
