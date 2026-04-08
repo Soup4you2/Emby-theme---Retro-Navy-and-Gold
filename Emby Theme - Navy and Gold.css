@@ -1221,11 +1221,8 @@ html[class*="theme-"] body .skinHeader .headerButton:has(.md-icon-star) {
 
 /* 1. Drawer Base Styling */
 .mainDrawer {
-  background: var(--navy-base-alpha-75) !important; /* Swapped to a translucent navy */
-  background-color: transparent !important; /* Overrides Emby's native solid colors */
-  backdrop-filter: var(--blur-heavy) !important; /* Applies the frosted glass blur */
-  -webkit-backdrop-filter: var(--blur-heavy) !important; /* Safari support */
-  border-right: var(--standard-border-thickness) solid var(--gold-alpha-15) !important;
+  background-color:        var(--retro-navy) !important;
+  border-right:            var(--standard-border-thickness) solid var(--gold-alpha-15) !important;
 }
 
 /* 2. Drawer Text & Title Resizing */
@@ -4853,6 +4850,23 @@ html[class*="theme-"] body div.popupStylePicker.dialog.popup {
 
 html[class*="theme-"] body div.popupStylePicker.dialog.popup > div {
     overflow: visible !important;
+}
+
+/* ============================================================
+   HOTFIX: TOP HEADER USER ICON COLOR FIX
+   ============================================================ */
+html[class*="theme-"] body .skinHeader button.headerUserButton.paper-icon-button-light .md-icon,
+html[class*="theme-"] body .skinHeader button.headerUserButton.paper-icon-button-light * {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* ============================================================
+   HOTFIX: MULTI-SELECT DROPDOWN TEXT COLOR
+   ============================================================ */
+html[class*="theme-"] body .emby-select-selectedName {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
 }
 
 /* ============================================================
