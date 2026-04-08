@@ -1660,21 +1660,9 @@ html[class*="theme-"] body .actionSheet {
 }
 
 /* 4. Selection Panels: The floating bar for multi-selecting media (STANDARD) */
-/* STANDARD
 html[class*="theme-"] .itemSelectionPanel,
 html[class*="theme-"] .selectionCommandsPanel {
   background-color:        var(--retro-navy-light) !important;
-  border:                  var(--standard-border-thickness) solid var(--theme-primary-color) !important;
-  color:                   var(--pure-white) !important;
-}
-*/
-/* 4. Selection Panels: The floating bar for multi-selecting media (FROSTED) */
-html[class*="theme-"] .itemSelectionPanel,
-html[class*="theme-"] .selectionCommandsPanel {
-  background:              var(--navy-light-alpha-80) !important; /* Switched to translucent navy */
-  background-color:        transparent !important; /* Clears out the solid color */
-  backdrop-filter:         var(--blur-heavy) !important; /* Applies the frost */
-  -webkit-backdrop-filter: var(--blur-heavy) !important; /* Safari Support */
   border:                  var(--standard-border-thickness) solid var(--theme-primary-color) !important;
   color:                   var(--pure-white) !important;
 }
