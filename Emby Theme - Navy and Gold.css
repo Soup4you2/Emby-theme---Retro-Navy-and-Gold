@@ -28,55 +28,55 @@ html,
   /* --- CUSTOM MASTER PALETTE --- */
 
   /* OPTION 1 - USE THE THEMES GOLD COLOR */
-  --my-gold: rgba(var(--my-gold-rgb), 1);                           /* Solid gold fallback for borders and text accents */
-  --my-gold-light: rgba(var(--my-gold-light-rgb), 1);               /* Brighter gold fallback for highlight gradients */
-  --retro-navy: rgba(var(--navy-base-rgb), 1);                      /* Darkest navy fallback for main backgrounds */
-  --retro-navy-light: rgba(var(--navy-mid-rgb), 1);                 /* Mid-tone navy fallback for panels and cards */  
-  --star-color: var(--retro-navy-light);                            /* Media info badge rating star color */
-  --star-glow: drop-shadow(0 0 5px rgba(7, 5, 0, 0));               /* Media info badge rating star glow */
+  --my-gold: rgba(var(--my-gold-rgb), 1);                          /* Solid gold fallback for borders and text accents */
+  --my-gold-light: rgba(var(--my-gold-light-rgb), 1);              /* Brighter gold fallback for highlight gradients */
+  --retro-navy: rgba(var(--navy-base-rgb), 1);                     /* Darkest navy fallback for main backgrounds */
+  --retro-navy-light: rgba(var(--navy-mid-rgb), 1);                /* Mid-tone navy fallback for panels and cards */  
+  --star-color: var(--retro-navy-light);                           /* Media info badge rating star color */
+  --star-glow: drop-shadow(0 0 5px rgba(7, 5, 0, 0));              /* Media info badge rating star glow */
 
   /* OPTION 2 - USE THE USERS ACCENT COLOR PREFERENCES */
   /* NOTE: KEEP IN MIND EVERY USER HAS THEIR OWN ACCENT COLOR OPTION */
   /* --my-gold: hsl(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%));   /* Theme primary color set by User Accent Color */
   /* --my-gold-light: color-mix(in srgb, var(--my-gold) 70%, white);  /* Solid gold fallback for borders and text accents */
-  /* --retro-navy: rgba(var(--navy-base-rgb), 1);                     /* Darkest navy fallback */
-  /* --retro-navy-light: rgba(var(--navy-mid-rgb), 1);                /* Mid-tone navy fallback */  
-  /* --star-color: rgba(255, 185, 0, 1);                              /* Direct RGBA for stability */
-  /* --star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));        /* Media info badge rating star glow */
+  /* --retro-navy: rgba(var(--navy-base-rgb), 1);                  /* Darkest navy fallback */
+  /* --retro-navy-light: rgba(var(--navy-mid-rgb), 1);             /* Mid-tone navy fallback */  
+  /* --star-color: rgba(255, 185, 0, 1);                           /* Direct RGBA for stability */
+  /* --star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));     /* Media info badge rating star glow */
 
   /* --- CORE SOLID COLORS --- */
-  --pure-white: rgba(var(--pure-white-rgb), 1);                   /* Solid white for high-contrast icons */
-  --pure-black: rgba(var(--pure-black-rgb), 1);                   /* Solid black for deep shadow foundations */
-  --text-muted: rgb(236, 236, 236);                               /* Soft white used globally for primary paragraph/body text */
-  --scrollbar-thumb: rgb(51, 51, 51);                             /* Color of the draggable handle on the browser scrollbar */
+  --pure-white: rgba(var(--pure-white-rgb), 1);                    /* Solid white for high-contrast icons */
+  --pure-black: rgba(var(--pure-black-rgb), 1);                    /* Solid black for deep shadow foundations */
+  --text-muted: rgb(236, 236, 236);                                /* Soft white used globally for primary paragraph/body text */
+  --scrollbar-thumb: rgb(51, 51, 51);                              /* Color of the draggable handle on the browser scrollbar */
 
   /* --- CORE RGB VALUES (The Source of Truth for Transparencies) --- */
-  --pure-black-rgb: 0, 0, 0;                                      /* Controls the absolute darkest shadows and UI overlays */
-  --pure-white-rgb: 255, 255, 255;                                /* Controls high-contrast text and active icons */
-  --my-gold-rgb: 255, 185, 0;                                     /* Controls the base primary theme color (Retro Gold) */
-  --my-gold-light-rgb: 255, 202, 58;                              /* Controls hover highlights and brighter gradients */
-  --navy-base-rgb: 0, 8, 20;                                      /* Controls the deepest background color (outer radial edge) */
-  --navy-mid-rgb: 0, 29, 61;                                      /* Controls the center/middle of the background radial gradient */
-  --navy-light-rgb: 0, 20, 40;                                    /* Controls the base surface color for floating panels, dialogs, and cards */
-  --navy-accent-rgb: 28, 34, 44;                                  /* Controls the default unselected background of navigation pills */
+  --pure-black-rgb: 0, 0, 0;                                       /* Controls the absolute darkest shadows and UI overlays */
+  --pure-white-rgb: 255, 255, 255;                                 /* Controls high-contrast text and active icons */
+  --my-gold-rgb: 255, 185, 0;                                      /* Controls the base primary theme color (Retro Gold) */
+  --my-gold-light-rgb: 255, 202, 58;                               /* Controls hover highlights and brighter gradients */
+  --navy-base-rgb: 0, 8, 20;                                       /* Controls the deepest background color (outer radial edge) */
+  --navy-mid-rgb: 0, 29, 61;                                       /* Controls the center/middle of the background radial gradient */
+  --navy-light-rgb: 0, 20, 40;                                     /* Controls the base surface color for floating panels, dialogs, and cards */
+  --navy-accent-rgb: 28, 34, 44;                                   /* Controls the default unselected background of navigation pills */
 
   /* --- EMBY THEME ENFORCERS (Overrides native Emby logic) --- */
-  --theme-primary-color: var(--my-gold);                          /* Emby's native primary color hook */
-  --theme-accent-color: var(--my-gold);                           /* Emby's native accent color hook */
-  --theme-accent-text-color: var(--my-gold);                      /* Text links and highlighted active text */
-  --theme-text-color: var(--text-muted);                          /* Emby's native global text hook */
-  --theme-checked-color: var(--my-gold);                          /* Active state of checkboxes and switches */
-  --theme-icon-focus-background: var(--gold-alpha-20);            /* Background highlight behind focused icons/menus */
-  --theme-selection-background: var(--gold-alpha-20);             /* Background highlight behind selected list items */
-  --theme-primary-color-lightened: var(--my-gold);                /* Secondary highlight hook used by Emby */
-  --theme-background: var(--retro-navy);                          /* Emby's native background hook */
-  --theme-text-color-opaque: var(--pure-white);                   /* Emby's native bright text hook */
-  --theme-secondary-text-color: var(--white-alpha-70);            /* Emby's native muted/sub-text hook */
-  --line-background: var(--gold-alpha-15);                        /* Color of horizontal divider lines */
-  --line-size: 1px;                                               /* Thickness of horizontal divider lines */
-  --background-color: var(--retro-navy);                          /* Safety fallback for the main background */
-  --dialog-background-color: var(--navy-light-alpha-80);          /* Default background color of modal popups */
-  --theme-text-color-force: var(--text-muted);                    /* Custom override variable to force text colors */
+  --theme-primary-color: var(--my-gold);                           /* Emby's native primary color hook */
+  --theme-accent-color: var(--my-gold);                            /* Emby's native accent color hook */
+  --theme-accent-text-color: var(--my-gold);                       /* Text links and highlighted active text */
+  --theme-text-color: var(--text-muted);                           /* Emby's native global text hook */
+  --theme-checked-color: var(--my-gold);                           /* Active state of checkboxes and switches */
+  --theme-icon-focus-background: var(--gold-alpha-20);             /* Background highlight behind focused icons/menus */
+  --theme-selection-background: var(--gold-alpha-20);              /* Background highlight behind selected list items */
+  --theme-primary-color-lightened: var(--my-gold);                 /* Secondary highlight hook used by Emby */
+  --theme-background: var(--retro-navy);                           /* Emby's native background hook */
+  --theme-text-color-opaque: var(--pure-white);                    /* Emby's native bright text hook */
+  --theme-secondary-text-color: var(--white-alpha-70);             /* Emby's native muted/sub-text hook */
+  --line-background: var(--gold-alpha-15);                         /* Color of horizontal divider lines */
+  --line-size: 1px;                                                /* Thickness of horizontal divider lines */
+  --background-color: var(--retro-navy);                           /* Safety fallback for the main background */
+  --dialog-background-color: var(--navy-light-alpha-80);           /* Default background color of modal popups */
+  --theme-text-color-force: var(--text-muted);                     /* Custom override variable to force text colors */
 
   /* --- RGBA TRANSLUCENCY VARIABLES (The Math) --- */
   --black-alpha-20: rgba(var(--pure-black-rgb), 0.2);              /* Very light shadow */
@@ -182,87 +182,87 @@ html,
   --filter-glow-gold-solid: drop-shadow(0 0 5px var(--my-gold));   /* Solid hard glow for icons */
 
   /* SIDEBAR OPTIONS */
-  --custom-sidebar-width: 250px;                                    /* Define the custom width (Triggered only when the full sidebar is open) */  
-  --sidebar-playlists: block;                                       /* Set to 'none' to hide Playlists from the sidebar, block to enable */
-  --sidebar-collections: none;                                      /* Set to 'none' to hide Collections from the sidebar, block to enable */
+  --custom-sidebar-width: 250px;                                   /* Define the custom width (Triggered only when the full sidebar is open) */  
+  --sidebar-playlists: block;                                      /* Set to 'none' to hide Playlists from the sidebar, block to enable */
+  --sidebar-collections: none;                                     /* Set to 'none' to hide Collections from the sidebar, block to enable */
 
   /* FROST EFFECTS (SIDEBAR AND BACKGROUND ON DIALOGS */
-  --frost-blur-power: var(--blur-heavy);                            /* The blur intensity: var(--blur-heavy), var(--blur-light), or none */
-  --frost-sidebar-bg: var(--navy-base-alpha-75);                    /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
+  --frost-blur-power: var(--blur-heavy);                           /* The blur intensity: var(--blur-heavy), var(--blur-light), or none */
+  --frost-sidebar-bg: var(--navy-base-alpha-75);                   /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
 
    /* STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) */
-  --media-card-radius: 15px;                                        /* Adjust the corner rounding of standard posters */
+  --media-card-radius: 15px;                                       /* Adjust the corner rounding of standard posters */
 
   /* MEDIA CARD POPOUT EFFECTS --- */
-  --popout-perspective: none;                                       /* Effects can be made when hovering over media cards */
-  --popout-transform: none;                                         /* Effects can be made when hovering over media cards */
-  --popout-shadow: none;                                            /* Effects can be made when hovering over media cards */
+  --popout-perspective: none;                                      /* Effects can be made when hovering over media cards */
+  --popout-transform: none;                                        /* Effects can be made when hovering over media cards */
+  --popout-shadow: none;                                           /* Effects can be made when hovering over media cards */
 
   /* CAST & CREW PORTRAIT SHAPES (DEFAULT: OVAL) */
-  --portrait-radius: 50% / 40%;                                     /* Oval Shaped */
-  --portrait-ratio: 2 / 3;                                          /* Oval Shaped */
-  /* --portrait-radius: 50%;                                        /* Circle Shaped */
-  /* --portrait-ratio: 1 / 1;                                       /* Circle Shaped */
-  /* --portrait-radius: var(--border-radius-lg);                    /* Default - Rectangle */
-  /* --portrait-ratio: 2 / 3;                                       /* Default - Rectangle */
+  --portrait-radius: 50% / 40%;                                    /* Oval Shaped */
+  --portrait-ratio: 2 / 3;                                         /* Oval Shaped */
+  /* --portrait-radius: 50%;                                       /* Circle Shaped */
+  /* --portrait-ratio: 1 / 1;                                      /* Circle Shaped */
+  /* --portrait-radius: var(--border-radius-lg);                   /* Default - Rectangle */
+  /* --portrait-ratio: 2 / 3;                                      /* Default - Rectangle */
   
   /* PLAY BUTTON VISABILITY WHEN HOVERING OVER MEDIA CARDS */
-  --play-button-display: inline-block;                              /* Enabled */
-  /* --play-button-display: none;                                   /* Disabled */
+  --play-button-display: inline-block;                             /* Enabled */
+  /* --play-button-display: none;                                  /* Disabled */
 
   /* BACKDROP & FANART STYLE */
-  --backdrop-opacity: 0.9;                                          /* DIMMING (Traditional full-screen dark overlay) */
-  --backdrop-bg-color: rgba(0, 8, 20, 0.75);                        /* DIMMING (Traditional full-screen dark overlay) */
-  --backdrop-gradient: none;                                        /* DIMMING (Traditional full-screen dark overlay) */
-  --backdrop-text-shadow: none;                                     /* DIMMING (Traditional full-screen dark overlay) */
-  /* --backdrop-opacity: 1;                                         /* NO DIMMING */
-  /* --backdrop-bg-color: transparent;                              /* NO DIMMING */
+  --backdrop-opacity: 0.9;                                         /* DIMMING (Traditional full-screen dark overlay) */
+  --backdrop-bg-color: rgba(0, 8, 20, 0.75);                       /* DIMMING (Traditional full-screen dark overlay) */
+  --backdrop-gradient: none;                                       /* DIMMING (Traditional full-screen dark overlay) */
+  --backdrop-text-shadow: none;                                    /* DIMMING (Traditional full-screen dark overlay) */
+  /* --backdrop-opacity: 1;                                        /* NO DIMMING */
+  /* --backdrop-bg-color: transparent;                             /* NO DIMMING */
   /* --backdrop-gradient: linear-gradient(to right, var(--navy-base-solid) 0%, var(--navy-base-alpha-75) 30%, transparent 75%);    /* NO DIMMING */
   /* --backdrop-text-shadow: 0 2px 5px var(--pure-black), 0 0 12px var(--pure-black);    /* NO DIMMING */
 
   /* BUTTONS AND INDICATORS */
   --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
-  --button-popout-transform: translate(-3px, -3px);                 /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
+  --button-popout-transform: translate(-3px, -3px);                /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
   --button-popout-active-shadow: 0px 0px 5px var(--black-alpha-80); /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
   --button-popout-active-transform: translate(0px, 0px);            /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
   --count-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Popout - Unwatched count style */
-  --count-indicator-color: var(--retro-navy);                       /* Popout - Unwatched count style */
-  --count-indicator-border: 2px solid var(--retro-navy);            /* Popout - Unwatched count style */
+  --count-indicator-color: var(--retro-navy);                      /* Popout - Unwatched count style */
+  --count-indicator-border: 2px solid var(--retro-navy);           /* Popout - Unwatched count style */
   --count-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Popout - Unwatched count style */
   --played-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);   /* Popout - Played Indicator */
-  --played-indicator-color: var(--retro-navy);                      /* Popout - Played Indicator */
-  --played-indicator-border: 2px solid var(--retro-navy);           /* Popout - Played Indicator */
+  --played-indicator-color: var(--retro-navy);                     /* Popout - Played Indicator */
+  --played-indicator-border: 2px solid var(--retro-navy);          /* Popout - Played Indicator */
   --played-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);    /* Popout - Played Indicator */
   --media-badge-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Popout - Media Info Badges */
-  --media-badge-color: var(--retro-navy);                           /* Popout - Media Info Badges */
-  --media-badge-border: 2px solid var(--retro-navy);                /* Popout - Media Info Badges */
+  --media-badge-color: var(--retro-navy);                          /* Popout - Media Info Badges */
+  --media-badge-border: 2px solid var(--retro-navy);               /* Popout - Media Info Badges */
   --media-badge-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Popout - Media Info Badges */
-  --media-badge-radius: var(--border-radius-pill);                  /* Popout - Media Info Badges */
-  --media-badge-hover-bg: var(--pure-white);                        /* Popout - Media Info Badges */
-  --media-badge-hover-color: var(--pure-black);                     /* Popout - Media Info Badges */
-  --media-badge-hover-border: 2px solid var(--pure-black);          /* Popout - Media Info Badges */
-  --media-badge-hover-shadow: var(--shadow-glow-standard);          /* Popout - Media Info Badges */
-  /* --button-popout-shadow: none;                                  /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
-  /* --button-popout-transform: none;                               /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
-  /* --button-popout-active-shadow: none;                           /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
-  /* --button-popout-active-transform: none;                        /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
-  /* --count-indicator-bg: var(--my-gold);                          /* Flat - Unwatched count style */
-  /* --count-indicator-color: var(--pure-black);                    /* Flat - Unwatched count style */
-  /* --count-indicator-border: 2px solid transparent;               /* Flat - Unwatched count style */
-  /* --count-indicator-shadow: var(--glow-medium);                  /* Flat - Unwatched count style */
-  /* --played-indicator-bg: var(--my-gold);                         /* Flat - Played Indicator */
-  /* --played-indicator-color: var(--pure-black);                   /* Flat - Played Indicator */
-  /* --played-indicator-border: 2px solid transparent;              /* Flat - Played Indicator */
-  /* --played-indicator-shadow: var(--glow-medium);                 /* Flat - Played Indicator */
-  /* --media-badge-bg: var(--navy-mid-alpha-45);                    /* Flat - Media Info Badges */
-  /* --media-badge-color: var(--my-gold);                           /* Flat - Media Info Badges */
+  --media-badge-radius: var(--border-radius-pill);                 /* Popout - Media Info Badges */
+  --media-badge-hover-bg: var(--pure-white);                       /* Popout - Media Info Badges */
+  --media-badge-hover-color: var(--pure-black);                    /* Popout - Media Info Badges */
+  --media-badge-hover-border: 2px solid var(--pure-black);         /* Popout - Media Info Badges */
+  --media-badge-hover-shadow: var(--shadow-glow-standard);         /* Popout - Media Info Badges */
+  /* --button-popout-shadow: none;                                 /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
+  /* --button-popout-transform: none;                              /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
+  /* --button-popout-active-shadow: none;                          /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
+  /* --button-popout-active-transform: none;                       /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
+  /* --count-indicator-bg: var(--my-gold);                         /* Flat - Unwatched count style */
+  /* --count-indicator-color: var(--pure-black);                   /* Flat - Unwatched count style */
+  /* --count-indicator-border: 2px solid transparent;              /* Flat - Unwatched count style */
+  /* --count-indicator-shadow: var(--glow-medium);                 /* Flat - Unwatched count style */
+  /* --played-indicator-bg: var(--my-gold);                        /* Flat - Played Indicator */
+  /* --played-indicator-color: var(--pure-black);                  /* Flat - Played Indicator */
+  /* --played-indicator-border: 2px solid transparent;             /* Flat - Played Indicator */
+  /* --played-indicator-shadow: var(--glow-medium);                /* Flat - Played Indicator */
+  /* --media-badge-bg: var(--navy-mid-alpha-45);                   /* Flat - Media Info Badges */
+  /* --media-badge-color: var(--my-gold);                          /* Flat - Media Info Badges */
   /* --media-badge-border: var(--standard-border-thickness) solid var(--gold-alpha-30);     /* Flat - Media Info Badges */
-  /* --media-badge-shadow: none;                                    /* Flat - Media Info Badges */
-  /* --media-badge-radius: 5px;                                     /* Flat - Media Info Badges */
-  /* --media-badge-hover-bg: var(--pure-white);                     /* Flat - Media Info Badges */
-  /* --media-badge-hover-color: var(--my-gold);                     /* Flat - Media Info Badges */
+  /* --media-badge-shadow: none;                                   /* Flat - Media Info Badges */
+  /* --media-badge-radius: 5px;                                    /* Flat - Media Info Badges */
+  /* --media-badge-hover-bg: var(--pure-white);                    /* Flat - Media Info Badges */
+  /* --media-badge-hover-color: var(--my-gold);                    /* Flat - Media Info Badges */
   /* --media-badge-hover-border: var(--standard-border-thickness) solid var(--my-gold);     /* Flat - Media Info Badges */
-  /* --media-badge-hover-shadow: var(--glow-medium);                /* Flat - Media Info Badges */
+  /* --media-badge-hover-shadow: var(--glow-medium);               /* Flat - Media Info Badges */
  
   /* --- UI DIMENSIONS & SHAPES --- */
   --hover-border-thickness: 2px;                                   /* Thickness for glow borders on hover */
@@ -299,11 +299,11 @@ html,
   --order-about: 5;                                                /* Vertical order of About section */
 
   /* SEASONAL BACKGROUND ANIMATIONS */
-  --seasonal-bg-visibility: visible;                                /* Fully Enabled */
-  --seasonal-bg-anim-state: running;                                /* Fully Enabled */
-  /* --seasonal-bg-anim-state: paused;                              /* Paused Animations (Keeps art, stops the motion) */
-  /* --seasonal-bg-visibility: hidden;                              /* Fully Disabled */
-  /* --seasonal-bg-anim-state: paused;                              /* Fully Disabled */
+  --seasonal-bg-visibility: visible;                               /* Fully Enabled */
+  --seasonal-bg-anim-state: running;                               /* Fully Enabled */
+  /* --seasonal-bg-anim-state: paused;                             /* Paused Animations (Keeps art, stops the motion) */
+  /* --seasonal-bg-visibility: hidden;                             /* Fully Disabled */
+  /* --seasonal-bg-anim-state: paused;                             /* Fully Disabled */
 
 
   /* ============================================================
