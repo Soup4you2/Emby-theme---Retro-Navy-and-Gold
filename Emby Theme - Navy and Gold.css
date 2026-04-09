@@ -2663,17 +2663,18 @@ html[class*="theme-"] body .card:hover .defaultCardBackground {
                            0 25px 40px var(--black-alpha-60), 
                            var(--shadow-glow-standard), 
                            inset 0 0 10px var(--gold-alpha-10) !important;
-  transform:               translateY(-6px) scale(1.03) !important;
 }
 
 /* 2. Shape Handling: Ensures standard cards (movies/shows) maintain specific rounding at rest and on hover */
 html[class*="theme-"] body .card .cardContent:not(.cardContent-round),
 html[class*="theme-"] body .card .cardImageContainer:not(.cardContent-round),
 html[class*="theme-"] body .card .defaultCardBackground:not(.cardContent-round),
+html[class*="theme-"] body .card .cardOverlayContainer:not(.cardContent-round),
 html[class*="theme-"] body .card:hover .cardContent:not(.cardContent-round),
 html[class*="theme-"] body .card:hover .cardImageContainer:not(.cardContent-round),
 html[class*="theme-"] body .card:hover .defaultCardBackground:not(.cardContent-round) {
-    border-radius: var(--media-card-radius) !important; 
+    border-radius: var(--media-card-radius) !important;
+    overflow: hidden !important; /* Stops the inner background from bleeding past the curved corners */
 }
 
 /* 3. Circular Cards: Ensures Music Artists and Collections stay circular during hover */
@@ -4851,18 +4852,19 @@ html[class*="theme-"] .mdl-spinner::after {
 }
 
 /* --- 11C. 3D Pop-out Effects (Driven by Section 1 Toggles) --- */
-.cardBox {
+html[class*="theme-"] body .cardBox {
   perspective:             var(--popout-perspective) !important;
 }
 
-.cardImageContainer {
+html[class*="theme-"] body .cardImageContainer,
+html[class*="theme-"] body .defaultCardBackground {
   transition:              transform 0.3s ease-out, box-shadow 0.3s ease-out !important;
   transform-origin:        center center !important;
 }
 
-.card:hover .cardImageContainer {
+html[class*="theme-"] body .card:hover .cardImageContainer,
+html[class*="theme-"] body .card:hover .defaultCardBackground {
   transform:               var(--popout-transform) !important;
-  box-shadow:              var(--popout-shadow) !important;
 }
 
 /* Detail action buttons 3D click effect */
