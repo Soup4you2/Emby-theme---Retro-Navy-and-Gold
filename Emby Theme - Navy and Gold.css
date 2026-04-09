@@ -25,6 +25,14 @@ html,
   --font-header: 'Oswald', sans-serif;                             /* Primary cinematic header font */
   --font-body: 'Sofia Sans', sans-serif;                           /* Standard readable body font */
 
+  /* --- HEADING COLORS --- */
+  --h1-color: var(--my-gold);                                      /* Video & Music Titles in OSD, Dashboard Root, Startup and Login Screens */
+  --h2-color: var(--my-gold);                                      /* Page Titles, Section Divider Headers, Media Detail Title, Dialog window titles */
+  --h3-color: var(--my-gold);                                      /* Sub-Headers, Media Captions, */
+  --h4-color: var(--my-gold);                                      /* Micro-Headers, Container Title Text, Table grid header color*/
+  --h5-color: var(--pure-white);                                   /* Setting Titles, Deep Metadata & Plugins */
+  --h6-color: var(--white-alpha-80);                               /* Setting Description Text, Sidebar Category Text, Deep Metadata & Plugins */  
+
   /* --- CUSTOM MASTER PALETTE --- */
 
   /* OPTION 1 - USE THE THEMES GOLD COLOR */
@@ -211,14 +219,13 @@ html,
   /* --play-button-display: none;                                  /* Disabled */
 
   /* BACKDROP & FANART STYLE */
-  --backdrop-opacity: 0.9;                                         /* DIMMING (Traditional full-screen dark overlay) */
-  --backdrop-bg-color: rgba(0, 8, 20, 0.75);                       /* DIMMING (Traditional full-screen dark overlay) */
+  --backdrop-opacity: .9;                                           /* DIMMING (Traditional full-screen dark overlay) */
+  --backdrop-bg-color: rgba(var(--pure-black-rgb), .7);            /* DIMMING (Traditional full-screen dark overlay) */
   --backdrop-gradient: none;                                       /* DIMMING (Traditional full-screen dark overlay) */
-  --backdrop-text-shadow: none;                                    /* DIMMING (Traditional full-screen dark overlay) */
-  /* --backdrop-opacity: 1;                                        /* NO DIMMING */
-  /* --backdrop-bg-color: transparent;                             /* NO DIMMING */
-  /* --backdrop-gradient: linear-gradient(to right, var(--navy-base-solid) 0%, var(--navy-base-alpha-75) 30%, transparent 75%);    /* NO DIMMING */
-  /* --backdrop-text-shadow: 0 2px 5px var(--pure-black), 0 0 12px var(--pure-black);    /* NO DIMMING */
+  /* --backdrop-opacity: 1;                                         /* NO DIMMING */
+  /* --backdrop-bg-color: transparent;                              /* NO DIMMING */
+  /* --backdrop-gradient: linear-gradient(to right, var(--pure-black) 0%, var(--black-alpha-75) 30%, transparent 75%);    /* NO DIMMING */
+  --backdrop-blur: none;                                           /* BLUR EFFECT (Only affects posters not video) - Options: var(--blur-light), var(--blur-heavy), var(--blur-extreme), or blur(15px) */
 
   /* BUTTONS AND INDICATORS */
   --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
@@ -750,11 +757,8 @@ html[class*="theme-"] .backgroundContainer:not(.backgroundContainer-transparent)
 
 html[class*="theme-"] body .backgroundContainer.withBackdrop,
 html[class*="theme-"] body .backgroundContainer.withBackdrop:not(.backgroundContainer-transparent) {
-  background-color: transparent !important;
-  background-image: linear-gradient(to bottom, 
-                    rgba(var(--pure-black-rgb), 0.1) 0%, 
-                    rgba(var(--pure-black-rgb), 0.6) 40%, 
-                    rgba(var(--pure-black-rgb), 1) 100%) !important;
+  background-color: var(--backdrop-bg-color) !important;
+  background-image: var(--backdrop-gradient) !important;
 }
 
 /* 3b. Video Playback Fix: Prevents the dynamic backdrop from tinting or dimming active video playback */
@@ -815,7 +819,7 @@ html[class*="theme-"] .mainAnimatedPages {
 /* 7. Fanart Intensity: Dynamically controls backdrop brightness */
 html[class*="theme-"] body .backdropImage {
   opacity: var(--backdrop-opacity) !important;
-  filter: none !important;
+  filter: var(--backdrop-blur) !important;
 }
 
 /* --- 2B. GLOBAL TYPOGRAPHY & FONTS --- */
@@ -845,19 +849,20 @@ body,
 html[class*="theme-"] .pageTitle,
 html[class*="theme-"] .sectionTitle {
   font-family:    var(--font-header) !important;
-  color:          var(--theme-primary-color) !important;
+  color:          var(--h2-color) !important; /* Mapped to H2 variable */
   text-transform: uppercase !important;
   letter-spacing: 1.5px !important;
   text-shadow:    2px 2px 4px var(--black-alpha-50) !important;
 }
 
-/* 4. Setting Labels: Highlights form labels in Gold for better visibility in the dashboard */
+/* 4. Setting Labels: Highlights form labels for better visibility in the dashboard */
 html[class*="theme-"] .inputLabel, 
 html[class*="theme-"] .selectLabel, 
 html[class*="theme-"] .checkboxListLabel, 
 html[class*="theme-"] .textareaLabel {
-  color:       var(--my-gold) !important; 
-  font-weight: 600;
+  color:                   var(--h5-color) !important; 
+  -webkit-text-fill-color: var(--h5-color) !important; 
+  font-weight:             600;
 }
 
 /* 5. Sub-text Support: Standardizes muted text across all Emby theme modes */
@@ -952,64 +957,90 @@ html[class*="theme-"] .detailPageContent {
     -webkit-text-fill-color: var(--text-muted) !important;
 }
 
-/* 2. PRIMARY TITLES & GENERAL LINKS (Mapped to: Pure White) */
-html[class*="theme-"] h1, 
-html[class*="theme-"] h2, 
-html[class*="theme-"] h3,
-html[class*="theme-"] h4,
-html[class*="theme-"] .cardText,
-html[class*="theme-"] .cardText-first,
-html[class*="theme-"] .primaryText,
-html[class*="theme-"] .button-link {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
+/* 2. Map About Section headers to the H2 variable */
+/* We added :not(.dateLastPlayedText) so it explicitly ignores the date string */
+html[class*="theme-"] body .aboutSection h2.sectionTitle,
+html[class*="theme-"] body .aboutSection div.sectionTitle:not(.dateLastPlayedText), 
+html[class*="theme-"] body .aboutSection h4.sectionTitle,
+html[class*="theme-"] body .aboutSection .mediaInfoPanel h2 {
+    -webkit-text-fill-color: var(--h2-color) !important; 
+    color: var(--h2-color) !important;
 }
 
-/* 3. SECONDARY TEXT (Mapped to: Translucent White) */
-html[class*="theme-"] .cardText-secondary,
-html[class*="theme-"] .secondaryText,
-html[class*="theme-"] .listItemBodyText-secondary,
+/* 2.5 MEDIA CARD TITLES (Mapped to: H4 Variable) */
+html[class*="theme-"] .cardText-first {
+    color: var(--h4-color) !important;
+    -webkit-text-fill-color: var(--h4-color) !important;
+}
+
+/* 2b. INDIVIDUAL HEADING COLORS */
+html[class*="theme-"] h1 { color: var(--h1-color) !important; -webkit-text-fill-color: var(--h1-color) !important; }
+html[class*="theme-"] h2 { color: var(--h2-color) !important; -webkit-text-fill-color: var(--h2-color) !important; }
+html[class*="theme-"] h3 { color: var(--h3-color) !important; -webkit-text-fill-color: var(--h3-color) !important; }
+html[class*="theme-"] h4 { color: var(--h4-color) !important; -webkit-text-fill-color: var(--h4-color) !important; }
+html[class*="theme-"] h5 { color: var(--h5-color) !important; -webkit-text-fill-color: var(--h5-color) !important; }
+
+/* H6: Descriptions and Muted Metadata */
+html[class*="theme-"] h6,
 html[class*="theme-"] .fieldDescription,
-html[class*="theme-"] .guideProgramTime {
-    color: var(--white-alpha-70) !important;
-    -webkit-text-fill-color: var(--white-alpha-70) !important;
+html[class*="theme-"] .secondaryText {
+    color: var(--h6-color) !important;
+    -webkit-text-fill-color: var(--h6-color) !important;
 }
 
-/* 4. STRUCTURAL HEADERS & LEGENDS (Mapped to: Orange/Gold) */
+/* 3. Map About Section text, links, and specific data to the H4 variable */
+html[class*="theme-"] body .aboutSection .button-link,
+html[class*="theme-"] body .aboutSection .mediaInfoAttributeValue,
+html[class*="theme-"] body .aboutSection .itemSecondaryText,
+html[class*="theme-"] body .aboutSection .secondaryText,
+html[class*="theme-"] body .aboutSection .audioVideoMediaInfo,
+html[class*="theme-"] body .aboutSection .audioVideoMediaInfo *,
+html[class*="theme-"] body .aboutSection div.sectionTitle.dateLastPlayedText {
+    -webkit-text-fill-color: var(--h4-color) !important; 
+    color: var(--h4-color) !important;
+    text-transform: none !important; /* Prevents file paths from being forced into all-caps */
+}
+
+/* 4. STRUCTURAL HEADERS & LEGENDS (Mapped to H2 and H3 Variables) */
+/* "Video" title and page headers stay mapped to your H2 variable (White) */
 html[class*="theme-"] .pageTitle,
 html[class*="theme-"] .pageTitle .button-link,
 html[class*="theme-"] .sectionTitle,
 html[class*="theme-"] .sectionTitle .button-link,
+html[class*="theme-"] .settingsContainer h2,
+html[class*="theme-"] .actionSheetTitle,
+html[class*="theme-"] .formDialogHeaderTitle,
 html[class*="theme-"] legend,
 html[class*="theme-"] .dashboardGeneralForm legend,
 html[class*="theme-"] .settingsContainer legend {
-    color: var(--theme-primary-color) !important;
-    -webkit-text-fill-color: var(--theme-primary-color) !important;
+    color: var(--h2-color) !important;
+    -webkit-text-fill-color: var(--h2-color) !important;
 }
 
-/* 5. INTERACTIVE LABELS & ACCENTS (Mapped to: Gold) */
+/* Mapped to H3 Variable */
+html[class*="theme-"] .settingsContainer h3 {
+    color: var(--h3-color) !important;
+    -webkit-text-fill-color: var(--h3-color) !important;
+}
+
+/* 5. INTERACTIVE LABELS & ACCENTS */
+
+/* Form inputs and dropdown labels (Mapped to your H5 variable) */
 html[class*="theme-"] .selectLabel,
 html[class*="theme-"] .selectLabelText,
 html[class*="theme-"] .inputLabel,
-html[class*="theme-"] .label,
+html[class*="theme-"] .label {
+    color: var(--h5-color) !important;
+    -webkit-text-fill-color: var(--h5-color) !important;
+}
+
+/* Sidebar Icons & Media Card Labels (Forced Gold - Ignores H-Variables) */
 html[class*="theme-"] .navDrawerListItemIcon,
-html[class*="theme-"] .mediaInfoAttributeLabel {
+html[class*="theme-"] body .mediaInfoAttributeLabel,
+html[class*="theme-"] body .mediaStreamInnerCardFooter .mediaInfoAttributeLabel {
     color: var(--my-gold) !important;
     -webkit-text-fill-color: var(--my-gold) !important;
-}
-
-/* 6. IMMUTABLE EXCEPTIONS (Alert Banners & Media Badges) */
-html[class*="theme-"] .infoBanner,
-html[class*="theme-"] .infoBanner *:not(.button-link):not(.emby-button):not(.emby-button *) {
-    color: var(--pure-white) !important;
-    -webkit-text-fill-color: var(--pure-white) !important;
-}
-
-/* Specifically forces Alert Box links to Gold */
-html[class*="theme-"] .infoBanner .button-link,
-html[class*="theme-"] .infoBanner .button-link * {
-    color: var(--my-gold) !important;
-    -webkit-text-fill-color: var(--my-gold) !important;
+    opacity: 1 !important;
 }
 
 /* 6.1 INFO BANNER EXCEPTIONS & OVERRIDES */
@@ -2967,7 +2998,7 @@ html[class*="theme-"] body .infoBanner {
 
 .mediaInfoPanel h2,
 .mediaInfoPanel .material-icons {
-    color: var(--my-gold) !important;
+    color: var(--h2-color) !important; /* Mapped to H2 variable */
     font-family: var(--font-header) !important;
     text-transform: uppercase;
 }
@@ -3279,17 +3310,14 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
     }
 }
 
-/* --- 6E. About Section Overrides (Fixing Emby's native text issues) --- */
-
-/* 1. Strip Emby's native text clipping and shadow forcing.
-      Emby often applies weird hardcoded gradients to text in this section 
-      that breaks custom theming. This resets it back to normal text. */
-.aboutSection div.sectionTitle, 
-.aboutSection .button-link,
-.aboutSection .mediaInfoAttributeValue,
-.aboutSection .itemSecondaryText,
-.aboutSection .audioVideoMediaInfo,
-.aboutSection .mediaInfoPanel h2 {
+/* 1. Strip Emby's native text clipping and shadow forcing... */
+html[class*="theme-"] body .aboutSection div.sectionTitle, 
+html[class*="theme-"] body .aboutSection h4.sectionTitle,
+html[class*="theme-"] body .aboutSection .button-link,
+html[class*="theme-"] body .aboutSection .mediaInfoAttributeValue,
+html[class*="theme-"] body .aboutSection .itemSecondaryText,
+html[class*="theme-"] body .aboutSection .audioVideoMediaInfo,
+html[class*="theme-"] body .aboutSection .mediaInfoPanel h2 {
     background: transparent !important; 
     -webkit-background-clip: initial !important;
     text-shadow: none !important;
@@ -3297,20 +3325,21 @@ div.resumeName a.emby-button[is="emby-linkbutton"]:focus,
     opacity: 1 !important;
 }
 
-/* 2. Re-apply our pure white text */
-.aboutSection div.sectionTitle, 
-.aboutSection .button-link,
-.aboutSection .mediaInfoAttributeValue,
-.aboutSection .itemSecondaryText {
-    -webkit-text-fill-color: var(--pure-white) !important; 
-    color: var(--pure-white) !important;
+/* 2. Map About Section headers to the H2 variable */
+html[class*="theme-"] body .aboutSection h2.sectionTitle,
+html[class*="theme-"] body .aboutSection div.sectionTitle, 
+html[class*="theme-"] body .aboutSection h4.sectionTitle,
+html[class*="theme-"] body .aboutSection .mediaInfoPanel h2 {
+    -webkit-text-fill-color: var(--h2-color) !important; 
+    color: var(--h2-color) !important;
 }
 
-/* 3. Re-apply our gold to headers */
-.aboutSection .mediaInfoPanel h2,
-.aboutSection .mediaInfoPanel .material-icons {
-    -webkit-text-fill-color: var(--my-gold) !important;
-    color: var(--my-gold) !important;
+/* 3. Map About Section text and links to the H4 variable */
+html[class*="theme-"] body .aboutSection .button-link,
+html[class*="theme-"] body .aboutSection .mediaInfoAttributeValue,
+html[class*="theme-"] body .aboutSection .itemSecondaryText {
+    -webkit-text-fill-color: var(--h4-color) !important; 
+    color: var(--h4-color) !important;
 }
 
 /* 4. Fix media badges specifically inside the About section */
@@ -3810,7 +3839,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .osdTitle {
-  color:                   var(--my-gold) !important;
+  color:                   var(--h1-color) !important; /* Mapped to H1 variable */
   font-size:               1.6em !important;
   text-shadow:             2px 2px 4px var(--black-alpha-80) !important;
 }
@@ -4185,7 +4214,7 @@ html[class*="theme-"] .nowPlayingPage {
 /* --- 9C. Fullscreen Audio Typography --- */
 .videoOsdText .videoOsdParentTitle {
   font-family:             var(--font-header) !important;
-  color:                   var(--my-gold) !important;
+  color:                   var(--h1-color) !important; /* Mapped to H1 variable */
   font-size:               1.6em !important;
   font-weight:             700 !important;
   letter-spacing:          1px !important;
@@ -4240,14 +4269,14 @@ html[class*="theme-"] .dataGridHeader .dataGridHeader-content-inner {
     box-shadow: none !important;
 }
 
-/* 3. Header Colors (Applies gold to both text and icons) */
+/* 3. Header Colors (Mapped to H4 for column titles) */
 html[class*="theme-"] .dataGridHeader .dataGridItemCell,
 html[class*="theme-"] .dataGridHeader .dataGridHeaderText,
 html[class*="theme-"] .dataGridHeader .primaryText,
 html[class*="theme-"] .dataGridHeader .button-link,
 html[class*="theme-"] .dataGridHeader .button-link * {
-    color: var(--my-gold) !important;
-    -webkit-text-fill-color: var(--my-gold) !important;
+    color: var(--h4-color) !important;
+    -webkit-text-fill-color: var(--h4-color) !important;
 }
 
 /* 4. Header Fonts (Excludes cells/icons to prevent missing glyphs and flex stretching) */
@@ -4263,11 +4292,11 @@ html[class*="theme-"] .dataGridHeader .primaryText {
 
 /* --- 10B. Global Form Titles (Legends) --- */
 
-/* 1. Fieldset Legends: This targets ALL group titles in the dashboard (Maintenance, Updates, etc.) */
+/* 1. Fieldset Legends: This targets ALL group titles in the dashboard */
 .dashboardGeneralForm legend,
 .settingsContainer legend,
 legend {
-  color:                   var(--my-gold) !important;
+  color:                   var(--h3-color) !important; /* Mapped to H3 variable */
   font-family:             var(--font-header) !important;
   text-transform:          uppercase !important;
   letter-spacing:          1px !important;
@@ -4703,32 +4732,60 @@ html[class*="theme-"] body .dragClone .mediaInfoItem {
 
 /* --- 10L. USER TABLE & SETTINGS LISTS --- */
 
-/* 1. Forces standard list text (like User names or Media Titles) to pure white */
+/* 1. Forces standard list text to Pure White (Main views and popups) */
 html[class*="theme-"] body .view .listItem .listItemBodyText,
-html[class*="theme-"] body .view .listItem .listItemBodyText-first {
+html[class*="theme-"] body .view .listItem .listItemBodyText-first,
+html[class*="theme-"] body .formDialog .listItem .listItemBodyText,
+html[class*="theme-"] body .formDialog .listItem .listItemBodyText-first,
+html[class*="theme-"] body .dialog .listItem .listItemBodyText,
+html[class*="theme-"] body .dialog .listItem .listItemBodyText-first {
   color: var(--pure-white) !important;
   -webkit-text-fill-color: var(--pure-white) !important;
 }
 
-/* 1b. Forces Interactive Setting Labels (Checkboxes, Toggles, Sliders) to Gold to match dropdowns */
+/* 1b. Forces Interactive Setting Labels to match H5 (Main views and popups) */
 html[class*="theme-"] body .view .emby-checkbox-label,
-html[class*="theme-"] body .view .listItem:has(.emby-slider) .listItemBodyText,
-html[class*="theme-"] body .view .listItem:has(.emby-toggle) .listItemBodyText,
-html[class*="theme-"] body .view .listItem:has(.toggleSwitch) .listItemBodyText,
 html[class*="theme-"] body .view .emby-toggle-label,
 html[class*="theme-"] body .view .emby-toggle-label > span:not(.toggleLabel),
 html[class*="theme-"] body .view .inputContainer .inputLabel,
-html[class*="theme-"] body .view .emby-slider-label-text {
-  color: var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
+html[class*="theme-"] body .view .selectLabel,
+html[class*="theme-"] body .view .emby-slider-label-text,
+html[class*="theme-"] body .view .listItem:has(.emby-slider) .listItemBodyText,
+html[class*="theme-"] body .view .listItem:has(.emby-toggle) .listItemBodyText,
+html[class*="theme-"] body .view .listItem:has(.toggleSwitch) .listItemBodyText,
+
+html[class*="theme-"] body .formDialog .emby-checkbox-label,
+html[class*="theme-"] body .formDialog .emby-toggle-label,
+html[class*="theme-"] body .formDialog .emby-toggle-label > span:not(.toggleLabel),
+html[class*="theme-"] body .formDialog .inputContainer .inputLabel,
+html[class*="theme-"] body .formDialog .selectLabel,
+html[class*="theme-"] body .formDialog .emby-slider-label-text,
+html[class*="theme-"] body .formDialog .listItem:has(.emby-slider) .listItemBodyText,
+html[class*="theme-"] body .formDialog .listItem:has(.emby-toggle) .listItemBodyText,
+html[class*="theme-"] body .formDialog .listItem:has(.toggleSwitch) .listItemBodyText,
+
+html[class*="theme-"] body .dialog .emby-checkbox-label,
+html[class*="theme-"] body .dialog .emby-toggle-label,
+html[class*="theme-"] body .dialog .emby-toggle-label > span:not(.toggleLabel),
+html[class*="theme-"] body .dialog .inputContainer .inputLabel,
+html[class*="theme-"] body .dialog .selectLabel,
+html[class*="theme-"] body .dialog .emby-slider-label-text,
+html[class*="theme-"] body .dialog .listItem:has(.emby-slider) .listItemBodyText,
+html[class*="theme-"] body .dialog .listItem:has(.emby-toggle) .listItemBodyText,
+html[class*="theme-"] body .dialog .listItem:has(.toggleSwitch) .listItemBodyText {
+  color: var(--h5-color) !important;
+  -webkit-text-fill-color: var(--h5-color) !important;
   font-weight: 600 !important;
 }
 
-/* 2. Forces descriptions and secondary text to muted white (EXCLUDING BUTTONS) */
+/* 2. Forces descriptions and secondary text to match H6 (White) */
 html[class*="theme-"] body .view .listItem .secondaryText:not(button),
-html[class*="theme-"] body .view .fieldDescription {
-  color: var(--white-alpha-70) !important;
-  -webkit-text-fill-color: var(--white-alpha-70) !important;
+html[class*="theme-"] body .view .fieldDescription,
+html[class*="theme-"] body .formDialog .fieldDescription,
+html[class*="theme-"] body .dialog .fieldDescription {
+  color: var(--h6-color) !important;
+  -webkit-text-fill-color: var(--h6-color) !important;
+  opacity: 0.7; /* Adds a slight "muted" feel so the Gold title stands out more */
 }
 
 /* 3. Fixes the blinding bright background boxes behind the lists in lighter themes */
