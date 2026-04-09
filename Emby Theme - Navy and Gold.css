@@ -183,10 +183,12 @@ html,
 
   /* SIDEBAR OPTIONS */
   --custom-sidebar-width: 250px;                                    /* Define the custom width (Triggered only when the full sidebar is open) */  
-  --frost-blur-power: var(--blur-heavy);                            /* The blur intensity: var(--blur-heavy), var(--blur-light), or none */
-  --frost-sidebar-bg: var(--navy-base-alpha-75);                    /* Frost color: var(--navy-base-alpha-75), var(--black-alpha-80), etc, or var(--retro-navy) to disable */
   --sidebar-playlists: block;                                       /* Set to 'none' to hide Playlists from the sidebar, block to enable */
   --sidebar-collections: none;                                      /* Set to 'none' to hide Collections from the sidebar, block to enable */
+
+  /* FROST EFFECTS (SIDEBAR AND BACKGROUND ON DIALOGS */
+  --frost-blur-power: var(--blur-heavy);                            /* The blur intensity: var(--blur-heavy), var(--blur-light), or none */
+  --frost-sidebar-bg: var(--navy-base-alpha-75);                    /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
 
    /* STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) */
   --media-card-radius: 15px;                                        /* Adjust the corner rounding of standard posters */
@@ -4989,6 +4991,15 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini {
     background-color: var(--frost-sidebar-bg) !important; /* Linked to Section 1 */
     backdrop-filter: var(--frost-blur-power) !important; /* Linked to Section 1 */
     -webkit-backdrop-filter: var(--frost-blur-power) !important; 
+}
+
+/* ============================================================
+   HOTFIX: FROSTED DIALOG BACKDROP
+   ============================================================ */
+html[class*="theme-"] .dialogBackdrop {
+    background: var(--black-alpha-50) !important; /* Lighter black so the blur shows through */
+    backdrop-filter: var(--frost-blur-power) !important; /* Tied to your Section 1 toggle */
+    -webkit-backdrop-filter: var(--frost-blur-power) !important;
 }
 
 /* ============================================================
