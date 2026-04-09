@@ -4063,11 +4063,30 @@ html[class*="theme-"] body .videoOsdBottom .card.show-focus .cardImageContainer 
 }
 
 /* 3. Safety Padding for Shadows */
-/* Ensures the borders aren't chopped off by Emby's tight OSD margins */
-html[class*="theme-"] body .videoOsdBottom .itemsContainer,
+/* Applied ONLY to the Up Next popup now. Removed from the OSD Bottom so the player doesn't stretch! */
 html[class*="theme-"] body .upNextContainer .itemsContainer {
     padding-top: 15px !important;
     padding-bottom: 15px !important;
+}
+
+/* 4. OSD Info Tab Poster Alignment & Crop Fix */
+/* Overrides Emby's native "center" alignment, forcing the poster to snap to the top so it aligns with the text */
+html[class*="theme-"] body .videoOsdBottom .videoOsd-poster-container {
+    justify-content: flex-start !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Ensures the poster doesn't zoom/crop the text (like "The Capture") and keeps the image top-aligned in its frame */
+html[class*="theme-"] body .videoOsdBottom .osdInfoImageCard .cardImageContainer img,
+html[class*="theme-"] body .videoOsdBottom .osdInfoImageCard .coveredImage-noScale {
+    object-fit: contain !important;
+    object-position: top center !important;
+}
+
+/* Stops the bottom border of the poster from getting clipped by the scroll container */
+html[class*="theme-"] body .videoOsdBottom .videoOsd-infotab .emby-itemscontainer {
+    overflow: visible !important;
 }
 
 /* ============================================================
