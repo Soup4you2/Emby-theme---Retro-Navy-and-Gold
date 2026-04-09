@@ -2571,11 +2571,12 @@ html[class*="theme-"] .itemProgressBar {
 }
 
 /* 2. Card Content & Images: Defines the standard look of movie and show posters */
-html[class*="theme-"] .cardContent,
-html[class*="theme-"] .cardImageContainer {
+html[class*="theme-"] body .cardContent,
+html[class*="theme-"] body .cardImageContainer,
+html[class*="theme-"] body .defaultCardBackground {
   box-shadow:              0 4px 6px rgba(var(--pure-black-rgb), 0.3), 0 10px 20px var(--black-alpha-75) !important; 
   border:                  var(--hover-border-thickness) solid transparent !important;
-  transition:              border-color var(--transition-speed) ease-out, box-shadow var(--transition-speed) ease-out, transform var(--transition-speed) !important;
+  transition:              border-color var(--transition-speed) ease-out, box-shadow var(--transition-speed) ease-out, transform var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.15) !important;
   will-change:             border-color, box-shadow, transform;
 }
 
@@ -2654,8 +2655,9 @@ html[class*="theme-"] body .personCard .defaultCardBackground {
 /* --- 5B. CARD HOVER STATES --- */
 
 /* 1. Global Hover Behavior: Applies theme glow and gold border on mouse-over */
-.card:hover .cardContent,
-.card:hover .cardImageContainer {
+html[class*="theme-"] body .card:hover .cardContent,
+html[class*="theme-"] body .card:hover .cardImageContainer,
+html[class*="theme-"] body .card:hover .defaultCardBackground {
   border-color:            var(--theme-primary-color) !important;
   box-shadow:              0 10px 15px rgba(var(--pure-black-rgb), 0.4), 
                            0 25px 40px var(--black-alpha-60), 
@@ -2667,8 +2669,10 @@ html[class*="theme-"] body .personCard .defaultCardBackground {
 /* 2. Shape Handling: Ensures standard cards (movies/shows) maintain specific rounding at rest and on hover */
 html[class*="theme-"] body .card .cardContent:not(.cardContent-round),
 html[class*="theme-"] body .card .cardImageContainer:not(.cardContent-round),
+html[class*="theme-"] body .card .defaultCardBackground:not(.cardContent-round),
 html[class*="theme-"] body .card:hover .cardContent:not(.cardContent-round),
-html[class*="theme-"] body .card:hover .cardImageContainer:not(.cardContent-round) {
+html[class*="theme-"] body .card:hover .cardImageContainer:not(.cardContent-round),
+html[class*="theme-"] body .card:hover .defaultCardBackground:not(.cardContent-round) {
     border-radius: var(--media-card-radius) !important; 
 }
 
@@ -4653,7 +4657,7 @@ html[class*="theme-"] body .view .fieldDescription {
 
 /* 3. Fixes the blinding bright background boxes behind the lists in lighter themes */
 html[class*="theme-"] body .view .navDrawerItemsContainer-shaded,
-html[class*="theme-"] body .view .defaultCardBackground {
+html[class*="theme-"] body .view .defaultCardBackground:not(.cardContent) {
   background-color: var(--navy-light-alpha-40) !important;
   border: var(--standard-border-thickness) solid var(--gold-alpha-15) !important;
 }
