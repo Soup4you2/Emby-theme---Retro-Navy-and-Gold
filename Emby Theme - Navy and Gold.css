@@ -24,7 +24,7 @@ html,
   --base-font-size: 90%;                                           /* Adjust global UI text size (Default: 90%. Try 110% or 115% for larger text) */
   --font-header: 'Oswald', sans-serif;                             /* Primary cinematic header font */
   --font-body: 'Sofia Sans', sans-serif;                           /* Standard readable body font */
-
+  
   /* --- HEADING COLORS --- */
   --h1-color: var(--my-gold);                                      /* Video & Music Titles in OSD, Dashboard Root, Startup and Login Screens */
   --h2-color: var(--my-gold);                                      /* Page Titles, Section Divider Headers, Media Detail Title, Dialog window titles */
@@ -132,6 +132,11 @@ html,
   --nav-pill-bar-bg: rgba(var(--navy-accent-rgb), 1);              /* Background of the track containing all the pills */
   --nav-pill-bar-border: 0px solid var(--gold-alpha-80);           /* Border of the track containing all the pills */
   --nav-pill-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light); /* Secondary shadow setting for active pills */
+
+  /* --- BUTTON TYPOGRAPHY TOGGLES --- */
+  --button-text-transform: none;                                   /* Set to 'uppercase' for all-caps, or 'none' for title-case */
+  --button-text-weight: 600;                                       /* Set to 700 for uppercase, or 600 for title-case */
+  --button-letter-spacing: 0.5px;                                  /* Set to 1px for uppercase, or 0.5px for title-case */
 
   /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
   --guide-premiere: rgb(89, 35, 71);                               /* Cell background for TV Series Premieres */
@@ -1185,14 +1190,16 @@ html[class*="theme-"] body .itemAction:hover .cardText {
 }
 
 /* --- 2I. MODERN TYPOGRAPHY OVERRIDES --- */
-/* Reduces "shouting" by reverting specific UI elements back to standard casing while keeping the bold weight */
+/* Master toggle for button casing (Driven by Section 1 Variables) */
 html[class*="theme-"] body .emby-button:not(.btnPlay):not(.btnStartNow):not(.sectionTitleButton),
 html[class*="theme-"] body .emby-tab-button,
 html[class*="theme-"] body .itemsViewSettingsContainer-button,
 html[class*="theme-"] body .guide-filter-button,
-html[class*="theme-"] body .btnGuideTag {
-    text-transform: none !important;
-    letter-spacing: 0.5px !important; /* Tightens the tracking slightly for title-case */
+html[class*="theme-"] body .btnGuideTag,
+html[class*="theme-"] body .button-submit {
+    text-transform: var(--button-text-transform) !important;
+    font-weight: var(--button-text-weight) !important;
+    letter-spacing: var(--button-letter-spacing) !important; 
 }
 
 /* Keep the main global navigation tabs uppercase, as they are primary headers */
