@@ -290,7 +290,6 @@ html,
   --blur-light: blur(10px);                                        /* Soft background blur */
   --blur-heavy: blur(20px);                                        /* Strong background blur */
   --blur-extreme: blur(30px);                                      /* Maximum depth blur */
-  --spring-easing: cubic-bezier(0.175, 0.885, 0.32, 1.15);         /* Apple-style spring physics */
 
   /* --- LAYOUT & ORDERING --- */
   --order-seasons: 1;                                              /* Vertical order of Seasons section */
@@ -2573,7 +2572,7 @@ html[class*="theme-"] .cardContent,
 html[class*="theme-"] .cardImageContainer {
   box-shadow:              0 4px 6px rgba(var(--pure-black-rgb), 0.3), 0 10px 20px var(--black-alpha-75) !important; 
   border:                  var(--hover-border-thickness) solid transparent !important;
-  transition:              border-color var(--transition-speed) ease-out, box-shadow var(--transition-speed) ease-out, transform var(--transition-speed) var(--spring-easing) !important;
+  transition:              border-color var(--transition-speed) ease-out, box-shadow var(--transition-speed) ease-out, transform var(--transition-speed) !important;
   will-change:             border-color, box-shadow, transform;
 }
 
