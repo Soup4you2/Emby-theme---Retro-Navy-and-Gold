@@ -33,7 +33,7 @@ html,
   --retro-navy: rgba(var(--navy-base-rgb), 1);                      /* Darkest navy fallback for main backgrounds */
   --retro-navy-light: rgba(var(--navy-mid-rgb), 1);                 /* Mid-tone navy fallback for panels and cards */  
   --star-color: var(--retro-navy-light);                            /* Media info badge rating star color */
-  --star-glow: drop-shadow(0 0 5px rgba(7, 5, 0, 0));             /* Media info badge rating star glow */
+  --star-glow: drop-shadow(0 0 5px rgba(7, 5, 0, 0));               /* Media info badge rating star glow */
 
   /* OPTION 2 - USE THE USERS ACCENT COLOR PREFERENCES */
   /* NOTE: KEEP IN MIND EVERY USER HAS THEIR OWN ACCENT COLOR OPTION */
@@ -47,8 +47,8 @@ html,
   /* --- CORE SOLID COLORS --- */
   --pure-white: rgba(var(--pure-white-rgb), 1);                   /* Solid white for high-contrast icons */
   --pure-black: rgba(var(--pure-black-rgb), 1);                   /* Solid black for deep shadow foundations */
-  --text-muted: rgb(236, 236, 236);                             /* Soft white used globally for primary paragraph/body text */
-  --scrollbar-thumb: rgb(51, 51, 51);                           /* Color of the draggable handle on the browser scrollbar */
+  --text-muted: rgb(236, 236, 236);                               /* Soft white used globally for primary paragraph/body text */
+  --scrollbar-thumb: rgb(51, 51, 51);                             /* Color of the draggable handle on the browser scrollbar */
 
   /* --- CORE RGB VALUES (The Source of Truth for Transparencies) --- */
   --pure-black-rgb: 0, 0, 0;                                      /* Controls the absolute darkest shadows and UI overlays */
@@ -126,17 +126,17 @@ html,
   --nav-pill-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light); /* Secondary shadow setting for active pills */
 
   /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
-  --guide-premiere: rgb(89, 35, 71);                             /* Cell background for TV Series Premieres */
-  --guide-new: rgb(31, 75, 94);                                  /* Cell background for brand new episodes */
-  --guide-live: rgb(76, 99, 87);                                 /* Cell background for currently airing live events (Sports/News) */
-  --guide-repeat: rgb(31, 75, 94);                               /* Cell background for older reruns */
-  --guide-movie: rgb(69, 59, 109);                               /* Cell background for Movies airing on Live TV */
-  --guide-generic: rgb(39, 50, 67);                              /* Default cell background for generic programs */
+  --guide-premiere: rgb(89, 35, 71);                               /* Cell background for TV Series Premieres */
+  --guide-new: rgb(31, 75, 94);                                    /* Cell background for brand new episodes */
+  --guide-live: rgb(76, 99, 87);                                   /* Cell background for currently airing live events (Sports/News) */
+  --guide-repeat: rgb(31, 75, 94);                                 /* Cell background for older reruns */
+  --guide-movie: rgb(69, 59, 109);                                 /* Cell background for Movies airing on Live TV */
+  --guide-generic: rgb(39, 50, 67);                                /* Default cell background for generic programs */
 
   /* --- DANGER / CANCEL BUTTONS --- */
   --danger-red-rgb: 204, 0, 0;                                     /* Base RGB for destructive actions */
   --danger-red: rgba(var(--danger-red-rgb), 1);                    /* Solid red for delete/cancel buttons */
-  --danger-red-light: rgb(255, 51, 51);                          /* Brighter red for hovering over delete/cancel buttons */
+  --danger-red-light: rgb(255, 51, 51);                            /* Brighter red for hovering over delete/cancel buttons */
   --danger-red-glow: 0 0 20px rgba(var(--danger-red-rgb), 0.6), 0 0 10px rgba(255, 51, 51, 0.4); /* Glow effect on hover */
 
   /* CAST & CREW NAME TEXT */
@@ -162,9 +162,9 @@ html,
   --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8);
 
   /* ERROR & MAINTENANCE BANNERS */
-  --error-bg: #b30000;                                           /* The solid deep crimson background */
-  --error-text: #ffffff;                                         /* The text color */
-  --error-border: #ff4d4d;                                       /* The bright light-red border */
+  --error-bg: #b30000;                                             /* The solid deep crimson background */
+  --error-text: #ffffff;                                           /* The text color */
+  --error-border: #ff4d4d;                                         /* The bright light-red border */
 
   /* --- GLOW & SHADOW PRESETS --- */
   --retro-glow: var(--gold-alpha-40);                              /* The base neon glow variable applied to the theme */
@@ -212,7 +212,7 @@ html,
 
   /* BACKDROP & FANART STYLE */
   --backdrop-opacity: 0.9;                                          /* DIMMING (Traditional full-screen dark overlay) */
-  --backdrop-bg-color: rgba(0, 8, 20, 0.75);                      /* DIMMING (Traditional full-screen dark overlay) */
+  --backdrop-bg-color: rgba(0, 8, 20, 0.75);                        /* DIMMING (Traditional full-screen dark overlay) */
   --backdrop-gradient: none;                                        /* DIMMING (Traditional full-screen dark overlay) */
   --backdrop-text-shadow: none;                                     /* DIMMING (Traditional full-screen dark overlay) */
   /* --backdrop-opacity: 1;                                         /* NO DIMMING */
