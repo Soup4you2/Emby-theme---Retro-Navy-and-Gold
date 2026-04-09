@@ -2699,9 +2699,11 @@ html[class*="theme-"] body .card:hover .defaultCardBackground:not(.cardContent-r
 }
 
 /* 2. Portrait Shape & Shadow: Implements the custom mask for actor portraits */
-.peopleSection .cardContent-background,
-.peopleSection .cardImageContainer,
-.personCard .cardImageContainer {
+html[class*="theme-"] body .peopleSection .cardContent-background,
+html[class*="theme-"] body .peopleSection .cardImageContainer,
+html[class*="theme-"] body .peopleSection .defaultCardBackground,
+html[class*="theme-"] body .personCard .cardImageContainer,
+html[class*="theme-"] body .personCard .defaultCardBackground {
   border-radius:           var(--portrait-radius) !important;
   box-shadow:              0px 10px 25px var(--black-alpha-70) !important;
   overflow:                hidden !important;
@@ -2714,25 +2716,27 @@ html[class*="theme-"] body .card:hover .defaultCardBackground:not(.cardContent-r
 }
 
 /* 4. Portrait Hover Logic: Keeps the border size fixed to prevent layout shifting */
-.peopleSection .cardOverlayContainer,
-.personCard .cardOverlayContainer {
+html[class*="theme-"] body .peopleSection .cardOverlayContainer,
+html[class*="theme-"] body .personCard .cardOverlayContainer {
   border:                  var(--hover-border-thickness) solid transparent !important;
-  border-radius:           var(--portrait-radius) !important;
   transition:              border-color var(--transition-speed) ease-out, background var(--transition-speed) ease-out !important;
 }
 
-.peopleSection .card:hover .cardOverlayContainer,
-.personCard:hover .cardOverlayContainer {
+html[class*="theme-"] body .peopleSection .card:hover .cardOverlayContainer,
+html[class*="theme-"] body .personCard:hover .cardOverlayContainer {
   border-color:            var(--theme-primary-color) !important;
   background:              transparent !important;
 }
 
-.peopleSection .card:hover .cardImageContainer,
-.personCard:hover .cardImageContainer {
-  border-color:            transparent !important;
+html[class*="theme-"] body .peopleSection .card:hover .cardImageContainer,
+html[class*="theme-"] body .peopleSection .card:hover .cardContent,
+html[class*="theme-"] body .peopleSection .card:hover .defaultCardBackground,
+html[class*="theme-"] body .personCard:hover .cardImageContainer,
+html[class*="theme-"] body .personCard:hover .cardContent,
+html[class*="theme-"] body .personCard:hover .defaultCardBackground {
+  border-color:            transparent !important; /* Portrait borders are drawn on the overlay, keep this transparent */
   box-shadow:              0px 15px 30px var(--black-alpha-90), 
                            var(--shadow-glow-standard) !important;
-  border-radius:           var(--portrait-radius) !important;
 }
 
 /* 5. Portrait Footer Transparency: Protects Cast & Crew names from receiving the solid background box */
@@ -2756,12 +2760,20 @@ html[class*="theme-"] body .personCard .cardFooter {
 /* 6. Portrait Shape Shield: Protects actors from global card rounding rules */
 html[class*="theme-"] body .peopleSection .card .cardContent,
 html[class*="theme-"] body .peopleSection .card .cardImageContainer,
+html[class*="theme-"] body .peopleSection .card .defaultCardBackground,
+html[class*="theme-"] body .peopleSection .card .cardOverlayContainer,
 html[class*="theme-"] body .personCard .cardContent,
 html[class*="theme-"] body .personCard .cardImageContainer,
+html[class*="theme-"] body .personCard .defaultCardBackground,
+html[class*="theme-"] body .personCard .cardOverlayContainer,
 html[class*="theme-"] body .peopleSection .card:hover .cardContent,
 html[class*="theme-"] body .peopleSection .card:hover .cardImageContainer,
+html[class*="theme-"] body .peopleSection .card:hover .defaultCardBackground,
+html[class*="theme-"] body .peopleSection .card:hover .cardOverlayContainer,
 html[class*="theme-"] body .personCard:hover .cardContent,
-html[class*="theme-"] body .personCard:hover .cardImageContainer {
+html[class*="theme-"] body .personCard:hover .cardImageContainer,
+html[class*="theme-"] body .personCard:hover .defaultCardBackground,
+html[class*="theme-"] body .personCard:hover .cardOverlayContainer {
     border-radius: var(--portrait-radius) !important;
 }
 
@@ -3569,11 +3581,8 @@ html[class*="theme-"] .epgChannelCellInner {
 /* 5. Cell Hover State: Preserves program colors (Movies, Live, etc.) while adding the gold glow */
 html[class*="theme-"] .programCell-active .programCellInner,
 html[class*="theme-"] .programCell:hover .programCellInner {
-  /* Swapped to white-alpha-10 variable to ensure seasonal compatibility */
   background-image: linear-gradient(var(--white-alpha-10), var(--white-alpha-10)) !important;
   border-color: transparent !important;
-  
-  /* Unified box-shadow using theme variables */
   box-shadow: inset 0 0 0 var(--hover-border-thickness) var(--theme-primary-color),
               var(--shadow-glow-standard), 
               inset 0 0 10px var(--gold-alpha-10) !important;
@@ -3990,7 +3999,7 @@ html[class*="theme-"] .videoOsdBottom .emby-tab-button::after {
     display: none !important;
 }
 
-/* --- 8G. OSD Media Cards (Up Next & On Now) --- */
+/* --- 8G. OSD Media Cards (Up Next, Chapters, & On Now) --- */
 
 /* 1. Video OSD: Up Next Cards (Posters) */
 /* Targets the poster cards inside the Up Next popup dialog */
@@ -4008,29 +4017,32 @@ html[class*="theme-"] body .upNextContainer .card:hover .cardImageContainer,
 html[class*="theme-"] body .upNextDialog .card:hover .cardContent,
 html[class*="theme-"] body .upNextDialog .card:hover .cardImageContainer {
     border-color: var(--theme-primary-color) !important;
-    box-shadow: 0px 15px 30px var(--black-alpha-90), var(--shadow-glow-standard) !important;
+    /* Removed glow, kept dark drop shadow for depth */
+    box-shadow: 0px 15px 30px var(--black-alpha-90) !important; 
 }
 
-/* 2. Video OSD: On Now (Horizontal Cards in OSD) */
-/* Targets the horizontal scrolling cards at the bottom of the video player */
-html[class*="theme-"] body .videoOsdBottom .card-horiz .cardContent,
-html[class*="theme-"] body .videoOsdBottom .card-horiz .cardImageContainer {
+/* 2. Video OSD: Media Cards (On Now, Chapters, Cast) */
+/* Targets the scrolling cards at the bottom of the video player */
+html[class*="theme-"] body .videoOsdBottom .card .cardContent,
+html[class*="theme-"] body .videoOsdBottom .card .cardImageContainer {
     border: var(--hover-border-thickness) solid transparent !important;
     background: var(--navy-light-alpha-80) !important; 
     border-radius: var(--border-radius-md) !important;
     transition: all var(--transition-speed) ease-in-out !important;
 }
 
-html[class*="theme-"] body .videoOsdBottom .card-horiz:hover .cardContent,
-html[class*="theme-"] body .videoOsdBottom .card-horiz:hover .cardImageContainer,
-html[class*="theme-"] body .videoOsdBottom .card-horiz.show-focus .cardContent {
+html[class*="theme-"] body .videoOsdBottom .card:hover .cardContent,
+html[class*="theme-"] body .videoOsdBottom .card:hover .cardImageContainer,
+html[class*="theme-"] body .videoOsdBottom .card.show-focus .cardContent,
+html[class*="theme-"] body .videoOsdBottom .card.show-focus .cardImageContainer {
     border-color: var(--theme-primary-color) !important;
     background: var(--theme-icon-focus-background) !important;
-    box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+    /* Removed outer and inner gold glow, kept deep black drop shadow */
+    box-shadow: 0 10px 20px var(--black-alpha-90) !important; 
 }
 
 /* 3. Safety Padding for Shadows */
-/* Ensures the glowing borders aren't chopped off by Emby's tight OSD margins */
+/* Ensures the borders aren't chopped off by Emby's tight OSD margins */
 html[class*="theme-"] body .videoOsdBottom .itemsContainer,
 html[class*="theme-"] body .upNextContainer .itemsContainer {
     padding-top: 15px !important;
