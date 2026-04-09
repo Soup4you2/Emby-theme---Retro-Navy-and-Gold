@@ -187,7 +187,7 @@ html,
   --sidebar-collections: none;                                     /* Set to 'none' to hide Collections from the sidebar, block to enable */
 
   /* FROST EFFECTS (SIDEBAR AND DIALOG POPUPS*/
-  --frost-blur-power: var(--blur-heavy);                           /* The blur intensity: var(--blur-heavy), var(--blur-light), or none */
+  --frost-blur-power: var(--blur-heavy);                           /* Frost blur intensity: var(--blur-heavy), var(--blur-light), or none */
   --frost-bg: var(--navy-base-alpha-75);                           /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
 
    /* STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) */
@@ -4606,12 +4606,11 @@ html[class*="theme-"] body .dragClone * {
 }
 
 /* 3. REBUILD THE SHELL: Apply the dark navy background and gold border ONLY to the outer container */
-/* (Using 'div.dragClone' increases specificity to beat Emby's inline Javascript styles) */
 html[class*="theme-"] body div.dragClone {
     background-color: var(--navy-mid-solid) !important;
     background: var(--navy-mid-solid) !important;
     border: 2px solid var(--theme-primary-color) !important;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 185, 0, 0.4) !important;
+    box-shadow: 0 15px 35px rgba(var(--pure-black-rgb), 0.9), 0 0 20px var(--gold-alpha-40) !important;
     border-radius: var(--border-radius-md) !important;
     z-index: 99999 !important;
     backdrop-filter: blur(10px) !important;
