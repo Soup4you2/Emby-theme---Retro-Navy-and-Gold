@@ -4717,7 +4717,8 @@ html[class*="theme-"] body .view .listItem:has(.emby-toggle) .listItemBodyText,
 html[class*="theme-"] body .view .listItem:has(.toggleSwitch) .listItemBodyText,
 html[class*="theme-"] body .view .emby-toggle-label,
 html[class*="theme-"] body .view .emby-toggle-label > span:not(.toggleLabel),
-html[class*="theme-"] body .view .inputContainer .inputLabel {
+html[class*="theme-"] body .view .inputContainer .inputLabel,
+html[class*="theme-"] body .view .emby-slider-label-text {
   color: var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
   font-weight: 600 !important;
