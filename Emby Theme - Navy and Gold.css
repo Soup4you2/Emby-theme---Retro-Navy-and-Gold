@@ -4725,10 +4725,10 @@ html[class*="theme-"] body .trackList .listItem .listItemBodyText-first {
    ============================================================ */
 
 /* --- 11A. Login Screen Layout --- */
-/* Hides the top navigation bar specifically on the login screens */
-body:has(.view-startup-manuallogin) .skinHeader,
-body:has(.view-startup-login) .skinHeader,
-body:has(.view-login) .skinHeader {
+/* Hides the top navigation bar specifically on the active login screens */
+body:has(.view-startup-manuallogin:not(.hide)) .skinHeader,
+body:has(.view-startup-login:not(.hide)) .skinHeader,
+body:has(.view-login:not(.hide)) .skinHeader {
   display:                 none !important;
 }
 
