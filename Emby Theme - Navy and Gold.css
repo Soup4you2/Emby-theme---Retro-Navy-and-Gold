@@ -224,10 +224,8 @@ html,
   /* --play-button-display: none;                                  /* Disabled */
 
   /* BACKDROP & FANART STYLE */
-  --backdrop-opacity: .9;                                           /* DIMMING (Traditional full-screen dark overlay) */
-  --backdrop-bg-color: rgba(var(--pure-black-rgb), .7);            /* DIMMING (Traditional full-screen dark overlay) */
-  --backdrop-gradient: none;                                       /* DIMMING (Traditional full-screen dark overlay) */
-  /* --backdrop-opacity: 1;                                         /* NO DIMMING */
+  --backdrop-bg-color: rgba(var(--pure-black-rgb), .75);            /* DIMMING (Traditional full-screen dark overlay) */
+  --backdrop-gradient: none;                                        /* DIMMING (Traditional full-screen dark overlay) */
   /* --backdrop-bg-color: transparent;                              /* NO DIMMING */
   /* --backdrop-gradient: linear-gradient(to right, var(--pure-black) 0%, var(--black-alpha-75) 30%, transparent 75%);    /* NO DIMMING */
   --backdrop-blur: none;                                           /* BLUR EFFECT (Only affects posters not video) - Options: var(--blur-light), var(--blur-heavy), var(--blur-extreme), or blur(15px) */
@@ -823,7 +821,7 @@ html[class*="theme-"] .mainAnimatedPages {
 
 /* 7. Fanart Intensity: Dynamically controls backdrop brightness */
 html[class*="theme-"] body .backdropImage {
-  opacity: var(--backdrop-opacity) !important;
+  opacity: var(--backdrop-bg-color) !important;
   filter: var(--backdrop-blur) !important;
 }
 
