@@ -4994,15 +4994,6 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini {
 }
 
 /* ============================================================
-   HOTFIX: FROSTED DIALOG BACKDROP
-   ============================================================ */
-html[class*="theme-"] .dialogBackdrop {
-    background: var(--black-alpha-50) !important; /* Lighter black so the blur shows through */
-    backdrop-filter: var(--frost-blur-power) !important; /* Tied to your Section 1 toggle */
-    -webkit-backdrop-filter: var(--frost-blur-power) !important;
-}
-
-/* ============================================================
    13. UNIVERSAL SEASONAL LOGIC
    ============================================================ */
 
