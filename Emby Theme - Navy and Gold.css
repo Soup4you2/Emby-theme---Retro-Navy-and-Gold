@@ -977,7 +977,9 @@ html[class*="theme-"] .guideProgramTime {
 
 /* 4. STRUCTURAL HEADERS & LEGENDS (Mapped to: Orange/Gold) */
 html[class*="theme-"] .pageTitle,
+html[class*="theme-"] .pageTitle .button-link,
 html[class*="theme-"] .sectionTitle,
+html[class*="theme-"] .sectionTitle .button-link,
 html[class*="theme-"] legend,
 html[class*="theme-"] .dashboardGeneralForm legend,
 html[class*="theme-"] .settingsContainer legend {
@@ -4699,14 +4701,26 @@ html[class*="theme-"] body .dragClone .mediaInfoItem {
     -webkit-text-fill-color: var(--my-gold) !important;
 }
 
-/* --- 10L. USER TABLE --- */
+/* --- 10L. USER TABLE & SETTINGS LISTS --- */
 
-/* 1. Forces main list text to pure white across all base themes */
+/* 1. Forces standard list text (like User names or Media Titles) to pure white */
 html[class*="theme-"] body .view .listItem .listItemBodyText,
-html[class*="theme-"] body .view .listItem .listItemBodyText-first,
-html[class*="theme-"] body .view .emby-checkbox-label {
+html[class*="theme-"] body .view .listItem .listItemBodyText-first {
   color: var(--pure-white) !important;
   -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+/* 1b. Forces Interactive Setting Labels (Checkboxes, Toggles, Sliders) to Gold to match dropdowns */
+html[class*="theme-"] body .view .emby-checkbox-label,
+html[class*="theme-"] body .view .listItem:has(.emby-slider) .listItemBodyText,
+html[class*="theme-"] body .view .listItem:has(.emby-toggle) .listItemBodyText,
+html[class*="theme-"] body .view .listItem:has(.toggleSwitch) .listItemBodyText,
+html[class*="theme-"] body .view .emby-toggle-label,
+html[class*="theme-"] body .view .emby-toggle-label > span:not(.toggleLabel),
+html[class*="theme-"] body .view .inputContainer .inputLabel {
+  color: var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  font-weight: 600 !important;
 }
 
 /* 2. Forces descriptions and secondary text to muted white (EXCLUDING BUTTONS) */
