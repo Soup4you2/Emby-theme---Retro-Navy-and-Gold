@@ -186,9 +186,9 @@ html,
   --sidebar-playlists: block;                                      /* Set to 'none' to hide Playlists from the sidebar, block to enable */
   --sidebar-collections: none;                                     /* Set to 'none' to hide Collections from the sidebar, block to enable */
 
-  /* FROST EFFECTS (SIDEBAR AND BACKGROUND ON DIALOGS */
+  /* FROST EFFECTS (SIDEBAR AND DIALOG POPUPS*/
   --frost-blur-power: var(--blur-heavy);                           /* The blur intensity: var(--blur-heavy), var(--blur-light), or none */
-  --frost-sidebar-bg: var(--navy-base-alpha-75);                   /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
+  --frost-bg: var(--navy-base-alpha-75);                           /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
 
    /* STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) */
   --media-card-radius: 15px;                                       /* Adjust the corner rounding of standard posters */
@@ -286,10 +286,11 @@ html,
   --toggle-thumb-on: var(--pure-white);                            /* Circle color when ON */
 
   /* --- EFFECTS & ANIMATIONS --- */
-  --transition-speed: 0.2s;                                        /* Global speed for all UI transitions */
+  --transition-speed: 0.3s;                                        /* Global speed for all UI transitions */
   --blur-light: blur(10px);                                        /* Soft background blur */
   --blur-heavy: blur(20px);                                        /* Strong background blur */
   --blur-extreme: blur(30px);                                      /* Maximum depth blur */
+  --spring-easing: cubic-bezier(0.175, 0.885, 0.32, 1.15);         /* Apple-style spring physics */
 
   /* --- LAYOUT & ORDERING --- */
   --order-seasons: 1;                                              /* Vertical order of Seasons section */
@@ -1148,6 +1149,23 @@ html[class*="theme-"] body .itemAction:hover .cardText {
     visibility: hidden !important;
 }
 
+/* --- 2I. MODERN TYPOGRAPHY OVERRIDES --- */
+/* Reduces "shouting" by reverting specific UI elements back to standard casing while keeping the bold weight */
+html[class*="theme-"] body .emby-button:not(.btnPlay):not(.btnStartNow):not(.sectionTitleButton),
+html[class*="theme-"] body .emby-tab-button,
+html[class*="theme-"] body .itemsViewSettingsContainer-button,
+html[class*="theme-"] body .guide-filter-button,
+html[class*="theme-"] body .btnGuideTag {
+    text-transform: none !important;
+    letter-spacing: 0.5px !important; /* Tightens the tracking slightly for title-case */
+}
+
+/* Keep the main global navigation tabs uppercase, as they are primary headers */
+html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button {
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
 /* ============================================================
    03. NAVIGATION & SIDEBAR
    ============================================================ */
@@ -1299,7 +1317,7 @@ html[class*="theme-"] body .mainDrawer.drawer-docked,
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini {
     background: none !important; 
     background-image: none !important; 
-    background-color: var(--frost-sidebar-bg) !important; 
+    background-color: var(--frost-bg) !important; 
     backdrop-filter: var(--frost-blur-power) !important; 
     -webkit-backdrop-filter: var(--frost-blur-power) !important; 
 }
@@ -1653,11 +1671,11 @@ html[class*="theme-"] .dialogBackdrop {
 html[class*="theme-"] body .dialog:not(.sliderBubble):not(.chapterThumbContainer),
 html[class*="theme-"] body .formDialog,
 html[class*="theme-"] body .actionSheet {
-  background-color:        var(--navy-light-alpha-80) !important;
-  backdrop-filter:         var(--blur-extreme) saturate(160%) !important;
-  -webkit-backdrop-filter: var(--blur-extreme) saturate(160%) !important;
+  background-color:        var(--frost-bg) !important; 
+  backdrop-filter:         var(--frost-blur-power) saturate(180%) !important; 
+  -webkit-backdrop-filter: var(--frost-blur-power) saturate(180%) !important;
   border:                  2px solid var(--my-gold) !important;
-  box-shadow:              0 15px 40px var(--black-alpha-90), 0 0 15px var(--gold-alpha-30) !important;
+  box-shadow:              0 25px 50px var(--black-alpha-90), 0 0 15px var(--gold-alpha-20) !important;
   border-radius:           var(--border-radius-md) !important;
   color:                   var(--text-muted) !important;
   overflow:                hidden !important;
@@ -2553,10 +2571,10 @@ html[class*="theme-"] .itemProgressBar {
 /* 2. Card Content & Images: Defines the standard look of movie and show posters */
 html[class*="theme-"] .cardContent,
 html[class*="theme-"] .cardImageContainer {
-  box-shadow:              0px 10px 20px var(--black-alpha-75) !important;
+  box-shadow:              0 4px 6px rgba(var(--pure-black-rgb), 0.3), 0 10px 20px var(--black-alpha-75) !important; 
   border:                  var(--hover-border-thickness) solid transparent !important;
-  transition:              border-color var(--transition-speed) ease-out, box-shadow var(--transition-speed) ease-out !important;
-  will-change:             border-color, box-shadow;
+  transition:              border-color var(--transition-speed) ease-out, box-shadow var(--transition-speed) ease-out, transform var(--transition-speed) var(--spring-easing) !important;
+  will-change:             border-color, box-shadow, transform;
 }
 
 /* 3. Progress Bar: The "watch progress" line at the bottom of posters */
@@ -2637,9 +2655,11 @@ html[class*="theme-"] body .personCard .defaultCardBackground {
 .card:hover .cardContent,
 .card:hover .cardImageContainer {
   border-color:            var(--theme-primary-color) !important;
-  box-shadow:              0px 15px 30px var(--black-alpha-90), 
+  box-shadow:              0 10px 15px rgba(var(--pure-black-rgb), 0.4), 
+                           0 25px 40px var(--black-alpha-60), 
                            var(--shadow-glow-standard), 
                            inset 0 0 10px var(--gold-alpha-10) !important;
+  transform:               translateY(-6px) scale(1.03) !important;
 }
 
 /* 2. Shape Handling: Ensures standard cards (movies/shows) maintain specific rounding at rest and on hover */
