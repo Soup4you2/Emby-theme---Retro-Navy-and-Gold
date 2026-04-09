@@ -1293,6 +1293,17 @@ html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer:h
   opacity: 1 !important; /* Full brightness on hover */
 }
 
+/* 7. Frosted Sidebar Background (Linked to Section 1 Toggles) */
+html[class*="theme-"] body .mainDrawer,
+html[class*="theme-"] body .mainDrawer.drawer-docked,
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini {
+    background: none !important; 
+    background-image: none !important; 
+    background-color: var(--frost-sidebar-bg) !important; 
+    backdrop-filter: var(--frost-blur-power) !important; 
+    -webkit-backdrop-filter: var(--frost-blur-power) !important; 
+}
+
 /* --- 3C. PILL NAVIGATION TABS (Home, Favorites, Libraries) --- */
 
 /* 1. The Main Wrapper Bar: Uses flexbox to gracefully center or scroll the floating navigation */
@@ -4978,19 +4989,6 @@ html[class*="theme-"] body .formDialog .button-flat:hover,
 html[class*="theme-"] body .paperListbox .button-flat:hover {
     color: var(--theme-primary-color) !important;
     -webkit-text-fill-color: var(--theme-primary-color) !important;
-}
-
-/* ============================================================
-   HOTFIX: FROSTED NAVIGATION
-   ============================================================ */
-html[class*="theme-"] body .mainDrawer,
-html[class*="theme-"] body .mainDrawer.drawer-docked,
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini {
-    background: none !important; 
-    background-image: none !important; 
-    background-color: var(--frost-sidebar-bg) !important; /* Linked to Section 1 */
-    backdrop-filter: var(--frost-blur-power) !important; /* Linked to Section 1 */
-    -webkit-backdrop-filter: var(--frost-blur-power) !important; 
 }
 
 /* ============================================================
