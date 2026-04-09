@@ -44,7 +44,6 @@ html,
   /* --star-color: rgba(255, 185, 0, 1);                              /* Direct RGBA for stability */
   /* --star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));        /* Media info badge rating star glow */
 
-
   /* --- CORE SOLID COLORS --- */
   --pure-white: rgba(var(--pure-white-rgb), 1);                   /* Solid white for high-contrast icons */
   --pure-black: rgba(var(--pure-black-rgb), 1);                   /* Solid black for deep shadow foundations */
@@ -185,8 +184,8 @@ html,
   /* SIDEBAR OPTIONS */
   --custom-sidebar-width: 250px;                                    /* Define the custom width (Triggered only when the full sidebar is open) */  
   --frost-blur-power: var(--blur-heavy);                            /* The blur intensity: var(--blur-heavy), var(--blur-light), or none */
-  --frost-sidebar-bg: var(--navy-base-alpha-75);                    /* Frost color: var(--navy-base-alpha-95), var(--black-alpha-80), or var(--retro-navy) to disable */
-
+  --frost-sidebar-bg: var(--navy-base-alpha-75);                    /* Frost color: var(--navy-base-alpha-75), var(--black-alpha-80), etc, or var(--retro-navy) to disable */
+ 
    /* STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) */
   --media-card-radius: 15px;                                        /* Adjust the corner rounding of standard posters */
 
