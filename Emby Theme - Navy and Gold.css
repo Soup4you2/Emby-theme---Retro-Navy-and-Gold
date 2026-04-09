@@ -2662,7 +2662,6 @@ html[class*="theme-"] body .card:hover .defaultCardBackground {
   box-shadow:              0 10px 15px rgba(var(--pure-black-rgb), 0.4), 
                            0 25px 40px var(--black-alpha-60), 
                            var(--shadow-glow-standard), 
-                           inset 0 0 10px var(--gold-alpha-10) !important;
 }
 
 /* 2. Shape Handling: Ensures standard cards (movies/shows) maintain specific rounding at rest and on hover */
