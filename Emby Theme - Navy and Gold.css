@@ -1842,6 +1842,14 @@ html[class*="theme-"] body .background-theme-a .listItemBodyText {
   -webkit-text-fill-color: var(--my-gold) !important;
 }
 
+/* 3b. Resting Icons for Dialog Lists & Action Menus (Forces Gold/Orange) */
+html[class*="theme-"] body .actionSheetMenuItem .md-icon,
+html[class*="theme-"] body .paperListbox .listItem .md-icon {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    transition: all var(--transition-speed) ease-in-out, filter var(--transition-speed) ease-in-out !important;
+}
+
 /* 4. Hover State for Settings & Lists (Fixes light vs dark theme bleeding) */
 html[class*="theme-"] body .actionSheetMenuItem:hover,
 html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a),
@@ -1853,12 +1861,13 @@ html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected)
   -webkit-text-fill-color: var(--pure-white) !important;
 }
 
-/* Keep hover icons Gold */
+/* Keep hover icons Gold (Brightened for contrast against resting state) */
 html[class*="theme-"] body .actionSheetMenuItem:hover .md-icon,
 html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .md-icon,
 html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .md-icon {
-  color:                   var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
+  color:                   var(--my-gold-light) !important;
+  -webkit-text-fill-color: var(--my-gold-light) !important;
+  filter:                  drop-shadow(0 0 5px var(--my-gold)) !important;
 }
 
 /* 5. Media Overlays: Small buttons appearing on poster hover */
