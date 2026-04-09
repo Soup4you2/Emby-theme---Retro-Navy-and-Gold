@@ -3810,24 +3810,45 @@ input[type="range"]::-moz-range-thumb {
   opacity:                 0.8;
 }
 
-/* Universal Media Control Buttons (Play, Pause, CC, settings, etc.) */
-.videoOsdBottom .paper-icon-button-light,
-.nowPlayingBar .paper-icon-button-light {
-  color:                   var(--white-alpha-80) !important;
+/* Universal Media Control Buttons (Play, Pause, CC, Settings, Volume, PIP, etc.) */
+html[class*="theme-"] body .videoOsdBottom .paper-icon-button-light:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdBottom .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .videoOsdHeader .paper-icon-button-light:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdHeader .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .videoOsdHeader .headerButton,
+html[class*="theme-"] body .videoOsdHeader .headerButton .md-icon,
+html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon {
+  color:                   var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
   transition:              all var(--transition-speed) ease !important;
-  will-change:             transform;
+  will-change:             transform, filter;
 }
 
-.videoOsdBottom .paper-icon-button-light:hover,
-.nowPlayingBar .paper-icon-button-light:hover {
-  color:                   var(--my-gold) !important;
-  transform:               scale(1.1) !important;
+/* Hover State: Pops to brighter gold with a slight scale and glow */
+html[class*="theme-"] body .videoOsdBottom .paper-icon-button-light:not(.ratingbutton-icon-withrating):hover,
+html[class*="theme-"] body .videoOsdBottom .paper-icon-button-light:not(.ratingbutton-icon-withrating):hover .md-icon,
+html[class*="theme-"] body .videoOsdHeader .paper-icon-button-light:not(.ratingbutton-icon-withrating):hover,
+html[class*="theme-"] body .videoOsdHeader .paper-icon-button-light:not(.ratingbutton-icon-withrating):hover .md-icon,
+html[class*="theme-"] body .videoOsdHeader .headerButton:hover,
+html[class*="theme-"] body .videoOsdHeader .headerButton:hover .md-icon,
+html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:not(.ratingbutton-icon-withrating):hover,
+html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:not(.ratingbutton-icon-withrating):hover .md-icon {
+  color:                   var(--my-gold-light) !important;
+  -webkit-text-fill-color: var(--my-gold-light) !important;
+  transform:               scale(1.15) !important;
   filter:                  var(--filter-glow-medium) !important;
 }
 
-/* Active state for toggles like Repeat or Shuffle */
-.nowPlayingBar .buttonActive {
-  color:                   var(--my-gold) !important;
+/* Active state for toggles like CC, Repeat, or PIP (Pops to White) */
+html[class*="theme-"] body .videoOsdBottom .buttonActive,
+html[class*="theme-"] body .videoOsdBottom .buttonActive .md-icon,
+html[class*="theme-"] body .videoOsdHeader .buttonActive,
+html[class*="theme-"] body .videoOsdHeader .buttonActive .md-icon,
+html[class*="theme-"] body .nowPlayingBar .buttonActive,
+html[class*="theme-"] body .nowPlayingBar .buttonActive .md-icon {
+  color:                   var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
   filter:                  var(--filter-glow-gold-solid) !important;
 }
 
