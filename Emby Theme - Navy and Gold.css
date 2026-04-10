@@ -3587,13 +3587,23 @@ html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:not(.ratingbu
   filter:                  var(--filter-glow-medium) !important;
 }
 
-/* Active state for toggles like CC, Repeat, or PIP (Pops to White) */
+/* Active state for toggles like CC, Repeat, Play Queue, or PIP (Pops to White) */
 html[class*="theme-"] body .videoOsdBottom .buttonActive,
 html[class*="theme-"] body .videoOsdBottom .buttonActive .md-icon,
 html[class*="theme-"] body .videoOsdHeader .buttonActive,
 html[class*="theme-"] body .videoOsdHeader .buttonActive .md-icon,
 html[class*="theme-"] body .nowPlayingBar .buttonActive,
-html[class*="theme-"] body .nowPlayingBar .buttonActive .md-icon {
+html[class*="theme-"] body .nowPlayingBar .buttonActive .md-icon,
+html[class*="theme-"] body .nowPlayingPage .buttonActive,
+html[class*="theme-"] body .nowPlayingPage .buttonActive .md-icon,
+html[class*="theme-"] body .videoOsdBottom .toggleButton-active,
+html[class*="theme-"] body .videoOsdBottom .toggleButton-active .md-icon,
+html[class*="theme-"] body .nowPlayingBar .toggleButton-active,
+html[class*="theme-"] body .nowPlayingBar .toggleButton-active .md-icon,
+html[class*="theme-"] body .nowPlayingPage .toggleButton-active,
+html[class*="theme-"] body .nowPlayingPage .toggleButton-active .md-icon {
+  background:              transparent !important; /* Kills the native grey box */
+  background-color:        transparent !important;
   color:                   var(--pure-white) !important;
   -webkit-text-fill-color: var(--pure-white) !important;
   filter:                  var(--filter-glow-gold-solid) !important;
