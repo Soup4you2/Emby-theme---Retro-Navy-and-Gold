@@ -30,7 +30,7 @@ html,
   --h2-color: var(--my-gold);                                      /* Page Titles, Section Divider Headers, Media Detail Title, Dialog window titles */
   --h3-color: var(--my-gold);                                      /* Sub-Headers, Micro-Headers, Media Captions, Container Title Text, Table grid header color */
   --h4-color: var(--pure-white);                                   /* Media about links, and about card text */
-  --h5-color: var(--pure-white);                                      /* Setting Titles, Deep Metadata & Plugins */
+  --h5-color: var(--pure-white);                                   /* Setting Titles, Deep Metadata & Plugins */
   --h6-color: var(--white-alpha-80);                               /* Setting Description Text, Sidebar Category Text, Deep Metadata & Plugins */  
 
   /* --- CUSTOM MASTER PALETTE --- */
@@ -136,7 +136,7 @@ html,
   /* --- TYPOGRAPHY BUTTON TOGGLES (PILLBARS, SUBMIT) --- */
   --button-text-transform: uppercase;                              /* Set to 'uppercase' for all-caps, or 'none' for title-case */
   --button-text-weight: 700;                                       /* Set to 700 for uppercase, or 600 for title-case */
-  --button-letter-spacing: 1px;                                  /* Set to 1px for uppercase, or 0.5px for title-case */
+  --button-letter-spacing: 1px;                                    /* Set to 1px for uppercase, or 0.5px for title-case */
 
    /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
   --guide-premiere: rgb(89, 35, 71);                               /* Cell background for TV Series Premieres */
@@ -175,9 +175,9 @@ html,
   --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8);
 
   /* ERROR & MAINTENANCE BANNERS */
-  --error-bg: rgba(179, 0, 0, 1);                               /* The solid deep crimson background */
-  --error-text: rgba(255, 255, 255, 1);                         /* The text color */
-  --error-border: rgba(255, 77, 77, 1);                         /* The bright light-red border */
+  --error-bg: rgba(179, 0, 0, 1);                                  /* The solid deep crimson background */
+  --error-text: rgba(255, 255, 255, 1);                            /* The text color */
+  --error-border: rgba(255, 77, 77, 1);                            /* The bright light-red border */
 
   /* --- GLOW & SHADOW PRESETS --- */
   --retro-glow: var(--gold-alpha-40);                              /* The base neon glow variable applied to the theme */
@@ -200,8 +200,8 @@ html,
   --sidebar-collections: none;                                     /* Set to 'none' to hide Collections from the sidebar, block to enable */
 
   /* FROST EFFECTS (SIDEBAR, HEADER, AND DIALOG POPUPS*/
-  --sidebar-blur: var(--blur-heavy);                           /* Frost blur intensity: var(--blur-heavy), var(--blur-light), or none */
-  --sidebar-bg: var(--navy-base-alpha-75);                           /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
+  --sidebar-blur: var(--blur-heavy);                               /* Frost blur intensity: var(--blur-heavy), var(--blur-light), or none */
+  --sidebar-bg: var(--navy-base-alpha-75);                         /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
   --header-blur: var(--blur-heavy);                                /* Set to 'none' for a completely clear header, or var(--blur-heavy) / var(--blur-light) to enable frost */
   --header-bg: var(--navy-base-alpha-75);                          /* Set to 'transparent' for a completely clear header, or use a translucent color to enable frost */
   --header-border: var(--standard-border-thickness) solid var(--gold-alpha-15);  /* Set to 'none' to disable, or var(--standard-border-thickness) solid var(--gold-alpha-15) to enable */
@@ -230,7 +230,7 @@ html,
   /* BACKDROP & FANART STYLE */
   --backdrop-bg-color: rgba(var(--pure-black-rgb), 0.5);           /* DIMMING - COLOR / OPACITY (Increase to 0.8 for darker, decrease to 0.4 for lighter) */
   --backdrop-gradient: none;                                       /* DIMMING (Traditional full-screen dark overlay) */
-  /*--backdrop-bg-color: transparent;                             /* NO DIMMING */
+  /*--backdrop-bg-color: transparent;                              /* NO DIMMING */
   /*--backdrop-gradient: linear-gradient(to right, var(--pure-black) 0%, var(--black-alpha-75) 30%, transparent 75%);    /* NO DIMMING */
   --backdrop-anim-toggle: imgZoomFadeIn;                           /* Set to 'imgZoomFadeIn' to ENABLE the backdrop animation, or 'none' to DISABLE it */
   --anim-backdrop-mask: linear-gradient(to right, transparent 0%, var(--pure-black) 40%), linear-gradient(to top, transparent 0%, var(--pure-black) 40%);
@@ -241,7 +241,7 @@ html,
   --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
   --button-popout-transform: translate(-3px, -3px);                /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
   --button-popout-active-shadow: 0px 0px 5px var(--black-alpha-80); /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
-  --button-popout-active-transform: translate(0px, 0px);            /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
+  --button-popout-active-transform: translate(0px, 0px);           /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
   --count-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Popout - Unwatched count style */
   --count-indicator-color: var(--retro-navy);                      /* Popout - Unwatched count style */
   --count-indicator-border: 2px solid var(--retro-navy);           /* Popout - Unwatched count style */
