@@ -224,9 +224,9 @@ html,
   /* --play-button-display: none;                                  /* Disabled */
 
   /* BACKDROP & FANART STYLE */
-  --backdrop-bg-color: rgba(var(--pure-black-rgb), .80);           /* DIMMING - COLOR / OPACITY (Traditional full-screen dark overlay) */
-  --backdrop-gradient: none;                                       /* DIMMING (Traditional full-screen dark overlay) */
-  /* --backdrop-bg-color: transparent;                             /* NO DIMMING */
+  --backdrop-bg-color: rgba(var(--pure-black-rgb), .80);            /* DIMMING - COLOR / OPACITY (Traditional full-screen dark overlay) */
+  --backdrop-gradient: none;                                        /* DIMMING (Traditional full-screen dark overlay) */
+  /* --backdrop-bg-color: transparent;                              /* NO DIMMING */
   /* --backdrop-gradient: linear-gradient(to right, var(--pure-black) 0%, var(--black-alpha-75) 30%, transparent 75%);    /* NO DIMMING */
 
   /* BUTTONS AND INDICATORS */
@@ -3371,6 +3371,13 @@ html[class*="theme-"] body .audioVideoMediaInfo .card.show-focus .cardContent {
     border: 2px solid var(--my-gold) !important;
     box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
     transform: translateY(-4px) !important;
+}
+
+/* 8. Media Stream Info Card Titles (Mapped to H5) */
+html[class*="theme-"] body .mediaStreamInnerCardFooter h3,
+html[class*="theme-"] body .mediaStreamInnerCardFooter h3 .md-icon {
+    color: var(--h5-color) !important;
+    -webkit-text-fill-color: var(--h5-color) !important;
 }
 
 /* --- 6F. FILMOGRAPHY --- */
