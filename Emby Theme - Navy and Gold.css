@@ -205,7 +205,7 @@ html,
   --header-blur: var(--blur-heavy);                                /* Set to 'none' for a completely clear header, or var(--blur-heavy) / var(--blur-light) to enable frost */
   --header-bg: var(--navy-base-alpha-75);                          /* Set to 'transparent' for a completely clear header, or use a translucent color to enable frost */
   --header-border: var(--standard-border-thickness) solid var(--gold-alpha-15);  /* Set to 'none' to disable, or var(--standard-border-thickness) solid var(--gold-alpha-15) to enable */
-  --header-content-padding: 20px;                                  /* Push the content down from the header */
+  --header-content-padding: 20px;                                  /* Media details header padding, push the content down from the header */
 
    /* STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) */
   --media-card-radius: 15px;                                       /* Adjust the corner rounding of standard posters */
@@ -234,8 +234,7 @@ html,
   /*--backdrop-gradient: linear-gradient(to right, var(--pure-black) 0%, var(--black-alpha-75) 30%, transparent 75%);    /* NO DIMMING */
   --backdrop-anim-toggle: imgZoomFadeIn;                           /* Set to 'imgZoomFadeIn' to ENABLE the backdrop animation, or 'none' to DISABLE it */
   --anim-backdrop-mask: linear-gradient(to right, transparent 0%, var(--pure-black) 40%), linear-gradient(to top, transparent 0%, var(--pure-black) 40%);
-  --backdrop-width: 80%;                                           /* Percentage of screen to use for backdrop posters (It will always start on the top right of the screen) */
-  --backdrop-height: 80%;                                          /* Percentage of screen to use for backdrop posters (It will always start on the top right of the screen) */  
+  --backdrop-image-scale: 80%                                      /* Percentage of screen to use for backdrop posters (It will always start on the top right of the screen) */                              
 
   /* BUTTONS AND INDICATORS */
   --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
@@ -488,8 +487,8 @@ html[class*="theme-"] .mainAnimatedPages {
   bottom: auto !important;
   right: 0 !important;
   left: auto !important;
-  width: var(--backdrop-width) !important; 
-  height: var(--backdrop-height) !important; 
+  width: var(--backdrop-image-scale) !important; 
+  height: var(--backdrop-image-scale) !important; 
   z-index: -1 !important;  
   object-fit: cover !important;
   object-position: top center !important;
@@ -954,7 +953,11 @@ html[class*="theme-"] body .skinHeader button.headerHomeButton.paper-icon-button
 html[class*="theme-"] body .skinHeader button.headerHomeButton.paper-icon-button-light .md-icon,
 html[class*="theme-"] body .skinHeader button.headerHomeButton.paper-icon-button-light *,
 html[class*="theme-"] body .skinHeader button.headerUserButton.paper-icon-button-light .md-icon,
-html[class*="theme-"] body .skinHeader button.headerUserButton.paper-icon-button-light * {
+html[class*="theme-"] body .skinHeader button.headerUserButton.paper-icon-button-light *,
+html[class*="theme-"] body .itemsViewSettingsContainer .btnFilter .md-icon,
+html[class*="theme-"] body .itemsViewSettingsContainer .btnFilter .button-icon,
+html[class*="theme-"] body .filtersScroller .btnGuideViewSettings .md-icon,
+html[class*="theme-"] body .filtersScroller .btnGuideViewSettings .button-icon {
   color:                   var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
   opacity:                 1 !important;
@@ -991,6 +994,13 @@ html[class*="theme-"] body .skinHeader .headerButton:has(.md-icon-star) {
   opacity: 0 !important;
   pointer-events: none !important;
   visibility: hidden !important;
+}
+
+/* 5. Content Spacing: Nudges the main page content down safely below the header */
+/* Uses direct child selectors (>) to avoid pushing down horizontal pill/filter menus */
+html[class*="theme-"] body .page > .scrollSlider,
+html[class*="theme-"] body .view > .scrollSlider {
+  margin-top: var(--header-content-padding) !important;
 }
 
 /* --- 3B. SIDEBAR DRAWER (Slide-out Menu) --- */
@@ -2253,13 +2263,6 @@ html[class*="theme-"] body .searchTabs .emby-tab-button.emby-tab-button-active::
   display: none !important;
 }
 
-/* 7. Hide the full-width horizontal divider line under the search tabs */
-html[class*="theme-"] body .searchFieldsBottomBorder,
-html[class*="theme-"] body .searchTabsContainer {
-  border-bottom: none !important;
-  box-shadow:    none !important;
-}
-
 /* --- 4O. MODAL LISTS & DRAG HANDLES --- */
 
 /* 1. Mute the sub-header instructions (e.g. "Enable and rank...") */
@@ -3365,13 +3368,44 @@ html[class*="theme-"] .programCell:hover .programCellInner {
 }
 
 /* 6. Current Time Indicator: The vertical line showing the "Now" position */
-html[class*="theme-"] .guide-currentTimeIndicator,
-html[class*="theme-"] .guideCurrentTimeIndicator,
-html[class*="theme-"] .epgCurrentTimeIndicator {
-  background:       var(--theme-primary-color) !important;
-  background-color: var(--theme-primary-color) !important;
-  width:            var(--hover-border-thickness) !important;
-  box-shadow:       0 0 10px var(--theme-primary-color) !important;
+
+/* THE LINE: Restores your working selector and kills the transparency fade */
+html[class*="theme-"] body div[class*="currenttimeindicator" i] {
+  background:       var(--my-gold) !important;
+  background-color: var(--my-gold) !important;
+  box-shadow:       0 0 8px var(--my-gold) !important;
+  
+  /* Kills the blue 'mucky' transparency and accent color gradients */
+  background-image: none !important; 
+  
+  /* Adjust this to 10px or 12px if the line is still too far from the triangle */
+  margin-top:       15px !important; 
+  opacity:          1 !important;
+}
+
+/* THE TRIANGLE: Specifically target the parts to kill the blue SVG and fix the shape */
+html[class*="theme-"] body .guide-currentTimeIndicatorDot::after,
+html[class*="theme-"] body .guide-currentTimeIndicatorDot::before,
+html[class*="theme-"] body .guideHeader-currentTimeIndicatorDot::after,
+html[class*="theme-"] body .guideHeader-currentTimeIndicatorDot::before {
+  /* THE FIX: Kills the blue SVG triangle image peeking through */
+  background-image:    none !important;
+  background-color:    transparent !important;
+  
+  /* Forces the triangle borders to Gold */
+  border-top-color:    var(--my-gold) !important;
+  
+  /* Ensures it stays a sharp downward point and doesn't turn into a square */
+  border-bottom-color: transparent !important;
+  
+  /* Fixes the "tiny dots" by restoring the physical size of the triangle */
+  border-top-width:    10px !important;
+  border-left-width:   7px !important;
+  border-right-width:  7px !important;
+  
+  /* Clean-up shadows */
+  box-shadow:          none !important;
+  filter:              drop-shadow(0 0 2px rgba(0,0,0,0.4)) !important;
 }
 
 /* --- 7B. GUIDE HEADERS (Top Bar) --- */
@@ -3385,14 +3419,49 @@ html[class*="theme-"] .guide-headerButtons {
 }
 
 /* 2. Timeline Ruler: The horizontal time display across the top */
-html[class*="theme-"] .guide-headerTimes {
+html[class*="theme-"] body .guide-headerTimes {
   background:              var(--retro-navy) !important;
   background-color:        var(--retro-navy) !important;
   background-image:        none !important;
   border-bottom:           none !important; 
-  color:                   var(--theme-primary-color) !important;
-  -webkit-text-fill-color: var(--theme-primary-color) !important;
   font-family:             var(--font-header) !important;
+}
+
+/* Target the exact timeslot text class to override Emby's native blue color */
+html[class*="theme-"] body .timeslotHeader {
+  color:                   var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  opacity:                 1 !important;
+}
+
+/* 3. Live TV Guide Settings Button (Color & Alignment) */
+
+/* 1. Strip the background box from the container and center-align it with the pills */
+html[class*="theme-"] body div.channelCell.settingsChannelCell {
+  background:              transparent !important;
+  background-color:        transparent !important;
+  border:                  none !important;
+  box-shadow:              none !important;
+  align-self:              center !important; /* Pulls it down from the ceiling */
+  width:                   auto !important;   /* Stops it from stretching horizontally */
+  padding:                 0 15px 0 5px !important; /* Gives it breathing room next to the pills */
+}
+
+/* 2. Absolute Maximum Specificity to obliterate Emby's white text and background rules */
+html[class*="theme-"] body div.channelCell.settingsChannelCell button.guideIconButton.btnGuideViewSettings,
+html[class*="theme-"] body div.channelCell.settingsChannelCell button.guideIconButton.btnGuideViewSettings i.md-icon {
+  background:              transparent !important; /* Kills the black button background */
+  background-color:        transparent !important;
+  border:                  none !important;
+  box-shadow:              none !important;
+  color:                   var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  opacity:                 1 !important;
+}
+
+/* Tiny optical nudge applied strictly to the icon so it lines up with the pill text */
+html[class*="theme-"] body div.channelCell.settingsChannelCell button.guideIconButton.btnGuideViewSettings i.md-icon {
+  transform:               translateY(2px) !important; 
 }
 
 /* --- 7C. PROGRAM INFO TYPOGRAPHY --- */
