@@ -2414,8 +2414,8 @@ html[class*="theme-"] body .card:hover .cardContent,
 html[class*="theme-"] body .card:hover .cardImageContainer,
 html[class*="theme-"] body .card:hover .defaultCardBackground {
   border-color: var(--theme-primary-color) !important;
-  box-shadow:   0 10px 15px rgba(var(--pure-black-rgb), 0.4), 
-                0 25px 40px var(--black-alpha-60), 
+  box-shadow:   0 5px 10px rgba(var(--pure-black-rgb), 0.4),
+                0 8px 15px var(--black-alpha-60),
                 var(--shadow-glow-standard) !important;
 }
 
