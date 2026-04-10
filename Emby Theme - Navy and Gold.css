@@ -28,8 +28,8 @@ html,
   /* --- HEADING COLORS --- */
   --h1-color: var(--my-gold);                                      /* Video & Music Titles in OSD, Dashboard Root, Startup and Login Screens */
   --h2-color: var(--my-gold);                                      /* Page Titles, Section Divider Headers, Media Detail Title, Dialog window titles */
-  --h3-color: var(--my-gold);                                      /* Sub-Headers, Media Captions, */
-  --h4-color: var(--my-gold);                                      /* Micro-Headers, Container Title Text, Table grid header color*/
+  --h3-color: var(--my-gold);                                      /* Sub-Headers, Micro-Headers, Media Captions, Container Title Text, Table grid header color */
+  --h4-color: var(--pure-white);                                   /* Media about links, and about card text */
   --h5-color: var(--pure-white);                                   /* Setting Titles, Deep Metadata & Plugins */
   --h6-color: var(--white-alpha-80);                               /* Setting Description Text, Sidebar Category Text, Deep Metadata & Plugins */  
 
@@ -133,7 +133,7 @@ html,
   --nav-pill-bar-border: 0px solid var(--gold-alpha-80);           /* Border of the track containing all the pills */
   --nav-pill-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light); /* Secondary shadow setting for active pills */
 
-  /* --- TYPOGRAPHY BUTTON TOGGLES (PILLBARS, SUBMIT, ABOUT MEDIA ITEMS) --- */
+  /* --- TYPOGRAPHY BUTTON TOGGLES (PILLBARS, SUBMIT) --- */
   --button-text-transform: uppercase;                              /* Set to 'uppercase' for all-caps, or 'none' for title-case */
   --button-text-weight: 600;                                       /* Set to 700 for uppercase, or 600 for title-case */
   --button-letter-spacing: 0.5px;                                  /* Set to 1px for uppercase, or 0.5px for title-case */
@@ -233,7 +233,7 @@ html,
   --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
   --button-popout-transform: translate(-3px, -3px);                /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
   --button-popout-active-shadow: 0px 0px 5px var(--black-alpha-80); /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
-  --button-popout-active-transform: translate(0px, 0px);           /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
+  --button-popout-active-transform: translate(0px, 0px);            /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
   --count-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Popout - Unwatched count style */
   --count-indicator-color: var(--retro-navy);                      /* Popout - Unwatched count style */
   --count-indicator-border: 2px solid var(--retro-navy);           /* Popout - Unwatched count style */
@@ -968,10 +968,10 @@ html[class*="theme-"] body .aboutSection .mediaInfoPanel h2 {
     color: var(--h2-color) !important;
 }
 
-/* 2.5 MEDIA CARD TITLES (Mapped to: H4 Variable) */
+/* 2.5 MEDIA CARD TITLES (Mapped to: H3 Variable) */
 html[class*="theme-"] .cardText-first {
-    color: var(--h4-color) !important;
-    -webkit-text-fill-color: var(--h4-color) !important;
+    color: var(--h3-color) !important;
+    -webkit-text-fill-color: var(--h3-color) !important;
 }
 
 /* 2b. INDIVIDUAL HEADING COLORS */
@@ -994,9 +994,9 @@ html[class*="theme-"] body .aboutSection .button-link,
 html[class*="theme-"] body .aboutSection .mediaInfoAttributeValue,
 html[class*="theme-"] body .aboutSection .itemSecondaryText,
 html[class*="theme-"] body .aboutSection .secondaryText,
-html[class*="theme-"] body .aboutSection .audioVideoMediaInfo,
-html[class*="theme-"] body .aboutSection .audioVideoMediaInfo *,
-html[class*="theme-"] body .aboutSection div.sectionTitle.dateLastPlayedText {
+html[class*="theme-"] body .aboutSection div.sectionTitle.dateLastPlayedText,
+html[class*="theme-"] body .audioVideoMediaInfo .secondaryText,
+html[class*="theme-"] body .audioVideoMediaInfo .secondaryText * {
     -webkit-text-fill-color: var(--h4-color) !important; 
     color: var(--h4-color) !important;
     text-transform: none !important; /* Prevents file paths from being forced into all-caps */
@@ -4271,14 +4271,14 @@ html[class*="theme-"] .dataGridHeader .dataGridHeader-content-inner {
     box-shadow: none !important;
 }
 
-/* 3. Header Colors (Mapped to H4 for column titles) */
+/* 3. Header Colors (Mapped to H3 for column titles) */
 html[class*="theme-"] .dataGridHeader .dataGridItemCell,
 html[class*="theme-"] .dataGridHeader .dataGridHeaderText,
 html[class*="theme-"] .dataGridHeader .primaryText,
 html[class*="theme-"] .dataGridHeader .button-link,
 html[class*="theme-"] .dataGridHeader .button-link * {
-    color: var(--h4-color) !important;
-    -webkit-text-fill-color: var(--h4-color) !important;
+    color: var(--h3-color) !important;
+    -webkit-text-fill-color: var(--h3-color) !important;
 }
 
 /* 4. Header Fonts (Excludes cells/icons to prevent missing glyphs and flex stretching) */
@@ -4306,6 +4306,16 @@ legend {
   font-size:               1.2em !important;
   margin-bottom:           10px !important;
   padding-top:             10px !important;
+}
+
+/* 2. Hardware Decoder & Encoder Sub-Headers (Mapped to H5) */
+/* Rescues these specific headers from being muted by the global secondaryText rule */
+html[class*="theme-"] body .hardwareDecoders h3.secondaryText,
+html[class*="theme-"] body .hardwareEncoders h3.secondaryText {
+    color: var(--h5-color) !important;
+    -webkit-text-fill-color: var(--h5-color) !important;
+    opacity: 1 !important; /* Removes the muted effect */
+    margin-bottom: 10px !important;
 }
 
 /* --- 10C. Data Grid List Items & Hover States --- */
