@@ -234,7 +234,7 @@ html,
   /*--backdrop-gradient: linear-gradient(to right, var(--pure-black) 0%, var(--black-alpha-75) 30%, transparent 75%);    /* NO DIMMING */
   --backdrop-anim-toggle: imgZoomFadeIn;                           /* Set to 'imgZoomFadeIn' to ENABLE the backdrop animation, or 'none' to DISABLE it */
   --anim-backdrop-mask: linear-gradient(to right, transparent 0%, var(--pure-black) 40%), linear-gradient(to top, transparent 0%, var(--pure-black) 40%);
-  --backdrop-image-scale: 80%                                      /* Percentage of screen to use for backdrop posters (It will always start on the top right of the screen) */                              
+  --backdrop-image-scale: 80%;                                     /* Percentage of screen to use for backdrop posters (It will always pin to the top right of the screen) */                              
 
   /* BUTTONS AND INDICATORS */
   --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
