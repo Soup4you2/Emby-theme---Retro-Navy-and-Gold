@@ -199,7 +199,7 @@ html,
   --sidebar-playlists: block;                                      /* Set to 'none' to hide Playlists from the sidebar, block to enable */
   --sidebar-collections: none;                                     /* Set to 'none' to hide Collections from the sidebar, block to enable */
 
-  /* FROST EFFECTS (SIDEBAR, HEADER, AND DIALOG POPUPS*/
+  /* EFFECTS (SIDEBAR, HEADER, AND DIALOG POPUPS*/
   --sidebar-blur: var(--blur-heavy);                               /* Frost blur intensity: var(--blur-heavy), var(--blur-light), or none */
   --sidebar-bg: var(--navy-base-alpha-75);                         /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
   --header-blur: var(--blur-heavy);                                /* Set to 'none' for a completely clear header, or var(--blur-heavy) / var(--blur-light) to enable frost */
