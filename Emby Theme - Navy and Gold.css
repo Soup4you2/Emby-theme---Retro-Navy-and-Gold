@@ -205,6 +205,7 @@ html,
   --header-blur: var(--blur-heavy);                                /* Set to 'none' for a completely clear header, or var(--blur-heavy) / var(--blur-light) to enable frost */
   --header-bg: var(--navy-base-alpha-75);                          /* Set to 'transparent' for a completely clear header, or use a translucent color to enable frost */
   --header-border: var(--standard-border-thickness) solid var(--gold-alpha-15);  /* Set to 'none' to disable, or var(--standard-border-thickness) solid var(--gold-alpha-15) to enable */
+  --header-content-padding: 20px;                                  /* Push the content down from the header */
 
    /* STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) */
   --media-card-radius: 15px;                                       /* Adjust the corner rounding of standard posters */
@@ -988,6 +989,11 @@ html[class*="theme-"] body .skinHeader .headerButton:has(.md-icon-star) {
   opacity: 0 !important;
   pointer-events: none !important;
   visibility: hidden !important;
+}
+
+/* 5. Content Spacing: Nudges the internal content down safely below the header */
+html[class*="theme-"] body .page .scrollSlider {
+  margin-top: var(--header-content-padding) !important;
 }
 
 /* --- 3B. SIDEBAR DRAWER (Slide-out Menu) --- */
