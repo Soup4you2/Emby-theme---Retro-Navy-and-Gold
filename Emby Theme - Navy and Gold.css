@@ -136,7 +136,7 @@ html,
   /* --- TYPOGRAPHY BUTTON TOGGLES (PILLBARS, SUBMIT) --- */
   --button-text-transform: uppercase;                              /* Set to 'uppercase' for all-caps, or 'none' for title-case */
   --button-text-weight: 700;                                       /* Set to 700 for uppercase, or 600 for title-case */
-  --button-letter-spacing: 1px;                                    /* Set to 1px for uppercase, or 0.5px for title-case */
+  --button-letter-spacing: 1px;                                  /* Set to 1px for uppercase, or 0.5px for title-case */
 
    /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
   --guide-premiere: rgb(89, 35, 71);                               /* Cell background for TV Series Premieres */
@@ -202,6 +202,8 @@ html,
   /* FROST EFFECTS (SIDEBAR AND DIALOG POPUPS*/
   --frost-blur-power: var(--blur-heavy);                           /* Frost blur intensity: var(--blur-heavy), var(--blur-light), or none */
   --frost-bg: var(--navy-base-alpha-75);                           /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
+  --header-blur: var(--blur-heavy);                                /* Set to 'none' for a completely clear header, or var(--blur-heavy) / var(--blur-light) to enable frost */
+  --header-bg: var(--navy-base-alpha-75);                          /* Set to 'transparent' for a completely clear header, or use a translucent color to enable frost */
 
    /* STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) */
   --media-card-radius: 15px;                                       /* Adjust the corner rounding of standard posters */
@@ -224,10 +226,14 @@ html,
   /* --play-button-display: none;                                  /* Disabled */
 
   /* BACKDROP & FANART STYLE */
-  --backdrop-bg-color: rgba(var(--pure-black-rgb), .80);            /* DIMMING - COLOR / OPACITY (Traditional full-screen dark overlay) */
-  --backdrop-gradient: none;                                        /* DIMMING (Traditional full-screen dark overlay) */
-  /* --backdrop-bg-color: transparent;                              /* NO DIMMING */
-  /* --backdrop-gradient: linear-gradient(to right, var(--pure-black) 0%, var(--black-alpha-75) 30%, transparent 75%);    /* NO DIMMING */
+  --backdrop-bg-color: rgba(var(--pure-black-rgb), 0.5);           /* DIMMING - COLOR / OPACITY (Increase to 0.8 for darker, decrease to 0.4 for lighter) */
+  --backdrop-gradient: none;                                       /* DIMMING (Traditional full-screen dark overlay) */
+  /*--backdrop-bg-color: transparent;                             /* NO DIMMING */
+  /*--backdrop-gradient: linear-gradient(to right, var(--pure-black) 0%, var(--black-alpha-75) 30%, transparent 75%);    /* NO DIMMING */
+  --backdrop-anim-toggle: imgZoomFadeIn;                           /* Set to 'imgZoomFadeIn' to ENABLE the backdrop animation, or 'none' to DISABLE it */
+  --anim-backdrop-mask: linear-gradient(to right, transparent 0%, var(--pure-black) 40%), linear-gradient(to top, transparent 0%, var(--pure-black) 40%);
+  --backdrop-width: 80%;                                           /* Percentage of screen to use for backdrop posters */
+  --backdrop-height: 80%;                                          /* Percentage of screen to use for backdrop posters */  
 
   /* BUTTONS AND INDICATORS */
   --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
@@ -819,8 +825,35 @@ html[class*="theme-"] .mainAnimatedPages {
 }
 
 /* 7. Fanart Intensity: Dynamically controls backdrop brightness */
-html[class*="theme-"] body .backdropImage {
-  opacity: var(--backdrop-bg-color) !important;
+/* ===== FIXED BACKDROP ANIMATIONS (RECOVERY) ===== */
+.backdropImage {
+    display: block !important; */
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+    width: var(--backdrop-width) !important; 
+    height: var(--backdrop-height) !important; 
+    z-index: -1 !important;  
+    object-fit: cover !important;
+    object-position: top center !important;
+    backdrop-filter: blur(3px) !important; 
+    mask-image: var(--anim-backdrop-mask) !important;
+    -webkit-mask-image: var(--anim-backdrop-mask) !important;
+    mask-composite: intersect;
+    animation: var(--backdrop-anim-toggle) 8s ease-out forwards;
+    transform-origin: 60% 25%;
+}
+
+.backdropImage:not(.displayingBackdropImage) {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  animation: none !important;
+}
+
+@keyframes imgZoomFadeIn {
+    0% { transform: scale(1); filter: blur(8px); opacity: 0; }
+    100% { transform: scale(1.1); filter: blur(0px); }
 }
 
 /* --- 2B. GLOBAL TYPOGRAPHY & FONTS --- */
@@ -1209,14 +1242,14 @@ html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button {
 
 /* --- 3A. TOP HEADER --- */
 
-/* 1. Header Transparency: Strips solid backgrounds so the body gradient shows through */
+/* 1. Header Transparency & Frost: Driven by variables in Section 1 */
 .skinHeader-withBackground,
 .skinHeader {
-  background:              transparent !important;
-  backdrop-filter:         none !important;
-  -webkit-backdrop-filter: none !important;
-  border-bottom:           none !important;
-  box-shadow:              none !important;
+  background:              var(--header-bg) !important;
+  backdrop-filter:         var(--header-blur) !important;
+  -webkit-backdrop-filter: var(--header-blur) !important;
+  border-bottom:           var(--standard-border-thickness) solid var(--gold-alpha-15) !important; /* Adds a subtle line separating header from background */
+  box-shadow:              0 5px 20px var(--black-alpha-50) !important; /* Adds depth underneath the frosted bar */
 }
 
 /* 2. Logo Management: Hides default text/image logos to keep the header minimal */
@@ -4974,32 +5007,15 @@ html[class*="theme-"] .mdl-spinner::after {
 
 /* The Bounce (Uses currentColor to link the glow to the active color below) */
 @keyframes audioWave {
-    0%, 100% {
-        transform: scaleY(0.5);
-        box-shadow: 0 0 5px transparent;
-        opacity: 0.5;
-    }
-    50% {
-        transform: scaleY(1.2);
-        box-shadow: 0 0 12px currentColor; 
-        opacity: 1;
-    }
+    0%, 100% { transform: scaleY(0.5); box-shadow: 0 0 5px transparent; opacity: 0.5; }
+    50% { transform: scaleY(1.2); box-shadow: 0 0 12px currentColor; opacity: 1; }
 }
 
 /* The Color Cycle  */
 @keyframes audioColors {
-    0%, 100% { 
-        background-color: var(--theme-primary-color); 
-        color: var(--theme-primary-color);
-    }
-    33% { 
-        background-color: var(--pure-white); 
-        color: var(--pure-white);
-    }
-    66% { 
-        background-color: var(--my-gold-light); 
-        color: var(--my-gold-light);
-    }
+    0%, 100% { background-color: var(--theme-primary-color); color: var(--theme-primary-color); }
+    33% { background-color: var(--pure-white); color: var(--pure-white); }
+    66% { background-color: var(--my-gold-light); color: var(--my-gold-light); }
 }
 
 /* --- 11C. 3D Pop-out Effects (Driven by Section 1 Toggles) --- */
@@ -5571,18 +5587,8 @@ html[class*="theme-"] body .button-submit:active {
   }
 
   @keyframes tabPulse {
-    0% { 
-      transform:    scale(1); 
-      box-shadow:   0 0 10px rgba(var(--theme-primary-rgb), 0.4), inset 0 0 5px rgba(var(--theme-primary-rgb), 0.4) !important; 
-      border-color: var(--theme-primary-color) !important; 
-    } 
-    100% { 
-      transform:    scale(1.05); 
-      box-shadow:   0 0 15px var(--theme-primary-color), 0 0 20px var(--theme-accent-color), inset 0 0 10px var(--theme-primary-color) !important; 
-      border-color: var(--theme-accent-color) !important; 
-      color:        var(--pure-white) !important; 
-      -webkit-text-fill-color: var(--pure-white) !important;
-    } 
+    0% { transform:    scale(1); box-shadow:   0 0 10px rgba(var(--theme-primary-rgb), 0.4), inset 0 0 5px rgba(var(--theme-primary-rgb), 0.4) !important; border-color: var(--theme-primary-color) !important; } 
+    100% { transform:    scale(1.05); box-shadow:   0 0 15px var(--theme-primary-color), 0 0 20px var(--theme-accent-color), inset 0 0 10px var(--theme-primary-color) !important; border-color: var(--theme-accent-color) !important; color:        var(--pure-white) !important; -webkit-text-fill-color: var(--pure-white) !important; } 
   }
 
 /* FIREFOX FIX: Comment out the line below to enable in Firefox */
@@ -5909,18 +5915,8 @@ html[class*="theme-"] body .button-submit:active {
   }
 
   @keyframes emeraldTabPulse { 
-    0% { 
-      transform:    scale(1); 
-      box-shadow:   0 0 10px rgba(var(--theme-accent-rgb), 0.4), inset 0 0 5px rgba(var(--theme-accent-rgb), 0.4) !important; 
-      border-color: var(--theme-accent-color) !important; 
-    } 
-    100% { 
-      transform:    scale(1.05); 
-      box-shadow:   0 0 15px var(--theme-accent-color), 0 0 20px var(--theme-primary-color), inset 0 0 10px var(--theme-accent-color) !important; 
-      border-color: var(--theme-primary-color) !important; 
-      color:        var(--pure-white) !important; 
-      -webkit-text-fill-color: var(--pure-white) !important;
-    } 
+    0% { transform: scale(1); box-shadow: 0 0 10px rgba(var(--theme-accent-rgb), 0.4), inset 0 0 5px rgba(var(--theme-accent-rgb), 0.4) !important; border-color: var(--theme-accent-color) !important; } 
+    100% { transform: scale(1.05); box-shadow: 0 0 15px var(--theme-accent-color), 0 0 20px var(--theme-primary-color), inset 0 0 10px var(--theme-accent-color) !important; border-color: var(--theme-primary-color) !important; color: var(--pure-white) !important; -webkit-text-fill-color: var(--pure-white) !important; } 
   }
 
   /* 2. Video Player OSD Gradient: Emerald edge fade with gold border */
