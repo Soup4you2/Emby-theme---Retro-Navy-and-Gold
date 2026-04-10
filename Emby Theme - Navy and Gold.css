@@ -948,12 +948,25 @@ html[class*="theme-"] body .skinHeader .headerSettingsButton:hover {
 /* 3b. Header Icon Fixes: Forces specific buttons to stay gold and avoid global white overrides */
 html[class*="theme-"] body .skinHeader button.headerBackButton.paper-icon-button-light .md-icon,
 html[class*="theme-"] body .skinHeader button.headerBackButton.paper-icon-button-light *,
+html[class*="theme-"] body .skinHeader button.headerHomeButton.paper-icon-button-light,
 html[class*="theme-"] body .skinHeader button.headerHomeButton.paper-icon-button-light .md-icon,
 html[class*="theme-"] body .skinHeader button.headerHomeButton.paper-icon-button-light *,
 html[class*="theme-"] body .skinHeader button.headerUserButton.paper-icon-button-light .md-icon,
 html[class*="theme-"] body .skinHeader button.headerUserButton.paper-icon-button-light * {
   color:                   var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* Hover Glow applied specifically to the intended buttons */
+html[class*="theme-"] body .skinHeader .headerBackButton:hover,
+html[class*="theme-"] body .skinHeader .headerHomeButton:hover,
+html[class*="theme-"] body .skinHeader .headerMenuButton:hover,
+html[class*="theme-"] body .skinHeader .headerCastButton:hover,
+html[class*="theme-"] body .skinHeader .headerSearchButton:hover,
+html[class*="theme-"] body .skinHeader .headerUserButton:hover,
+html[class*="theme-"] body .skinHeader .headerSettingsButton:hover {
+  filter:    drop-shadow(0 0 5px var(--my-gold)) !important;
+  transform: scale(1.1) !important;
 }
 
 /* 4. PREMIERE BUTTON REMOVAL */
