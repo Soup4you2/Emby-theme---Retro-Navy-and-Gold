@@ -133,12 +133,12 @@ html,
   --nav-pill-bar-border: 0px solid var(--gold-alpha-80);           /* Border of the track containing all the pills */
   --nav-pill-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light); /* Secondary shadow setting for active pills */
 
-  /* --- BUTTON TYPOGRAPHY TOGGLES --- */
-  --button-text-transform: none;                                   /* Set to 'uppercase' for all-caps, or 'none' for title-case */
+  /* --- BUTTON TYPOGRAPHY TOGGLES (PILLBARS, ETC) --- */
+  --button-text-transform: uppercase;                                   /* Set to 'uppercase' for all-caps, or 'none' for title-case */
   --button-text-weight: 600;                                       /* Set to 700 for uppercase, or 600 for title-case */
   --button-letter-spacing: 0.5px;                                  /* Set to 1px for uppercase, or 0.5px for title-case */
 
-  /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
+   /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
   --guide-premiere: rgb(89, 35, 71);                               /* Cell background for TV Series Premieres */
   --guide-new: rgb(31, 75, 94);                                    /* Cell background for brand new episodes */
   --guide-live: rgb(76, 99, 87);                                   /* Cell background for currently airing live events (Sports/News) */
@@ -224,11 +224,10 @@ html,
   /* --play-button-display: none;                                  /* Disabled */
 
   /* BACKDROP & FANART STYLE */
-  --backdrop-bg-color: rgba(var(--pure-black-rgb), .75);            /* DIMMING (Traditional full-screen dark overlay) */
+  --backdrop-bg-color: rgba(var(--pure-black-rgb), .80);            /* DIMMING - COLOR / OPACITY (Traditional full-screen dark overlay) */
   --backdrop-gradient: none;                                        /* DIMMING (Traditional full-screen dark overlay) */
   /* --backdrop-bg-color: transparent;                              /* NO DIMMING */
   /* --backdrop-gradient: linear-gradient(to right, var(--pure-black) 0%, var(--black-alpha-75) 30%, transparent 75%);    /* NO DIMMING */
-  --backdrop-blur: none;                                           /* BLUR EFFECT (Only affects posters not video) - Options: var(--blur-light), var(--blur-heavy), var(--blur-extreme), or blur(15px) */
 
   /* BUTTONS AND INDICATORS */
   --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
@@ -822,7 +821,6 @@ html[class*="theme-"] .mainAnimatedPages {
 /* 7. Fanart Intensity: Dynamically controls backdrop brightness */
 html[class*="theme-"] body .backdropImage {
   opacity: var(--backdrop-bg-color) !important;
-  filter: var(--backdrop-blur) !important;
 }
 
 /* --- 2B. GLOBAL TYPOGRAPHY & FONTS --- */
