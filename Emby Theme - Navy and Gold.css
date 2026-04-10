@@ -240,7 +240,7 @@ html,
   --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
   --button-popout-transform: translate(-3px, -3px);                /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
   --button-popout-active-shadow: 0px 0px 5px var(--black-alpha-80); /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
-  --button-popout-active-transform: translate(0px, 0px);            /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
+  --button-popout-active-transform: translate(0px, 0px);           /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
   --count-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Popout - Unwatched count style */
   --count-indicator-color: var(--retro-navy);                      /* Popout - Unwatched count style */
   --count-indicator-border: 2px solid var(--retro-navy);           /* Popout - Unwatched count style */
