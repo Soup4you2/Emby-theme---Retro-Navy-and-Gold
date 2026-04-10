@@ -3625,15 +3625,38 @@ html[class*="theme-"] body .nowPlayingPage .toggleButton-active .md-icon {
   filter:                  var(--filter-glow-gold-solid) !important;
 }
 
-/* Hover State: Pops to brighter gold with a slight scale and glow */
-html[class*="theme-"] body .videoOsdBottom .paper-icon-button-light:not(.ratingbutton-icon-withrating):hover,
-html[class*="theme-"] body .videoOsdBottom .paper-icon-button-light:not(.ratingbutton-icon-withrating):hover .md-icon,
-html[class*="theme-"] body .videoOsdHeader .paper-icon-button-light:not(.ratingbutton-icon-withrating):hover,
-html[class*="theme-"] body .videoOsdHeader .paper-icon-button-light:not(.ratingbutton-icon-withrating):hover .md-icon,
-html[class*="theme-"] body .videoOsdHeader .headerButton:hover,
-html[class*="theme-"] body .videoOsdHeader .headerButton:hover .md-icon,
-html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:not(.ratingbutton-icon-withrating):hover,
-html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:not(.ratingbutton-icon-withrating):hover .md-icon {
+/* --- OSD ICON RESTING STATE --- */
+/* Ultimate Catch-All: Targets EVERY .md-icon in the players (Buttons, Anchors, Standalone, Volume) */
+html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdHeader .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .nowPlayingBar .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .nowPlayingPage .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdBottom .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .videoOsdHeader .headerButton:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .videoOsdHeader .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .nowPlayingPage .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon {
+  color:                   var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  opacity:                 0.9 !important; 
+  transition:              all var(--transition-speed) ease !important;
+}
+
+/* --- OSD ICON HOVER STATE --- */
+/* Pops to brighter gold with a slight scale and glow when interacted with */
+/* Includes wrapper hovers so the icon glows even if you click the edge of the button */
+html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):hover,
+html[class*="theme-"] body .videoOsdBottom button:hover .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdBottom a:hover .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdHeader .md-icon:not(.ratingbutton-icon-withrating):hover,
+html[class*="theme-"] body .videoOsdHeader button:hover .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdHeader a:hover .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .nowPlayingBar .md-icon:not(.ratingbutton-icon-withrating):hover,
+html[class*="theme-"] body .nowPlayingBar button:hover .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .nowPlayingBar a:hover .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .nowPlayingPage .md-icon:not(.ratingbutton-icon-withrating):hover,
+html[class*="theme-"] body .nowPlayingPage button:hover .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .nowPlayingPage a:hover .md-icon:not(.ratingbutton-icon-withrating) {
   color:                   var(--my-gold-light) !important;
   -webkit-text-fill-color: var(--my-gold-light) !important;
   transform:               scale(1.15) !important;
