@@ -133,8 +133,8 @@ html,
   --nav-pill-bar-border: 0px solid var(--gold-alpha-80);           /* Border of the track containing all the pills */
   --nav-pill-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light); /* Secondary shadow setting for active pills */
 
-  /* --- BUTTON TYPOGRAPHY TOGGLES (PILLBARS, ETC) --- */
-  --button-text-transform: uppercase;                                   /* Set to 'uppercase' for all-caps, or 'none' for title-case */
+  /* --- TYPOGRAPHY BUTTON TOGGLES (PILLBARS, SUBMIT, ABOUT MEDIA ITEMS) --- */
+  --button-text-transform: uppercase;                              /* Set to 'uppercase' for all-caps, or 'none' for title-case */
   --button-text-weight: 600;                                       /* Set to 700 for uppercase, or 600 for title-case */
   --button-letter-spacing: 0.5px;                                  /* Set to 1px for uppercase, or 0.5px for title-case */
 
@@ -224,16 +224,16 @@ html,
   /* --play-button-display: none;                                  /* Disabled */
 
   /* BACKDROP & FANART STYLE */
-  --backdrop-bg-color: rgba(var(--pure-black-rgb), .80);            /* DIMMING - COLOR / OPACITY (Traditional full-screen dark overlay) */
-  --backdrop-gradient: none;                                        /* DIMMING (Traditional full-screen dark overlay) */
-  /* --backdrop-bg-color: transparent;                              /* NO DIMMING */
+  --backdrop-bg-color: rgba(var(--pure-black-rgb), .80);           /* DIMMING - COLOR / OPACITY (Traditional full-screen dark overlay) */
+  --backdrop-gradient: none;                                       /* DIMMING (Traditional full-screen dark overlay) */
+  /* --backdrop-bg-color: transparent;                             /* NO DIMMING */
   /* --backdrop-gradient: linear-gradient(to right, var(--pure-black) 0%, var(--black-alpha-75) 30%, transparent 75%);    /* NO DIMMING */
 
   /* BUTTONS AND INDICATORS */
   --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
   --button-popout-transform: translate(-3px, -3px);                /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
   --button-popout-active-shadow: 0px 0px 5px var(--black-alpha-80); /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
-  --button-popout-active-transform: translate(0px, 0px);            /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
+  --button-popout-active-transform: translate(0px, 0px);           /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
   --count-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Popout - Unwatched count style */
   --count-indicator-color: var(--retro-navy);                      /* Popout - Unwatched count style */
   --count-indicator-border: 2px solid var(--retro-navy);           /* Popout - Unwatched count style */
@@ -1187,7 +1187,6 @@ html[class*="theme-"] body .itemAction:hover .cardText {
 
 /* --- 2I. MODERN TYPOGRAPHY OVERRIDES --- */
 /* Master toggle for button casing (Driven by Section 1 Variables) */
-html[class*="theme-"] body .emby-button:not(.btnPlay):not(.btnStartNow):not(.sectionTitleButton),
 html[class*="theme-"] body .emby-tab-button,
 html[class*="theme-"] body .itemsViewSettingsContainer-button,
 html[class*="theme-"] body .guide-filter-button,
