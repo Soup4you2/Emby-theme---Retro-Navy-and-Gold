@@ -951,8 +951,6 @@ html[class*="theme-"] body .skinHeader button.headerHomeButton.paper-icon-button
 html[class*="theme-"] body .skinHeader button.headerHomeButton.paper-icon-button-light *,
 html[class*="theme-"] body .skinHeader button.headerUserButton.paper-icon-button-light .md-icon,
 html[class*="theme-"] body .skinHeader button.headerUserButton.paper-icon-button-light *,
-html[class*="theme-"] body .itemsViewSettingsContainer .btnFilter .md-icon,
-html[class*="theme-"] body .itemsViewSettingsContainer .btnFilter .button-icon,
 html[class*="theme-"] body .filtersScroller .btnGuideViewSettings .md-icon,
 html[class*="theme-"] body .filtersScroller .btnGuideViewSettings .button-icon {
   color:                   var(--my-gold) !important;
@@ -960,16 +958,12 @@ html[class*="theme-"] body .filtersScroller .btnGuideViewSettings .button-icon {
   opacity:                 1 !important;
 }
 
-/* Hover Glow applied specifically to the intended buttons */
-html[class*="theme-"] body .skinHeader .headerBackButton:hover,
-html[class*="theme-"] body .skinHeader .headerHomeButton:hover,
-html[class*="theme-"] body .skinHeader .headerMenuButton:hover,
-html[class*="theme-"] body .skinHeader .headerCastButton:hover,
-html[class*="theme-"] body .skinHeader .headerSearchButton:hover,
-html[class*="theme-"] body .skinHeader .headerUserButton:hover,
-html[class*="theme-"] body .skinHeader .headerSettingsButton:hover {
-  filter:    drop-shadow(0 0 5px var(--my-gold)) !important;
-  transform: scale(1.1) !important;
+/* 3c. Filter Icon Resting State: Forces the filter icon to be white until clicked */
+html[class*="theme-"] body .itemsViewSettingsContainer .btnFilter:not(.buttonActive):not(.filter-active) .md-icon,
+html[class*="theme-"] body .itemsViewSettingsContainer .btnFilter:not(.buttonActive):not(.filter-active) .button-icon {
+  color:                   var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
+  opacity:                 1 !important;
 }
 
 /* 4. PREMIERE BUTTON REMOVAL */
