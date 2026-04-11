@@ -2427,27 +2427,48 @@ html[class*="theme-"] body .card {
 
 /* --- 5B. CARD HOVER STATES --- */
 
-/* 1. Global Hover Behavior: Applies theme glow and gold border on mouse-over */
-html[class*="theme-"] body .card:hover .cardContent,
+/* 1. Global Hover Behavior: Applies theme glow and gold border strictly to image layers */
 html[class*="theme-"] body .card:hover .cardImageContainer,
-html[class*="theme-"] body .card:hover .defaultCardBackground {
+html[class*="theme-"] body .card:hover .defaultCardBackground,
+html[class*="theme-"] body .card.show-focus .cardImageContainer,
+html[class*="theme-"] body .card.show-focus .defaultCardBackground {
   border-color:            var(--theme-primary-color) !important;
   border-width:            var(--hover-border-thickness) !important; 
   border-style:            solid !important;
-  box-shadow:              0 8px 20px var(--black-alpha-50), 
+  box-shadow:              18px 18px 30px -10px var(--black-alpha-80), 
                            var(--shadow-glow-standard) !important; 
 }
 
-/* 2. Shape Handling: Ensures standard cards (movies/shows) maintain specific rounding at rest and on hover */
-html[class*="theme-"] body .card .cardContent:not(.cardContent-round),
-html[class*="theme-"] body .card .cardImageContainer:not(.cardContent-round),
-html[class*="theme-"] body .card .defaultCardBackground:not(.cardContent-round),
-html[class*="theme-"] body .card .cardOverlayContainer:not(.cardContent-round),
-html[class*="theme-"] body .card:hover .cardContent:not(.cardContent-round),
-html[class*="theme-"] body .card:hover .cardImageContainer:not(.cardContent-round),
-html[class*="theme-"] body .card:hover .defaultCardBackground:not(.cardContent-round) {
+/* 1b. Clean up wrappers to prevent square shadow blocks */
+html[class*="theme-"] body .cardOverlayContainer,
+html[class*="theme-"] body .cardBox,
+html[class*="theme-"] body .cardScalable,
+html[class*="theme-"] body .card:hover .cardContent,
+html[class*="theme-"] body .card.show-focus .cardContent {
+  border-color: transparent !important;
+  box-shadow:   none !important;
+}
+
+/* 2. Radius Enforcement: Forces ALL layers to strictly obey your corner variable at ALL times */
+html[class*="theme-"] body .card .cardBox,
+html[class*="theme-"] body .card .cardScalable,
+html[class*="theme-"] body .card .cardContent,
+html[class*="theme-"] body .card .cardImageContainer,
+html[class*="theme-"] body .card .defaultCardBackground,
+html[class*="theme-"] body .card .cardOverlayContainer,
+html[class*="theme-"] body .card:hover .cardBox,
+html[class*="theme-"] body .card:hover .cardScalable,
+html[class*="theme-"] body .card:hover .cardContent,
+html[class*="theme-"] body .card:hover .cardImageContainer,
+html[class*="theme-"] body .card:hover .defaultCardBackground,
+html[class*="theme-"] body .card:hover .cardOverlayContainer,
+html[class*="theme-"] body .card.show-focus .cardBox,
+html[class*="theme-"] body .card.show-focus .cardScalable,
+html[class*="theme-"] body .card.show-focus .cardContent,
+html[class*="theme-"] body .card.show-focus .cardImageContainer,
+html[class*="theme-"] body .card.show-focus .defaultCardBackground,
+html[class*="theme-"] body .card.show-focus .cardOverlayContainer {
   border-radius: var(--media-card-radius) !important;
-  overflow:      hidden !important;
 }
 
 /* 3. Circular Cards: Ensures Music Artists and Collections stay circular during hover */
