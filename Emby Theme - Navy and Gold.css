@@ -5072,8 +5072,8 @@ html[class*="theme-"] body .paperListbox .button-flat:hover {
 /* 1. Boost the size of the labels (Codec, Resolution, etc.) and their values */
 html[class*="theme-"] body .mediaInfoAttributeLabel,
 html[class*="theme-"] body .mediaInfoAttributeValue {
-    font-size: 1.15em !important;  /* Standard size is roughly 0.9em. Try 1.2em for even larger text. */
-    line-height: 1.5 !important;   /* Adds vertical spacing to prevent lines from touching */
+    font-size: 1.15em !important;
+    line-height: 1.5 !important;
 }
 
 /* 2. Resize the card titles ("Video", "Audio") to keep them proportional */
