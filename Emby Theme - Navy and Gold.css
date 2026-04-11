@@ -4168,25 +4168,32 @@ html[class*="theme-"] .dataGridItemCell .paper-icon-button-light:hover {
 }
 
 /* 6. DATA GRID & LIST RATING BADGE HOVER FIX --- */
+/* Prevents table row hovers from bleeding into the media badges and altering their backgrounds */
 html[class*="theme-"] body .dataGridItem:hover .mediaInfoItem,
 html[class*="theme-"] body .dataGridRow:hover .mediaInfoItem,
 html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .mediaInfoItem {
   background:  var(--media-badge-bg) !important;
   border:      var(--media-badge-border) !important;
   box-shadow:  var(--media-badge-shadow) !important;
-  text-shadow: none !important; /* Kills the shadow on the badge container */
+  text-shadow: none !important; 
 }
 
-html[class*="theme-"] body .dataGridItem:hover .mediaInfoItem *,
-html[class*="theme-"] body .dataGridRow:hover .mediaInfoItem *,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .mediaInfoItem *,
-html[class*="theme-"] body .dataGridItem:hover .mediaInfoItem .starIcon,
-html[class*="theme-"] body .dataGridRow:hover .mediaInfoItem .starIcon,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .mediaInfoItem .starIcon {
+/* Forces text to match the badge color, but explicitly excludes the Star Icon */
+html[class*="theme-"] body .dataGridItem:hover .mediaInfoItem *:not(.starIcon),
+html[class*="theme-"] body .dataGridRow:hover .mediaInfoItem *:not(.starIcon),
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .mediaInfoItem *:not(.starIcon) {
   color:                   var(--media-badge-color) !important;
   -webkit-text-fill-color: var(--media-badge-color) !important;
   text-shadow:             none !important; 
-  filter:                  none !important;
+}
+
+/* Locks the Star Icon to its dedicated color and glow so it NEVER changes on row hover */
+html[class*="theme-"] body .dataGridItem:hover .mediaInfoItem .starIcon,
+html[class*="theme-"] body .dataGridRow:hover .mediaInfoItem .starIcon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .mediaInfoItem .starIcon {
+  color:                   var(--star-color) !important;
+  -webkit-text-fill-color: var(--star-color) !important;
+  filter:                  var(--star-glow) !important;
 }
 
 /* --- 10E. LIST VIEW ZEBRA STRIPING (EXCLUDING SEASON PAGES) --- */
