@@ -3020,12 +3020,18 @@ html[class*="theme-"] body .aboutSection .mediaInfoPanel h2 {
   color:                   var(--h2-color) !important;
 }
 
-/* 3. Map About Section text and links to the H4 variable */
+/* 3. Map About Section & Overview text to the H4 variable (And block hover coloring) */
 html[class*="theme-"] body .aboutSection .button-link,
+html[class*="theme-"] body .aboutSection .button-link:hover,
 html[class*="theme-"] body .aboutSection .mediaInfoAttributeValue,
-html[class*="theme-"] body .aboutSection .itemSecondaryText {
+html[class*="theme-"] body .aboutSection .itemSecondaryText,
+html[class*="theme-"] body .overview-text,
+html[class*="theme-"] body .overview-text:hover,
+html[class*="theme-"] body .detail-overview,
+html[class*="theme-"] body .detail-overview:hover {
   -webkit-text-fill-color: var(--h4-color) !important; 
   color:                   var(--h4-color) !important;
+  text-decoration:         none !important;
 }
 
 /* 4. Fix media badges specifically inside the About section */
