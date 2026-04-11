@@ -3158,29 +3158,32 @@ html[class*="theme-"] body .audioVideoMediaInfo .card.show-focus .cardContent {
   transform:  translateY(-4px) !important;
 }
 
-/* 8. Media Stream Info Card Titles (Mapped to H5) */
+/* 8. Media Stream Info Card Titles (Mapped to H5 & Resized) */
 html[class*="theme-"] body .mediaStreamInnerCardFooter h3,
 html[class*="theme-"] body .mediaStreamInnerCardFooter h3 .md-icon {
   color:                   var(--h5-color) !important;
   -webkit-text-fill-color: var(--h5-color) !important;
+  font-size:               1.45em !important;
+  margin-bottom:           12px !important;
+  letter-spacing:          0.5px !important;
 }
 
-/* 9. Overview "More" Button Fix: Makes the description expander gold */
-html[class*="theme-"] body .overview-container .btnReadMore,
-html[class*="theme-"] body a.btnReadMore {
-  color:                   var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
-  font-weight:             700 !important;
-  opacity:                 1 !important; 
-  transition:              all var(--transition-speed) ease-in-out !important;
+/* 9. Media Stream Info Card Padding (Breathing Room) */
+html[class*="theme-"] body .mediaStreamInnerCardFooter {
+  padding: 1.2em !important;
 }
 
-html[class*="theme-"] body .overview-container .btnReadMore:hover,
-html[class*="theme-"] body a.btnReadMore:hover {
-  color:                   var(--my-gold-light) !important;
-  -webkit-text-fill-color: var(--my-gold-light) !important;
-  text-decoration:         underline !important;
-  text-shadow:             0 0 8px var(--gold-alpha-40) !important;
+/* 10. Media Stream Labels & Values (Resized for Legibility) */
+html[class*="theme-"] body .mediaInfoAttributeLabel,
+html[class*="theme-"] body .mediaInfoAttributeValue {
+  font-size: 1.15em !important;
+  line-height: 1.5 !important;
+}
+
+/* 11. Media Stream Values Text Wrapping (Fixes Long File Paths) */
+html[class*="theme-"] body .mediaInfoAttributeValue {
+  white-space: normal !important;
+  word-break: break-all !important;
 }
 
 /* --- 6F. FILMOGRAPHY --- */
@@ -5082,35 +5085,6 @@ html[class*="theme-"] body .formDialog .button-flat:hover,
 html[class*="theme-"] body .paperListbox .button-flat:hover {
   color:                   var(--theme-primary-color) !important;
   -webkit-text-fill-color: var(--theme-primary-color) !important;
-}
-
-/* ============================================================
-   HOTFIX: MEDIA STREAM INFO FONT RESIZING
-   ============================================================ */
-
-/* 1. Boost the size of the labels (Codec, Resolution, etc.) and their values */
-html[class*="theme-"] body .mediaInfoAttributeLabel,
-html[class*="theme-"] body .mediaInfoAttributeValue {
-    font-size: 1.15em !important;
-    line-height: 1.5 !important;
-}
-
-/* 2. Resize the card titles ("Video", "Audio") to keep them proportional */
-html[class*="theme-"] body .mediaStreamInnerCardFooter h3 {
-    font-size: 1.45em !important;
-    margin-bottom: 12px !important;
-    letter-spacing: 0.5px !important;
-}
-
-/* 3. Add a little extra breathing room to the card padding so the larger text doesn't feel cramped */
-html[class*="theme-"] body .mediaStreamInnerCardFooter {
-    padding: 1.2em !important;
-}
-
-/* 4. Fix potential text clipping for long values (like File Paths) */
-html[class*="theme-"] body .mediaInfoAttributeValue {
-    white-space: normal !important;
-    word-break: break-all !important;
 }
 
 /* ============================================================
