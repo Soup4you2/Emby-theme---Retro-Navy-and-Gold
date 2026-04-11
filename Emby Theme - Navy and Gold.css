@@ -4763,6 +4763,14 @@ html[class*="theme-"] body .card:not(.spotlightCard):hover .cardOverlayContainer
   transform: var(--popout-transform) !important;
 }
 
+/* Prevent Media Stream Info Cards from receiving 3D pop-out (Restores their subtle lift) */
+html[class*="theme-"] body .audioVideoMediaInfo .card:hover .cardContent,
+html[class*="theme-"] body .audioVideoMediaInfo .card:hover .cardImageContainer,
+html[class*="theme-"] body .audioVideoMediaInfo .card.show-focus .cardContent,
+html[class*="theme-"] body .audioVideoMediaInfo .card.show-focus .cardImageContainer {
+  transform: translateY(-4px) !important;
+}
+
 /* Detail action buttons 3D click effect */
 .detailButtons .emby-button,
 .button-submit {
