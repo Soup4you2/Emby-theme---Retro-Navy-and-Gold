@@ -211,9 +211,9 @@ html,
   --media-card-radius: 15px;                                       /* Adjust the corner rounding of standard posters */
 
   /* MEDIA CARD POPOUT EFFECTS --- */
-  --popout-perspective: none;                                      /* Effects can be made when hovering over media cards to enable use "1000px;" */
-  --popout-transform: none;                                        /* Effects can be made when hovering over media cards to enable use "scale(1.05) rotateX(4deg) translateY(-5px)" */
-  --popout-shadow: none;                                           /* Effects can be made when hovering over media cards to enable use "0px 20px 30px var(--black-alpha-90), var(--shadow-glow-standard)" */
+  --popout-perspective: none;                                      /* Effects can be made when hovering over media cards to disable use "none" or to enable use "1000px" */
+  --popout-transform: none;                                        /* Effects can be made when hovering over media cards to disable use "none" or to enable use "scale(1.05) rotateX(4deg) translateY(-5px)" */
+  --popout-shadow: none;                                           /* Effects can be made when hovering over media cards to disable use "none" or to enable use "0px 20px 30px var(--black-alpha-90), var(--shadow-glow-standard)" */
 
   /* CAST & CREW PORTRAIT SHAPES (DEFAULT: OVAL) */
   --portrait-radius: 50% / 40%;                                    /* Oval Shaped */
@@ -4747,12 +4747,13 @@ html[class*="theme-"] body .cardBox {
 
 html[class*="theme-"] body .cardImageContainer,
 html[class*="theme-"] body .defaultCardBackground {
-  transition:       transform 0.3s ease-out, box-shadow 0.3s ease-out !important;
+  transition:        transform 0.3s ease-out, box-shadow 0.3s ease-out !important;
   transform-origin: center center !important;
 }
 
-html[class*="theme-"] body .card:hover .cardImageContainer,
-html[class*="theme-"] body .card:hover .defaultCardBackground {
+/* Prevent Spotlight Dynamic media cards from poping out */
+html[class*="theme-"] body .card:not(.spotlightCard):hover .cardImageContainer,
+html[class*="theme-"] body .card:not(.spotlightCard):hover .defaultCardBackground {
   transform: var(--popout-transform) !important;
 }
 
