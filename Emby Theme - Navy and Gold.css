@@ -4844,22 +4844,34 @@ html[class*="theme-"] body .card:not(.spotlightCard):not(.card-horiz):hover .car
   transform: var(--popout-transform) !important;
 }
 
-/* THE SHIELD: Forces the Main Detail Poster and OSD Cards to stay flat and ignore 3D twist */
-html[class*="theme-"] body .detailImageContainer .card:hover .cardImageContainer,
-html[class*="theme-"] body .detailImageContainer .card:hover .defaultCardBackground,
-html[class*="theme-"] body .detailImageContainer .card:hover .cardOverlayContainer,
-html[class*="theme-"] body .videoOsdBottom .card:hover .cardImageContainer,
-html[class*="theme-"] body .videoOsdBottom .card:hover .defaultCardBackground,
-html[class*="theme-"] body .videoOsdBottom .card:hover .cardOverlayContainer,
-html[class*="theme-"] body .videoOsdBottom .card.show-focus .cardImageContainer,
-html[class*="theme-"] body .videoOsdBottom .card.show-focus .defaultCardBackground,
-html[class*="theme-"] body .videoOsdBottom .card.show-focus .cardOverlayContainer,
-html[class*="theme-"] body .upNextContainer .card:hover .cardImageContainer,
-html[class*="theme-"] body .upNextContainer .card:hover .defaultCardBackground,
-html[class*="theme-"] body .upNextContainer .card:hover .cardOverlayContainer,
-html[class*="theme-"] body .upNextDialog .card:hover .cardImageContainer,
-html[class*="theme-"] body .upNextDialog .card:hover .defaultCardBackground,
-html[class*="theme-"] body .upNextDialog .card:hover .cardOverlayContainer {
+/* THE SHIELD: Forces the Main Detail Poster, OSD Cards, and Horizontal Cards to stay flat and ignore 3D twist */
+html[class*="theme-"] body .detailImageContainer .card.card:hover .cardImageContainer,
+html[class*="theme-"] body .detailImageContainer .card.card:hover .defaultCardBackground,
+html[class*="theme-"] body .detailImageContainer .card.card:hover .cardOverlayContainer,
+html[class*="theme-"] body .videoOsdBottom .card.card:hover .cardImageContainer,
+html[class*="theme-"] body .videoOsdBottom .card.card:hover .defaultCardBackground,
+html[class*="theme-"] body .videoOsdBottom .card.card:hover .cardOverlayContainer,
+html[class*="theme-"] body .videoOsdBottom .card.card.show-focus .cardImageContainer,
+html[class*="theme-"] body .videoOsdBottom .card.card.show-focus .defaultCardBackground,
+html[class*="theme-"] body .videoOsdBottom .card.card.show-focus .cardOverlayContainer,
+html[class*="theme-"] body .view-videoosd-videoosd .card.card:hover .cardImageContainer,
+html[class*="theme-"] body .view-videoosd-videoosd .card.card:hover .defaultCardBackground,
+html[class*="theme-"] body .view-videoosd-videoosd .card.card:hover .cardOverlayContainer,
+html[class*="theme-"] body .upNextContainer .card.card:hover .cardImageContainer,
+html[class*="theme-"] body .upNextContainer .card.card:hover .defaultCardBackground,
+html[class*="theme-"] body .upNextContainer .card.card:hover .cardOverlayContainer,
+html[class*="theme-"] body .upNextDialog .card.card:hover .cardImageContainer,
+html[class*="theme-"] body .upNextDialog .card.card:hover .defaultCardBackground,
+html[class*="theme-"] body .upNextDialog .card.card:hover .cardOverlayContainer,
+html[class*="theme-"] body .card-horiz.card.card:hover .cardImageContainer,
+html[class*="theme-"] body .card-horiz.card.card:hover .defaultCardBackground,
+html[class*="theme-"] body .card-horiz.card.card:hover .cardOverlayContainer,
+html[class*="theme-"] body .bannerCard.card.card:hover .cardImageContainer,
+html[class*="theme-"] body .bannerCard.card.card:hover .defaultCardBackground,
+html[class*="theme-"] body .bannerCard.card.card:hover .cardOverlayContainer,
+html[class*="theme-"] body .sideFooterCard.card.card:hover .cardImageContainer,
+html[class*="theme-"] body .sideFooterCard.card.card:hover .defaultCardBackground,
+html[class*="theme-"] body .sideFooterCard.card.card:hover .cardOverlayContainer {
   transform: none !important;
 }
 
