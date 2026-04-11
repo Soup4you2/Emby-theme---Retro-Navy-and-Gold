@@ -3328,7 +3328,7 @@ html[class*="theme-"] body div[class*="currenttimeindicator" i] {
   box-shadow:       0 0 8px var(--my-gold) !important;
   background-image: none !important; 
   margin-top:       15px !important; 
-  opacity:          1 !important;
+  opacity:          0.4 !important;
 }
 
 /* THE TRIANGLE: Specifically target the parts to kill the blue SVG and fix the shape */
