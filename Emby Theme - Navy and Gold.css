@@ -3775,6 +3775,25 @@ html[class*="theme-"] body .nowPlayingBar .buttonActive .md-icon {
   filter:                  var(--filter-glow-gold-solid) !important;
 }
 
+/* --- OSD PLAY & RESUME BUTTON FIX --- */
+html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning.btnPlayFromBeginning.btnPlayFromBeginning .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnResume.btnResume.btnResume .md-icon {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* 2. HOVER & FOCUS STATE: Force the triangle to be BLACK. */
+html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning.btnPlayFromBeginning.btnPlayFromBeginning:hover .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning.btnPlayFromBeginning.btnPlayFromBeginning:focus .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning.btnPlayFromBeginning.btnPlayFromBeginning.show-focus .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnResume.btnResume.btnResume:hover .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnResume.btnResume.btnResume:focus .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnResume.btnResume.btnResume.show-focus .md-icon {
+    color: var(--pure-black) !important;
+    -webkit-text-fill-color: var(--pure-black) !important;
+    filter: none !important;
+}
+
 /* 1. Resting State: Forces the favorited heart to stay Red */
 html[class*="theme-"] .videoOsdBottom button[data-isfavorite="true"],
 html[class*="theme-"] .videoOsdBottom button[data-isfavorite="true"] .md-icon,
@@ -5092,31 +5111,6 @@ html[class*="theme-"] body .mediaStreamInnerCardFooter {
 html[class*="theme-"] body .mediaInfoAttributeValue {
     white-space: normal !important;
     word-break: break-all !important;
-}
-
-/* ============================================================
-   HOTFIX: OSD PLAY BUTTON ICON (GOLD AT REST, BLACK ON HOVER)
-   ============================================================ */
-
-/* 1. RESTING STATE: Force the triangle to be GOLD. 
-   (Triple-chained to mathematically beat Emby's native weights) */
-html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning.btnPlayFromBeginning.btnPlayFromBeginning .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnResume.btnResume.btnResume .md-icon {
-    color: var(--my-gold) !important;
-    -webkit-text-fill-color: var(--my-gold) !important;
-}
-
-/* 2. HOVER & FOCUS STATE: Force the triangle to be BLACK.
-   (Kills the gold glow filter and forces pure black when interacting) */
-html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning.btnPlayFromBeginning.btnPlayFromBeginning:hover .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning.btnPlayFromBeginning.btnPlayFromBeginning:focus .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning.btnPlayFromBeginning.btnPlayFromBeginning.show-focus .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnResume.btnResume.btnResume:hover .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnResume.btnResume.btnResume:focus .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnResume.btnResume.btnResume.show-focus .md-icon {
-    color: var(--pure-black) !important;
-    -webkit-text-fill-color: var(--pure-black) !important;
-    filter: none !important;
 }
 
 /* ============================================================
