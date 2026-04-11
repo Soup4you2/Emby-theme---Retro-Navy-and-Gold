@@ -48,11 +48,11 @@ html,
   --retro-navy: rgba(var(--navy-base-rgb), 1);                     /* Darkest navy fallback for main backgrounds */
   --retro-navy-light: rgba(var(--navy-mid-rgb), 1);                /* Mid-tone navy fallback for panels and cards */  
   --star-color: var(--retro-navy-light);                           /* Media info badge rating star color */
-  --star-glow: drop-shadow(0 0 5px rgba(7, 5, 0, 0));              /* Media info badge rating star glow */
+  --star-glow: drop-shadow(0 0 5px rgba(7, 5, 0, 0));            /* Media info badge rating star glow */
 
   /* OPTION 2 - USE THE USERS ACCENT COLOR PREFERENCES */
   /* NOTE: KEEP IN MIND EVERY USER HAS THEIR OWN ACCENT COLOR OPTION */
-  /* --my-gold: hsl(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%));   /* Theme primary color set by User Accent Color */
+  /* --my-gold: hsl(var(--theme-primary-color-hue, 204), var(--theme-primary-color-saturation, 100%), var(--theme-primary-color-lightness, 50%));     /* Theme primary color set by User Accent Color */
   /* --my-gold-light: color-mix(in srgb, var(--my-gold) 70%, white);  /* Solid gold fallback for borders and text accents */
   /* --retro-navy: rgba(var(--navy-base-rgb), 1);                  /* Darkest navy fallback */
   /* --retro-navy-light: rgba(var(--navy-mid-rgb), 1);             /* Mid-tone navy fallback */  
@@ -62,8 +62,8 @@ html,
   /* --- CORE SOLID COLORS --- */
   --pure-white: rgba(var(--pure-white-rgb), 1);                    /* Solid white for high-contrast icons */
   --pure-black: rgba(var(--pure-black-rgb), 1);                    /* Solid black for deep shadow foundations */
-  --text-muted: rgb(236, 236, 236);                                /* Soft white used globally for primary paragraph/body text */
-  --scrollbar-thumb: rgb(51, 51, 51);                              /* Color of the draggable handle on the browser scrollbar */
+  --text-muted: rgb(236, 236, 236);                              /* Soft white used globally for primary paragraph/body text */
+  --scrollbar-thumb: rgb(51, 51, 51);                            /* Color of the draggable handle on the browser scrollbar */
 
   /* --- CORE RGB VALUES (The Source of Truth for Transparencies) --- */
   --pure-black-rgb: 0, 0, 0;                                       /* Controls the absolute darkest shadows and UI overlays */
