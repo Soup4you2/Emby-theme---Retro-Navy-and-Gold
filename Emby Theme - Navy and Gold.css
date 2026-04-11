@@ -4948,7 +4948,19 @@ html[class*="theme-"] body .card {
     background: transparent !important;
 }
 
+/* ============================================================
+   HOTFIX: CAST & CREW "MORE" BUTTON CENTERING
+   ============================================================ */
 
+/* 1. Force the bottom-right button container to the bottom-center of the portrait */
+html[class*="theme-"] body .peopleSection .cardOverlayButton-br,
+html[class*="theme-"] body .personCard .cardOverlayButton-br {
+    position: absolute !important;
+    bottom: 15px !important; /* Nudges it safely up into the bottom curve of the oval */
+    right: 50% !important;   /* Pushes the right edge of the box to the exact middle */
+    transform: translateX(50%) !important; /* Pulls it back perfectly dead-center */
+    margin: 0 !important;
+}
 
 /* ============================================================
    13. UNIVERSAL SEASONAL LOGIC
