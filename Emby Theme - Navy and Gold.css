@@ -220,9 +220,9 @@ html,
   --media-card-radius: 15px;                                       /* Adjust the corner rounding of standard posters */
 
   /* MEDIA CARD POPOUT EFFECTS --- */
-  --popout-perspective: none;                                      /* Effects can be made when hovering over media cards to disable use "none" or to enable use "1000px" */
-  --popout-transform: none;                                        /* Effects can be made when hovering over media cards to disable use "none" or to enable use "scale(1.05) rotateX(4deg) translateY(-5px)" */
-  --popout-shadow: none;                                           /* Effects can be made when hovering over media cards to disable use "none" or to enable use "0px 20px 30px var(--black-alpha-90), var(--shadow-glow-standard)" */
+  --popout-perspective: 1000px;                                      /* Effects can be made when hovering over media cards to disable use "none" or to enable use "1000px" */
+  --popout-transform: scale(1.05) rotateX(4deg) translateY(-5px);                                        /* Effects can be made when hovering over media cards to disable use "none" or to enable use "scale(1.05) rotateX(4deg) translateY(-5px)" */
+  --popout-shadow: 0px 20px 30px var(--black-alpha-90), var(--shadow-glow-standard);                                           /* Effects can be made when hovering over media cards to disable use "none" or to enable use "0px 20px 30px var(--black-alpha-90), var(--shadow-glow-standard)" */
 
   /* CAST & CREW PORTRAIT SHAPES (DEFAULT: OVAL) */
   --portrait-radius: 50% / 40%;                                    /* Oval Shaped */
