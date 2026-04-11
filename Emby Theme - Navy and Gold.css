@@ -4816,6 +4816,18 @@ html[class*="theme-"] body .audioVideoMediaInfo .card.show-focus .cardImageConta
   transform: translateY(-4px) !important;
 }
 
+/* Mobile/Touch Shield: Disables 3D effects on phones/tablets to prevent sticky hover glitches */
+@media (max-width: 50em), (hover: none) {
+  html[class*="theme-"] body .cardBox {
+    perspective: none !important;
+  }
+  html[class*="theme-"] body .card:not(.spotlightCard):hover .cardImageContainer,
+  html[class*="theme-"] body .card:not(.spotlightCard):hover .defaultCardBackground,
+  html[class*="theme-"] body .card:not(.spotlightCard):hover .cardOverlayContainer {
+    transform: none !important;
+  }
+}
+
 /* Detail action buttons 3D click effect */
 .detailButtons .emby-button,
 .button-submit {
