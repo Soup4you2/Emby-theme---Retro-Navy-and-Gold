@@ -438,24 +438,27 @@ html[class*="theme-"] .emby-textarea {
 }
 
 /* 5. Icon & Indicator Reset: Prevents theme-wide text overrides from washing out active indicators */
-html[class*="theme-"] .countIndicator {
+html[class*="theme-"] body .countIndicator {
   -webkit-text-fill-color: var(--count-indicator-color) !important;
 }
 
-html[class*="theme-"] .playedIndicator,
-html[class*="theme-"] .playedIndicator .md-icon {
+html[class*="theme-"] body .playedIndicator,
+html[class*="theme-"] body .playedIndicator .md-icon {
   -webkit-text-fill-color: var(--played-indicator-color) !important;
 }
 
-html[class*="theme-"] .cardOverlayFab-primary,
-html[class*="theme-"] .cardOverlayButtonIcon,
-html[class*="theme-"] .cardOverlayFab-primary *,
-html[class*="theme-"] .cardOverlayButtonIcon * {
+/* Enforces black text/icons for primary play buttons globally (overrides OSD rules) */
+html[class*="theme-"] body .cardOverlayFab-primary,
+html[class*="theme-"] body .cardOverlayButtonIcon,
+html[class*="theme-"] body .cardOverlayFab-primary *,
+html[class*="theme-"] body .cardOverlayButtonIcon *,
+html[class*="theme-"] body .cardOverlayFab-primary.md-icon {
+  color:                   var(--pure-black) !important;
   -webkit-text-fill-color: var(--pure-black) !important;
 }
 
-html[class*="theme-"] .mediaInfoItem,
-html[class*="theme-"] .mediaInfoItem * {
+html[class*="theme-"] body .mediaInfoItem,
+html[class*="theme-"] body .mediaInfoItem * {
   -webkit-text-fill-color: var(--media-badge-color) !important;
 }
 
@@ -3705,8 +3708,7 @@ html[class*="theme-"] body .nowPlayingPage .toggleButton-active .md-icon {
 }
 
 /* --- OSD ICON RESTING STATE --- */
-/* Ultimate Catch-All: Targets EVERY .md-icon in the players (Buttons, Anchors, Standalone, Volume) */
-html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
 html[class*="theme-"] body .videoOsdHeader .md-icon:not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .nowPlayingBar .md-icon:not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .nowPlayingPage .md-icon:not(.ratingbutton-icon-withrating),
@@ -3722,11 +3724,9 @@ html[class*="theme-"] body .nowPlayingPage .paper-icon-button-light:not(.ratingb
 }
 
 /* --- OSD ICON HOVER STATE --- */
-/* Pops to brighter gold with a slight scale and glow when interacted with */
-/* Includes wrapper hovers so the icon glows even if you click the edge of the button */
-html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):hover,
-html[class*="theme-"] body .videoOsdBottom button:hover .md-icon:not(.ratingbutton-icon-withrating),
-html[class*="theme-"] body .videoOsdBottom a:hover .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):hover,
+html[class*="theme-"] body .videoOsdBottom button:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
+html[class*="theme-"] body .videoOsdBottom a:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
 html[class*="theme-"] body .videoOsdHeader .md-icon:not(.ratingbutton-icon-withrating):hover,
 html[class*="theme-"] body .videoOsdHeader button:hover .md-icon:not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .videoOsdHeader a:hover .md-icon:not(.ratingbutton-icon-withrating),
