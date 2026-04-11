@@ -3170,7 +3170,7 @@ html[class*="theme-"] body a.btnReadMore {
   color:                   var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
   font-weight:             700 !important;
-  opacity:                 1 !important; /* Overrides Emby's native text dimming */
+  opacity:                 1 !important; 
   transition:              all var(--transition-speed) ease-in-out !important;
 }
 
