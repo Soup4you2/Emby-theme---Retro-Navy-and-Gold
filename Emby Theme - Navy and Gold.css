@@ -3164,6 +3164,24 @@ html[class*="theme-"] body .mediaStreamInnerCardFooter h3 .md-icon {
   -webkit-text-fill-color: var(--h5-color) !important;
 }
 
+/* 9. Overview "More" Button Fix: Makes the description expander gold */
+html[class*="theme-"] body .overview-container .btnReadMore,
+html[class*="theme-"] body a.btnReadMore {
+  color:                   var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  font-weight:             700 !important;
+  opacity:                 1 !important; /* Overrides Emby's native text dimming */
+  transition:              all var(--transition-speed) ease-in-out !important;
+}
+
+html[class*="theme-"] body .overview-container .btnReadMore:hover,
+html[class*="theme-"] body a.btnReadMore:hover {
+  color:                   var(--my-gold-light) !important;
+  -webkit-text-fill-color: var(--my-gold-light) !important;
+  text-decoration:         underline !important;
+  text-shadow:             0 0 8px var(--gold-alpha-40) !important;
+}
+
 /* --- 6F. FILMOGRAPHY --- */
 
 /* 1. Main Container Spacing */
