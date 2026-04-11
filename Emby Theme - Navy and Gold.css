@@ -20,6 +20,13 @@ html,
 [class*="theme-"],
 .selection-accent-color {
 
+  /* ============================================================
+     NOTE: TO ENABLE / DISABLE VARIABLES YOU ONLY NEED TO MODIFY
+     THE BEGINNING "/*" SINCE ALL OF THEM HAVE COMMENTS ON THE END
+     YOU DO NEED TO MODIFY THE CLOSING ONE MODIFYING THE ENDING
+     COULD CAUSE ILL EFFECTS
+     ============================================================ */
+
   /* --- GLOBAL TYPOGRAPHY --- */
   --base-font-size: 90%;                                           /* Adjust global UI text size (Default: 90%. Try 110% or 115% for larger text) */
   --font-header: 'Oswald', sans-serif;                             /* Primary cinematic header font */
