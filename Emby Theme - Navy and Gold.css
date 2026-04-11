@@ -2402,22 +2402,27 @@ html[class*="theme-"] body .personCard .defaultCardBackground {
 
 /* 9. Card Shadow Rounding Overrides (Hard Edge Fix) */
 html[class*="theme-"] body .cardBox:not(.visualCardBox),
-html[class*="theme-"] body .cardScalable {
+html[class*="theme-"] body .cardScalable,
+html[class*="theme-"] body .cardScalable > * {
     box-shadow: none !important;
-    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
     border-radius: var(--media-card-radius) !important;
 }
 
+/* Specific shield for Actor Portraits to follow their unique oval/circle shape */
 html[class*="theme-"] body .peopleSection .cardBox,
-html[class*="theme-"] body .personCard .cardBox {
-    box-shadow: none !important;
-    background: transparent !important;
+html[class*="theme-"] body .personCard .cardBox,
+html[class*="theme-"] body .peopleSection .cardScalable,
+html[class*="theme-"] body .personCard .cardScalable {
     border-radius: var(--portrait-radius) !important;
 }
 
+/* Strips any rogue hardcoded styles from the absolute outer card wrapper */
 html[class*="theme-"] body .card {
     box-shadow: none !important;
     background: transparent !important;
+    background-color: transparent !important;
 }
 
 /* --- 5B. CARD HOVER STATES --- */
