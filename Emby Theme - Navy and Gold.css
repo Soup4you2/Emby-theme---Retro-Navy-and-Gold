@@ -2327,6 +2327,7 @@ html[class*="theme-"] body .cardImageContainer,
 html[class*="theme-"] body .defaultCardBackground {
   box-shadow:  0 4px 6px rgba(var(--pure-black-rgb), 0.3), 0 10px 20px var(--black-alpha-75) !important; 
   border:      var(--hover-border-thickness) solid transparent !important;
+  box-sizing:  border-box !important; 
   transition:  border-color var(--transition-speed) ease-out, box-shadow var(--transition-speed) ease-out, transform var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.15) !important;
   will-change: border-color, box-shadow, transform;
 }
@@ -5062,6 +5063,35 @@ html[class*="theme-"] body .formDialog .button-flat:hover,
 html[class*="theme-"] body .paperListbox .button-flat:hover {
   color:                   var(--theme-primary-color) !important;
   -webkit-text-fill-color: var(--theme-primary-color) !important;
+}
+
+/* ============================================================
+   HOTFIX: MEDIA STREAM INFO FONT RESIZING
+   ============================================================ */
+
+/* 1. Boost the size of the labels (Codec, Resolution, etc.) and their values */
+html[class*="theme-"] body .mediaInfoAttributeLabel,
+html[class*="theme-"] body .mediaInfoAttributeValue {
+    font-size: 1.15em !important;  /* Standard size is roughly 0.9em. Try 1.2em for even larger text. */
+    line-height: 1.5 !important;   /* Adds vertical spacing to prevent lines from touching */
+}
+
+/* 2. Resize the card titles ("Video", "Audio") to keep them proportional */
+html[class*="theme-"] body .mediaStreamInnerCardFooter h3 {
+    font-size: 1.45em !important;
+    margin-bottom: 12px !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* 3. Add a little extra breathing room to the card padding so the larger text doesn't feel cramped */
+html[class*="theme-"] body .mediaStreamInnerCardFooter {
+    padding: 1.2em !important;
+}
+
+/* 4. Fix potential text clipping for long values (like File Paths) */
+html[class*="theme-"] body .mediaInfoAttributeValue {
+    white-space: normal !important;
+    word-break: break-all !important;
 }
 
 /* ============================================================
