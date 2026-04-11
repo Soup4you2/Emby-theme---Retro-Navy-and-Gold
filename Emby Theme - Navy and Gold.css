@@ -4920,6 +4920,36 @@ html[class*="theme-"] body .paperListbox .button-flat:hover {
   -webkit-text-fill-color: var(--theme-primary-color) !important;
 }
 
+
+
+/* ============================================================
+   HOTFIX: MEDIA CARD SHADOW ROUNDING (HARD EDGE FIX)
+   ============================================================ */
+
+/* 1. Nuke Emby's native square shadow from the parent containers */
+html[class*="theme-"] body .cardBox:not(.visualCardBox),
+html[class*="theme-"] body .cardScalable {
+    box-shadow: none !important;
+    background: transparent !important;
+    border-radius: var(--media-card-radius) !important;
+}
+
+/* 2. Ensure circular/oval portraits don't get the square shadow either */
+html[class*="theme-"] body .peopleSection .cardBox,
+html[class*="theme-"] body .personCard .cardBox {
+    box-shadow: none !important;
+    background: transparent !important;
+    border-radius: var(--portrait-radius) !important;
+}
+
+/* 3. Strip any rogue shadows from the absolute outer card wrapper */
+html[class*="theme-"] body .card {
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+
+
 /* ============================================================
    13. UNIVERSAL SEASONAL LOGIC
    ============================================================ */
