@@ -4780,6 +4780,11 @@ html[class*="theme-"] .mdl-spinner::after {
 /* --- 11C. 3D Pop-out Effects (Driven by Section 1 Toggles) --- */
 html[class*="theme-"] body .cardBox {
   perspective: var(--popout-perspective) !important;
+  overflow:    visible !important; 
+}
+
+html[class*="theme-"] body .cardScalable {
+  overflow:    visible !important; 
 }
 
 html[class*="theme-"] body .cardImageContainer,
@@ -4789,11 +4794,18 @@ html[class*="theme-"] body .cardOverlayContainer {
   transform-origin:  center center !important;
 }
 
-/* Prevent Spotlight Dynamic media cards from popping out */
+/* Apply 3D Pop-out to browse cards, but EXCLUDE Spotlight and Main Detail Poster */
 html[class*="theme-"] body .card:not(.spotlightCard):hover .cardImageContainer,
 html[class*="theme-"] body .card:not(.spotlightCard):hover .defaultCardBackground,
 html[class*="theme-"] body .card:not(.spotlightCard):hover .cardOverlayContainer {
   transform: var(--popout-transform) !important;
+}
+
+/* THE SHIELD: Forces the Main Detail Poster to stay flat and ignores 3D twist */
+html[class*="theme-"] body .detailImageContainer .card:hover .cardImageContainer,
+html[class*="theme-"] body .detailImageContainer .card:hover .defaultCardBackground,
+html[class*="theme-"] body .detailImageContainer .card:hover .cardOverlayContainer {
+  transform: none !important;
 }
 
 /* Prevent Media Stream Info Cards from receiving 3D pop-out (Restores their subtle lift) */
