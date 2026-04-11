@@ -191,7 +191,8 @@ html,
   --glow-none: none;                                               /* Utility used to disable glows */
   --glow-light: 0 0 5px var(--retro-glow);                         /* Soft outline lighting for pills */
   --glow-medium: 0 0 10px var(--retro-glow);                       /* Standard outline lighting for indicators */
-  --shadow-glow-standard: 0 0 15px var(--retro-glow);              /* The primary gold glow seen on hovered media cards */
+  /*--shadow-glow-standard: 0 0 15px var(--retro-glow);              /* The primary gold glow seen on hovered media cards */
+  --shadow-glow-standard: none;                                    /* Personal preference, was giving an odd look */
   --glow-heavy: 0 0 20px var(--retro-glow);                        /* Intense glow used for primary action buttons */
   --glow-extreme: 0 0 30px var(--retro-glow);                      /* Massive glow used for full-screen artwork */
   --glow-slider-track: 0 0 12px var(--my-gold), var(--shadow-glow-standard); /* Makes the played portion of a progress bar neon */
@@ -2406,10 +2407,12 @@ html[class*="theme-"] body .personCard .defaultCardBackground {
 html[class*="theme-"] body .card:hover .cardContent,
 html[class*="theme-"] body .card:hover .cardImageContainer,
 html[class*="theme-"] body .card:hover .defaultCardBackground {
-  border-color: var(--theme-primary-color) !important;
-  box-shadow:   0 5px 10px rgba(var(--pure-black-rgb), 0.4),
-                0 8px 15px var(--black-alpha-60),
-                var(--shadow-glow-standard) !important;
+  border-color:            var(--theme-primary-color) !important;
+  border-width:            var(--hover-border-thickness) !important;
+  border-style:            solid !important;
+  box-shadow:              0 10px 15px rgba(var(--pure-black-rgb), 0.4), 
+                           0 25px 40px var(--black-alpha-60), 
+                           var(--shadow-glow-standard) !important; 
 }
 
 /* 2. Shape Handling: Ensures standard cards (movies/shows) maintain specific rounding at rest and on hover */
@@ -2466,14 +2469,18 @@ html[class*="theme-"] body .personCard .defaultCardBackground {
 /* 4. Portrait Hover Logic: Keeps the border size fixed to prevent layout shifting */
 html[class*="theme-"] body .peopleSection .cardOverlayContainer,
 html[class*="theme-"] body .personCard .cardOverlayContainer {
-  border:     var(--hover-border-thickness) solid transparent !important;
-  transition: border-color var(--transition-speed) ease-out, background var(--transition-speed) ease-out !important;
+  border:                  var(--hover-border-thickness) solid transparent !important;
+  transition:              border-color var(--transition-speed) ease-out, box-shadow var(--transition-speed) ease-out, background var(--transition-speed) ease-out !important;
 }
 
 html[class*="theme-"] body .peopleSection .card:hover .cardOverlayContainer,
 html[class*="theme-"] body .personCard:hover .cardOverlayContainer {
-  border-color: var(--theme-primary-color) !important;
-  background:   transparent !important;
+  border-color:            var(--theme-primary-color) !important;
+  border-width:            var(--hover-border-thickness) !important;
+  border-style:            solid !important;
+  background:              transparent !important;
+  box-shadow:              0px 15px 30px var(--black-alpha-90), 
+                             var(--shadow-glow-standard) !important;
 }
 
 html[class*="theme-"] body .peopleSection .card:hover .cardImageContainer,
@@ -2482,9 +2489,8 @@ html[class*="theme-"] body .peopleSection .card:hover .defaultCardBackground,
 html[class*="theme-"] body .personCard:hover .cardImageContainer,
 html[class*="theme-"] body .personCard:hover .cardContent,
 html[class*="theme-"] body .personCard:hover .defaultCardBackground {
-  border-color: transparent !important;
-  box-shadow:   0px 15px 30px var(--black-alpha-90), 
-                var(--shadow-glow-standard) !important;
+  border-color:            transparent !important; 
+  box-shadow:              none !important; 
 }
 
 /* 5. Portrait Footer Transparency: Protects Cast & Crew names from receiving the solid background box */
@@ -4744,14 +4750,16 @@ html[class*="theme-"] body .cardBox {
 }
 
 html[class*="theme-"] body .cardImageContainer,
-html[class*="theme-"] body .defaultCardBackground {
-  transition:        transform 0.3s ease-out, box-shadow 0.3s ease-out !important;
-  transform-origin: center center !important;
+html[class*="theme-"] body .defaultCardBackground,
+html[class*="theme-"] body .cardOverlayContainer {
+  transition:        transform var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.15), box-shadow var(--transition-speed) ease-out, border-color var(--transition-speed) ease-out !important;
+  transform-origin:  center center !important;
 }
 
-/* Prevent Spotlight Dynamic media cards from poping out */
+/* Prevent Spotlight Dynamic media cards from popping out */
 html[class*="theme-"] body .card:not(.spotlightCard):hover .cardImageContainer,
-html[class*="theme-"] body .card:not(.spotlightCard):hover .defaultCardBackground {
+html[class*="theme-"] body .card:not(.spotlightCard):hover .defaultCardBackground,
+html[class*="theme-"] body .card:not(.spotlightCard):hover .cardOverlayContainer {
   transform: var(--popout-transform) !important;
 }
 
