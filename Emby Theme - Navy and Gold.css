@@ -2564,6 +2564,48 @@ html[class*="theme-"] body .personCard .cardOverlayButton-br {
     margin: 0 !important;
 }
 
+/* 8. Unknown/Missing Actor Portraits (Placeholder Styling) */
+
+/* THE SHIELD: Chaining .cardImageContainer and .defaultCardBackground makes this mathematically unstoppable */
+html[class*="theme-"] body .peopleSection .card .cardImageContainer.defaultCardBackground,
+html[class*="theme-"] body .personCard .card .cardImageContainer.defaultCardBackground {
+  background:       radial-gradient(circle at 50% 30%, var(--navy-mid-solid) 0%, var(--navy-base-solid) 80%) !important;
+  background-color: var(--retro-navy) !important;
+  background-image: radial-gradient(circle at 50% 30%, var(--navy-mid-solid) 0%, var(--navy-base-solid) 80%) !important;
+  border-color:     var(--gold-alpha-30) !important;
+}
+
+/* Hover State Shield */
+html[class*="theme-"] body .peopleSection .card:hover .cardImageContainer.defaultCardBackground,
+html[class*="theme-"] body .personCard .card:hover .cardImageContainer.defaultCardBackground {
+  background:       radial-gradient(circle at 50% 30%, var(--navy-mid-solid) 0%, var(--navy-base-solid) 80%) !important;
+  background-color: var(--retro-navy) !important;
+  background-image: radial-gradient(circle at 50% 30%, var(--navy-mid-solid) 0%, var(--navy-base-solid) 80%) !important;
+  border-color:     var(--theme-primary-color) !important;
+}
+
+/* Force the default person icon to scale up and turn gold */
+html[class*="theme-"] body .peopleSection .card .defaultCardBackground .cardImageIcon,
+html[class*="theme-"] body .peopleSection .card .defaultCardBackground .md-icon,
+html[class*="theme-"] body .personCard .card .defaultCardBackground .cardImageIcon,
+html[class*="theme-"] body .personCard .card .defaultCardBackground .md-icon {
+  color:                   var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  font-size:               4rem !important; 
+  opacity:                 0.7 !important;
+  transition:              all var(--transition-speed) ease-in-out !important;
+}
+
+/* Brighten and expand the icon on hover */
+html[class*="theme-"] body .peopleSection .card:hover .defaultCardBackground .cardImageIcon,
+html[class*="theme-"] body .peopleSection .card:hover .defaultCardBackground .md-icon,
+html[class*="theme-"] body .personCard:hover .defaultCardBackground .cardImageIcon,
+html[class*="theme-"] body .personCard:hover .defaultCardBackground .md-icon {
+  opacity:                 1 !important;
+  filter:                  drop-shadow(0 0 10px var(--my-gold)) !important;
+  transform:               scale(1.15) !important;
+}
+
 /* --- 5D. CAST & CREW TYPOGRAPHY --- */
 
 /* 1. Master Container: Centers text and forces ellipsis for long names */
