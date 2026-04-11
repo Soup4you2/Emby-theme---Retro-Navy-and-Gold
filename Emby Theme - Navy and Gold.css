@@ -192,7 +192,7 @@ html,
   --glow-light: 0 0 5px var(--retro-glow);                         /* Soft outline lighting for pills */
   --glow-medium: 0 0 10px var(--retro-glow);                       /* Standard outline lighting for indicators */
   /*--shadow-glow-standard: 0 0 15px var(--retro-glow);              /* The primary gold glow seen on hovered media cards */
-  --shadow-glow-standard: none;                                    /* Personal preference, was giving an odd look */
+  --shadow-glow-standard: 0 0 0 transparent;                                    /* Personal preference, was giving an odd look */
   --glow-heavy: 0 0 20px var(--retro-glow);                        /* Intense glow used for primary action buttons */
   --glow-extreme: 0 0 30px var(--retro-glow);                      /* Massive glow used for full-screen artwork */
   --glow-slider-track: 0 0 12px var(--my-gold), var(--shadow-glow-standard); /* Makes the played portion of a progress bar neon */
