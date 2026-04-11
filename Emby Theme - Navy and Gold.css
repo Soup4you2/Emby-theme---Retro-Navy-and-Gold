@@ -2400,6 +2400,26 @@ html[class*="theme-"] body .personCard .defaultCardBackground {
   box-shadow:       none !important;
 }
 
+/* 9. Card Shadow Rounding Overrides (Hard Edge Fix) */
+html[class*="theme-"] body .cardBox:not(.visualCardBox),
+html[class*="theme-"] body .cardScalable {
+    box-shadow: none !important;
+    background: transparent !important;
+    border-radius: var(--media-card-radius) !important;
+}
+
+html[class*="theme-"] body .peopleSection .cardBox,
+html[class*="theme-"] body .personCard .cardBox {
+    box-shadow: none !important;
+    background: transparent !important;
+    border-radius: var(--portrait-radius) !important;
+}
+
+html[class*="theme-"] body .card {
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
 /* --- 5B. CARD HOVER STATES --- */
 
 /* 1. Global Hover Behavior: Applies theme glow and gold border on mouse-over */
@@ -2527,6 +2547,16 @@ html[class*="theme-"] body .personCard:hover .cardImageContainer,
 html[class*="theme-"] body .personCard:hover .defaultCardBackground,
 html[class*="theme-"] body .personCard:hover .cardOverlayContainer {
   border-radius: var(--portrait-radius) !important;
+}
+
+/* 7. Cast & Crew "More" Button Centering */
+html[class*="theme-"] body .peopleSection .cardOverlayButton-br,
+html[class*="theme-"] body .personCard .cardOverlayButton-br {
+    position: absolute !important;
+    bottom: 15px !important; 
+    right: 50% !important;   
+    transform: translateX(50%) !important; 
+    margin: 0 !important;
 }
 
 /* --- 5D. CAST & CREW TYPOGRAPHY --- */
@@ -4918,48 +4948,6 @@ html[class*="theme-"] body .formDialog .button-flat:hover,
 html[class*="theme-"] body .paperListbox .button-flat:hover {
   color:                   var(--theme-primary-color) !important;
   -webkit-text-fill-color: var(--theme-primary-color) !important;
-}
-
-
-
-/* ============================================================
-   HOTFIX: MEDIA CARD SHADOW ROUNDING (HARD EDGE FIX)
-   ============================================================ */
-
-/* 1. Nuke Emby's native square shadow from the parent containers */
-html[class*="theme-"] body .cardBox:not(.visualCardBox),
-html[class*="theme-"] body .cardScalable {
-    box-shadow: none !important;
-    background: transparent !important;
-    border-radius: var(--media-card-radius) !important;
-}
-
-/* 2. Ensure circular/oval portraits don't get the square shadow either */
-html[class*="theme-"] body .peopleSection .cardBox,
-html[class*="theme-"] body .personCard .cardBox {
-    box-shadow: none !important;
-    background: transparent !important;
-    border-radius: var(--portrait-radius) !important;
-}
-
-/* 3. Strip any rogue shadows from the absolute outer card wrapper */
-html[class*="theme-"] body .card {
-    box-shadow: none !important;
-    background: transparent !important;
-}
-
-/* ============================================================
-   HOTFIX: CAST & CREW "MORE" BUTTON CENTERING
-   ============================================================ */
-
-/* 1. Force the bottom-right button container to the bottom-center of the portrait */
-html[class*="theme-"] body .peopleSection .cardOverlayButton-br,
-html[class*="theme-"] body .personCard .cardOverlayButton-br {
-    position: absolute !important;
-    bottom: 15px !important; /* Nudges it safely up into the bottom curve of the oval */
-    right: 50% !important;   /* Pushes the right edge of the box to the exact middle */
-    transform: translateX(50%) !important; /* Pulls it back perfectly dead-center */
-    margin: 0 !important;
 }
 
 /* ============================================================
