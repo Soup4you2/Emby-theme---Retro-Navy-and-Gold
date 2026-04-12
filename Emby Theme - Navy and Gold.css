@@ -3159,18 +3159,16 @@ html[class*="theme-"] body .detail-overview:hover {
 }
 
 /* 6. Media Stream Info Cards (Video/Audio/Subtitle) Resting State */
-html[class*="theme-"] body .audioVideoMediaInfo .cardContent {
+html[class*="theme-"] body .detailMediaStreamsItemsContainer .cardContent {
   border:        2px solid transparent !important;
   border-radius: var(--border-radius-lg) !important;
-  transition:    all var(--transition-speed) ease-in-out !important;
 }
 
-/* 7. Media Stream Info Cards Strong Hover Border & Glow */
-html[class*="theme-"] body .audioVideoMediaInfo .card:hover .cardContent,
-html[class*="theme-"] body .audioVideoMediaInfo .card.show-focus .cardContent {
-  border:     2px solid var(--my-gold) !important;
-  box-shadow: var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
-  transform:  translateY(-4px) !important;
+/* 7. Media Stream Info Cards Hover Border (Flat/No Pop-out) */
+html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.card.card:hover .cardContent,
+html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.card.card.show-focus .cardContent {
+  border-color: var(--my-gold) !important;
+  box-shadow:   var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
 }
 
 /* 8. Media Stream Info Card Titles (Mapped to H5 & Resized) */
@@ -4045,6 +4043,18 @@ html[class*="theme-"] body .videoOsdBottom .videoOsd-infotab .emby-itemscontaine
   overflow: visible !important;
 }
 
+/* 5. Info Tab Text Hover Fix: Prevents the overview paragraph from turning gold when moused over */
+html[class*="theme-"] body .videoosd-info button.btnInfoTabOverviewText,
+html[class*="theme-"] body .videoosd-info button.btnInfoTabOverviewText *,
+html[class*="theme-"] body .videoosd-info button.btnInfoTabOverviewText:hover,
+html[class*="theme-"] body .videoosd-info button.btnInfoTabOverviewText:hover *,
+html[class*="theme-"] body .videoosd-info button.btnInfoTabOverviewText:focus,
+html[class*="theme-"] body .videoosd-info button.btnInfoTabOverviewText:focus * {
+  color:                   var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
+  text-decoration:         none !important;
+}
+
 /* ============================================================
    09. FULLSCREEN AUDIO & PLAYLIST
    ============================================================ */
@@ -4914,40 +4924,26 @@ html[class*="theme-"] body .card:not(.spotlightCard):not(.bannerCard):not(.sideF
   transform: var(--popout-transform) !important;
 }
 
-/* THE SHIELD: Forces the Main Detail Poster, OSD Cards, and Banner Cards to stay flat and ignore 3D twist */
-html[class*="theme-"] body .detailImageContainer .card.card:hover .cardImageContainer,
-html[class*="theme-"] body .detailImageContainer .card.card:hover .defaultCardBackground,
-html[class*="theme-"] body .detailImageContainer .card.card:hover .cardOverlayContainer,
-html[class*="theme-"] body .videoOsdBottom .card.card:hover .cardImageContainer,
-html[class*="theme-"] body .videoOsdBottom .card.card:hover .defaultCardBackground,
-html[class*="theme-"] body .videoOsdBottom .card.card:hover .cardOverlayContainer,
-html[class*="theme-"] body .videoOsdBottom .card.card.show-focus .cardImageContainer,
-html[class*="theme-"] body .videoOsdBottom .card.card.show-focus .defaultCardBackground,
-html[class*="theme-"] body .videoOsdBottom .card.card.show-focus .cardOverlayContainer,
-html[class*="theme-"] body .view-videoosd-videoosd .card.card:hover .cardImageContainer,
-html[class*="theme-"] body .view-videoosd-videoosd .card.card:hover .defaultCardBackground,
-html[class*="theme-"] body .view-videoosd-videoosd .card.card:hover .cardOverlayContainer,
-html[class*="theme-"] body .upNextContainer .card.card:hover .cardImageContainer,
-html[class*="theme-"] body .upNextContainer .card.card:hover .defaultCardBackground,
-html[class*="theme-"] body .upNextContainer .card.card:hover .cardOverlayContainer,
-html[class*="theme-"] body .upNextDialog .card.card:hover .cardImageContainer,
-html[class*="theme-"] body .upNextDialog .card.card:hover .defaultCardBackground,
-html[class*="theme-"] body .upNextDialog .card.card:hover .cardOverlayContainer,
-html[class*="theme-"] body .bannerCard.card.card:hover .cardImageContainer,
-html[class*="theme-"] body .bannerCard.card.card:hover .defaultCardBackground,
-html[class*="theme-"] body .bannerCard.card.card:hover .cardOverlayContainer,
-html[class*="theme-"] body .sideFooterCard.card.card:hover .cardImageContainer,
-html[class*="theme-"] body .sideFooterCard.card.card:hover .defaultCardBackground,
-html[class*="theme-"] body .sideFooterCard.card.card:hover .cardOverlayContainer {
+/* THE SHIELD: Forces the Main Detail Poster, OSD Info Poster, and Media Streams to stay flat and ignore 3D twist */
+html[class*="theme-"] body .detailImageContainer .card.card.card:hover .cardImageContainer,
+html[class*="theme-"] body .detailImageContainer .card.card.card:hover .defaultCardBackground,
+html[class*="theme-"] body .detailImageContainer .card.card.card:hover .cardOverlayContainer,
+html[class*="theme-"] body .videoOsdBottom .osdInfoImageCard.card.card.card:hover .cardImageContainer,
+html[class*="theme-"] body .videoOsdBottom .osdInfoImageCard.card.card.card:hover .defaultCardBackground,
+html[class*="theme-"] body .videoOsdBottom .osdInfoImageCard.card.card.card:hover .cardOverlayContainer,
+html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.card.card:hover .cardContent,
+html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.card.card:hover .cardImageContainer,
+html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.card.card.show-focus .cardContent,
+html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.card.card.show-focus .cardImageContainer {
   transform: none !important;
 }
 
-/* Prevent Media Stream Info Cards from receiving 3D pop-out (Restores their subtle lift) */
-html[class*="theme-"] body .audioVideoMediaInfo .card:hover .cardContent,
-html[class*="theme-"] body .audioVideoMediaInfo .card:hover .cardImageContainer,
-html[class*="theme-"] body .audioVideoMediaInfo .card.show-focus .cardContent,
-html[class*="theme-"] body .audioVideoMediaInfo .card.show-focus .cardImageContainer {
-  transform: translateY(-4px) !important;
+/* Completely Disable 3D Pop-out and Lift for Media Stream Info Cards */
+html[class*="theme-"] body .detailMediaStreamsItemsContainer .card:hover .cardContent,
+html[class*="theme-"] body .detailMediaStreamsItemsContainer .card:hover .cardImageContainer,
+html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.show-focus .cardContent,
+html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.show-focus .cardImageContainer {
+  transform: none !important;
 }
 
 /* Mobile/Touch Shield: Disables 3D effects on phones/tablets to prevent sticky hover glitches */
