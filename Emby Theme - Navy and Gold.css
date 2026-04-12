@@ -33,6 +33,16 @@ html,
   --font-header: 'Oswald', sans-serif;                             /* Primary cinematic header font */
   --font-body: 'Sofia Sans', sans-serif;                           /* Standard readable body font */
   
+  /* --- GLOBAL BACKGROUND IMAGE --- */
+  /* OPTION 1  Use Theme Defaults */
+  --global-bg-image: radial-gradient(circle, var(--navy-mid-solid) 25%, var(--navy-base-solid) 85%);  /* Default Theme Colors */
+
+  /* OPTION 2: Use a background image at full brightness (Set to your prefered image)*/
+  /* --global-bg-image: url("https://static.vecteezy.com/system/resources/previews/024/396/102/large_2x/a-view-from-space-to-a-galaxy-and-stars-universe-filled-with-stars-nebula-and-galaxy-panoramic-shot-wide-format-elements-of-this-image-furnished-by-nasa-free-photo.jpg");  /* Full brightness image */
+
+  /* OPTION 3: Use a background image but dimmed down (Set to your prefered image) */
+  /* --global-bg-image: linear-gradient(rgba(0,8,20,0.7), rgba(0,8,20,0.7)), url("https://static.vecteezy.com/system/resources/previews/024/396/102/large_2x/a-view-from-space-to-a-galaxy-and-stars-universe-filled-with-stars-nebula-and-galaxy-panoramic-shot-wide-format-elements-of-this-image-furnished-by-nasa-free-photo.jpg");  /* Image with 70% Navy dimming */
+
   /* --- HEADING COLORS --- */
   --h1-color: var(--my-gold);                                      /* Video & Music Titles in OSD, Dashboard Root, Startup and Login Screens */
   --h2-color: var(--my-gold);                                      /* Page Titles, Section Divider Headers, Media Detail Title, Dialog window titles */
@@ -397,14 +407,23 @@ html[class*="theme-"] {
   --dialog-background-color:    var(--navy-light-alpha-80) !important;
 }
 
-/* 2. Global Foundation: Forces our deep navy radial gradient onto the body of all themes */
+/* 2. Global Foundation: Sets the base app background (Gradient or Custom Image) */
 html[class*="theme-"], 
-body[class*="theme-"],
-[class*="theme-"] .view,
-[class*="theme-"] .page,
-[class*="theme-"] .libraryPage {
-  background: radial-gradient(circle, var(--navy-mid-solid) 25%, var(--navy-base-solid) 85%) fixed !important;
+body[class*="theme-"] {
+  background-image: var(--global-bg-image) !important;
   background-color: var(--retro-navy) !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+/* 2b. Middle Layer Transparency: Ensures the background image or gradient always shows through */
+html[class*="theme-"] .view,
+html[class*="theme-"] .page,
+html[class*="theme-"] .libraryPage {
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 /* 3. Curtain Removal & Dynamic Backdrop: Manages overlays blocking the background */
