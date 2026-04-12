@@ -192,7 +192,7 @@ html,
   --glow-none: none;                                               /* Utility used to disable glows */
   --glow-light: 0 0 5px var(--retro-glow);                         /* Soft outline lighting for pills */
   --glow-medium: 0 0 10px var(--retro-glow);                       /* Standard outline lighting for indicators */
-  --shadow-glow-standard: 0 0 15px transparent;                     /* The primary gold glow seen on hovered media cards */
+  --shadow-glow-standard: transparent;                             /* The primary gold glow seen on hovered media cards */
   --glow-heavy: 0 0 20px var(--retro-glow);                        /* Intense glow used for primary action buttons */
   --glow-extreme: 0 0 30px var(--retro-glow);                      /* Massive glow used for full-screen artwork */
   --glow-slider-track: 0 0 12px var(--my-gold), var(--shadow-glow-standard); /* Makes the played portion of a progress bar neon */
@@ -2024,6 +2024,7 @@ html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):h
   background:       var(--my-gold) !important;
   transform:        scale(1.15) !important;
   box-shadow:       var(--shadow-glow-standard) !important;
+  border-radius:    var(--media-card-radius) !important;
 }
 
 /* 3. Hover Icon Contrast: Forces the icon inside to turn dark navy so it's readable */
