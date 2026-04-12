@@ -1742,6 +1742,27 @@ html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuO
   filter:                  none !important;
 }
 
+/* 2c. Unplayed Checkmarks: Un-played State (Keep white/gray, protect from row-hover gold) */
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-played="false"],
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-played="false"] .md-icon,
+html[class*="theme-"] body .dataGridItem:hover button[data-played="false"],
+html[class*="theme-"] body .dataGridItem:hover button[data-played="false"] .md-icon {
+  color:                   var(--white-alpha-60) !important;
+  -webkit-text-fill-color: var(--white-alpha-60) !important;
+  filter:                  none !important;
+}
+
+/* Hover directly over the unplayed checkmark (Pops to white to indicate it can be clicked) */
+html[class*="theme-"] body button[data-played="false"]:hover,
+html[class*="theme-"] body button[data-played="false"]:hover .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-played="false"]:hover,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-played="false"]:hover .md-icon {
+  color:                   var(--pure-white) !important; 
+  -webkit-text-fill-color: var(--pure-white) !important;
+  transform:               scale(1.2) !important;
+  filter:                  drop-shadow(0 0 10px var(--white-alpha-80)) !important;
+}
+
 /* 3. Played Indicator Pills: Floating status in card and thumbnail corners */
 html[class*="theme-"] body .playedIndicator,
 html[class*="theme-"] body .cardIndicator.playedIndicator,
