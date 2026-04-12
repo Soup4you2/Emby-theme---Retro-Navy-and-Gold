@@ -418,12 +418,25 @@ body[class*="theme-"] {
   background-position: center center !important;
 }
 
-/* 2b. Middle Layer Transparency: Ensures the background image or gradient always shows through */
-html[class*="theme-"] .view,
-html[class*="theme-"] .page,
-html[class*="theme-"] .libraryPage {
-  background: transparent !important;
-  background-color: transparent !important;
+/* 2b. Global Background Kill-Switch: Hides the main theme background when Fanart or Video is active so they don't visually clash */
+html[class*="theme-"]:has(body .backgroundContainer.withBackdrop),
+html[class*="theme-"] body:has(.backgroundContainer.withBackdrop),
+html[class*="theme-"] body:has(.backgroundContainer.withBackdrop) .view,
+html[class*="theme-"] body:has(.backgroundContainer.withBackdrop) .page,
+html[class*="theme-"] body:has(.backgroundContainer.withBackdrop) .libraryPage,
+
+html[class*="theme-"]:has(body .videoBackdropContainer:not(.hide)),
+html[class*="theme-"] body:has(.videoBackdropContainer:not(.hide)),
+html[class*="theme-"] body:has(.videoBackdropContainer:not(.hide)) .view,
+html[class*="theme-"] body:has(.videoBackdropContainer:not(.hide)) .page,
+html[class*="theme-"] body:has(.videoBackdropContainer:not(.hide)) .libraryPage,
+
+html[class*="theme-"]:has(body .view-videoosd-videoosd:not(.hide)),
+html[class*="theme-"] body:has(.view-videoosd-videoosd:not(.hide)),
+html[class*="theme-"] body:has(.view-videoosd-videoosd:not(.hide)) .view,
+html[class*="theme-"] body:has(.view-videoosd-videoosd:not(.hide)) .page,
+html[class*="theme-"] body:has(.view-videoosd-videoosd:not(.hide)) .libraryPage {
+    background-image: none !important;
 }
 
 /* 3. Curtain Removal & Dynamic Backdrop: Manages overlays blocking the background */
