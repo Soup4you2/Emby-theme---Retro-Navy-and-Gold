@@ -3560,13 +3560,12 @@ html[class*="theme-"] .epgChannelCellInner {
   background: transparent !important;
 }
 
-/* 5. Cell Hover State: Preserves program colors (Movies, Live, etc.) while adding the gold glow */
+/* 5. Cell Hover State: Sharp border and inner tint (No external glow) */
 html[class*="theme-"] .programCell-active .programCellInner,
 html[class*="theme-"] .programCell:hover .programCellInner {
   background-image: linear-gradient(var(--white-alpha-10), var(--white-alpha-10)) !important;
   border-color:     transparent !important;
   box-shadow:       inset 0 0 0 var(--hover-border-thickness) var(--theme-primary-color),
-                    var(--shadow-glow-standard), 
                     inset 0 0 10px var(--gold-alpha-10) !important;
   border-radius:    var(--border-radius-sm) !important;
   z-index:          10 !important;
