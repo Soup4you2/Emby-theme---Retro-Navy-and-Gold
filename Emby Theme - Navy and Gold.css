@@ -3249,15 +3249,15 @@ html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.card.card.sho
 html[class*="theme-"] body .mediaStreamInnerCardFooter h3 {
   display:         flex !important;
   flex-direction:  row !important;
-  align-items:     center !important; /* The vertical "snap" fix */
+  align-items:     center !important; 
   justify-content: flex-start !important;
-  gap:             10px !important;   /* Space between icon and word */
+  gap:             10px !important;   
   color:           var(--h5-color) !important;
   -webkit-text-fill-color: var(--h5-color) !important;
   font-size:       1.25em !important;
-  margin-bottom:   12px !important;   /* Nudged up slightly for better spacing */
+  margin-bottom:   12px !important;   
   letter-spacing:  0.5px !important;
-  line-height:     1 !important;      /* Prevents line-height from pushing the text down */
+  line-height:     1 !important;      
 }
 
 /* Icon Sync: Ensures the Material Icon respects the flex container */
@@ -3266,7 +3266,7 @@ html[class*="theme-"] body .mediaStreamInnerCardFooter h3 .md-icon {
   padding:         0 !important;
   display:         inline-flex !important;
   align-items:     center !important;
-  font-size:       inherit !important; /* Keeps the icon exactly the same height as the text */
+  font-size:       inherit !important; 
   color:           inherit !important;
   -webkit-text-fill-color: inherit !important;
 }
