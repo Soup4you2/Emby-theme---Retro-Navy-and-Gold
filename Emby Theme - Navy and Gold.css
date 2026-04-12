@@ -1,3 +1,4 @@
+
 /* ============================================================
    EMBY CUSTOM THEME: RETRO NAVY & GOLD
    https://github.com/Soup4you2/Emby-theme---Retro-Navy-and-Gold/tree/main
@@ -2609,6 +2610,39 @@ html[class*="theme-"] body .personCard:hover .defaultCardBackground .md-icon {
   transform:               scale(1.15) !important;
 }
 
+/* 9. Circular Card Global Fix (Music Artists, Collections, etc.) */
+
+/* Force perfect circle radius across all inner layers AND Emby's outer wrappers */
+html[class*="theme-"] body .card:has(.cardContent-round) .cardBox,
+html[class*="theme-"] body .card:has(.cardContent-round) .cardScalable,
+html[class*="theme-"] body .card .cardContent.cardContent-round,
+html[class*="theme-"] body .card .cardImageContainer.cardContent-round,
+html[class*="theme-"] body .card .defaultCardBackground.cardContent-round,
+html[class*="theme-"] body .card .cardContent-round ~ .cardOverlayContainer {
+    border-radius: 50% !important;
+}
+
+/* Restore Hover Border, Glow, and 3D Popout directly to ALL Circular Images */
+html[class*="theme-"] body .card:hover .cardImageContainer.cardContent-round,
+html[class*="theme-"] body .card:hover .defaultCardBackground.cardContent-round,
+html[class*="theme-"] body .card.show-focus .cardImageContainer.cardContent-round,
+html[class*="theme-"] body .card.show-focus .defaultCardBackground.cardContent-round {
+    border-color:            var(--theme-primary-color) !important;
+    border-width:            var(--hover-border-thickness) !important; 
+    border-style:            solid !important;
+    box-shadow:              18px 18px 30px -10px var(--black-alpha-80), 
+                             var(--shadow-glow-standard) !important; 
+    transform:               var(--popout-transform) !important;
+}
+
+/* Prevent double borders by stripping the overlapping overlay properties */
+html[class*="theme-"] body .card:hover .cardContent-round ~ .cardOverlayContainer,
+html[class*="theme-"] body .card.show-focus .cardContent-round ~ .cardOverlayContainer {
+    border-color: transparent !important;
+    box-shadow:   none !important;
+    transform:    var(--popout-transform) !important;
+}
+
 /* --- 5D. CAST & CREW TYPOGRAPHY --- */
 
 /* 1. Master Container: Centers text and forces ellipsis for long names */
@@ -2641,7 +2675,6 @@ html[class*="theme-"] body .personCard:hover .defaultCardBackground .md-icon {
 /* --- 5E. HORIZONTAL & BANNER CARDS --- */
 
 /* 1. Base Styling for Outer Container (Music Tracks, Banner Cards, etc.) */
-html[class*="theme-"] body .card-horiz .visualCardBox,
 html[class*="theme-"] body .bannerCard .visualCardBox,
 html[class*="theme-"] body .sideFooterCard .visualCardBox {
   background:       var(--navy-light-alpha-80) !important;
@@ -2656,7 +2689,6 @@ html[class*="theme-"] body .sideFooterCard .visualCardBox {
 }
 
 /* 2. Clean Inner Container (Strips double borders/backgrounds) */
-html[class*="theme-"] body .card-horiz .visualCardBox .cardContent,
 html[class*="theme-"] body .bannerCard .visualCardBox .cardContent,
 html[class*="theme-"] body .sideFooterCard .visualCardBox .cardContent {
   background:       transparent !important;
@@ -2666,10 +2698,8 @@ html[class*="theme-"] body .sideFooterCard .visualCardBox .cardContent {
 }
 
 /* 3. Hover States (Applies Gold Glow to Outer Container) */
-html[class*="theme-"] body .card-horiz:hover .visualCardBox,
 html[class*="theme-"] body .bannerCard:hover .visualCardBox,
 html[class*="theme-"] body .sideFooterCard:hover .visualCardBox,
-html[class*="theme-"] body .card-horiz.show-focus .visualCardBox,
 html[class*="theme-"] body .bannerCard.show-focus .visualCardBox,
 html[class*="theme-"] body .sideFooterCard.show-focus .visualCardBox {
   background:       var(--theme-icon-focus-background) !important;
@@ -2680,31 +2710,16 @@ html[class*="theme-"] body .sideFooterCard.show-focus .visualCardBox {
 }
 
 /* 4. Text Enforcements: Ensures contrast against varied library themes */
-html[class*="theme-"] .card-horiz .cardText-first,
 html[class*="theme-"] .bannerCard .cardText-first,
 html[class*="theme-"] .sideFooterCard .cardText-first {
   color:                   var(--pure-white) !important;
   -webkit-text-fill-color: var(--pure-white) !important;
 }
 
-html[class*="theme-"] .card-horiz .cardText-secondary,
 html[class*="theme-"] .bannerCard .cardText-secondary,
 html[class*="theme-"] .sideFooterCard .cardText-secondary {
   color:                   var(--white-alpha-70) !important;
   -webkit-text-fill-color: var(--white-alpha-70) !important;
-}
-
-/* 5. CAST & CREW ANTI-SHIELD: Prevents horizontal card rules from destroying actor portraits */
-html[class*="theme-"] body .peopleSection .card-horiz .cardContent,
-html[class*="theme-"] body .peopleSection .card-horiz:hover .cardContent,
-html[class*="theme-"] body .peopleSection .card-horiz.show-focus .cardContent,
-html[class*="theme-"] body .personCard.card-horiz .cardContent,
-html[class*="theme-"] body .personCard.card-horiz:hover .cardContent {
-  background:       transparent !important;
-  background-color: transparent !important;
-  background-image: none !important;
-  border:           none !important;
-  box-shadow:       none !important;
 }
 
 /* --- 5F. SPOTLIGHT CARD TEXT SCRIM (Black/Grey Legibility Fix) --- */
@@ -4878,14 +4893,14 @@ html[class*="theme-"] body .cardOverlayContainer {
   transform-origin:  center center !important;
 }
 
-/* Apply 3D Pop-out to browse cards, but EXCLUDE Spotlight and Horizontal list cards */
-html[class*="theme-"] body .card:not(.spotlightCard):not(.card-horiz):hover .cardImageContainer,
-html[class*="theme-"] body .card:not(.spotlightCard):not(.card-horiz):hover .defaultCardBackground,
-html[class*="theme-"] body .card:not(.spotlightCard):not(.card-horiz):hover .cardOverlayContainer {
+/* Apply 3D Pop-out to browse cards, but EXCLUDE Spotlight and Banner list cards */
+html[class*="theme-"] body .card:not(.spotlightCard):not(.bannerCard):not(.sideFooterCard):hover .cardImageContainer,
+html[class*="theme-"] body .card:not(.spotlightCard):not(.bannerCard):not(.sideFooterCard):hover .defaultCardBackground,
+html[class*="theme-"] body .card:not(.spotlightCard):not(.bannerCard):not(.sideFooterCard):hover .cardOverlayContainer {
   transform: var(--popout-transform) !important;
 }
 
-/* THE SHIELD: Forces the Main Detail Poster, OSD Cards, and Horizontal Cards to stay flat and ignore 3D twist */
+/* THE SHIELD: Forces the Main Detail Poster, OSD Cards, and Banner Cards to stay flat and ignore 3D twist */
 html[class*="theme-"] body .detailImageContainer .card.card:hover .cardImageContainer,
 html[class*="theme-"] body .detailImageContainer .card.card:hover .defaultCardBackground,
 html[class*="theme-"] body .detailImageContainer .card.card:hover .cardOverlayContainer,
@@ -4904,9 +4919,6 @@ html[class*="theme-"] body .upNextContainer .card.card:hover .cardOverlayContain
 html[class*="theme-"] body .upNextDialog .card.card:hover .cardImageContainer,
 html[class*="theme-"] body .upNextDialog .card.card:hover .defaultCardBackground,
 html[class*="theme-"] body .upNextDialog .card.card:hover .cardOverlayContainer,
-html[class*="theme-"] body .card-horiz.card.card:hover .cardImageContainer,
-html[class*="theme-"] body .card-horiz.card.card:hover .defaultCardBackground,
-html[class*="theme-"] body .card-horiz.card.card:hover .cardOverlayContainer,
 html[class*="theme-"] body .bannerCard.card.card:hover .cardImageContainer,
 html[class*="theme-"] body .bannerCard.card.card:hover .defaultCardBackground,
 html[class*="theme-"] body .bannerCard.card.card:hover .cardOverlayContainer,
