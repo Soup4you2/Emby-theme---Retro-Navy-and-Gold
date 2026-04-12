@@ -3230,14 +3230,30 @@ html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.card.card.sho
   box-shadow:   var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
 }
 
-/* 8. Media Stream Info Card Titles (Mapped to H5 & Resized) */
-html[class*="theme-"] body .mediaStreamInnerCardFooter h3,
-html[class*="theme-"] body .mediaStreamInnerCardFooter h3 .md-icon {
-  color:                   var(--h5-color) !important;
+/* 8. Media Stream Info Card Titles: Centers the Icon and Text perfectly */
+html[class*="theme-"] body .mediaStreamInnerCardFooter h3 {
+  display:         flex !important;
+  flex-direction:  row !important;
+  align-items:     center !important; /* The vertical "snap" fix */
+  justify-content: flex-start !important;
+  gap:             10px !important;   /* Space between icon and word */
+  color:           var(--h5-color) !important;
   -webkit-text-fill-color: var(--h5-color) !important;
-  font-size:               1.45em !important;
-  margin-bottom:           12px !important;
-  letter-spacing:          0.5px !important;
+  font-size:       1.25em !important;
+  margin-bottom:   12px !important;   /* Nudged up slightly for better spacing */
+  letter-spacing:  0.5px !important;
+  line-height:     1 !important;      /* Prevents line-height from pushing the text down */
+}
+
+/* Icon Sync: Ensures the Material Icon respects the flex container */
+html[class*="theme-"] body .mediaStreamInnerCardFooter h3 .md-icon {
+  margin:          0 !important;
+  padding:         0 !important;
+  display:         inline-flex !important;
+  align-items:     center !important;
+  font-size:       inherit !important; /* Keeps the icon exactly the same height as the text */
+  color:           inherit !important;
+  -webkit-text-fill-color: inherit !important;
 }
 
 /* 9. Media Stream Info Card Padding (Breathing Room) */
