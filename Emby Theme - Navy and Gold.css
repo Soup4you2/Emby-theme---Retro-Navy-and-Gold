@@ -214,6 +214,7 @@ html,
   --header-bg: var(--navy-base-alpha-75);                          /* Set to 'transparent' for a completely clear header, or use a translucent color to enable frost */
   --header-border: var(--standard-border-thickness) solid var(--gold-alpha-15);  /* Set to 'none' to disable, or var(--standard-border-thickness) solid var(--gold-alpha-15) to enable */
   --header-content-padding: 20px;                                  /* Media details header padding, push the content down from the header */
+  --header-logo-display: block;                                     /* Set to 'block' to show the top left Emby logo, or 'none' to hide it */
   --osd-mini-blur: var(--blur-heavy);                              /* Frost blur intensity for the bottom mini music player */
   --osd-mini-bg: var(--navy-base-alpha-75);                        /* Background transparency for the bottom mini music player */
 
@@ -900,14 +901,16 @@ html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button {
   border-bottom:           var(--header-border) !important;
 }
 
-/* 2. Logo Management: Hides default text/image logos to keep the header minimal */
-.headerLeft {
+/* 2. Logo Management: Visibility controlled by Section 1 variable */
+html[class*="theme-"] body .skinHeader .headerLeft {
   display: flex !important;
 }
 
-.headerLogo,
-.headerLeft img {
-  display: none !important;
+html[class*="theme-"] body .skinHeader .headerLogo,
+html[class*="theme-"] body .skinHeader .headerLeft img,
+html[class*="theme-"] body .skinHeader .pageTitleWithDefaultLogo,
+html[class*="theme-"] body .mainDrawer .navDrawerHeader .btnNavDrawerLogo {
+  display: var(--header-logo-display) !important;
 }
 
 /* 3. Header Icons: Targets ONLY specific header buttons to avoid styling multi-select panels */
@@ -1038,7 +1041,11 @@ html[class*="theme-"] body .skinHeader .pageTitleWithDefaultLogo[style*="logo.pn
   filter: none !important;
 }
 
-/* 6. Sidebar Close Button: Uses maximum specificity to stay Gold in all states */
+/* 6. Sidebar Close Button: Stays Gold and pushes to the right edge */
+html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer {
+  margin-left: auto !important; /* CRITICAL: Forces button to the right even when the logo spacer is hidden */
+}
+
 html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer,
 html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer i.md-icon {
   color: var(--my-gold) !important;
