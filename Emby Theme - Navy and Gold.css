@@ -223,8 +223,8 @@ html,
 
   /* MEDIA CARD POPOUT EFFECTS --- */
   --popout-perspective: 1000px;                                      /* Effects can be made when hovering over media cards to disable use "none" or to enable use "1000px" */
-  --popout-transform: scale(1.05) rotateX(4deg) translateY(-5px);                                        /* Effects can be made when hovering over media cards to disable use "none" or to enable use "scale(1.05) rotateX(4deg) translateY(-5px)" */
-  --popout-shadow: 0px 20px 30px var(--black-alpha-90), var(--shadow-glow-standard);                                           /* Effects can be made when hovering over media cards to disable use "none" or to enable use "0px 20px 30px var(--black-alpha-90), var(--shadow-glow-standard)" */
+  --popout-transform: scale(1.05) rotateX(4deg) translateY(-5px);   /* Effects can be made when hovering over media cards to disable use "none" or to enable use "scale(1.05) rotateX(4deg) translateY(-5px)" */
+  --popout-shadow: 0px 20px 30px var(--black-alpha-90), var(--shadow-glow-standard);  /* Effects can be made when hovering over media cards to disable use "none" or to enable use "0px 20px 30px var(--black-alpha-90), var(--shadow-glow-standard)" */
 
   /* CAST & CREW PORTRAIT SHAPES (DEFAULT: OVAL) */
   --portrait-radius: 50% / 40%;                                    /* Oval Shaped */
@@ -906,11 +906,22 @@ html[class*="theme-"] body .skinHeader .headerLeft {
   display: flex !important;
 }
 
+/* Applies your visibility variable strictly to the image logos */
 html[class*="theme-"] body .skinHeader .headerLogo,
 html[class*="theme-"] body .skinHeader .headerLeft img,
-html[class*="theme-"] body .skinHeader .pageTitleWithDefaultLogo,
 html[class*="theme-"] body .mainDrawer .navDrawerHeader .btnNavDrawerLogo {
   display: var(--header-logo-display) !important;
+}
+
+/* Kills the redundant text title that caused the "double logo" text glitch */
+html[class*="theme-"] body .skinHeader .pageTitleWithDefaultLogo {
+  display: none !important;
+}
+
+/* Hides the top header logo ONLY when the sidebar is docked so it doesn't duplicate on screen */
+html[class*="theme-"] body .skinHeader.skinHeader-withfulldrawer .headerLogo,
+html[class*="theme-"] body .skinHeader.skinHeader-withfulldrawer .headerLeft img {
+  display: none !important;
 }
 
 /* 3. Header Icons: Targets ONLY specific header buttons to avoid styling multi-select panels */
