@@ -1048,7 +1048,7 @@ html[class*="theme-appletv"] .splashLogo {
 
 /* 6. Sidebar Close Button: Stays Gold and pushes to the right edge */
 html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer {
-  margin-left: auto !important; /* CRITICAL: Forces button to the right even when the logo spacer is hidden */
+  margin-left: auto !important;
 }
 
 html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer,
