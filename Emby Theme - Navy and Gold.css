@@ -3793,11 +3793,25 @@ html[class*="theme-"] body .nowPlayingBar .buttonActive .md-icon {
   filter:                  var(--filter-glow-gold-solid) !important;
 }
 
-/* --- OSD PLAY & RESUME BUTTON FIX --- */
-html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning.btnPlayFromBeginning.btnPlayFromBeginning .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnResume.btnResume.btnResume .md-icon {
-    color: var(--my-gold) !important;
-    -webkit-text-fill-color: var(--my-gold) !important;
+/* --- OSD ACTION BUTTON ICON SHIELD --- */
+html[class*="theme-"] body .videoOsdBottom button.btnPlay .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnResume .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnStartNow .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnSkipIntro .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.detailButton .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.button-submit .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnPlay:hover .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnResume:hover .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning:hover .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnStartNow:hover .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnSkipIntro:hover .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.detailButton:hover .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.button-submit:hover .md-icon {
+  color:                   var(--pure-black) !important;
+  -webkit-text-fill-color: var(--pure-black) !important;
+  filter:                  none !important;
+  transform:               none !important;
 }
 
 /* 2. HOVER & FOCUS STATE: Force the triangle to be BLACK. */
