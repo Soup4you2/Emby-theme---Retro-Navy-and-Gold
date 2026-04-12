@@ -2678,6 +2678,31 @@ html[class*="theme-"] body .card.show-focus .cardContent-round ~ .cardOverlayCon
     transform:    var(--popout-transform) !important;
 }
 
+/* 10. Music Artist & Circular Card Button Centering (Heart & More Grouped) */
+/* Targets the container holding both buttons and centers it at the bottom of the circle */
+html[class*="theme-"] body .card:has(.cardContent-round) .cardOverlayButton-br,
+html[class*="theme-"] body .card[data-type="MusicArtist"] .cardOverlayButton-br {
+  position:        absolute !important;
+  left:            50% !important;
+  right:           auto !important;
+  bottom:          15px !important;
+  transform:       translateX(-50%) !important; /* Perfect horizontal centering */
+  display:         flex !important;
+  flex-direction:  row !important;
+  justify-content: center !important;
+  align-items:     center !important;
+  gap:             10px !important; /* Space between the heart and the dots */
+  width:           auto !important;
+  margin:          0 !important;
+}
+
+/* Ensure the buttons inside the group don't have extra margins that push them off-center */
+html[class*="theme-"] body .card:has(.cardContent-round) .cardOverlayButton-br .cardOverlayButton-fab,
+html[class*="theme-"] body .card[data-type="MusicArtist"] .cardOverlayButton-br .cardOverlayButton-fab {
+  margin: 0 !important;
+  position: relative !important; /* Breaks them out of Emby's absolute corner pinning */
+}
+
 /* --- 5D. CAST & CREW TYPOGRAPHY --- */
 
 /* 1. Master Container: Centers text and forces ellipsis for long names */
