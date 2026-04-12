@@ -1032,6 +1032,12 @@ html[class*="theme-appletv"] .splashLogo {
   filter: invert(1) hue-rotate(180deg) brightness(1.2) !important;
 }
 
+/* 5b. Detail Page Safety Net: Stops the filter from double-inverting the white logo to black */
+html[class*="theme-"] body:has(.withBackdrop) .skinHeader .pageTitleWithDefaultLogo,
+html[class*="theme-"] body .skinHeader .pageTitleWithDefaultLogo[style*="logo.png" i] {
+  filter: none !important;
+}
+
 /* 6. Sidebar Close Button: Uses maximum specificity to stay Gold in all states */
 html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer,
 html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer i.md-icon {
@@ -3227,7 +3233,7 @@ html[class*="theme-"] body button.btnReadMore {
   color:                   var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
   font-weight:             700 !important;
-  opacity:                 1 !important; /* Overrides Emby's native text dimming */
+  opacity:                 1 !important; 
   transition:              all var(--transition-speed) ease-in-out !important;
 }
 
