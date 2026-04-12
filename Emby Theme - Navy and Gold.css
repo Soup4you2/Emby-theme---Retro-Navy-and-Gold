@@ -1036,47 +1036,19 @@ html[class*="theme-"] body .mainDrawer a.btnNavDrawerLogo:focus {
   outline: none !important;
 }
 
-/* 5. Emby Logo Color Correction (Unified & Simplified) */
-
-/* 5A. Force Wrappers to stay solid (Kills the grey-text hover fade and popout) */
-html[class*="theme-"] body .skinHeader .headerLeft > a,
-html[class*="theme-"] body .skinHeader .headerLeft > a:hover,
-html[class*="theme-"] body .skinHeader .headerLeft > a:focus,
-html[class*="theme-"] body .mainDrawer .navDrawerHeader > a.btnNavDrawerLogo,
-html[class*="theme-"] body .mainDrawer .navDrawerHeader > a.btnNavDrawerLogo:hover {
-  opacity:    1 !important;
-  background: transparent !important;
-  filter:     none !important;
-  transform:  none !important; 
-  transition: none !important; 
-}
-
-/* 5B. HOME PAGE LOGO (Native White Text, Green Icon) */
-html[class*="theme-"] body .skinHeader:not(.darkContentContainer) .headerLeft img,
-html[class*="theme-"] body .skinHeader:not(.darkContentContainer) .headerLogo,
-html[class*="theme-"] body .skinHeader:not(.darkContentContainer) .pageTitleWithDefaultLogo,
-html[class*="theme-"] body .mainDrawer:not(.darkContentContainer) .navDrawerLogo,
-html[class*="theme-"] .splashLogo {
-  filter:      hue-rotate(295deg) saturate(2.5) brightness(1.35) !important; 
-  opacity:     1 !important;
-  transform:   none !important; 
-  transition:  none !important;
-}
-
-/* 5C. MEDIA DETAILS LOGO (Native Black Text, Green Icon) */
-html[class*="theme-"] body .skinHeader.darkContentContainer .headerLeft img,
-html[class*="theme-"] body .skinHeader.darkContentContainer .headerLogo,
-html[class*="theme-"] body .skinHeader.darkContentContainer .pageTitleWithDefaultLogo,
-html[class*="theme-"] body .mainDrawer.darkContentContainer .navDrawerLogo {
-  filter:      hue-rotate(295deg) saturate(2.5) brightness(1.35) !important;
-  opacity:     1 !important;
-  transform:   none !important;
-  transition:  none !important;
+/* 5. Light Theme Logo Fix: Inverts black text to white strictly on themes that need it */
+html[class*="theme-light"] body .navDrawerLogo,
+html[class*="theme-light"] body .pageTitleWithDefaultLogo,
+html[class*="theme-light"] .splashLogo,
+html[class*="theme-appletv"] body .navDrawerLogo,
+html[class*="theme-appletv"] body .pageTitleWithDefaultLogo,
+html[class*="theme-appletv"] .splashLogo {
+  filter: invert(1) hue-rotate(180deg) brightness(1.2) !important;
 }
 
 /* 6. Sidebar Close Button: Stays Gold and pushes to the right edge */
 html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer {
-  margin-left: auto !important; 
+  margin-left: auto !important; /* CRITICAL: Forces button to the right even when the logo spacer is hidden */
 }
 
 html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer,
@@ -3089,7 +3061,7 @@ html[class*="theme-"] body .itemSecondaryNameContainer a[is="emby-linkbutton"] {
   -webkit-text-fill-color: var(--my-gold) !important;
   font-weight:             700 !important;
   text-decoration:         none !important;
-  padding-left:            4px !important;
+  padding-left:            4px !important; /* Pushes text away from the left-edge cutoff */
   margin-left:             0 !important;
   background:              transparent !important;
   border:                  none !important;
