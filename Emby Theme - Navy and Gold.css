@@ -192,7 +192,7 @@ html,
   --glow-none: none;                                               /* Utility used to disable glows */
   --glow-light: 0 0 5px var(--retro-glow);                         /* Soft outline lighting for pills */
   --glow-medium: 0 0 10px var(--retro-glow);                       /* Standard outline lighting for indicators */
-  --shadow-glow-standard: transparent;                             /* The primary gold glow seen on hovered media cards */
+  --shadow-glow-standard: 0 0 15px var(--retro-glow);              /* The primary gold glow seen on hovered media cards */
   --glow-heavy: 0 0 20px var(--retro-glow);                        /* Intense glow used for primary action buttons */
   --glow-extreme: 0 0 30px var(--retro-glow);                      /* Massive glow used for full-screen artwork */
   --glow-slider-track: 0 0 12px var(--my-gold), var(--shadow-glow-standard); /* Makes the played portion of a progress bar neon */
@@ -1748,7 +1748,7 @@ html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuO
   background-color: var(--my-gold) !important;
   border-radius:    50% !important;
   transform:        scale(1.1) !important;
-  box-shadow:       0 0 10px var(--gold-alpha-40) !important;
+  box-shadow:       none !important;
 }
 
 /* Forces the icon to black when the button is hovered */
@@ -1770,15 +1770,15 @@ html[class*="theme-"] body .dataGridItem:hover button[data-played="false"] .md-i
   filter:                  none !important;
 }
 
-/* Hover directly over the unplayed checkmark (Pops to white to indicate it can be clicked) */
+/* Hover directly over the unplayed checkmark (Pops to black to indicate it can be clicked) */
 html[class*="theme-"] body button[data-played="false"]:hover,
 html[class*="theme-"] body button[data-played="false"]:hover .md-icon,
 html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-played="false"]:hover,
 html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-played="false"]:hover .md-icon {
-  color:                   var(--pure-white) !important; 
-  -webkit-text-fill-color: var(--pure-white) !important;
+  color:                   var(--pure-black) !important; 
+  -webkit-text-fill-color: var(--pure-black) !important;
   transform:               scale(1.2) !important;
-  filter:                  drop-shadow(0 0 10px var(--white-alpha-80)) !important;
+  filter:                  none !important; 
 }
 
 /* 3. Played Indicator Pills: Floating status in card and thumbnail corners */
@@ -1819,7 +1819,7 @@ html[class*="theme-"] .countIndicator {
   padding:         0 6px !important;
 }
 
-/* 5. Favorite Hearts: Resting & Row-Hover State (Always Red) */
+/* 5. Favorite Hearts: Resting State */
 html[class*="theme-"] body button[data-isfavorite="true"],
 html[class*="theme-"] body button[data-isfavorite="true"] .md-icon,
 html[class*="theme-"] body .ratingbutton-icon-withrating,
@@ -1834,11 +1834,14 @@ html[class*="theme-"] body .dataGridRow:hover button[data-isfavorite="true"],
 html[class*="theme-"] body .dataGridRow:hover button[data-isfavorite="true"] .md-icon {
   color:                   var(--favorite-heart) !important; 
   -webkit-text-fill-color: var(--favorite-heart) !important;
-  filter:                  drop-shadow(0 0 5px var(--favorite-heart-alpha-50)) !important;
+  filter:                  none !important; /* Glow Removed */
   opacity:                 1 !important;
+  animation:               heartPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  will-change:             transform !important; 
+  backface-visibility:     hidden !important;
 }
 
-/* 6. Favorite Hearts: Hover Directly Over Heart (Brighter Red and Pop) */
+/* 6. Favorite Hearts: Hover State (No glow, no !important on scale) */
 html[class*="theme-"] body button[data-isfavorite="true"]:hover,
 html[class*="theme-"] body button[data-isfavorite="true"]:hover .md-icon,
 html[class*="theme-"] body .ratingbutton-icon-withrating:hover,
@@ -1849,11 +1852,11 @@ html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"]:ho
 html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="true"]:hover .md-icon {
   color:                   var(--favorite-heart-hover) !important; 
   -webkit-text-fill-color: var(--favorite-heart-hover) !important;
-  transform:               scale(1.2) !important;
-  filter:                  drop-shadow(0 0 10px var(--favorite-heart-hover-alpha-80)) !important;
+  transform:               scale(1.2); /* !important removed so animation can play */
+  filter:                  none !important; 
 }
 
-/* 7. Favorite Hearts: Un-favorited State (Keep white/gray, protect from row-hover gold) */
+/* 7. Favorite Hearts: Un-favorited State */
 html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-isfavorite="false"],
 html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-isfavorite="false"] .md-icon,
 html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="false"],
@@ -1861,16 +1864,42 @@ html[class*="theme-"] body .dataGridItem:hover button[data-isfavorite="false"] .
   color:                   var(--white-alpha-60) !important;
   -webkit-text-fill-color: var(--white-alpha-60) !important;
   filter:                  none !important;
+  animation:               heartUnpop 0.3s ease-out;
+  will-change:             transform !important;
+  backface-visibility:     hidden !important;
 }
 
+/* 7b. Hover directly over un-favorited heart */
 html[class*="theme-"] body button[data-isfavorite="false"]:hover,
 html[class*="theme-"] body button[data-isfavorite="false"]:hover .md-icon,
 html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-isfavorite="false"]:hover,
 html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button[data-isfavorite="false"]:hover .md-icon {
   color:                   var(--favorite-heart-hover) !important; 
   -webkit-text-fill-color: var(--favorite-heart-hover) !important;
-  transform:               scale(1.2) !important;
-  filter:                  drop-shadow(0 0 10px var(--favorite-heart-hover-alpha-80)) !important;
+  transform:               scale(1.2);
+  filter:                  none !important; 
+}
+
+/* 8. Custom Heart Toggle Animations */
+@keyframes heartPop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.6); }
+  100% { transform: scale(1.2); }
+}
+
+@keyframes heartUnpop {
+  0%   { transform: scale(1.2); }
+  50%  { transform: scale(0.8); }
+  100% { transform: scale(1.2); }
+}
+
+/* 8. Favorite Hearts: Active "Click" Animation (The Pop) */
+html[class*="theme-"] body button[data-isfavorite]:active,
+html[class*="theme-"] body button[data-isfavorite]:active .md-icon,
+html[class*="theme-"] body .ratingbutton-icon-withrating:active,
+html[class*="theme-"] body .ratingbutton-icon-withrating:active .md-icon {
+  transform:  scale(0.7) !important;
+  transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 /* --- 4F. FILTER & TAG PILLS --- */
@@ -2023,20 +2052,29 @@ html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary) {
   transition:       all var(--transition-speed) ease-in-out !important;
 }
 
-/* 2. Hover State: Pops the button background to solid Gold */
-html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):hover {
+/* 2. Hover State: Pops the button background to solid Gold (Excludes Favorite Heart) */
+html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):not([data-isfavorite]):hover {
   background-color: var(--my-gold) !important;
   background:       var(--my-gold) !important;
   transform:        scale(1.15) !important;
-  box-shadow:       var(--shadow-glow-standard) !important;
-  border-radius:    var(--media-card-radius) !important;
+  box-shadow:       none !important;
+  border-radius:    50% !important;
 }
 
-/* 3. Hover Icon Contrast: Forces the icon inside to turn dark navy so it's readable */
-html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):hover,
-html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):hover * {
-  color:                   var(--retro-navy) !important;
-  -webkit-text-fill-color: var(--retro-navy) !important;
+/* 2b. Hover State for Favorite Heart: Keeps dark background to let the red pop */
+html[class*="theme-"] body .cardOverlayButton-fab[data-isfavorite]:hover {
+  background-color: var(--black-alpha-60) !important;
+  background:       var(--black-alpha-60) !important;
+  transform:        scale(1.15) !important;
+  box-shadow:       none !important;
+  border-radius:    50% !important;
+}
+
+/* 3. Hover Icon Contrast: Forces checkmarks and dots to pure black */
+html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):not([data-isfavorite]):hover,
+html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):not([data-isfavorite]):hover * {
+  color:                   var(--pure-black) !important;
+  -webkit-text-fill-color: var(--pure-black) !important;
   filter:                  none !important;
 }
 
@@ -3156,25 +3194,27 @@ html[class*="theme-"] body .itemSecondaryNameContainer a[is="emby-linkbutton"]:h
     min-height:    48px !important; 
   }
 
-  /* 5f. Hover State: Secondary Square Tiles */
-  html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]):hover,
-  html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]).show-focus {
+  /* 5f. Hover State: Secondary Square Tiles (Excludes Favorite) */
+  html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]):not([data-isfavorite]):hover,
+  html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]):not([data-isfavorite]).show-focus {
     border-color: var(--my-gold) !important;
-    box-shadow:   var(--shadow-glow-standard) !important;
+    box-shadow:   none !important;
     transform:    scale(1.05) !important;
     background:   var(--theme-primary-color) !important;
   }
 
-  html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]):hover *,
-  html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]).show-focus * {
+  html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]):not([data-isfavorite]):hover *,
+  html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]):not([data-isfavorite]).show-focus * {
     color:                   var(--pure-black) !important;
     -webkit-text-fill-color: var(--pure-black) !important;
   }
 
-  /* 5g. Active (Click) State: Secondary Square Tiles */
-  html[class*="theme-"] body .detailButtons .emby-button:not(.btnPlay):not([data-action="resume"]):not([data-action="trailer"]):active {
-    transform:  scale(0.95) !important;
-    box-shadow: 0 2px 5px var(--black-alpha-80) !important;
+  /* 5g. Hover State for Details Favorite Button (Keep dark to let red pop) */
+  html[class*="theme-"] body .detailButtons .emby-button[data-isfavorite]:hover {
+    border-color: var(--favorite-heart-hover) !important;
+    background:   var(--navy-light-alpha-60) !important;
+    box-shadow:   none !important;
+    transform:    scale(1.05) !important;
   }
 }
 
