@@ -59,19 +59,19 @@ html,
   --sidebar-bg: var(--navy-base-alpha-75);                         /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
 
   /* HEADER OPTIONS */
-  --header-blur: var(--blur-heavy);                                /* Set to 'none' for a completely clear header, or var(--blur-heavy) / var(--blur-light) to enable frost */
-  --header-bg: var(--navy-base-alpha-75);                          /* Set to 'transparent' for a completely clear header, or use a translucent color to enable frost */
+  --header-blur: var(--blur-heavy);                                /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) to enable frost */
+  --header-bg: var(--navy-base-alpha-75);                          /* Set to 'transparent' for a completely clear header, or use a translucent color */
   --header-border: var(--standard-border-thickness) solid var(--gold-alpha-15);  /* Set to 'none' to disable, or var(--standard-border-thickness) solid var(--gold-alpha-15) to enable */
   --header-content-padding: 20px;                                  /* Media details header padding, push the content down from the header */
   --header-logo-display: block;                                    /* Set to 'block' to show the top left Emby logo, or 'none' to hide it */
-  --header-icon-color: var(--my-gold);
-  --header-icon-hover-color: var(--my-gold-light);
+  --header-icon-color: var(--my-gold);                             /* Icon color for items in the header */
+  --header-icon-hover-color: var(--my-gold-light);                 /* Header icon color in a hover state */
 
   /* OSD OPTIONS */
-  --osd-mini-blur: var(--blur-heavy);                              /* Frost blur intensity for the bottom mini music player */
+  --osd-mini-blur: var(--blur-heavy);                              /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) to enable frost (Affects Mini-Music OSD Only) */
   --osd-mini-bg: var(--navy-base-alpha-75);                        /* Background transparency for the bottom mini music player */
-  --osd-icon-color: var(--pure-white);
-  --osd-icon-hover-color: var(--my-gold);
+  --osd-icon-color: var(--pure-white);                             /* Icon colors for the OSD display */
+  --osd-icon-hover-color: var(--my-gold-light);                    /* OSD Icon colors in a hover state */
 
    /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
   --guide-premiere: rgb(89, 35, 71);                             /* Cell background for TV Series Premieres */
