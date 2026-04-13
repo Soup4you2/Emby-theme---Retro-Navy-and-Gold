@@ -51,6 +51,36 @@ html,
   --h5-color: var(--pure-white);                                   /* Setting Titles, Deep Metadata & Plugins, Table grid header color */
   --h6-color: var(--white-alpha-80);                               /* Setting Description Text, Sidebar Category Text, Deep Metadata & Plugins */  
 
+  /* SIDEBAR OPTIONS */
+  --custom-sidebar-width: 250px;                                   /* Define the custom width (Triggered only when the full sidebar is open) */  
+  --sidebar-playlists: block;                                      /* Set to 'none' to hide Playlists from the sidebar, block to enable */
+  --sidebar-collections: none;                                     /* Set to 'none' to hide Collections from the sidebar, block to enable */
+  --sidebar-blur: var(--blur-heavy);                               /* Frost blur intensity: var(--blur-heavy), var(--blur-light), or none */
+  --sidebar-bg: var(--navy-base-alpha-75);                         /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
+
+  /* HEADER OPTIONS */
+  --header-blur: var(--blur-heavy);                                /* Set to 'none' for a completely clear header, or var(--blur-heavy) / var(--blur-light) to enable frost */
+  --header-bg: var(--navy-base-alpha-75);                          /* Set to 'transparent' for a completely clear header, or use a translucent color to enable frost */
+  --header-border: var(--standard-border-thickness) solid var(--gold-alpha-15);  /* Set to 'none' to disable, or var(--standard-border-thickness) solid var(--gold-alpha-15) to enable */
+  --header-content-padding: 20px;                                  /* Media details header padding, push the content down from the header */
+  --header-logo-display: block;                                     /* Set to 'block' to show the top left Emby logo, or 'none' to hide it */
+  --header-icon-color: var(--my-gold);
+  --header-icon-hover-color: var(--my-gold-light);
+
+  /* OSD OPTIONS */
+  --osd-mini-blur: var(--blur-heavy);                              /* Frost blur intensity for the bottom mini music player */
+  --osd-mini-bg: var(--navy-base-alpha-75);                        /* Background transparency for the bottom mini music player */
+  --osd-icon-color: var(--pure-white);
+  --osd-icon-hover-color: var(--my-gold);
+
+   /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
+  --guide-premiere: rgb(89, 35, 71);                               /* Cell background for TV Series Premieres */
+  --guide-new: rgb(31, 75, 94);                                    /* Cell background for brand new episodes */
+  --guide-live: rgb(76, 99, 87);                                   /* Cell background for currently airing live events (Sports/News) */
+  --guide-repeat: rgb(31, 75, 94);                                 /* Cell background for older reruns */
+  --guide-movie: rgb(69, 59, 109);                                 /* Cell background for Movies airing on Live TV */
+  --guide-generic: rgb(39, 50, 67);                                /* Default cell background for generic programs */
+
   /* --- CUSTOM MASTER PALETTE --- */
 
   /* OPTION 1 - USE THE THEMES GOLD COLOR */
@@ -156,14 +186,6 @@ html,
   --button-text-weight: 700;                                       /* Set to 700 for uppercase, or 600 for title-case */
   --button-letter-spacing: 1px;                                    /* Set to 1px for uppercase, or 0.5px for title-case */
 
-   /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
-  --guide-premiere: rgb(89, 35, 71);                               /* Cell background for TV Series Premieres */
-  --guide-new: rgb(31, 75, 94);                                    /* Cell background for brand new episodes */
-  --guide-live: rgb(76, 99, 87);                                   /* Cell background for currently airing live events (Sports/News) */
-  --guide-repeat: rgb(31, 75, 94);                                 /* Cell background for older reruns */
-  --guide-movie: rgb(69, 59, 109);                                 /* Cell background for Movies airing on Live TV */
-  --guide-generic: rgb(39, 50, 67);                                /* Default cell background for generic programs */
-
   /* --- DANGER / CANCEL BUTTONS --- */
   --danger-red-rgb: 204, 0, 0;                                     /* Base RGB for destructive actions */
   --danger-red: rgba(var(--danger-red-rgb), 1);                    /* Solid red for delete/cancel buttons */
@@ -212,28 +234,7 @@ html,
   --filter-glow-medium: drop-shadow(0 0 8px var(--retro-glow));    /* Stronger glow for hovered SVG icons */
   --filter-glow-gold-solid: drop-shadow(0 0 5px var(--my-gold));   /* Solid hard glow for icons */
 
-  /* SIDEBAR OPTIONS */
-  --custom-sidebar-width: 250px;                                   /* Define the custom width (Triggered only when the full sidebar is open) */  
-  --sidebar-playlists: block;                                      /* Set to 'none' to hide Playlists from the sidebar, block to enable */
-  --sidebar-collections: none;                                     /* Set to 'none' to hide Collections from the sidebar, block to enable */
-
-  /* EFFECTS & COLORS (SIDEBAR, HEADER, DIALOG POPUPS, MINI-OSD */
-  --sidebar-blur: var(--blur-heavy);                               /* Frost blur intensity: var(--blur-heavy), var(--blur-light), or none */
-  --sidebar-bg: var(--navy-base-alpha-75);                         /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
-  --header-blur: var(--blur-heavy);                                /* Set to 'none' for a completely clear header, or var(--blur-heavy) / var(--blur-light) to enable frost */
-  --header-bg: var(--navy-base-alpha-75);                          /* Set to 'transparent' for a completely clear header, or use a translucent color to enable frost */
-  --header-border: var(--standard-border-thickness) solid var(--gold-alpha-15);  /* Set to 'none' to disable, or var(--standard-border-thickness) solid var(--gold-alpha-15) to enable */
-  --header-content-padding: 20px;                                  /* Media details header padding, push the content down from the header */
-  --header-logo-display: block;                                     /* Set to 'block' to show the top left Emby logo, or 'none' to hide it */
-  --header-icon-color: var(--my-gold);
-  --header-icon-hover-color: var(--my-gold-light);
-
-  --osd-mini-blur: var(--blur-heavy);                              /* Frost blur intensity for the bottom mini music player */
-  --osd-mini-bg: var(--navy-base-alpha-75);                        /* Background transparency for the bottom mini music player */
-  --osd-icon-color: var(--pure-white);
-  --osd-icon-hover-color: var(--my-gold);
-
-   /* STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) */
+  /* STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) */
   --media-card-radius: 15px;                                       /* Adjust the corner rounding of standard posters */
 
   /* MEDIA CARD POPOUT EFFECTS --- */
