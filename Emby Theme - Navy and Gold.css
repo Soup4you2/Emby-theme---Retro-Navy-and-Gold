@@ -4174,7 +4174,7 @@ html[class*="theme-"] body .nowPlayingPage a:hover .md-icon:not(.ratingbutton-ic
   -webkit-text-fill-color: var(--osd-icon-hover-color) !important;
   fill:                    var(--osd-icon-hover-color) !important;
   transform:               scale(1.15) !important;
-  text-shadow:             0 0 15px var(--osd-icon-hover-color) !important;
+  text-shadow:             none !important;
   filter:                  none !important;
 }
 
@@ -4182,7 +4182,7 @@ html[class*="theme-"] body .nowPlayingPage a:hover .md-icon:not(.ratingbutton-ic
 html[class*="theme-"] body .videoOsdBottom button:hover svg:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
 html[class*="theme-"] body .videoOsdHeader button:hover svg:not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .nowPlayingBar button:hover svg:not(.ratingbutton-icon-withrating) {
-   filter: drop-shadow(0 0 12px var(--osd-icon-hover-color)) !important;
+   filter: none !important;
 }
 
 /* Active state for toggles like CC, Repeat, Play Queue, or PIP (Pops to White) */
@@ -4232,7 +4232,8 @@ html[class*="theme-"] body .videoOsdHeader button.headerCastButton.paper-icon-bu
 html[class*="theme-"] body .videoOsdHeader button.headerCastButton.paper-icon-button-light:hover * {
   fill:                    var(--osd-icon-hover-color, var(--osd-icon-color)) !important;
   transform:               scale(1.15) !important;
-  filter:                  drop-shadow(0 0 5px var(--osd-icon-hover-color, var(--osd-icon-color))) !important;
+  filter:                  none !important;
+  text-shadow:             none !important;
 }
 
 /* --- OSD ACTION BUTTON ICON SHIELD --- */
