@@ -4759,18 +4759,34 @@ html[class*="theme-"] body .dataGridItem:hover .dataGridItemCell .listItemBodyTe
   -webkit-text-fill-color: var(--pure-white) !important;
 }
 
-/* 5. Right-side action buttons (Play, 3 Dots) - EXCLUDES STATUS INDICATORS */
-html[class*="theme-"] .dataGridItemCell .paper-icon-button-light:not([data-played]):not([data-isfavorite]) {
-  color:                   var(--white-alpha-60) !important;
+/* --- 10D. INTEGRATED TABLE ACTIONS --- */
+
+/* 5. Standard Grid Icons (3-Dots, etc. - Muted White) */
+html[class*="theme-"] body .dataGridItemCell .paper-icon-button-light:not([data-action="play"]):not([data-action="resume"]):not([data-isfavorite]):not([data-played]) .md-icon {
+  color: var(--white-alpha-60) !important;
   -webkit-text-fill-color: var(--white-alpha-60) !important;
-  transition:              transform var(--transition-speed) ease, color var(--transition-speed) ease, filter var(--transition-speed) ease !important;
+  transition: all var(--transition-speed) ease !important;
 }
 
-html[class*="theme-"] .dataGridItemCell .paper-icon-button-light:not([data-played]):not([data-isfavorite]):hover {
-  color:                   var(--theme-primary-color) !important;
-  -webkit-text-fill-color: var(--theme-primary-color) !important;
-  transform:               scale(1.2) !important;
-  filter:                  var(--filter-glow-light) !important;
+/* 5b. Play & Resume Buttons (Resting State: Gold) */
+html[class*="theme-"] body .dataGridItemCell .paper-icon-button-light[data-action="play"] .md-icon,
+html[class*="theme-"] body .dataGridItemCell .paper-icon-button-light[data-action="resume"] .md-icon,
+html[class*="theme-"] body .trackList .listItem .paper-icon-button-light[data-action="play"] .md-icon,
+html[class*="theme-"] body .trackList .listItem .paper-icon-button-light[data-action="resume"] .md-icon {
+  color: var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.5)) !important;
+  transition: all var(--transition-speed) ease !important;
+}
+
+/* 5c. Universal Table Icon Hover (Pops to Light Gold + Scale) */
+html[class*="theme-"] body .dataGridItemCell .paper-icon-button-light:hover .md-icon,
+html[class*="theme-"] body .trackList .listItem .paper-icon-button-light:hover .md-icon {
+  color: var(--my-gold-light) !important;
+  -webkit-text-fill-color: var(--my-gold-light) !important;
+  transform: scale(1.25) !important;
+  filter: drop-shadow(0 0 8px var(--my-gold)) !important;
 }
 
 /* 6. DATA GRID & LIST RATING BADGE HOVER FIX --- */
