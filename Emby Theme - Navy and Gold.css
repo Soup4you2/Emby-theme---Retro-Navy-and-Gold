@@ -45,8 +45,8 @@ html,
 
   /* --- HEADING COLORS --- */
   --h1-color: var(--my-gold);                                      /* Video & Music Titles in OSD, Dashboard Root, Startup and Login Screens */
-  --h2-color: var(--my-gold);                                    /* Page Titles, Section Divider Headers, Media Detail Title, Dialog window titles */
-  --h3-color: var(--my-gold);                                   /* Sub-Headers, Micro-Headers, Media Captions, Container Title Text, Table grid header color */
+  --h2-color: var(--my-gold);                                      /* Page Titles, Section Divider Headers, Media Detail Title, Dialog window titles */
+  --h3-color: var(--my-gold);                                      /* Sub-Headers, Micro-Headers, Media Captions, Container Title Text, Table grid header color */
   --h4-color: var(--pure-white);                                   /* Media about links, and about card text */
   --h5-color: var(--pure-white);                                   /* Setting Titles, Deep Metadata & Plugins, Table grid header color */
   --h6-color: var(--white-alpha-80);                               /* Setting Description Text, Sidebar Category Text, Deep Metadata & Plugins */  
@@ -63,7 +63,7 @@ html,
   --header-bg: var(--navy-base-alpha-75);                          /* Set to 'transparent' for a completely clear header, or use a translucent color to enable frost */
   --header-border: var(--standard-border-thickness) solid var(--gold-alpha-15);  /* Set to 'none' to disable, or var(--standard-border-thickness) solid var(--gold-alpha-15) to enable */
   --header-content-padding: 20px;                                  /* Media details header padding, push the content down from the header */
-  --header-logo-display: block;                                     /* Set to 'block' to show the top left Emby logo, or 'none' to hide it */
+  --header-logo-display: block;                                    /* Set to 'block' to show the top left Emby logo, or 'none' to hide it */
   --header-icon-color: var(--my-gold);
   --header-icon-hover-color: var(--my-gold-light);
 
@@ -74,12 +74,12 @@ html,
   --osd-icon-hover-color: var(--my-gold);
 
    /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
-  --guide-premiere: rgb(89, 35, 71);                               /* Cell background for TV Series Premieres */
-  --guide-new: rgb(31, 75, 94);                                    /* Cell background for brand new episodes */
-  --guide-live: rgb(76, 99, 87);                                   /* Cell background for currently airing live events (Sports/News) */
-  --guide-repeat: rgb(31, 75, 94);                                 /* Cell background for older reruns */
-  --guide-movie: rgb(69, 59, 109);                                 /* Cell background for Movies airing on Live TV */
-  --guide-generic: rgb(39, 50, 67);                                /* Default cell background for generic programs */
+  --guide-premiere: rgb(89, 35, 71);                             /* Cell background for TV Series Premieres */
+  --guide-new: rgb(31, 75, 94);                                  /* Cell background for brand new episodes */
+  --guide-live: rgb(76, 99, 87);                                 /* Cell background for currently airing live events (Sports/News) */
+  --guide-repeat: rgb(31, 75, 94);                               /* Cell background for older reruns */
+  --guide-movie: rgb(69, 59, 109);                               /* Cell background for Movies airing on Live TV */
+  --guide-generic: rgb(39, 50, 67);                              /* Default cell background for generic programs */
 
   /* --- CUSTOM MASTER PALETTE --- */
 
@@ -189,7 +189,7 @@ html,
   /* --- DANGER / CANCEL BUTTONS --- */
   --danger-red-rgb: 204, 0, 0;                                     /* Base RGB for destructive actions */
   --danger-red: rgba(var(--danger-red-rgb), 1);                    /* Solid red for delete/cancel buttons */
-  --danger-red-light: rgb(255, 51, 51);                            /* Brighter red for hovering over delete/cancel buttons */
+  --danger-red-light: rgb(255, 51, 51);                          /* Brighter red for hovering over delete/cancel buttons */
   --danger-red-glow: 0 0 20px rgba(var(--danger-red-rgb), 0.6), 0 0 10px rgba(255, 51, 51, 0.4); /* Glow effect on hover */
 
   /* CAST & CREW NAME TEXT */
@@ -215,9 +215,9 @@ html,
   --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8);
 
   /* ERROR & MAINTENANCE BANNERS */
-  --error-bg: rgba(179, 0, 0, 1);                                  /* The solid deep crimson background */
-  --error-text: rgba(255, 255, 255, 1);                            /* The text color */
-  --error-border: rgba(255, 77, 77, 1);                            /* The bright light-red border */
+  --error-bg: rgba(179, 0, 0, 1);                                /* The solid deep crimson background */
+  --error-text: rgba(255, 255, 255, 1);                          /* The text color */
+  --error-border: rgba(255, 77, 77, 1);                          /* The bright light-red border */
 
   /* --- GLOW & SHADOW PRESETS --- */
   --retro-glow: var(--gold-alpha-40);                              /* The base neon glow variable applied to the theme */
@@ -238,8 +238,8 @@ html,
   --media-card-radius: 15px;                                       /* Adjust the corner rounding of standard posters */
 
   /* MEDIA CARD POPOUT EFFECTS --- */
-  --popout-perspective: 1000px;                                      /* Effects can be made when hovering over media cards to disable use "none" or to enable use "1000px" */
-  --popout-transform: scale(1.05) rotateX(4deg) translateY(-5px);   /* Effects can be made when hovering over media cards to disable use "none" or to enable use "scale(1.05) rotateX(4deg) translateY(-5px)" */
+  --popout-perspective: 1000px;                                    /* Effects can be made when hovering over media cards to disable use "none" or to enable use "1000px" */
+  --popout-transform: scale(1.05) rotateX(4deg) translateY(-5px);  /* Effects can be made when hovering over media cards to disable use "none" or to enable use "scale(1.05) rotateX(4deg) translateY(-5px)" */
   --popout-shadow: 0px 20px 30px var(--black-alpha-90), var(--shadow-glow-standard);  /* Effects can be made when hovering over media cards to disable use "none" or to enable use "0px 20px 30px var(--black-alpha-90), var(--shadow-glow-standard)" */
 
   /* CAST & CREW PORTRAIT SHAPES (DEFAULT: OVAL) */
