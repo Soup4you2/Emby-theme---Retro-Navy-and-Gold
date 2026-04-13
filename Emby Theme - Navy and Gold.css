@@ -45,10 +45,10 @@ html,
 
   /* --- HEADING COLORS --- */
   --h1-color: var(--my-gold);                                      /* Video & Music Titles in OSD, Dashboard Root, Startup and Login Screens */
-  --h2-color: var(--my-gold);                                      /* Page Titles, Section Divider Headers, Media Detail Title, Dialog window titles */
-  --h3-color: var(--my-gold);                                      /* Sub-Headers, Micro-Headers, Media Captions, Container Title Text, Table grid header color */
+  --h2-color: var(--my-gold);                                    /* Page Titles, Section Divider Headers, Media Detail Title, Dialog window titles */
+  --h3-color: var(--my-gold);                                   /* Sub-Headers, Micro-Headers, Media Captions, Container Title Text, Table grid header color */
   --h4-color: var(--pure-white);                                   /* Media about links, and about card text */
-  --h5-color: var(--pure-white);                                   /* Setting Titles, Deep Metadata & Plugins */
+  --h5-color: var(--pure-white);                                   /* Setting Titles, Deep Metadata & Plugins, Table grid header color */
   --h6-color: var(--white-alpha-80);                               /* Setting Description Text, Sidebar Category Text, Deep Metadata & Plugins */  
 
   /* --- CUSTOM MASTER PALETTE --- */
@@ -217,7 +217,7 @@ html,
   --sidebar-playlists: block;                                      /* Set to 'none' to hide Playlists from the sidebar, block to enable */
   --sidebar-collections: none;                                     /* Set to 'none' to hide Collections from the sidebar, block to enable */
 
-  /* EFFECTS (SIDEBAR, HEADER, DIALOG POPUPS, MINI-OSD */
+  /* EFFECTS & COLORS (SIDEBAR, HEADER, DIALOG POPUPS, MINI-OSD */
   --sidebar-blur: var(--blur-heavy);                               /* Frost blur intensity: var(--blur-heavy), var(--blur-light), or none */
   --sidebar-bg: var(--navy-base-alpha-75);                         /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
   --header-blur: var(--blur-heavy);                                /* Set to 'none' for a completely clear header, or var(--blur-heavy) / var(--blur-light) to enable frost */
@@ -225,8 +225,13 @@ html,
   --header-border: var(--standard-border-thickness) solid var(--gold-alpha-15);  /* Set to 'none' to disable, or var(--standard-border-thickness) solid var(--gold-alpha-15) to enable */
   --header-content-padding: 20px;                                  /* Media details header padding, push the content down from the header */
   --header-logo-display: block;                                     /* Set to 'block' to show the top left Emby logo, or 'none' to hide it */
+  --header-icon-color: var(--my-gold);
+  --header-icon-hover-color: var(--my-gold-light);
+
   --osd-mini-blur: var(--blur-heavy);                              /* Frost blur intensity for the bottom mini music player */
   --osd-mini-bg: var(--navy-base-alpha-75);                        /* Background transparency for the bottom mini music player */
+  --osd-icon-color: var(--pure-white);
+  --osd-icon-hover-color: var(--my-gold);
 
    /* STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) */
   --media-card-radius: 15px;                                       /* Adjust the corner rounding of standard posters */
@@ -568,7 +573,7 @@ body,
 html[class*="theme-"] .pageTitle,
 html[class*="theme-"] .sectionTitle {
   font-family: var(--font-header) !important;
-  color: var(--h2-color) !important; /* Mapped to H2 variable */
+  color: var(--h2-color) !important; 
   text-transform: uppercase !important;
   letter-spacing: 1.5px !important;
   text-shadow: 2px 2px 4px var(--black-alpha-50) !important;
@@ -719,7 +724,6 @@ html[class*="theme-"] body .audioVideoMediaInfo .secondaryText * {
 }
 
 /* 4. STRUCTURAL HEADERS & LEGENDS */
-/* Mapped to H2 Variable */
 html[class*="theme-"] .pageTitle,
 html[class*="theme-"] .pageTitle .button-link,
 html[class*="theme-"] .sectionTitle,
@@ -741,7 +745,6 @@ html[class*="theme-"] .settingsContainer h3 {
 }
 
 /* 5. INTERACTIVE LABELS & ACCENTS */
-/* Form inputs and dropdown labels (Mapped to H5 variable) */
 html[class*="theme-"] .selectLabel,
 html[class*="theme-"] .selectLabelText,
 html[class*="theme-"] .inputLabel,
@@ -957,43 +960,66 @@ html[class*="theme-"] body .skinHeader.skinHeader-withfulldrawer .headerLeft img
 }
 
 /* 3. Header Icons: Targets ONLY specific header buttons to avoid styling multi-select panels */
-html[class*="theme-"] body .skinHeader .headerBackButton,
-html[class*="theme-"] body .skinHeader .headerBackButton .md-icon,
-html[class*="theme-"] body .skinHeader .headerMenuButton,
-html[class*="theme-"] body .skinHeader .headerMenuButton .md-icon,
-html[class*="theme-"] body .skinHeader .headerCastButton,
-html[class*="theme-"] body .skinHeader .headerCastButton .md-icon,
-html[class*="theme-"] body .skinHeader .headerSearchButton,
-html[class*="theme-"] body .skinHeader .headerSearchButton .md-icon,
-html[class*="theme-"] body .skinHeader .headerUserButton,
-html[class*="theme-"] body .skinHeader .headerUserButton .md-icon,
-html[class*="theme-"] body .skinHeader .headerSettingsButton,
-html[class*="theme-"] body .skinHeader .headerSettingsButton .md-icon {
-  color:                   var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerBackButton,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerBackButton .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerMenuButton,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerMenuButton .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerCastButton,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerCastButton .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSearchButton,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSearchButton .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerUserButton,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerUserButton .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSettingsButton,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSettingsButton .md-icon {
+  color:                   var(--header-icon-color) !important;
+  -webkit-text-fill-color: var(--header-icon-color) !important;
   opacity:                 1 !important;
   transition:              all var(--transition-speed) ease !important;
 }
 
 /* Hover Glow applied specifically to the intended buttons */
-html[class*="theme-"] body .skinHeader .headerBackButton:hover,
-html[class*="theme-"] body .skinHeader .headerMenuButton:hover,
-html[class*="theme-"] body .skinHeader .headerCastButton:hover,
-html[class*="theme-"] body .skinHeader .headerSearchButton:hover,
-html[class*="theme-"] body .skinHeader .headerUserButton:hover,
-html[class*="theme-"] body .skinHeader .headerSettingsButton:hover {
-  filter:    drop-shadow(0 0 5px var(--my-gold)) !important;
-  transform: scale(1.1) !important;
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerBackButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerMenuButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerCastButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSearchButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerUserButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSettingsButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.paper-icon-button-light:hover .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.paper-icon-button-light:hover * {
+  color:                   var(--header-icon-hover-color) !important;
+  -webkit-text-fill-color: var(--header-icon-hover-color) !important;
+  fill:                    var(--header-icon-hover-color) !important;
+  filter:                  drop-shadow(0 0 8px var(--header-icon-hover-color)) !important;
+  transform:               scale(1.15) !important;
 }
 
-/* 3b. Header Icon Fixes: Forces specific buttons and filter icons to stay gold */
-html[class*="theme-"] body .skinHeader button.headerBackButton.paper-icon-button-light .md-icon,
-html[class*="theme-"] body .skinHeader button.headerBackButton.paper-icon-button-light *,
-html[class*="theme-"] body .skinHeader button.headerHomeButton.paper-icon-button-light,
-html[class*="theme-"] body .skinHeader button.headerHomeButton.paper-icon-button-light .md-icon,
-html[class*="theme-"] body .skinHeader button.headerHomeButton.paper-icon-button-light *,
-html[class*="theme-"] body .skinHeader button.headerUserButton.paper-icon-button-light .md-icon,
-html[class*="theme-"] body .skinHeader button.headerUserButton.paper-icon-button-light *,
+/* 3b. Header Icon Fixes: Forces specific buttons and their internal icons to use the header variable */
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerBackButton.paper-icon-button-light,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerBackButton.paper-icon-button-light .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerBackButton.paper-icon-button-light *,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerHomeButton.paper-icon-button-light,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerHomeButton.paper-icon-button-light .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerHomeButton.paper-icon-button-light *,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerUserButton.paper-icon-button-light,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerUserButton.paper-icon-button-light .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerUserButton.paper-icon-button-light *,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerCastButton.paper-icon-button-light,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerCastButton.paper-icon-button-light .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerCastButton.paper-icon-button-light *,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSearchButton.paper-icon-button-light,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSearchButton.paper-icon-button-light .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSearchButton.paper-icon-button-light *,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSettingsButton.paper-icon-button-light,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSettingsButton.paper-icon-button-light .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSettingsButton.paper-icon-button-light * {
+  color:                   var(--header-icon-color) !important;
+  -webkit-text-fill-color: var(--header-icon-color) !important;
+  fill:                    var(--header-icon-color) !important;
+  opacity:                 1 !important;
+}
+
+/* 3c. Filter Icon Fixes: Retains gold for non-header filter elements */
 html[class*="theme-"] body .filtersScroller .btnGuideViewSettings .md-icon,
 html[class*="theme-"] body .filtersScroller .btnGuideViewSettings .button-icon {
   color:                   var(--my-gold) !important;
@@ -1001,12 +1027,14 @@ html[class*="theme-"] body .filtersScroller .btnGuideViewSettings .button-icon {
   opacity:                 1 !important;
 }
 
-/* 3c. Filter Icon Resting State: Forces the filter icon to be white until clicked */
-html[class*="theme-"] body .itemsViewSettingsContainer .btnFilter:not(.buttonActive):not(.filter-active) .md-icon,
-html[class*="theme-"] body .itemsViewSettingsContainer .btnFilter:not(.buttonActive):not(.filter-active) .button-icon {
-  color:                   var(--pure-white) !important;
-  -webkit-text-fill-color: var(--pure-white) !important;
-  opacity:                 1 !important;
+html[class*="theme-"] body .skinHeader .headerCastButton:hover {
+  filter:    drop-shadow(0 0 5px var(--osd-icon-color)) !important;
+  transform: scale(1.1) !important;
+}
+
+html[class*="theme-"] body .skinHeader .headerRemoteControl:hover {
+  filter:    drop-shadow(0 0 5px var(--osd-icon-color)) !important;
+  transform: scale(1.1) !important;
 }
 
 /* 4. PREMIERE BUTTON REMOVAL */
@@ -1078,31 +1106,31 @@ html[class*="theme-appletv"] .splashLogo {
   filter: invert(1) hue-rotate(180deg) brightness(1.2) !important;
 }
 
-/* 6. Sidebar Close Button: Stays Gold and pushes to the right edge */
+/* 6. Sidebar Close Button: Pushes to the right edge and uses custom variable */
 html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer {
   margin-left: auto !important;
 }
 
 html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer,
 html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer i.md-icon {
-  color: var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
-  fill: var(--my-gold) !important;
-  opacity: 0.8 !important; 
-  visibility: visible !important;
-  display: inline-block !important;
-  transition: all var(--transition-speed) ease !important;
+  color:                   var(--header-icon-color) !important;
+  -webkit-text-fill-color: var(--header-icon-color) !important;
+  fill:                    var(--header-icon-color) !important;
+  opacity:                 0.8 !important; 
+  visibility:              visible !important;
+  display:                 inline-block !important;
+  transition:              all var(--transition-speed) ease !important;
 }
 
 /* Hover glow for the Sidebar Close Button */
 html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer:hover,
 html[class*="theme-"] body .mainDrawer .navDrawerHeader button.btnPinNavDrawer:hover i.md-icon {
-  color: var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
-  fill: var(--my-gold) !important;
-  filter: drop-shadow(0 0 5px var(--my-gold)) !important;
-  transform: scale(1.1) !important;
-  opacity: 1 !important; 
+  color:                   var(--header-icon-hover-color) !important;
+  -webkit-text-fill-color: var(--header-icon-hover-color) !important;
+  fill:                    var(--header-icon-hover-color) !important;
+  filter:                  drop-shadow(0 0 8px var(--header-icon-hover-color)) !important;
+  transform:               scale(1.15) !important;
+  opacity:                 1 !important; 
 }
 
 /* 7. Frosted Sidebar Background (Linked to Section 1 Toggles) */
@@ -1364,24 +1392,24 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMe
   filter: drop-shadow(0 0 5px var(--my-gold)) !important;
 }
 
-/* 6. Protects the Hamburger Menu (Toggle Button) so it stays Gold in ALL states */
+/* 6. Protects the Hamburger Menu (Toggle Button) so it uses the custom variable in ALL states */
 html[class*="theme-"] body .mainDrawer .navDrawerHeader .btnToggleNavDrawer,
 html[class*="theme-"] body .mainDrawer .navDrawerHeader .btnToggleNavDrawer i.md-icon {
-  color: var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
-  fill: var(--my-gold) !important;
-  opacity: 1 !important;
-  transition: all var(--transition-speed) ease !important;
+  color:                   var(--header-icon-color) !important;
+  -webkit-text-fill-color: var(--header-icon-color) !important;
+  fill:                    var(--header-icon-color) !important;
+  opacity:                 1 !important;
+  transition:              all var(--transition-speed) ease !important;
 }
 
 /* Hover glow for the Hamburger Menu in all states */
 html[class*="theme-"] body .mainDrawer .navDrawerHeader .btnToggleNavDrawer:hover,
 html[class*="theme-"] body .mainDrawer .navDrawerHeader .btnToggleNavDrawer:hover i.md-icon {
-  color: var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
-  fill: var(--my-gold) !important;
-  filter: drop-shadow(0 0 5px var(--my-gold)) !important;
-  transform: scale(1.1) !important;
+  color:                   var(--header-icon-hover-color) !important;
+  -webkit-text-fill-color: var(--header-icon-hover-color) !important;
+  fill:                    var(--header-icon-hover-color) !important;
+  filter:                  drop-shadow(0 0 8px var(--header-icon-hover-color)) !important;
+  transform:               scale(1.15) !important;
 }
 
 /* --- 3F. DOCKED SIDEBAR WIDTH --- */
@@ -3896,7 +3924,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .osdTitle {
-  color:       var(--h1-color) !important; /* Mapped to H1 variable */
+  color:       var(--h3-color) !important;
   font-size:   1.6em !important;
   text-shadow: 2px 2px 4px var(--black-alpha-80) !important;
 }
@@ -3929,51 +3957,76 @@ html[class*="theme-"] body .nowPlayingPage .toggleButton-active .md-icon {
   filter:                  var(--filter-glow-gold-solid) !important;
 }
 
-/* --- OSD ICON RESTING STATE --- */
+/* --- OSD BOTTOM & NOW PLAYING ICON RESTING STATE --- */
 html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
-html[class*="theme-"] body .videoOsdHeader .md-icon:not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .nowPlayingBar .md-icon:not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .nowPlayingPage .md-icon:not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .videoOsdBottom .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
-html[class*="theme-"] body .videoOsdHeader .headerButton:not(.ratingbutton-icon-withrating) .md-icon,
-html[class*="theme-"] body .videoOsdHeader .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
 html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
 html[class*="theme-"] body .nowPlayingPage .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon {
-  color:                   var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
+  color:                   var(--osd-icon-color) !important;
+  -webkit-text-fill-color: var(--osd-icon-color) !important;
   opacity:                 0.9 !important; 
   transition:              all var(--transition-speed) ease !important;
 }
 
-/* --- OSD ICON HOVER STATE --- */
+/* --- OSD ICON RESTING STATE (All OSDs & Now Playing) --- */
+html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
+html[class*="theme-"] body .nowPlayingBar .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .nowPlayingPage .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdBottom .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .nowPlayingPage .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .videoOsdHeader .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdHeader .headerButton:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .videoOsdHeader .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon {
+  color:                   var(--osd-icon-color) !important;
+  -webkit-text-fill-color: var(--osd-icon-color) !important;
+  fill:                    var(--osd-icon-color) !important;
+  opacity:                 0.9 !important; 
+  transition:              all var(--transition-speed) ease !important;
+}
+
+/* --- OSD ICON HOVER STATE (All OSDs & Now Playing) --- */
 html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):hover,
 html[class*="theme-"] body .videoOsdBottom button:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
 html[class*="theme-"] body .videoOsdBottom a:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
-html[class*="theme-"] body .videoOsdHeader .md-icon:not(.ratingbutton-icon-withrating):hover,
-html[class*="theme-"] body .videoOsdHeader button:hover .md-icon:not(.ratingbutton-icon-withrating),
-html[class*="theme-"] body .videoOsdHeader a:hover .md-icon:not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .nowPlayingBar .md-icon:not(.ratingbutton-icon-withrating):hover,
 html[class*="theme-"] body .nowPlayingBar button:hover .md-icon:not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .nowPlayingBar a:hover .md-icon:not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .nowPlayingPage .md-icon:not(.ratingbutton-icon-withrating):hover,
 html[class*="theme-"] body .nowPlayingPage button:hover .md-icon:not(.ratingbutton-icon-withrating),
-html[class*="theme-"] body .nowPlayingPage a:hover .md-icon:not(.ratingbutton-icon-withrating) {
-  color:                   var(--my-gold-light) !important;
-  -webkit-text-fill-color: var(--my-gold-light) !important;
+html[class*="theme-"] body .nowPlayingPage a:hover .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdHeader .md-icon:not(.ratingbutton-icon-withrating):hover,
+html[class*="theme-"] body .videoOsdHeader button:hover .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdHeader a:hover .md-icon:not(.ratingbutton-icon-withrating) {
+  color:                   var(--osd-icon-hover-color) !important;
+  -webkit-text-fill-color: var(--osd-icon-hover-color) !important;
+  fill:                    var(--osd-icon-hover-color) !important;
   transform:               scale(1.15) !important;
-  filter:                  var(--filter-glow-medium) !important;
+  filter:                  drop-shadow(0 0 8px var(--osd-icon-hover-color)) !important;
 }
 
-/* Active state for toggles like CC, Repeat, or PIP (Pops to White) */
-html[class*="theme-"] body .videoOsdBottom .buttonActive,
-html[class*="theme-"] body .videoOsdBottom .buttonActive .md-icon,
-html[class*="theme-"] body .videoOsdHeader .buttonActive,
-html[class*="theme-"] body .videoOsdHeader .buttonActive .md-icon,
-html[class*="theme-"] body .nowPlayingBar .buttonActive,
-html[class*="theme-"] body .nowPlayingBar .buttonActive .md-icon {
-  color:                   var(--pure-white) !important;
-  -webkit-text-fill-color: var(--pure-white) !important;
-  filter:                  var(--filter-glow-gold-solid) !important;
+/* --- OSD HEADER: CAST/SHARE BUTTON OVERRIDE --- */
+html[class*="theme-"] body .videoOsdHeader .headerCastButton,
+html[class*="theme-"] body .videoOsdHeader .headerCastButton .md-icon,
+html[class*="theme-"] body .videoOsdHeader button.headerCastButton.paper-icon-button-light .md-icon,
+html[class*="theme-"] body .videoOsdHeader button.headerCastButton.paper-icon-button-light * {
+  color:                   var(--osd-icon-color) !important;
+  -webkit-text-fill-color: var(--osd-icon-color) !important;
+  fill:                    var(--osd-icon-color) !important;
+  opacity:                 1 !important;
+  transition:              all var(--transition-speed) ease !important;
+}
+
+html[class*="theme-"] body .videoOsdHeader .headerCastButton:hover,
+html[class*="theme-"] body .videoOsdHeader button.headerCastButton.paper-icon-button-light:hover .md-icon,
+html[class*="theme-"] body .videoOsdHeader button.headerCastButton.paper-icon-button-light:hover * {
+  color:                   var(--osd-icon-hover-color, var(--osd-icon-color)) !important;
+  -webkit-text-fill-color: var(--osd-icon-hover-color, var(--osd-icon-color)) !important;
+  fill:                    var(--osd-icon-hover-color, var(--osd-icon-color)) !important;
+  transform:               scale(1.15) !important;
+  filter:                  drop-shadow(0 0 5px var(--osd-icon-hover-color, var(--osd-icon-color))) !important;
 }
 
 /* --- OSD ACTION BUTTON ICON SHIELD --- */
@@ -4097,11 +4150,12 @@ html[class*="theme-"] .nowPlayingBar-hidden {
 }
 
 html[class*="theme-"] .nowPlayingBarText {
-  font-family:    var(--font-header) !important;
-  color:          var(--my-gold) !important;
-  font-size:      1.1em !important;
-  letter-spacing: 0.5px !important;
-  text-shadow:    1px 1px 3px var(--black-alpha-80) !important;
+  font-family:             var(--font-header) !important;
+  color:                   var(--h3-color) !important;
+  -webkit-text-fill-color: var(--h3-color) !important;
+  font-size:               1.1em !important;
+  letter-spacing:          0.5px !important;
+  text-shadow:             1px 1px 3px var(--black-alpha-80) !important;
 }
 
 html[class*="theme-"] .nowPlayingBarSecondaryText {
@@ -4386,8 +4440,8 @@ html[class*="theme-"] .dataGridHeader .dataGridHeaderText,
 html[class*="theme-"] .dataGridHeader .primaryText,
 html[class*="theme-"] .dataGridHeader .button-link,
 html[class*="theme-"] .dataGridHeader .button-link * {
-  color:                   var(--h3-color) !important;
-  -webkit-text-fill-color: var(--h3-color) !important;
+  color:                   var(--h5-color) !important;
+  -webkit-text-fill-color: var(--h5-color) !important;
 }
 
 /* 4. Header Fonts (Excludes cells/icons to prevent missing glyphs and flex stretching) */
