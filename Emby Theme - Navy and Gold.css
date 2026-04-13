@@ -33,54 +33,6 @@ html,
   --font-header: 'Oswald', sans-serif;                             /* Primary cinematic header font */
   --font-body: 'Sofia Sans', sans-serif;                           /* Standard readable body font */
   
-  /* --- GLOBAL BACKGROUND IMAGE --- */
-  /* OPTION 1  Use Theme Defaults */
-  --global-bg-image: radial-gradient(circle, var(--navy-mid-solid) 25%, var(--navy-base-solid) 85%);  /* Default Theme Colors */
-
-  /* OPTION 2: Use a background image at full brightness (Set to your prefered image)*/
-  /* --global-bg-image: url("https://static.vecteezy.com/system/resources/previews/024/396/102/large_2x/a-view-from-space-to-a-galaxy-and-stars-universe-filled-with-stars-nebula-and-galaxy-panoramic-shot-wide-format-elements-of-this-image-furnished-by-nasa-free-photo.jpg");  /* Full brightness image */
-
-  /* OPTION 3: Use a background image but dimmed down (Set to your prefered image) */
-  /* --global-bg-image: linear-gradient(rgba(0,8,20,0.7), rgba(0,8,20,0.7)), url("https://static.vecteezy.com/system/resources/previews/024/396/102/large_2x/a-view-from-space-to-a-galaxy-and-stars-universe-filled-with-stars-nebula-and-galaxy-panoramic-shot-wide-format-elements-of-this-image-furnished-by-nasa-free-photo.jpg");  /* Image with 70% Navy dimming */
-
-  /* --- HEADING COLORS --- */
-  --h1-color: var(--my-gold);                                      /* Video & Music Titles in OSD, Dashboard Root, Startup and Login Screens */
-  --h2-color: var(--my-gold);                                      /* Page Titles, Section Divider Headers, Media Detail Title, Dialog window titles */
-  --h3-color: var(--my-gold);                                      /* Sub-Headers, Micro-Headers, Media Captions, Container Title Text, Table grid header color */
-  --h4-color: var(--pure-white);                                   /* Media about links, and about card text */
-  --h5-color: var(--pure-white);                                   /* Setting Titles, Deep Metadata & Plugins, Table grid header color */
-  --h6-color: var(--white-alpha-80);                               /* Setting Description Text, Sidebar Category Text, Deep Metadata & Plugins */  
-
-  /* SIDEBAR OPTIONS */
-  --custom-sidebar-width: 250px;                                   /* Define the custom width (Triggered only when the full sidebar is open) */  
-  --sidebar-playlists: block;                                      /* Set to 'none' to hide Playlists from the sidebar, block to enable */
-  --sidebar-collections: none;                                     /* Set to 'none' to hide Collections from the sidebar, block to enable */
-  --sidebar-blur: var(--blur-heavy);                               /* Frost blur intensity: var(--blur-heavy), var(--blur-light), or none */
-  --sidebar-bg: var(--navy-base-alpha-75);                         /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
-
-  /* HEADER OPTIONS */
-  --header-blur: var(--blur-heavy);                                /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) to enable frost */
-  --header-bg: var(--navy-base-alpha-75);                          /* Set to 'transparent' for a completely clear header, or use a translucent color */
-  --header-border: var(--standard-border-thickness) solid var(--gold-alpha-15);  /* Set to 'none' to disable, or var(--standard-border-thickness) solid var(--gold-alpha-15) to enable */
-  --header-content-padding: 20px;                                  /* Media details header padding, push the content down from the header */
-  --header-logo-display: block;                                    /* Set to 'block' to show the top left Emby logo, or 'none' to hide it */
-  --header-icon-color: var(--my-gold);                             /* Icon color for items in the header */
-  --header-icon-hover-color: var(--my-gold-light);                 /* Header icon color in a hover state */
-
-  /* OSD OPTIONS */
-  --osd-mini-blur: var(--blur-heavy);                              /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) to enable frost (Affects Mini-Music OSD Only) */
-  --osd-mini-bg: var(--navy-base-alpha-75);                        /* Background transparency for the bottom mini music player */
-  --osd-icon-color: var(--pure-white);                             /* Icon colors for the OSD display */
-  --osd-icon-hover-color: var(--my-gold-light);                    /* OSD Icon colors in a hover state */
-
-   /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
-  --guide-premiere: rgb(89, 35, 71);                             /* Cell background for TV Series Premieres */
-  --guide-new: rgb(31, 75, 94);                                  /* Cell background for brand new episodes */
-  --guide-live: rgb(76, 99, 87);                                 /* Cell background for currently airing live events (Sports/News) */
-  --guide-repeat: rgb(31, 75, 94);                               /* Cell background for older reruns */
-  --guide-movie: rgb(69, 59, 109);                               /* Cell background for Movies airing on Live TV */
-  --guide-generic: rgb(39, 50, 67);                              /* Default cell background for generic programs */
-
   /* --- CUSTOM MASTER PALETTE --- */
 
   /* OPTION 1 - USE THE THEMES GOLD COLOR */
@@ -100,7 +52,99 @@ html,
   /* --star-color: rgba(255, 185, 0, 1);                           /* Direct RGBA for stability */
   /* --star-glow: drop-shadow(0 0 5px rgba(255, 185, 0, 0.4));     /* Media info badge rating star glow */
 
-  /* --- CORE SOLID COLORS --- */
+  /* --- GLOBAL BACKGROUND IMAGE --- */
+  /* OPTION 1  Use Theme Defaults */
+  --global-bg-image: radial-gradient(circle, var(--navy-mid-solid) 25%, var(--navy-base-solid) 85%);  /* Default Theme Colors */
+
+  /* OPTION 2: Use a background image at full brightness (Set to your prefered image)*/
+  /* --global-bg-image: url("https://static.vecteezy.com/system/resources/previews/024/396/102/large_2x/a-view-from-space-to-a-galaxy-and-stars-universe-filled-with-stars-nebula-and-galaxy-panoramic-shot-wide-format-elements-of-this-image-furnished-by-nasa-free-photo.jpg");  /* Full brightness image */
+
+  /* OPTION 3: Use a background image but dimmed down (Set to your prefered image) */
+  /* --global-bg-image: linear-gradient(rgba(0,8,20,0.7), rgba(0,8,20,0.7)), url("https://static.vecteezy.com/system/resources/previews/024/396/102/large_2x/a-view-from-space-to-a-galaxy-and-stars-universe-filled-with-stars-nebula-and-galaxy-panoramic-shot-wide-format-elements-of-this-image-furnished-by-nasa-free-photo.jpg");  /* Image with 70% Navy dimming */
+
+  /* --- HEADING COLORS --- */
+  --h1-color: var(--my-gold);                                      /* Video & Music Titles in OSD, Dashboard Root, Startup and Login Screens */
+  --h2-color: var(--my-gold);                                      /* Page Titles, Section Divider Headers, Media Detail Title, Dialog window titles */
+  --h3-color: var(--my-gold);                                      /* Sub-Headers, Micro-Headers, Media Captions, Container Title Text, Table grid header color */
+  --h4-color: var(--pure-white);                                   /* Media about links, and about card text */
+  --h5-color: var(--pure-white);                                   /* Setting Titles, Deep Metadata & Plugins, Table grid header color */
+  --h6-color: var(--white-alpha-80);                               /* Setting Description Text, Sidebar Category Text, Deep Metadata & Plugins */  
+
+  /* --- HEADER OPTIONS --- */
+  --header-blur: var(--blur-heavy);                                /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) to enable frost */
+  --header-bg: var(--navy-base-alpha-75);                          /* Set to 'transparent' for a completely clear header, or use a translucent color */
+  --header-border: var(--standard-border-thickness) solid var(--gold-alpha-15);  /* Set to 'none' to disable, or var(--standard-border-thickness) solid var(--gold-alpha-15) to enable */
+  --header-content-padding: 20px;                                  /* Media details header padding, push the content down from the header */
+  --header-logo-display: block;                                    /* Set to 'block' to show the top left Emby logo, or 'none' to hide it */
+  --header-icon-color: var(--my-gold);                             /* Icon color for items in the header */
+  --header-icon-hover-color: var(--my-gold-light);                 /* Header icon color in a hover state */
+
+  /* --- SIDEBAR OPTIONS --- */
+  --custom-sidebar-width: 250px;                                   /* Define the custom width (Triggered only when the full sidebar is open) */  
+  --sidebar-playlists: block;                                      /* Set to 'none' to hide Playlists from the sidebar, block to enable */
+  --sidebar-collections: none;                                     /* Set to 'none' to hide Collections from the sidebar, block to enable */
+  --sidebar-blur: var(--blur-heavy);                               /* Frost blur intensity: var(--blur-heavy), var(--blur-light), or none */
+  --sidebar-bg: var(--navy-base-alpha-75);                         /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
+  --sidebar-icon-color: var(--my-gold);
+  --sidebar-icon-hover-color: var(--my-gold-light);
+
+  /* --- OSD OPTIONS --- */
+  --osd-mini-blur: var(--blur-heavy);                              /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) to enable frost (Affects Mini-Music OSD Only) */
+  --osd-mini-bg: var(--navy-base-alpha-75);                        /* Background transparency for the bottom mini music player */
+  --osd-icon-color: var(--pure-white);                             /* Icon colors for the OSD display */
+  --osd-icon-hover-color: var(--my-gold-light);                    /* OSD Icon colors in a hover state */
+
+  /* --- DIALOG POPUPS --- */
+  --dialog-icon-color: var(--my-gold);
+  --dialog-icon-hover-color: var(--my-gold-light);  
+
+   /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
+  --guide-premiere: rgb(89, 35, 71);                             /* Cell background for TV Series Premieres */
+  --guide-new: rgb(31, 75, 94);                                  /* Cell background for brand new episodes */
+  --guide-live: rgb(76, 99, 87);                                 /* Cell background for currently airing live events (Sports/News) */
+  --guide-repeat: rgb(31, 75, 94);                               /* Cell background for older reruns */
+  --guide-movie: rgb(69, 59, 109);                               /* Cell background for Movies airing on Live TV */
+  --guide-generic: rgb(39, 50, 67);                              /* Default cell background for generic programs */
+
+  /* --- ERROR & MAINTENANCE BANNERS --- */
+  --error-bg: rgba(179, 0, 0, 1);                                /* The solid deep crimson background */
+  --error-text: rgba(255, 255, 255, 1);                          /* The text color */
+  --error-border: rgba(255, 77, 77, 1);                          /* The bright light-red border */
+
+  /* --- DANGER / CANCEL BUTTONS --- */
+  --danger-red-rgb: 204, 0, 0;                                     /* Base RGB for destructive actions */
+  --danger-red: rgba(var(--danger-red-rgb), 1);                    /* Solid red for delete/cancel buttons */
+  --danger-red-light: rgb(255, 51, 51);                          /* Brighter red for hovering over delete/cancel buttons */
+  --danger-red-glow: 0 0 20px rgba(var(--danger-red-rgb), 0.6), 0 0 10px rgba(255, 51, 51, 0.4); /* Glow effect on hover */
+
+  /* --- SUBMIT BUTTONS --- */
+  --btn-bg: var(--my-gold);                                        /* Resting background of primary actions (Save/Done) */
+  --btn-bg-hover: var(--my-gold-light);                            /* Background of primary actions when hovered */
+  --btn-text: var(--retro-navy);                                   /* Text color inside resting primary buttons */
+  --btn-text-hover: var(--retro-navy);                             /* Text color inside hovered primary buttons */
+  --btn-border: var(--my-gold);                                    /* Border of resting primary buttons */
+  --btn-border-hover: var(--my-gold-light);                        /* Border of hovered primary buttons */
+  --btn-shadow: 0 4px 10px var(--black-alpha-50);                  /* Shadow depth of resting primary buttons */
+  --btn-shadow-hover: 0 6px 15px var(--black-alpha-80), 0 0 15px var(--gold-alpha-40); /* Golden aura on hovered primary buttons */
+
+  /* --- CAST & CREW NAME TEXT --- */
+  --actor-name: var(--my-gold);                                    /* Cast member's actual name color */
+  --actor-role: var(--white-alpha-70);                             /* Character role text color */
+
+  /* --- FAVORITE HEART COLORS --- */
+  --favorite-heart-rgb: 255, 51, 102;                              /* Base red for the favorite heart */
+  --favorite-heart-hover-rgb: 255, 0, 68;                          /* Brighter red for hovered favorite heart */
+  --favorite-heart: rgba(var(--favorite-heart-rgb), 1);
+  --favorite-heart-hover: rgba(var(--favorite-heart-hover-rgb), 1);
+  --favorite-heart-alpha-50: rgba(var(--favorite-heart-rgb), 0.5);
+  --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8);
+
+  /* --- TYPOGRAPHY BUTTON TOGGLES (PILLBARS, SUBMIT) --- */
+  --button-text-transform: uppercase;                              /* Set to 'uppercase' for all-caps, or 'none' for title-case */
+  --button-text-weight: 700;                                       /* Set to 700 for uppercase, or 600 for title-case */
+  --button-letter-spacing: 1px;                                    /* Set to 1px for uppercase, or 0.5px for title-case */
+
+   /* --- CORE SOLID COLORS --- */
   --pure-white: rgba(var(--pure-white-rgb), 1);                    /* Solid white for high-contrast icons */
   --pure-black: rgba(var(--pure-black-rgb), 1);                    /* Solid black for deep shadow foundations */
   --text-muted: rgb(236, 236, 236);                              /* Soft white used globally for primary paragraph/body text */
@@ -181,44 +225,6 @@ html,
   --nav-pill-bar-border: 0px solid var(--gold-alpha-80);           /* Border of the track containing all the pills */
   --nav-pill-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light); /* Secondary shadow setting for active pills */
 
-  /* --- TYPOGRAPHY BUTTON TOGGLES (PILLBARS, SUBMIT) --- */
-  --button-text-transform: uppercase;                              /* Set to 'uppercase' for all-caps, or 'none' for title-case */
-  --button-text-weight: 700;                                       /* Set to 700 for uppercase, or 600 for title-case */
-  --button-letter-spacing: 1px;                                    /* Set to 1px for uppercase, or 0.5px for title-case */
-
-  /* --- DANGER / CANCEL BUTTONS --- */
-  --danger-red-rgb: 204, 0, 0;                                     /* Base RGB for destructive actions */
-  --danger-red: rgba(var(--danger-red-rgb), 1);                    /* Solid red for delete/cancel buttons */
-  --danger-red-light: rgb(255, 51, 51);                          /* Brighter red for hovering over delete/cancel buttons */
-  --danger-red-glow: 0 0 20px rgba(var(--danger-red-rgb), 0.6), 0 0 10px rgba(255, 51, 51, 0.4); /* Glow effect on hover */
-
-  /* CAST & CREW NAME TEXT */
-  --actor-name: var(--my-gold);                                    /* Cast member's actual name color */
-  --actor-role: var(--white-alpha-70);                             /* Character role text color */
-
-  /* SUBMIT BUTTONS */
-  --btn-bg: var(--my-gold);                                        /* Resting background of primary actions (Save/Done) */
-  --btn-bg-hover: var(--my-gold-light);                            /* Background of primary actions when hovered */
-  --btn-text: var(--retro-navy);                                   /* Text color inside resting primary buttons */
-  --btn-text-hover: var(--retro-navy);                             /* Text color inside hovered primary buttons */
-  --btn-border: var(--my-gold);                                    /* Border of resting primary buttons */
-  --btn-border-hover: var(--my-gold-light);                        /* Border of hovered primary buttons */
-  --btn-shadow: 0 4px 10px var(--black-alpha-50);                  /* Shadow depth of resting primary buttons */
-  --btn-shadow-hover: 0 6px 15px var(--black-alpha-80), 0 0 15px var(--gold-alpha-40); /* Golden aura on hovered primary buttons */
-
-  /* --- FAVORITE HEART COLORS --- */
-  --favorite-heart-rgb: 255, 51, 102;                              /* Base red for the favorite heart */
-  --favorite-heart-hover-rgb: 255, 0, 68;                          /* Brighter red for hovered favorite heart */
-  --favorite-heart: rgba(var(--favorite-heart-rgb), 1);
-  --favorite-heart-hover: rgba(var(--favorite-heart-hover-rgb), 1);
-  --favorite-heart-alpha-50: rgba(var(--favorite-heart-rgb), 0.5);
-  --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8);
-
-  /* ERROR & MAINTENANCE BANNERS */
-  --error-bg: rgba(179, 0, 0, 1);                                /* The solid deep crimson background */
-  --error-text: rgba(255, 255, 255, 1);                          /* The text color */
-  --error-border: rgba(255, 77, 77, 1);                          /* The bright light-red border */
-
   /* --- GLOW & SHADOW PRESETS --- */
   --retro-glow: var(--gold-alpha-40);                              /* The base neon glow variable applied to the theme */
   --glow-none: none;                                               /* Utility used to disable glows */
@@ -234,15 +240,15 @@ html,
   --filter-glow-medium: drop-shadow(0 0 8px var(--retro-glow));    /* Stronger glow for hovered SVG icons */
   --filter-glow-gold-solid: drop-shadow(0 0 5px var(--my-gold));   /* Solid hard glow for icons */
 
-  /* STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) */
+  /* --- STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) --- */
   --media-card-radius: 15px;                                       /* Adjust the corner rounding of standard posters */
 
-  /* MEDIA CARD POPOUT EFFECTS --- */
+  /* --- MEDIA CARD POPOUT EFFECTS --- */
   --popout-perspective: 1000px;                                    /* Effects can be made when hovering over media cards to disable use "none" or to enable use "1000px" */
   --popout-transform: scale(1.05) rotateX(4deg) translateY(-5px);  /* Effects can be made when hovering over media cards to disable use "none" or to enable use "scale(1.05) rotateX(4deg) translateY(-5px)" */
   --popout-shadow: 0px 20px 30px var(--black-alpha-90), var(--shadow-glow-standard);  /* Effects can be made when hovering over media cards to disable use "none" or to enable use "0px 20px 30px var(--black-alpha-90), var(--shadow-glow-standard)" */
 
-  /* CAST & CREW PORTRAIT SHAPES (DEFAULT: OVAL) */
+  /* --- CAST & CREW PORTRAIT SHAPES (DEFAULT: OVAL) --- */
   --portrait-radius: 50% / 40%;                                    /* Oval Shaped */
   --portrait-ratio: 2 / 3;                                         /* Oval Shaped */
   /* --portrait-radius: 50%;                                       /* Circle Shaped */
@@ -250,11 +256,11 @@ html,
   /* --portrait-radius: var(--border-radius-lg);                   /* Default - Rectangle */
   /* --portrait-ratio: 2 / 3;                                      /* Default - Rectangle */
   
-  /* PLAY BUTTON VISABILITY WHEN HOVERING OVER MEDIA CARDS */
+  /* --- PLAY BUTTON VISABILITY WHEN HOVERING OVER MEDIA CARDS --- */
   --play-button-display: inline-block;                             /* Enabled */
   /* --play-button-display: none;                                  /* Disabled */
 
-  /* BACKDROP & FANART STYLE */
+  /* --- BACKDROP & FANART STYLE --- */
   --backdrop-bg-color: rgba(var(--pure-black-rgb), 0.5);           /* DIMMING - COLOR / OPACITY (Increase to 0.8 for darker, decrease to 0.4 for lighter) */
   --backdrop-gradient: none;                                       /* DIMMING (Traditional full-screen dark overlay) */
   /*--backdrop-bg-color: transparent;                              /* NO DIMMING */
@@ -263,7 +269,7 @@ html,
   --anim-backdrop-mask: linear-gradient(to right, transparent 0%, var(--pure-black) 40%), linear-gradient(to top, transparent 0%, var(--pure-black) 40%);
   --backdrop-image-scale: 80%;                                     /* Percentage of screen to use for backdrop posters (It will always pin to the top right of the screen) */                              
 
-  /* BUTTONS AND INDICATORS */
+  /* --- BUTTONS AND INDICATORS --- */
   --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
   --button-popout-transform: translate(-3px, -3px);                /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
   --button-popout-active-shadow: 0px 0px 5px var(--black-alpha-80); /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
@@ -341,7 +347,7 @@ html,
   --order-similar: 4;                                              /* Vertical order of Similar section */
   --order-about: 5;                                                /* Vertical order of About section */
 
-  /* SEASONAL BACKGROUND ANIMATIONS */
+  /* --- SEASONAL BACKGROUND ANIMATIONS --- */
   --seasonal-bg-visibility: visible;                               /* Fully Enabled */
   --seasonal-bg-anim-state: running;                               /* Fully Enabled */
   /* --seasonal-bg-anim-state: paused;                             /* Paused Animations (Keeps art, stops the motion) */
@@ -746,6 +752,7 @@ html[class*="theme-"] .settingsContainer h3 {
 }
 
 /* 5. INTERACTIVE LABELS & ACCENTS */
+/* Form inputs and dropdown labels (Mapped to H5 variable) */
 html[class*="theme-"] .selectLabel,
 html[class*="theme-"] .selectLabelText,
 html[class*="theme-"] .inputLabel,
@@ -754,8 +761,7 @@ html[class*="theme-"] .label {
   -webkit-text-fill-color: var(--h5-color) !important;
 }
 
-/* Sidebar Icons & Media Card Labels */
-html[class*="theme-"] .navDrawerListItemIcon,
+/* Media Card Labels (Sidebar Icons removed to prevent conflicts) */
 html[class*="theme-"] body .mediaInfoAttributeLabel,
 html[class*="theme-"] body .mediaStreamInnerCardFooter .mediaInfoAttributeLabel {
   color: var(--my-gold) !important;
@@ -1080,10 +1086,13 @@ html[class*="theme-"] body .view > .scrollSlider {
   font-size: 1.1em !important;
 }
 
-/* 3. Global Sidebar Icons: Applies the gold icon color as a baseline across ALL Emby themes */
-.navDrawerListItemIcon {
-  color: var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
+/* 3. Global Sidebar Icons: Applies the icon color as a baseline across ALL Emby themes */
+html[class*="theme-"] body .mainDrawer .navDrawerListItemIcon,
+html[class*="theme-"] body .mainDrawer .md-icon {
+  color:                   var(--sidebar-icon-color) !important;
+  -webkit-text-fill-color: var(--sidebar-icon-color) !important;
+  opacity:                 1 !important;
+  transition:              all var(--transition-speed) ease !important;
 }
 
 /* 4. Sidebar Header Logo: Overrides global button borders to keep the logo clean */
@@ -1282,21 +1291,7 @@ html[class*="theme-"] body .mainDrawer .navDrawerListItem .listItem-content::aft
   background: transparent !important;
 }
 
-/* 2. HOVER STATE (UNSELECTED): Highlight background and Gold Text/Icons */
-
-/* Force outer wrapper to stay transparent so native grey doesn't bleed */
-html[class*="theme-"] body .mainDrawer .navMenuOption:hover,
-html[class*="theme-"] body .mainDrawer .navDrawerListItem:hover {
-  background: transparent !important;
-  background-color: transparent !important;
-}
-
-/* Apply custom pill highlight to the inner layer */
-html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .listItem-content,
-html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .listItem-content {
-  background: var(--white-alpha-10) !important; 
-}
-
+/* 2. HOVER STATE (UNSELECTED): Highlight background and Hover Colors */
 html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .navDrawerListItemBody,
 html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .listItemBody,
 html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .navMenuOptionText,
@@ -1307,8 +1302,9 @@ html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-sel
 html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .navMenuOptionText,
 html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .navDrawerListItemIcon,
 html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .md-icon {
-  color: var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
+  color:                   var(--sidebar-icon-hover-color) !important;
+  -webkit-text-fill-color: var(--sidebar-icon-hover-color) !important;
+  filter:                  drop-shadow(0 0 5px var(--sidebar-icon-hover-color)) !important;
 }
 
 /* 3. SELECTED STATE BACKGROUND: Lock the native accent oval */
@@ -1317,20 +1313,21 @@ html[class*="theme-"] body .mainDrawer .navDrawerListItem.navMenuOption-selected
   background: var(--theme-icon-focus-background) !important;
 }
 
-/* 4. SELECTED STATE TEXT: Lock to Accent Color */
+/* 4. SELECTED STATE TEXT: Lock to Hover Color */
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navDrawerListItemBody,
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .listItemBody,
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navMenuOptionText {
-  color: var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
+  color:                   var(--sidebar-icon-hover-color) !important;
+  -webkit-text-fill-color: var(--sidebar-icon-hover-color) !important;
 }
 
-/* 5. SELECTED STATE ICONS: Lock to White (Option 2) or Gold (Option 1) */
+/* 5. SELECTED STATE ICONS: Lock to Hover Color & Glow */
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navDrawerListItemIcon,
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .md-icon,
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .listItemImageContainer .md-icon {
-  color: var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
+  color:                   var(--sidebar-icon-hover-color) !important;
+  -webkit-text-fill-color: var(--sidebar-icon-hover-color) !important;
+  filter:                  drop-shadow(0 0 5px var(--sidebar-icon-hover-color)) !important;
 }
 
 /* --- 3E. MINI DRAWER (COLLAPSED SIDEBAR) --- */
@@ -1371,26 +1368,27 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption.navMenuOpt
 /* 3. SELECTED STATE: Uses active icon variable */
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption-selected .md-icon,
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption-selected .navDrawerListItemIcon {
-  color: var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
+  color:                   var(--sidebar-icon-hover-color) !important;
+  -webkit-text-fill-color: var(--sidebar-icon-hover-color) !important;
+  filter:                  drop-shadow(0 0 5px var(--sidebar-icon-hover-color)) !important;
 }
 
 /* 4. Forces all inactive menu icons to the theme preference when collapsed */
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected) .md-icon,
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected) .navDrawerListItemIcon {
-  color: var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
-  opacity: 0.8 !important;
-  transition: all var(--transition-speed) ease !important;
+  color:                   var(--sidebar-icon-color) !important;
+  -webkit-text-fill-color: var(--sidebar-icon-color) !important;
+  opacity:                 0.8 !important;
+  transition:              all var(--transition-speed) ease !important;
 }
 
-/* 5. Hover state: turns the icons gold when you mouse over them */
+/* 5. Hover state: turns the icons to hover color when you mouse over them */
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected):hover .md-icon,
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected):hover .navDrawerListItemIcon {
-  color: var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
-  opacity: 1 !important;
-  filter: drop-shadow(0 0 5px var(--my-gold)) !important;
+  color:                   var(--sidebar-icon-hover-color) !important;
+  -webkit-text-fill-color: var(--sidebar-icon-hover-color) !important;
+  opacity:                 1 !important;
+  filter:                  drop-shadow(0 0 5px var(--sidebar-icon-hover-color)) !important;
 }
 
 /* 6. Protects the Hamburger Menu (Toggle Button) so it uses the custom variable in ALL states */
@@ -1662,11 +1660,13 @@ html[class*="theme-"] body .background-theme-a .listItemBodyText {
   -webkit-text-fill-color: var(--my-gold) !important;
 }
 
-/* 3b. Resting Icons for Dialog Lists & Action Menus (Forces Gold/Orange) */
+/* 3b. Resting Icons for Dialog Lists & Action Menus */
 html[class*="theme-"] body .actionSheetMenuItem .md-icon,
-html[class*="theme-"] body .paperListbox .listItem .md-icon {
-  color:                   var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
+html[class*="theme-"] body .paperListbox .listItem .md-icon,
+html[class*="theme-"] body .dialog .listItem .md-icon,
+html[class*="theme-"] body .formDialog .listItem .md-icon {
+  color:                   var(--dialog-icon-color) !important;
+  -webkit-text-fill-color: var(--dialog-icon-color) !important;
   transition:              all var(--transition-speed) ease-in-out, filter var(--transition-speed) ease-in-out !important;
 }
 
@@ -1681,13 +1681,13 @@ html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected)
   -webkit-text-fill-color: var(--pure-white) !important;
 }
 
-/* Keep hover icons Gold (Brightened for contrast against resting state) */
+/* Keep hover icons tied to dialog hover color and glow */
 html[class*="theme-"] body .actionSheetMenuItem:hover .md-icon,
 html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .md-icon,
 html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .md-icon {
-  color:                   var(--my-gold-light) !important;
-  -webkit-text-fill-color: var(--my-gold-light) !important;
-  filter:                  drop-shadow(0 0 5px var(--my-gold)) !important;
+  color:                   var(--dialog-icon-hover-color) !important;
+  -webkit-text-fill-color: var(--dialog-icon-hover-color) !important;
+  filter:                  drop-shadow(0 0 5px var(--dialog-icon-hover-color)) !important;
 }
 
 /* 5. Media Overlays: Small buttons appearing on poster hover */
@@ -2392,15 +2392,17 @@ html[class*="theme-"] body .dialog .listItem .secondaryText {
 /* 4. Fix the drag-and-drop hamburger icon color */
 html[class*="theme-"] body .formDialog .listItem .listViewDragHandle,
 html[class*="theme-"] body .dialog .listItem .listViewDragHandle {
-  color:                   var(--white-alpha-60) !important;
-  -webkit-text-fill-color: var(--white-alpha-60) !important;
+  color:                   var(--dialog-icon-color) !important;
+  -webkit-text-fill-color: var(--dialog-icon-color) !important;
+  transition:              all var(--transition-speed) ease !important;
 }
 
-/* Make the drag handle pop gold when you hover over the row */
+/* Make the drag handle pop when you hover over the row */
 html[class*="theme-"] body .formDialog .listItem:hover .listViewDragHandle,
 html[class*="theme-"] body .dialog .listItem:hover .listViewDragHandle {
-  color:                   var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
+  color:                   var(--dialog-icon-hover-color) !important;
+  -webkit-text-fill-color: var(--dialog-icon-hover-color) !important;
+  filter:                  drop-shadow(0 0 5px var(--dialog-icon-hover-color)) !important;
 }
 
 /* 5. Strip the native inner background layer inside modal lists */
