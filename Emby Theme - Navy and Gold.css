@@ -63,12 +63,12 @@ html,
   /* --global-bg-image: linear-gradient(rgba(0,8,20,0.7), rgba(0,8,20,0.7)), url("https://static.vecteezy.com/system/resources/previews/024/396/102/large_2x/a-view-from-space-to-a-galaxy-and-stars-universe-filled-with-stars-nebula-and-galaxy-panoramic-shot-wide-format-elements-of-this-image-furnished-by-nasa-free-photo.jpg");  /* Image with 70% Navy dimming */
 
   /* --- HEADING COLORS --- */
-  --h1-color: var(--my-gold);                                      /* Video & Music Titles in OSD, Dashboard Root, Startup and Login Screens */
-  --h2-color: var(--my-gold);                                      /* Page Titles, Section Divider Headers, Media Detail Title, Dialog window titles */
-  --h3-color: var(--my-gold);                                      /* Sub-Headers, Micro-Headers, Media Captions, Container Title Text, Table grid header color */
-  --h4-color: var(--pure-white);                                   /* Media about links, and about card text */
-  --h5-color: var(--pure-white);                                   /* Setting Titles, Deep Metadata & Plugins, Table grid header color */
-  --h6-color: var(--white-alpha-80);                               /* Setting Description Text, Sidebar Category Text, Deep Metadata & Plugins */  
+  --h1-color: var(--my-gold);                                      /* Massive Titles: Video & Music OSD primary titles, Live TV Program title (In Dialog boxes), Startup/Login screens, Native H1s */
+  --h2-color: var(--my-gold);                                      /* Page Titles, Section/Row Headers, Dialog & Action Sheet Titles, Settings Group Legends, About Section Headers */
+  --h3-color: var(--my-gold);                                      /* Media Card Titles (Posters), OSD secondary titles, Now Playing bar text, Settings Sub-Headers, Micro-Headers */
+  --h4-color: var(--pure-white);                                   /* Media Overview/Descriptions, About Card text/links, Audio/Video media stream info secondary text */
+  --h5-color: var(--pure-white);                                   /* Form & Input Labels, Checkbox/Toggle Labels, Table/Data Grid Column Headers, Stream Info Card Titles */
+  --h6-color: var(--white-alpha-80);                               /* Settings Descriptions, Muted global sub-text, Sidebar Category Text */
 
   /* --- HEADER OPTIONS --- */
   --header-blur: var(--blur-heavy);                                /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) to enable frost */
@@ -117,7 +117,7 @@ html,
   --danger-red-light: rgb(255, 51, 51);                          /* Brighter red for hovering over delete/cancel buttons */
   --danger-red-glow: 0 0 20px rgba(var(--danger-red-rgb), 0.6), 0 0 10px rgba(255, 51, 51, 0.4); /* Glow effect on hover */
 
-  /* --- SUBMIT BUTTONS --- */
+  /* --- SUBMIT / SAVE BUTTONS --- */
   --btn-bg: var(--my-gold);                                        /* Resting background of primary actions (Save/Done) */
   --btn-bg-hover: var(--my-gold-light);                            /* Background of primary actions when hovered */
   --btn-text: var(--retro-navy);                                   /* Text color inside resting primary buttons */
@@ -1523,6 +1523,32 @@ html[class*="theme-"] body .actionSheet .button-link * {
   color:                   var(--pure-black) !important;
   -webkit-text-fill-color: var(--pure-black) !important;
   opacity:                 1 !important;
+}
+
+/* 6. Action Sheet Preview Badges (Title & Subtitle): Forces gold pill style & disables hover */
+html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText .mediaInfoItem,
+html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText .mediaInfoItem * {
+  background:              var(--media-badge-bg) !important;
+  color:                   var(--media-badge-color) !important;
+  -webkit-text-fill-color: var(--media-badge-color) !important;
+  border:                  var(--media-badge-border) !important;
+  box-shadow:              var(--media-badge-shadow) !important;
+  border-radius:           var(--media-badge-radius) !important;
+  text-decoration:         none !important;
+  margin:                  4px !important;
+}
+
+/* Kill the hover state specifically for these preview badges */
+html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText .mediaInfoItem:hover,
+html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText .mediaInfoItem:hover * {
+  background:              var(--media-badge-bg) !important;
+  color:                   var(--media-badge-color) !important;
+  -webkit-text-fill-color: var(--media-badge-color) !important;
+  border:                  var(--media-badge-border) !important;
+  box-shadow:              var(--media-badge-shadow) !important;
+  transform:               none !important;
+  text-decoration:         none !important;
+  cursor:                  default !important;
 }
 
 /* --- 4B. TEXT INPUTS, DROPDOWNS & TEXTAREAS --- */
@@ -5327,8 +5353,8 @@ html[class*="theme-"] body select.emby-select[multiple]:active ~ .emby-select-se
 /* --- PART B: FLAT BUTTON LEGIBILITY (Select All / Clear) --- */
 
 /* 4. Forces flat buttons in dialogs/action sheets to be pure white */
-html[class*="theme-"] body .actionSheet .button-link,
-html[class*="theme-"] body .actionSheet .button-link *,
+html[class*="theme-"] body .actionSheet .button-link:not(.mediaInfoItem),
+html[class*="theme-"] body .actionSheet .button-link:not(.mediaInfoItem) *,
 html[class*="theme-"] body .dialog .button-flat,
 html[class*="theme-"] body .formDialog .button-flat,
 html[class*="theme-"] body .paperListbox .button-flat {
@@ -5342,8 +5368,8 @@ html[class*="theme-"] body .paperListbox .button-flat {
 }
 
 /* 5. Hover state makes them pop in the Theme Primary Color */
-html[class*="theme-"] body .actionSheet .button-link:hover,
-html[class*="theme-"] body .actionSheet .button-link:hover *,
+html[class*="theme-"] body .actionSheet .button-link:not(.mediaInfoItem):hover,
+html[class*="theme-"] body .actionSheet .button-link:not(.mediaInfoItem):hover *,
 html[class*="theme-"] body .dialog .button-flat:hover,
 html[class*="theme-"] body .formDialog .button-flat:hover,
 html[class*="theme-"] body .paperListbox .button-flat:hover {
