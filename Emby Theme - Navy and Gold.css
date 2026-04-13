@@ -76,7 +76,7 @@ html,
   --header-border: var(--standard-border-thickness) solid var(--gold-alpha-15);  /* Set to 'none' to disable, or var(--standard-border-thickness) solid var(--gold-alpha-15) to enable */
   --header-content-padding: 20px;                                  /* Media details header padding, push the content down from the header */
   --header-logo-display: block;                                    /* Set to 'block' to show the top left Emby logo, or 'none' to hide it */
-  --header-icon-color: var(--my-gold);                             /* Icon color for items in the header */
+  --header-icon-color: var(--my-gold);                             /* Header icon color */
   --header-icon-hover-color: var(--my-gold-light);                 /* Header icon color in a hover state */
 
   /* --- SIDEBAR OPTIONS --- */
@@ -85,8 +85,8 @@ html,
   --sidebar-collections: none;                                     /* Set to 'none' to hide Collections from the sidebar, block to enable */
   --sidebar-blur: var(--blur-heavy);                               /* Frost blur intensity: var(--blur-heavy), var(--blur-light), or none */
   --sidebar-bg: var(--navy-base-alpha-75);                         /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
-  --sidebar-icon-color: var(--my-gold);
-  --sidebar-icon-hover-color: var(--my-gold-light);
+  --sidebar-icon-color: var(--my-gold);                            /* Sidebar icon colors */
+  --sidebar-icon-hover-color: var(--my-gold-light);                /* Sidebar icon colors in a hover state */
 
   /* --- OSD OPTIONS --- */
   --osd-mini-blur: var(--blur-heavy);                              /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) to enable frost (Affects Mini-Music OSD Only) */
@@ -95,8 +95,8 @@ html,
   --osd-icon-hover-color: var(--my-gold-light);                    /* OSD Icon colors in a hover state */
 
   /* --- DIALOG POPUPS --- */
-  --dialog-icon-color: var(--my-gold);
-  --dialog-icon-hover-color: var(--my-gold-light);  
+  --dialog-icon-color: var(--my-gold);                             /* Dialog popup icon color */
+  --dialog-icon-hover-color: var(--my-gold-light);                 /* Dialog popup icon color in a hovered state */
 
    /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
   --guide-premiere: rgb(89, 35, 71);                             /* Cell background for TV Series Premieres */
@@ -838,17 +838,60 @@ html[class*="theme-"] body .warningBanner .infoBannerContent::before {
   vertical-align: middle; 
 }
 
-/* 7. NATIVE UI BUTTON FIXES (Removes Grey Backgrounds) */
+/* 7. NATIVE UI BUTTON FIXES (Removes Grey Backgrounds from Icons) */
+
+/* Base transparent state for all icons */
 html[class*="theme-"] body .emby-input-iconbutton,
 html[class*="theme-"] body .paper-icon-button-light,
-html[class*="theme-"] body .cardOverlayButton,
-html[class*="theme-"] body .listItemImageButton {
+html[class*="theme-"] body .osdIconButton,
+html[class*="theme-"] body .navDrawerListItemIcon,
+html[class*="theme-"] body .listItemIcon,
+html[class*="theme-"] body .listItemIcon-transparent,
+html[class*="theme-"] body .md-icon {
   background-color: transparent !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+  background:       transparent !important;
+  border:           none !important;
+  box-shadow:       none !important;
 }
 
+/* THE ROW-HOVER SHIELD: Prevents Emby from painting a square behind the icon when you hover the text next to it */
+html[class*="theme-"] body .navMenuOption:hover .navDrawerListItemIcon,
+html[class*="theme-"] body .navMenuOption:hover .md-icon,
+html[class*="theme-"] body .navMenuOption-selected .navDrawerListItemIcon,
+html[class*="theme-"] body .navDrawerListItem:hover .navDrawerListItemIcon,
+html[class*="theme-"] body .listItem:hover .listItemIcon,
+html[class*="theme-"] body .listItem:hover .md-icon,
+html[class*="theme-"] body .actionSheetMenuItem:hover .listItemIcon,
+html[class*="theme-"] body .actionSheetMenuItem:hover .md-icon,
+html[class*="theme-"] body .paperListbox .listItem:hover .md-icon,
+html[class*="theme-"] body .dialog .listItem:hover .md-icon,
+html[class*="theme-"] body .formDialog .listItem:hover .md-icon,
+html[class*="theme-"] body .paper-icon-button-light:hover,
+html[class*="theme-"] body .paper-icon-button-light:focus,
+html[class*="theme-"] body .osdIconButton:hover,
+html[class*="theme-"] body .osdIconButton:focus,
+html[class*="theme-"] body .emby-input-iconbutton:hover,
+html[class*="theme-"] body .listItemImageButton:hover {
+  background-color: transparent !important;
+  background:       transparent !important;
+  box-shadow:       none !important;
+}
+
+/* Kill native ripples and hidden boxes */
+html[class*="theme-"] body .paper-icon-button-light::before,
+html[class*="theme-"] body .paper-icon-button-light::after,
+html[class*="theme-"] body .osdIconButton::before,
+html[class*="theme-"] body .osdIconButton::after,
+html[class*="theme-"] body .navDrawerListItemIcon::before,
+html[class*="theme-"] body .navDrawerListItemIcon::after,
+html[class*="theme-"] body .listItemIcon::before,
+html[class*="theme-"] body .listItemIcon::after {
+  display: none !important;
+  content: none !important;
+  background: transparent !important;
+}
+
+/* Force white text on resting icons globally */
 html[class*="theme-"] body .emby-input-iconbutton:not(.ratingbutton-icon-withrating):not(.playstatebutton-icon-played) .md-icon,
 html[class*="theme-"] body .paper-icon-button-light:not(.ratingbutton-icon-withrating):not(.playstatebutton-icon-played) .md-icon,
 html[class*="theme-"] body .cardOverlayButton:not(.ratingbutton-icon-withrating):not(.playstatebutton-icon-played) .md-icon {
@@ -985,20 +1028,30 @@ html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSettingsButto
   transition:              all var(--transition-speed) ease !important;
 }
 
-/* Hover Glow applied specifically to the intended buttons */
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerBackButton:hover,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerMenuButton:hover,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerCastButton:hover,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSearchButton:hover,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerUserButton:hover,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSettingsButton:hover,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.paper-icon-button-light:hover .md-icon,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.paper-icon-button-light:hover * {
+/* Hover Glow applied specifically to the inner graphic */
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerBackButton:hover .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerMenuButton:hover .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerCastButton:hover .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSearchButton:hover .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerUserButton:hover .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSettingsButton:hover .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.paper-icon-button-light:hover .md-icon {
   color:                   var(--header-icon-hover-color) !important;
   -webkit-text-fill-color: var(--header-icon-hover-color) !important;
   fill:                    var(--header-icon-hover-color) !important;
   filter:                  drop-shadow(0 0 8px var(--header-icon-hover-color)) !important;
   transform:               scale(1.15) !important;
+}
+
+/* Base button text color sync */
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerBackButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerMenuButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerCastButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSearchButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerUserButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSettingsButton:hover {
+  color:                   var(--header-icon-hover-color) !important;
+  -webkit-text-fill-color: var(--header-icon-hover-color) !important;
 }
 
 /* 3b. Header Icon Fixes: Forces specific buttons and their internal icons to use the header variable */
@@ -1088,11 +1141,12 @@ html[class*="theme-"] body .view > .scrollSlider {
 
 /* 3. Global Sidebar Icons: Applies the icon color as a baseline across ALL Emby themes */
 html[class*="theme-"] body .mainDrawer .navDrawerListItemIcon,
+html[class*="theme-"] body .mainDrawer .navMenuOptionIcon,
 html[class*="theme-"] body .mainDrawer .md-icon {
-  color:                   var(--sidebar-icon-color) !important;
-  -webkit-text-fill-color: var(--sidebar-icon-color) !important;
-  opacity:                 1 !important;
-  transition:              all var(--transition-speed) ease !important;
+    color: var(--sidebar-icon-color) !important;
+    -webkit-text-fill-color: var(--sidebar-icon-color) !important;
+    fill: var(--sidebar-icon-color) !important;
+    transition: all var(--transition-speed) ease !important;
 }
 
 /* 4. Sidebar Header Logo: Overrides global button borders to keep the logo clean */
@@ -1292,42 +1346,89 @@ html[class*="theme-"] body .mainDrawer .navDrawerListItem .listItem-content::aft
 }
 
 /* 2. HOVER STATE (UNSELECTED): Highlight background and Hover Colors */
+
+/* Force outer wrapper to stay transparent so native grey doesn't bleed */
+html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Apply custom pill highlight to the inner layer */
+html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .listItem-content,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .listItem-content {
+    background: var(--white-alpha-10) !important; 
+}
+
+/* Apply text and icon color */
 html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .navDrawerListItemBody,
 html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .listItemBody,
 html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .navMenuOptionText,
 html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .navDrawerListItemIcon,
+html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .navMenuOptionIcon,
 html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .md-icon,
 html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .navDrawerListItemBody,
 html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .listItemBody,
 html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .navMenuOptionText,
 html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .navDrawerListItemIcon,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .navMenuOptionIcon,
 html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .md-icon {
-  color:                   var(--sidebar-icon-hover-color) !important;
-  -webkit-text-fill-color: var(--sidebar-icon-hover-color) !important;
-  filter:                  drop-shadow(0 0 5px var(--sidebar-icon-hover-color)) !important;
+    color: var(--sidebar-icon-hover-color) !important;
+    -webkit-text-fill-color: var(--sidebar-icon-hover-color) !important;
+    fill: var(--sidebar-icon-hover-color) !important;
+}
+
+/* Safe Glow & Scale applied ONLY to the actual icon elements (Prevents the background box) */
+html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .navDrawerListItemIcon,
+html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .navMenuOptionIcon,
+html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover .md-icon,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .navDrawerListItemIcon,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .navMenuOptionIcon,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover .md-icon {
+    text-shadow: 0 0 15px var(--sidebar-icon-hover-color) !important;
+    transform: scale(1.15) !important;
+}
+
+/* Fallback for SVG Icons (Like the Manage Emby Gear) which ignore text-shadow */
+html[class*="theme-"] body .mainDrawer .navMenuOption:not(.navMenuOption-selected):hover svg,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem:not(.navMenuOption-selected):hover svg {
+    filter: drop-shadow(0 0 12px var(--sidebar-icon-hover-color)) !important;
 }
 
 /* 3. SELECTED STATE BACKGROUND: Lock the native accent oval */
+
+/* Forces the gold background to stay locked on both the inner and outer layers, even when hovered */
+html[class*="theme-"] body .mainDrawer .navMenuOption-selected,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem.navMenuOption-selected,
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .listItem-content,
-html[class*="theme-"] body .mainDrawer .navDrawerListItem.navMenuOption-selected .listItem-content {
-  background: var(--theme-icon-focus-background) !important;
+html[class*="theme-"] body .mainDrawer .navDrawerListItem.navMenuOption-selected .listItem-content,
+html[class*="theme-"] body .mainDrawer .navMenuOption-selected:hover,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem.navMenuOption-selected:hover,
+html[class*="theme-"] body .mainDrawer .navMenuOption-selected:hover .listItem-content,
+html[class*="theme-"] body .mainDrawer .navDrawerListItem.navMenuOption-selected:hover .listItem-content {
+    background: var(--theme-icon-focus-background) !important;
+    background-color: var(--theme-icon-focus-background) !important;
 }
 
 /* 4. SELECTED STATE TEXT: Lock to Hover Color */
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navDrawerListItemBody,
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .listItemBody,
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navMenuOptionText {
-  color:                   var(--sidebar-icon-hover-color) !important;
-  -webkit-text-fill-color: var(--sidebar-icon-hover-color) !important;
+    color: var(--sidebar-icon-hover-color) !important;
+    -webkit-text-fill-color: var(--sidebar-icon-hover-color) !important;
+    text-shadow: none !important;
 }
 
-/* 5. SELECTED STATE ICONS: Lock to Hover Color & Glow */
+/* 5. SELECTED STATE ICONS: Lock to Base Icon Color */
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navDrawerListItemIcon,
+html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navMenuOptionIcon,
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .md-icon,
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .listItemImageContainer .md-icon {
-  color:                   var(--sidebar-icon-hover-color) !important;
-  -webkit-text-fill-color: var(--sidebar-icon-hover-color) !important;
-  filter:                  drop-shadow(0 0 5px var(--sidebar-icon-hover-color)) !important;
+    color: var(--sidebar-icon-color) !important;
+    -webkit-text-fill-color: var(--sidebar-icon-color) !important;
+    fill: var(--sidebar-icon-color) !important;
+    text-shadow: none !important;
+    filter: none !important;
 }
 
 /* --- 3E. MINI DRAWER (COLLAPSED SIDEBAR) --- */
@@ -1368,27 +1469,38 @@ html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption.navMenuOpt
 /* 3. SELECTED STATE: Uses active icon variable */
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption-selected .md-icon,
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption-selected .navDrawerListItemIcon {
-  color:                   var(--sidebar-icon-hover-color) !important;
+  color: var(--sidebar-icon-hover-color) !important;
   -webkit-text-fill-color: var(--sidebar-icon-hover-color) !important;
-  filter:                  drop-shadow(0 0 5px var(--sidebar-icon-hover-color)) !important;
+  text-shadow: none !important;
+  filter: none !important;
 }
 
-/* 4. Forces all inactive menu icons to the theme preference when collapsed */
+/* 4. Forces all inactive menu icons to your theme preference when collapsed */
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected) .md-icon,
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected) .navDrawerListItemIcon {
-  color:                   var(--sidebar-icon-color) !important;
+  color: var(--sidebar-icon-color) !important;
   -webkit-text-fill-color: var(--sidebar-icon-color) !important;
-  opacity:                 0.8 !important;
-  transition:              all var(--transition-speed) ease !important;
+  opacity: 0.8 !important;
+  transition: all var(--transition-speed) ease !important;
+  text-shadow: none !important;
+  filter: none !important;
 }
 
-/* 5. Hover state: turns the icons to hover color when you mouse over them */
+/* 5. Hover state: turns the icons bright and pops them out when you mouse over them */
 html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected):hover .md-icon,
-html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected):hover .navDrawerListItemIcon {
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected):hover .navDrawerListItemIcon,
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected):hover .navMenuOptionIcon {
   color:                   var(--sidebar-icon-hover-color) !important;
   -webkit-text-fill-color: var(--sidebar-icon-hover-color) !important;
+  fill:                    var(--sidebar-icon-hover-color) !important;
   opacity:                 1 !important;
-  filter:                  drop-shadow(0 0 5px var(--sidebar-icon-hover-color)) !important;
+  text-shadow:             0 0 15px var(--sidebar-icon-hover-color) !important;
+  transform:               scale(1.15) !important;
+}
+
+/* Fallback for collapsed SVGs */
+html[class*="theme-"] body .mainDrawer.mainDrawer-mini .navMenuOption:not(.navMenuOption-selected):hover svg {
+  filter: drop-shadow(0 0 12px var(--sidebar-icon-hover-color)) !important;
 }
 
 /* 6. Protects the Hamburger Menu (Toggle Button) so it uses the custom variable in ALL states */
@@ -1688,38 +1800,67 @@ html[class*="theme-"] body .background-theme-a .listItemBodyText {
 
 /* 3b. Resting Icons for Dialog Lists & Action Menus */
 html[class*="theme-"] body .actionSheetMenuItem .md-icon,
-html[class*="theme-"] body .paperListbox .listItem .md-icon,
-html[class*="theme-"] body .dialog .listItem .md-icon,
-html[class*="theme-"] body .formDialog .listItem .md-icon {
-  color:                   var(--dialog-icon-color) !important;
+html[class*="theme-"] body .paperListbox .listItem .md-icon {
+  color: var(--dialog-icon-color) !important;
   -webkit-text-fill-color: var(--dialog-icon-color) !important;
-  transition:              all var(--transition-speed) ease-in-out, filter var(--transition-speed) ease-in-out !important;
+  transition: all var(--transition-speed) ease-in-out, text-shadow var(--transition-speed) ease-in-out !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+/* Keep hover icons tied to dialog hover color AND TEXT-SHADOW */
+html[class*="theme-"] body .actionSheetMenuItem:hover .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .md-icon,
+html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .md-icon {
+  color:                   var(--dialog-icon-hover-color) !important;
+  -webkit-text-fill-color: var(--dialog-icon-hover-color) !important;
+  fill:                    var(--dialog-icon-hover-color) !important;
+  text-shadow:             0 0 10px var(--dialog-icon-hover-color) !important;
+  filter:                  none !important;
+}
+
+/* SVG Support for Dialogs */
+html[class*="theme-"] body .actionSheetMenuItem:hover svg,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) svg,
+html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) svg {
+  filter: drop-shadow(0 0 10px var(--dialog-icon-hover-color)) !important;
 }
 
 /* 4. Hover State for Settings & Lists (Fixes light vs dark theme bleeding) */
 html[class*="theme-"] body .actionSheetMenuItem:hover,
 html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a),
 html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) {
-  background:              var(--white-alpha-10) !important;
-  background-color:        var(--white-alpha-10) !important;
-  background-image:        none !important; 
-  color:                   var(--pure-white) !important;
+  background: var(--white-alpha-10) !important;
+  background-color: var(--white-alpha-10) !important;
+  background-image: none !important; 
+  color: var(--pure-white) !important;
   -webkit-text-fill-color: var(--pure-white) !important;
 }
 
-/* Keep hover icons tied to dialog hover color and glow */
+/* Keep hover icons tied to dialog hover color (Forces Fill for SVGs, no shadow box) */
 html[class*="theme-"] body .actionSheetMenuItem:hover .md-icon,
 html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .md-icon,
 html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .md-icon {
   color:                   var(--dialog-icon-hover-color) !important;
   -webkit-text-fill-color: var(--dialog-icon-hover-color) !important;
-  filter:                  drop-shadow(0 0 5px var(--dialog-icon-hover-color)) !important;
+  fill:                    var(--dialog-icon-hover-color) !important;
+  filter:                  none !important;
+}
+
+/* Keep hover icons tied to dialog hover color */
+html[class*="theme-"] body .actionSheetMenuItem:hover .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .md-icon,
+html[class*="theme-"] body .paperListbox .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .md-icon {
+  color: var(--dialog-icon-hover-color) !important;
+  -webkit-text-fill-color: var(--dialog-icon-hover-color) !important;
+  text-shadow: none !important;
+  filter: none !important;
 }
 
 /* 5. Media Overlays: Small buttons appearing on poster hover */
-html[class*="theme-"] .cardOverlayFab-primary,
-html[class*="theme-"] .cardOverlayButtonIcon,
-html[class*="theme-"] .listItemOverlayButtonIcon {
+html[class*="theme-"] body .cardOverlayFab-primary,
+html[class*="theme-"] body .cardOverlayButtonIcon,
+html[class*="theme-"] body .listItemOverlayButtonIcon {
   background-color: var(--my-gold) !important;
   color:            var(--pure-black) !important;
 }
@@ -4016,24 +4157,56 @@ html[class*="theme-"] body .videoOsdHeader .paper-icon-button-light:not(.ratingb
   transition:              all var(--transition-speed) ease !important;
 }
 
-/* --- OSD ICON HOVER STATE (All OSDs & Now Playing) --- */
+/* --- OSD ICON HOVER STATE --- */
 html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):hover,
 html[class*="theme-"] body .videoOsdBottom button:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
 html[class*="theme-"] body .videoOsdBottom a:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
+html[class*="theme-"] body .videoOsdHeader .md-icon:not(.ratingbutton-icon-withrating):hover,
+html[class*="theme-"] body .videoOsdHeader button:hover .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdHeader a:hover .md-icon:not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .nowPlayingBar .md-icon:not(.ratingbutton-icon-withrating):hover,
 html[class*="theme-"] body .nowPlayingBar button:hover .md-icon:not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .nowPlayingBar a:hover .md-icon:not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .nowPlayingPage .md-icon:not(.ratingbutton-icon-withrating):hover,
 html[class*="theme-"] body .nowPlayingPage button:hover .md-icon:not(.ratingbutton-icon-withrating),
-html[class*="theme-"] body .nowPlayingPage a:hover .md-icon:not(.ratingbutton-icon-withrating),
-html[class*="theme-"] body .videoOsdHeader .md-icon:not(.ratingbutton-icon-withrating):hover,
-html[class*="theme-"] body .videoOsdHeader button:hover .md-icon:not(.ratingbutton-icon-withrating),
-html[class*="theme-"] body .videoOsdHeader a:hover .md-icon:not(.ratingbutton-icon-withrating) {
+html[class*="theme-"] body .nowPlayingPage a:hover .md-icon:not(.ratingbutton-icon-withrating) {
   color:                   var(--osd-icon-hover-color) !important;
   -webkit-text-fill-color: var(--osd-icon-hover-color) !important;
   fill:                    var(--osd-icon-hover-color) !important;
   transform:               scale(1.15) !important;
-  filter:                  drop-shadow(0 0 8px var(--osd-icon-hover-color)) !important;
+  text-shadow:             0 0 15px var(--osd-icon-hover-color) !important;
+  filter:                  none !important;
+}
+
+/* OSD SVG Support */
+html[class*="theme-"] body .videoOsdBottom button:hover svg:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
+html[class*="theme-"] body .videoOsdHeader button:hover svg:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .nowPlayingBar button:hover svg:not(.ratingbutton-icon-withrating) {
+   filter: drop-shadow(0 0 12px var(--osd-icon-hover-color)) !important;
+}
+
+/* Active state for toggles like CC, Repeat, Play Queue, or PIP (Pops to White) */
+html[class*="theme-"] body .videoOsdBottom .buttonActive,
+html[class*="theme-"] body .videoOsdBottom .buttonActive .md-icon,
+html[class*="theme-"] body .videoOsdHeader .buttonActive,
+html[class*="theme-"] body .videoOsdHeader .buttonActive .md-icon,
+html[class*="theme-"] body .nowPlayingBar .buttonActive,
+html[class*="theme-"] body .nowPlayingBar .buttonActive .md-icon,
+html[class*="theme-"] body .nowPlayingPage .buttonActive,
+html[class*="theme-"] body .nowPlayingPage .buttonActive .md-icon,
+html[class*="theme-"] body .videoOsdBottom .toggleButton-active,
+html[class*="theme-"] body .videoOsdBottom .toggleButton-active .md-icon,
+html[class*="theme-"] body .nowPlayingBar .toggleButton-active,
+html[class*="theme-"] body .nowPlayingBar .toggleButton-active .md-icon,
+html[class*="theme-"] body .nowPlayingPage .toggleButton-active,
+html[class*="theme-"] body .nowPlayingPage .toggleButton-active .md-icon {
+  background:              transparent !important;
+  background-color:        transparent !important;
+  color:                   var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
+  fill:                    var(--pure-white) !important;
+  filter:                  none !important;
+  text-shadow:             none !important;
 }
 
 /* --- OSD HEADER: CAST/SHARE BUTTON OVERRIDE --- */
@@ -4049,10 +4222,14 @@ html[class*="theme-"] body .videoOsdHeader button.headerCastButton.paper-icon-bu
 }
 
 html[class*="theme-"] body .videoOsdHeader .headerCastButton:hover,
-html[class*="theme-"] body .videoOsdHeader button.headerCastButton.paper-icon-button-light:hover .md-icon,
-html[class*="theme-"] body .videoOsdHeader button.headerCastButton.paper-icon-button-light:hover * {
+html[class*="theme-"] body .videoOsdHeader button.headerCastButton.paper-icon-button-light:hover {
   color:                   var(--osd-icon-hover-color, var(--osd-icon-color)) !important;
   -webkit-text-fill-color: var(--osd-icon-hover-color, var(--osd-icon-color)) !important;
+}
+
+html[class*="theme-"] body .videoOsdHeader .headerCastButton:hover .md-icon,
+html[class*="theme-"] body .videoOsdHeader button.headerCastButton.paper-icon-button-light:hover .md-icon,
+html[class*="theme-"] body .videoOsdHeader button.headerCastButton.paper-icon-button-light:hover * {
   fill:                    var(--osd-icon-hover-color, var(--osd-icon-color)) !important;
   transform:               scale(1.15) !important;
   filter:                  drop-shadow(0 0 5px var(--osd-icon-hover-color, var(--osd-icon-color))) !important;
