@@ -2273,8 +2273,8 @@ html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):n
   border-radius:    50% !important;
 }
 
-/* 2b. Hover State for Favorite & Played: Keeps dark background to let colors pop */
-html[class*="theme-"] body .cardOverlayButton-fab[data-isfavorite]:hover,
+/* 3. Hover State for Unfavorited & Played: Keeps dark background and scales wrapper */
+html[class*="theme-"] body .cardOverlayButton-fab[data-isfavorite="false"]:hover,
 html[class*="theme-"] body .cardOverlayButton-fab[data-played]:hover {
   background-color: var(--black-alpha-60) !important;
   background:       var(--black-alpha-60) !important;
@@ -2283,12 +2283,31 @@ html[class*="theme-"] body .cardOverlayButton-fab[data-played]:hover {
   border-radius:    50% !important;
 }
 
-/* 3. Hover Icon Contrast: Forces the 3-dots to pure black (Excludes Favorite & Played) */
+/* 4. Hover Icon Contrast: Forces the 3-dots to pure black (Excludes Favorite & Played) */
 html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):not([data-isfavorite]):not([data-played]):hover,
 html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):not([data-isfavorite]):not([data-played]):hover * {
   color:                   var(--pure-black) !important;
   -webkit-text-fill-color: var(--pure-black) !important;
   filter:                  none !important;
+}
+
+/* 5. Active Favorite Heart Fix: Keeps dark circle but strips outer wrapper glow & scale */
+html[class*="theme-"] body .cardOverlayButton-fab[data-isfavorite="true"],
+html[class*="theme-"] body .cardOverlayButton-fab[data-isfavorite="true"]:hover {
+  filter:    none !important; /* Stops the outer circle from glowing */
+  transform: none !important; /* Locks wrapper; we will scale the heart icon instead */
+}
+
+/* 6. Apply the red glow strictly to the heart icon inside */
+html[class*="theme-"] body .cardOverlayButton-fab[data-isfavorite="true"] .md-icon {
+  filter: drop-shadow(0 0 5px var(--favorite-heart)) !important;
+  transition: all var(--transition-speed) ease !important;
+}
+
+/* 7. Make the heart pop and glow brighter when hovered */
+html[class*="theme-"] body .cardOverlayButton-fab[data-isfavorite="true"]:hover .md-icon {
+  filter: drop-shadow(0 0 10px var(--favorite-heart-hover)) !important;
+  transform: scale(1.2) !important;
 }
 
 /* --- 4J. NATIVE DATE PICKER --- */
