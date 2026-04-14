@@ -4301,36 +4301,46 @@ html[class*="theme-"] body .videoOsdHeader button.headerCastButton.paper-icon-bu
 }
 
 /* --- OSD ACTION BUTTON ICON SHIELD --- */
+
+/* 1. Resting State: Force action button icons to be WHITE to match the text */
 html[class*="theme-"] body .videoOsdBottom button.btnPlay .md-icon,
 html[class*="theme-"] body .videoOsdBottom button.btnResume .md-icon,
 html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning .md-icon,
 html[class*="theme-"] body .videoOsdBottom button.btnStartNow .md-icon,
 html[class*="theme-"] body .videoOsdBottom button.btnSkipIntro .md-icon,
 html[class*="theme-"] body .videoOsdBottom button.detailButton .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.button-submit .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnPlay:hover .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnResume:hover .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning:hover .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnStartNow:hover .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnSkipIntro:hover .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.detailButton:hover .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.button-submit:hover .md-icon {
-  color:                   var(--pure-black) !important;
-  -webkit-text-fill-color: var(--pure-black) !important;
+html[class*="theme-"] body .videoOsdBottom button.button-submit .md-icon {
+  color:                   var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
   filter:                  none !important;
   transform:               none !important;
 }
 
-/* 2. HOVER & FOCUS STATE: Force the triangle to be BLACK. */
-html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning.btnPlayFromBeginning.btnPlayFromBeginning:hover .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning.btnPlayFromBeginning.btnPlayFromBeginning:focus .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning.btnPlayFromBeginning.btnPlayFromBeginning.show-focus .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnResume.btnResume.btnResume:hover .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnResume.btnResume.btnResume:focus .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnResume.btnResume.btnResume.show-focus .md-icon {
-    color: var(--pure-black) !important;
-    -webkit-text-fill-color: var(--pure-black) !important;
-    filter: none !important;
+/* 2. Hover & Focus State: Force the triangle to be BLACK when button turns Gold */
+html[class*="theme-"] body .videoOsdBottom button.btnPlay:hover .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnPlay:focus .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnPlay.show-focus .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnResume:hover .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnResume:focus .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnResume.show-focus .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning:hover .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning:focus .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning.show-focus .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnStartNow:hover .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnStartNow:focus .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnStartNow.show-focus .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnSkipIntro:hover .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnSkipIntro:focus .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.btnSkipIntro.show-focus .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.detailButton:hover .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.detailButton:focus .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.detailButton.show-focus .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.button-submit:hover .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.button-submit:focus .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.button-submit.show-focus .md-icon {
+  color:                   var(--pure-black) !important;
+  -webkit-text-fill-color: var(--pure-black) !important;
+  filter:                  none !important;
 }
 
 /* 1. Resting State: Forces the favorited heart to stay Red */
