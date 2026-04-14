@@ -5836,7 +5836,11 @@ html[class*="theme-"] body[class] .listItem:hover:not(.listItem-selected):not(.b
    text-shadow: none !important;
 }
 
-/* Lock the Star Icon globally so it NEVER turns white on row hover */
+/* --- 13C. THE STAR SHIELD: Protect Rating Stars from Seasonal Overrides --- */
+
+/* Globally locks the Star Icon to your custom variables so it NEVER changes on row hover */
+html[class*="theme-"] body[class] .mediaInfoItem .starIcon,
+html[class*="theme-"] body[class] .mediaInfoItem:hover .starIcon,
 html[class*="theme-"] body[class] tr:hover .mediaInfoItem .starIcon,
 html[class*="theme-"] body[class] .dataGridItem:hover .mediaInfoItem .starIcon,
 html[class*="theme-"] body[class] .dataGridRow:hover .mediaInfoItem .starIcon,
@@ -5844,6 +5848,7 @@ html[class*="theme-"] body[class] .listItem:hover:not(.background-theme-a) .medi
    color:                   var(--star-color) !important;
    -webkit-text-fill-color: var(--star-color) !important;
    filter:                  var(--star-glow) !important;
+   text-shadow:             none !important;
 }
 
 /* ============================================================
