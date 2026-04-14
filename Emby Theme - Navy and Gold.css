@@ -3084,7 +3084,7 @@ html[class*="theme-"] body .sideFooterCard .visualCardBox {
   background:       var(--navy-light-alpha-80) !important;
   background-color: var(--navy-light-alpha-80) !important;
   background-image: none !important;
-  border:           var(--hover-border-thickness) solid transparent !important;
+  /* border:           var(--hover-border-thickness) solid transparent !important; */ /* TODO: FIX TO MUSIC SUGGESTIONS SHIFTING TO A SINGLE ROW */
   border-radius:    var(--border-radius-md) !important;
   box-shadow:       0px 5px 15px var(--black-alpha-50) !important;
   transition:       all var(--transition-speed) ease-in-out !important;
@@ -5018,22 +5018,7 @@ html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navMenuOptionTex
 
 /* --- 10G. DASHBOARD NOW PLAYING ZEBRA STRIPING FIX --- */
 
-/* 1. Ensure the card base is dark so the translucent stripes look correct */
-html[class*="theme-"] body .sideFooterCard .visualCardBox {
-  background-color: var(--navy-light-alpha-80) !important;
-  background:       var(--navy-light-alpha-80) !important;
-  background-image: none !important;
-  border:           var(--hover-border-thickness) solid transparent !important;
-}
-
-html[class*="theme-"] body .sideFooterCard .visualCardBox .cardContent {
-  background-color: transparent !important;
-  background:       transparent !important;
-  background-image: none !important;
-  border:           none !important;
-}
-
-/* 2. Apply Custom Striping (Fixed Case Sensitivity!) */
+/* 1. Apply Custom Striping (Fixed Case Sensitivity!) */
 html[class*="theme-"] body .activeSession-bottomsection {
   border: none !important;
 }
@@ -5046,14 +5031,14 @@ html[class*="theme-"] body .activeSession-bottomsection:nth-child(even) {
   background-color: var(--table-row-bg-even) !important;
 }
 
-/* 3. Override Light Theme's Black Text */
+/* 2. Override Light Theme's Black Text */
 html[class*="theme-"] body .activeSession-bottomsection,
 html[class*="theme-"] body .activeSession-bottomsection .secondaryText {
   color:                   var(--white-alpha-70) !important;
   -webkit-text-fill-color: var(--white-alpha-70) !important;
 }
 
-/* 4. Highlight the Row Labels (Stream, Video, Audio) in Gold */
+/* 3. Highlight the Row Labels (Stream, Video, Audio) in Gold */
 html[class*="theme-"] body .activeSession-bottomsection-title {
   color:                   var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
@@ -5061,18 +5046,25 @@ html[class*="theme-"] body .activeSession-bottomsection-title {
   letter-spacing:          0.5px !important;
 }
 
-/* 5. Ensure icons inside these rows pop */
+/* 4. Ensure icons inside these rows pop */
 html[class*="theme-"] body .activeSession-bottomsection .md-icon {
   color:                   var(--pure-white) !important;
   -webkit-text-fill-color: var(--pure-white) !important;
 }
 
-/* 6. Dashboard Now Playing Hover Fix: Removes yellow inner tint but keeps the glowing gold border */
+/* 5. Dashboard Now Playing Hover Fix: Removes yellow inner tint but keeps the glowing gold border */
 html[class*="theme-"] body .activeSession.card:hover .visualCardBox,
 html[class*="theme-"] body .activeSession.card.show-focus .visualCardBox {
   background-color: var(--navy-light-alpha-80) !important;
   background:       var(--navy-light-alpha-80) !important;
   box-shadow:       var(--shadow-glow-standard) !important;
+}
+
+/* 6. Transcoding Progress Bar: Forces the secondary progress bar to Red */
+html[class*="theme-"] body .sessionTranscodingProgress .itemProgressBarForeground {
+  background-color: var(--danger-red) !important;
+  background:       var(--danger-red) !important;
+  box-shadow:       0 0 8px var(--danger-red) !important;
 }
 
 /* 7. Transcoding Progress Bar: Forces the secondary progress bar to Red */
