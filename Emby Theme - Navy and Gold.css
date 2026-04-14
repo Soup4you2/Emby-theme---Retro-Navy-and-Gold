@@ -265,7 +265,7 @@ html,
   --backdrop-gradient: none;                                       /* DIMMING (Traditional full-screen dark overlay) */
   /*--backdrop-bg-color: transparent;                              /* NO DIMMING */
   /*--backdrop-gradient: linear-gradient(to right, var(--pure-black) 0%, var(--black-alpha-75) 30%, transparent 75%);    /* NO DIMMING */
-  --backdrop-anim-toggle: imgZoomFadeIn;                           /* Set to 'imgZoomFadeIn' to ENABLE the backdrop animation, or 'none' to DISABLE it */
+  --backdrop-anim-toggle: imgZoomFadeIn;                           /* Options are: 'imgZoomFadeIn', 'imgPanRight', 'imgCinematicDrift', 'imgFadeOnly' to ENABLE the backdrop animation, or 'none' to DISABLE it */
   --anim-backdrop-mask: linear-gradient(to right, transparent 0%, var(--pure-black) 40%), linear-gradient(to top, transparent 0%, var(--pure-black) 40%);
   --backdrop-image-scale: 80%;                                     /* Percentage of screen to use for backdrop posters (It will always pin to the top right of the screen) */                              
 
@@ -550,7 +550,25 @@ html[class*="theme-"] .mainAnimatedPages {
 
 @keyframes imgZoomFadeIn {
   0%   { transform: scale(1); filter: blur(8px); opacity: 0; }
-  100% { transform: scale(1.1); filter: blur(0px); }
+  100% { transform: scale(1.1); filter: blur(0px); opacity: 1; }
+}
+
+/* Slow Pan Left to Right */
+@keyframes imgPanRight {
+  0%   { transform: scale(1.15) translateX(-2%); filter: blur(8px); opacity: 0; }
+  100% { transform: scale(1.15) translateX(2%); filter: blur(0px); opacity: 1; }
+}
+
+/* Cinematic Drift (Slow zoom while panning up and left) */
+@keyframes imgCinematicDrift {
+  0%   { transform: scale(1.05) translate(1%, 1%); filter: blur(10px); opacity: 0; }
+  100% { transform: scale(1.15) translate(-1%, -1%); filter: blur(0px); opacity: 1; }
+}
+
+/* Clean Fade (No movement, just a smooth fade from blurry to clear) */
+@keyframes imgFadeOnly {
+  0%   { filter: blur(10px); opacity: 0; }
+  100% { filter: blur(0px); opacity: 1; }
 }
 
 /* --- 2B. GLOBAL TYPOGRAPHY & FONTS --- */
@@ -1909,20 +1927,6 @@ html[class*="theme-"] body .cardOverlayButtonIcon,
 html[class*="theme-"] body .listItemOverlayButtonIcon {
   background-color: var(--my-gold) !important;
   color:            var(--pure-black) !important;
-}
-
-/* 5b. Episode List Play Buttons (Compact Gold Circle) */
-html[class*="theme-"] body .listItemImageButton,
-html[class*="theme-"] body .listItemOverlayButton-hover,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .listItemImageButton,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) .listItemOverlayButton-hover {
-  background:       transparent !important;
-  background-color: transparent !important;
-  border:           none !important;
-  box-shadow:       none !important;
-  border-radius:    0 !important;
-  transform:        none !important;
-  padding:          0 !important;
 }
 
 /* Resting State: We style the ICON ITSELF to be the compact circle */
@@ -4922,35 +4926,6 @@ html[class*="theme-"] body .trackList .listItem .paper-icon-button-light[data-ac
   filter: drop-shadow(0 0 8px var(--my-gold-light)) !important;
 }
 
-/* 6. DATA GRID & LIST RATING BADGE HOVER FIX --- */
-/* Prevents table row hovers from bleeding into the media badges and altering their backgrounds */
-html[class*="theme-"] body .dataGridItem:hover .mediaInfoItem,
-html[class*="theme-"] body .dataGridRow:hover .mediaInfoItem,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .mediaInfoItem {
-  background:  var(--media-badge-bg) !important;
-  border:      var(--media-badge-border) !important;
-  box-shadow:  var(--media-badge-shadow) !important;
-  text-shadow: none !important; 
-}
-
-/* Forces text to match the badge color, but explicitly excludes the Star Icon */
-html[class*="theme-"] body .dataGridItem:hover .mediaInfoItem *:not(.starIcon),
-html[class*="theme-"] body .dataGridRow:hover .mediaInfoItem *:not(.starIcon),
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .mediaInfoItem *:not(.starIcon) {
-  color:                   var(--media-badge-color) !important;
-  -webkit-text-fill-color: var(--media-badge-color) !important;
-  text-shadow:             none !important; 
-}
-
-/* Locks the Star Icon to its dedicated color and glow so it NEVER changes on row hover */
-html[class*="theme-"] body .dataGridItem:hover .mediaInfoItem .starIcon,
-html[class*="theme-"] body .dataGridRow:hover .mediaInfoItem .starIcon,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .mediaInfoItem .starIcon {
-  color:                   var(--star-color) !important;
-  -webkit-text-fill-color: var(--star-color) !important;
-  filter:                  var(--star-glow) !important;
-}
-
 /* --- 10E. LIST VIEW ZEBRA STRIPING (EXCLUDING SEASON PAGES) --- */
 
 /* 1. STRIP THE INNER BOXES (Forces the main background to transparent) */
@@ -5711,7 +5686,7 @@ html[class*="theme-"] body .paperListbox .button-flat:hover {
 }
 
 /* ============================================================
-   13. UNIVERSAL SEASONAL LOGIC
+   13. UNIVERSAL SEASONAL LOGIC & GLOBAL SHIELDS
    ============================================================ */
 
 /* 1. Universal Actor Names */
@@ -5759,6 +5734,118 @@ html[class*="theme-"] body .button-submit:active {
   box-shadow: var(--btn-shadow) !important;
 }
 
+/* --- 13A. THE GLOBAL SHIELD: Protect Play Buttons in Lists & Playlists --- */
+
+/* 1. Strip the wrapper so seasonal shapes (Eggs, Pumpkins) don't turn into boxes */
+html[class*="theme-"] body[class] .listItemImageButton,
+html[class*="theme-"] body[class] .listItemOverlayButton-hover,
+html[class*="theme-"] body[class] .listItemOverlayButtonIcon,
+html[class*="theme-"] body[class] .listItemImageContainer .paper-icon-button-light {
+    background-image: none !important;
+    border-radius:    0 !important;
+    background-color: transparent !important;
+    box-shadow:       none !important;
+    border:           none !important;
+    transform:        none !important;
+    animation:        none !important;
+    padding:          0 !important;
+}
+
+/* 2. Resting State: Force the compact circle onto the icon itself */
+html[class*="theme-"] body[class] .listItemImageButton .md-icon,
+html[class*="theme-"] body[class] .listItemImageButton svg,
+html[class*="theme-"] body[class] .listItemOverlayButton-hover .md-icon,
+html[class*="theme-"] body[class] .listItemOverlayButton-hover svg,
+html[class*="theme-"] body[class] .listItemOverlayButtonIcon,
+html[class*="theme-"] body[class] .listItemImageContainer .paper-icon-button-light .md-icon,
+html[class*="theme-"] body[class] .listItemImageContainer .paper-icon-button-light svg {
+   background-color: var(--black-alpha-60) !important;
+   border:           2px solid var(--pure-white) !important;
+   border-radius:    50% !important;
+   color:            var(--pure-white) !important;
+   -webkit-text-fill-color: var(--pure-white) !important;
+   fill:             var(--pure-white) !important;
+   filter:           drop-shadow(0 4px 8px var(--pure-black)) !important;
+   font-size:        18px !important;
+   display:          inline-flex !important;
+   align-items:      center !important;
+   justify-content:  center !important;
+   margin:           0 !important;
+   transition:       all var(--transition-speed) ease !important;
+}
+
+/* 3. Row Hover: Icon Background turns Gold, Triangle turns Black */
+html[class*="theme-"] body[class] tr:hover .listItemImageButton .md-icon,
+html[class*="theme-"] body[class] tr:hover .listItemImageButton svg,
+html[class*="theme-"] body[class] tr:hover .listItemImageContainer .paper-icon-button-light .md-icon,
+html[class*="theme-"] body[class] tr:hover .listItemImageContainer .paper-icon-button-light svg,
+html[class*="theme-"] body[class] tr:hover .listItemOverlayButtonIcon,
+html[class*="theme-"] body[class] .dataGridItem:hover .listItemImageButton .md-icon,
+html[class*="theme-"] body[class] .dataGridItem:hover .listItemImageButton svg,
+html[class*="theme-"] body[class] .dataGridItem:hover .listItemImageContainer .paper-icon-button-light .md-icon,
+html[class*="theme-"] body[class] .dataGridItem:hover .listItemImageContainer .paper-icon-button-light svg,
+html[class*="theme-"] body[class] .dataGridItem:hover .listItemOverlayButtonIcon,
+html[class*="theme-"] body[class] .dataGridRow:hover .listItemImageButton .md-icon,
+html[class*="theme-"] body[class] .dataGridRow:hover .listItemImageButton svg,
+html[class*="theme-"] body[class] .dataGridRow:hover .listItemImageContainer .paper-icon-button-light .md-icon,
+html[class*="theme-"] body[class] .dataGridRow:hover .listItemImageContainer .paper-icon-button-light svg,
+html[class*="theme-"] body[class] .dataGridRow:hover .listItemOverlayButtonIcon,
+html[class*="theme-"] body[class] .listItem:hover:not(.background-theme-a) .listItemImageButton .md-icon,
+html[class*="theme-"] body[class] .listItem:hover:not(.background-theme-a) .listItemImageButton svg,
+html[class*="theme-"] body[class] .listItem:hover:not(.background-theme-a) .listItemImageContainer .paper-icon-button-light .md-icon,
+html[class*="theme-"] body[class] .listItem:hover:not(.background-theme-a) .listItemImageContainer .paper-icon-button-light svg,
+html[class*="theme-"] body[class] .listItem:hover:not(.background-theme-a) .listItemOverlayButtonIcon {
+   background-color: var(--my-gold) !important;
+   border-color:     var(--my-gold) !important;
+   color:            var(--pure-black) !important;
+   -webkit-text-fill-color: var(--pure-black) !important;
+   fill:             var(--pure-black) !important;
+   filter:           drop-shadow(0 0 6px var(--pure-black)) !important;
+}
+
+/* 4. Direct Hover: Circle glows brighter, Triangle STAYS Black */
+html[class*="theme-"] body[class] .listItemImageButton:hover .md-icon,
+html[class*="theme-"] body[class] .listItemImageButton:hover svg,
+html[class*="theme-"] body[class] .listItemOverlayButton-hover:hover .md-icon,
+html[class*="theme-"] body[class] .listItemOverlayButton-hover:hover svg,
+html[class*="theme-"] body[class] .listItemOverlayButtonIcon:hover,
+html[class*="theme-"] body[class] .listItemImageContainer .paper-icon-button-light:hover .md-icon,
+html[class*="theme-"] body[class] .listItemImageContainer .paper-icon-button-light:hover svg {
+   background-color: var(--my-gold-light) !important;
+   border-color:     var(--my-gold-light) !important;
+   color:            var(--pure-black) !important;
+   -webkit-text-fill-color: var(--pure-black) !important;
+   fill:             var(--pure-black) !important;
+   filter:           drop-shadow(0 0 10px var(--my-gold)) !important;
+}
+
+/* --- 13B. THE BADGE SHIELD: Protect Badge Colors on Row Hover --- */
+
+/* Prevents Emby's native table row hover from washing out the text of our seasonal badges. */
+html[class*="theme-"] body[class] tr:hover .mediaInfoItem,
+html[class*="theme-"] body[class] .dataGridItem:hover .mediaInfoItem,
+html[class*="theme-"] body[class] .dataGridRow:hover .mediaInfoItem,
+html[class*="theme-"] body[class] .listItem:hover:not(.listItem-selected):not(.background-theme-a) .mediaInfoItem {
+   text-shadow: none !important;
+}
+
+html[class*="theme-"] body[class] tr:hover .mediaInfoItem *:not(.starIcon),
+html[class*="theme-"] body[class] .dataGridItem:hover .mediaInfoItem *:not(.starIcon),
+html[class*="theme-"] body[class] .dataGridRow:hover .mediaInfoItem *:not(.starIcon),
+html[class*="theme-"] body[class] .listItem:hover:not(.listItem-selected):not(.background-theme-a) .mediaInfoItem *:not(.starIcon) {
+   text-shadow: none !important;
+}
+
+/* Lock the Star Icon globally so it NEVER turns white on row hover */
+html[class*="theme-"] body[class] tr:hover .mediaInfoItem .starIcon,
+html[class*="theme-"] body[class] .dataGridItem:hover .mediaInfoItem .starIcon,
+html[class*="theme-"] body[class] .dataGridRow:hover .mediaInfoItem .starIcon,
+html[class*="theme-"] body[class] .listItem:hover:not(.background-theme-a) .mediaInfoItem .starIcon {
+   color:                   var(--star-color) !important;
+   -webkit-text-fill-color: var(--star-color) !important;
+   filter:                  var(--star-glow) !important;
+}
+
 /* ============================================================
    14. SEASONAL EFFECTS (VALENTINE'S DAY)
    ============================================================ */
@@ -5770,9 +5857,7 @@ html[class*="theme-"] body .button-submit:active {
 
   /* 1. Buttons & Icons: Transforms overlays into red circles */
   html[class*="theme-"] body .cardOverlayFab-primary, 
-  html[class*="theme-"] body .cardOverlayButtonIcon, 
-  html[class*="theme-"] body .listItemOverlayButtonIcon, 
-  html[class*="theme-"] body .listItemImageButton { 
+  html[class*="theme-"] body .cardOverlayButtonIcon {
     background:              transparent !important; 
     background-color:        transparent !important;
     border:                  none !important; 
@@ -6147,9 +6232,7 @@ html[class*="theme-"] body .button-submit:active {
 
   /* 1. Coin Base: Replaces play/edit buttons with glowing gold coins */
   html[class*="theme-"] body .cardOverlayFab-primary, 
-  html[class*="theme-"] body .cardOverlayButtonIcon, 
-  html[class*="theme-"] body .listItemOverlayButtonIcon, 
-  html[class*="theme-"] body .listItemImageButton { 
+  html[class*="theme-"] body .cardOverlayButtonIcon {
     background:              radial-gradient(circle at 30% 30%, var(--my-gold-light) 0%, var(--my-gold) 60%, var(--stpat-gold-dark) 100%) !important; 
     border:                  2px solid var(--stpat-gold-dark) !important; 
     box-shadow:              0 5px 15px rgba(var(--theme-primary-rgb), 0.4), inset -2px -4px 8px rgba(var(--pure-black-rgb), 0.3) !important; 
@@ -6476,9 +6559,7 @@ html[class*="theme-"] body .button-submit:active {
   /* --- 16B. MEDIA CARD ACTION OVERLAYS (WOBBLING EGGS) --- */
 
   html[class*="theme-"] body .cardOverlayFab-primary, 
-  html[class*="theme-"] body .cardOverlayButtonIcon, 
-  html[class*="theme-"] body .listItemOverlayButtonIcon, 
-  html[class*="theme-"] body .listItemImageButton { 
+  html[class*="theme-"] body .cardOverlayButtonIcon {
     border-radius:           50% / 60% 60% 40% 40% !important; 
     background:              radial-gradient(circle at 30% 30%, var(--easter-yellow-light) 0%, var(--theme-primary-color) 60%, var(--easter-pink-dark) 100%) !important; 
     background-color:        transparent !important;
@@ -6898,9 +6979,7 @@ html[class*="theme-"] body .button-submit:active {
 
   /* 1. Patriotic Shields: Replaces buttons with custom colors */
   html[class*="theme-"] body .cardOverlayFab-primary, 
-  html[class*="theme-"] body .cardOverlayButtonIcon, 
-  html[class*="theme-"] body .listItemOverlayButtonIcon, 
-  html[class*="theme-"] body .listItemImageButton { 
+  html[class*="theme-"] body .cardOverlayButtonIcon {
     background:              var(--theme-accent-color) !important; 
     border:                  4px solid var(--theme-primary-color) !important; 
     box-shadow:              0 0 0 3px var(--pure-white) inset, 0 0 15px rgba(var(--my-gold-rgb), 0.6) !important; 
@@ -7147,10 +7226,8 @@ html[class*="theme-"] body .button-submit:active {
 
   /* --- 18C. MEDIA CARD ACTION OVERLAYS (SPECTRAL BUTTONS) --- */
 
-  html[class*="theme-"] body .cardOverlayFab-primary,
-  html[class*="theme-"] body .cardOverlayButtonIcon,
-  html[class*="theme-"] body .listItemOverlayButtonIcon,
-  html[class*="theme-"] body .listItemImageButton {
+  html[class*="theme-"] body .cardOverlayFab-primary, 
+  html[class*="theme-"] body .cardOverlayButtonIcon {
     background:              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%238a2be2' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z'/%3E%3C/svg%3E") center / 100% 100% no-repeat transparent !important;
     background-color:        transparent !important; 
     border:                  none !important;
@@ -7385,10 +7462,8 @@ html[class*="theme-"] body .button-submit:active {
   /* --- 19B. MEDIA CARD ACTION OVERLAYS (PIE BUTTONS) --- */
 
   /* 1. Pie Buttons: Replaces default icons with autumnal pie SVGs */
-  html[class*="theme-"] body .cardOverlayFab-primary,
-  html[class*="theme-"] body .cardOverlayButtonIcon,
-  html[class*="theme-"] body .listItemOverlayButtonIcon,
-  html[class*="theme-"] body .listItemImageButton { 
+  html[class*="theme-"] body .cardOverlayFab-primary, 
+  html[class*="theme-"] body .cardOverlayButtonIcon {
     background:              transparent !important; 
     background-color:        transparent !important;
     border:                  none !important; 
@@ -7718,10 +7793,8 @@ html[class*="theme-"] body .button-submit:active {
   /* --- 20B. MEDIA CARD ACTION OVERLAYS (FESTIVE WREATH) --- */
 
   /* 1. Wreath Overlays: Festive green wreaths with red berry accents */
-  html[class*="theme-"] body .cardOverlayFab-primary,
-  html[class*="theme-"] body .cardOverlayButtonIcon,
-  html[class*="theme-"] body .listItemOverlayButtonIcon,
-  html[class*="theme-"] body .listItemImageButton {
+  html[class*="theme-"] body .cardOverlayFab-primary, 
+  html[class*="theme-"] body .cardOverlayButtonIcon {
     border:                  0 !important;
     box-shadow:              none !important;
     border-radius:           50% !important;
@@ -8042,10 +8115,8 @@ html[class*="theme-"] body .button-submit:active {
 
   /* --- 21B. MEDIA CARD ACTION OVERLAYS (GLASS STYLE) --- */
 
-  html[class*="theme-"] body .cardOverlayFab-primary,
-  html[class*="theme-"] body .cardOverlayButtonIcon,
-  html[class*="theme-"] body .listItemOverlayButtonIcon,
-  html[class*="theme-"] body .listItemImageButton {
+  html[class*="theme-"] body .cardOverlayFab-primary, 
+  html[class*="theme-"] body .cardOverlayButtonIcon {
     background-color:        var(--pure-black) !important;
     background-image:        linear-gradient(135deg, var(--nye-black-light) 0%, var(--pure-black) 100%) !important;
     background-size:         100% 100% !important;
