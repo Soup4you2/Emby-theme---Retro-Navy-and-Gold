@@ -1637,30 +1637,72 @@ html[class*="theme-"] body .actionSheet .button-link * {
   opacity:                 1 !important;
 }
 
-/* 6. Action Sheet Preview Badges (Title & Subtitle): Forces gold pill style & disables hover */
-html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText .mediaInfoItem,
-html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText .mediaInfoItem * {
-  background:              var(--media-badge-bg) !important;
-  color:                   var(--media-badge-color) !important;
-  -webkit-text-fill-color: var(--media-badge-color) !important;
-  border:                  var(--media-badge-border) !important;
-  box-shadow:              var(--media-badge-shadow) !important;
-  border-radius:           var(--media-badge-radius) !important;
-  text-decoration:         none !important;
-  margin:                  4px !important;
-}
+/* 6. Action Sheet Preview Text (Titles, Subtitles, Info Button) */
 
-/* Kill the hover state specifically for these preview badges */
+/* Strip all badge formatting and hover effects to return to clean text */
+html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText .mediaInfoItem,
+html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText .mediaInfoItem *,
 html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText .mediaInfoItem:hover,
 html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText .mediaInfoItem:hover * {
-  background:              var(--media-badge-bg) !important;
-  color:                   var(--media-badge-color) !important;
-  -webkit-text-fill-color: var(--media-badge-color) !important;
-  border:                  var(--media-badge-border) !important;
-  box-shadow:              var(--media-badge-shadow) !important;
-  transform:               none !important;
+  background:              transparent !important;
+  border:                  none !important;
+  box-shadow:              none !important;
+  text-shadow:             none !important;
+  margin:                  2px 6px 2px 0 !important;
+  padding:                 0 !important;
   text-decoration:         none !important;
-  cursor:                  default !important;
+  transform:               none !important;
+}
+
+/* Target the Main Title (Track/Movie Name) -> Mapped to H3 */
+html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText-main .mediaInfoItem,
+html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText-main .mediaInfoItem:hover {
+  color:                   var(--h3-color) !important;
+  -webkit-text-fill-color: var(--h3-color) !important;
+  font-size:               1.25em !important; 
+  font-family:             var(--font-header) !important;
+  text-transform:          uppercase !important;
+  letter-spacing:          0.5px !important;
+}
+
+/* Target the FIRST Secondary Text (Artist) -> Mapped to H4 */
+html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText.secondaryText:nth-of-type(2) .mediaInfoItem,
+html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText.secondaryText:nth-of-type(2) .mediaInfoItem:hover {
+  color:                   var(--h4-color) !important;
+  -webkit-text-fill-color: var(--h4-color) !important;
+  font-family:             var(--font-body) !important;
+  font-weight:             normal !important;
+  font-size:               1.05em !important;
+  text-transform:          none !important;
+}
+
+/* Target the SECOND Secondary Text (Album, Year, Desc.) -> Mapped to H6 */
+html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText.secondaryText:nth-of-type(3) .mediaInfoItem,
+html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText.secondaryText:nth-of-type(3) .mediaInfoItem:hover {
+  color:                   var(--h6-color) !important;
+  -webkit-text-fill-color: var(--h6-color) !important;
+  font-family:             var(--font-body) !important;
+  font-weight:             normal !important;
+  font-size:               1.05em !important;
+  text-transform:          none !important;
+}
+
+/* The Info Button ("i" icon) -> Mapped to Gold */
+html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText .button-link,
+html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText .button-link .md-icon,
+html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText .button-link:hover {
+  color:                   var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  font-size:               1.3em !important; 
+  transition:              all var(--transition-speed) ease !important;
+}
+
+/* Info Button Hover State (Glow + Scale) */
+html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText .button-link:hover .md-icon {
+  color:                   var(--my-gold-light) !important;
+  -webkit-text-fill-color: var(--my-gold-light) !important;
+  filter:                  drop-shadow(0 0 8px var(--my-gold)) !important;
+  transform:               scale(1.15) !important;
 }
 
 /* --- 4B. TEXT INPUTS, DROPDOWNS & TEXTAREAS --- */
