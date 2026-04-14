@@ -3084,7 +3084,7 @@ html[class*="theme-"] body .sideFooterCard .visualCardBox {
   background:       var(--navy-light-alpha-80) !important;
   background-color: var(--navy-light-alpha-80) !important;
   background-image: none !important;
-  /* border:           var(--hover-border-thickness) solid transparent !important; */ /* TODO: FIX TO MUSIC SUGGESTIONS SHIFTING TO A SINGLE ROW */
+  border:           none !important; /* CRITICAL: No physical border to prevent row shifting */
   border-radius:    var(--border-radius-md) !important;
   box-shadow:       0px 5px 15px var(--black-alpha-50) !important;
   transition:       all var(--transition-speed) ease-in-out !important;
@@ -4214,13 +4214,26 @@ html[class*="theme-"] body .nowPlayingPage .toggleButton-active .md-icon {
   filter:                  var(--filter-glow-gold-solid) !important;
 }
 
-/* --- OSD ICON RESTING STATE (All OSDs & Now Playing) --- */
-html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):not(.starIcon),
-html[class*="theme-"] body .nowPlayingBar .md-icon:not(.ratingbutton-icon-withrating):not(.starIcon),
+/* --- OSD BOTTOM & NOW PLAYING ICON RESTING STATE --- */
+html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
+html[class*="theme-"] body .nowPlayingBar .md-icon:not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .nowPlayingPage .md-icon:not(.ratingbutton-icon-withrating),
-html[class*="theme-"] body .videoOsdBottom .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon:not(.starIcon),
-html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon:not(.starIcon),
-html[class*="theme-"] body .nowPlayingPage .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon:not(.starIcon),
+html[class*="theme-"] body .videoOsdBottom .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .nowPlayingPage .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon {
+  color:                   var(--osd-icon-color) !important;
+  -webkit-text-fill-color: var(--osd-icon-color) !important;
+  opacity:                 0.9 !important; 
+  transition:              all var(--transition-speed) ease !important;
+}
+
+/* --- OSD ICON RESTING STATE (All OSDs & Now Playing) --- */
+html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
+html[class*="theme-"] body .nowPlayingBar .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .nowPlayingPage .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdBottom .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .nowPlayingPage .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
 html[class*="theme-"] body .videoOsdHeader .md-icon:not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .videoOsdHeader .headerButton:not(.ratingbutton-icon-withrating) .md-icon,
 html[class*="theme-"] body .videoOsdHeader .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon, {
@@ -4232,9 +4245,9 @@ html[class*="theme-"] body .videoOsdHeader .paper-icon-button-light:not(.ratingb
 }
 
 /* --- OSD ICON HOVER STATE --- */
-html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):hover:not(.starIcon),
-html[class*="theme-"] body .videoOsdBottom button:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):not(.starIcon),
-html[class*="theme-"] body .videoOsdBottom a:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):not(.starIcon),
+html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):hover,
+html[class*="theme-"] body .videoOsdBottom button:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
+html[class*="theme-"] body .videoOsdBottom a:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
 html[class*="theme-"] body .videoOsdHeader .md-icon:not(.ratingbutton-icon-withrating):hover,
 html[class*="theme-"] body .videoOsdHeader button:hover .md-icon:not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .videoOsdHeader a:hover .md-icon:not(.ratingbutton-icon-withrating),
@@ -5071,13 +5084,6 @@ html[class*="theme-"] body .activeSession.card.show-focus .visualCardBox {
 }
 
 /* 6. Transcoding Progress Bar: Forces the secondary progress bar to Red */
-html[class*="theme-"] body .sessionTranscodingProgress .itemProgressBarForeground {
-  background-color: var(--danger-red) !important;
-  background:       var(--danger-red) !important;
-  box-shadow:       0 0 8px var(--danger-red) !important;
-}
-
-/* 7. Transcoding Progress Bar: Forces the secondary progress bar to Red */
 html[class*="theme-"] body .sessionTranscodingProgress .itemProgressBarForeground {
   background-color: var(--danger-red) !important;
   background:       var(--danger-red) !important;
