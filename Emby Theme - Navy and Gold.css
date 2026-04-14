@@ -1927,7 +1927,11 @@ html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.backgrou
 
 /* Resting State: We style the ICON ITSELF to be the compact circle */
 html[class*="theme-"] body .listItemImageButton .md-icon,
-html[class*="theme-"] body .listItemOverlayButtonIcon {
+html[class*="theme-"] body .listItemOverlayButtonIcon,
+html[class*="theme-"] body .trackList .listItem .paper-icon-button-light[data-action="play"].listItemImageButton .md-icon,
+html[class*="theme-"] body .trackList .listItem .paper-icon-button-light[data-action="resume"].listItemImageButton .md-icon,
+html[class*="theme-"] body .trackList .listItem .paper-icon-button-light[data-action="play"].listItemOverlayButton-hover .md-icon,
+html[class*="theme-"] body .trackList .listItem .paper-icon-button-light[data-action="resume"].listItemOverlayButton-hover .md-icon {
   color:                   var(--pure-white) !important;
   -webkit-text-fill-color: var(--pure-white) !important;
   background-color:        var(--black-alpha-60) !important; 
@@ -1944,7 +1948,11 @@ html[class*="theme-"] body .listItemOverlayButtonIcon {
 
 /* Row Hover State: The icon background turns Gold, the triangle turns Black */
 html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .listItemImageButton .md-icon,
-html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .listItemOverlayButtonIcon {
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) .listItemOverlayButtonIcon,
+html[class*="theme-"] body .trackList .listItem:hover:not(.listItem-selected):not(.background-theme-a) .paper-icon-button-light[data-action="play"].listItemImageButton .md-icon,
+html[class*="theme-"] body .trackList .listItem:hover:not(.listItem-selected):not(.background-theme-a) .paper-icon-button-light[data-action="resume"].listItemImageButton .md-icon,
+html[class*="theme-"] body .trackList .listItem:hover:not(.listItem-selected):not(.background-theme-a) .paper-icon-button-light[data-action="play"].listItemOverlayButton-hover .md-icon,
+html[class*="theme-"] body .trackList .listItem:hover:not(.listItem-selected):not(.background-theme-a) .paper-icon-button-light[data-action="resume"].listItemOverlayButton-hover .md-icon {
   background-color:        var(--my-gold) !important;
   border-color:            var(--my-gold) !important;
   color:                   var(--pure-black) !important;
@@ -1952,9 +1960,13 @@ html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.navMenuO
   filter:                  drop-shadow(0 0 6px var(--pure-black)) !important;
 }
 
-/* Direct Hover State: Circle glows brighter and gets slightly bigger */
+/* Direct Hover State: Circle glows brighter and gets slightly bigger (Triangle MUST stay black) */
 html[class*="theme-"] body .listItemImageButton:hover .md-icon,
-html[class*="theme-"] body .listItemOverlayButton-hover:hover .md-icon {
+html[class*="theme-"] body .listItemOverlayButton-hover:hover .md-icon,
+html[class*="theme-"] body .trackList .listItem .paper-icon-button-light[data-action="play"].listItemImageButton:hover .md-icon,
+html[class*="theme-"] body .trackList .listItem .paper-icon-button-light[data-action="resume"].listItemImageButton:hover .md-icon,
+html[class*="theme-"] body .trackList .listItem .paper-icon-button-light[data-action="play"].listItemOverlayButton-hover:hover .md-icon,
+html[class*="theme-"] body .trackList .listItem .paper-icon-button-light[data-action="resume"].listItemOverlayButton-hover:hover .md-icon {
   background-color:        var(--my-gold-light) !important;
   border-color:            var(--my-gold-light) !important;
   color:                   var(--pure-black) !important;
