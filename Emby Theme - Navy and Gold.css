@@ -2816,10 +2816,10 @@ html[class*="theme-"] body .card {
 html[class*="theme-"] body .card:hover .cardContent,
 html[class*="theme-"] body .card:hover .cardImageContainer,
 html[class*="theme-"] body .card:hover .defaultCardBackground {
-  border-color:            var(--theme-primary-color) !important;
-  border-width:            var(--hover-border-thickness) !important; 
-  border-style:            solid !important;
-  box-shadow:              0 8px 20px var(--black-alpha-50), var(--shadow-glow-standard) !important;                      
+  border-color:             var(--theme-primary-color) !important;
+  border-width:             var(--hover-border-thickness) !important; 
+  border-style:             solid !important;
+  box-shadow:               var(--popout-shadow) !important;                      
 }
 
 /* 2. Shape Handling: Ensures standard cards (movies/shows) maintain specific rounding at rest and on hover */
