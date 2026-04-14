@@ -1645,13 +1645,17 @@ html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText .mediaInfoIt
 html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText .mediaInfoItem:hover,
 html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText .mediaInfoItem:hover * {
   background:              transparent !important;
+  background-color:        transparent !important;
   border:                  none !important;
   box-shadow:              none !important;
   text-shadow:             none !important;
+  filter:                  none !important;
   margin:                  2px 6px 2px 0 !important;
   padding:                 0 !important;
   text-decoration:         none !important;
   transform:               none !important;
+  border-radius:           0 !important;
+  overflow:                visible !important;
 }
 
 /* Target the Main Title (Track/Movie Name) -> Mapped to H3 */
