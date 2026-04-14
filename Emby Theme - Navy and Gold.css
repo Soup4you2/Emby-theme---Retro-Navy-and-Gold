@@ -4584,6 +4584,21 @@ html[class*="theme-"] body .videoosd-info button.btnInfoTabOverviewText:focus * 
   text-decoration:         none !important;
 }
 
+/* 6. Music OSD Poster Overlay & Button Alignment */
+/* Strips rogue shadows/borders from the invisible overlay */
+html[class*="theme-"] body .osdRemoteControlImageCard.card.card.card:hover .cardOverlayContainer,
+html[class*="theme-"] body .osdRemoteControlImageCard.card.card.card.show-focus .cardOverlayContainer {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Locks the favorite/more buttons perfectly into the bottom right corner */
+html[class*="theme-"] body .osdRemoteControlImageCard .cardOverlayContainer .cardOverlayButton-br {
+    bottom: 10px !important;
+    right: 10px !important;
+    margin: 0 !important;
+}
+
 /* ============================================================
    09. FULLSCREEN AUDIO & PLAYLIST
    ============================================================ */
@@ -5504,7 +5519,7 @@ html[class*="theme-"] body .card:not(.spotlightCard):not(.bannerCard):not(.sideF
   transform: var(--popout-transform) !important;
 }
 
-/* THE SHIELD: Forces the Main Detail Poster, OSD Info Poster, and Media Streams to stay flat and ignore 3D twist */
+/* THE SHIELD: Forces the Main Detail Poster, OSD Info Poster, Media Streams, and Music Player Art to stay flat */
 html[class*="theme-"] body .detailImageContainer .card.card.card:hover .cardImageContainer,
 html[class*="theme-"] body .detailImageContainer .card.card.card:hover .defaultCardBackground,
 html[class*="theme-"] body .detailImageContainer .card.card.card:hover .cardOverlayContainer,
@@ -5514,8 +5529,14 @@ html[class*="theme-"] body .videoOsdBottom .osdInfoImageCard.card.card.card:hove
 html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.card.card:hover .cardContent,
 html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.card.card:hover .cardImageContainer,
 html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.card.card.show-focus .cardContent,
-html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.card.card.show-focus .cardImageContainer {
-  transform: none !important;
+html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.card.card.show-focus .cardImageContainer,
+html[class*="theme-"] body .osdRemoteControlImageCard.card.card.card:hover .cardImageContainer,
+html[class*="theme-"] body .osdRemoteControlImageCard.card.card.card:hover .cardContent,
+html[class*="theme-"] body .osdRemoteControlImageCard.card.card.card:hover .cardOverlayContainer,
+html[class*="theme-"] body .osdRemoteControlImageCard.card.card.card.show-focus .cardImageContainer,
+html[class*="theme-"] body .osdRemoteControlImageCard.card.card.card.show-focus .cardContent,
+html[class*="theme-"] body .osdRemoteControlImageCard.card.card.card.show-focus .cardOverlayContainer {
+    transform: none !important;
 }
 
 /* Completely Disable 3D Pop-out and Lift for Media Stream Info Cards */
