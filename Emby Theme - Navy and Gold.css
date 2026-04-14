@@ -2306,8 +2306,8 @@ html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary) {
   transition:       all var(--transition-speed) ease-in-out !important;
 }
 
-/* 2. Hover State: Pops the button background to solid Gold (Excludes Favorite & Played) */
-html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):not([data-isfavorite]):not([data-played]):hover {
+/* 2. Hover State: Pops the button background to solid Gold (Excludes Active Favorite & Played) */
+html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):not([data-isfavorite="true"]):not([data-played="true"]):hover {
   background-color: var(--my-gold) !important;
   background:       var(--my-gold) !important;
   transform:        scale(1.15) !important;
@@ -2315,9 +2315,9 @@ html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):n
   border-radius:    50% !important;
 }
 
-/* 3. Hover State for Unfavorited & Played: Keeps dark background and scales wrapper */
-html[class*="theme-"] body .cardOverlayButton-fab[data-isfavorite="false"]:hover,
-html[class*="theme-"] body .cardOverlayButton-fab[data-played]:hover {
+/* 3. Hover State for Active Favorite & Played: Keeps dark background and scales wrapper */
+html[class*="theme-"] body .cardOverlayButton-fab[data-isfavorite="true"]:hover,
+html[class*="theme-"] body .cardOverlayButton-fab[data-played="true"]:hover {
   background-color: var(--black-alpha-60) !important;
   background:       var(--black-alpha-60) !important;
   transform:        scale(1.15) !important;
@@ -2325,31 +2325,37 @@ html[class*="theme-"] body .cardOverlayButton-fab[data-played]:hover {
   border-radius:    50% !important;
 }
 
-/* 4. Hover Icon Contrast: Forces the 3-dots to pure black (Excludes Favorite & Played) */
-html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):not([data-isfavorite]):not([data-played]):hover,
-html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):not([data-isfavorite]):not([data-played]):hover * {
+/* 4. Hover Icon Contrast: Forces the 3-dots to pure black (Excludes Active Favorite & Played) */
+html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):not([data-isfavorite="true"]):not([data-played="true"]):hover,
+html[class*="theme-"] body .cardOverlayButton-fab:not(.cardOverlayFab-primary):not([data-isfavorite="true"]):not([data-played="true"]):hover * {
   color:                   var(--pure-black) !important;
   -webkit-text-fill-color: var(--pure-black) !important;
   filter:                  none !important;
+  text-shadow:             none !important;
 }
 
-/* 5. Active Favorite Heart Fix: Keeps dark circle but strips outer wrapper glow & scale */
+/* 5. HALO KILLER: Strip global drop-shadow from the background circle */
 html[class*="theme-"] body .cardOverlayButton-fab[data-isfavorite="true"],
+html[class*="theme-"] body .cardOverlayButton-fab[data-played="true"] {
+  filter: none !important; 
+}
+
+/* 6. GLOW FIX: Use text-shadow so ONLY the icon glyph glows, not the background circle */
+html[class*="theme-"] body .cardOverlayButton-fab[data-isfavorite="true"] {
+  text-shadow: 0 0 5px var(--favorite-heart) !important;
+}
+
+html[class*="theme-"] body .cardOverlayButton-fab[data-played="true"] {
+  text-shadow: 0 0 5px var(--my-gold) !important;
+}
+
+/* 7. Active Hover Glows (Brighter on mouse-over) */
 html[class*="theme-"] body .cardOverlayButton-fab[data-isfavorite="true"]:hover {
-  filter:    none !important; /* Stops the outer circle from glowing */
-  transform: none !important; /* Locks wrapper; we will scale the heart icon instead */
+  text-shadow: 0 0 10px var(--favorite-heart-hover) !important;
 }
 
-/* 6. Apply the red glow strictly to the heart icon inside */
-html[class*="theme-"] body .cardOverlayButton-fab[data-isfavorite="true"] .md-icon {
-  filter: drop-shadow(0 0 5px var(--favorite-heart)) !important;
-  transition: all var(--transition-speed) ease !important;
-}
-
-/* 7. Make the heart pop and glow brighter when hovered */
-html[class*="theme-"] body .cardOverlayButton-fab[data-isfavorite="true"]:hover .md-icon {
-  filter: drop-shadow(0 0 10px var(--favorite-heart-hover)) !important;
-  transform: scale(1.2) !important;
+html[class*="theme-"] body .cardOverlayButton-fab[data-played="true"]:hover {
+  text-shadow: 0 0 10px var(--my-gold-light) !important;
 }
 
 /* --- 4J. NATIVE DATE PICKER --- */
@@ -4645,32 +4651,49 @@ html[class*="theme-"] .nowPlayingPage {
 }
 
 /* --- 9C. Fullscreen Audio Typography --- */
+
+/* Main Track Title -> Mapped to H1 */
 .videoOsdText .videoOsdParentTitle {
-  font-family:    var(--font-header) !important;
-  color:          var(--h1-color) !important;
-  font-size:      1.6em !important;
-  font-weight:    700 !important;
-  letter-spacing: 1px !important;
-  text-shadow:    2px 2px 4px var(--black-alpha-80) !important;
+  font-family:             var(--font-header) !important;
+  color:                   var(--h1-color) !important;
+  -webkit-text-fill-color: var(--h1-color) !important;
+  font-size:               1.6em !important;
+  font-weight:             700 !important;
+  letter-spacing:          1px !important;
+  text-shadow:             2px 2px 4px var(--black-alpha-80) !important;
 }
 
+/* Artist Text (Second Title) -> Mapped to H4 */
 .videoOsdText .videoOsdTitle,
-.videoOsdText .videoOsdThirdTitle,
-.videoOsdText .videoOsdTitle .osdTextActionButton,
-.videoOsdText .videoOsdThirdTitle .osdTextActionButton {
-  font-family:    var(--font-body) !important;
-  color:          var(--white-alpha-70) !important;
-  font-weight:    500 !important;
-  text-transform: none !important;
-  text-shadow:    1px 1px 2px var(--black-alpha-80) !important;
-  transition:     all var(--transition-speed) ease !important;
+.videoOsdText .videoOsdTitle .osdTextActionButton {
+  font-family:             var(--font-body) !important;
+  color:                   var(--h4-color) !important;
+  -webkit-text-fill-color: var(--h4-color) !important;
+  font-weight:             500 !important;
+  text-transform:          none !important;
+  text-shadow:             1px 1px 2px var(--black-alpha-80) !important;
+  transition:              all var(--transition-speed) ease !important;
 }
 
+/* Album / Description Text (Third Title) -> Mapped to H6 */
+.videoOsdText .videoOsdThirdTitle,
+.videoOsdText .videoOsdThirdTitle .osdTextActionButton {
+  font-family:             var(--font-body) !important;
+  color:                   var(--h6-color) !important;
+  -webkit-text-fill-color: var(--h6-color) !important;
+  font-weight:             500 !important;
+  text-transform:          none !important;
+  text-shadow:             1px 1px 2px var(--black-alpha-80) !important;
+  transition:              all var(--transition-speed) ease !important;
+}
+
+/* Hover States for interactive Artist/Album links */
 .videoOsdText .videoOsdTitle .osdTextActionButton:hover,
 .videoOsdText .videoOsdThirdTitle .osdTextActionButton:hover {
-  color:            var(--my-gold) !important;
-  filter:           var(--filter-glow-light) !important;
-  text-decoration:  none !important;
+  color:                   var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  filter:                  var(--filter-glow-light) !important;
+  text-decoration:         none !important;
 }
 
 /* ============================================================
