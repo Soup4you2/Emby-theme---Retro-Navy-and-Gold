@@ -4215,11 +4215,15 @@ html[class*="theme-"] body .nowPlayingPage .toggleButton-active .md-icon {
 }
 
 /* --- OSD ICON RESTING STATE (All OSDs & Now Playing) --- */
-html[class*="theme-"] body .videoOsdBottom .paper-icon-button-light .md-icon:not(.starIcon),
-html[class*="theme-"] body .videoOsdBottom .osdIconButton .md-icon:not(.starIcon),
-html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light .md-icon:not(.starIcon),
-html[class*="theme-"] body .nowPlayingPage .paper-icon-button-light .md-icon:not(.starIcon),
-html[class*="theme-"] body .videoOsdHeader .headerButton .md-icon:not(.starIcon) {
+html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
+html[class*="theme-"] body .nowPlayingBar .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .nowPlayingPage .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdBottom .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .nowPlayingPage .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .videoOsdHeader .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdHeader .headerButton:not(.ratingbutton-icon-withrating) .md-icon,
+html[class*="theme-"] body .videoOsdHeader .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon {
   color:                   var(--osd-icon-color) !important;
   -webkit-text-fill-color: var(--osd-icon-color) !important;
   fill:                    var(--osd-icon-color) !important;
@@ -4228,11 +4232,18 @@ html[class*="theme-"] body .videoOsdHeader .headerButton .md-icon:not(.starIcon)
 }
 
 /* --- OSD ICON HOVER STATE --- */
-html[class*="theme-"] body .videoOsdBottom .paper-icon-button-light:hover .md-icon:not(.starIcon),
-html[class*="theme-"] body .videoOsdBottom .osdIconButton:hover .md-icon:not(.starIcon),
-html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:hover .md-icon:not(.starIcon),
-html[class*="theme-"] body .nowPlayingPage .paper-icon-button-light:hover .md-icon:not(.starIcon),
-html[class*="theme-"] body .videoOsdHeader .headerButton:hover .md-icon:not(.starIcon) {
+html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):hover,
+html[class*="theme-"] body .videoOsdBottom button:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
+html[class*="theme-"] body .videoOsdBottom a:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
+html[class*="theme-"] body .videoOsdHeader .md-icon:not(.ratingbutton-icon-withrating):hover,
+html[class*="theme-"] body .videoOsdHeader button:hover .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdHeader a:hover .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .nowPlayingBar .md-icon:not(.ratingbutton-icon-withrating):hover,
+html[class*="theme-"] body .nowPlayingBar button:hover .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .nowPlayingBar a:hover .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .nowPlayingPage .md-icon:not(.ratingbutton-icon-withrating):hover,
+html[class*="theme-"] body .nowPlayingPage button:hover .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .nowPlayingPage a:hover .md-icon:not(.ratingbutton-icon-withrating) {
   color:                   var(--osd-icon-hover-color) !important;
   -webkit-text-fill-color: var(--osd-icon-hover-color) !important;
   fill:                    var(--osd-icon-hover-color) !important;
@@ -4242,10 +4253,9 @@ html[class*="theme-"] body .videoOsdHeader .headerButton:hover .md-icon:not(.sta
 }
 
 /* OSD SVG Support */
-html[class*="theme-"] body .videoOsdBottom .paper-icon-button-light:hover svg:not(.starIcon),
-html[class*="theme-"] body .videoOsdBottom .osdIconButton:hover svg:not(.starIcon),
-html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:hover svg:not(.starIcon),
-html[class*="theme-"] body .videoOsdHeader .headerButton:hover svg:not(.starIcon) {
+html[class*="theme-"] body .videoOsdBottom button:hover svg:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
+html[class*="theme-"] body .videoOsdHeader button:hover svg:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .nowPlayingBar button:hover svg:not(.ratingbutton-icon-withrating) {
    filter: none !important;
 }
 
