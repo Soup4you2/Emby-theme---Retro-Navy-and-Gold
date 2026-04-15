@@ -140,7 +140,7 @@ html,
   --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8);
 
   /* --- TYPOGRAPHY BUTTON TOGGLES (PILLBARS) --- */
-  --button-text-transform: none;                              /* Set to 'uppercase' for all-caps, or 'none' for title-case */
+  --button-text-transform: uppercase;                              /* Set to 'uppercase' for all-caps, or 'none' for title-case */
   --button-text-weight: 700;                                       /* Set to 700 for uppercase, or 600 for title-case */
   --button-letter-spacing: 1px;                                    /* Set to 1px for uppercase, or 0.5px for title-case */
 
