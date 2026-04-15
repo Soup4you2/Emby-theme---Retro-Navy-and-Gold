@@ -965,6 +965,12 @@ html[class*="theme-"] body .btnGuideTag {
   letter-spacing: var(--button-letter-spacing) !important; 
 }
 
+/* Keep the main global navigation tabs uppercase */
+html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button {
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+
 /* ============================================================
    03. NAVIGATION & SIDEBAR
    ============================================================ */
@@ -1245,9 +1251,9 @@ html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-c
   padding:                 4px 14px !important; 
   font-family:             var(--font-header) !important;
   font-size:               0.72em !important; 
-  font-weight:             var(--button-text-weight) !important;
-  text-transform:          var(--button-text-transform) !important;
-  letter-spacing:          var(--button-letter-spacing) !important;
+  font-weight:             700 !important;
+  text-transform:          uppercase !important;
+  letter-spacing:          1px !important;
   height:                  auto !important; 
   min-height:              28px !important;
   overflow:                visible !important; 
