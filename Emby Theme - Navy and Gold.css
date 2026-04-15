@@ -291,27 +291,6 @@ html,
   --media-badge-hover-color: var(--pure-black);                    /* Popout - Media Info Badges */
   --media-badge-hover-border: 2px solid var(--pure-black);         /* Popout - Media Info Badges */
   --media-badge-hover-shadow: var(--shadow-glow-standard);         /* Popout - Media Info Badges */
-  /* --button-popout-shadow: none;                                 /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
-  /* --button-popout-transform: none;                              /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
-  /* --button-popout-active-shadow: none;                          /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
-  /* --button-popout-active-transform: none;                       /* Flat - (Resume, Play, Play from Beginaning, etc...)*/
-  /* --count-indicator-bg: var(--my-gold);                         /* Flat - Unwatched count style */
-  /* --count-indicator-color: var(--pure-black);                   /* Flat - Unwatched count style */
-  /* --count-indicator-border: 2px solid transparent;              /* Flat - Unwatched count style */
-  /* --count-indicator-shadow: var(--glow-medium);                 /* Flat - Unwatched count style */
-  /* --played-indicator-bg: var(--my-gold);                        /* Flat - Played Indicator */
-  /* --played-indicator-color: var(--pure-black);                  /* Flat - Played Indicator */
-  /* --played-indicator-border: 2px solid transparent;             /* Flat - Played Indicator */
-  /* --played-indicator-shadow: var(--glow-medium);                /* Flat - Played Indicator */
-  /* --media-badge-bg: var(--navy-mid-alpha-45);                   /* Flat - Media Info Badges */
-  /* --media-badge-color: var(--my-gold);                          /* Flat - Media Info Badges */
-  /* --media-badge-border: var(--standard-border-thickness) solid var(--gold-alpha-30);     /* Flat - Media Info Badges */
-  /* --media-badge-shadow: none;                                   /* Flat - Media Info Badges */
-  /* --media-badge-radius: 5px;                                    /* Flat - Media Info Badges */
-  /* --media-badge-hover-bg: var(--pure-white);                    /* Flat - Media Info Badges */
-  /* --media-badge-hover-color: var(--my-gold);                    /* Flat - Media Info Badges */
-  /* --media-badge-hover-border: var(--standard-border-thickness) solid var(--my-gold);     /* Flat - Media Info Badges */
-  /* --media-badge-hover-shadow: var(--glow-medium);               /* Flat - Media Info Badges */
  
   /* --- UI DIMENSIONS & SHAPES --- */
   --hover-border-thickness: 2px;                                   /* Thickness for glow borders on hover */
