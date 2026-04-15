@@ -33,6 +33,9 @@ html,
   --font-header: 'Oswald', sans-serif;                             /* Primary cinematic header font */
   --font-body: 'Sofia Sans', sans-serif;                           /* Standard readable body font */
   
+  /* --- TYPOGRAPHY TEXT CASE TOGGLES --- */
+  --text-transform-pillbar: uppercase;                              /* PILLBARS: Set to 'uppercase' for all-caps, or 'none' for title-case */
+
   /* --- CUSTOM MASTER PALETTE --- */
 
   /* OPTION 1 - USE THE THEMES GOLD COLOR */
@@ -138,11 +141,6 @@ html,
   --favorite-heart-hover: rgba(var(--favorite-heart-hover-rgb), 1);
   --favorite-heart-alpha-50: rgba(var(--favorite-heart-rgb), 0.5);
   --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8);
-
-  /* --- TYPOGRAPHY BUTTON TOGGLES (PILLBARS) --- */
-  --button-text-transform: uppercase;                              /* Set to 'uppercase' for all-caps, or 'none' for title-case */
-  --button-text-weight: 700;                                       /* Set to 700 for uppercase, or 600 for title-case */
-  --button-letter-spacing: 1px;                                    /* Set to 1px for uppercase, or 0.5px for title-case */
 
    /* --- CORE SOLID COLORS --- */
   --pure-white: rgba(var(--pure-white-rgb), 1);                    /* Solid white for high-contrast icons */
@@ -960,9 +958,7 @@ html[class*="theme-"] body .emby-tab-button,
 html[class*="theme-"] body .itemsViewSettingsContainer-button,
 html[class*="theme-"] body .guide-filter-button,
 html[class*="theme-"] body .btnGuideTag {
-  text-transform: var(--button-text-transform) !important;
-  font-weight: var(--button-text-weight) !important;
-  letter-spacing: var(--button-letter-spacing) !important; 
+  text-transform: var(--text-transform-pillbar) !important;
 }
 
 /* Keep the main global navigation tabs uppercase */
@@ -1252,7 +1248,7 @@ html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-c
   font-family:             var(--font-header) !important;
   font-size:               0.72em !important; 
   font-weight:             700 !important;
-  text-transform:          var(--button-text-transform) !important;
+  text-transform:          var(--text-transform-pillbar) !important;
   letter-spacing:          1px !important;
   height:                  auto !important; 
   min-height:              28px !important;
@@ -2556,7 +2552,7 @@ html[class*="theme-"] body .searchTabs .emby-button-toggle {
   font-family:      var(--font-header) !important;
   font-size:        0.72em !important;
   font-weight:      700 !important;
-  text-transform:   var(--button-text-transform) !important;
+  text-transform:   var(--text-transform-pillbar) !important;
   letter-spacing:   1px !important;
   border-radius:    var(--border-radius-pill) !important;
   background-color: transparent !important;
@@ -3675,7 +3671,7 @@ html[class*="theme-"] body .mainCreditsSection .emby-tab-button {
   font-family:             var(--font-header) !important;
   font-size:               0.72em !important; 
   font-weight:             700 !important;
-  text-transform:          var(--button-text-transform) !important;
+  text-transform:          var(--text-transform-pillbar) !important;
   letter-spacing:          1px !important;
   height:                  auto !important; 
   min-height:              28px !important;
@@ -4510,7 +4506,7 @@ html[class*="theme-"] .videoOsdBottom .emby-tab-button {
   font-family:             var(--font-header) !important;
   font-size:               0.85em !important;
   font-weight:             700 !important;
-  text-transform:          var(--button-text-transform) !important;
+  text-transform:          var(--text-transform-pillbar) !important;
   padding:                 6px 16px !important;
   margin:                  0 !important;
   transition:              all var(--transition-speed) ease-in-out !important;
