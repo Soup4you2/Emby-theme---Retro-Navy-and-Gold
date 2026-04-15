@@ -271,26 +271,26 @@ html,
 
   /* --- BUTTONS AND INDICATORS --- */
   --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
-  --button-popout-transform: translate(-3px, -3px);                /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
-  --button-popout-active-shadow: 0px 0px 5px var(--black-alpha-80); /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
-  --button-popout-active-transform: translate(0px, 0px);           /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
-  --count-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Popout - Unwatched count style */
-  --count-indicator-color: var(--retro-navy);                      /* Popout - Unwatched count style */
-  --count-indicator-border: 2px solid var(--retro-navy);           /* Popout - Unwatched count style */
-  --count-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Popout - Unwatched count style */
-  --played-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);   /* Popout - Played Indicator */
-  --played-indicator-color: var(--retro-navy);                     /* Popout - Played Indicator */
-  --played-indicator-border: 2px solid var(--retro-navy);          /* Popout - Played Indicator */
-  --played-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);    /* Popout - Played Indicator */
-  --media-badge-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Popout - Media Info Badges */
-  --media-badge-color: var(--retro-navy);                          /* Popout - Media Info Badges */
-  --media-badge-border: 2px solid var(--retro-navy);               /* Popout - Media Info Badges */
-  --media-badge-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Popout - Media Info Badges */
-  --media-badge-radius: var(--border-radius-pill);                 /* Popout - Media Info Badges */
-  --media-badge-hover-bg: var(--pure-white);                       /* Popout - Media Info Badges */
-  --media-badge-hover-color: var(--pure-black);                    /* Popout - Media Info Badges */
-  --media-badge-hover-border: 2px solid var(--pure-black);         /* Popout - Media Info Badges */
-  --media-badge-hover-shadow: var(--shadow-glow-standard);         /* Popout - Media Info Badges */
+  --button-popout-transform: translate(-3px, -3px);                /* Resume, Play, Play from Beginaning, etc...*/
+  --button-popout-active-shadow: 0px 0px 5px var(--black-alpha-80); /* Resume, Play, Play from Beginaning, etc...*/
+  --button-popout-active-transform: translate(0px, 0px);           /* Resume, Play, Play from Beginaning, etc...*/
+  --count-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Unwatched count style */
+  --count-indicator-color: var(--retro-navy);                      /* Unwatched count style */
+  --count-indicator-border: 2px solid var(--retro-navy);           /* Unwatched count style */
+  --count-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Unwatched count style */
+  --played-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);   /* Played Indicator */
+  --played-indicator-color: var(--retro-navy);                     /* Played Indicator */
+  --played-indicator-border: 2px solid var(--retro-navy);          /* Played Indicator */
+  --played-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);    /* Played Indicator */
+  --media-badge-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Media Info Badges */
+  --media-badge-color: var(--retro-navy);                          /* Media Info Badges */
+  --media-badge-border: 2px solid var(--retro-navy);               /* Media Info Badges */
+  --media-badge-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Media Info Badges */
+  --media-badge-radius: var(--border-radius-pill);                 /* Media Info Badges */
+  --media-badge-hover-bg: var(--pure-white);                       /* Media Info Badges */
+  --media-badge-hover-color: var(--pure-black);                    /* Media Info Badges */
+  --media-badge-hover-border: 2px solid var(--pure-black);         /* Media Info Badges */
+  --media-badge-hover-shadow: var(--shadow-glow-standard);         /* Media Info Badges */
  
   /* --- UI DIMENSIONS & SHAPES --- */
   --hover-border-thickness: 2px;                                   /* Thickness for glow borders on hover */
