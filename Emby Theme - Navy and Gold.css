@@ -77,7 +77,7 @@ html,
   --header-content-padding: 20px;                                  /* Media details header padding, push the content down from the header */
   --header-logo-display: block;                                    /* Set to 'block' to show the top left Emby logo, or 'none' to hide it */
   --header-icon-color: var(--my-gold);                             /* Header icon color */
-  --header-icon-hover-color: var(--my-gold-light);                 /* Header icon color in a hover state */
+  --header-icon-hover-color: color-mix(in srgb, var(--my-gold-light) 40%, white); /* Header icon color in a hover state */
 
   /* --- SIDEBAR OPTIONS --- */
   --custom-sidebar-width: 250px;                                   /* Define the custom width (Triggered only when the full sidebar is open) */  
@@ -86,17 +86,17 @@ html,
   --sidebar-blur: var(--blur-heavy);                               /* Frost blur intensity: var(--blur-heavy), var(--blur-light), or none */
   --sidebar-bg: var(--navy-base-alpha-75);                         /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
   --sidebar-icon-color: var(--my-gold);                            /* Sidebar icon colors */
-  --sidebar-icon-hover-color: var(--my-gold-light);                /* Sidebar icon colors in a hover state */
+  --sidebar-icon-hover-color: color-mix(in srgb, var(--my-gold-light) 40%, white); /* Sidebar icon colors in a hover state */
 
   /* --- OSD OPTIONS --- */
   --osd-mini-blur: var(--blur-heavy);                              /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) to enable frost (Affects Mini-Music OSD Only) */
   --osd-mini-bg: var(--navy-base-alpha-75);                        /* Background transparency for the bottom mini music player */
   --osd-icon-color: var(--pure-white);                                /* Icon colors for the OSD display */
-  --osd-icon-hover-color: var(--my-gold-light);                    /* OSD Icon colors in a hover state */
+  --osd-icon-hover-color: var(--my-gold);                    /* OSD Icon colors in a hover state */
 
   /* --- DIALOG POPUPS --- */
   --dialog-icon-color: var(--my-gold);                             /* Dialog popup icon color */
-  --dialog-icon-hover-color: var(--my-gold-light);                 /* Dialog popup icon color in a hovered state */
+  --dialog-icon-hover-color: color-mix(in srgb, var(--my-gold-light) 40%, white); /* Dialog popup icon color in a hovered state */
 
    /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
   --guide-premiere: rgb(89, 35, 71);                             /* Cell background for TV Series Premieres */
@@ -1075,29 +1075,24 @@ html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSettingsButto
   -webkit-text-fill-color: var(--header-icon-hover-color) !important;
 }
 
-/* 3b. Header Icon Fixes: Forces specific buttons and their internal icons to use the header variable */
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerBackButton.paper-icon-button-light,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerBackButton.paper-icon-button-light .md-icon,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerBackButton.paper-icon-button-light *,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerHomeButton.paper-icon-button-light,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerHomeButton.paper-icon-button-light .md-icon,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerHomeButton.paper-icon-button-light *,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerUserButton.paper-icon-button-light,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerUserButton.paper-icon-button-light .md-icon,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerUserButton.paper-icon-button-light *,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerCastButton.paper-icon-button-light,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerCastButton.paper-icon-button-light .md-icon,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerCastButton.paper-icon-button-light *,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSearchButton.paper-icon-button-light,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSearchButton.paper-icon-button-light .md-icon,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSearchButton.paper-icon-button-light *,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSettingsButton.paper-icon-button-light,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSettingsButton.paper-icon-button-light .md-icon,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSettingsButton.paper-icon-button-light * {
-  color:                   var(--header-icon-color) !important;
-  -webkit-text-fill-color: var(--header-icon-color) !important;
-  fill:                    var(--header-icon-color) !important;
-  opacity:                 1 !important;
+/* 3b. Header Icons (Hover State - Colors) */
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerBackButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerBackButton:hover *,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerMenuButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerMenuButton:hover *,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerCastButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerCastButton:hover *,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerRemoteControl:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerRemoteControl:hover *,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSearchButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSearchButton:hover *,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerUserButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerUserButton:hover *,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSettingsButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSettingsButton:hover * {
+  color:                   var(--header-icon-hover-color) !important;
+  -webkit-text-fill-color: var(--header-icon-hover-color) !important;
+  fill:                    var(--header-icon-hover-color) !important;
 }
 
 /* 3c. Filter Icon Fixes: Retains gold for non-header filter elements */
@@ -3087,7 +3082,7 @@ html[class*="theme-"] body .sideFooterCard .visualCardBox {
   background:       var(--navy-light-alpha-80) !important;
   background-color: var(--navy-light-alpha-80) !important;
   background-image: none !important;
-  /* border:           var(--hover-border-thickness) solid transparent !important; */ /* TODO: FIX TO MUSIC SUGGESTIONS SHIFTING TO A SINGLE ROW */
+  /* border:           var(--hover-border-thickness) solid transparent !important;  /* TODO: FIX TO MUSIC SUGGESTIONS SHIFTING TO A SINGLE ROW */
   border-radius:    var(--border-radius-md) !important;
   box-shadow:       0px 5px 15px var(--black-alpha-50) !important;
   transition:       all var(--transition-speed) ease-in-out !important;
