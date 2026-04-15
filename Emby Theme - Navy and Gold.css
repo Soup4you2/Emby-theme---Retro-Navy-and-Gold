@@ -1252,7 +1252,7 @@ html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-c
   font-family:             var(--font-header) !important;
   font-size:               0.72em !important; 
   font-weight:             700 !important;
-  text-transform:          uppercase !important;
+  text-transform:          var(--button-text-transform) !important;
   letter-spacing:          1px !important;
   height:                  auto !important; 
   min-height:              28px !important;
@@ -2556,7 +2556,7 @@ html[class*="theme-"] body .searchTabs .emby-button-toggle {
   font-family:      var(--font-header) !important;
   font-size:        0.72em !important;
   font-weight:      700 !important;
-  text-transform:   uppercase !important;
+  text-transform:   var(--button-text-transform) !important;
   letter-spacing:   1px !important;
   border-radius:    var(--border-radius-pill) !important;
   background-color: transparent !important;
@@ -3675,7 +3675,7 @@ html[class*="theme-"] body .mainCreditsSection .emby-tab-button {
   font-family:             var(--font-header) !important;
   font-size:               0.72em !important; 
   font-weight:             700 !important;
-  text-transform:          uppercase !important;
+  text-transform:          var(--button-text-transform) !important;
   letter-spacing:          1px !important;
   height:                  auto !important; 
   min-height:              28px !important;
@@ -4510,7 +4510,7 @@ html[class*="theme-"] .videoOsdBottom .emby-tab-button {
   font-family:             var(--font-header) !important;
   font-size:               0.85em !important;
   font-weight:             700 !important;
-  text-transform:          uppercase !important;
+  text-transform:          var(--button-text-transform) !important;
   padding:                 6px 16px !important;
   margin:                  0 !important;
   transition:              all var(--transition-speed) ease-in-out !important;
