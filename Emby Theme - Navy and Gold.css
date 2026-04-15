@@ -91,8 +91,8 @@ html,
   /* --- OSD OPTIONS --- */
   --osd-mini-blur: var(--blur-heavy);                              /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) to enable frost (Affects Mini-Music OSD Only) */
   --osd-mini-bg: var(--navy-base-alpha-75);                        /* Background transparency for the bottom mini music player */
-  --osd-icon-color: var(--pure-white);                             /* Icon colors for the OSD display */
-  --osd-icon-hover-color: var(--my-gold-light);                    /* OSD Icon colors in a hover state */
+  --osd-icon-color: var(--danger-red);                             /* Icon colors for the OSD display */
+  --osd-icon-hover-color: var(--guide-premiere);                    /* OSD Icon colors in a hover state */
 
   /* --- DIALOG POPUPS --- */
   --dialog-icon-color: var(--my-gold);                             /* Dialog popup icon color */
@@ -4231,9 +4231,9 @@ html[class*="theme-"] body .nowPlayingPage .paper-icon-button-light:not(.ratingb
 }
 
 /* --- OSD ICON RESTING STATE (All OSDs & Now Playing) --- */
-html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
-html[class*="theme-"] body .nowPlayingBar .md-icon:not(.ratingbutton-icon-withrating),
-html[class*="theme-"] body .nowPlayingPage .md-icon:not(.ratingbutton-icon-withrating),
+html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):not(.starIcon),
+html[class*="theme-"] body .nowPlayingBar .md-icon:not(.ratingbutton-icon-withrating):not(.starIcon),
+html[class*="theme-"] body .nowPlayingPage .md-icon:not(.ratingbutton-icon-withrating):not(.starIcon),
 html[class*="theme-"] body .videoOsdBottom .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon:not(.starIcon),
 html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon:not(.starIcon),
 html[class*="theme-"] body .nowPlayingPage .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon:not(.starIcon),
@@ -4342,10 +4342,7 @@ html[class*="theme-"] body .videoOsdHeader button.headerCastButton.paper-icon-bu
 /* 1. Resting State: Force action button icons to be WHITE to match the text */
 html[class*="theme-"] body .videoOsdBottom button.btnPlay .md-icon,
 html[class*="theme-"] body .videoOsdBottom button.btnResume .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnStartNow .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.btnSkipIntro .md-icon,
-html[class*="theme-"] body .videoOsdBottom button.detailButton .md-icon,
+html[class*="theme-"] body .videoOsdBottom button.detailButton .md-icon:not(.starIcon):not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .videoOsdBottom button.button-submit .md-icon {
   color:                   var(--pure-white) !important;
   -webkit-text-fill-color: var(--pure-white) !important;
