@@ -3088,7 +3088,7 @@ html[class*="theme-"] body .sideFooterCard .visualCardBox {
   background:       var(--navy-light-alpha-80) !important;
   background-color: var(--navy-light-alpha-80) !important;
   background-image: none !important;
-  border:           none !important; /* CRITICAL: No physical border to prevent row shifting */
+  /* border:           var(--hover-border-thickness) solid transparent !important; */ /* TODO: FIX TO MUSIC SUGGESTIONS SHIFTING TO A SINGLE ROW */
   border-radius:    var(--border-radius-md) !important;
   box-shadow:       0px 5px 15px var(--black-alpha-50) !important;
   transition:       all var(--transition-speed) ease-in-out !important;
@@ -3105,33 +3105,23 @@ html[class*="theme-"] body .sideFooterCard .visualCardBox .cardContent {
   box-shadow:       none !important;
 }
 
-/* 3. Text Enforcements (Resting State): Forces all text to Pure White */
-html[class*="theme-"] body .card-horiz .cardText-first,
-html[class*="theme-"] body .bannerCard .cardText-first,
-html[class*="theme-"] body .sideFooterCard .cardText-first,
-html[class*="theme-"] body .card-horiz .cardText-secondary,
-html[class*="theme-"] body .bannerCard .cardText-secondary,
-html[class*="theme-"] body .sideFooterCard .cardText-secondary {
-  color:                   var(--pure-white) !important;
-  -webkit-text-fill-color: var(--pure-white) !important;
-  transition:              all var(--transition-speed) ease-in-out !important;
+/* 3. Hover States (Applies Gold Glow to Outer Container) */
+html[class*="theme-"] body .bannerCard:hover .visualCardBox,
+html[class*="theme-"] body .sideFooterCard:hover .visualCardBox,
+html[class*="theme-"] body .bannerCard.show-focus .visualCardBox,
+html[class*="theme-"] body .sideFooterCard.show-focus .visualCardBox {
+  background:       var(--theme-icon-focus-background) !important;
+  background-color: var(--theme-icon-focus-background) !important;
+  border-color:     var(--theme-primary-color) !important;
+  box-shadow:       var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+  transform:        scale(1.02) !important;
 }
 
-/* 4. Text Enforcements (Hover State): Forces all text to Pure Black when the card is hovered */
-html[class*="theme-"] body .card-horiz:hover .cardText-first,
-html[class*="theme-"] body .bannerCard:hover .cardText-first,
-html[class*="theme-"] body .sideFooterCard:hover .cardText-first,
-html[class*="theme-"] body .card-horiz:hover .cardText-secondary,
-html[class*="theme-"] body .bannerCard:hover .cardText-secondary,
-html[class*="theme-"] body .sideFooterCard:hover .cardText-secondary,
-html[class*="theme-"] body .card-horiz.show-focus .cardText-first,
-html[class*="theme-"] body .bannerCard.show-focus .cardText-first,
-html[class*="theme-"] body .sideFooterCard.show-focus .cardText-first,
-html[class*="theme-"] body .card-horiz.show-focus .cardText-secondary,
-html[class*="theme-"] body .bannerCard.show-focus .cardText-secondary,
-html[class*="theme-"] body .sideFooterCard.show-focus .cardText-secondary {
-  color:                   var(--pure-black) !important;
-  -webkit-text-fill-color: var(--pure-black) !important;
+/* 4. Text Enforcements: Ensures contrast against varied library themes */
+html[class*="theme-"] .bannerCard .cardText-first,
+html[class*="theme-"] .sideFooterCard .cardText-first {
+  color:                   var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
 }
 
 html[class*="theme-"] .bannerCard .cardText-secondary,
@@ -4449,7 +4439,6 @@ html[class*="theme-"] body .upNextDialog .btnStartNow,
 html[class*="theme-"] body .btnStartNow {
   background:     var(--my-gold) !important;
   font-family:    var(--font-header) !important;
-  font-weight:    700 !important;
   border-radius:  var(--border-radius-pill) !important;
   box-shadow:     0 0 20px var(--black-alpha-50) !important;
   transition:     all var(--transition-speed) ease-in-out !important;
