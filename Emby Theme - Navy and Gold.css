@@ -32,7 +32,8 @@ html,
   --base-font-size: 90%;                                           /* Adjust global UI text size (Default: 90%. Try 110% or 115% for larger text) */
   --font-header: 'Oswald', sans-serif;                             /* Primary cinematic header font */
   --font-body: 'Sofia Sans', sans-serif;                           /* Standard readable body font */
-  
+  --text-transform: none;                                          /* Set to 'uppercase' for all-caps, or 'none' for standard cast in various areas across the app*/
+
   /* --- CUSTOM MASTER PALETTE --- */
 
   /* OPTION 1 - USE THE THEMES GOLD COLOR */
@@ -140,7 +141,6 @@ html,
   --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8);
 
   /* --- TYPOGRAPHY BUTTON TOGGLES (PILLBARS) --- */
-  --button-text-transform: uppercase;                              /* Set to 'uppercase' for all-caps, or 'none' for title-case */
   --button-text-weight: 700;                                       /* Set to 700 for uppercase, or 600 for title-case */
   --button-letter-spacing: 1px;                                    /* Set to 1px for uppercase, or 0.5px for title-case */
 
@@ -271,26 +271,26 @@ html,
 
   /* --- BUTTONS AND INDICATORS --- */
   --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
-  --button-popout-transform: translate(-3px, -3px);                /* Resume, Play, Play from Beginaning, etc...*/
-  --button-popout-active-shadow: 0px 0px 5px var(--black-alpha-80); /* Resume, Play, Play from Beginaning, etc...*/
-  --button-popout-active-transform: translate(0px, 0px);           /* Resume, Play, Play from Beginaning, etc...*/
-  --count-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Unwatched count style */
-  --count-indicator-color: var(--retro-navy);                      /* Unwatched count style */
-  --count-indicator-border: 2px solid var(--retro-navy);           /* Unwatched count style */
-  --count-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Unwatched count style */
-  --played-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);   /* Played Indicator */
-  --played-indicator-color: var(--retro-navy);                     /* Played Indicator */
-  --played-indicator-border: 2px solid var(--retro-navy);          /* Played Indicator */
-  --played-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);    /* Played Indicator */
-  --media-badge-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Media Info Badges */
-  --media-badge-color: var(--retro-navy);                          /* Media Info Badges */
-  --media-badge-border: 2px solid var(--retro-navy);               /* Media Info Badges */
-  --media-badge-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Media Info Badges */
-  --media-badge-radius: var(--border-radius-pill);                 /* Media Info Badges */
-  --media-badge-hover-bg: var(--pure-white);                       /* Media Info Badges */
-  --media-badge-hover-color: var(--pure-black);                    /* Media Info Badges */
-  --media-badge-hover-border: 2px solid var(--pure-black);         /* Media Info Badges */
-  --media-badge-hover-shadow: var(--shadow-glow-standard);         /* Media Info Badges */
+  --button-popout-transform: translate(-3px, -3px);                /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
+  --button-popout-active-shadow: 0px 0px 5px var(--black-alpha-80); /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
+  --button-popout-active-transform: translate(0px, 0px);           /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
+  --count-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Popout - Unwatched count style */
+  --count-indicator-color: var(--retro-navy);                      /* Popout - Unwatched count style */
+  --count-indicator-border: 2px solid var(--retro-navy);           /* Popout - Unwatched count style */
+  --count-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Popout - Unwatched count style */
+  --played-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);   /* Popout - Played Indicator */
+  --played-indicator-color: var(--retro-navy);                     /* Popout - Played Indicator */
+  --played-indicator-border: 2px solid var(--retro-navy);          /* Popout - Played Indicator */
+  --played-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);    /* Popout - Played Indicator */
+  --media-badge-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Popout - Media Info Badges */
+  --media-badge-color: var(--retro-navy);                          /* Popout - Media Info Badges */
+  --media-badge-border: 2px solid var(--retro-navy);               /* Popout - Media Info Badges */
+  --media-badge-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Popout - Media Info Badges */
+  --media-badge-radius: var(--border-radius-pill);                 /* Popout - Media Info Badges */
+  --media-badge-hover-bg: var(--pure-white);                       /* Popout - Media Info Badges */
+  --media-badge-hover-color: var(--pure-black);                    /* Popout - Media Info Badges */
+  --media-badge-hover-border: 2px solid var(--pure-black);         /* Popout - Media Info Badges */
+  --media-badge-hover-shadow: var(--shadow-glow-standard);         /* Popout - Media Info Badges */
  
   /* --- UI DIMENSIONS & SHAPES --- */
   --hover-border-thickness: 2px;                                   /* Thickness for glow borders on hover */
@@ -578,7 +578,7 @@ html[class*="theme-"] .pageTitle,
 html[class*="theme-"] .sectionTitle {
   font-family: var(--font-header) !important;
   color: var(--h2-color) !important; 
-  text-transform: uppercase !important;
+  text-transform: var(--text-transform) !important;
   letter-spacing: 1.5px !important;
   text-shadow: 2px 2px 4px var(--black-alpha-50) !important;
 }
@@ -960,14 +960,14 @@ html[class*="theme-"] body .emby-tab-button,
 html[class*="theme-"] body .itemsViewSettingsContainer-button,
 html[class*="theme-"] body .guide-filter-button,
 html[class*="theme-"] body .btnGuideTag {
-  text-transform: var(--button-text-transform) !important;
+  text-transform: var(--text-transform) !important;
   font-weight: var(--button-text-weight) !important;
   letter-spacing: var(--button-letter-spacing) !important; 
 }
 
 /* Keep the main global navigation tabs uppercase */
 html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button {
-  text-transform: uppercase !important;
+  text-transform: var(--text-transform) !important;
   letter-spacing: 1px !important;
 }
 
@@ -1252,7 +1252,7 @@ html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-c
   font-family:             var(--font-header) !important;
   font-size:               0.72em !important; 
   font-weight:             700 !important;
-  text-transform:          uppercase !important;
+  text-transform:          var(--text-transform) !important;
   letter-spacing:          1px !important;
   height:                  auto !important; 
   min-height:              28px !important;
@@ -1660,7 +1660,7 @@ html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText-main .mediaI
   -webkit-text-fill-color: var(--h3-color) !important;
   font-size:               1.25em !important; 
   font-family:             var(--font-header) !important;
-  text-transform:          uppercase !important;
+  text-transform:          var(--text-transform) !important;
   letter-spacing:          0.5px !important;
 }
 
@@ -2161,7 +2161,7 @@ html[class*="theme-"] .btnGuideTag {
   font-family:             var(--font-header) !important;
   font-size:               0.72em !important;
   font-weight:             700 !important;
-  text-transform:          uppercase !important;
+  text-transform:          var(--text-transform) !important;
   color:                   var(--white-alpha-60) !important;
   -webkit-text-fill-color: var(--white-alpha-60) !important;
   background:              transparent !important;
@@ -2202,7 +2202,7 @@ html[class*="theme-"] .itemsViewSettingsContainer-button {
   font-family:      var(--font-header) !important;
   font-size:        0.82em !important;
   padding:          0.4em 0.9em !important;
-  text-transform:   uppercase !important;
+  text-transform:   var(--text-transform) !important;
   box-shadow:       0 4px 10px var(--black-alpha-50) !important;
   transition:       all var(--transition-speed) ease-in-out !important;
 }
@@ -2224,7 +2224,7 @@ html[class*="theme-"] .listTotalRecordCount {
   -webkit-text-fill-color: var(--my-gold) !important;
   font-family:             var(--font-header) !important;
   font-size:               1.0em !important;
-  text-transform:          uppercase !important;
+  text-transform:          var(--text-transform) !important;
   font-weight:             700 !important;
   margin-right:            15px !important;
 }
@@ -2556,7 +2556,7 @@ html[class*="theme-"] body .searchTabs .emby-button-toggle {
   font-family:      var(--font-header) !important;
   font-size:        0.72em !important;
   font-weight:      700 !important;
-  text-transform:   uppercase !important;
+  text-transform:   var(--text-transform) !important;
   letter-spacing:   1px !important;
   border-radius:    var(--border-radius-pill) !important;
   background-color: transparent !important;
@@ -3041,7 +3041,7 @@ html[class*="theme-"] body .card[data-type="MusicArtist"] .cardOverlayButton-br 
   color:          var(--my-gold) !important;
   font-size:      1.1em !important;
   font-weight:    700;
-  text-transform: uppercase;
+  text-transform: var(--text-transform);
   margin-top:     10px !important;
 }
 
@@ -3177,7 +3177,7 @@ html[class*="theme-"] body .infoBanner {
 .mediaInfoPanel .material-icons {
   color:          var(--h2-color) !important;
   font-family:    var(--font-header) !important;
-  text-transform: uppercase;
+  text-transform: var(--text-transform);
 }
 
 /* 3. Alert Banner Text Color Fix (Forces White) */
@@ -3203,7 +3203,7 @@ html[class*="theme-"] body .warningBanner * {
   box-shadow:              var(--media-badge-shadow) !important;
   font-family:             var(--font-header) !important;
   font-weight:             700 !important;
-  text-transform:          uppercase;
+  text-transform:          var(--text-transform);
   padding:                 2px 10px !important;
   margin:                  0 8px 8px 0 !important;
   transition:              all var(--transition-speed) ease-in-out;
@@ -3675,7 +3675,7 @@ html[class*="theme-"] body .mainCreditsSection .emby-tab-button {
   font-family:             var(--font-header) !important;
   font-size:               0.72em !important; 
   font-weight:             700 !important;
-  text-transform:          uppercase !important;
+  text-transform:          var(--text-transform) !important;
   letter-spacing:          1px !important;
   height:                  auto !important; 
   min-height:              28px !important;
@@ -4153,7 +4153,7 @@ input[type="range"]::-moz-range-thumb {
 .osdTextContainer,
 .osdTitle {
   font-family:    var(--font-header) !important;
-  text-transform: uppercase;
+  text-transform: var(--text-transform);
   letter-spacing: 1px;
 }
 
@@ -4510,7 +4510,7 @@ html[class*="theme-"] .videoOsdBottom .emby-tab-button {
   font-family:             var(--font-header) !important;
   font-size:               0.85em !important;
   font-weight:             700 !important;
-  text-transform:          uppercase !important;
+  text-transform:          var(--text-transform) !important;
   padding:                 6px 16px !important;
   margin:                  0 !important;
   transition:              all var(--transition-speed) ease-in-out !important;
@@ -4809,7 +4809,7 @@ html[class*="theme-"] .dataGridHeader .button-link * {
 html[class*="theme-"] .dataGridHeader .dataGridHeaderText,
 html[class*="theme-"] .dataGridHeader .primaryText {
   font-family:    var(--font-header) !important;
-  text-transform: uppercase !important;
+  text-transform: var(--text-transform) !important;
   letter-spacing: 0.5px !important;
   font-size:      0.85em !important;
   font-weight:    700 !important;
@@ -4824,7 +4824,7 @@ html[class*="theme-"] .dataGridHeader .primaryText {
 legend {
   color:          var(--h3-color) !important;
   font-family:    var(--font-header) !important;
-  text-transform: uppercase !important;
+  text-transform: var(--text-transform) !important;
   letter-spacing: 1px !important;
   font-weight:    700 !important;
   font-size:      1.2em !important;
@@ -5195,7 +5195,7 @@ html[class*="theme-"] body .view-librarysetup-librarysetup .cardMediaInfoItem .b
 html[class*="theme-"] body .view-librarysetup-librarysetup .cardMediaInfoItem .button-link * {
   color:          var(--my-gold) !important;
   font-family:    var(--font-header) !important;
-  text-transform: uppercase !important;
+  text-transform: var(--text-transform) !important;
   font-size:      1.15em !important;
   letter-spacing: 0.5px !important;
 }
