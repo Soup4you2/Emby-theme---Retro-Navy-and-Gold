@@ -91,7 +91,7 @@ html,
   /* --- OSD OPTIONS --- */
   --osd-mini-blur: var(--blur-heavy);                              /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) to enable frost (Affects Mini-Music OSD Only) */
   --osd-mini-bg: var(--navy-base-alpha-75);                        /* Background transparency for the bottom mini music player */
-  --osd-icon-color: var(--my-gold);                                /* Icon colors for the OSD display */
+  --osd-icon-color: var(--pure-white);                                /* Icon colors for the OSD display */
   --osd-icon-hover-color: var(--my-gold-light);                    /* OSD Icon colors in a hover state */
 
   /* --- DIALOG POPUPS --- */
