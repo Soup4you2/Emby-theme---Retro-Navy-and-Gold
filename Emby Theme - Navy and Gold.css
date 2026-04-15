@@ -140,7 +140,7 @@ html,
   --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8);
 
   /* --- TYPOGRAPHY BUTTON TOGGLES (PILLBARS) --- */
-  --button-text-transform: uppercase;                              /* Set to 'uppercase' for all-caps, or 'none' for title-case */
+  --button-text-transform: none;                              /* Set to 'uppercase' for all-caps, or 'none' for title-case */
   --button-text-weight: 700;                                       /* Set to 700 for uppercase, or 600 for title-case */
   --button-letter-spacing: 1px;                                    /* Set to 1px for uppercase, or 0.5px for title-case */
 
@@ -965,12 +965,6 @@ html[class*="theme-"] body .btnGuideTag {
   letter-spacing: var(--button-letter-spacing) !important; 
 }
 
-/* Keep the main global navigation tabs uppercase */
-html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button {
-  text-transform: uppercase !important;
-  letter-spacing: 1px !important;
-}
-
 /* ============================================================
    03. NAVIGATION & SIDEBAR
    ============================================================ */
@@ -1251,9 +1245,9 @@ html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-c
   padding:                 4px 14px !important; 
   font-family:             var(--font-header) !important;
   font-size:               0.72em !important; 
-  font-weight:             700 !important;
-  text-transform:          uppercase !important;
-  letter-spacing:          1px !important;
+  font-weight:             var(--button-text-weight) !important;
+  text-transform:          var(--button-text-transform) !important;
+  letter-spacing:          var(--button-letter-spacing) !important;
   height:                  auto !important; 
   min-height:              28px !important;
   overflow:                visible !important; 
@@ -3061,7 +3055,7 @@ html[class*="theme-"] body .sideFooterCard .visualCardBox {
   background:       var(--navy-light-alpha-80) !important;
   background-color: var(--navy-light-alpha-80) !important;
   background-image: none !important;
-  /* border:           var(--hover-border-thickness) solid transparent !important;  /* TODO: FIX TO MUSIC SUGGESTIONS SHIFTING TO A SINGLE ROW */
+  /* border:           var(--hover-border-thickness) solid transparent !important;  /* CRITICAL NOFIX: TO MUSIC SUGGESTIONS SHIFTING TO A SINGLE ROW */
   border-radius:    var(--border-radius-md) !important;
   box-shadow:       0px 5px 15px var(--black-alpha-50) !important;
   transition:       all var(--transition-speed) ease-in-out !important;
