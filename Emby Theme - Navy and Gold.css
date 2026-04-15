@@ -139,7 +139,7 @@ html,
   --favorite-heart-alpha-50: rgba(var(--favorite-heart-rgb), 0.5);
   --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8);
 
-  /* --- TYPOGRAPHY BUTTON TOGGLES (PILLBARS, SUBMIT) --- */
+  /* --- TYPOGRAPHY BUTTON TOGGLES (PILLBARS) --- */
   --button-text-transform: uppercase;                              /* Set to 'uppercase' for all-caps, or 'none' for title-case */
   --button-text-weight: 700;                                       /* Set to 700 for uppercase, or 600 for title-case */
   --button-letter-spacing: 1px;                                    /* Set to 1px for uppercase, or 0.5px for title-case */
@@ -980,8 +980,7 @@ html[class*="theme-"] body .itemAction:hover .cardText {
 html[class*="theme-"] body .emby-tab-button,
 html[class*="theme-"] body .itemsViewSettingsContainer-button,
 html[class*="theme-"] body .guide-filter-button,
-html[class*="theme-"] body .btnGuideTag,
-html[class*="theme-"] body .button-submit {
+html[class*="theme-"] body .btnGuideTag {
   text-transform: var(--button-text-transform) !important;
   font-weight: var(--button-text-weight) !important;
   letter-spacing: var(--button-letter-spacing) !important; 
