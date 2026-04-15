@@ -4230,13 +4230,6 @@ html[class*="theme-"] body .nowPlayingPage .paper-icon-button-light:not(.ratingb
   transition:              all var(--transition-speed) ease !important;
 }
 
-/* FIX: "Play from Beginning" Icon Color */
- html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):hover:not(.starIcon),  
- html[class*="theme-"] body .videoOsdBottom button:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):not(.starIcon) {
-  color:                   var(--pure-black) !important;
-  -webkit-text-fill-color: var(--pure-black) !important;
- }  
-
 /* --- OSD ICON RESTING STATE (All OSDs & Now Playing) --- */
 html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab),
 html[class*="theme-"] body .nowPlayingBar .md-icon:not(.ratingbutton-icon-withrating),
@@ -4246,7 +4239,7 @@ html[class*="theme-"] body .nowPlayingBar .paper-icon-button-light:not(.ratingbu
 html[class*="theme-"] body .nowPlayingPage .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon:not(.starIcon),
 html[class*="theme-"] body .videoOsdHeader .md-icon:not(.ratingbutton-icon-withrating),
 html[class*="theme-"] body .videoOsdHeader .headerButton:not(.ratingbutton-icon-withrating) .md-icon,
-html[class*="theme-"] body .videoOsdHeader .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon, {
+html[class*="theme-"] body .videoOsdHeader .paper-icon-button-light:not(.ratingbutton-icon-withrating) .md-icon {
   color:                   var(--osd-icon-color) !important;
   -webkit-text-fill-color: var(--osd-icon-color) !important;
   fill:                    var(--osd-icon-color) !important;
@@ -4255,8 +4248,8 @@ html[class*="theme-"] body .videoOsdHeader .paper-icon-button-light:not(.ratingb
 }
 
 /* --- OSD ICON HOVER STATE --- */
-/* html[class*="theme-"] body .videoOsdBottom .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):hover:not(.starIcon), */ /* Triangle Hover Hover Color */
-/* html[class*="theme-"] body .videoOsdBottom button:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):not(.starIcon),*/   /* Triangle Button hover */
+html[class*="theme-"] body .videoOsdBottom button:not(.btnPlayFromBeginning) .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):hover:not(.starIcon), 
+html[class*="theme-"] body .videoOsdBottom button:not(.btnPlayFromBeginning):hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):not(.starIcon),
 html[class*="theme-"] body .videoOsdBottom a:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):not(.starIcon), 
 html[class*="theme-"] body .videoOsdHeader .md-icon:not(.ratingbutton-icon-withrating):hover,
 html[class*="theme-"] body .videoOsdHeader button:hover .md-icon:not(.ratingbutton-icon-withrating),
@@ -4273,6 +4266,17 @@ html[class*="theme-"] body .nowPlayingPage a:hover .md-icon:not(.ratingbutton-ic
   transform:               scale(1.15) !important;
   text-shadow:             none !important;
   filter:                  none !important;
+}
+
+/* --- OVERRIDE: Play From Beginning Icon Hover State --- */
+html[class*="theme-"] body .videoOsdBottom button.btnPlayFromBeginning:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):not(.starIcon),
+html[class*="theme-"] body .videoOsdBottom button.btnSkipIntro:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):not(.starIcon),
+html[class*="theme-"] body .videoOsdBottom button.btnStartNow:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):not(.starIcon) {
+  color:                   var(--pure-black) !important;
+  -webkit-text-fill-color: var(--pure-black) !important;
+  fill:                    var(--pure-black) !important;
+  filter:                  none !important; 
+  text-shadow:             none !important;
 }
 
 /* OSD SVG Support */
