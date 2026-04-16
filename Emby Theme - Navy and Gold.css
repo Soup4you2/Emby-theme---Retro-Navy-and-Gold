@@ -4995,6 +4995,57 @@ html[class*="theme-"] body .trackList .listItem .paper-icon-button-light[data-ac
   filter: drop-shadow(0 0 8px var(--my-gold-light)) !important;
 }
 
+/* 5d. Direct Hover: Favorite Heart (Ultimate Grid & List Specificity) */
+
+/* 1. Strips the background and applies the pop-out scale to the button itself */
+html[class*="theme-"] body .dataGridRow:hover .dataGridItemCell button[data-isfavorite]:hover,
+html[class*="theme-"] body .dataGridItem:hover .dataGridItemCell button[data-isfavorite]:hover,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite]:hover,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button.listViewFavoriteButton:hover {
+  background: transparent !important;
+  box-shadow: none !important;
+  transform:  scale(1.25) !important;
+}
+
+/* 2. Forces the RED color and glow onto the button AND the inner icon */
+html[class*="theme-"] body .dataGridRow:hover .dataGridItemCell button[data-isfavorite]:hover,
+html[class*="theme-"] body .dataGridRow:hover .dataGridItemCell button[data-isfavorite]:hover .md-icon,
+html[class*="theme-"] body .dataGridItem:hover .dataGridItemCell button[data-isfavorite]:hover,
+html[class*="theme-"] body .dataGridItem:hover .dataGridItemCell button[data-isfavorite]:hover .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite]:hover,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button[data-isfavorite]:hover .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button.listViewFavoriteButton:hover,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button.listViewFavoriteButton:hover .md-icon {
+  color:                   var(--favorite-heart-hover) !important;
+  -webkit-text-fill-color: var(--favorite-heart-hover) !important;
+  fill:                    var(--favorite-heart-hover) !important;
+  opacity:                 1 !important;
+}
+
+/* 5e. Direct Hover: Played Checkmark (Ultimate Grid & List Specificity) */
+
+/* 1. Strips the background and applies the pop-out scale to the checkmark button */
+html[class*="theme-"] body .dataGridRow:hover .dataGridItemCell button.playstatebutton-icon[data-played]:hover,
+html[class*="theme-"] body .dataGridItem:hover .dataGridItemCell button.playstatebutton-icon[data-played]:hover,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button.playstatebutton-icon[data-played]:hover {
+  background: transparent !important;
+  box-shadow: none !important;
+  transform:  scale(1.25) !important;
+}
+
+/* 2. Forces the GOLD color and glow onto the checkmark AND the inner icon */
+html[class*="theme-"] body .dataGridRow:hover .dataGridItemCell button.playstatebutton-icon[data-played]:hover,
+html[class*="theme-"] body .dataGridRow:hover .dataGridItemCell button.playstatebutton-icon[data-played]:hover .md-icon,
+html[class*="theme-"] body .dataGridItem:hover .dataGridItemCell button.playstatebutton-icon[data-played]:hover,
+html[class*="theme-"] body .dataGridItem:hover .dataGridItemCell button.playstatebutton-icon[data-played]:hover .md-icon,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button.playstatebutton-icon[data-played]:hover,
+html[class*="theme-"] body .listItem:hover:not(.listItem-selected):not(.background-theme-a) button.playstatebutton-icon[data-played]:hover .md-icon {
+  color:                   var(--my-gold-light) !important;
+  -webkit-text-fill-color: var(--my-gold-light) !important;
+  fill:                    var(--my-gold-light) !important;
+  opacity:                 1 !important;
+}
+
 /* --- 10E. LIST VIEW ZEBRA STRIPING (EXCLUDING SEASON PAGES) --- */
 
 /* 1. STRIP THE INNER BOXES (Forces the main background to transparent) */
