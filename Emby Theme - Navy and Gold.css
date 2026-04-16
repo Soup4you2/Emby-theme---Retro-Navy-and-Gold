@@ -230,7 +230,7 @@ html,
   --glow-none: none;                                               /* Utility used to disable glows */
   --glow-light: 0 0 5px var(--retro-glow);                         /* Soft outline lighting for pills */
   --glow-medium: 0 0 10px var(--retro-glow);                       /* Standard outline lighting for indicators */
-  --shadow-glow-standard: transparent;                             /* The primary gold glow seen on hovered media cards. set to transparent to disable, or to enable "0 0 15px var(--retro-glow);" */
+  --shadow-glow-standard: 0 0 15px var(--retro-glow);              /* The primary gold glow seen on hovered media cards. set to transparent to disable, or to enable "0 0 15px var(--retro-glow);" */
   --glow-heavy: 0 0 20px var(--retro-glow);                        /* Intense glow used for primary action buttons */
   --glow-extreme: 0 0 30px var(--retro-glow);                      /* Massive glow used for full-screen artwork */
   --glow-slider-track: 0 0 12px var(--my-gold), var(--shadow-glow-standard); /* Makes the played portion of a progress bar neon */
@@ -246,7 +246,7 @@ html,
   /* --- MEDIA CARD POPOUT EFFECTS --- */
   --popout-perspective: 1000px;                                    /* Effects can be made when hovering over media cards to disable use "none" or to enable use "1000px" */
   --popout-transform: scale(1.05) rotateX(4deg) translateY(-5px);  /* Effects can be made when hovering over media cards to disable use "none" or to enable use "scale(1.05) rotateX(4deg) translateY(-5px)" */
-  --popout-shadow: 0px 20px 30px var(--black-alpha-90), var(--shadow-glow-standard);  /* Effects can be made when hovering over media cards to disable use "none" or to enable use "0px 20px 30px var(--black-alpha-90), var(--shadow-glow-standard)" */
+  --popout-shadow: 2px 10px 10px var(--black-alpha-90);            /* Effects can be made when hovering over media cards to disable use "none" or to enable use "2px 10px 10px var(--black-alpha-90)" */
 
   /* --- CAST & CREW PORTRAIT SHAPES (DEFAULT: OVAL) --- */
   --portrait-radius: 50% / 40%;                                    /* Oval Shaped */
@@ -2766,7 +2766,6 @@ html[class*="theme-"] body .card {
 /* --- 5B. CARD HOVER STATES --- */
 
 /* 1. Global Hover Behavior: Applies theme glow and gold border on mouse-over */
-html[class*="theme-"] body .card:hover .cardContent,
 html[class*="theme-"] body .card:hover .cardImageContainer,
 html[class*="theme-"] body .card:hover .defaultCardBackground {
   border-color:             var(--theme-primary-color) !important;
@@ -2782,9 +2781,19 @@ html[class*="theme-"] body .card .defaultCardBackground:not(.cardContent-round),
 html[class*="theme-"] body .card .cardOverlayContainer:not(.cardContent-round),
 html[class*="theme-"] body .card:hover .cardContent:not(.cardContent-round),
 html[class*="theme-"] body .card:hover .cardImageContainer:not(.cardContent-round),
-html[class*="theme-"] body .card:hover .defaultCardBackground:not(.cardContent-round) {
+html[class*="theme-"] body .card:hover .defaultCardBackground:not(.cardContent-round),
+html[class*="theme-"] body .card:hover .cardOverlayContainer:not(.cardContent-round) {
   border-radius: var(--media-card-radius) !important;
-  overflow:      hidden !important;
+}
+
+/* 2b. Prevent Shadow Clipping: Allows the 3D shadow to escape the container without being sliced off */
+html[class*="theme-"] body .card .cardContent {
+  overflow: visible !important;
+}
+html[class*="theme-"] body .card .cardImageContainer,
+html[class*="theme-"] body .card .defaultCardBackground,
+html[class*="theme-"] body .card .cardOverlayContainer {
+  overflow: hidden !important;
 }
 
 /* 3. Circular Cards: Ensures Music Artists and Collections stay circular during hover */
@@ -3737,12 +3746,12 @@ html[class*="theme-"] body .creditsItemsContainer .listItem-content::after {
 }
 
 /* 7. Hover Row State (Pop-out Glow) */
-html[class*="theme-"] body .creditsItemsContainer .listItem:hover,
-html[class*="theme-"] body .creditsItemsContainer .listItem.show-focus,
-html[class*="theme-"] body .creditsItemsContainer .listItem:nth-child(odd):hover,
-html[class*="theme-"] body .creditsItemsContainer .listItem:nth-child(even):hover {
-  background:       var(--table-row-hover-bg) !important;
-  background-color: var(--table-row-hover-bg) !important;
+html[class*="theme-"] body .creditsItemsContainer .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a),
+html[class*="theme-"] body .creditsItemsContainer .listItem.show-focus:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a),
+html[class*="theme-"] body .creditsItemsContainer .listItem:nth-child(odd):hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a),
+html[class*="theme-"] body .creditsItemsContainer .listItem:nth-child(even):hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) {
+  background:       var(--navy-mid-alpha-70) !important;
+  background-color: var(--navy-mid-alpha-70) !important;
   background-image: none !important;
   border-color:     var(--theme-primary-color) !important;
   box-shadow:       var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
@@ -4830,7 +4839,7 @@ html[class*="theme-"] body .hardwareEncoders h3.secondaryText {
 /* 2. Row Hover: Highlights setting rows when mouse-over */
 .dataGridItem:hover .dataGridItem-content,
 .dataGridItem.show-focus .dataGridItem-content {
-  background-color: var(--gold-alpha-20) !important;
+  background-color: var(--navy-mid-alpha-70) !important;
   border:           var(--hover-border-thickness) solid var(--theme-primary-color) !important;
   box-shadow:       var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
   color:            var(--pure-white) !important;
@@ -4859,7 +4868,7 @@ html[class*="theme-"] .dataGridItem-content {
 /* 2. Row Hover State (Pops out and glows) */
 html[class*="theme-"] .dataGridItem:hover .dataGridItem-content,
 html[class*="theme-"] .dataGridItem.show-focus .dataGridItem-content {
-  background-color: var(--gold-alpha-20) !important;
+  background-color: var(--navy-mid-alpha-70) !important;
   border-color:     var(--theme-primary-color) !important;
   box-shadow:       var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
   transform:        scale(1.01) !important;
@@ -4989,11 +4998,11 @@ html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridRow:nth
 }
 
 /* 5. Hover State (Unified Glow & Border - No scale to prevent edge clipping) */
-html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem:hover,
-html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItem:hover,
-html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridRow:hover {
-  background:       var(--table-row-hover-bg) !important;
-  background-color: var(--table-row-hover-bg) !important;
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a),
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a),
+html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridRow:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) {
+  background:       var(--navy-mid-alpha-70) !important;
+  background-color: var(--navy-mid-alpha-70) !important;
   background-image: none !important; 
   border-color:     var(--theme-primary-color) !important;
   box-shadow:       var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
@@ -5375,13 +5384,23 @@ html[class*="theme-"] body .trackList .listItem:nth-child(even) {
   background-color: var(--table-row-bg-even) !important;
 }
 
+/* 3b. OVERRIDE: Remove Zebra Striping for TV Show Episodes (Keeps fanart visible) */
+html[class*="theme-"] body .trackList .listItem.listItem-largeImage:not(:hover):nth-child(odd),
+html[class*="theme-"] body .trackList .listItem.listItem-largeImage:not(:hover):nth-child(even),
+html[class*="theme-"] body .trackList .listItem:has(.listItemImageContainer-backdrop):not(:hover):nth-child(odd),
+html[class*="theme-"] body .trackList .listItem:has(.listItemImageContainer-backdrop):not(:hover):nth-child(even) {
+  background-color: transparent !important;
+  background:       transparent !important;
+}
+
 /* 4. Hover State for Tracklist Items */
-html[class*="theme-"] body .artistSongsSection .listItem:hover,
-html[class*="theme-"] body .artistSongsSection .listItem.show-focus,
-html[class*="theme-"] body .trackList .listItem:hover,
-html[class*="theme-"] body .trackList .listItem.show-focus {
-  background:       var(--table-row-hover-bg) !important;
-  background-color: var(--table-row-hover-bg) !important;
+html[class*="theme-"] body .artistSongsSection .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a),
+html[class*="theme-"] body .artistSongsSection .listItem.show-focus:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a),
+html[class*="theme-"] body .trackList .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a),
+html[class*="theme-"] body .trackList .listItem.show-focus:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) {
+  background:       var(--navy-mid-alpha-70) !important;
+  background-color: var(--navy-mid-alpha-70) !important;
+  background-image: none !important;
   border-color:     var(--theme-primary-color) !important;
   box-shadow:       var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
   z-index:          10 !important;
