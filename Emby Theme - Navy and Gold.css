@@ -4687,18 +4687,13 @@ html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem 
   opacity:                 1 !important;
 }
 
-/* 5. Play Button INFINITY SHIELD: Forces triangle to Black in the OSD Queue */
-/* This mirrors the exact specificity weight of the OSD Icon rule to force a black triangle */
-html[class*="theme-"] body .videoOsdBottom .osdPlayQueue .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):not(.starIcon):hover,
-html[class*="theme-"] body .videoOsdBottom .osdPlayQueue button:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):not(.starIcon),
-html[class*="theme-"] body .videoOsdBottom .osdPlayQueue .listItem:hover .md-icon:not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):not(.starIcon),
-html[class*="theme-"] body .videoOsdBottom .osdPlayQueue .listItemOverlayButton-hover:hover .md-icon {
-  color:                   var(--pure-black) !important;
-  -webkit-text-fill-color: var(--pure-black) !important;
-  fill:                    var(--pure-black) !important;
+/* 5. Side Icon Protection: Ensures Remove & Drag icons NEVER turn black on row hover */
+html[class*="theme-"] body .osdPlayQueue .listItem:hover .listItem-content :is(button[data-action="removefromplayqueue"], .listViewDragHandle) :is(.md-icon, svg) {
+  color:                   var(--osd-icon-hover-color) !important;
+  -webkit-text-fill-color: var(--osd-icon-hover-color) !important;
+  fill:                    var(--osd-icon-hover-color) !important;
   text-shadow:             none !important;
   filter:                  none !important;
-  opacity:                 1 !important;
 }
 
 /* ============================================================
@@ -5011,16 +5006,32 @@ html[class*="theme-"] body .trackList .listItem [data-action="menu"]:hover {
   filter: drop-shadow(0 0 8px var(--my-gold)) !important;
 }
 
-/* 5c. Direct Hover: Play, Resume & Play All (Forces Triangle to Black) */
-html[class*="theme-"] body .dataGridItemCell .paper-icon-button-light[data-action="play"]:hover .md-icon,
-html[class*="theme-"] body .dataGridItemCell .paper-icon-button-light[data-action="resume"]:hover .md-icon,
-html[class*="theme-"] body .dataGridItemCell .paper-icon-button-light[data-action="playallfromhere"]:hover .md-icon,
-html[class*="theme-"] body :is(.trackList, .tracklist, .artistSongsSection, .albumSongsSection, .playlistPage, .osdPlaylistItemsContainer) .listItem button:is([data-action="play"], [data-action="resume"], [data-action="playallfromhere"]):hover .md-icon,
-html[class*="theme-"] body :is(.trackList, .tracklist, .artistSongsSection, .albumSongsSection, .playlistPage, .osdPlaylistItemsContainer) .listItem button:is([data-action="play"], [data-action="resume"], [data-action="playallfromhere"]):hover svg {
+/* 5c. Universal Table Play Button: Compact Gold Circle + Black Triangle */
+/* This handles the background circle and scaling */
+html[class*="theme-"] body :is(.dataGridRow, .dataGridItem, .trackList, .tracklist, .artistSongsSection, .albumSongsSection, .playlistPage, .osdPlayQueue) .listItem :is(.listItemImageButton, .listItemOverlayButton-hover, [data-action="play"], [data-action="resume"], [data-action="setplaylistindex"]):hover {
+  background-color:        transparent !important;
+  border-color:            transparent !important;
+  transform:               scale(1.1) !important;
+  opacity:                 1 !important;
+}
+
+/* This handles the inner icon colors (Triangle to Black, Circle to Gold) */
+/* mirrored specificity chain to defeat the OSD Gold rules */
+html[class*="theme-"] body :is(.videoOsdBottom, .view, .page) :is(.dataGridRow, .dataGridItem, .trackList, .tracklist, .artistSongsSection, .albumSongsSection, .playlistPage, .osdPlayQueue) .listItem :is(.listItemImageButton, .listItemOverlayButton-hover, [data-action="play"], [data-action="resume"], [data-action="setplaylistindex"]):hover :is(.md-icon, svg):not(.ratingbutton-icon-withrating):not(.cardOverlayFab-primary):not(.cardOverlayButton-fab):not(.starIcon) {
+  background-color:        var(--my-gold) !important;
   color:                   var(--pure-black) !important;
   -webkit-text-fill-color: var(--pure-black) !important;
   fill:                    var(--pure-black) !important;
-  transform:               scale(1.25) !important;
+  border-radius:           50% !important;
+  filter:                  none !important;
+  text-shadow:             none !important;
+}
+
+/* Force the Triangle to Black ONLY inside the play containers */
+html[class*="theme-"] body :is(.dataGridRow, .dataGridItem, .trackList, .tracklist, .artistSongsSection, .albumSongsSection, .playlistPage, .osdPlayQueue) .listItem :is(.listItemImageButton, .listItemOverlayButton-hover, [data-action="play"], [data-action="resume"]):hover :is(.md-icon, svg) {
+  color:                   var(--pure-black) !important;
+  -webkit-text-fill-color: var(--pure-black) !important;
+  fill:                    var(--pure-black) !important;
   filter:                  none !important;
   text-shadow:             none !important;
 }
