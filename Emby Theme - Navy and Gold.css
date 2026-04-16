@@ -246,7 +246,7 @@ html,
   /* --- MEDIA CARD POPOUT EFFECTS --- */
   --popout-perspective: 1000px;                                    /* Effects can be made when hovering over media cards to disable use "none" or to enable use "1000px" */
   --popout-transform: scale(1.05) rotateX(4deg) translateY(-5px);  /* Effects can be made when hovering over media cards to disable use "none" or to enable use "scale(1.05) rotateX(4deg) translateY(-5px)" */
-  --popout-shadow: 2px 10px 10px var(--black-alpha-90);            /* Effects can be made when hovering over media cards to disable use "none" or to enable use "2px 10px 10px var(--black-alpha-90)" */
+  --popout-shadow: 0px 10px 10px var(--black-alpha-70);            /* Effects can be made when hovering over media cards to disable use "none" or to enable use "0px 10px 10px var(--black-alpha-70)" Shadow offset: 2px Right, 10px Down, 10px Blur */
 
   /* --- CAST & CREW PORTRAIT SHAPES (DEFAULT: OVAL) --- */
   --portrait-radius: 50% / 40%;                                    /* Oval Shaped */
@@ -2848,8 +2848,7 @@ html[class*="theme-"] body .personCard:hover .cardOverlayContainer {
   border-width:            var(--hover-border-thickness) !important; 
   border-style:            solid !important;
   background:              transparent !important;
-  box-shadow:              0 8px 20px var(--black-alpha-50), 
-                           var(--shadow-glow-standard) !important;
+  box-shadow:              0 8px 20px var(--black-alpha-50) !important;
 }
 
 html[class*="theme-"] body .peopleSection .card:hover .cardImageContainer,
@@ -2972,8 +2971,6 @@ html[class*="theme-"] body .card.show-focus .defaultCardBackground.cardContent-r
     border-color:            var(--theme-primary-color) !important;
     border-width:            var(--hover-border-thickness) !important; 
     border-style:            solid !important;
-    box-shadow:              18px 18px 30px -10px var(--black-alpha-80), 
-                             var(--shadow-glow-standard) !important; 
     transform:               var(--popout-transform) !important;
 }
 
