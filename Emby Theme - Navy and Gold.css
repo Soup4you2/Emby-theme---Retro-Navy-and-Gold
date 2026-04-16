@@ -305,7 +305,7 @@ html,
   --table-header-bg: var(--navy-mid-solid);                        /* Background for table headings */
   --table-row-bg-even: var(--navy-light-alpha-40);                 /* Zebra stripe color (Even rows) */
   --table-row-bg-odd: var(--navy-base-alpha-60);                   /* Zebra stripe color (Odd rows) */
-  --table-row-hover-bg: var(--gold-alpha-20);                      /* Background color on row hover */
+  --table-row-hover-bg: var(--gold-alpha-20);                      /* Background color on row hover, best choices are --gold-alpha-20, or --navy-mid-alpha-70 */
    
   /* --- TOGGLE SWITCH VARIABLES --- */
   --toggle-track-off: var(--navy-light-alpha-80);                  /* Background of switch when OFF */
@@ -3747,11 +3747,11 @@ html[class*="theme-"] body .creditsItemsContainer .listItem:hover:not(.listItem-
 html[class*="theme-"] body .creditsItemsContainer .listItem.show-focus:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a),
 html[class*="theme-"] body .creditsItemsContainer .listItem:nth-child(odd):hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a),
 html[class*="theme-"] body .creditsItemsContainer .listItem:nth-child(even):hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) {
-  background:       var(--navy-mid-alpha-70) !important;
-  background-color: var(--navy-mid-alpha-70) !important;
+  background:       var(--table-row-hover-bg) !important;
+  background-color: var(--table-row-hover-bg) !important;
   background-image: none !important;
   border-color:     var(--theme-primary-color) !important;
-  box-shadow:       var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+  box-shadow:       var(--shadow-glow-standard), inset 0 0 15px var(--gold-alpha-30) !important;
   transform:        scale(1.01) !important;
   z-index:          10 !important;
 }
@@ -3908,7 +3908,7 @@ html[class*="theme-"] body .guideHeader-currentTimeIndicatorDot::before {
   border-left-width:   7px !important;
   border-right-width:  7px !important;
   box-shadow:          none !important;
-  filter:              drop-shadow(0 0 2px rgba(0,0,0,0.4)) !important;
+  filter:              drop-shadow(0 0 2px rgba(var(--pure-black-rgb), 0.4)) !important;
 }
 
 /* --- 7B. GUIDE HEADERS (Top Bar) --- */
@@ -4129,7 +4129,6 @@ input[type="range"]::-moz-range-thumb {
   will-change:     transform, box-shadow;
 }
 
-
 /* --- 8C. OSD Typography & Buttons --- */
 .osdValues,
 .osdTextContainer,
@@ -4149,6 +4148,14 @@ input[type="range"]::-moz-range-thumb {
   font-family: var(--font-body) !important;
   color:       var(--text-muted) !important;
   opacity:     0.8;
+}
+
+/* Hide OSD Badges (Year/Rating) above the video title */
+html[class*="theme-"] body .videoOsdBottom .videoOsdText .mediaInfoItems,
+html[class*="theme-"] body .videoOsdBottom .osdTextContainer .mediaInfoItems {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
 
 /* Active state for toggles like CC, Repeat, Play Queue, or PIP (Pops to White) */
@@ -4620,6 +4627,51 @@ html[class*="theme-"] body .osdRemoteControlImageCard .cardOverlayContainer .car
     margin: 0 !important;
 }
 
+/* --- 8H. OSD Playlist / Play Queue --- */
+
+/* 1. Remove Button (Resting State) */
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content button.itemAction.md-icon.paper-icon-button-light[data-action="removefromplayqueue"],
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content button.itemAction.md-icon.paper-icon-button-light[data-action="removefromplayqueue"] * {
+  color:                   var(--osd-icon-color) !important;
+  -webkit-text-fill-color: var(--osd-icon-color) !important;
+  fill:                    var(--osd-icon-color) !important;
+  opacity:                 0.8 !important;
+  filter:                  none !important;
+}
+
+/* 2. Remove Button (Hover State -> Pops to Danger Red) */
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content button.itemAction.md-icon.paper-icon-button-light[data-action="removefromplayqueue"]:hover,
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content button.itemAction.md-icon.paper-icon-button-light[data-action="removefromplayqueue"]:hover * {
+  color:                   var(--danger-red-light) !important;
+  -webkit-text-fill-color: var(--danger-red-light) !important;
+  fill:                    var(--danger-red-light) !important;
+  filter:                  drop-shadow(0 0 8px var(--danger-red-light)) !important;
+  transform:               scale(1.15) !important;
+  opacity:                 1 !important;
+}
+
+/* 3. Drag Handle (Resting State -> Standard Gold) */
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon,
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon * {
+  color:                   var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  fill:                    var(--my-gold) !important;
+  opacity:                 0.8 !important;
+  filter:                  none !important;
+}
+
+/* 4. Drag Handle (Row Hover & Direct Hover -> Bright Gold Glow) */
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem:hover .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon,
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem:hover .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon *,
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon:hover,
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon:hover * {
+  color:                   var(--my-gold-light) !important;
+  -webkit-text-fill-color: var(--my-gold-light) !important;
+  fill:                    var(--my-gold-light) !important;
+  filter:                  drop-shadow(0 0 5px var(--my-gold)) !important;
+  opacity:                 1 !important;
+}
+
 /* ============================================================
    09. FULLSCREEN AUDIO & PLAYLIST
    ============================================================ */
@@ -4836,9 +4888,9 @@ html[class*="theme-"] body .hardwareEncoders h3.secondaryText {
 /* 2. Row Hover: Highlights setting rows when mouse-over */
 .dataGridItem:hover .dataGridItem-content,
 .dataGridItem.show-focus .dataGridItem-content {
-  background-color: var(--navy-mid-alpha-70) !important;
+  background-color: var(--table-row-hover-bg) !important;
   border:           var(--hover-border-thickness) solid var(--theme-primary-color) !important;
-  box-shadow:       var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+  box-shadow:       var(--shadow-glow-standard), inset 0 0 15px var(--gold-alpha-30) !important;
   color:            var(--pure-white) !important;
 }
 
@@ -4865,9 +4917,9 @@ html[class*="theme-"] .dataGridItem-content {
 /* 2. Row Hover State (Pops out and glows) */
 html[class*="theme-"] .dataGridItem:hover .dataGridItem-content,
 html[class*="theme-"] .dataGridItem.show-focus .dataGridItem-content {
-  background-color: var(--navy-mid-alpha-70) !important;
+  background-color: var(--table-row-hover-bg) !important;
   border-color:     var(--theme-primary-color) !important;
-  box-shadow:       var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+  box-shadow:       var(--shadow-glow-standard), inset 0 0 15px var(--gold-alpha-30) !important;
   transform:        scale(1.01) !important;
   z-index:          10 !important;
 }
@@ -4917,7 +4969,7 @@ html[class*="theme-"] body .trackList .listItem .paper-icon-button-light[data-ac
   color: var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
   opacity: 1 !important;
-  filter: drop-shadow(0 0 2px rgba(0,0,0,0.5)) !important;
+  filter: drop-shadow(0 0 2px var(--black-alpha-50)) !important;
   transition: all var(--transition-speed) ease !important;
 }
 
@@ -4998,11 +5050,11 @@ html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridRow:nth
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a),
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a),
 html[class*="theme-"] body .view:not(:has(.seriesItemsSection)) .dataGridRow:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) {
-  background:       var(--navy-mid-alpha-70) !important;
-  background-color: var(--navy-mid-alpha-70) !important;
+  background:       var(--table-row-hover-bg) !important;
+  background-color: var(--table-row-hover-bg) !important;
   background-image: none !important; 
   border-color:     var(--theme-primary-color) !important;
-  box-shadow:       var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+  box-shadow:       var(--shadow-glow-standard), inset 0 0 15px var(--gold-alpha-30) !important;
   z-index:          10 !important;
 }
 
@@ -5395,11 +5447,11 @@ html[class*="theme-"] body .artistSongsSection .listItem:hover:not(.listItem-sel
 html[class*="theme-"] body .artistSongsSection .listItem.show-focus:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a),
 html[class*="theme-"] body .trackList .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a),
 html[class*="theme-"] body .trackList .listItem.show-focus:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) {
-  background:       var(--navy-mid-alpha-70) !important;
-  background-color: var(--navy-mid-alpha-70) !important;
+  background:       var(--table-row-hover-bg) !important;
+  background-color: var(--table-row-hover-bg) !important;
   background-image: none !important;
   border-color:     var(--theme-primary-color) !important;
-  box-shadow:       var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
+  box-shadow:       var(--shadow-glow-standard), inset 0 0 15px var(--gold-alpha-30) !important;
   z-index:          10 !important;
 }
 
@@ -5695,53 +5747,6 @@ html[class*="theme-"] body .formDialog .button-flat:hover,
 html[class*="theme-"] body .paperListbox .button-flat:hover {
   color:                   var(--theme-primary-color) !important;
   -webkit-text-fill-color: var(--theme-primary-color) !important;
-}
-
-/* ============================================================
-   HOTFIX: MUSIC OSD PLAY QUEUE ICONS (REMOVE & DRAG)
-   ============================================================ */
-
-/* 1. Remove Button (Resting State) - Bulldozer Specificity */
-html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content button.itemAction.md-icon.paper-icon-button-light[data-action="removefromplayqueue"],
-html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content button.itemAction.md-icon.paper-icon-button-light[data-action="removefromplayqueue"] * {
-  color:                   var(--osd-icon-color) !important;
-  -webkit-text-fill-color: var(--osd-icon-color) !important;
-  fill:                    var(--osd-icon-color) !important;
-  opacity:                 0.8 !important;
-  filter:                  none !important;
-}
-
-/* 2. Remove Button (Hover State - Bulldozer Specificity) */
-html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content button.itemAction.md-icon.paper-icon-button-light[data-action="removefromplayqueue"]:hover,
-html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content button.itemAction.md-icon.paper-icon-button-light[data-action="removefromplayqueue"]:hover * {
-  color:                   var(--danger-red-light) !important;
-  -webkit-text-fill-color: var(--danger-red-light) !important;
-  fill:                    var(--danger-red-light) !important;
-  filter:                  drop-shadow(0 0 8px var(--danger-red-light)) !important;
-  transform:               scale(1.15) !important;
-  opacity:                 1 !important;
-}
-
-/* 3. Drag Handle (Resting State) - Bulldozer Specificity */
-html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon,
-html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon * {
-  color:                   var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
-  fill:                    var(--my-gold) !important;
-  opacity:                 0.8 !important;
-  filter:                  none !important;
-}
-
-/* 4. Drag Handle (Row Hover & Direct Hover - Bulldozer Specificity) */
-html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem:hover .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon,
-html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem:hover .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon *,
-html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon:hover,
-html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon:hover * {
-  color:                   var(--my-gold-light) !important;
-  -webkit-text-fill-color: var(--my-gold-light) !important;
-  fill:                    var(--my-gold-light) !important;
-  filter:                  drop-shadow(0 0 5px var(--my-gold)) !important;
-  opacity:                 1 !important;
 }
 
 /* ============================================================
