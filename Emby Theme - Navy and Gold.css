@@ -4687,13 +4687,14 @@ html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem 
   opacity:                 1 !important;
 }
 
-/* 5. Side Icon Protection: Ensures Remove & Drag icons NEVER turn black on row hover */
-html[class*="theme-"] body .osdPlayQueue .listItem:hover .listItem-content :is(button[data-action="removefromplayqueue"], .listViewDragHandle) :is(.md-icon, svg) {
+/* 5. Side Icon Protection: Prevents Remove & Drag icons from turning Black */
+html[class*="theme-"] body .videoOsdBottom .osdPlayQueue .listItem:hover .listItem-content :is(button[data-action="removefromplayqueue"], .listViewDragHandle) :is(.md-icon, svg) {
   color:                   var(--osd-icon-hover-color) !important;
   -webkit-text-fill-color: var(--osd-icon-hover-color) !important;
   fill:                    var(--osd-icon-hover-color) !important;
-  text-shadow:             none !important;
+  background-color:        transparent !important;
   filter:                  none !important;
+  text-shadow:             none !important;
 }
 
 /* ============================================================
@@ -5720,6 +5721,10 @@ html[class*="theme-"] body .card:not(.spotlightCard):not(.bannerCard):not(.sideF
 }
 
 /* THE SHIELD: Forces the Main Detail Poster, OSD Info Poster, Media Streams, and Music Player Art to stay flat */
+html[class*="theme-"] body .detailMediaStreamsItemsContainer .card:hover .cardContent,
+html[class*="theme-"] body .detailMediaStreamsItemsContainer .card:hover .cardImageContainer,
+html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.show-focus .cardContent,
+html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.show-focus .cardImageContainer,
 html[class*="theme-"] body .detailImageContainer .card.card.card:hover .cardImageContainer,
 html[class*="theme-"] body .detailImageContainer .card.card.card:hover .defaultCardBackground,
 html[class*="theme-"] body .detailImageContainer .card.card.card:hover .cardOverlayContainer,
@@ -5737,14 +5742,6 @@ html[class*="theme-"] body .osdRemoteControlImageCard.card.card.card.show-focus 
 html[class*="theme-"] body .osdRemoteControlImageCard.card.card.card.show-focus .cardContent,
 html[class*="theme-"] body .osdRemoteControlImageCard.card.card.card.show-focus .cardOverlayContainer {
     transform: none !important;
-}
-
-/* Completely Disable 3D Pop-out and Lift for Media Stream Info Cards */
-html[class*="theme-"] body .detailMediaStreamsItemsContainer .card:hover .cardContent,
-html[class*="theme-"] body .detailMediaStreamsItemsContainer .card:hover .cardImageContainer,
-html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.show-focus .cardContent,
-html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.show-focus .cardImageContainer {
-  transform: none !important;
 }
 
 /* Mobile/Touch Shield: Disables 3D effects on phones/tablets to prevent sticky hover glitches */
@@ -5908,48 +5905,6 @@ html[class*="theme-"] body .formDialog .button-flat:hover,
 html[class*="theme-"] body .paperListbox .button-flat:hover {
   color:                   var(--theme-primary-color) !important;
   -webkit-text-fill-color: var(--theme-primary-color) !important;
-}
-
-
-
-
-/* ============================================================
-   HOTFIX: TRACKLIST PLAY BUTTON (DATA GRID LOGIC)
-   ============================================================ */
-
-/* 1. NUKE BACKGROUNDS: Completely strips the circle, shadow, and native hover 
-      backgrounds from the button and its pseudo-elements. */
-html[class*="theme-"] body :is(.tracklist, .trackList, .playlistPage, .osdPlaylistItemsContainer) .listItem button[data-action="playallfromhere"],
-html[class*="theme-"] body :is(.tracklist, .trackList, .playlistPage, .osdPlaylistItemsContainer) .listItem button[data-action="playallfromhere"]::before,
-html[class*="theme-"] body :is(.tracklist, .trackList, .playlistPage, .osdPlaylistItemsContainer) .listItem button[data-action="playallfromhere"]::after,
-html[class*="theme-"] body :is(.tracklist, .trackList, .playlistPage, .osdPlaylistItemsContainer) .listItem button[data-action="playallfromhere"]:hover {
-  background:              transparent !important;
-  background-color:        transparent !important;
-  border:                  none !important;
-  box-shadow:              none !important;
-}
-
-/* 2. ROW HOVER (Resting State): The play button appears when the row is hovered.
-      Forces the triangle to be Muted White to match the 3-dots. */
-html[class*="theme-"] body :is(.tracklist, .trackList, .playlistPage, .osdPlaylistItemsContainer) .listItem:hover button[data-action="playallfromhere"] .md-icon {
-  color:                   var(--white-alpha-60) !important;
-  -webkit-text-fill-color: var(--white-alpha-60) !important;
-  fill:                    var(--white-alpha-60) !important;
-  opacity:                 1 !important;
-  filter:                  none !important;
-  transform:               scale(1) !important;
-  transition:              all var(--transition-speed) ease !important;
-}
-
-/* 3. DIRECT HOVER: The mouse touches the play button itself.
-      The triangle pops to Gold-Light, exactly like the 3-dots and heart. */
-html[class*="theme-"] body :is(.tracklist, .trackList, .playlistPage, .osdPlaylistItemsContainer) .listItem button[data-action="playallfromhere"]:hover .md-icon {
-  color:                   var(--my-gold-light) !important;
-  -webkit-text-fill-color: var(--my-gold-light) !important;
-  fill:                    var(--my-gold-light) !important;
-  filter:                  drop-shadow(0 0 10px var(--gold-alpha-60)) !important;
-  transform:               scale(1.25) !important;
-  opacity:                 1 !important;
 }
 
 /* ============================================================
