@@ -5740,7 +5740,11 @@ html[class*="theme-"] body .osdRemoteControlImageCard.card.card.card:hover .card
 html[class*="theme-"] body .osdRemoteControlImageCard.card.card.card:hover .cardOverlayContainer,
 html[class*="theme-"] body .osdRemoteControlImageCard.card.card.card.show-focus .cardImageContainer,
 html[class*="theme-"] body .osdRemoteControlImageCard.card.card.card.show-focus .cardContent,
-html[class*="theme-"] body .osdRemoteControlImageCard.card.card.card.show-focus .cardOverlayContainer {
+html[class*="theme-"] body .osdRemoteControlImageCard.card.card.card.show-focus .cardOverlayContainer,
+html[class*="theme-"] body :is(.tracklist, .trackList, .playlistPage) .listItem:hover .listItemImageContainer,
+html[class*="theme-"] body :is(.tracklist, .trackList, .playlistPage) .listItem:hover .listItemImage,
+html[class*="theme-"] body :is(.tracklist, .trackList, .playlistPage) .listItem:hover .listItem-innerwrapper,
+html[class*="theme-"] body .listItem-largeImage:hover .listItemImageContainer {
     transform: none !important;
 }
 
