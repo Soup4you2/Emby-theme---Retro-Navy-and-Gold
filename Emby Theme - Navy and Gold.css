@@ -305,7 +305,7 @@ html,
   --table-header-bg: var(--navy-mid-solid);                        /* Background for table headings */
   --table-row-bg-even: var(--navy-light-alpha-40);                 /* Zebra stripe color (Even rows) */
   --table-row-bg-odd: var(--navy-base-alpha-60);                   /* Zebra stripe color (Odd rows) */
-  --table-row-hover-bg: var(--gold-alpha-20);                      /* Background color on row hover, best choices are --gold-alpha-20, or --navy-mid-alpha-70 */
+  --table-row-hover-bg: var(--navy-mid-alpha-70);                      /* Background color on row hover, best choices are --gold-alpha-20, or --navy-mid-alpha-70 */
    
   /* --- TOGGLE SWITCH VARIABLES --- */
   --toggle-track-off: var(--navy-light-alpha-80);                  /* Background of switch when OFF */
@@ -5120,11 +5120,28 @@ html[class*="theme-"] body .activeSession-bottomsection .md-icon {
   -webkit-text-fill-color: var(--pure-white) !important;
 }
 
-/* 5. Dashboard Now Playing Hover Fix: Removes yellow inner tint but keeps the glowing gold border */
+/* 4b. Dashboard Now Playing Resting State (Zebra Striping & Border Prep) */
+html[class*="theme-"] body .activeSession.card .visualCardBox {
+  border:     var(--hover-border-thickness) solid transparent !important;
+  transition: all var(--transition-speed) ease-in-out !important;
+}
+
+html[class*="theme-"] body .activeSession.card:nth-child(odd) .visualCardBox {
+  background-color: var(--table-row-bg-odd) !important;
+  background:       var(--table-row-bg-odd) !important;
+}
+
+html[class*="theme-"] body .activeSession.card:nth-child(even) .visualCardBox {
+  background-color: var(--table-row-bg-even) !important;
+  background:       var(--table-row-bg-even) !important;
+}
+
+/* 5. Dashboard Now Playing Hover Fix: Uses Master Hover Variable & Gold Border */
 html[class*="theme-"] body .activeSession.card:hover .visualCardBox,
 html[class*="theme-"] body .activeSession.card.show-focus .visualCardBox {
-  background-color: var(--navy-light-alpha-80) !important;
-  background:       var(--navy-light-alpha-80) !important;
+  background-color: var(--table-row-hover-bg) !important;
+  background:       var(--table-row-hover-bg) !important;
+  border:           var(--hover-border-thickness) solid var(--theme-primary-color) !important;
   box-shadow:       var(--shadow-glow-standard) !important;
 }
 
