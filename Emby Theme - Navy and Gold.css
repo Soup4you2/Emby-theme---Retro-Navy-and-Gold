@@ -5698,6 +5698,53 @@ html[class*="theme-"] body .paperListbox .button-flat:hover {
 }
 
 /* ============================================================
+   HOTFIX: MUSIC OSD PLAY QUEUE ICONS (REMOVE & DRAG)
+   ============================================================ */
+
+/* 1. Remove Button (Resting State) - Bulldozer Specificity */
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content button.itemAction.md-icon.paper-icon-button-light[data-action="removefromplayqueue"],
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content button.itemAction.md-icon.paper-icon-button-light[data-action="removefromplayqueue"] * {
+  color:                   var(--osd-icon-color) !important;
+  -webkit-text-fill-color: var(--osd-icon-color) !important;
+  fill:                    var(--osd-icon-color) !important;
+  opacity:                 0.8 !important;
+  filter:                  none !important;
+}
+
+/* 2. Remove Button (Hover State - Bulldozer Specificity) */
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content button.itemAction.md-icon.paper-icon-button-light[data-action="removefromplayqueue"]:hover,
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content button.itemAction.md-icon.paper-icon-button-light[data-action="removefromplayqueue"]:hover * {
+  color:                   var(--danger-red-light) !important;
+  -webkit-text-fill-color: var(--danger-red-light) !important;
+  fill:                    var(--danger-red-light) !important;
+  filter:                  drop-shadow(0 0 8px var(--danger-red-light)) !important;
+  transform:               scale(1.15) !important;
+  opacity:                 1 !important;
+}
+
+/* 3. Drag Handle (Resting State) - Bulldozer Specificity */
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon,
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon * {
+  color:                   var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  fill:                    var(--my-gold) !important;
+  opacity:                 0.8 !important;
+  filter:                  none !important;
+}
+
+/* 4. Drag Handle (Row Hover & Direct Hover - Bulldozer Specificity) */
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem:hover .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon,
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem:hover .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon *,
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon:hover,
+html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content i.listViewDragHandle.dragHandle.md-icon.listItemIcon:hover * {
+  color:                   var(--my-gold-light) !important;
+  -webkit-text-fill-color: var(--my-gold-light) !important;
+  fill:                    var(--my-gold-light) !important;
+  filter:                  drop-shadow(0 0 5px var(--my-gold)) !important;
+  opacity:                 1 !important;
+}
+
+/* ============================================================
    13. UNIVERSAL SEASONAL LOGIC & GLOBAL SHIELDS
    ============================================================ */
 
