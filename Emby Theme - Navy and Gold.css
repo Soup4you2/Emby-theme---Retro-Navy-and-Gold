@@ -100,8 +100,8 @@ html,
   --osd-icon-hover-color: var(--my-gold);                          /* OSD Icon colors in a hover state */
 
   /* --- DIALOG POPUPS --- */
-  --dialog-icon-color: var(--danger-red);                             /* Dialog popup icon color */
-  --dialog-icon-hover-color: color-mix(in srgb, var(--guide-new) 40%, white); /* Dialog popup icon color in a hovered state */
+  --dialog-icon-color: var(--my-gold);                             /* Dialog popup icon color */
+  --dialog-icon-hover-color: color-mix(in srgb, var(--my-gold-light) 40%, white); /* Dialog popup icon color in a hovered state */
 
    /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
   --guide-premiere: rgb(89, 35, 71);                             /* Cell background for TV Series Premieres */
