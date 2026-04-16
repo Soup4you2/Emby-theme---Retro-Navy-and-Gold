@@ -34,7 +34,9 @@ html,
   --font-body: 'Sofia Sans', sans-serif;                           /* Standard readable body font */
   
   /* --- TYPOGRAPHY TEXT CASE TOGGLES --- */
-  --text-transform-pillbar: uppercase;                              /* PILLBARS: Set to 'uppercase' for all-caps, or 'none' for title-case */
+  --text-transform-pillbar: uppercase;                              /* Pillbars - Set to 'uppercase' for all-caps, or 'none' for title-case */
+  --text-transform-primaryHeaders: uppercase;                       /* Section Titles (Header and Pages)  - Set to 'uppercase' for all-caps, or 'none' for title-case */
+  --text-transform-dialogHeaders: none;                             /* Header text in dialogs - Set to 'uppercase' for all-caps, or 'none' for title-case */
 
   /* --- CUSTOM MASTER PALETTE --- */
 
@@ -576,7 +578,7 @@ html[class*="theme-"] .pageTitle,
 html[class*="theme-"] .sectionTitle {
   font-family: var(--font-header) !important;
   color: var(--h2-color) !important; 
-  text-transform: uppercase !important;
+  text-transform: var(--text-transform-primaryHeaders) !important;
   letter-spacing: 1.5px !important;
   text-shadow: 2px 2px 4px var(--black-alpha-50) !important;
 }
@@ -1656,7 +1658,7 @@ html[class*="theme-"] body .actionSheet .actionsheetItemPreviewText-main .mediaI
   -webkit-text-fill-color: var(--h3-color) !important;
   font-size:               1.25em !important; 
   font-family:             var(--font-header) !important;
-  text-transform:          uppercase !important;
+  text-transform:          var(--text-transform-dialogHeaders) !important;
   letter-spacing:          0.5px !important;
 }
 
@@ -4820,7 +4822,7 @@ html[class*="theme-"] .dataGridHeader .primaryText {
 legend {
   color:          var(--h3-color) !important;
   font-family:    var(--font-header) !important;
-  text-transform: uppercase !important;
+  text-transform: var(--text-transform-primaryHeaders) !important;
   letter-spacing: 1px !important;
   font-weight:    700 !important;
   font-size:      1.2em !important;
