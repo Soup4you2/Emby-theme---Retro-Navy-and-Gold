@@ -96,8 +96,8 @@ html,
   /* --- OSD OPTIONS --- */
   --osd-mini-blur: var(--blur-heavy);                              /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) to enable frost (Affects Mini-Music OSD Only) */
   --osd-mini-bg: var(--navy-base-alpha-75);                        /* Background transparency for the bottom mini music player */
-  --osd-icon-color: var(--pure-white);                                /* Icon colors for the OSD display */
-  --osd-icon-hover-color: var(--my-gold);                    /* OSD Icon colors in a hover state */
+  --osd-icon-color: var(--pure-white);                             /* Icon colors for the OSD display */
+  --osd-icon-hover-color: var(--my-gold);                          /* OSD Icon colors in a hover state */
 
   /* --- DIALOG POPUPS --- */
   --dialog-icon-color: var(--my-gold);                             /* Dialog popup icon color */
@@ -136,13 +136,13 @@ html,
   --actor-name: var(--my-gold);                                    /* Cast member's actual name color */
   --actor-role: var(--white-alpha-70);                             /* Character role text color */
 
-  /* --- FAVORITE HEART COLORS --- */
-  --favorite-heart-rgb: 255, 51, 102;                              /* Base red for the favorite heart */
-  --favorite-heart-hover-rgb: 255, 0, 68;                          /* Brighter red for hovered favorite heart */
-  --favorite-heart: rgba(var(--favorite-heart-rgb), 1);
-  --favorite-heart-hover: rgba(var(--favorite-heart-hover-rgb), 1);
-  --favorite-heart-alpha-50: rgba(var(--favorite-heart-rgb), 0.5);
-  --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8);
+/* --- FAVORITE HEART COLORS --- */
+  --favorite-heart-rgb: 255, 51, 102;                              /* Raw RGB for resting red */
+  --favorite-heart-hover-rgb: 255, 0, 68;                          /* Raw RGB for hover red */
+  --favorite-heart: rgba(var(--favorite-heart-rgb), 1);            /* Solid resting color */
+  --favorite-heart-hover: rgba(var(--favorite-heart-hover-rgb), 1); /* Solid hover color */
+  --favorite-heart-alpha-50: rgba(var(--favorite-heart-rgb), 0.5);  /* 50% opacity for soft shadow/aura */
+  --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8); /* 80% opacity for bright hover glow */
 
    /* --- CORE SOLID COLORS --- */
   --pure-white: rgba(var(--pure-white-rgb), 1);                    /* Solid white for high-contrast icons */
