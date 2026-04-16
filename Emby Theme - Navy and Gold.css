@@ -4152,27 +4152,6 @@ html[class*="theme-"] body .videoOsdBottom .osdTextContainer .mediaInfoItems {
   opacity: 0 !important;
 }
 
-/* Hide OSD Badges (Year/Rating) above the video title */
-html[class*="theme-"] body .videoOsdBottom .videoOsdText .mediaInfoItems,
-html[class*="theme-"] body .videoOsdBottom .osdTextContainer .mediaInfoItems {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-}
-
-/* Audio Format Badge Centering (M4A, FLAC, etc.) */
-html[class*="theme-"] body .videoOsd-audioInfo {
-  position: relative !important;
-  top: 10px !important; /* Adjust this value to nudge up or down */
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-}
-
-html[class*="theme-"] body .videoOsd-audioInfo .mediaInfoItem {
-  margin: 0 !important;
-}
-
 /* Active state for toggles like CC, Repeat, Play Queue, or PIP (Pops to White) */
 html[class*="theme-"] body .videoOsdBottom .buttonActive,
 html[class*="theme-"] body .videoOsdBottom .buttonActive .md-icon,
