@@ -333,6 +333,24 @@ html,
   /* --seasonal-bg-visibility: hidden;                             /* Fully Disabled */
   /* --seasonal-bg-anim-state: paused;                             /* Fully Disabled */
 
+  /* --- TEST COLOR VARIABLES - USED FOR DEBUGGING PURPOSES -- */
+  --test-color1: #004d08;
+  --test-color2: #00f410;
+  --test-color3: #6c0101;
+  --test-color4: #ff0505;
+  --test-color5: #12004f;
+  --test-color6: #0000ff;
+  --test-color7: #880a73;
+  --test-color8: #fa00e1;
+
+  --header-icon-color: var(--test-color1);
+  --header-icon-hover-color: var(--test-color2);
+  --sidebar-icon-color: var(--test-color3);
+  --sidebar-icon-hover-color: var(--test-color4);
+  --osd-icon-color: var(--test-color5);
+  --osd-icon-hover-color: var(--test-color6); 
+  --dialog-icon-color: var(--test-color7);  
+  --dialog-icon-hover-color: var(--test-color8);
 
 /* ============================================================
       SEASONAL EVENT TOGGLE
@@ -4626,9 +4644,9 @@ html[class*="theme-"] body .osdRemoteControlImageCard .cardOverlayContainer .car
 /* 1. Remove Button (Resting State) */
 html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content button.itemAction.md-icon.paper-icon-button-light[data-action="removefromplayqueue"],
 html[class*="theme-"] body .videoOsdBottom .osdPlaylistItemsContainer .listItem .listItem-content button.itemAction.md-icon.paper-icon-button-light[data-action="removefromplayqueue"] * {
-  color:                   var(--osd-icon-color) !important;
-  -webkit-text-fill-color: var(--osd-icon-color) !important;
-  fill:                    var(--osd-icon-color) !important;
+  color:                   var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
+  fill:                    var(--pure-white) !important;
   opacity:                 0.8 !important;
   filter:                  none !important;
 }
