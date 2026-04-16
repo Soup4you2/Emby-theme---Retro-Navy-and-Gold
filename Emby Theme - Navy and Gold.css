@@ -1008,6 +1008,8 @@ html[class*="theme-"] body .skinHeader.skinHeader-withfulldrawer .headerLeft img
 }
 
 /* 3. Header Icons: Targets ONLY specific header buttons to avoid styling multi-select panels */
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerHomeButton,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerHomeButton .md-icon,
 html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerBackButton,
 html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerBackButton .md-icon,
 html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerMenuButton,
@@ -1026,33 +1028,9 @@ html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSettingsButto
   transition:              all var(--transition-speed) ease !important;
 }
 
-/* Hover Glow applied specifically to the inner graphic */
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerBackButton:hover .md-icon,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerMenuButton:hover .md-icon,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerCastButton:hover .md-icon,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSearchButton:hover .md-icon,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerUserButton:hover .md-icon,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSettingsButton:hover .md-icon,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.paper-icon-button-light:hover .md-icon {
-  color:                   var(--header-icon-hover-color) !important;
-  -webkit-text-fill-color: var(--header-icon-hover-color) !important;
-  fill:                    var(--header-icon-hover-color) !important;
-  filter:                  drop-shadow(0 0 8px var(--header-icon-hover-color)) !important;
-  transform:               scale(1.15) !important;
-}
-
-/* Base button text color sync */
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerBackButton:hover,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerMenuButton:hover,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerCastButton:hover,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSearchButton:hover,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerUserButton:hover,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSettingsButton:hover {
-  color:                   var(--header-icon-hover-color) !important;
-  -webkit-text-fill-color: var(--header-icon-hover-color) !important;
-}
-
-/* 3b. Header Icons (Hover State - Colors) */
+/* 3a. Header Icons (Hover State - Colors) */
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerHomeButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerHomeButton:hover *,
 html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerBackButton:hover,
 html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerBackButton:hover *,
 html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerMenuButton:hover,
@@ -1072,7 +1050,7 @@ html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSetting
   fill:                    var(--header-icon-hover-color) !important;
 }
 
-/* 3c. Filter Icon Fixes: Retains gold for non-header filter elements */
+/* 3b. Filter Icon Fixes: Retains gold for non-header filter elements */
 html[class*="theme-"] body .filtersScroller .btnGuideViewSettings .md-icon,
 html[class*="theme-"] body .filtersScroller .btnGuideViewSettings .button-icon {
   color:                   var(--my-gold) !important;
