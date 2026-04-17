@@ -1032,7 +1032,9 @@ html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSearchButton 
 html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerUserButton,
 html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerUserButton .md-icon,
 html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSettingsButton,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSettingsButton .md-icon {
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerSettingsButton .md-icon,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerHelpButton,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerHelpButton .md-icon {
   color:                   var(--header-icon-color) !important;
   -webkit-text-fill-color: var(--header-icon-color) !important;
   opacity:                 1 !important;
@@ -1055,7 +1057,9 @@ html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSearchB
 html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerUserButton:hover,
 html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerUserButton:hover *,
 html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSettingsButton:hover,
-html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSettingsButton:hover * {
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) button.headerSettingsButton:hover *,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerHelpButton:hover,
+html[class*="theme-"] body .skinHeader:not(.videoOsdHeader) .headerHelpButton:hover .md-icon {
   color:                   var(--header-icon-hover-color) !important;
   -webkit-text-fill-color: var(--header-icon-hover-color) !important;
   fill:                    var(--header-icon-hover-color) !important;
