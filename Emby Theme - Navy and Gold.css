@@ -1112,9 +1112,9 @@ html[class*="theme-"] body .view > .scrollSlider {
 /* 6.1. HEADER BASE & SCROLLBAR GAP PATCH */
 html[class*="theme-"] body .skinHeader {
   position:   relative !important;
-  height:     65px !important; 
-  min-height: 65px !important;
-  max-height: 65px !important;
+  height:     80px !important; 
+  min-height: 80px !important;
+  max-height: 80px !important;
 }
 
 html[class*="theme-"] body .skinHeader::after {
