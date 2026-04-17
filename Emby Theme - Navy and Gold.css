@@ -2645,14 +2645,25 @@ html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) .list
   opacity:                 1 !important;
 }
 
-/* D. ALL GOLD HOVERS (Direct Hover ONLY) */
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) :is(button:is([title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i], [title="Overview" i], [data-action="overview" i]):hover, i:is(.listViewDragHandle, .dragHandle):hover),
+/* D. ACTION ICON HOVERS (Direct Hover ONLY) */
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i], [title="Overview" i], [data-action="overview" i]):hover,
 html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i], [title="Overview" i], [data-action="overview" i]):hover *,
 html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.checkboxContainer:hover i.lockedfield-lockicon, i.lockedfield-lockicon:hover, .btnOpenExternalId:hover, .emby-input-iconbutton:hover, i.searchIcon:hover, button[title="Search" i]:hover),
 html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnOpenExternalId:hover, .emby-input-iconbutton:hover, button[title="Search" i]:hover) * {
   color:                   var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
   fill:                    var(--my-gold) !important;
+  filter:                  drop-shadow(0 0 5px var(--my-gold)) !important;
+  transform:               scale(1.15) !important;
+  opacity:                 1 !important;
+}
+
+/* E. DRAG HANDLES ONLY (Direct Hover ONLY) */
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) i:is(.listViewDragHandle, .dragHandle):hover {
+  color:                   var(--my-gold-light) !important;
+  -webkit-text-fill-color: var(--my-gold-light) !important;
+  fill:                    var(--my-gold-light) !important;
+  filter:                  drop-shadow(0 0 5px var(--my-gold)) !important;
   transform:               scale(1.15) !important;
   opacity:                 1 !important;
 }
