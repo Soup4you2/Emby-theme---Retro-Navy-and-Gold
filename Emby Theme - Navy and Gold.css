@@ -116,7 +116,7 @@ html,
   --error-text: rgba(255, 255, 255, 1);                          /* The text color */
   --error-border: rgba(255, 77, 77, 1);                          /* The bright light-red border */
 
-  /* --- DANGER / CANCEL BUTTONS / REMOVE ITEM BUTTONS --- */
+  /* --- DANGER / CANCEL / REMOVE ITEM BUTTONS --- */
   --danger-red-rgb: 204, 0, 0;                                     /* Base RGB for destructive actions */
   --danger-red: rgba(var(--danger-red-rgb), 1);                    /* Solid red for delete/cancel buttons */
   --danger-red-light: rgb(255, 51, 51);                          /* Brighter red for hovering over delete/cancel buttons */
@@ -1107,10 +1107,40 @@ html[class*="theme-"] body .view > .scrollSlider {
   margin-top: var(--header-content-padding) !important;
 }
 
-/* 6. Header Gap Fix: Forces the header to sit flush against the right edge of the screen,
-      ignoring Emby's native scrollbar-calculating math. */
+/* 6. TOP HEADER */
+
+/* 6.1. HEADER BASE & SCROLLBAR GAP PATCH */
 html[class*="theme-"] body .skinHeader {
-  right: 0 !important;
+  position:   relative !important;
+  height:     65px !important; 
+  min-height: 65px !important;
+  max-height: 65px !important;
+}
+
+html[class*="theme-"] body .skinHeader::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -50px;
+  width: 50px;
+  height: 100%; 
+  background: inherit; 
+  backdrop-filter: inherit;
+  border-bottom: 2px solid var(--my-gold) !important; 
+  z-index: -1;
+}
+
+/* 6.2. PILLBAR ABSOLUTE CENTERING */
+html[class*="theme-"] body .headerTabs,
+html[class*="theme-"] body .sectionTabs {
+  position:  absolute !important;
+  left:      50% !important;
+  top:       50% !important;
+  transform: translate(-50%, -50%) !important;
+  width:     auto !important;
+  margin:    0 !important;
+  padding:   0 !important;
+  z-index:   10 !important;
 }
 
 /* --- 3B. SIDEBAR DRAWER (Slide-out Menu) --- */
