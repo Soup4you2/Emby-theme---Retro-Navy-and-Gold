@@ -339,13 +339,13 @@ html,
   --test-color2: #00f410;
   --test-color3: #6c0101;
   --test-color4: #ff0505;
-  --test-color5: #12004f;
+  --test-color5: #321592;
   --test-color6: #0000ff;
   --test-color7: #880a73;
   --test-color8: #fa00e1;
   */
 
-/* ============================================================
+  /* ============================================================
       SEASONAL EVENT TOGGLE
       Uncomment ONE block below to activate a holiday theme
 
@@ -2607,12 +2607,13 @@ html[class*="theme-"] body .dialog .listItem .secondaryText {
   -webkit-text-fill-color: var(--white-alpha-70) !important;
 }
 
-/* 4. DIALOG REMOVE BUTTON (Resting & Row Hover)
-      Locks to Pure White. Protects from row hover hijacking and stays flat. */
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem),
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem) :is(.md-icon, svg),
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem),
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem) :is(.md-icon, svg) {
+/* 4. CONSOLIDATED MENUS & DIALOGS (ACTION ICONS & DRAG HANDLES) */
+
+/* A. WHITE ICONS (Resting & Row Hover Shield) */
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.listItem, .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a)) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem, [title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i]),
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.listItem, .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a)) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem, [title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i]) *,
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(i.lockedfield-lockicon, .btnOpenExternalId, .emby-input-iconbutton, i.searchIcon, button[title="Search" i]),
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnOpenExternalId, .emby-input-iconbutton, button[title="Search" i]) * {
   color:                   var(--pure-white) !important;
   -webkit-text-fill-color: var(--pure-white) !important;
   fill:                    var(--pure-white) !important;
@@ -2622,68 +2623,35 @@ html[class*="theme-"] body :is(.dialog, .formDialog) .listItem:hover:not(.listIt
   transition:              all var(--transition-speed) ease !important;
 }
 
-/* 5. DIALOG REMOVE BUTTON (Direct Hover ONLY)
-      Pops to Danger Red glow and scales up. */
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem):hover,
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem):hover :is(.md-icon, svg) {
+/* B. DRAG HANDLES ONLY (Resting & Row Hover Shield) */
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) :is(.listItem, .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a)) i:is(.listViewDragHandle, .dragHandle) {
+  color:                   var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  fill:                    var(--my-gold) !important;
+  opacity:                 0.8 !important;
+  filter:                  none !important;
+  transform:               scale(1) !important;
+  transition:              all var(--transition-speed) ease !important;
+}
+
+/* C. REMOVE BUTTONS (Direct Hover ONLY) */
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem):hover,
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem):hover * {
   color:                   var(--danger-red-light) !important;
   -webkit-text-fill-color: var(--danger-red-light) !important;
   fill:                    var(--danger-red-light) !important;
-  filter:                  drop-shadow(0 0 8px var(--danger-red-light)) !important;
   transform:               scale(1.15) !important;
   opacity:                 1 !important;
 }
 
-/* 6. DIALOG EDIT BUTTON (Resting & Row Hover)
-      Locks to Theme Gold and stays flat when the row is hovered. */
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem button:is([title="Edit" i], [data-action="edit" i]),
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem button:is([title="Edit" i], [data-action="edit" i]) :is(.md-icon, svg),
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Edit" i], [data-action="edit" i]),
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Edit" i], [data-action="edit" i]) :is(.md-icon, svg) {
+/* D. ALL GOLD HOVERS (Direct Hover ONLY) */
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) :is(button:is([title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i]):hover, i:is(.listViewDragHandle, .dragHandle):hover),
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i]):hover *,
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.checkboxContainer:hover i.lockedfield-lockicon, i.lockedfield-lockicon:hover, .btnOpenExternalId:hover, .emby-input-iconbutton:hover, i.searchIcon:hover, button[title="Search" i]:hover),
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnOpenExternalId:hover, .emby-input-iconbutton:hover, button[title="Search" i]:hover) * {
   color:                   var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
   fill:                    var(--my-gold) !important;
-  opacity:                 0.8 !important;
-  filter:                  none !important;
-  transform:               scale(1) !important;
-  transition:              all var(--transition-speed) ease !important;
-}
-
-/* 7. DIALOG EDIT BUTTON (Direct Hover ONLY)
-      Pops to bright gold glow and scales up. */
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Edit" i], [data-action="edit" i]):hover,
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Edit" i], [data-action="edit" i]):hover :is(.md-icon, svg) {
-  color:                   var(--my-gold-light) !important;
-  -webkit-text-fill-color: var(--my-gold-light) !important;
-  fill:                    var(--my-gold-light) !important;
-  filter:                  drop-shadow(0 0 5px var(--my-gold)) !important;
-  transform:               scale(1.15) !important;
-  opacity:                 1 !important;
-}
-
-/* 8. DIALOG DRAG HANDLES (Resting & Row Hover)
-      Locks to Theme Gold and stays flat when the row is hovered. */
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem i.listViewDragHandle.md-icon,
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem i.dragHandle.md-icon,
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) i.listViewDragHandle.md-icon,
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) i.dragHandle.md-icon {
-  color:                   var(--my-gold) !important;
-  -webkit-text-fill-color: var(--my-gold) !important;
-  fill:                    var(--my-gold) !important;
-  opacity:                 0.8 !important;
-  filter:                  none !important;
-  transform:               scale(1) !important;
-  transition:              all var(--transition-speed) ease !important;
-}
-
-/* 9. DIALOG DRAG HANDLES (Direct Hover ONLY)
-      Pops to glow and scales only when grabbed. */
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) i.listViewDragHandle.md-icon:hover,
-html[class*="theme-"] body :is(.dialog, .formDialog) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) i.dragHandle.md-icon:hover {
-  color:                   var(--my-gold-light) !important;
-  -webkit-text-fill-color: var(--my-gold-light) !important;
-  fill:                    var(--my-gold-light) !important;
-  filter:                  drop-shadow(0 0 5px var(--my-gold)) !important;
   transform:               scale(1.15) !important;
   opacity:                 1 !important;
 }
