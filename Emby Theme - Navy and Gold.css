@@ -322,9 +322,12 @@ html,
   /* --- LAYOUT & ORDERING --- */
   --order-seasons: 1;                                              /* Vertical order of Seasons section */
   --order-next-up: 2;                                              /* Vertical order of Next Up section */
-  --order-cast-crew: 3;                                            /* Vertical order of Cast section */
-  --order-similar: 4;                                              /* Vertical order of Similar section */
-  --order-about: 5;                                                /* Vertical order of About section */
+  --order-more-from: 3;                                            /* Vertical order of "More from Season/Artist" sections */
+  --order-chapters: 4;                                             /* Vertical order of the Chapters row */
+  --order-included-in: 5;                                          /* Vertical order of "Appears In" / Collections section */
+  --order-cast-crew: 6;                                            /* Vertical order of Cast & Crew section */
+  --order-similar: 7;                                              /* Vertical order of "More Like This" (Similar) section */
+  --order-about: 8;                                                /* Vertical order of the Text Overview/About section and Media stream info cards */
 
   /* --- SEASONAL BACKGROUND ANIMATIONS --- */
   --seasonal-bg-visibility: visible;                               /* Fully Enabled */
@@ -333,7 +336,7 @@ html,
   /* --seasonal-bg-visibility: hidden;                             /* Fully Disabled */
   /* --seasonal-bg-anim-state: paused;                             /* Fully Disabled */
 
-  /* --- TEST COLORS - USED FOR DEBUGGING PURPOSES -- */
+  /* --- TEST COLORS - USED FOR DEVELOPMENT/DEBUGGING PURPOSES -- */
   /*
   --test-color1: #004d08;
   --test-color2: #00f410;
@@ -3184,16 +3187,49 @@ html[class*="theme-"] div.spotlightCardText:not(.mediaInfoItems):not(.spotlightC
 
 /* 1. Flex Container: Allows us to re-order page sections using the variables in Section 1 */
 .detailPageWrapperContainer,
-.detailPagePrimaryContainer {
-  display:        flex;
-  flex-direction: column;
+.detailPagePrimaryContainer,
+.details-additionalContent {
+  display:        flex !important;
+  flex-direction: column !important;
 }
 
 /* 2. Section Orders: Forces sections to display in our preferred vertical order */
-div.verticalSection.seriesItemsSection { order: var(--order-seasons) !important; }
-div.verticalSection.itemNextUpSection  { order: var(--order-next-up) !important; }
+.details-additionalContent > .verticalSection,
+.details-additionalContent > div { order: 20 !important; }
+
+/* Primary Children (Seasons, Episodes, Album Tracks) */
+div.verticalSection.seriesItemsSection,
+div.verticalSection.childrenSection    { order: var(--order-seasons) !important; }
+
+/* Next Up */
+div.verticalSection.itemNextUpSection,
+div.verticalSection.nextUpSection      { order: var(--order-next-up) !important; }
+
+/* Chapters */
+div.verticalSection.chapterSection,
+div.verticalSection.chaptersSection    { order: var(--order-chapters) !important; }
+
+/* Cast & Crew */
 div.verticalSection.peopleSection      { order: var(--order-cast-crew) !important; margin-top: 20px; }
+
+/* More Like This (Similar) */
 div.verticalSection.similarSection     { order: var(--order-similar) !important; }
+
+/* About / Overview */
+div.verticalSection.aboutSection       { order: var(--order-about) !important; }
+
+/* Included In (Collections, Playlists, & Lists) */
+div.verticalSection.appearsInSection,
+div.verticalSection.appearsOnListsSection,
+div.verticalSection.collectionsSection,
+div.verticalSection.itemDetailsCollectionsSection,
+div.verticalSection.itemDetailsPlaylistsSection { order: var(--order-included-in) !important; }
+
+/* More From (Seasons, Artists, etc.) */
+div.verticalSection.moreFromSeasonSection,
+div.verticalSection.moreFromArtistSection { order: var(--order-more-from) !important; }
+
+/* Keep all standard About items grouped together based on the About variable */
 div.verticalSection.aboutSection       { order: var(--order-about) !important; }
 
 /* --- 6B. Info Banner & Panels --- */
