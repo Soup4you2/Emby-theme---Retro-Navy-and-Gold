@@ -76,7 +76,7 @@ html,
   --h6-color: var(--white-alpha-80);                               /* Settings Descriptions, Muted global sub-text, Sidebar Category Text */
 
   /* --- HEADER OPTIONS --- */
-  --header-blur: var(--blur-heavy);                                /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) to enable frost */
+  --header-blur: var(--blur-heavy);                                /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) / var(--blur-extreme) to enable frost */
   --header-bg: var(--navy-base-alpha-75);                          /* Set to 'transparent' for a completely clear header, or use a translucent color */
   --header-border: var(--standard-border-thickness) solid var(--gold-alpha-15);  /* Set to 'none' to disable, or var(--standard-border-thickness) solid var(--gold-alpha-15) to enable */
   --header-content-padding: 20px;                                  /* Media details header padding, push the content down from the header */
@@ -88,13 +88,13 @@ html,
   --custom-sidebar-width: 250px;                                   /* Define the custom width (Triggered only when the full sidebar is open) */  
   --sidebar-playlists: block;                                      /* Set to 'none' to hide Playlists from the sidebar, block to enable */
   --sidebar-collections: none;                                     /* Set to 'none' to hide Collections from the sidebar, block to enable */
-  --sidebar-blur: var(--blur-heavy);                               /* Frost blur intensity: var(--blur-heavy), var(--blur-light), or none */
+  --sidebar-blur: var(--blur-heavy);                               /* Frost blur intensity: var(--blur-heavy), var(--blur-light), var(--blur-extreme), or none */
   --sidebar-bg: var(--navy-base-alpha-75);                         /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
   --sidebar-icon-color: var(--my-gold);                            /* Sidebar icon colors */
   --sidebar-icon-hover-color: color-mix(in srgb, var(--my-gold-light) 40%, white); /* Sidebar icon colors in a hover state */
 
   /* --- OSD OPTIONS --- */
-  --osd-mini-blur: var(--blur-heavy);                              /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) to enable frost (Affects Mini-Music OSD Only) */
+  --osd-mini-blur: var(--blur-heavy);                              /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) / var(--blur-extreme) to enable frost (Affects Mini-Music OSD Only) */
   --osd-mini-bg: var(--navy-base-alpha-75);                        /* Background transparency for the bottom mini music player */
   --osd-icon-color: var(--pure-white);                             /* Icon colors for the OSD display */
   --osd-icon-hover-color: var(--my-gold);                          /* OSD Icon colors in a hover state */
@@ -995,26 +995,26 @@ html[class*="theme-"] body .tabs-viewmenubar .emby-tab-button {
   border-bottom:           var(--header-border) !important;
 }
 
-/* 2. Logo Management: Visibility controlled by Section 1 variable */
-html[class*="theme-"] body .skinHeader .headerLeft {
-  display: flex !important;
-}
-
-/* Applies your visibility variable strictly to the image logos */
+/* 2. Logo Management: Visibility controlled by Section 1 variable (Overrides Emby's native .hide) */
 html[class*="theme-"] body .skinHeader .headerLogo,
+html[class*="theme-"] body .skinHeader .headerLogo.hide,
 html[class*="theme-"] body .skinHeader .headerLeft img,
+html[class*="theme-"] body .skinHeader .headerLeft img.hide,
+html[class*="theme-"] body .skinHeader .pageTitleWithLogo,
+html[class*="theme-"] body .skinHeader .pageTitleWithLogo.hide,
 html[class*="theme-"] body .mainDrawer .navDrawerHeader .btnNavDrawerLogo {
   display: var(--header-logo-display) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
-/* Kills the redundant text title that caused the "double logo" text glitch */
-html[class*="theme-"] body .skinHeader .pageTitleWithDefaultLogo {
-  display: none !important;
-}
-
-/* Hides the top header logo ONLY when the sidebar is docked so it doesn't duplicate on screen */
+/* ALWAYS hides the top header logo when the sidebar is fully docked so it doesn't duplicate on screen */
 html[class*="theme-"] body .skinHeader.skinHeader-withfulldrawer .headerLogo,
-html[class*="theme-"] body .skinHeader.skinHeader-withfulldrawer .headerLeft img {
+html[class*="theme-"] body .skinHeader.skinHeader-withfulldrawer .headerLogo.hide,
+html[class*="theme-"] body .skinHeader.skinHeader-withfulldrawer .headerLeft img,
+html[class*="theme-"] body .skinHeader.skinHeader-withfulldrawer .headerLeft img.hide,
+html[class*="theme-"] body .skinHeader.skinHeader-withfulldrawer .pageTitleWithLogo,
+html[class*="theme-"] body .skinHeader.skinHeader-withfulldrawer .pageTitleWithLogo.hide {
   display: none !important;
 }
 
