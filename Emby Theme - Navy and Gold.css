@@ -305,7 +305,7 @@ html,
   --table-header-bg: var(--navy-mid-solid);                        /* Background for table headings */
   --table-row-bg-even: var(--navy-light-alpha-40);                 /* Zebra stripe color (Even rows) */
   --table-row-bg-odd: var(--navy-base-alpha-60);                   /* Zebra stripe color (Odd rows) */
-  --table-row-hover-bg: var(--navy-mid-alpha-70);                      /* Background color on row hover, best choices are --gold-alpha-20, or --navy-mid-alpha-70 */
+  --table-row-hover-bg: var(--navy-mid-alpha-70);                  /* Background color on row hover, best choices are --gold-alpha-20, or --navy-mid-alpha-70 */
    
   /* --- TOGGLE SWITCH VARIABLES --- */
   --toggle-track-off: var(--navy-light-alpha-80);                  /* Background of switch when OFF */
@@ -2644,13 +2644,17 @@ html[class*="theme-"] body .dialog .listItem .secondaryText {
   -webkit-text-fill-color: var(--white-alpha-70) !important;
 }
 
-/* 4. CONSOLIDATED MENUS & DIALOGS (ACTION ICONS & DRAG HANDLES) */
+/* ============================================================
+   4. CONSOLIDATED MENUS & DIALOGS (ACTION ICONS & DRAG HANDLES)
+   Universally handles resting, row-hover shielding, and direct-hover pops.
+   ============================================================ */
 
-/* A. WHITE ICONS (Resting & Row Hover Shield) */
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.listItem, .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a)) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem, [title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i], [title="Overview" i], [data-action="overview" i]),
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.listItem, .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a)) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem, [title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i], [title="Overview" i], [data-action="overview" i]) *,
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(i.lockedfield-lockicon, .btnOpenExternalId, .emby-input-iconbutton, i.searchIcon, button[title="Search" i]),
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnOpenExternalId, .emby-input-iconbutton, button[title="Search" i]) * {
+/* A. WHITE ICONS (Resting & Row Hover Shield)
+      Locks all interactive icons (EXCEPT drag handles) to Pure White. */
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.listItem, .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a)) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem, [title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i], [title="Overview" i], [data-action="overview" i], [title="Help" i], .headerHelpButton, [title="Stop" i], [data-action="scheduledtask_stop" i]),
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.listItem, .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a)) :is(button, a):is([title="Remove" i], [data-action="delete" i], .btnDeleteItem, [title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i], [title="Overview" i], [data-action="overview" i], [title="Help" i], .headerHelpButton, [title="Stop" i], [data-action="scheduledtask_stop" i]) :is(*, .md-icon, i, svg),
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(i.lockedfield-lockicon, .btnOpenExternalId, .emby-input-iconbutton, i.searchIcon, button[title="Search" i], .headerHelpButton, [title="Help" i], .btnServerMoreMenu, .btnRestartMenu, .btnStopTask),
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnOpenExternalId, .emby-input-iconbutton, button[title="Search" i], .headerHelpButton, [title="Help" i], .btnServerMoreMenu, .btnRestartMenu, .btnStopTask) :is(*, .md-icon, i, svg) {
   color:                   var(--pure-white) !important;
   -webkit-text-fill-color: var(--pure-white) !important;
   fill:                    var(--pure-white) !important;
@@ -2660,7 +2664,8 @@ html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skin
   transition:              all var(--transition-speed) ease !important;
 }
 
-/* B. DRAG HANDLES ONLY (Resting & Row Hover Shield) */
+/* B. DRAG HANDLES ONLY (Resting & Row Hover Shield)
+      Locks to Theme Gold, stays flat, and ignores row hovers. */
 html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) :is(.listItem, .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a)) i:is(.listViewDragHandle, .dragHandle) {
   color:                   var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
@@ -2671,27 +2676,47 @@ html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) :is(.
   transition:              all var(--transition-speed) ease !important;
 }
 
-/* C. REMOVE BUTTONS (Direct Hover ONLY) */
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem):hover,
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem):hover * {
+/* C1. DANGER BUTTON STRUCTURE (Direct Hover ONLY)
+       Scales up, adds glow, and kills the native background circle. */
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem, [title="Stop" i], [data-action="scheduledtask_stop" i]):hover,
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnRestartMenu:hover, .btnStopTask:hover) {
+  transform:               scale(1.15) !important;
+  background:              transparent !important;
+  /* filter:                  drop-shadow(0 0 8px var(--danger-red-light)) !important; */
+}
+
+/* C2. DANGER BUTTON COLORS (Direct Hover ONLY)
+       Colors both the wrapper AND the specific children inside it. */
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem, [title="Stop" i], [data-action="scheduledtask_stop" i]):hover,
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem, [title="Stop" i], [data-action="scheduledtask_stop" i]):hover :is(*, .md-icon, i, svg),
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnRestartMenu:hover, .btnStopTask:hover),
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnRestartMenu:hover, .btnStopTask:hover) :is(*, .md-icon, i, svg) {
   color:                   var(--danger-red-light) !important;
   -webkit-text-fill-color: var(--danger-red-light) !important;
   fill:                    var(--danger-red-light) !important;
-  filter:                  drop-shadow(0 0 8px var(--danger-red-light)) !important;
-  transform:               scale(1.15) !important;
   opacity:                 1 !important;
 }
 
-/* D. ACTION ICON HOVERS (Direct Hover ONLY) */
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i], [title="Overview" i], [data-action="overview" i]):hover,
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i], [title="Overview" i], [data-action="overview" i]):hover *,
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.checkboxContainer:hover i.lockedfield-lockicon, i.lockedfield-lockicon:hover, .btnOpenExternalId:hover, .emby-input-iconbutton:hover, i.searchIcon:hover, button[title="Search" i]:hover),
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnOpenExternalId:hover, .emby-input-iconbutton:hover, button[title="Search" i]:hover) * {
+/* D1. ACTION BUTTON STRUCTURE (Direct Hover ONLY)
+       Scales up, adds glow, and kills the native background circle. */
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) :is(button, a):is([title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i], [title="Overview" i], [data-action="overview" i], [title="Help" i], .headerHelpButton):hover,
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.checkboxContainer:hover i.lockedfield-lockicon, i.lockedfield-lockicon:hover, i.searchIcon:hover),
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnOpenExternalId:hover, .emby-input-iconbutton:hover, button[title="Search" i]:hover, .headerHelpButton:hover, [title="Help" i]:hover, .btnServerMoreMenu:hover) {
+  transform:               scale(1.15) !important;
+  background:              transparent !important;
+  /* filter:                  drop-shadow(0 0 5px var(--my-gold)) !important; */
+}
+
+/* D2. ACTION BUTTON COLORS (Direct Hover ONLY)
+       Colors both the wrapper AND the specific children inside it. */
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) :is(button, a):is([title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i], [title="Overview" i], [data-action="overview" i], [title="Help" i], .headerHelpButton):hover,
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) :is(button, a):is([title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i], [title="Overview" i], [data-action="overview" i], [title="Help" i], .headerHelpButton):hover :is(*, .md-icon, i, svg),
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.checkboxContainer:hover i.lockedfield-lockicon, i.lockedfield-lockicon:hover, i.searchIcon:hover),
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnOpenExternalId:hover, .emby-input-iconbutton:hover, button[title="Search" i]:hover, .headerHelpButton:hover, [title="Help" i]:hover, .btnServerMoreMenu:hover),
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnOpenExternalId:hover, .emby-input-iconbutton:hover, button[title="Search" i]:hover, .headerHelpButton:hover, [title="Help" i]:hover, .btnServerMoreMenu:hover) :is(*, .md-icon, i, svg) {
   color:                   var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
   fill:                    var(--my-gold) !important;
-  filter:                  drop-shadow(0 0 5px var(--my-gold)) !important;
-  transform:               scale(1.15) !important;
   opacity:                 1 !important;
 }
 
@@ -3645,7 +3670,6 @@ html[class*="theme-"] body .detailMediaStreamsItemsContainer .cardContent {
 html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.card.card:hover .cardContent,
 html[class*="theme-"] body .detailMediaStreamsItemsContainer .card.card.card.show-focus .cardContent {
   border-color: var(--my-gold) !important;
-  box-shadow:   var(--shadow-glow-standard), inset 0 0 10px var(--gold-alpha-10) !important;
 }
 
 /* 8. Media Stream Info Card Titles: Centers the Icon and Text perfectly */
