@@ -1551,6 +1551,30 @@ html[class*="theme-"] body .mainDrawer .navDrawerHeader .btnToggleNavDrawer:hove
   transform:               scale(1.15) !important;
 }
 
+/* 7. Shrink the physical bounding box of the sidebar itself */
+html[class*="theme-"] body div.mainDrawer.drawer-docked.mainDrawer-mini {
+  width: 5.5em !important; 
+}
+
+/* 8. Page Alignment: Overrides the 'left' shift from Section 3F */
+html[class*="theme-"] body div.view.page.page-withDockedDrawer.page-withMiniDrawer,
+html[class*="theme-"] body div.backgroundContainer.backgroundContainer-withdockeddrawer.backgroundContainer-withminidrawer {
+  left: 5.5em !important;
+}
+
+/* 9. Shift the Multi-Select panel back to the left */
+html[class*="theme-"] body div.selectionCommandsPanel.selectionCommandsPanel-withdockeddrawer.selectionCommandsPanel-withminidrawer,
+html[class*="theme-"] body:has(.page-withDockedDrawer.page-withMiniDrawer) div.selectionCommandsPanel {
+  left: 5.5em !important;
+}
+
+/* 10. Pull the top header and footer left to match */
+html[class*="theme-"] body div.skinHeader.skinHeader-withminidrawer,
+html[class*="theme-"] body div.skinHeader-withminidrawer .headerLeft,
+html[class*="theme-"] body div.appfooter.appfooter-withMiniDrawer {
+  padding-left: 5.5em !important;
+}
+
 /* --- 3F. DOCKED SIDEBAR WIDTH --- */
 
 /* Protect mobile/tablet views by only running this on larger screens */
