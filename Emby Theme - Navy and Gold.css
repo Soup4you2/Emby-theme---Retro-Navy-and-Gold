@@ -122,6 +122,9 @@ html,
   --danger-red-light: rgb(255, 51, 51);                          /* Brighter red for hovering over delete/cancel buttons */
   --danger-red-glow: 0 0 20px rgba(var(--danger-red-rgb), 0.6), 0 0 10px rgba(255, 51, 51, 0.4); /* Glow effect on hover */
 
+  /* --- STATUS OK COLORS --- */
+  --status-ok: rgba(76, 175, 79, 1);                             /* Good status color, green checkmarks */
+
   /* --- SUBMIT / SAVE BUTTONS --- */
   --btn-bg: var(--my-gold);                                        /* Resting background of primary actions (Save/Done) */
   --btn-bg-hover: var(--my-gold-light);                            /* Background of primary actions when hovered */
@@ -5755,6 +5758,48 @@ html[class*="theme-"] body :is(.tracklist, .trackList, .playlistPage, .osdPlayli
 html[class*="theme-"] body :is(.tracklist, .trackList, .playlistPage, .osdPlaylistItemsContainer) .listItem .listItemOverlayButton-hover:hover {
   border-radius:            50% !important;
   transform:                scale(1.1) !important;
+}
+
+/* --- 10O. STATIC UI ELEMENTS & STATUS ICONS --- */
+
+/* A. SUCCESS CHECKMARKS (Green)
+      Turns the "Server Up to Date" and "Premiere Status" checkmarks a crisp green. */
+html[class*="theme-"] body i.serverUpToDateCheckIcon,
+html[class*="theme-"] body i.statusIcon {
+  color:                   var(--status-ok) !important; 
+  -webkit-text-fill-color: var(--status-ok) !important;
+  fill:                    var(--status-ok) !important;
+  opacity:                 1 !important;
+}
+
+/* B. RESTART & ALERT BANNERS (Red)
+      Targets the specific banner asking you to restart the server. */
+html[class*="theme-"] body .restartInfoBanner i.infoBannerIcon {
+  color:                   var(--danger-red-light) !important;
+  -webkit-text-fill-color: var(--danger-red-light) !important;
+  fill:                    var(--danger-red-light) !important;
+  opacity:                 1 !important;
+}
+
+/* C. OUT OF DATE / UPDATE NOTIFICATIONS (Red)
+      Pre-emptively colors the dashboard update icon and top-header update alerts. */
+html[class*="theme-"] body .pUpdateNow :is(.md-icon, i, svg),
+html[class*="theme-"] body #pUpdateNow :is(.md-icon, i, svg),
+html[class*="theme-"] body .headerUpdateNotifier :is(.md-icon, i, svg) {
+  color:                   var(--danger-red-light) !important;
+  -webkit-text-fill-color: var(--danger-red-light) !important;
+  fill:                    var(--danger-red-light) !important;
+  opacity:                 1 !important;
+}
+
+/* D. GENERAL INFO BANNERS (Gold)
+      Catches any other info banners Emby generates (warnings, network info, etc.)
+      so they match your theme instead of staying default white. */
+html[class*="theme-"] body .infoBanner:not(.restartInfoBanner) i.infoBannerIcon {
+  color:                   var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  fill:                    var(--my-gold) !important;
+  opacity:                 1 !important;
 }
 
 /* ============================================================
