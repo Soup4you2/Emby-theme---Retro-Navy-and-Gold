@@ -2773,7 +2773,15 @@ html[class*="theme-"] .itemProgressBarForeground {
 }
 
 /* 4. Play Button Toggle: Links to the visibility switch in Section 1 */
-.cardOverlayFab-primary {
+html[class*="theme-"] body .cardOverlayContainer .cardOverlayButton.cardOverlayButton-hover,
+html[class*="theme-"] body .cardOverlayContainer .cardOverlayFab-primary,
+html[class*="theme-"] body .cardOverlayContainer .cardOverlayButton[data-action="play"],
+html[class*="theme-"] body .cardOverlayContainer .cardOverlayButton[data-action="resume"] {
+  display: var(--play-button-display) !important;
+}
+
+/* Kills the invisible hover hit-box if the play button is hidden */
+html[class*="theme-"] body .cardOverlayContainer:hover .cardOverlayButton.cardOverlayButton-hover {
   display: var(--play-button-display) !important;
 }
 
