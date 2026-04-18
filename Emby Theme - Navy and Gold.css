@@ -2656,8 +2656,8 @@ html[class*="theme-"] body .dialog .listItem .secondaryText {
       Locks all interactive icons (EXCEPT drag handles) to Pure White. */
 html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.listItem, .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a)) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem, [title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i], [title="Overview" i], [data-action="overview" i], [title="Help" i], .headerHelpButton, [title="Stop" i], [data-action="scheduledtask_stop" i]),
 html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.listItem, .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a)) :is(button, a):is([title="Remove" i], [data-action="delete" i], .btnDeleteItem, [title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i], [title="Overview" i], [data-action="overview" i], [title="Help" i], .headerHelpButton, [title="Stop" i], [data-action="scheduledtask_stop" i]) :is(*, .md-icon, i, svg),
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(i.lockedfield-lockicon, .btnOpenExternalId, .emby-input-iconbutton, i.searchIcon, button[title="Search" i], .headerHelpButton, [title="Help" i], .btnServerMoreMenu, .btnRestartMenu, .btnStopTask),
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnOpenExternalId, .emby-input-iconbutton, button[title="Search" i], .headerHelpButton, [title="Help" i], .btnServerMoreMenu, .btnRestartMenu, .btnStopTask) :is(*, .md-icon, i, svg) {
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(i.lockedfield-lockicon, .btnOpenExternalId, .emby-input-iconbutton, i.searchIcon, button[title="Search" i], .headerHelpButton, [title="Help" i], .btnServerMoreMenu, .btnRestartMenu, .btnStopTask, .btnSessionPlayPause, .btnSessionStop, .btnSessionSendMessage),
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnOpenExternalId, .emby-input-iconbutton, button[title="Search" i], .headerHelpButton, [title="Help" i], .btnServerMoreMenu, .btnRestartMenu, .btnStopTask, .btnSessionPlayPause, .btnSessionStop, .btnSessionSendMessage) :is(*, .md-icon, i, svg) {
   color:                   var(--pure-white) !important;
   -webkit-text-fill-color: var(--pure-white) !important;
   fill:                    var(--pure-white) !important;
@@ -2682,7 +2682,7 @@ html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) :is(.
 /* C1. DANGER BUTTON STRUCTURE (Direct Hover ONLY)
        Scales up, adds glow, and kills the native background circle. */
 html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem, [title="Stop" i], [data-action="scheduledtask_stop" i]):hover,
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnRestartMenu:hover, .btnStopTask:hover) {
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnRestartMenu:hover, .btnStopTask:hover, .btnSessionStop:hover) {
   transform:               scale(1.15) !important;
   background:              transparent !important;
   /* filter:                  drop-shadow(0 0 8px var(--danger-red-light)) !important; */
@@ -2692,8 +2692,8 @@ html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skin
        Colors both the wrapper AND the specific children inside it. */
 html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem, [title="Stop" i], [data-action="scheduledtask_stop" i]):hover,
 html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) button:is([title="Remove" i], [data-action="delete" i], .btnDeleteItem, [title="Stop" i], [data-action="scheduledtask_stop" i]):hover :is(*, .md-icon, i, svg),
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnRestartMenu:hover, .btnStopTask:hover),
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnRestartMenu:hover, .btnStopTask:hover) :is(*, .md-icon, i, svg) {
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnRestartMenu:hover, .btnStopTask:hover, .btnSessionStop:hover),
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnRestartMenu:hover, .btnStopTask:hover, .btnSessionStop:hover) :is(*, .md-icon, i, svg) {
   color:                   var(--danger-red-light) !important;
   -webkit-text-fill-color: var(--danger-red-light) !important;
   fill:                    var(--danger-red-light) !important;
@@ -2704,7 +2704,7 @@ html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skin
        Scales up, adds glow, and kills the native background circle. */
 html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) :is(button, a):is([title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i], [title="Overview" i], [data-action="overview" i], [title="Help" i], .headerHelpButton):hover,
 html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.checkboxContainer:hover i.lockedfield-lockicon, i.lockedfield-lockicon:hover, i.searchIcon:hover),
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnOpenExternalId:hover, .emby-input-iconbutton:hover, button[title="Search" i]:hover, .headerHelpButton:hover, [title="Help" i]:hover, .btnServerMoreMenu:hover) {
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnOpenExternalId:hover, .emby-input-iconbutton:hover, button[title="Search" i]:hover, .headerHelpButton:hover, [title="Help" i]:hover, .btnServerMoreMenu:hover, .btnSessionPlayPause:hover, .btnSessionSendMessage:hover) {
   transform:               scale(1.15) !important;
   background:              transparent !important;
   /* filter:                  drop-shadow(0 0 5px var(--my-gold)) !important; */
@@ -2715,8 +2715,8 @@ html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skin
 html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) :is(button, a):is([title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i], [title="Overview" i], [data-action="overview" i], [title="Help" i], .headerHelpButton):hover,
 html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) :is(button, a):is([title="Edit" i], [data-action="edit" i], [title="Settings" i], [title="Info" i], [data-action="codeinfo" i], [title="Start" i], [data-action="scheduledtask_start" i], [title="Overview" i], [data-action="overview" i], [title="Help" i], .headerHelpButton):hover :is(*, .md-icon, i, svg),
 html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.checkboxContainer:hover i.lockedfield-lockicon, i.lockedfield-lockicon:hover, i.searchIcon:hover),
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnOpenExternalId:hover, .emby-input-iconbutton:hover, button[title="Search" i]:hover, .headerHelpButton:hover, [title="Help" i]:hover, .btnServerMoreMenu:hover),
-html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnOpenExternalId:hover, .emby-input-iconbutton:hover, button[title="Search" i]:hover, .headerHelpButton:hover, [title="Help" i]:hover, .btnServerMoreMenu:hover) :is(*, .md-icon, i, svg) {
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnOpenExternalId:hover, .emby-input-iconbutton:hover, button[title="Search" i]:hover, .headerHelpButton:hover, [title="Help" i]:hover, .btnServerMoreMenu:hover, .btnSessionPlayPause:hover, .btnSessionSendMessage:hover),
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skinHeader) :is(.btnOpenExternalId:hover, .emby-input-iconbutton:hover, button[title="Search" i]:hover, .headerHelpButton:hover, [title="Help" i]:hover, .btnServerMoreMenu:hover, .btnSessionPlayPause:hover, .btnSessionSendMessage:hover) :is(*, .md-icon, i, svg) {
   color:                   var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
   fill:                    var(--my-gold) !important;
@@ -2725,9 +2725,9 @@ html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page, .skin
 
 /* E. DRAG HANDLES ONLY (Direct Hover ONLY) */
 html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) .listItem:hover:not(.listItem-selected):not(.navMenuOption-selected):not(.background-theme-a) i:is(.listViewDragHandle, .dragHandle):hover {
-  color:                   var(--my-gold-light) !important;
-  -webkit-text-fill-color: var(--my-gold-light) !important;
-  fill:                    var(--my-gold-light) !important;
+  color:                   var(--my-gold) !important;
+  -webkit-text-fill-color: var(--my-gold) !important;
+  fill:                    var(--my-gold) !important;
   filter:                  drop-shadow(0 0 5px var(--my-gold)) !important;
   transform:               scale(1.15) !important;
   opacity:                 1 !important;
