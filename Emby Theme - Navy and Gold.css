@@ -333,8 +333,8 @@ html,
   --order-about: 8;                                                /* Vertical order of the Text Overview/About section and Media stream info cards */
 
   /* --- SPOTLIGHT BANNER ARTWORK --- */
-  --spotlight-fit: cover;               /* Options: 'cover' (Fills box, crops edges), 'contain' (Shows full image, adds bars), '100%' (Stretches) */
-  --spotlight-position: center top;      /* Options: 'right top' (Protects logos/faces), 'center top', 'center' (Emby default), 'left top' */
+  --spotlight-fit: cover;                                          /* Options: 'cover' (Fills box, crops edges), 'contain' (Shows full image, adds bars), '100%' (Stretches) */
+  --spotlight-position: center top;                                /* Options: 'right top' (Protects logos/faces), 'center top', 'center' (Emby default), 'left top' */
 
   /* --- SEASONAL BACKGROUND ANIMATIONS --- */
   --seasonal-bg-visibility: visible;                               /* Fully Enabled */
