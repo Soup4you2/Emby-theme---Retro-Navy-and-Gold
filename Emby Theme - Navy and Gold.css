@@ -1115,11 +1115,16 @@ html[class*="theme-"] body .skinHeader .headerButton:has(.md-icon-star) {
 }
 
 /* 5. Content Spacing: Nudges the main page content down safely below the header */
-/* Uses direct child selectors (>) and strictly excludes Admin/Settings pages */
-html[class*="theme-"] body .page:not(.settingsView) > .scrollSlider,
-html[class*="theme-"] body .view:not(.settingsView) > .scrollSlider {
+html[class*="theme-"] body .view-home-home > .scrollSlider,
+html[class*="theme-"] body .view-item-item > .scrollSlider,
+html[class*="theme-"] body .view[class*="view-list"] > .scrollSlider,
+html[class*="theme-"] body .view[class*="view-movies"] > .scrollSlider,
+html[class*="theme-"] body .view[class*="view-tvshows"] > .scrollSlider,
+html[class*="theme-"] body .view[class*="view-music"] > .scrollSlider,
+html[class*="theme-"] body .view[class*="view-livetv"] > .scrollSlider,
+html[class*="theme-"] body .view[class*="view-collections"] > .scrollSlider {
   margin-top: var(--header-content-padding) !important;
-  }
+}
 
 /* 6. TOP HEADER */
 
