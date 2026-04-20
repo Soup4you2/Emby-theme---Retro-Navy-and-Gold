@@ -6135,6 +6135,22 @@ html[class*="theme-"] body div.popupStylePicker.dialog.popup > div {
 }
 
 /* ============================================================
+   HOTFIX: PLUGIN - BULKY EDITOR - CONFIGURATION SIDEBAR ALIGNMENT
+   ============================================================ */
+
+/* 1. Shift Plugin Pages for the Full Sidebar */
+@media (min-width: 50em) {
+  html[class*="theme-"] body .page.page-withDockedDrawer {
+    left: var(--custom-sidebar-width) !important;
+  }
+}
+
+/* 2. Shift Plugin Pages for the Mini Sidebar (Overrides Full Width) */
+html[class*="theme-"] body .page.page-withDockedDrawer.page-withMiniDrawer {
+  left: 5.5em !important;
+}
+
+/* ============================================================
    HOTFIX: MULTI-SELECT DROPDOWN DOUBLE-TEXT GLITCH
    NOTE: - TO REMOVE ON RELEASE OF EMBY 4.10 (ISSUE ONLY AFFECTS 4.9)
          - FIX THE "SELECT ALL" IN BASE BEFORE REMOVING.
