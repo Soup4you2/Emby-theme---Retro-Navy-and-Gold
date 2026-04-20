@@ -5886,6 +5886,30 @@ html[class*="theme-"] body .infoBanner:not(.restartInfoBanner) i.infoBannerIcon 
   opacity:                 1 !important;
 }
 
+/* --- 10P. UNIVERSAL DOUBLE-BOX SHIELD --- */
+
+/* 1. Strip the inner grey boxes in resting and hover states for all problem areas */
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsContainer, .seriesItemsSection, .playlistPage, .osdPlaylistItemsContainer, .virtualItemsContainer) .listItem-content,
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsContainer, .seriesItemsSection, .playlistPage, .osdPlaylistItemsContainer, .virtualItemsContainer) .dataGridItem-content {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* 2. Destroy the phantom hover pseudo-elements in these same areas */
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsContainer, .seriesItemsSection, .playlistPage, .osdPlaylistItemsContainer, .virtualItemsContainer) .listItem-content::before,
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsContainer, .seriesItemsSection, .playlistPage, .osdPlaylistItemsContainer, .virtualItemsContainer) .listItem-content::after,
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsContainer, .seriesItemsSection, .playlistPage, .osdPlaylistItemsContainer, .virtualItemsContainer) .dataGridItem-content::before,
+html[class*="theme-"] body :is(.dialog, .formDialog, .settingsContainer, .seriesItemsSection, .playlistPage, .osdPlaylistItemsContainer, .virtualItemsContainer) .dataGridItem-content::after {
+  display: none !important;
+  content: none !important;
+  background: transparent !important;
+  background-image: none !important;
+}
+
 /* ============================================================
    11. MISC TWEAKS
    ============================================================ */
