@@ -2306,6 +2306,22 @@ html[class*="theme-"] body .itemsViewSettingsContainer-button.btnFilter.filter-a
   -webkit-text-fill-color: var(--pure-black) !important;
 }
 
+/* 5. Library Scan Progress Bar: Prevents hover state from hiding the loading ring/bar */
+html[class*="theme-"] body div.itemsViewSettingsContainer-button.refreshProgress:hover,
+html[class*="theme-"] body div.itemsViewSettingsContainer-button.itemProgressBar:hover {
+  background: var(--navy-light-alpha-60) !important; 
+  border-color: var(--gold-alpha-30) !important;
+  box-shadow: 0 4px 10px var(--black-alpha-50) !important;
+  transform: none !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+/* Ensure the inner fill track keeps its neon glow */
+html[class*="theme-"] body div.itemsViewSettingsContainer-button.refreshProgress:hover .itemProgressBarForeground {
+  background-color: var(--theme-primary-color) !important;
+  box-shadow: var(--glow-progress-bar) !important;
+}
+
 /* --- 4H. METADATA EDITOR LOCK ICONS (WRAPPER FIX) --- */
 
 /* 1. LOCKED STATE BACKGROUND (Targets the wrapper span, stripping the blue) */
