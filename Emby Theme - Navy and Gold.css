@@ -332,6 +332,10 @@ html,
   --order-similar: 7;                                              /* Vertical order of "More Like This" (Similar) section */
   --order-about: 8;                                                /* Vertical order of the Text Overview/About section and Media stream info cards */
 
+  /* --- SPOTLIGHT BANNER ARTWORK --- */
+  --spotlight-fit: cover;               /* Options: 'cover' (Fills box, crops edges), 'contain' (Shows full image, adds bars), '100%' (Stretches) */
+  --spotlight-position: center top;      /* Options: 'right top' (Protects logos/faces), 'center top', 'center' (Emby default), 'left top' */
+
   /* --- SEASONAL BACKGROUND ANIMATIONS --- */
   --seasonal-bg-visibility: visible;                               /* Fully Enabled */
   --seasonal-bg-anim-state: running;                               /* Fully Enabled */
@@ -3216,9 +3220,25 @@ html[class*="theme-"] .sideFooterCard .cardText-secondary {
   -webkit-text-fill-color: var(--white-alpha-70) !important;
 }
 
-/* --- 5F. SPOTLIGHT CARD TEXT SCRIM (Black/Grey Legibility Fix) --- */
+/* --- 5F. SPOTLIGHT CARDS --- */
 
-/* Targets the entire bottom text area of the Home Screen Hero section */
+/* 1. Image Rendering & Crop Behavior (Driven by variables in Section 1) */
+/* Handles Emby's background-rendered spotlight images */
+html[class*="theme-"] body .spotlightCard .cardImageContainer {
+  background-size: var(--spotlight-fit) !important;
+  background-position: var(--spotlight-position) !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important; 
+}
+
+/* Handles Emby's native <img> rendered spotlight images */
+html[class*="theme-"] body .spotlightCard .cardImageContainer img,
+html[class*="theme-"] body .spotlightCard .coveredImage {
+  object-fit: var(--spotlight-fit) !important;
+  object-position: var(--spotlight-position) !important;
+}
+
+/* 2. Text Scrim: Targets the entire bottom text area of the Home Screen Hero section */
 html[class*="theme-"] .spotlightCardFooter {
   background:      linear-gradient(to top, 
                    rgba(var(--pure-black-rgb), 0.95) 0%, 
@@ -3231,7 +3251,7 @@ html[class*="theme-"] .spotlightCardFooter {
                    border-radius:   0 0 var(--border-radius-md) var(--border-radius-md) !important;
 }
 
-/* Target ONLY the Description (ignoring the title and badges) */
+/* 3. Description Text: Targets ONLY the Description (ignoring the title and badges) */
 html[class*="theme-"] div.spotlightCardText:not(.mediaInfoItems):not(.spotlightCardText-first) {
   text-shadow:             0px 2px 10px var(--black-alpha-90) !important;
   color:                   var(--pure-white) !important;
