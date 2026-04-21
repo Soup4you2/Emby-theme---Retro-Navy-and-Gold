@@ -333,16 +333,19 @@ html,
   --order-about: 8;                                                /* Vertical order of the Text Overview/About section and Media stream info cards */
 
   /* --- SPOTLIGHT BANNER ARTWORK --- */
-  --spotlight-fit: cover;                                          /* Options: 'cover' (Fills box, crops edges), 'contain' (Shows full image, adds bars), '100%' (Stretches) */                                   /* Cinematic Ribbon "cover" */
-  --spotlight-position: center top;                                /* Options: 'right top' (Protects logos/faces), 'center top', 'center' (Emby default), 'left top' */                                           /* Cinematic Ribbon "center 20%" */
-  --spotlight-width: 100%;                                         /* OVERALL WIDTH: 100% (Full screen), 95% (Small edge gap), 50% (2 Cards on the screen), 1200px (Max size lock) */                             /* Cinematic Ribbon "100%" */
-  --spotlight-height: auto;                                        /* OVERALL HEIGHT: auto (Uses Aspect Ratio), 50vh (Half screen), 400px (Fixed height) */                                                       /* Cinematic Ribbon "auto" */
-  --spotlight-aspect-ratio: 16 / 9;                                /* SHAPE & SCALE: 16/9 (Default), 21/9 (Ultra-Wide), 24/9 (Cinematic Ultra-Wide), 3/1 (Extreme Banner), 4/1 (Extreme Ribbon), 4/3 (Boxy) */    /* Cinematic Ribbon "32/9" */
+  --spotlight-fit: cover;                                          /* Options: 'cover' (Fills box, crops edges), 'contain' (Shows full image, adds bars), '100%' (Stretches) */ 
+  --spotlight-position: center top;                                /* Options: 'right top' (Protects logos/faces), 'center top', 'center' (Emby default), 'left top' */  
+  --spotlight-width: 100%;                                         /* OVERALL WIDTH: 100% (Full screen), 95% (Small edge gap), 50% (2 Cards on the screen), 1200px (Max size lock) */ 
+  --spotlight-height: auto;                                        /* OVERALL HEIGHT: auto (Uses Aspect Ratio), 50vh (Half screen), 400px (Fixed height) */  
+  --spotlight-aspect-ratio: 16 / 9;                                /* SHAPE & SCALE: 16/9 (Default), 21/9 (Ultra-Wide), 24/9 (Cinematic Ultra-Wide), 3/1 (Extreme Banner), 4/1 (Extreme Ribbon), 4/3 (Boxy) */ 
   --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, rgba(var(--pure-black-rgb), 0.6) 50%, transparent 100%); /* TEXT SCRIM: Change the dark fade behind text. (Use 'transparent' to remove it) */
   /* Some sample options to try out: */
   /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 32 / 9; --spotlight-fit: cover; --spotlight-position: center 20%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, rgba(var(--pure-black-rgb), 0.4) 70%, transparent 100%);    /* The Cinematic Ribbon */
   /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 4 / 1; --spotlight-fit: cover; --spotlight-position: center 25%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, transparent 90%);    /*  Extreme Letterbox */
-
+  /*--spotlight-width: 1400px; --spotlight-height: auto; --spotlight-aspect-ratio: 24 / 9; --spotlight-fit: cover; --spotlight-position: center 15%; --spotlight-overlay: linear-gradient(to top, rgba(var(--navy-base-rgb), 1) 0%, transparent 100%);  /* Framed Billboard */
+  /*--spotlight-width: 98%; --spotlight-height: 40vh; --spotlight-aspect-ratio: none; --spotlight-fit: contain; --spotlight-position: center; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.85) 0%, rgba(var(--pure-black-rgb), 0.4) 40%, transparent 100%); /* Uncut Showcase */
+  /*--spotlight-width: 100%; --spotlight-height: 30vh; --spotlight-aspect-ratio: none; --spotlight-fit: contain; --spotlight-position: center; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, transparent 100%);  /* Thin Letterbox Showcase */
+  /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 5 / 1; --spotlight-fit: cover; --spotlight-position: center 20%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.9) 0%, transparent 100%);  /* Extreme Slit */
 
   /* --- SEASONAL BACKGROUND ANIMATIONS --- */
   --seasonal-bg-visibility: visible;                               /* Fully Enabled */
