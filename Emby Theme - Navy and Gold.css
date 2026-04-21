@@ -338,6 +338,7 @@ html,
   --spotlight-width: 100%;                                         /* OVERALL WIDTH: 100% (Full screen), 95% (Small edge gap), 50% (2 Cards on the screen), 1200px (Max size lock) */
   --spotlight-height: auto;                                        /* OVERALL HEIGHT: auto (Uses Aspect Ratio), 50vh (Half screen), 400px (Fixed height) */
   --spotlight-aspect-ratio: 16 / 9;                                /* SHAPE & SCALE: 16/9 (Default), 21/9 (Ultra-Wide), 24/9 (Cinematic Ultra-Wide), 3/1 (Extreme Banner), 4/1 (Extreme Ribbon), 4/3 (Boxy) */
+  --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, rgba(var(--pure-black-rgb), 0.6) 50%, transparent 100%); /* TEXT SCRIM: Change the dark fade behind text. (Use 'transparent' to remove it) */
 
   /* --- SEASONAL BACKGROUND ANIMATIONS --- */
   --seasonal-bg-visibility: visible;                               /* Fully Enabled */
@@ -3278,15 +3279,12 @@ html[class*="theme-"] body .spotlightCard .coveredImage {
 
 /* 2. Text Scrim: Targets the entire bottom text area of the Home Screen Hero section */
 html[class*="theme-"] .spotlightCardFooter {
-  background:      linear-gradient(to top, 
-                   rgba(var(--pure-black-rgb), 0.95) 0%, 
-                   rgba(var(--pure-black-rgb), 0.6) 50%, 
-                   transparent 100%) !important;
-                   padding:         60px 20px 25px 20px !important;
-                   display:         flex !important;
-                   flex-direction:  column !important;
-                   justify-content: flex-end !important;
-                   border-radius:   0 0 var(--border-radius-md) var(--border-radius-md) !important;
+  background:      var(--spotlight-overlay) !important;
+  padding:         60px 20px 25px 20px !important;
+  display:         flex !important;
+  flex-direction:  column !important;
+  justify-content: flex-end !important;
+  border-radius:   0 0 var(--border-radius-md) var(--border-radius-md) !important;
 }
 
 /* 3. Description Text: Targets ONLY the Description (ignoring the title and badges) */
