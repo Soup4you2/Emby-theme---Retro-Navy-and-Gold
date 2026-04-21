@@ -335,6 +335,9 @@ html,
   /* --- SPOTLIGHT BANNER ARTWORK --- */
   --spotlight-fit: cover;                                          /* Options: 'cover' (Fills box, crops edges), 'contain' (Shows full image, adds bars), '100%' (Stretches) */
   --spotlight-position: center top;                                /* Options: 'right top' (Protects logos/faces), 'center top', 'center' (Emby default), 'left top' */
+  --spotlight-width: 100%;                                         /* OVERALL WIDTH: 100% (Full screen), 95% (Small edge gap), 50% (2 Cards on the screen), 1200px (Max size lock) */
+  --spotlight-height: auto;                                        /* OVERALL HEIGHT: auto (Uses Aspect Ratio), 50vh (Half screen), 400px (Fixed height) */
+  --spotlight-aspect-ratio: 16 / 9;                                /* SHAPE & SCALE: 16/9 (Default), 21/9 (Ultra-Wide), 24/9 (Cinematic Ultra-Wide), 3/1 (Extreme Banner), 4/1 (Extreme Ribbon), 4/3 (Boxy) */
 
   /* --- SEASONAL BACKGROUND ANIMATIONS --- */
   --seasonal-bg-visibility: visible;                               /* Fully Enabled */
@@ -3243,13 +3246,27 @@ html[class*="theme-"] .sideFooterCard .cardText-secondary {
 
 /* --- 5F. SPOTLIGHT CARDS --- */
 
-/* 1. Image Rendering & Crop Behavior (Driven by variables in Section 1) */
+/* 1. Master Container Sizing (Width & Centering) */
+html[class*="theme-"] body .spotlightCard {
+  width: var(--spotlight-width) !important;
+  margin: 0 auto !important; /* Ensures it stays centered if you reduce the width below 100% */
+}
+
+/* 1b. Image Rendering & Custom Aspect Ratio */
 /* Handles Emby's background-rendered spotlight images */
 html[class*="theme-"] body .spotlightCard .cardImageContainer {
+  padding-bottom: 0 !important; /* KILLS Emby's native hardcoded shape */
+  aspect-ratio: var(--spotlight-aspect-ratio) !important; /* Replaces it with your custom scale */
+  height: var(--spotlight-height) !important; /* Applies the custom height variable */
   background-size: var(--spotlight-fit) !important;
   background-position: var(--spotlight-position) !important;
   background-repeat: no-repeat !important;
   background-color: transparent !important; 
+}
+
+/* THE FIX: Nuke Emby's invisible inline spacer hack! */
+html[class*="theme-"] body .spotlightCard .cardImageContainer > div[style*="padding"] {
+  padding-bottom: 0 !important;
 }
 
 /* Handles Emby's native <img> rendered spotlight images */
