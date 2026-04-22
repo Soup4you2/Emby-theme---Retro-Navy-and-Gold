@@ -339,7 +339,7 @@ html,
   --spotlight-height: auto;                                        /* OVERALL HEIGHT: auto (Uses Aspect Ratio), 50vh (Half screen), 400px (Fixed height) */  
   --spotlight-aspect-ratio: 16 / 9;                                /* SHAPE & SCALE: 16/9 (Default), 21/9 (Ultra-Wide), 24/9 (Cinematic Ultra-Wide), 3/1 (Extreme Banner), 4/1 (Extreme Ribbon), 4/3 (Boxy) */ 
   --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, rgba(var(--pure-black-rgb), 0.6) 50%, transparent 100%); /* TEXT SCRIM: Change the dark fade behind text. (Use 'transparent' to remove it) */
-  --spotlight-center-snap: enabled;                                /* Set to 'enabled' to magnetically center the primary card, or 'disabled' to turn it off */  /* NOTE: FIREFOX COMPATABILITY ISSUE WITH THIS */
+  --spotlight-center-snap: enabled;                                /* Set to 'enabled' to magnetically center the primary card, or 'disabled' to turn it off */  /* NOTE: FIREFOX COMPATABILITY ISSUE WITH THIS - Bugzilla Bug #1795622 - actively being built  */
 
   /* Some example options to try out: */
   /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 32 / 9; --spotlight-fit: cover; --spotlight-position: center 10%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, rgba(var(--pure-black-rgb), 0.4) 70%, transparent 100%);    /* The Cinematic Ribbon */
@@ -377,6 +377,8 @@ html,
     CSS Style Container Queries (@container style). To enable seasonal 
     themes in Firefox, you must manually comment out the @container wrapper 
     line and its corresponding closing bracket within the seasonal CSS section.
+
+    Bugzilla Bug #1795622 - Status: Actively being built
     -----------------------------------------------------------
 
     ============================================================ */
