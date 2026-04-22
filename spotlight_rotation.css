@@ -1,3 +1,6 @@
+/* --- TO BE USED WITH SPOTLIGHT.JS --- */
+
+
 /* Fades out the UI and slowly zooms/pans the background when idle */
 body.ambient-idle-mode .skinHeader,
 body.ambient-idle-mode .mainDrawer,
