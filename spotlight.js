@@ -1,3 +1,6 @@
+// Script to rotate Emby Spotlight posters
+// -----------------------------------------------------------------------------
+
 console.log("Spotlight Auto-Scroller : Ping-Pong Mode Engaged...");
 
 (function() {
