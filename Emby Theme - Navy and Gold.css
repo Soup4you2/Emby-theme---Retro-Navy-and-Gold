@@ -339,11 +339,11 @@ html,
   --spotlight-height: auto;                                        /* OVERALL HEIGHT: auto (Uses Aspect Ratio), 50vh (Half screen), 400px (Fixed height) */  
   --spotlight-aspect-ratio: 16 / 9;                                /* SHAPE & SCALE: 16/9 (Default), 21/9 (Ultra-Wide), 24/9 (Cinematic Ultra-Wide), 3/1 (Extreme Banner), 4/1 (Extreme Ribbon), 4/3 (Boxy) */ 
   --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, rgba(var(--pure-black-rgb), 0.6) 50%, transparent 100%); /* TEXT SCRIM: Change the dark fade behind text. (Use 'transparent' to remove it) */
-  --spotlight-center-snap: enabled;                                /* Set to 'enabled' to magnetically center the primary card, or 'disabled' to turn it off */  /* NOTE: FIREFOX COMPATABILITY ISSUE WITH THIS - Bugzilla Bug #1795622 - actively being built  */
+  --spotlight-center-snap: enabled;                                /* Set to 'enabled' to center the primary card, or 'disabled' to turn it off */  /* NOTE: FIREFOX COMPATABILITY ISSUE WITH THIS - Bugzilla Bug #1795622 - actively being built  */
 
   /* Some example options to try out: */
   /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 32 / 9; --spotlight-fit: cover; --spotlight-position: center 10%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, rgba(var(--pure-black-rgb), 0.4) 70%, transparent 100%);    /* The Cinematic Ribbon */
-  /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 4 / 1; --spotlight-fit: cover; --spotlight-position: center 15%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, transparent 90%);    /*  Extreme Letterbox */
+  /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 4 / 1; --spotlight-fit: cover; --spotlight-position: center 10%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, transparent 90%);    /*  Extreme Letterbox */
   /*--spotlight-width: 1400px; --spotlight-height: auto; --spotlight-aspect-ratio: 24 / 9; --spotlight-fit: cover; --spotlight-position: center 15%; --spotlight-overlay: linear-gradient(to top, rgba(var(--navy-base-rgb), 1) 0%, transparent 100%); --spotlight-center-snap: disabled;  /* Framed Billboard */
   /*--spotlight-width: 98%; --spotlight-height: 40vh; --spotlight-aspect-ratio: none; --spotlight-fit: contain; --spotlight-position: center; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.85) 0%, rgba(var(--pure-black-rgb), 0.4) 40%, transparent 100%); /* Uncut Showcase */
   /*--spotlight-width: 100%; --spotlight-height: 30vh; --spotlight-aspect-ratio: none; --spotlight-fit: contain; --spotlight-position: center; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, transparent 100%);  /* Thin Letterbox Showcase */
@@ -379,6 +379,7 @@ html,
     line and its corresponding closing bracket within the seasonal CSS section.
 
     Bugzilla Bug #1795622 - Status: Actively being built
+    https://bugzilla.mozilla.org/show_bug.cgi?id=1795622
     -----------------------------------------------------------
 
     ============================================================ */
@@ -1325,6 +1326,7 @@ html[class*="theme-"] body .emby-tabs-container:not(.videoOsdBottom .emby-tabs-c
   align-items:             center !important;
   justify-content:         center !important;
   transition:              all var(--transition-speed) ease-in-out !important;
+  flex-shrink:             0 !important; /* THE FIX: Stops pills from squishing and breaking scroll on mobile */
 }
 
 /* Prevents text clipping and ensures glow filters aren't cut off */
@@ -1668,6 +1670,32 @@ html[class*="theme-"] body .appfooter .navMenuOption:hover .navMenuOptionText {
   color: var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
   filter: drop-shadow(0 0 5px var(--gold-alpha-40)) !important;
+}
+
+/* --- 3H. MOBILE LANDSCAPE SIDEBAR GAP --- */
+@media (max-height: 500px) and (orientation: landscape) {
+  
+  /* 1. Force all page containers to snap to the absolute left edge */
+  html[class*="theme-"] body div.view.page.page-withDockedDrawer,
+  html[class*="theme-"] body div.view.page.page-withDockedDrawer.page-withMiniDrawer,
+  html[class*="theme-"] body div.backgroundContainer.backgroundContainer-withdockeddrawer,
+  html[class*="theme-"] body div.selectionCommandsPanel.selectionCommandsPanel-withdockeddrawer {
+    left: 0 !important;
+  }
+
+  /* 2. Reset the Top Header & Footer so they don't get pushed off-center */
+  html[class*="theme-"] body .skinHeader.skinHeader-withfulldrawer,
+  html[class*="theme-"] body .skinHeader.skinHeader-withminidrawer,
+  html[class*="theme-"] body div.appfooter.appfooter-withMiniDrawer {
+    padding-left: env(safe-area-inset-left, 0px) !important;
+  }
+
+  /* 3. Aggressively hide the physical drawer if Emby tries to incorrectly spawn it */
+  html[class*="theme-"] body div.mainDrawer.drawer-docked {
+    display: none !important;
+    width: 0 !important;
+    transform: translateX(-100%) !important;
+  }
 }
 
 /* ============================================================
