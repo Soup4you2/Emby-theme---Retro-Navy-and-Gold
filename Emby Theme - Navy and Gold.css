@@ -3260,7 +3260,7 @@ html[class*="theme-"] .sideFooterCard .cardText-secondary {
 }
 
 /* --- 5F. SPOTLIGHT CARDS --- */
-@media (max-width: 50em) {
+@media (min-width: 50em) {
   /* 1. Master Container Sizing (Width & Centering) */
   html[class*="theme-"] body .spotlightCard {
     width: var(--spotlight-width) !important;
