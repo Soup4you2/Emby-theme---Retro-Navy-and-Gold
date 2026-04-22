@@ -339,7 +339,7 @@ html,
   --spotlight-height: auto;                                        /* OVERALL HEIGHT: auto (Uses Aspect Ratio), 50vh (Half screen), 400px (Fixed height) */  
   --spotlight-aspect-ratio: 16 / 9;                                /* SHAPE & SCALE: 16/9 (Default), 21/9 (Ultra-Wide), 24/9 (Cinematic Ultra-Wide), 3/1 (Extreme Banner), 4/1 (Extreme Ribbon), 4/3 (Boxy) */ 
   --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, rgba(var(--pure-black-rgb), 0.6) 50%, transparent 100%); /* TEXT SCRIM: Change the dark fade behind text. (Use 'transparent' to remove it) */
-  /* Some sample options to try out: */
+  /* Some example options to try out: */
   /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 32 / 9; --spotlight-fit: cover; --spotlight-position: center 20%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, rgba(var(--pure-black-rgb), 0.4) 70%, transparent 100%);    /* The Cinematic Ribbon */
   /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 4 / 1; --spotlight-fit: cover; --spotlight-position: center 25%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, transparent 90%);    /*  Extreme Letterbox */
   /*--spotlight-width: 1400px; --spotlight-height: auto; --spotlight-aspect-ratio: 24 / 9; --spotlight-fit: cover; --spotlight-position: center 15%; --spotlight-overlay: linear-gradient(to top, rgba(var(--navy-base-rgb), 1) 0%, transparent 100%);  /* Framed Billboard */
@@ -1142,9 +1142,6 @@ html[class*="theme-"] body .view[class*="view-collections"] > .scrollSlider {
 /* 6.1. HEADER BASE & SCROLLBAR GAP PATCH */
 html[class*="theme-"] body .skinHeader {
   position:   relative !important;
-  height:     80px !important; 
-  min-height: 80px !important;
-  max-height: 80px !important;
 }
 
 html[class*="theme-"] body .skinHeader::after {
@@ -1160,17 +1157,27 @@ html[class*="theme-"] body .skinHeader::after {
   z-index: -1;
 }
 
-/* 6.2. PILLBAR ABSOLUTE CENTERING */
-html[class*="theme-"] body .headerTabs,
-html[class*="theme-"] body .sectionTabs {
-  position:  absolute !important;
-  left:      50% !important;
-  top:       50% !important;
-  transform: translate(-50%, -50%) !important;
-  width:     auto !important;
-  margin:    0 !important;
-  padding:   0 !important;
-  z-index:   10 !important;
+/* 6.2. DESKTOP HEADER LOCKS & PILLBAR CENTERING */
+@media (min-width: 50em) {
+  /* Locks the header height on desktop to keep everything aligned */
+  html[class*="theme-"] body .skinHeader {
+    height:     80px !important; 
+    min-height: 80px !important;
+    max-height: 80px !important;
+  }
+  
+  /* Absolutely centers the pillbar on larger screens */
+  html[class*="theme-"] body .headerTabs,
+  html[class*="theme-"] body .sectionTabs {
+    position:  absolute !important;
+    left:      50% !important;
+    top:       50% !important;
+    transform: translate(-50%, -50%) !important;
+    width:     auto !important;
+    margin:    0 !important;
+    padding:   0 !important;
+    z-index:   10 !important;
+  }
 }
 
 /* --- 3B. SIDEBAR DRAWER (Slide-out Menu) --- */
@@ -3253,55 +3260,55 @@ html[class*="theme-"] .sideFooterCard .cardText-secondary {
 }
 
 /* --- 5F. SPOTLIGHT CARDS --- */
+@media (max-width: 50em) {
+  /* 1. Master Container Sizing (Width & Centering) */
+  html[class*="theme-"] body .spotlightCard {
+    width: var(--spotlight-width) !important;
+    margin: 0 auto !important; /* Ensures it stays centered if you reduce the width below 100% */
+  }
 
-/* 1. Master Container Sizing (Width & Centering) */
-html[class*="theme-"] body .spotlightCard {
-  width: var(--spotlight-width) !important;
-  margin: 0 auto !important; /* Ensures it stays centered if you reduce the width below 100% */
+  /* 1b. Image Rendering & Custom Aspect Ratio */
+  /* Handles Emby's background-rendered spotlight images */
+  html[class*="theme-"] body .spotlightCard .cardImageContainer {
+    padding-bottom: 0 !important; /* KILLS Emby's native hardcoded shape */
+    aspect-ratio: var(--spotlight-aspect-ratio) !important; /* Replaces it with your custom scale */
+    height: var(--spotlight-height) !important; /* Applies the custom height variable */
+    background-size: var(--spotlight-fit) !important;
+    background-position: var(--spotlight-position) !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important; 
+  }
+
+  /* THE FIX: Nuke Emby's invisible inline spacer hack! */
+  html[class*="theme-"] body .spotlightCard .cardImageContainer > div[style*="padding"] {
+    padding-bottom: 0 !important;
+  }
+
+  /* Handles Emby's native <img> rendered spotlight images */
+  html[class*="theme-"] body .spotlightCard .cardImageContainer img,
+  html[class*="theme-"] body .spotlightCard .coveredImage {
+    object-fit: var(--spotlight-fit) !important;
+    object-position: var(--spotlight-position) !important;
+  }
+
+  /* 2. Text Scrim: Targets the entire bottom text area of the Home Screen Hero section */
+  html[class*="theme-"] .spotlightCardFooter {
+    background:      var(--spotlight-overlay) !important;
+    padding:         60px 20px 25px 20px !important;
+    display:         flex !important;
+    flex-direction:  column !important;
+    justify-content: flex-end !important;
+    border-radius:   0 0 var(--border-radius-md) var(--border-radius-md) !important;
+  }
+
+  /* 3. Description Text: Targets ONLY the Description (ignoring the title and badges) */
+  html[class*="theme-"] div.spotlightCardText:not(.mediaInfoItems):not(.spotlightCardText-first) {
+    text-shadow:             0px 2px 10px var(--black-alpha-90) !important;
+    color:                   var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    font-weight:             500 !important;
+  }
 }
-
-/* 1b. Image Rendering & Custom Aspect Ratio */
-/* Handles Emby's background-rendered spotlight images */
-html[class*="theme-"] body .spotlightCard .cardImageContainer {
-  padding-bottom: 0 !important; /* KILLS Emby's native hardcoded shape */
-  aspect-ratio: var(--spotlight-aspect-ratio) !important; /* Replaces it with your custom scale */
-  height: var(--spotlight-height) !important; /* Applies the custom height variable */
-  background-size: var(--spotlight-fit) !important;
-  background-position: var(--spotlight-position) !important;
-  background-repeat: no-repeat !important;
-  background-color: transparent !important; 
-}
-
-/* THE FIX: Nuke Emby's invisible inline spacer hack! */
-html[class*="theme-"] body .spotlightCard .cardImageContainer > div[style*="padding"] {
-  padding-bottom: 0 !important;
-}
-
-/* Handles Emby's native <img> rendered spotlight images */
-html[class*="theme-"] body .spotlightCard .cardImageContainer img,
-html[class*="theme-"] body .spotlightCard .coveredImage {
-  object-fit: var(--spotlight-fit) !important;
-  object-position: var(--spotlight-position) !important;
-}
-
-/* 2. Text Scrim: Targets the entire bottom text area of the Home Screen Hero section */
-html[class*="theme-"] .spotlightCardFooter {
-  background:      var(--spotlight-overlay) !important;
-  padding:         60px 20px 25px 20px !important;
-  display:         flex !important;
-  flex-direction:  column !important;
-  justify-content: flex-end !important;
-  border-radius:   0 0 var(--border-radius-md) var(--border-radius-md) !important;
-}
-
-/* 3. Description Text: Targets ONLY the Description (ignoring the title and badges) */
-html[class*="theme-"] div.spotlightCardText:not(.mediaInfoItems):not(.spotlightCardText-first) {
-  text-shadow:             0px 2px 10px var(--black-alpha-90) !important;
-  color:                   var(--pure-white) !important;
-  -webkit-text-fill-color: var(--pure-white) !important;
-  font-weight:             500 !important;
-}
-
 /* ============================================================
    06. MEDIA DETAIL PAGE
    ============================================================ */
