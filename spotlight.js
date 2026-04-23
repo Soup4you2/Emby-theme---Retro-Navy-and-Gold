@@ -1,5 +1,4 @@
-// Script to rotate Emby Spotlight posters
-// https://github.com/Soup4you2/Emby-theme---Retro-Navy-and-Gold/blob/main/spotlight.js
+// Script to rotate Emby Spotlight posters (Screensaver Safe)
 // -----------------------------------------------------------------------------
 
 console.log("Spotlight Auto-Scroller : Ping-Pong Mode Engaged...");
@@ -8,11 +7,9 @@ console.log("Spotlight Auto-Scroller : Ping-Pong Mode Engaged...");
   const ROTATION_SPEED = 8000; // 8 seconds
   let isScrollingRight = true; // State tracker for our current direction
   let spotlightTimer = null;   // Tracker for our interval timer
-  let wasSpotlightVisible = false; // Tracker for spotlight visibility state
 
   // Function to check if an element is in the viewport AND visibly rendered
   function isElementInViewport(el) {
-    // If offsetParent is null, the element (or its parent) is display: none
     if (!el || el.offsetParent === null) return false; 
     
     const rect = el.getBoundingClientRect();
@@ -24,66 +21,69 @@ console.log("Spotlight Auto-Scroller : Ping-Pong Mode Engaged...");
     );
   }
 
+  // Helper to click buttons without alerting Emby's global idle timer
+  function silentClick(btn, container) {
+    // 1. Trap the click before it bubbles up to the document level
+    const silencer = (e) => {
+      if (!e.isTrusted) { // Only trap our automated, untrusted clicks
+        e.stopPropagation(); 
+      }
+      container.removeEventListener('click', silencer); // Clean up the trap
+    };
+    
+    container.addEventListener('click', silencer);
+
+    // 2. Dispatch a synthetic MouseEvent instead of btn.click()
+    // Native .click() causes the browser to focus the element, resetting the timer.
+    btn.dispatchEvent(new MouseEvent('click', {
+      view: window,
+      bubbles: true, // Let it bubble just enough to trigger Emby's carousel logic
+      cancelable: true
+    }));
+  }
+
   // The main logic extracted into a standalone function
   function rotateSpotlight() {
-    // 1. Only run if we are actually on the Home Screen
     if (!window.location.href.includes('home')) return;
 
-    // 2. Safely hunt down the actual Spotlight row
-    // Emby is an SPA and might keep old, hidden pages in the DOM. 
-    // We MUST filter for cards that are actively displayed.
     const allSpotlightCards = document.querySelectorAll('.view-home-home .spotlightCard');
-    
-    // Find the first card that is actually visible on the screen
     const visibleCard = Array.from(allSpotlightCards).find(card => card.offsetParent !== null);
     
-    if (!visibleCard) return; // Exit if we didn't find any visible cards
+    if (!visibleCard) return; 
 
     const spotlightSection = visibleCard.closest('.verticalSection');
     if (!spotlightSection) return;
 
-    // 3. Check if the spotlight section is visible on screen
-    const isVisible = isElementInViewport(spotlightSection);
-    if (isVisible !== wasSpotlightVisible) {
-      if (isVisible) {
-        console.log("Spotlight Auto-Scroller: Spotlight section became visible.");
-      } else {
-        console.log("Spotlight Auto-Scroller: Spotlight section is no longer visible.");
-      }
-      wasSpotlightVisible = isVisible;
-    }
-    if (!isVisible) return;
+    if (!isElementInViewport(spotlightSection)) return;
 
-    // 4. Find the buttons inside this specific, visible section
     const nextBtn = spotlightSection.querySelector('button[data-direction="forwards"]');
     const prevBtn = spotlightSection.querySelector('button[data-direction="backwards"]');
     if (!nextBtn || !prevBtn) return;
 
-    // 5. Look at the PARENT wrappers to see if we hit a wall
     const nextContainer = nextBtn.closest('.scrollbuttoncontainer');
     const prevContainer = prevBtn.closest('.scrollbuttoncontainer');
 
     const isRightWall = nextContainer && nextContainer.classList.contains('hide');
     const isLeftWall = prevContainer && prevContainer.classList.contains('hide');
 
-    // 6. Ping-Pong Logic
+    // Ping-Pong Logic using our new silentClick()
     if (isScrollingRight) {
       if (!isRightWall) {
         console.log("Spotlight Auto-Scroller: Moving Right ->");
-        nextBtn.click();
+        silentClick(nextBtn, spotlightSection);
       } else {
         console.log("Spotlight Auto-Scroller: Hit right wall, bouncing Left <-");
-        isScrollingRight = false; // Change direction
-        prevBtn.click();
+        isScrollingRight = false; 
+        silentClick(prevBtn, spotlightSection);
       }
     } else {
       if (!isLeftWall) {
         console.log("Spotlight Auto-Scroller: Moving Left <-");
-        prevBtn.click();
+        silentClick(prevBtn, spotlightSection);
       } else {
         console.log("Spotlight Auto-Scroller: Hit left wall, bouncing Right ->");
-        isScrollingRight = true; // Change direction
-        nextBtn.click();
+        isScrollingRight = true; 
+        silentClick(nextBtn, spotlightSection);
       }
     }
   }
