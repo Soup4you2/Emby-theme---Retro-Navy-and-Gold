@@ -3343,16 +3343,16 @@ html[class*="theme-"] .sideFooterCard .cardText-secondary {
 }  
 
 @container style(--spotlight-center-snap: enabled) {
-  /* 4. Force the scroll container to act as a magnetic track */
+/* 4. Force the scroll container to act as a magnetic track */
   html[class*="theme-"] body .view-home-home .emby-scroller:has(.spotlightCard) {
-    scroll-snap-type: x mandatory !important;
+    scroll-snap-type: x proximity !important; /* Changed from mandatory to proximity */
     -webkit-overflow-scrolling: touch !important; /* Keeps momentum smooth on mobile */
   }
 
   /* 5. Force each individual card to snap perfectly to the center */
   html[class*="theme-"] body .view-home-home .spotlightCard {
     scroll-snap-align: center !important;
-    scroll-snap-stop: always !important; /* Prevents the track from skipping past cards */
+    /* scroll-snap-stop removed entirely so the JS can push past the card */
   }
 }
 
