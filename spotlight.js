@@ -8,6 +8,17 @@ console.log("Spotlight Auto-Scroller : Ping-Pong Mode Engaged...");
   let isScrollingRight = true; // State tracker for our current direction
   let spotlightTimer = null;   // Tracker for our interval timer
 
+  // Function to check if an element is in the viewport
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
   // The main logic extracted into a standalone function
   function rotateSpotlight() {
     // 1. Only run if we are actually on the Home Screen
@@ -20,7 +31,10 @@ console.log("Spotlight Auto-Scroller : Ping-Pong Mode Engaged...");
     const spotlightSection = spotlightCards[0].closest('.verticalSection');
     if (!spotlightSection) return;
 
-    // 3. Find the buttons
+    // 3. Check if the spotlight section is visible on screen
+    if (!isElementInViewport(spotlightSection)) return;
+
+    // 4. Find the buttons
     const nextBtn = spotlightSection.querySelector('button[data-direction="forwards"]');
     const prevBtn = spotlightSection.querySelector('button[data-direction="backwards"]');
     if (!nextBtn || !prevBtn) return;
