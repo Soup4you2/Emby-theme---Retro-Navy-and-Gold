@@ -1,4 +1,5 @@
 // Script to rotate Emby Spotlight posters
+// https://github.com/Soup4you2/Emby-theme---Retro-Navy-and-Gold/blob/main/spotlight.js
 // -----------------------------------------------------------------------------
 
 console.log("Spotlight Auto-Scroller : Ping-Pong Mode Engaged...");
