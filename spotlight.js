@@ -7,6 +7,7 @@ console.log("Spotlight Auto-Scroller : Ping-Pong Mode Engaged...");
   const ROTATION_SPEED = 8000; // 8 seconds
   let isScrollingRight = true; // State tracker for our current direction
   let spotlightTimer = null;   // Tracker for our interval timer
+  let wasSpotlightVisible = false; // Tracker for spotlight visibility state
 
   // Function to check if an element is in the viewport AND visibly rendered
   function isElementInViewport(el) {
@@ -41,7 +42,16 @@ console.log("Spotlight Auto-Scroller : Ping-Pong Mode Engaged...");
     if (!spotlightSection) return;
 
     // 3. Check if the spotlight section is visible on screen
-    if (!isElementInViewport(spotlightSection)) return;
+    const isVisible = isElementInViewport(spotlightSection);
+    if (isVisible !== wasSpotlightVisible) {
+      if (isVisible) {
+        console.log("Spotlight Auto-Scroller: Spotlight section became visible.");
+      } else {
+        console.log("Spotlight Auto-Scroller: Spotlight section is no longer visible.");
+      }
+      wasSpotlightVisible = isVisible;
+    }
+    if (!isVisible) return;
 
     // 4. Find the buttons inside this specific, visible section
     const nextBtn = spotlightSection.querySelector('button[data-direction="forwards"]');
