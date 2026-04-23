@@ -342,12 +342,14 @@ html,
   --spotlight-center-snap: enabled;                                /* Set to 'enabled' to center the primary card, or 'disabled' to turn it off */  /* NOTE: FIREFOX COMPATABILITY ISSUE WITH THIS - Bugzilla Bug #1795622 - actively being built  */
 
   /* Some example options to try out: */
-  /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 32 / 9; --spotlight-fit: cover; --spotlight-position: center 10%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, rgba(var(--pure-black-rgb), 0.4) 70%, transparent 100%);    /* The Cinematic Ribbon */
-  /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 4 / 1; --spotlight-fit: cover; --spotlight-position: center 10%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, transparent 90%);    /*  Extreme Letterbox */
+  /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 32 / 9; --spotlight-fit: cover; --spotlight-position: center 10%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, rgba(var(--pure-black-rgb), 0.4) 70%, transparent 100%); --spotlight-center-snap: enabled;   /* The Cinematic Ribbon */
+  /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 4 / 1; --spotlight-fit: cover; --spotlight-position: center 10%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, transparent 90%); --spotlight-center-snap: enabled;   /*  Extreme Letterbox */
   /*--spotlight-width: 1400px; --spotlight-height: auto; --spotlight-aspect-ratio: 24 / 9; --spotlight-fit: cover; --spotlight-position: center 15%; --spotlight-overlay: linear-gradient(to top, rgba(var(--navy-base-rgb), 1) 0%, transparent 100%); --spotlight-center-snap: disabled;  /* Framed Billboard */
-  /*--spotlight-width: 98%; --spotlight-height: 40vh; --spotlight-aspect-ratio: none; --spotlight-fit: contain; --spotlight-position: center; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.85) 0%, rgba(var(--pure-black-rgb), 0.4) 40%, transparent 100%); /* Uncut Showcase */
-  /*--spotlight-width: 100%; --spotlight-height: 30vh; --spotlight-aspect-ratio: none; --spotlight-fit: contain; --spotlight-position: center; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, transparent 100%);  /* Thin Letterbox Showcase */
-  /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 5 / 1; --spotlight-fit: cover; --spotlight-position: center 10%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.9) 0%, transparent 100%);  /* Extreme Slit */
+  /*--spotlight-width: 98%; --spotlight-height: 40vh; --spotlight-aspect-ratio: none; --spotlight-fit: contain; --spotlight-position: center; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.85) 0%, rgba(var(--pure-black-rgb), 0.4) 40%, transparent 100%); --spotlight-center-snap: enabled; /* Uncut Showcase */
+  /*--spotlight-width: 100%; --spotlight-height: 30vh; --spotlight-aspect-ratio: none; --spotlight-fit: contain; --spotlight-position: center; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, transparent 100%); --spotlight-center-snap: enabled; /* Thin Letterbox Showcase */
+  /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 5 / 1; --spotlight-fit: cover; --spotlight-position: center 10%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.9) 0%, transparent 100%); --spotlight-center-snap: enabled; /* Extreme Slit */
+  /*--spotlight-width: 92%; --spotlight-height: 38vh; --spotlight-aspect-ratio: 16/9; --spotlight-fit: cover; --spotlight-position: top left; --spotlight-overlay: linear-gradient(225deg, transparent 45%, rgba(var(--pure-black-rgb), 0.85) 100%), linear-gradient(to top, rgba(var(--pure-black-rgb), 0.3) 0%, transparent 60%); --spotlight-center-snap: enabled;  /* Diagonal Glass */
+  /*--spotlight-width: 45vw; --spotlight-height: 70vh; --spotlight-aspect-ratio: none; --spotlight-fit: contain; --spotlight-position: center; --spotlight-overlay: radial-gradient(circle at center, transparent 0%, rgba(var(--pure-black-rgb), 0.85) 100%); --spotlight-center-snap: enabled; /* Vertical Portrait / Mobile-First Showcase */
 
   /* --- SEASONAL BACKGROUND ANIMATIONS --- */
   --seasonal-bg-visibility: visible;                               /* Fully Enabled */
@@ -356,17 +358,8 @@ html,
   /* --seasonal-bg-visibility: hidden;                             /* Fully Disabled */
   /* --seasonal-bg-anim-state: paused;                             /* Fully Disabled */
 
-  /* --- TEST COLORS - USED FOR DEVELOPMENT/DEBUGGING PURPOSES -- */
-  /*
-  --test-color1: #004d08;
-  --test-color2: #00f410;
-  --test-color3: #6c0101;
-  --test-color4: #ff0505;
-  --test-color5: #321592;
-  --test-color6: #0000ff;
-  --test-color7: #880a73;
-  --test-color8: #fa00e1;
-  */
+  /* --- TEST STUFF - USED FOR DEVELOPMENT/DEBUGGING PURPOSES -- */
+  /*--test-color1: #004d08; --test-color2: #00f410; --test-color3: #6c0101; --test-color4: #ff0505; --test-color5: #321592; --test-color6: #0000ff; --test-color7: #880a73; --test-color8: #fa00e1; /* Test Colors */
 
   /* ============================================================
       SEASONAL EVENT TOGGLE
