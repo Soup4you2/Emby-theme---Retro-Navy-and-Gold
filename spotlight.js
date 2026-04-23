@@ -8,8 +8,11 @@ console.log("Spotlight Auto-Scroller : Ping-Pong Mode Engaged...");
   let isScrollingRight = true; // State tracker for our current direction
   let spotlightTimer = null;   // Tracker for our interval timer
 
-  // Function to check if an element is in the viewport
+  // Function to check if an element is in the viewport AND visibly rendered
   function isElementInViewport(el) {
+    // If offsetParent is null, the element (or its parent) is display: none
+    if (!el || el.offsetParent === null) return false; 
+    
     const rect = el.getBoundingClientRect();
     return (
       rect.top >= 0 &&
@@ -25,28 +28,34 @@ console.log("Spotlight Auto-Scroller : Ping-Pong Mode Engaged...");
     if (!window.location.href.includes('home')) return;
 
     // 2. Safely hunt down the actual Spotlight row
-    const spotlightCards = document.querySelectorAll('.view-home-home .spotlightCard');
-    if (spotlightCards.length === 0) return;
+    // Emby is an SPA and might keep old, hidden pages in the DOM. 
+    // We MUST filter for cards that are actively displayed.
+    const allSpotlightCards = document.querySelectorAll('.view-home-home .spotlightCard');
+    
+    // Find the first card that is actually visible on the screen
+    const visibleCard = Array.from(allSpotlightCards).find(card => card.offsetParent !== null);
+    
+    if (!visibleCard) return; // Exit if we didn't find any visible cards
 
-    const spotlightSection = spotlightCards[0].closest('.verticalSection');
+    const spotlightSection = visibleCard.closest('.verticalSection');
     if (!spotlightSection) return;
 
     // 3. Check if the spotlight section is visible on screen
     if (!isElementInViewport(spotlightSection)) return;
 
-    // 4. Find the buttons
+    // 4. Find the buttons inside this specific, visible section
     const nextBtn = spotlightSection.querySelector('button[data-direction="forwards"]');
     const prevBtn = spotlightSection.querySelector('button[data-direction="backwards"]');
     if (!nextBtn || !prevBtn) return;
 
-    // 4. Look at the PARENT wrappers to see if we hit a wall
+    // 5. Look at the PARENT wrappers to see if we hit a wall
     const nextContainer = nextBtn.closest('.scrollbuttoncontainer');
     const prevContainer = prevBtn.closest('.scrollbuttoncontainer');
 
     const isRightWall = nextContainer && nextContainer.classList.contains('hide');
     const isLeftWall = prevContainer && prevContainer.classList.contains('hide');
 
-    // 5. Ping-Pong Logic
+    // 6. Ping-Pong Logic
     if (isScrollingRight) {
       if (!isRightWall) {
         console.log("Spotlight Auto-Scroller: Moving Right ->");
