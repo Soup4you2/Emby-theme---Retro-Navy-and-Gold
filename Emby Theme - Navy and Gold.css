@@ -360,15 +360,20 @@ html,
 
   /* --- TEST OPTIONS - USED FOR DEVELOPMENT/DEBUGGING PURPOSES -- */
   /*--test-color1: #004d08; --test-color2: #00f410; --test-color3: #6c0101; --test-color4: #ff0505; --test-color5: #321592; --test-color6: #0000ff; --test-color7: #880a73; --test-color8: #fa00e1; /* Test Colors */
+
   /*--experimental-PrimaryHeader: enabled;
-  /*--accent-display: none; 
+  --accent-display: none; 
+  /* Sample Options */
   /*--accent-display: inline-block; --accent-width: 6px; --accent-height: 1em; --accent-radius: 1px; --accent-transform: skewX(-20deg) translateY(-2px); /* The Cinematic Slash (Aggressive, forward-leaning cut) */
   /*--accent-display: inline-block; --accent-width: 9px; --accent-height: 9px; --accent-radius: 1px; --accent-transform: rotate(45deg) translateY(-2px); /* The Neon Diamond (Minimalist, sci-fi bullet point) */
   /*--accent-display: inline-block; --accent-width: 5px; --accent-height: 1.1em; --accent-radius: 4px; --accent-transform: translateY(-2px); /* The Classic Pill (Soft, rounded, traditional) */
   /*--accent-display: inline-block; --accent-width: 2px; --accent-height: 1.2em; --accent-radius: 0px; --accent-transform: translateY(-2px); /* The Razor Blade (Ultra-thin, tall, sharp line) */
 
-
   /*--experimental-card-footer: enabled;
+  --media-footer-bg: var(--navy-light-alpha-60); 
+  --media-footer-blur: var(--blur-heavy); 
+  --media-footer-border: 1px solid var(--gold-alpha-15); 
+  --media-footer-shadow: 0 10px 25px -5px var(--black-alpha-70); */
 }
 
   /* ============================================================
@@ -6341,12 +6346,12 @@ html[class*="theme-"] body .paperListbox .button-flat:hover {
    ============================================================ */
 @container style(--experimental-card-footer: enabled) {   
   html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(.visualCardBox):not(:has(.cardContent-round)) {
-      background: var(--navy-light-alpha-60) !important;
-      backdrop-filter: var(--blur-light) !important;
-      -webkit-backdrop-filter: var(--blur-light) !important;
-      border: 1px solid var(--gold-alpha-15) !important;
+      background: var(--media-footer-bg) !important;
+      backdrop-filter: var(--media-footer-blur) !important;
+      -webkit-backdrop-filter: var(--media-footer-blur) !important;
+      border: var(--media-footer-border) !important;
       border-radius: var(--border-radius-md) !important;
-      box-shadow: 0 8px 20px var(--black-alpha-70) !important;
+      box-shadow: var(--media-footer-shadow) !important;
   }
 
   /* 1. Sets Left/Right padding globally, but removes Top/Bottom so empty lines don't get inflated */
@@ -6354,10 +6359,15 @@ html[class*="theme-"] body .paperListbox .button-flat:hover {
       padding: 0 12px !important;
   }
 
-  /* 2. Adds the 8px padding back exclusively to the TOP of the Title */
-  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(:has(.cardContent-round)) .cardText-first {
-      padding-top: 8px !important;
-  }
+/* 2. Title Text: Adds top padding and allows long titles to wrap gracefully (Max 2 Lines) */
+html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(:has(.cardContent-round)) .cardText-first {
+    padding-top: 8px !important;
+    white-space: normal !important; 
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important; 
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
 
   /* 3. Adds the 8px padding back exclusively to the BOTTOM of the Year/Metadata */
   html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(:has(.cardContent-round)) .cardText-secondary {
@@ -6371,6 +6381,7 @@ html[class*="theme-"] body .paperListbox .button-flat:hover {
       margin: 0 !important;
       height: 0 !important;
   }
+ 
 }
 
 /* ============================================================
