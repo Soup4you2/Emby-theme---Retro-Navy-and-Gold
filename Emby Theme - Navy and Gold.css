@@ -358,8 +358,10 @@ html,
   /* --seasonal-bg-visibility: hidden;                             /* Fully Disabled */
   /* --seasonal-bg-anim-state: paused;                             /* Fully Disabled */
 
-  /* --- TEST STUFF - USED FOR DEVELOPMENT/DEBUGGING PURPOSES -- */
+  /* --- TEST OPTIONS - USED FOR DEVELOPMENT/DEBUGGING PURPOSES -- */
   /*--test-color1: #004d08; --test-color2: #00f410; --test-color3: #6c0101; --test-color4: #ff0505; --test-color5: #321592; --test-color6: #0000ff; --test-color7: #880a73; --test-color8: #fa00e1; /* Test Colors */
+  /*--experimental-PrimaryHeader: enabled;
+  /*--experimental-card-footer: enabled;
 
   /* ============================================================
       SEASONAL EVENT TOGGLE
@@ -6264,6 +6266,89 @@ html[class*="theme-"] body .formDialog .button-flat:hover,
 html[class*="theme-"] body .paperListbox .button-flat:hover {
   color:                   var(--theme-primary-color) !important;
   -webkit-text-fill-color: var(--theme-primary-color) !important;
+}
+
+/* ============================================================
+   HOTFIX: CUSTOM PRIMARY HEADERS
+   ============================================================ */
+@container style(--experimental-PrimaryHeader: enabled) {   
+
+  /* 1. The Table Trick: Shrink-wrap the text while keeping block flow */
+  html[class*="theme-"] body .view h2.sectionTitle,
+  html[class*="theme-"] body .view .pageTitle {
+    display: table !important; 
+  }
+
+  /* 2. Insert the line as a block element INSIDE the table so it respects the text width */
+  html[class*="theme-"] body .view h2.sectionTitle::after,
+  html[class*="theme-"] body .view .pageTitle::after {
+    content: "" !important;
+    display: block !important; 
+    width: 700px !important; 
+    height: 2px !important;
+    margin-top: 6px !important; 
+    margin-bottom: 2px !important;
+    
+    /* The Gradient & Glow */
+    background: linear-gradient(90deg, var(--theme-primary-color) 0%, color-mix(in srgb, var(--theme-primary-color) 50%, transparent) 50%, transparent 100%);
+    box-shadow: none !important;
+    border-radius: 2px !important;
+    pointer-events: none !important;
+    filter: drop-shadow(0 2px 6px color-mix(in srgb, var(--theme-primary-color) 60%, transparent));
+  }
+
+  /* 3. Chevron Alignment & Resting State */
+  html[class*="theme-"] body .sectionTitleContainer:not(.aboutSection .sectionTitleContainer) .button-link .md-icon,
+  html[class*="theme-"] body .sectionTitleContainer:not(.aboutSection .sectionTitleContainer) > .md-icon {
+      display: inline-flex !important;
+      color: var(--white-alpha-60) !important;
+      -webkit-text-fill-color: var(--white-alpha-60) !important;
+      font-size: 1.35em !important; 
+      margin: 0 !important; 
+      padding: 0 !important;
+      transform: translateY(-5px) !important; 
+      transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
+  /* 4. Chevron Hover State */
+  html[class*="theme-"] body .sectionTitleContainer:not(.aboutSection .sectionTitleContainer) .button-link:hover .md-icon,
+  html[class*="theme-"] body .sectionTitleContainer:not(.aboutSection .sectionTitleContainer):hover .md-icon {
+      color: var(--my-gold-light) !important;
+      -webkit-text-fill-color: var(--my-gold-light) !important;
+      filter: drop-shadow(0 0 10px var(--my-gold)) !important;
+      transform: translate(6px, -5px) !important; 
+  }
+
+}
+
+/* ============================================================
+   HOTFIX: MEDIA CARD FOOTERS
+   ============================================================ */
+@container style(--experimental-card-footer: enabled) {   
+  /* --- 5. THE POLAROID / TRADING CARD WRAPPER --- */
+  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(.visualCardBox):not(:has(.cardContent-round)) {
+      background: var(--navy-light-alpha-60) !important;
+      backdrop-filter: var(--blur-light) !important;
+      -webkit-backdrop-filter: var(--blur-light) !important;
+      border: 1px solid var(--gold-alpha-15) !important;
+      border-radius: var(--border-radius-md) !important;
+      box-shadow: 0 8px 20px var(--black-alpha-70) !important;
+  }
+
+  /* Centers the text inside the new trading card layout globally */
+  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(:has(.cardContent-round)) .cardText {
+      padding: 5px 12px !important
+      /*text-align: center !important; */
+  }
+
+  /* Centers the media badges (Year, Runtime, Rating) inside the cards */
+  /*html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(:has(.cardContent-round)) .mediaInfoItems.cardText {
+      justify-content: center !important;
+      text-align: center !important;
+      flex-wrap: wrap !important; 
+      margin-top: 4px !important;
+      margin-bottom: 8px !important; 
+  } */
 }
 
 /* ============================================================
