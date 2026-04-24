@@ -360,15 +360,15 @@ html,
 
   /* --- TEST OPTIONS - USED FOR DEVELOPMENT/DEBUGGING PURPOSES -- */
   /*--test-color1: #004d08; --test-color2: #00f410; --test-color3: #6c0101; --test-color4: #ff0505; --test-color5: #321592; --test-color6: #0000ff; --test-color7: #880a73; --test-color8: #fa00e1; /* Test Colors */
-  --experimental-PrimaryHeader: enabled;
-  --accent-display: none; 
+  /*--experimental-PrimaryHeader: enabled;
+  /*--accent-display: none; 
   /*--accent-display: inline-block; --accent-width: 6px; --accent-height: 1em; --accent-radius: 1px; --accent-transform: skewX(-20deg) translateY(-2px); /* The Cinematic Slash (Aggressive, forward-leaning cut) */
   /*--accent-display: inline-block; --accent-width: 9px; --accent-height: 9px; --accent-radius: 1px; --accent-transform: rotate(45deg) translateY(-2px); /* The Neon Diamond (Minimalist, sci-fi bullet point) */
   /*--accent-display: inline-block; --accent-width: 5px; --accent-height: 1.1em; --accent-radius: 4px; --accent-transform: translateY(-2px); /* The Classic Pill (Soft, rounded, traditional) */
   /*--accent-display: inline-block; --accent-width: 2px; --accent-height: 1.2em; --accent-radius: 0px; --accent-transform: translateY(-2px); /* The Razor Blade (Ultra-thin, tall, sharp line) */
 
 
-  --experimental-card-footer: enabled;
+  /*--experimental-card-footer: enabled;
 }
 
   /* ============================================================
