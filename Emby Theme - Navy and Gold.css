@@ -360,8 +360,16 @@ html,
 
   /* --- TEST OPTIONS - USED FOR DEVELOPMENT/DEBUGGING PURPOSES -- */
   /*--test-color1: #004d08; --test-color2: #00f410; --test-color3: #6c0101; --test-color4: #ff0505; --test-color5: #321592; --test-color6: #0000ff; --test-color7: #880a73; --test-color8: #fa00e1; /* Test Colors */
-  /*--experimental-PrimaryHeader: enabled;
-  /*--experimental-card-footer: enabled;
+  --experimental-PrimaryHeader: enabled;
+  --accent-display: none; 
+  /*--accent-display: inline-block; --accent-width: 6px; --accent-height: 1em; --accent-radius: 1px; --accent-transform: skewX(-20deg) translateY(-2px); /* The Cinematic Slash (Aggressive, forward-leaning cut) */
+  /*--accent-display: inline-block; --accent-width: 9px; --accent-height: 9px; --accent-radius: 1px; --accent-transform: rotate(45deg) translateY(-2px); /* The Neon Diamond (Minimalist, sci-fi bullet point) */
+  /*--accent-display: inline-block; --accent-width: 5px; --accent-height: 1.1em; --accent-radius: 4px; --accent-transform: translateY(-2px); /* The Classic Pill (Soft, rounded, traditional) */
+  /*--accent-display: inline-block; --accent-width: 2px; --accent-height: 1.2em; --accent-radius: 0px; --accent-transform: translateY(-2px); /* The Razor Blade (Ultra-thin, tall, sharp line) */
+
+
+  --experimental-card-footer: enabled;
+}
 
   /* ============================================================
       SEASONAL EVENT TOGGLE
@@ -6280,6 +6288,20 @@ html[class*="theme-"] body .paperListbox .button-flat:hover {
       width: 100% !important; 
   }
 
+  /* 1.1. The Vertical Accent Pillar */
+  html[class*="theme-"] body .sectionTitle:not(.aboutSection div.sectionTitle):not(.aboutSection h4.sectionTitle)::before {
+      content: "" !important;
+      display: var(--accent-display) !important;
+      width: var(--accent-width) !important;
+      height: var(--accent-height) !important;
+      border-radius: var(--accent-radius) !important;
+      transform: var(--accent-transform) !important;
+      background: var(--theme-primary-color) !important;
+      margin-right: 15px !important; 
+      vertical-align: middle !important;
+      box-shadow: 0 0 12px color-mix(in srgb, var(--theme-primary-color) 80%, transparent) !important;
+  }
+
   /* 1.5. Clickable Header Fix: Forces Emby's invisible button wrapper to expand so the line can stretch */
   html[class*="theme-"] body .sectionTitleContainer .button-link,
   html[class*="theme-"] body .sectionTitleContainer .sectionTitleTextButton {
@@ -6299,7 +6321,7 @@ html[class*="theme-"] body .paperListbox .button-flat:hover {
       margin-bottom: 2px !important;
       
       /* The Gradient & Glow */
-      background: linear-gradient(90deg, var(--theme-primary-color) 0%, color-mix(in srgb, var(--theme-primary-color) 50%, transparent) 50%, transparent 100%);
+      background: linear-gradient(90deg, var(--theme-primary-color) 0%, color-mix(in srgb, var(--theme-primary-color) 25%, transparent) 40%, transparent 100%);
       box-shadow: none !important;
       border-radius: 2px !important;
       pointer-events: none !important;
@@ -6318,7 +6340,6 @@ html[class*="theme-"] body .paperListbox .button-flat:hover {
    HOTFIX: MEDIA CARD FOOTERS
    ============================================================ */
 @container style(--experimental-card-footer: enabled) {   
-  /* --- 5. THE POLAROID / TRADING CARD WRAPPER --- */
   html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(.visualCardBox):not(:has(.cardContent-round)) {
       background: var(--navy-light-alpha-60) !important;
       backdrop-filter: var(--blur-light) !important;
@@ -6328,20 +6349,28 @@ html[class*="theme-"] body .paperListbox .button-flat:hover {
       box-shadow: 0 8px 20px var(--black-alpha-70) !important;
   }
 
-  /* Centers the text inside the new trading card layout globally */
+  /* 1. Sets Left/Right padding globally, but removes Top/Bottom so empty lines don't get inflated */
   html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(:has(.cardContent-round)) .cardText {
-      padding: 5px 12px !important;
-      /*text-align: center !important; */
+      padding: 0 12px !important;
   }
 
-  /* Centers the media badges (Year, Runtime, Rating) inside the cards */
-  /*html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(:has(.cardContent-round)) .mediaInfoItems.cardText {
-      justify-content: center !important;
-      text-align: center !important;
-      flex-wrap: wrap !important; 
-      margin-top: 4px !important;
-      margin-bottom: 8px !important; 
-  } */
+  /* 2. Adds the 8px padding back exclusively to the TOP of the Title */
+  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(:has(.cardContent-round)) .cardText-first {
+      padding-top: 8px !important;
+  }
+
+  /* 3. Adds the 8px padding back exclusively to the BOTTOM of the Year/Metadata */
+  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(:has(.cardContent-round)) .cardText-secondary {
+      padding-bottom: 8px !important;
+  }
+
+  /* 4. THE GHOST LINE ASSASSIN: Finds a secondary text block that comes AFTER another secondary text block, and nukes it if it has no inner tags */
+  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(:has(.cardContent-round)) .cardText-secondary ~ .cardText-secondary:not(:has(*)) {
+      display: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      height: 0 !important;
+  }
 }
 
 /* ============================================================
