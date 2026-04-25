@@ -1702,32 +1702,6 @@ html[class*="theme-"] body div.appfooter.appfooter-withMiniDrawer {
   html[class*="theme-"] body:has(.page-withDockedDrawer) .selectionCommandsPanel {
     left: var(--custom-sidebar-width) !important;
   }
-
-  /* 5. Sidebar Stutter & Layout Thrashing Fix */
-  /* Hands animation control to CSS and hides rogue scrollbars that crash Emby's math */
-  html[class*="theme-"] body .mainDrawer {
-    transition: width var(--transition-speed) ease-in-out, transform var(--transition-speed) ease-in-out !important;
-    overflow: hidden !important; 
-    will-change: width, transform;
-  }
-
-  /* THE FIX: Mathematically prevents text from wrapping to a second line and changing the container height */
-  html[class*="theme-"] body .mainDrawer .navMenuOptionText,
-  html[class*="theme-"] body .mainDrawer .navDrawerListItemBody,
-  html[class*="theme-"] body .mainDrawer .emby-collapsible-title {
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-  }
-
-  /* Forces the main page and header to smoothly slide in sync with the sidebar */
-  html[class*="theme-"] body .view.page,
-  html[class*="theme-"] body .skinHeader,
-  html[class*="theme-"] body .backgroundContainer,
-  html[class*="theme-"] body .selectionCommandsPanel {
-    transition: left var(--transition-speed) ease-in-out, padding-left var(--transition-speed) ease-in-out !important;
-    will-change: left, padding-left;
-  }
 }
 
 /* --- 3G. MOBILE APP FOOTER --- */
