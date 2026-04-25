@@ -1703,17 +1703,15 @@ html[class*="theme-"] body div.appfooter.appfooter-withMiniDrawer {
     left: var(--custom-sidebar-width) !important;
   }
 
-/* 5. Sidebar Stutter & Layout Thrashing Fix */
-  /* Hands animation control to CSS, hides rogue scrollbars, and forces GPU Layering */
+  /* 5. Sidebar Stutter & Layout Thrashing Fix */
+  /* Hands animation control to CSS and hides rogue scrollbars that crash Emby's math */
   html[class*="theme-"] body .mainDrawer {
     transition: width var(--transition-speed) ease-in-out, transform var(--transition-speed) ease-in-out !important;
     overflow: hidden !important; 
     will-change: width, transform;
-    transform: translateZ(0); 
-    backface-visibility: hidden; 
   }
 
-  /* Mathematically prevents text from wrapping to a second line and changing the container height */
+  /* THE FIX: Mathematically prevents text from wrapping to a second line and changing the container height */
   html[class*="theme-"] body .mainDrawer .navMenuOptionText,
   html[class*="theme-"] body .mainDrawer .navDrawerListItemBody,
   html[class*="theme-"] body .mainDrawer .emby-collapsible-title {
@@ -1729,8 +1727,6 @@ html[class*="theme-"] body div.appfooter.appfooter-withMiniDrawer {
   html[class*="theme-"] body .selectionCommandsPanel {
     transition: left var(--transition-speed) ease-in-out, padding-left var(--transition-speed) ease-in-out !important;
     will-change: left, padding-left;
-    transform: translateZ(0); 
-    backface-visibility: hidden; 
   }
 }
 
