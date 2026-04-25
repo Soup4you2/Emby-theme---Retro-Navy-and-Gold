@@ -164,7 +164,7 @@ html,
   --nav-pill-hover-text: var(--my-gold-light);                     /* Text color when hovering over an unselected pill */
   --nav-pill-hover-border-color: transparent;                      /* Border color when hovering over an unselected pill */
   --nav-pill-active: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%); /* The gradient filling the currently active pill */
-  --nav-pill-text: var(--text-muted);                              /* Standard text color for unselected pills */
+  --nav-pill-text: var(--white-alpha-60);                          /* Standard text color for unselected pills */
   --nav-pill-active-text: var(--retro-navy);                       /* Text color inside the currently active pill */
   --nav-pill-active-border-color: var(--retro-navy);               /* Outer border color of the active pill */
   --nav-pill-active-border: 2px solid var(--nav-pill-active-border-color); /* Border thickness and style for active pills */
@@ -379,8 +379,6 @@ html,
 
   /* --- TEST OPTIONS - USED FOR DEVELOPMENT/DEBUGGING PURPOSES -- */
   /*--test-color1: #004d08; --test-color2: #00f410; --test-color3: #6c0101; --test-color4: #ff0505; --test-color5: #321592; --test-color6: #0000ff; --test-color7: #880a73; --test-color8: #fa00e1; /* Test Colors */
-
-}
 
   /* ============================================================
       SEASONAL EVENT TOGGLE
