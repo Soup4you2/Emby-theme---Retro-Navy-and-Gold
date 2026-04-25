@@ -1702,6 +1702,36 @@ html[class*="theme-"] body div.appfooter.appfooter-withMiniDrawer {
   html[class*="theme-"] body:has(.page-withDockedDrawer) .selectionCommandsPanel {
     left: var(--custom-sidebar-width) !important;
   }
+
+/* 5. Sidebar Stutter & Layout Thrashing Fix */
+  /* Hands animation control to CSS, hides rogue scrollbars, and forces GPU Layering */
+  html[class*="theme-"] body .mainDrawer {
+    transition: width var(--transition-speed) ease-in-out, transform var(--transition-speed) ease-in-out !important;
+    overflow: hidden !important; 
+    will-change: width, transform;
+    transform: translateZ(0); 
+    backface-visibility: hidden; 
+  }
+
+  /* Mathematically prevents text from wrapping to a second line and changing the container height */
+  html[class*="theme-"] body .mainDrawer .navMenuOptionText,
+  html[class*="theme-"] body .mainDrawer .navDrawerListItemBody,
+  html[class*="theme-"] body .mainDrawer .emby-collapsible-title {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Forces the main page and header to smoothly slide in sync with the sidebar */
+  html[class*="theme-"] body .view.page,
+  html[class*="theme-"] body .skinHeader,
+  html[class*="theme-"] body .backgroundContainer,
+  html[class*="theme-"] body .selectionCommandsPanel {
+    transition: left var(--transition-speed) ease-in-out, padding-left var(--transition-speed) ease-in-out !important;
+    will-change: left, padding-left;
+    transform: translateZ(0); 
+    backface-visibility: hidden; 
+  }
 }
 
 /* --- 3G. MOBILE APP FOOTER --- */
@@ -3512,6 +3542,8 @@ html[class*="theme-"] body :is(.card.personCard, .peopleSection .card, .card[dat
 html[class*="theme-"] body :is(.card.personCard, .peopleSection .card, .card[data-type="MusicArtist"], .card[data-type="Person"], .card:has(.cardContent-round)) .cardText {
     padding: 0 12px !important;
     margin: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important; 
 }
 
 /* 7.4. Primary Text (Actor/Artist Name) */
@@ -3527,6 +3559,11 @@ html[class*="theme-"] body :is(.card.personCard, .peopleSection .card, .card[dat
 /* 7.5. Secondary Text (Character Name / Role) */
 html[class*="theme-"] body :is(.card.personCard, .peopleSection .card, .card[data-type="MusicArtist"], .card[data-type="Person"], .card:has(.cardContent-round)) .cardText-secondary {
     margin-top: 4px !important;
+    white-space: normal !important; 
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important; 
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
 }
 
 /* ============================================================
