@@ -85,6 +85,8 @@ html,
 
   /* --- SECTION TITLE OPTIONS --- */
   --header-line-display: block;                                    /* Set to 'block' to show the glowing line under primary headers, or 'none' to hide it */
+  --header-line-color: var(--theme-primary-color);                 /* Color of the glowing line under primary headers */
+  --header-line-background: linear-gradient(90deg, var(--header-line-color) 0%, color-mix(in srgb, var(--header-line-color) 25%, transparent) 40%, transparent 100%);   /* The actual line fill. Can be changed to a solid color or custom gradient */
   --header-accent-display: none;                                   /* Set to none to hide or inline-block to display an accent. Usable paramaters: [--header-accent-display], [--header-accent-width], [--header-accent-height], [--header-accent-radius], [--header-accent-transform] */
   /*--header-accent-display: inline-block; --header-accent-width: 6px; --header-accent-height: 1em; --header-accent-radius: 1px; --header-accent-transform: skewX(-20deg) translateY(-2px);     /* The Cinematic Slash (Aggressive, forward-leaning cut) */
   /*--header-accent-display: inline-block; --header-accent-width: 9px; --header-accent-height: 9px; --header-accent-radius: 1px; --header-accent-transform: rotate(45deg) translateY(-2px);     /* The Neon Diamond (Minimalist, sci-fi bullet point) */
@@ -837,11 +839,11 @@ html[class*="theme-"] body .view .pageTitle::after {
     height: 2px !important;
     margin-top: 6px !important; 
     margin-bottom: 2px !important;
-    background: linear-gradient(90deg, var(--theme-primary-color) 0%, color-mix(in srgb, var(--theme-primary-color) 25%, transparent) 40%, transparent 100%);
+    background: var(--header-line-background) !important;
     box-shadow: none !important;
     border-radius: 2px !important;
     pointer-events: none !important;
-    filter: drop-shadow(0 2px 6px color-mix(in srgb, var(--theme-primary-color) 60%, transparent));
+    filter: drop-shadow(0 2px 6px color-mix(in srgb, var(--header-line-color) 60%, transparent));
 }
 
 /* 5. Hide the Chevron Completely */
