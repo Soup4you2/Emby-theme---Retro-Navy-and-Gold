@@ -76,7 +76,7 @@ html,
   --h6-color: var(--white-alpha-80);                               /* Settings Descriptions, Muted global sub-text, Sidebar Category Text */
 
   /* --- HEADER OPTIONS --- */
-  --header-blur: var(--blur-heavy);                                /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) / var(--blur-extreme) to enable frost */
+  --header-blur: var(--blur-heavy);                                /* Frost blur intensity: var(--blur-light), var(--blur-medium), var(--blur-heavy), var(--blur-extreme), or none */
   --header-bg: var(--navy-base-alpha-75);                          /* Set to 'transparent' for a completely clear header, or use a translucent color */
   --header-border: var(--standard-border-thickness) solid var(--gold-alpha-15);  /* Set to 'none' to disable, or var(--standard-border-thickness) solid var(--gold-alpha-15) to enable */
   --header-content-padding: 45px;                                  /* Media details header padding, push the content down from the header */
@@ -88,13 +88,13 @@ html,
   --custom-sidebar-width: 250px;                                   /* Define the custom width (Triggered only when the full sidebar is open) */  
   --sidebar-playlists: block;                                      /* Set to 'none' to hide Playlists from the sidebar, block to enable */
   --sidebar-collections: none;                                     /* Set to 'none' to hide Collections from the sidebar, block to enable */
-  --sidebar-blur: var(--blur-heavy);                               /* Frost blur intensity: var(--blur-heavy), var(--blur-light), var(--blur-extreme), or none */
+  --sidebar-blur: var(--blur-heavy);                               /* Frost blur intensity: var(--blur-light), var(--blur-medium), var(--blur-heavy), var(--blur-extreme), or none */
   --sidebar-bg: var(--navy-base-alpha-75);                         /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy) to disable */
   --sidebar-icon-color: var(--my-gold);                            /* Sidebar icon colors */
   --sidebar-icon-hover-color: color-mix(in srgb, var(--my-gold-light) 40%, white); /* Sidebar icon colors in a hover state */
 
   /* --- OSD OPTIONS --- */
-  --osd-mini-blur: var(--blur-heavy);                              /* Set to 'none' to disable frost effects, or var(--blur-heavy) / var(--blur-light) / var(--blur-extreme) to enable frost (Affects Mini-Music OSD Only) */
+  --osd-mini-blur: var(--blur-heavy);                              /* Frost blur intensity: var(--blur-light), var(--blur-medium), var(--blur-heavy), var(--blur-extreme), or none (Affects Mini-Music OSD Only) */
   --osd-mini-bg: var(--navy-base-alpha-75);                        /* Background transparency for the bottom mini music player */
   --osd-icon-color: var(--pure-white);                             /* Icon colors for the OSD display */
   --osd-icon-hover-color: var(--my-gold);                          /* OSD Icon colors in a hover state */
@@ -319,6 +319,7 @@ html,
   /* --- EFFECTS & ANIMATIONS --- */
   --transition-speed: 0.3s;                                        /* Global speed for all UI transitions */
   --blur-light: blur(10px);                                        /* Soft background blur */
+  --blur-medium: blur(15px);                                       /* Medium background blur */
   --blur-heavy: blur(20px);                                        /* Strong background blur */
   --blur-extreme: blur(30px);                                      /* Maximum depth blur */
 
@@ -361,19 +362,22 @@ html,
   /* --- TEST OPTIONS - USED FOR DEVELOPMENT/DEBUGGING PURPOSES -- */
   /*--test-color1: #004d08; --test-color2: #00f410; --test-color3: #6c0101; --test-color4: #ff0505; --test-color5: #321592; --test-color6: #0000ff; --test-color7: #880a73; --test-color8: #fa00e1; /* Test Colors */
 
-  /*--experimental-PrimaryHeader: enabled;
-  --accent-display: none; 
-  /* Sample Options */
+  /* --- PRIMARY HEADERS --- */
+  /*--experimental-PrimaryHeader: enabled;                           /* Enable Header Testing */
+  /*--accent-display: none;                                          /* Set to none to hide or inline-block to display an accent */
+
   /*--accent-display: inline-block; --accent-width: 6px; --accent-height: 1em; --accent-radius: 1px; --accent-transform: skewX(-20deg) translateY(-2px); /* The Cinematic Slash (Aggressive, forward-leaning cut) */
   /*--accent-display: inline-block; --accent-width: 9px; --accent-height: 9px; --accent-radius: 1px; --accent-transform: rotate(45deg) translateY(-2px); /* The Neon Diamond (Minimalist, sci-fi bullet point) */
   /*--accent-display: inline-block; --accent-width: 5px; --accent-height: 1.1em; --accent-radius: 4px; --accent-transform: translateY(-2px); /* The Classic Pill (Soft, rounded, traditional) */
   /*--accent-display: inline-block; --accent-width: 2px; --accent-height: 1.2em; --accent-radius: 0px; --accent-transform: translateY(-2px); /* The Razor Blade (Ultra-thin, tall, sharp line) */
 
-  /*--experimental-card-footer: enabled;
-  --media-footer-bg: var(--navy-light-alpha-60); 
-  --media-footer-blur: var(--blur-heavy); 
-  --media-footer-border: 1px solid var(--gold-alpha-15); 
-  --media-footer-shadow: 0 10px 25px -5px var(--black-alpha-70); */
+  /* --- MEDIA CARD FOOTERS --- */
+  /*--experimental-card-footer: enabled;                            /* Enable Footer Testing */
+  /*--media-footer-bg: var(--navy-light-alpha-60);                  /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy-light) or transparent to disable */
+  /*--media-footer-blur: var(--blur-medium);                        /* Frost blur intensity: var(--blur-light), var(--blur-medium), var(--blur-heavy), var(--blur-extreme), or none */
+  /*--media-footer-border: 1px solid var(--gold-alpha-15);          /* Border of thickness of media card footers */
+  /*--media-footer-shadow: 0 10px 25px -5px var(--black-alpha-70);  /* Shadow used for media card footers, none to disable
+
 }
 
   /* ============================================================
@@ -6345,43 +6349,130 @@ html[class*="theme-"] body .paperListbox .button-flat:hover {
    HOTFIX: MEDIA CARD FOOTERS
    ============================================================ */
 @container style(--experimental-card-footer: enabled) {   
-  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(.visualCardBox):not(:has(.cardContent-round)) {
+
+  /* 1. Main Wrapper: Applies glass & sets a uniform bottom padding so we don't rely on text elements for spacing */
+  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]):not(.spotlightSection *):not(.spotlight *):not(.spotlightCard) .cardBox:not(.visualCardBox):not(:has(.cardContent-round)),
+  html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox {
       background: var(--media-footer-bg) !important;
       backdrop-filter: var(--media-footer-blur) !important;
       -webkit-backdrop-filter: var(--media-footer-blur) !important;
       border: var(--media-footer-border) !important;
       border-radius: var(--border-radius-md) !important;
       box-shadow: var(--media-footer-shadow) !important;
+      padding-bottom: 5px !important;
   }
 
-  /* 1. Sets Left/Right padding globally, but removes Top/Bottom so empty lines don't get inflated */
-  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(:has(.cardContent-round)) .cardText {
+  /* 2. Sets Left/Right padding globally, but removes Top/Bottom so empty lines don't get inflated */
+  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]):not(.spotlightSection *):not(.spotlight *):not(.spotlightCard) .cardBox:not(:has(.cardContent-round)) .cardText,
+  html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox .cardText {
       padding: 0 12px !important;
   }
 
-/* 2. Title Text: Adds top padding and allows long titles to wrap gracefully (Max 2 Lines) */
-html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(:has(.cardContent-round)) .cardText-first {
-    padding-top: 8px !important;
-    white-space: normal !important; 
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important; 
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
-}
+  /* 3. Title Text: Adds top padding and allows long titles to wrap gracefully (Max 2 Lines) */
+  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]):not(.spotlightSection *):not(.spotlight *):not(.spotlightCard) .cardBox:not(:has(.cardContent-round)) .cardText-first,
+  html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox .cardText-first {
+      padding-top: 8px !important;
+      white-space: normal !important; 
+      display: -webkit-box !important;
+      -webkit-line-clamp: 2 !important; 
+      -webkit-box-orient: vertical !important;
+      overflow: hidden !important;
+  }
 
-  /* 3. Adds the 8px padding back exclusively to the BOTTOM of the Year/Metadata */
-  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(:has(.cardContent-round)) .cardText-secondary {
+  /* 4. Adds the 8px padding back exclusively to the BOTTOM of the Year/Metadata */
+  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]):not(.spotlightSection *):not(.spotlight *):not(.spotlightCard) .cardBox:not(:has(.cardContent-round)) .cardText-secondary,
+  html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox .cardText-secondary {
       padding-bottom: 8px !important;
   }
 
-  /* 4. THE GHOST LINE ASSASSIN: Finds a secondary text block that comes AFTER another secondary text block, and nukes it if it has no inner tags */
-  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]) .cardBox:not(:has(.cardContent-round)) .cardText-secondary ~ .cardText-secondary:not(:has(*)) {
+  /* 5. THE GHOST LINE ASSASSIN (Upgraded for Folder Views) */
+  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]):not(.spotlightSection *):not(.spotlight *):not(.spotlightCard) .cardBox:not(:has(.cardContent-round)) .cardText-secondary ~ .cardText-secondary:not(:has(*)),
+  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]):not(.spotlightSection *):not(.spotlight *):not(.spotlightCard) .cardBox:not(:has(.cardContent-round)) .cardText-secondary ~ .cardText-secondary:has(.mediaInfoItems):not(:has(.mediaInfoItems *)),
+  html[class*="theme-"] body .card.squareCard:not([data-type]) .cardBox .cardText-secondary:not(:has(*)) {
       display: none !important;
       padding: 0 !important;
       margin: 0 !important;
       height: 0 !important;
   }
- 
+
+  /* 6. IMAGE CORNER RADIUS FIX (Matches the inner poster to the outer frosted card) */
+  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]):not(.spotlightSection *):not(.spotlight *):not(.spotlightCard) .cardBox:not(:has(.cardContent-round)) .cardImageContainer,
+  html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox .cardImageContainer {
+      border-top-left-radius: var(--border-radius-md) !important; 
+      border-top-right-radius: var(--border-radius-md) !important;
+  }    
+
+  /* 7.1. Outer Box: Stripped of glass to make the top completely transparent */
+  html[class*="theme-"] body .card.personCard .cardBox,
+  html[class*="theme-"] body .peopleSection .card .cardBox,
+  html[class*="theme-"] body .card[data-type="MusicArtist"] .cardBox,
+  html[class*="theme-"] body .card[data-type="Person"] .cardBox,
+  html[class*="theme-"] body .card:has(.cardContent-round) .cardBox {
+      background: transparent !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding-bottom: 10px !important;
+      position: relative !important;
+      z-index: 1 !important; 
+  }
+
+  /* 7.2. The Frosted Glass Layer: Only covers the bottom 50% behind the text */
+  html[class*="theme-"] body .card.personCard .cardBox::before,
+  html[class*="theme-"] body .peopleSection .card .cardBox::before,
+  html[class*="theme-"] body .card[data-type="MusicArtist"] .cardBox::before,
+  html[class*="theme-"] body .card[data-type="Person"] .cardBox::before,
+  html[class*="theme-"] body .card:has(.cardContent-round) .cardBox::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--media-footer-bg) !important;
+      backdrop-filter: var(--media-footer-blur) !important;
+      -webkit-backdrop-filter: var(--media-footer-blur) !important;
+      border: var(--media-footer-border) !important;
+      border-top: none !important; 
+      border-radius: 0 0 var(--media-card-radius, 12px) var(--media-card-radius, 12px) !important;
+      box-shadow: var(--media-footer-shadow) !important;
+      z-index: -1 !important; 
+  }
+
+  /* 7.3. Global Text Reset */
+  html[class*="theme-"] body .card.personCard .cardText,
+  html[class*="theme-"] body .peopleSection .card .cardText,
+  html[class*="theme-"] body .card[data-type="MusicArtist"] .cardText,
+  html[class*="theme-"] body .card[data-type="Person"] .cardText,
+  html[class*="theme-"] body .card:has(.cardContent-round) .cardText {
+      padding: 0 12px !important;
+      margin: 0 !important;
+  }
+
+  /* 7.4. Primary Text (Actor/Artist Name) */
+  html[class*="theme-"] body .card.personCard .cardText-first,
+  html[class*="theme-"] body .peopleSection .card .cardText-first,
+  html[class*="theme-"] body .card[data-type="MusicArtist"] .cardText-first,
+  html[class*="theme-"] body .card[data-type="Person"] .cardText-first,
+  html[class*="theme-"] body .card:has(.cardContent-round) .cardText-first {
+      padding-top: 10px !important;
+      white-space: normal !important; 
+      display: -webkit-box !important;
+      -webkit-line-clamp: 2 !important; 
+      -webkit-box-orient: vertical !important;
+      overflow: hidden !important;
+  }
+
+  /* 7.5. Secondary Text (Character Name / Role) */
+  html[class*="theme-"] body .card.personCard .cardText-secondary,
+  html[class*="theme-"] body .peopleSection .card .cardText-secondary,
+  html[class*="theme-"] body .card[data-type="MusicArtist"] .cardText-secondary,
+  html[class*="theme-"] body .card[data-type="Person"] .cardText-secondary,
+  html[class*="theme-"] body .card:has(.cardContent-round) .cardText-secondary {
+      margin-top: 4px !important;
+  }
+
 }
 
 /* ============================================================
