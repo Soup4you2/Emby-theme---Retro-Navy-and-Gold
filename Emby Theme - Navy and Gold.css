@@ -164,7 +164,7 @@ html,
   --nav-pill-hover-text: var(--my-gold-light);                     /* Text color when hovering over an unselected pill */
   --nav-pill-hover-border-color: transparent;                      /* Border color when hovering over an unselected pill */
   --nav-pill-active: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%); /* The gradient filling the currently active pill */
-  --nav-pill-text: var(--white-alpha-60);                          /* Standard text color for unselected pills */
+  --nav-pill-text: var(--text-muted);                          /* Standard text color for unselected pills */
   --nav-pill-active-text: var(--retro-navy);                       /* Text color inside the currently active pill */
   --nav-pill-active-border-color: var(--retro-navy);               /* Outer border color of the active pill */
   --nav-pill-active-border: 2px solid var(--nav-pill-active-border-color); /* Border thickness and style for active pills */
@@ -282,7 +282,7 @@ html,
    /* --- CORE SOLID COLORS --- */
   --pure-white: rgba(var(--pure-white-rgb), 1);                    /* Solid white for high-contrast icons */
   --pure-black: rgba(var(--pure-black-rgb), 1);                    /* Solid black for deep shadow foundations */
-  --text-muted: rgb(236, 236, 236);                              /* Soft white used globally for primary paragraph/body text */
+  --text-muted: var(--white-alpha-70);                             /* Soft white used globally for primary paragraph/body text */
   --scrollbar-thumb: rgb(51, 51, 51);                            /* Color of the draggable handle on the browser scrollbar */
 
   /* --- CORE RGB VALUES (The Source of Truth for Transparencies) --- */
@@ -1536,12 +1536,13 @@ html[class*="theme-"] body .mainDrawer .navDrawerListItem.navMenuOption-selected
     background-color: var(--theme-icon-focus-background) !important;
 }
 
-/* 4. SELECTED STATE TEXT: Lock to Hover Color */
+/* 4. SELECTED STATE TEXT: Lock to Pure White */
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navDrawerListItemBody,
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .listItemBody,
-html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navMenuOptionText {
-    color: var(--sidebar-icon-hover-color) !important;
-    -webkit-text-fill-color: var(--sidebar-icon-hover-color) !important;
+html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navMenuOptionText,
+html[class*="theme-"] body .mainDrawer .navMenuOption-selected .listItemBodyText {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
     text-shadow: none !important;
 }
 
@@ -5661,10 +5662,18 @@ html[class*="theme-"] body .mainDrawer .navMenuOption-selected {
   background: var(--theme-icon-focus-background) !important;
 }
 
+/* Keep the Icons Gold */
 html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navDrawerListItemIcon,
-html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navMenuOptionText {
+html[class*="theme-"] body .mainDrawer .navMenuOption-selected .md-icon {
   color:                   var(--my-gold) !important;
   -webkit-text-fill-color: var(--my-gold) !important;
+}
+
+/* Force the Text to White */
+html[class*="theme-"] body .mainDrawer .navMenuOption-selected .navMenuOptionText,
+html[class*="theme-"] body .mainDrawer .navMenuOption-selected .listItemBodyText {
+  color:                   var(--pure-white) !important;
+  -webkit-text-fill-color: var(--pure-white) !important;
 }
 
 /* --- 10G. DASHBOARD NOW PLAYING ZEBRA STRIPING FIX --- */
