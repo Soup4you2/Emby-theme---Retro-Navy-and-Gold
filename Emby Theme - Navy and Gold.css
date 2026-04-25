@@ -1,4 +1,3 @@
-
 /* ============================================================
    EMBY CUSTOM THEME: RETRO NAVY & GOLD
    https://github.com/Soup4you2/Emby-theme---Retro-Navy-and-Gold/tree/main
@@ -84,6 +83,20 @@ html,
   --header-icon-color: var(--my-gold);                             /* Header icon color */
   --header-icon-hover-color: color-mix(in srgb, var(--my-gold-light) 40%, white); /* Header icon color in a hover state */
 
+  /* --- SECTION TITLE OPTIONS --- */
+  --header-line-display: block;                                    /* Set to 'block' to show the glowing line under primary headers, or 'none' to hide it */
+  --header-accent-display: none;                                   /* Set to none to hide or inline-block to display an accent. Usable paramaters: [--header-accent-display], [--header-accent-width], [--header-accent-height], [--header-accent-radius], [--header-accent-transform] */
+  /*--header-accent-display: inline-block; --header-accent-width: 6px; --header-accent-height: 1em; --header-accent-radius: 1px; --header-accent-transform: skewX(-20deg) translateY(-2px);     /* The Cinematic Slash (Aggressive, forward-leaning cut) */
+  /*--header-accent-display: inline-block; --header-accent-width: 9px; --header-accent-height: 9px; --header-accent-radius: 1px; --header-accent-transform: rotate(45deg) translateY(-2px);     /* The Neon Diamond (Minimalist, sci-fi bullet point) */
+  /*--header-accent-display: inline-block; --header-accent-width: 5px; --header-accent-height: 1.1em; --header-accent-radius: 4px; --header-accent-transform: translateY(-2px);                 /* The Classic Pill (Soft, rounded, traditional) */
+  /*--header-accent-display: inline-block; --header-accent-width: 2px; --header-accent-height: 1.2em; --header-accent-radius: 0px; --header-accent-transform: translateY(-2px);                 /* The Razor Blade (Ultra-thin, tall, sharp line) */
+
+  /* --- MEDIA FOOTER OPTIONS --- */
+  --media-footer-bg: var(--navy-light-alpha-60);                   /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy-light) or transparent to disable */
+  --media-footer-blur: var(--blur-medium);                         /* Frost blur intensity: var(--blur-light), var(--blur-medium), var(--blur-heavy), var(--blur-extreme), or none */
+  --media-footer-border: 1px solid var(--pure-black);              /* Border of thickness of media card footers (Good options are --gold-alpha-15 or --pure-black) */
+  --media-footer-shadow: 0 10px 25px -5px var(--black-alpha-70);   /* Shadow used for media card footers, none to disable */
+
   /* --- SIDEBAR OPTIONS --- */
   --custom-sidebar-width: 250px;                                   /* Define the custom width (Triggered only when the full sidebar is open) */  
   --sidebar-playlists: block;                                      /* Set to 'none' to hide Playlists from the sidebar, block to enable */
@@ -135,17 +148,134 @@ html,
   --btn-shadow: 0 4px 10px var(--black-alpha-50);                  /* Shadow depth of resting primary buttons */
   --btn-shadow-hover: 0 6px 15px var(--black-alpha-80), 0 0 15px var(--gold-alpha-40); /* Golden aura on hovered primary buttons */
 
-  /* --- CAST & CREW NAME TEXT --- */
-  --actor-name: var(--my-gold);                                    /* Cast member's actual name color */
-  --actor-role: var(--white-alpha-70);                             /* Character role text color */
-
-/* --- FAVORITE HEART COLORS --- */
+  /* --- FAVORITE HEART COLORS --- */
   --favorite-heart-rgb: 255, 51, 102;                              /* Raw RGB for resting red */
   --favorite-heart-hover-rgb: 255, 0, 68;                          /* Raw RGB for hover red */
   --favorite-heart: rgba(var(--favorite-heart-rgb), 1);            /* Solid resting color */
   --favorite-heart-hover: rgba(var(--favorite-heart-hover-rgb), 1); /* Solid hover color */
   --favorite-heart-alpha-50: rgba(var(--favorite-heart-rgb), 0.5);  /* 50% opacity for soft shadow/aura */
   --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8); /* 80% opacity for bright hover glow */
+
+   /* --- NAVIGATION PILL BARS --- */
+  --nav-pill-bg-inactive: rgba(var(--navy-accent-rgb), 1);         /* Background color of unselected Home/TV/Movie buttons */
+  --nav-pill-hover: var(--white-alpha-10);                         /* Background tint when hovering over an unselected pill */
+  --nav-pill-hover-text: var(--my-gold-light);                     /* Text color when hovering over an unselected pill */
+  --nav-pill-hover-border-color: transparent;                      /* Border color when hovering over an unselected pill */
+  --nav-pill-active: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%); /* The gradient filling the currently active pill */
+  --nav-pill-text: var(--text-muted);                              /* Standard text color for unselected pills */
+  --nav-pill-active-text: var(--retro-navy);                       /* Text color inside the currently active pill */
+  --nav-pill-active-border-color: var(--retro-navy);               /* Outer border color of the active pill */
+  --nav-pill-active-border: 2px solid var(--nav-pill-active-border-color); /* Border thickness and style for active pills */
+  --nav-pill-active-glow: 0 4px 8px var(--black-alpha-80), 0 0 5px var(--gold-alpha-40); /* The shadow and outer glow around the active pill */
+  --nav-pill-bar-bg: rgba(var(--navy-accent-rgb), 1);              /* Background of the track containing all the pills */
+  --nav-pill-bar-border: 0px solid var(--gold-alpha-80);           /* Border of the track containing all the pills */
+  --nav-pill-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light); /* Secondary shadow setting for active pills */
+
+  /* --- STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) --- */
+  --media-card-radius: 15px;                                       /* Adjust the corner rounding of standard posters */
+  --popout-perspective: 1000px;                                    /* Effects can be made when hovering over media cards to disable use "none" or to enable use "1000px" */
+  --popout-transform: scale(1.05) rotateX(4deg) translateY(-5px);  /* Effects can be made when hovering over media cards to disable use "none" or to enable use "scale(1.05) rotateX(4deg) translateY(-5px)" */
+  --popout-shadow: 0px 10px 10px var(--black-alpha-70);            /* Effects can be made when hovering over media cards to disable use "none" or to enable use "0px 10px 10px var(--black-alpha-70)" Shadow offset: 2px Right, 10px Down, 10px Blur */
+
+  /* --- CAST & CREW NAME TEXT --- */
+  --actor-name: var(--my-gold);                                    /* Cast member's actual name color */
+  --actor-role: var(--white-alpha-70);                             /* Character role text color */
+
+  /* --- CAST & CREW PORTRAIT SHAPES (DEFAULT: OVAL) --- */
+  --portrait-radius: 50% / 40%;                                    /* Oval Shaped */
+  --portrait-ratio: 2 / 3;                                         /* Oval Shaped */
+  /* --portrait-radius: 50%;                                       /* Circle Shaped */
+  /* --portrait-ratio: 1 / 1;                                      /* Circle Shaped */
+  /* --portrait-radius: var(--border-radius-lg);                   /* Default - Rectangle */
+  /* --portrait-ratio: 2 / 3;                                      /* Default - Rectangle */
+  
+  /* --- PLAY BUTTON VISABILITY WHEN HOVERING OVER MEDIA CARDS --- */
+  --play-button-display: inline-block;                             /* Enabled */
+  /* --play-button-display: none;                                  /* Disabled */
+
+/* --- DATA GRID & TABLE VIEW VARIABLES --- */
+  --table-header-bg: var(--navy-mid-solid);                        /* Background for table headings */
+  --table-row-bg-even: var(--navy-light-alpha-40);                 /* Zebra stripe color (Even rows) */
+  --table-row-bg-odd: var(--navy-base-alpha-60);                   /* Zebra stripe color (Odd rows) */
+  --table-row-hover-bg: var(--navy-mid-alpha-70);                  /* Background color on row hover, best choices are --gold-alpha-20, or --navy-mid-alpha-70 */
+   
+  /* --- TOGGLE SWITCH VARIABLES --- */
+  --toggle-track-off: var(--navy-light-alpha-80);                  /* Background of switch when OFF */
+  --toggle-thumb-off: var(--white-alpha-60);                       /* Circle color when OFF */
+  --toggle-track-on: var(--theme-primary-color);                   /* Background of switch when ON */
+  --toggle-thumb-on: var(--pure-white);                            /* Circle color when ON */
+
+  /* --- BACKDROP & FANART STYLE --- */
+  --backdrop-bg-color: rgba(var(--pure-black-rgb), 0.5);           /* DIMMING - COLOR / OPACITY (Increase to 0.8 for darker, decrease to 0.4 for lighter) */
+  --backdrop-gradient: none;                                       /* DIMMING (Traditional full-screen dark overlay) */
+  /*--backdrop-bg-color: transparent;                              /* NO DIMMING */
+  /*--backdrop-gradient: linear-gradient(to right, var(--pure-black) 0%, var(--black-alpha-75) 30%, transparent 75%);    /* NO DIMMING */
+  --backdrop-anim-toggle: imgZoomFadeIn;                           /* Options are: 'imgZoomFadeIn', 'imgPanRight', 'imgCinematicDrift', 'imgFadeOnly' to ENABLE the backdrop animation, or 'none' to DISABLE it */
+  --anim-backdrop-mask: linear-gradient(to right, transparent 0%, var(--pure-black) 40%), linear-gradient(to top, transparent 0%, var(--pure-black) 40%);
+  --backdrop-image-scale: 80%;                                     /* Percentage of screen to use for backdrop posters (It will always pin to the top right of the screen) */                              
+
+  /* --- BUTTONS AND INDICATORS --- */
+  --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
+  --button-popout-transform: translate(-3px, -3px);                /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
+  --button-popout-active-shadow: 0px 0px 5px var(--black-alpha-80); /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
+  --button-popout-active-transform: translate(0px, 0px);           /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
+  --count-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Popout - Unwatched count style */
+  --count-indicator-color: var(--retro-navy);                      /* Popout - Unwatched count style */
+  --count-indicator-border: 2px solid var(--retro-navy);           /* Popout - Unwatched count style */
+  --count-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Popout - Unwatched count style */
+  --played-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);   /* Popout - Played Indicator */
+  --played-indicator-color: var(--retro-navy);                     /* Popout - Played Indicator */
+  --played-indicator-border: 2px solid var(--retro-navy);          /* Popout - Played Indicator */
+  --played-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);    /* Popout - Played Indicator */
+  --media-badge-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Popout - Media Info Badges */
+  --media-badge-color: var(--retro-navy);                          /* Popout - Media Info Badges */
+  --media-badge-border: 2px solid var(--retro-navy);               /* Popout - Media Info Badges */
+  --media-badge-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Popout - Media Info Badges */
+  --media-badge-radius: var(--border-radius-pill);                 /* Popout - Media Info Badges */
+  --media-badge-hover-bg: var(--pure-white);                       /* Popout - Media Info Badges */
+  --media-badge-hover-color: var(--pure-black);                    /* Popout - Media Info Badges */
+  --media-badge-hover-border: 2px solid var(--pure-black);         /* Popout - Media Info Badges */
+  --media-badge-hover-shadow: var(--shadow-glow-standard);         /* Popout - Media Info Badges */
+ 
+  /* --- LAYOUT & ORDERING --- */
+  --order-seasons: 1;                                              /* Vertical order of Seasons section */
+  --order-next-up: 2;                                              /* Vertical order of Next Up section */
+  --order-more-from: 3;                                            /* Vertical order of "More from Season/Artist" sections */
+  --order-chapters: 4;                                             /* Vertical order of the Chapters row */
+  --order-included-in: 5;                                          /* Vertical order of "Appears In" / Collections section */
+  --order-cast-crew: 6;                                            /* Vertical order of Cast & Crew section */
+  --order-similar: 7;                                              /* Vertical order of "More Like This" (Similar) section */
+  --order-about: 8;                                                /* Vertical order of the Text Overview/About section and Media stream info cards */
+
+  /* --- SPOTLIGHT BANNER ARTWORK --- */
+  --spotlight-fit: cover;                                          /* Options: 'cover' (Fills box, crops edges), 'contain' (Shows full image, adds bars), '100%' (Stretches) */ 
+  --spotlight-position: center top;                                /* Options: 'right top' (Protects logos/faces), 'center top', 'center' (Emby default), 'left top' */  
+  --spotlight-width: 100%;                                         /* OVERALL WIDTH: 100% (Full screen), 95% (Small edge gap), 50% (2 Cards on the screen), 1200px (Max size lock) */ 
+  --spotlight-height: auto;                                        /* OVERALL HEIGHT: auto (Uses Aspect Ratio), 50vh (Half screen), 400px (Fixed height) */  
+  --spotlight-aspect-ratio: 16 / 9;                                /* SHAPE & SCALE: 16/9 (Default), 21/9 (Ultra-Wide), 24/9 (Cinematic Ultra-Wide), 3/1 (Extreme Banner), 4/1 (Extreme Ribbon), 4/3 (Boxy) */ 
+  --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, rgba(var(--pure-black-rgb), 0.6) 50%, transparent 100%); /* TEXT SCRIM: Change the dark fade behind text. (Use 'transparent' to remove it) */
+  --spotlight-center-snap: enabled;                                /* Set to 'enabled' to center the primary card, or 'disabled' to turn it off */
+
+  /* Some example options to try out: */
+  /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 32 / 9; --spotlight-fit: cover; --spotlight-position: center 10%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, rgba(var(--pure-black-rgb), 0.4) 70%, transparent 100%); --spotlight-center-snap: enabled;   /* The Cinematic Ribbon */
+  /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 4 / 1; --spotlight-fit: cover; --spotlight-position: center 10%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, transparent 90%); --spotlight-center-snap: enabled;   /*  Extreme Letterbox */
+  /*--spotlight-width: 1400px; --spotlight-height: auto; --spotlight-aspect-ratio: 24 / 9; --spotlight-fit: cover; --spotlight-position: center 15%; --spotlight-overlay: linear-gradient(to top, rgba(var(--navy-base-rgb), 1) 0%, transparent 100%); --spotlight-center-snap: disabled;  /* Framed Billboard */
+  /*--spotlight-width: 98%; --spotlight-height: 40vh; --spotlight-aspect-ratio: none; --spotlight-fit: contain; --spotlight-position: center; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.85) 0%, rgba(var(--pure-black-rgb), 0.4) 40%, transparent 100%); --spotlight-center-snap: enabled; /* Uncut Showcase */
+  /*--spotlight-width: 100%; --spotlight-height: 30vh; --spotlight-aspect-ratio: none; --spotlight-fit: contain; --spotlight-position: center; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, transparent 100%); --spotlight-center-snap: enabled; /* Thin Letterbox Showcase */
+  /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 5 / 1; --spotlight-fit: cover; --spotlight-position: center 10%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.9) 0%, transparent 100%); --spotlight-center-snap: enabled; /* Extreme Slit */
+  /*--spotlight-width: 92%; --spotlight-height: 38vh; --spotlight-aspect-ratio: 16/9; --spotlight-fit: cover; --spotlight-position: top left; --spotlight-overlay: linear-gradient(225deg, transparent 45%, rgba(var(--pure-black-rgb), 0.85) 100%), linear-gradient(to top, rgba(var(--pure-black-rgb), 0.3) 0%, transparent 60%); --spotlight-center-snap: enabled;  /* Diagonal Glass */
+  /*--spotlight-width: 45vw; --spotlight-height: 70vh; --spotlight-aspect-ratio: none; --spotlight-fit: contain; --spotlight-position: center; --spotlight-overlay: radial-gradient(circle at center, transparent 0%, rgba(var(--pure-black-rgb), 0.85) 100%); --spotlight-center-snap: enabled; /* Vertical Portrait / Mobile-First Showcase */
+
+  /* --- SEASONAL BACKGROUND ANIMATIONS --- */
+  --seasonal-bg-visibility: visible;                               /* Fully Enabled */
+  --seasonal-bg-anim-state: running;                               /* Fully Enabled */
+  /* --seasonal-bg-anim-state: paused;                             /* Paused Animations (Keeps art, stops the motion) */
+  /* --seasonal-bg-visibility: hidden;                             /* Fully Disabled */
+  /* --seasonal-bg-anim-state: paused;                             /* Fully Disabled */
+
+/* ============================================================
+   ADVANCED OPTIONS: CHANGE THESE WITH CAUTION.
+   ============================================================ */
 
    /* --- CORE SOLID COLORS --- */
   --pure-white: rgba(var(--pure-white-rgb), 1);                    /* Solid white for high-contrast icons */
@@ -213,20 +343,22 @@ html,
   --navy-mid-alpha-70: rgba(var(--navy-mid-rgb), 0.7);             /* Player control gradient dimming */
   --navy-mid-alpha-90: rgba(var(--navy-mid-rgb), 0.9);             /* Deep dimming for full-screen dialogs */
 
-   /* --- NAVIGATION PILL BARS --- */
-  --nav-pill-bg-inactive: rgba(var(--navy-accent-rgb), 1);         /* Background color of unselected Home/TV/Movie buttons */
-  --nav-pill-hover: var(--white-alpha-10);                         /* Background tint when hovering over an unselected pill */
-  --nav-pill-hover-text: var(--my-gold-light);                     /* Text color when hovering over an unselected pill */
-  --nav-pill-hover-border-color: transparent;                      /* Border color when hovering over an unselected pill */
-  --nav-pill-active: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%); /* The gradient filling the currently active pill */
-  --nav-pill-text: var(--text-muted);                              /* Standard text color for unselected pills */
-  --nav-pill-active-text: var(--retro-navy);                       /* Text color inside the currently active pill */
-  --nav-pill-active-border-color: var(--retro-navy);               /* Outer border color of the active pill */
-  --nav-pill-active-border: 2px solid var(--nav-pill-active-border-color); /* Border thickness and style for active pills */
-  --nav-pill-active-glow: 0 4px 8px var(--black-alpha-80), 0 0 5px var(--gold-alpha-40); /* The shadow and outer glow around the active pill */
-  --nav-pill-bar-bg: rgba(var(--navy-accent-rgb), 1);              /* Background of the track containing all the pills */
-  --nav-pill-bar-border: 0px solid var(--gold-alpha-80);           /* Border of the track containing all the pills */
-  --nav-pill-active-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light); /* Secondary shadow setting for active pills */
+  /* --- UI DIMENSIONS & SHAPES --- */
+  --hover-border-thickness: 2px;                                   /* Thickness for glow borders on hover */
+  --standard-border-thickness: 1px;                                /* Default UI line thickness */
+  --border-radius-sm: 6px;                                         /* Small rounding for inputs */
+  --border-radius-md: 10px;                                        /* Standard card rounding */
+  --border-radius-lg: 12px;                                        /* Large rounding for emphasized cards */
+  --border-radius-xl: 15px;                                        /* Extra large rounding for panels */
+  --border-radius-pill: 50px;                                      /* Fully circular ends for buttons */
+
+  /* --- EFFECTS & ANIMATIONS --- */
+  --transition-speed: 0.3s;                                        /* Global speed for all UI transitions */
+  --blur-extra-light: blur(5px);                                   /* Extra light background blur */
+  --blur-light: blur(10px);                                        /* Soft background blur */
+  --blur-medium: blur(15px);                                       /* Medium background blur */
+  --blur-heavy: blur(20px);                                        /* Strong background blur */
+  --blur-extreme: blur(30px);                                      /* Maximum depth blur */  
 
   /* --- GLOW & SHADOW PRESETS --- */
   --retro-glow: var(--gold-alpha-40);                              /* The base neon glow variable applied to the theme */
@@ -241,142 +373,10 @@ html,
   --glow-progress-bar: var(--glow-medium), 0 0 5px var(--theme-primary-color); /* The neon effect on poster progress bars */
   --filter-glow-light: drop-shadow(0 0 5px var(--retro-glow));     /* Applies glow to SVG icons */
   --filter-glow-medium: drop-shadow(0 0 8px var(--retro-glow));    /* Stronger glow for hovered SVG icons */
-  --filter-glow-gold-solid: drop-shadow(0 0 5px var(--my-gold));   /* Solid hard glow for icons */
-
-  /* --- STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) --- */
-  --media-card-radius: 15px;                                       /* Adjust the corner rounding of standard posters */
-
-  /* --- MEDIA CARD POPOUT EFFECTS --- */
-  --popout-perspective: 1000px;                                    /* Effects can be made when hovering over media cards to disable use "none" or to enable use "1000px" */
-  --popout-transform: scale(1.05) rotateX(4deg) translateY(-5px);  /* Effects can be made when hovering over media cards to disable use "none" or to enable use "scale(1.05) rotateX(4deg) translateY(-5px)" */
-  --popout-shadow: 0px 10px 10px var(--black-alpha-70);            /* Effects can be made when hovering over media cards to disable use "none" or to enable use "0px 10px 10px var(--black-alpha-70)" Shadow offset: 2px Right, 10px Down, 10px Blur */
-
-  /* --- CAST & CREW PORTRAIT SHAPES (DEFAULT: OVAL) --- */
-  --portrait-radius: 50% / 40%;                                    /* Oval Shaped */
-  --portrait-ratio: 2 / 3;                                         /* Oval Shaped */
-  /* --portrait-radius: 50%;                                       /* Circle Shaped */
-  /* --portrait-ratio: 1 / 1;                                      /* Circle Shaped */
-  /* --portrait-radius: var(--border-radius-lg);                   /* Default - Rectangle */
-  /* --portrait-ratio: 2 / 3;                                      /* Default - Rectangle */
-  
-  /* --- PLAY BUTTON VISABILITY WHEN HOVERING OVER MEDIA CARDS --- */
-  --play-button-display: inline-block;                             /* Enabled */
-  /* --play-button-display: none;                                  /* Disabled */
-
-  /* --- BACKDROP & FANART STYLE --- */
-  --backdrop-bg-color: rgba(var(--pure-black-rgb), 0.5);           /* DIMMING - COLOR / OPACITY (Increase to 0.8 for darker, decrease to 0.4 for lighter) */
-  --backdrop-gradient: none;                                       /* DIMMING (Traditional full-screen dark overlay) */
-  /*--backdrop-bg-color: transparent;                              /* NO DIMMING */
-  /*--backdrop-gradient: linear-gradient(to right, var(--pure-black) 0%, var(--black-alpha-75) 30%, transparent 75%);    /* NO DIMMING */
-  --backdrop-anim-toggle: imgZoomFadeIn;                           /* Options are: 'imgZoomFadeIn', 'imgPanRight', 'imgCinematicDrift', 'imgFadeOnly' to ENABLE the backdrop animation, or 'none' to DISABLE it */
-  --anim-backdrop-mask: linear-gradient(to right, transparent 0%, var(--pure-black) 40%), linear-gradient(to top, transparent 0%, var(--pure-black) 40%);
-  --backdrop-image-scale: 80%;                                     /* Percentage of screen to use for backdrop posters (It will always pin to the top right of the screen) */                              
-
-  /* --- BUTTONS AND INDICATORS --- */
-  --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
-  --button-popout-transform: translate(-3px, -3px);                /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
-  --button-popout-active-shadow: 0px 0px 5px var(--black-alpha-80); /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
-  --button-popout-active-transform: translate(0px, 0px);           /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
-  --count-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Popout - Unwatched count style */
-  --count-indicator-color: var(--retro-navy);                      /* Popout - Unwatched count style */
-  --count-indicator-border: 2px solid var(--retro-navy);           /* Popout - Unwatched count style */
-  --count-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Popout - Unwatched count style */
-  --played-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);   /* Popout - Played Indicator */
-  --played-indicator-color: var(--retro-navy);                     /* Popout - Played Indicator */
-  --played-indicator-border: 2px solid var(--retro-navy);          /* Popout - Played Indicator */
-  --played-indicator-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);    /* Popout - Played Indicator */
-  --media-badge-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Popout - Media Info Badges */
-  --media-badge-color: var(--retro-navy);                          /* Popout - Media Info Badges */
-  --media-badge-border: 2px solid var(--retro-navy);               /* Popout - Media Info Badges */
-  --media-badge-shadow: 0 4px 8px var(--black-alpha-80), var(--glow-light);   /* Popout - Media Info Badges */
-  --media-badge-radius: var(--border-radius-pill);                 /* Popout - Media Info Badges */
-  --media-badge-hover-bg: var(--pure-white);                       /* Popout - Media Info Badges */
-  --media-badge-hover-color: var(--pure-black);                    /* Popout - Media Info Badges */
-  --media-badge-hover-border: 2px solid var(--pure-black);         /* Popout - Media Info Badges */
-  --media-badge-hover-shadow: var(--shadow-glow-standard);         /* Popout - Media Info Badges */
- 
-  /* --- UI DIMENSIONS & SHAPES --- */
-  --hover-border-thickness: 2px;                                   /* Thickness for glow borders on hover */
-  --standard-border-thickness: 1px;                                /* Default UI line thickness */
-  --border-radius-sm: 6px;                                         /* Small rounding for inputs */
-  --border-radius-md: 10px;                                        /* Standard card rounding */
-  --border-radius-lg: 12px;                                        /* Large rounding for emphasized cards */
-  --border-radius-xl: 15px;                                        /* Extra large rounding for panels */
-  --border-radius-pill: 50px;                                      /* Fully circular ends for buttons */
-
-/* --- DATA GRID & TABLE VIEW VARIABLES --- */
-  --table-header-bg: var(--navy-mid-solid);                        /* Background for table headings */
-  --table-row-bg-even: var(--navy-light-alpha-40);                 /* Zebra stripe color (Even rows) */
-  --table-row-bg-odd: var(--navy-base-alpha-60);                   /* Zebra stripe color (Odd rows) */
-  --table-row-hover-bg: var(--navy-mid-alpha-70);                  /* Background color on row hover, best choices are --gold-alpha-20, or --navy-mid-alpha-70 */
-   
-  /* --- TOGGLE SWITCH VARIABLES --- */
-  --toggle-track-off: var(--navy-light-alpha-80);                  /* Background of switch when OFF */
-  --toggle-thumb-off: var(--white-alpha-60);                       /* Circle color when OFF */
-  --toggle-track-on: var(--theme-primary-color);                   /* Background of switch when ON */
-  --toggle-thumb-on: var(--pure-white);                            /* Circle color when ON */
-
-  /* --- EFFECTS & ANIMATIONS --- */
-  --transition-speed: 0.3s;                                        /* Global speed for all UI transitions */
-  --blur-light: blur(10px);                                        /* Soft background blur */
-  --blur-medium: blur(15px);                                       /* Medium background blur */
-  --blur-heavy: blur(20px);                                        /* Strong background blur */
-  --blur-extreme: blur(30px);                                      /* Maximum depth blur */
-
-  /* --- LAYOUT & ORDERING --- */
-  --order-seasons: 1;                                              /* Vertical order of Seasons section */
-  --order-next-up: 2;                                              /* Vertical order of Next Up section */
-  --order-more-from: 3;                                            /* Vertical order of "More from Season/Artist" sections */
-  --order-chapters: 4;                                             /* Vertical order of the Chapters row */
-  --order-included-in: 5;                                          /* Vertical order of "Appears In" / Collections section */
-  --order-cast-crew: 6;                                            /* Vertical order of Cast & Crew section */
-  --order-similar: 7;                                              /* Vertical order of "More Like This" (Similar) section */
-  --order-about: 8;                                                /* Vertical order of the Text Overview/About section and Media stream info cards */
-
-  /* --- SPOTLIGHT BANNER ARTWORK --- */
-  --spotlight-fit: cover;                                          /* Options: 'cover' (Fills box, crops edges), 'contain' (Shows full image, adds bars), '100%' (Stretches) */ 
-  --spotlight-position: center top;                                /* Options: 'right top' (Protects logos/faces), 'center top', 'center' (Emby default), 'left top' */  
-  --spotlight-width: 100%;                                         /* OVERALL WIDTH: 100% (Full screen), 95% (Small edge gap), 50% (2 Cards on the screen), 1200px (Max size lock) */ 
-  --spotlight-height: auto;                                        /* OVERALL HEIGHT: auto (Uses Aspect Ratio), 50vh (Half screen), 400px (Fixed height) */  
-  --spotlight-aspect-ratio: 16 / 9;                                /* SHAPE & SCALE: 16/9 (Default), 21/9 (Ultra-Wide), 24/9 (Cinematic Ultra-Wide), 3/1 (Extreme Banner), 4/1 (Extreme Ribbon), 4/3 (Boxy) */ 
-  --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, rgba(var(--pure-black-rgb), 0.6) 50%, transparent 100%); /* TEXT SCRIM: Change the dark fade behind text. (Use 'transparent' to remove it) */
-  --spotlight-center-snap: enabled;                                /* Set to 'enabled' to center the primary card, or 'disabled' to turn it off */  /* NOTE: FIREFOX COMPATABILITY ISSUE WITH THIS - Bugzilla Bug #1795622 - actively being built  */
-
-  /* Some example options to try out: */
-  /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 32 / 9; --spotlight-fit: cover; --spotlight-position: center 10%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, rgba(var(--pure-black-rgb), 0.4) 70%, transparent 100%); --spotlight-center-snap: enabled;   /* The Cinematic Ribbon */
-  /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 4 / 1; --spotlight-fit: cover; --spotlight-position: center 10%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, transparent 90%); --spotlight-center-snap: enabled;   /*  Extreme Letterbox */
-  /*--spotlight-width: 1400px; --spotlight-height: auto; --spotlight-aspect-ratio: 24 / 9; --spotlight-fit: cover; --spotlight-position: center 15%; --spotlight-overlay: linear-gradient(to top, rgba(var(--navy-base-rgb), 1) 0%, transparent 100%); --spotlight-center-snap: disabled;  /* Framed Billboard */
-  /*--spotlight-width: 98%; --spotlight-height: 40vh; --spotlight-aspect-ratio: none; --spotlight-fit: contain; --spotlight-position: center; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.85) 0%, rgba(var(--pure-black-rgb), 0.4) 40%, transparent 100%); --spotlight-center-snap: enabled; /* Uncut Showcase */
-  /*--spotlight-width: 100%; --spotlight-height: 30vh; --spotlight-aspect-ratio: none; --spotlight-fit: contain; --spotlight-position: center; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.95) 0%, transparent 100%); --spotlight-center-snap: enabled; /* Thin Letterbox Showcase */
-  /*--spotlight-width: 100%; --spotlight-height: auto; --spotlight-aspect-ratio: 5 / 1; --spotlight-fit: cover; --spotlight-position: center 10%; --spotlight-overlay: linear-gradient(to top, rgba(var(--pure-black-rgb), 0.9) 0%, transparent 100%); --spotlight-center-snap: enabled; /* Extreme Slit */
-  /*--spotlight-width: 92%; --spotlight-height: 38vh; --spotlight-aspect-ratio: 16/9; --spotlight-fit: cover; --spotlight-position: top left; --spotlight-overlay: linear-gradient(225deg, transparent 45%, rgba(var(--pure-black-rgb), 0.85) 100%), linear-gradient(to top, rgba(var(--pure-black-rgb), 0.3) 0%, transparent 60%); --spotlight-center-snap: enabled;  /* Diagonal Glass */
-  /*--spotlight-width: 45vw; --spotlight-height: 70vh; --spotlight-aspect-ratio: none; --spotlight-fit: contain; --spotlight-position: center; --spotlight-overlay: radial-gradient(circle at center, transparent 0%, rgba(var(--pure-black-rgb), 0.85) 100%); --spotlight-center-snap: enabled; /* Vertical Portrait / Mobile-First Showcase */
-
-  /* --- SEASONAL BACKGROUND ANIMATIONS --- */
-  --seasonal-bg-visibility: visible;                               /* Fully Enabled */
-  --seasonal-bg-anim-state: running;                               /* Fully Enabled */
-  /* --seasonal-bg-anim-state: paused;                             /* Paused Animations (Keeps art, stops the motion) */
-  /* --seasonal-bg-visibility: hidden;                             /* Fully Disabled */
-  /* --seasonal-bg-anim-state: paused;                             /* Fully Disabled */
+  --filter-glow-gold-solid: drop-shadow(0 0 5px var(--my-gold));   /* Solid hard glow for icons */  
 
   /* --- TEST OPTIONS - USED FOR DEVELOPMENT/DEBUGGING PURPOSES -- */
   /*--test-color1: #004d08; --test-color2: #00f410; --test-color3: #6c0101; --test-color4: #ff0505; --test-color5: #321592; --test-color6: #0000ff; --test-color7: #880a73; --test-color8: #fa00e1; /* Test Colors */
-
-  /* --- PRIMARY HEADERS --- */
-  /*--experimental-PrimaryHeader: enabled;                           /* Enable Header Testing */
-  /*--accent-display: none;                                          /* Set to none to hide or inline-block to display an accent */
-
-  /*--accent-display: inline-block; --accent-width: 6px; --accent-height: 1em; --accent-radius: 1px; --accent-transform: skewX(-20deg) translateY(-2px); /* The Cinematic Slash (Aggressive, forward-leaning cut) */
-  /*--accent-display: inline-block; --accent-width: 9px; --accent-height: 9px; --accent-radius: 1px; --accent-transform: rotate(45deg) translateY(-2px); /* The Neon Diamond (Minimalist, sci-fi bullet point) */
-  /*--accent-display: inline-block; --accent-width: 5px; --accent-height: 1.1em; --accent-radius: 4px; --accent-transform: translateY(-2px); /* The Classic Pill (Soft, rounded, traditional) */
-  /*--accent-display: inline-block; --accent-width: 2px; --accent-height: 1.2em; --accent-radius: 0px; --accent-transform: translateY(-2px); /* The Razor Blade (Ultra-thin, tall, sharp line) */
-
-  /* --- MEDIA CARD FOOTERS --- */
-  /*--experimental-card-footer: enabled;                            /* Enable Footer Testing */
-  /*--media-footer-bg: var(--navy-light-alpha-60);                  /* Frost transparency intensity: var(--navy-base-alpha-75), var(--black-alpha-80), var(--black-alpha-95), etc, or var(--retro-navy-light) or transparent to disable */
-  /*--media-footer-blur: var(--blur-medium);                        /* Frost blur intensity: var(--blur-light), var(--blur-medium), var(--blur-heavy), var(--blur-extreme), or none */
-  /*--media-footer-border: 1px solid var(--gold-alpha-15);          /* Border of thickness of media card footers */
-  /*--media-footer-shadow: 0 10px 25px -5px var(--black-alpha-70);  /* Shadow used for media card footers, none to disable
 
 }
 
@@ -795,6 +795,59 @@ html[class*="theme-"] .settingsContainer legend {
 html[class*="theme-"] .settingsContainer h3 {
   color: var(--h3-color) !important;
   -webkit-text-fill-color: var(--h3-color) !important;
+}
+
+/* 4b. CUSTOM PRIMARY HEADERS (Lines & Accents) */
+
+/* 1. The Table Trick: Keeps block flow and stretches to fill the container */
+html[class*="theme-"] body .view h2.sectionTitle,
+html[class*="theme-"] body .view .pageTitle {
+    display: table !important; 
+    width: 100% !important; 
+}
+
+/* 2. The Vertical Accent Pillar */
+html[class*="theme-"] body .sectionTitle:not(.aboutSection div.sectionTitle):not(.aboutSection h4.sectionTitle)::before {
+    content: "" !important;
+    display: var(--header-accent-display) !important;
+    width: var(--header-accent-width) !important;
+    height: var(--header-accent-height) !important;
+    border-radius: var(--header-accent-radius) !important;
+    transform: var(--header-accent-transform) !important;
+    background: var(--theme-primary-color) !important;
+    margin-right: 15px !important; 
+    vertical-align: middle !important;
+    box-shadow: 0 0 12px color-mix(in srgb, var(--theme-primary-color) 80%, transparent) !important;
+}
+
+/* 3. Clickable Header Fix: Forces Emby's invisible button wrapper to expand so the line can stretch */
+html[class*="theme-"] body .sectionTitleContainer .button-link,
+html[class*="theme-"] body .sectionTitleContainer .sectionTitleTextButton {
+    display: block !important;
+    width: 100% !important;
+    text-decoration: none !important; 
+}
+
+/* 4. Insert the line as a block element INSIDE the table so it respects the text width */
+html[class*="theme-"] body .view h2.sectionTitle::after,
+html[class*="theme-"] body .view .pageTitle::after {
+    content: "" !important;
+    display: var(--header-line-display) !important;
+    width: 100% !important;
+    height: 2px !important;
+    margin-top: 6px !important; 
+    margin-bottom: 2px !important;
+    background: linear-gradient(90deg, var(--theme-primary-color) 0%, color-mix(in srgb, var(--theme-primary-color) 25%, transparent) 40%, transparent 100%);
+    box-shadow: none !important;
+    border-radius: 2px !important;
+    pointer-events: none !important;
+    filter: drop-shadow(0 2px 6px color-mix(in srgb, var(--theme-primary-color) 60%, transparent));
+}
+
+/* 5. Hide the Chevron Completely */
+html[class*="theme-"] body .sectionTitleContainer:not(.aboutSection .sectionTitleContainer) .button-link .md-icon,
+html[class*="theme-"] body .sectionTitleContainer:not(.aboutSection .sectionTitleContainer) > .md-icon {
+    display: none !important;
 }
 
 /* 5. INTERACTIVE LABELS & ACCENTS */
@@ -3366,6 +3419,113 @@ html[class*="theme-"] .sideFooterCard .cardText-secondary {
     scroll-snap-align: center !important;
     /* scroll-snap-stop removed entirely so the JS can push past the card */
   }
+}
+
+/* --- 5G. MEDIA CARD FOOTERS (GLASS PANELS) --- */
+
+/* 1. Main Wrapper: Applies glass & sets a uniform bottom padding */
+/* (Excludes people, spotlights, banners, and specific UI elements) */
+html[class*="theme-"] body .card:not(.peopleSection *, .personCard, [data-type="Person"], [data-type="MusicArtist"], .spotlightSection *, .spotlight *, .spotlightCard, .detailImageContainer *, .osdInfoImageCard *, .osdRemoteControlImageCard *, .detailMediaStreamsItemsContainer *, .bannerCard *, .sideFooterCard *) .cardBox:not(.visualCardBox, :has(.cardContent-round)),
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox {
+    background: var(--media-footer-bg) !important;
+    backdrop-filter: var(--media-footer-blur) !important;
+    -webkit-backdrop-filter: var(--media-footer-blur) !important;
+    border: var(--media-footer-border) !important;
+    border-radius: var(--border-radius-md) !important;
+    box-shadow: var(--media-footer-shadow) !important;
+    padding-bottom: 5px !important;
+}
+
+/* 2. Global Left/Right Padding Reset for Text */
+html[class*="theme-"] body .card:not(.peopleSection *, .personCard, [data-type="Person"], [data-type="MusicArtist"], .spotlightSection *, .spotlight *, .spotlightCard, .detailImageContainer *, .osdInfoImageCard *, .osdRemoteControlImageCard *, .detailMediaStreamsItemsContainer *, .bannerCard *, .sideFooterCard *) .cardBox:not(:has(.cardContent-round)) .cardText,
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox .cardText {
+    padding: 0 12px !important;
+}
+
+/* 3. Title Text: Top padding & graceful 2-line wrapping */
+html[class*="theme-"] body .card:not(.peopleSection *, .personCard, [data-type="Person"], [data-type="MusicArtist"], .spotlightSection *, .spotlight *, .spotlightCard, .detailImageContainer *, .osdInfoImageCard *, .osdRemoteControlImageCard *, .detailMediaStreamsItemsContainer *, .bannerCard *, .sideFooterCard *) .cardBox:not(:has(.cardContent-round)) .cardText-first,
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox .cardText-first {
+    padding-top: 8px !important;
+    white-space: normal !important; 
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important; 
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+/* 4. Bottom padding exclusively for Year/Metadata */
+html[class*="theme-"] body .card:not(.peopleSection *, .personCard, [data-type="Person"], [data-type="MusicArtist"], .spotlightSection *, .spotlight *, .spotlightCard, .detailImageContainer *, .osdInfoImageCard *, .osdRemoteControlImageCard *, .detailMediaStreamsItemsContainer *, .bannerCard *, .sideFooterCard *) .cardBox:not(:has(.cardContent-round)) .cardText-secondary,
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox .cardText-secondary {
+    padding-bottom: 8px !important;
+}
+
+/* 5. THE GHOST LINE ASSASSIN (Upgraded for Folder Views) */
+html[class*="theme-"] body .card:not(.peopleSection *, .personCard, [data-type="Person"], [data-type="MusicArtist"], .spotlightSection *, .spotlight *, .spotlightCard) .cardBox:not(:has(.cardContent-round)) .cardText-secondary ~ .cardText-secondary:not(:has(*)),
+html[class*="theme-"] body .card:not(.peopleSection *, .personCard, [data-type="Person"], [data-type="MusicArtist"], .spotlightSection *, .spotlight *, .spotlightCard) .cardBox:not(:has(.cardContent-round)) .cardText-secondary ~ .cardText-secondary:has(.mediaInfoItems):not(:has(.mediaInfoItems *)),
+html[class*="theme-"] body .card.squareCard:not([data-type]) .cardBox .cardText-secondary:not(:has(*)) {
+    display: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 0 !important;
+}
+
+/* 6. IMAGE CORNER RADIUS FIX (Match inner poster to outer card) */
+html[class*="theme-"] body .card:not(.peopleSection *, .personCard, [data-type="Person"], [data-type="MusicArtist"], .spotlightSection *, .spotlight *, .spotlightCard, .detailImageContainer *, .osdInfoImageCard *, .osdRemoteControlImageCard *, .detailMediaStreamsItemsContainer *, .bannerCard *, .sideFooterCard *) .cardBox:not(:has(.cardContent-round)) .cardImageContainer,
+html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox .cardImageContainer {      
+    border-top-left-radius: var(--border-radius-md) !important; 
+    border-top-right-radius: var(--border-radius-md) !important;
+}    
+
+/* 7. Person / Artist / Round Card Overrides */
+/* 7.1. Outer Box: Stripped of glass to make the top transparent */
+html[class*="theme-"] body :is(.card.personCard, .peopleSection .card, .card[data-type="MusicArtist"], .card[data-type="Person"], .card:has(.cardContent-round)) .cardBox {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding-bottom: 10px !important;
+    position: relative !important;
+    z-index: 1 !important; 
+}
+
+/* 7.2. The Frosted Glass Layer: Only covers bottom 50% behind text */
+html[class*="theme-"] body :is(.card.personCard, .peopleSection .card, .card[data-type="MusicArtist"], .card[data-type="Person"], .card:has(.cardContent-round)) .cardBox::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--media-footer-bg) !important;
+    backdrop-filter: var(--media-footer-blur) !important;
+    -webkit-backdrop-filter: var(--media-footer-blur) !important;
+    border: var(--media-footer-border) !important;
+    border-top: none !important; 
+    border-radius: 0 0 var(--media-card-radius, 12px) var(--media-card-radius, 12px) !important;
+    box-shadow: var(--media-footer-shadow) !important;
+    z-index: -1 !important; 
+}
+
+/* 7.3. Global Text Reset */
+html[class*="theme-"] body :is(.card.personCard, .peopleSection .card, .card[data-type="MusicArtist"], .card[data-type="Person"], .card:has(.cardContent-round)) .cardText {
+    padding: 0 12px !important;
+    margin: 0 !important;
+}
+
+/* 7.4. Primary Text (Actor/Artist Name) */
+html[class*="theme-"] body :is(.card.personCard, .peopleSection .card, .card[data-type="MusicArtist"], .card[data-type="Person"], .card:has(.cardContent-round)) .cardText-first {
+    padding-top: 10px !important;
+    white-space: normal !important; 
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important; 
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+/* 7.5. Secondary Text (Character Name / Role) */
+html[class*="theme-"] body :is(.card.personCard, .peopleSection .card, .card[data-type="MusicArtist"], .card[data-type="Person"], .card:has(.cardContent-round)) .cardText-secondary {
+    margin-top: 4px !important;
 }
 
 /* ============================================================
@@ -6286,196 +6446,6 @@ html[class*="theme-"] body .paperListbox .button-flat:hover {
 }
 
 /* ============================================================
-   HOTFIX: CUSTOM PRIMARY HEADERS
-   ============================================================ */
-@container style(--experimental-PrimaryHeader: enabled) {   
-
-  /* 1. The Table Trick: Keeps block flow and stretches to fill the container */
-  html[class*="theme-"] body .view h2.sectionTitle,
-  html[class*="theme-"] body .view .pageTitle {
-      display: table !important; 
-      width: 100% !important; 
-  }
-
-  /* 1.1. The Vertical Accent Pillar */
-  html[class*="theme-"] body .sectionTitle:not(.aboutSection div.sectionTitle):not(.aboutSection h4.sectionTitle)::before {
-      content: "" !important;
-      display: var(--accent-display) !important;
-      width: var(--accent-width) !important;
-      height: var(--accent-height) !important;
-      border-radius: var(--accent-radius) !important;
-      transform: var(--accent-transform) !important;
-      background: var(--theme-primary-color) !important;
-      margin-right: 15px !important; 
-      vertical-align: middle !important;
-      box-shadow: 0 0 12px color-mix(in srgb, var(--theme-primary-color) 80%, transparent) !important;
-  }
-
-  /* 1.5. Clickable Header Fix: Forces Emby's invisible button wrapper to expand so the line can stretch */
-  html[class*="theme-"] body .sectionTitleContainer .button-link,
-  html[class*="theme-"] body .sectionTitleContainer .sectionTitleTextButton {
-      display: block !important;
-      width: 100% !important;
-      text-decoration: none !important; 
-  }
-
-  /* 2. Insert the line as a block element INSIDE the table so it respects the text width */
-  html[class*="theme-"] body .view h2.sectionTitle::after,
-  html[class*="theme-"] body .view .pageTitle::after {
-      content: "" !important;
-      display: block !important; 
-      width: 100% !important;
-      height: 2px !important;
-      margin-top: 6px !important; 
-      margin-bottom: 2px !important;
-      
-      /* The Gradient & Glow */
-      background: linear-gradient(90deg, var(--theme-primary-color) 0%, color-mix(in srgb, var(--theme-primary-color) 25%, transparent) 40%, transparent 100%);
-      box-shadow: none !important;
-      border-radius: 2px !important;
-      pointer-events: none !important;
-      filter: drop-shadow(0 2px 6px color-mix(in srgb, var(--theme-primary-color) 60%, transparent));
-  }
-
-  /* 3. Hide the Chevron Completely */
-  html[class*="theme-"] body .sectionTitleContainer:not(.aboutSection .sectionTitleContainer) .button-link .md-icon,
-  html[class*="theme-"] body .sectionTitleContainer:not(.aboutSection .sectionTitleContainer) > .md-icon {
-      display: none !important;
-  }
-
-}
-
-/* ============================================================
-   HOTFIX: MEDIA CARD FOOTERS
-   ============================================================ */
-@container style(--experimental-card-footer: enabled) {   
-
-  /* 1. Main Wrapper: Applies glass & sets a uniform bottom padding so we don't rely on text elements for spacing */
-  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]):not(.spotlightSection *):not(.spotlight *):not(.spotlightCard) .cardBox:not(.visualCardBox):not(:has(.cardContent-round)),
-  html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox {
-      background: var(--media-footer-bg) !important;
-      backdrop-filter: var(--media-footer-blur) !important;
-      -webkit-backdrop-filter: var(--media-footer-blur) !important;
-      border: var(--media-footer-border) !important;
-      border-radius: var(--border-radius-md) !important;
-      box-shadow: var(--media-footer-shadow) !important;
-      padding-bottom: 5px !important;
-  }
-
-  /* 2. Sets Left/Right padding globally, but removes Top/Bottom so empty lines don't get inflated */
-  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]):not(.spotlightSection *):not(.spotlight *):not(.spotlightCard) .cardBox:not(:has(.cardContent-round)) .cardText,
-  html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox .cardText {
-      padding: 0 12px !important;
-  }
-
-  /* 3. Title Text: Adds top padding and allows long titles to wrap gracefully (Max 2 Lines) */
-  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]):not(.spotlightSection *):not(.spotlight *):not(.spotlightCard) .cardBox:not(:has(.cardContent-round)) .cardText-first,
-  html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox .cardText-first {
-      padding-top: 8px !important;
-      white-space: normal !important; 
-      display: -webkit-box !important;
-      -webkit-line-clamp: 2 !important; 
-      -webkit-box-orient: vertical !important;
-      overflow: hidden !important;
-  }
-
-  /* 4. Adds the 8px padding back exclusively to the BOTTOM of the Year/Metadata */
-  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]):not(.spotlightSection *):not(.spotlight *):not(.spotlightCard) .cardBox:not(:has(.cardContent-round)) .cardText-secondary,
-  html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox .cardText-secondary {
-      padding-bottom: 8px !important;
-  }
-
-  /* 5. THE GHOST LINE ASSASSIN (Upgraded for Folder Views) */
-  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]):not(.spotlightSection *):not(.spotlight *):not(.spotlightCard) .cardBox:not(:has(.cardContent-round)) .cardText-secondary ~ .cardText-secondary:not(:has(*)),
-  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]):not(.spotlightSection *):not(.spotlight *):not(.spotlightCard) .cardBox:not(:has(.cardContent-round)) .cardText-secondary ~ .cardText-secondary:has(.mediaInfoItems):not(:has(.mediaInfoItems *)),
-  html[class*="theme-"] body .card.squareCard:not([data-type]) .cardBox .cardText-secondary:not(:has(*)) {
-      display: none !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      height: 0 !important;
-  }
-
-  /* 6. IMAGE CORNER RADIUS FIX (Matches the inner poster to the outer frosted card) */
-  html[class*="theme-"] body .card:not(.peopleSection *):not(.personCard):not([data-type="Person"]):not([data-type="MusicArtist"]):not(.spotlightSection *):not(.spotlight *):not(.spotlightCard) .cardBox:not(:has(.cardContent-round)) .cardImageContainer,
-  html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox .cardImageContainer {
-      border-top-left-radius: var(--border-radius-md) !important; 
-      border-top-right-radius: var(--border-radius-md) !important;
-  }    
-
-  /* 7.1. Outer Box: Stripped of glass to make the top completely transparent */
-  html[class*="theme-"] body .card.personCard .cardBox,
-  html[class*="theme-"] body .peopleSection .card .cardBox,
-  html[class*="theme-"] body .card[data-type="MusicArtist"] .cardBox,
-  html[class*="theme-"] body .card[data-type="Person"] .cardBox,
-  html[class*="theme-"] body .card:has(.cardContent-round) .cardBox {
-      background: transparent !important;
-      backdrop-filter: none !important;
-      -webkit-backdrop-filter: none !important;
-      border: none !important;
-      box-shadow: none !important;
-      padding-bottom: 10px !important;
-      position: relative !important;
-      z-index: 1 !important; 
-  }
-
-  /* 7.2. The Frosted Glass Layer: Only covers the bottom 50% behind the text */
-  html[class*="theme-"] body .card.personCard .cardBox::before,
-  html[class*="theme-"] body .peopleSection .card .cardBox::before,
-  html[class*="theme-"] body .card[data-type="MusicArtist"] .cardBox::before,
-  html[class*="theme-"] body .card[data-type="Person"] .cardBox::before,
-  html[class*="theme-"] body .card:has(.cardContent-round) .cardBox::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: var(--media-footer-bg) !important;
-      backdrop-filter: var(--media-footer-blur) !important;
-      -webkit-backdrop-filter: var(--media-footer-blur) !important;
-      border: var(--media-footer-border) !important;
-      border-top: none !important; 
-      border-radius: 0 0 var(--media-card-radius, 12px) var(--media-card-radius, 12px) !important;
-      box-shadow: var(--media-footer-shadow) !important;
-      z-index: -1 !important; 
-  }
-
-  /* 7.3. Global Text Reset */
-  html[class*="theme-"] body .card.personCard .cardText,
-  html[class*="theme-"] body .peopleSection .card .cardText,
-  html[class*="theme-"] body .card[data-type="MusicArtist"] .cardText,
-  html[class*="theme-"] body .card[data-type="Person"] .cardText,
-  html[class*="theme-"] body .card:has(.cardContent-round) .cardText {
-      padding: 0 12px !important;
-      margin: 0 !important;
-  }
-
-  /* 7.4. Primary Text (Actor/Artist Name) */
-  html[class*="theme-"] body .card.personCard .cardText-first,
-  html[class*="theme-"] body .peopleSection .card .cardText-first,
-  html[class*="theme-"] body .card[data-type="MusicArtist"] .cardText-first,
-  html[class*="theme-"] body .card[data-type="Person"] .cardText-first,
-  html[class*="theme-"] body .card:has(.cardContent-round) .cardText-first {
-      padding-top: 10px !important;
-      white-space: normal !important; 
-      display: -webkit-box !important;
-      -webkit-line-clamp: 2 !important; 
-      -webkit-box-orient: vertical !important;
-      overflow: hidden !important;
-  }
-
-  /* 7.5. Secondary Text (Character Name / Role) */
-  html[class*="theme-"] body .card.personCard .cardText-secondary,
-  html[class*="theme-"] body .peopleSection .card .cardText-secondary,
-  html[class*="theme-"] body .card[data-type="MusicArtist"] .cardText-secondary,
-  html[class*="theme-"] body .card[data-type="Person"] .cardText-secondary,
-  html[class*="theme-"] body .card:has(.cardContent-round) .cardText-secondary {
-      margin-top: 4px !important;
-  }
-
-}
-
-/* ============================================================
    13. UNIVERSAL SEASONAL LOGIC & GLOBAL SHIELDS
    ============================================================ */
 
@@ -6665,8 +6635,6 @@ html[class*="theme-"] body[class] .listItem:hover:not(.background-theme-a) .md-i
 /* ============================================================
    14. SEASONAL EFFECTS (VALENTINE'S DAY)
    ============================================================ */
-
-/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #e60049) {
 
   /* --- 14A. MEDIA CARD ACTION OVERLAYS --- */
@@ -7017,14 +6985,11 @@ html[class*="theme-"] body[class] .listItem:hover:not(.background-theme-a) .md-i
     100% { transform:    scale(1.05); box-shadow:   0 0 15px var(--theme-primary-color), 0 0 20px var(--theme-accent-color), inset 0 0 10px var(--theme-primary-color) !important; border-color: var(--theme-accent-color) !important; color:        var(--pure-white) !important; -webkit-text-fill-color: var(--pure-white) !important; } 
   }
 
-/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    15. SEASONAL EFFECTS (ST. PATRICK'S DAY)
    ============================================================ */
-
-/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #00ff85) {
 
   /* --- 15A. HEADERS & TITLES (SHIMMER EFFECT) --- */
@@ -7349,14 +7314,11 @@ html[class*="theme-"] body[class] .listItem:hover:not(.background-theme-a) .md-i
     border-bottom: 3px solid var(--my-gold) !important; 
   }
 
-/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    16. SEASONAL EFFECTS (EASTER / CHERRY BLOSSOM)
    ============================================================ */
-
-/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #ffb7b2) {
   
   /* --- 16A. UI INDICATORS (EGG SHAPES) --- */
@@ -7657,14 +7619,11 @@ html[class*="theme-"] body[class] .listItem:hover:not(.background-theme-a) .md-i
     -webkit-text-fill-color: var(--retro-navy) !important;
   }
 
-/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    17. SEASONAL EFFECTS (4TH OF JULY)
    ============================================================ */
-
-/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #e0162b) {
 
   /* --- 17A. GLOBAL BACKGROUNDS (STARS & SKYLINE) --- */
@@ -7943,14 +7902,11 @@ html[class*="theme-"] body[class] .listItem:hover:not(.background-theme-a) .md-i
     -webkit-text-fill-color: var(--pure-white) !important;
   }
 
-/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    18. SEASONAL EFFECTS (HALLOWEEN)
    ============================================================ */
-
-/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #ff6600) {
 
   /* --- 18A. PORTRAITS & MEDIA CARDS (TOMBSTONE SHAPES) --- */
@@ -8237,14 +8193,11 @@ html[class*="theme-"] body[class] .listItem:hover:not(.background-theme-a) .md-i
     -webkit-text-fill-color: var(--pure-white) !important;
   }
 
-/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    19. SEASONAL EFFECTS (THANKSGIVING / AUTUMN HARVEST)
    ============================================================ */
-
-/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #d95c14) {
 
   /* --- 19A. UI INDICATORS (TURKEY COUNTS) --- */
@@ -8580,14 +8533,11 @@ html[class*="theme-"] body[class] .listItem:hover:not(.background-theme-a) .md-i
     -webkit-text-fill-color: var(--pure-white) !important;
   }
 
-/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    20. SEASONAL EFFECTS (CHRISTMAS)
    ============================================================ */
-
-/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #c41e3a) {
 
   /* --- 20A. UI INDICATORS (TREE COUNTS) --- */
@@ -8924,14 +8874,11 @@ html[class*="theme-"] body[class] .listItem:hover:not(.background-theme-a) .md-i
     -webkit-text-fill-color: var(--my-gold) !important;
   }
 
-/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
 
 /* ============================================================
    21. SEASONAL EFFECTS (NEW YEAR'S EVE)
    ============================================================ */
-
-/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 @container style(--theme-primary-color: #d4af37) {
 
   /* --- 21A. HEADERS & TITLES (GOLD SHIMMER) --- */
@@ -9212,5 +9159,4 @@ html[class*="theme-"] body[class] .listItem:hover:not(.background-theme-a) .md-i
     -webkit-text-fill-color: var(--pure-black) !important;
   }
 
-/* FIREFOX FIX: Comment out the line below to enable in Firefox */
 }
