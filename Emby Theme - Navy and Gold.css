@@ -241,15 +241,18 @@ html,
   --media-badge-hover-border: 2px solid var(--pure-black);         /* Popout - Media Info Badges */
   --media-badge-hover-shadow: var(--shadow-glow-standard);         /* Popout - Media Info Badges */
  
-  /* --- LAYOUT & ORDERING --- */
-  --order-seasons: 1;                                              /* Vertical order of Seasons section */
+  /* --- LAYOUT & ORDERING - (MEDIA DETAIL PAGES) --- */
+  --order-seasons: 1;                                              /* Vertical order of Seasons / Albums section */
   --order-next-up: 2;                                              /* Vertical order of Next Up section */
-  --order-more-from: 3;                                            /* Vertical order of "More from Season/Artist" sections */
-  --order-chapters: 4;                                             /* Vertical order of the Chapters row */
-  --order-included-in: 5;                                          /* Vertical order of "Appears In" / Collections section */
-  --order-cast-crew: 6;                                            /* Vertical order of Cast & Crew section */
-  --order-similar: 7;                                              /* Vertical order of "More Like This" (Similar) section */
-  --order-about: 8;                                                /* Vertical order of the Text Overview/About section and Media stream info cards */
+  --order-specials: 3;                                             /* Vertical order of Special Features, Extras, & Theme Media */
+  --order-more-from: 4;                                            /* Vertical order of "More from Season/Artist" sections */
+  --order-music-videos: 5;                                         /* Vertical order of Music Videos (Artist pages) */
+  --order-chapters: 6;                                             /* Vertical order of the Chapters & Scenes row */
+  --order-cast-crew: 7;                                            /* Vertical order of Cast & Crew section */
+  --order-included-in: 8;                                          /* Vertical order of "Appears In" / Collections section */
+  --order-similar: 9;                                              /* Vertical order of "More Like This" (Similar) section */
+  --order-reviews: 10;                                             /* Vertical order of Critic Reviews */
+  --order-about: 11;                                               /* Vertical order of the Text Overview/About section and Media stream info cards */
 
   /* --- SPOTLIGHT BANNER ARTWORK --- */
   --spotlight-fit: cover;                                          /* Options: 'cover' (Fills box, crops edges), 'contain' (Shows full image, adds bars), '100%' (Stretches) */ 
@@ -381,6 +384,11 @@ html,
 
   /* --- TEST OPTIONS - USED FOR DEVELOPMENT/DEBUGGING PURPOSES -- */
   /*--test-color1: #004d08; --test-color2: #00f410; --test-color3: #6c0101; --test-color4: #ff0505; --test-color5: #321592; --test-color6: #0000ff; --test-color7: #880a73; --test-color8: #fa00e1; /* Test Colors */
+
+
+
+
+
 
   /* ============================================================
       SEASONAL EVENT TOGGLE
@@ -1781,9 +1789,12 @@ html[class*="theme-"] body .appfooter .navMenuOption:hover .navMenuOptionText {
 
 /* 1. Backdrop Overlay: Dims the interface when a modal is active */
 html[class*="theme-"] .dialogBackdrop {
-  background:              var(--black-alpha-70) !important;
+  background:              var(--black-alpha-90) !important;
   backdrop-filter:         none !important;
   -webkit-backdrop-filter: none !important;
+  will-change:             opacity, backdrop-filter !important;
+  transform:               translateZ(0) !important;    
+  backface-visibility:     hidden !important; 
 }
 
 /* 2. Main Dialog Box: Styling for metadata editors, settings, and menus */
@@ -3611,6 +3622,8 @@ html[class*="theme-"] body .imageEditorCard .cardFooter .cardText-secondary {
 
 /* --- 6A. Page Layout & Section Ordering --- */
 
+/* --- 6A. Page Layout & Section Ordering --- */
+
 /* 1. Flex Container: Allows us to re-order page sections using the variables in Section 1 */
 .detailPageWrapperContainer,
 .detailPagePrimaryContainer,
@@ -3619,30 +3632,39 @@ html[class*="theme-"] body .imageEditorCard .cardFooter .cardText-secondary {
   flex-direction: column !important;
 }
 
-/* 2. Section Orders: Forces sections to display in our preferred vertical order */
+/* 2. The Catch-All: Sends any completely unlisted/unknown sections to the absolute bottom */
 .details-additionalContent > .verticalSection,
 .details-additionalContent > div { order: 20 !important; }
 
-/* Primary Children (Seasons, Episodes, Album Tracks) */
+/* Primary Children (Seasons, Episodes, Album Tracks, Albums) */
 div.verticalSection.seriesItemsSection,
-div.verticalSection.childrenSection    { order: var(--order-seasons) !important; }
+div.verticalSection.childrenSection,
+div.verticalSection.albumsSection { order: var(--order-seasons) !important; }
 
 /* Next Up */
 div.verticalSection.itemNextUpSection,
-div.verticalSection.nextUpSection      { order: var(--order-next-up) !important; }
+div.verticalSection.nextUpSection { order: var(--order-next-up) !important; }
 
-/* Chapters */
+/* Special Features, Extras, & Theme Media */
+div.verticalSection.specialFeaturesSection,
+div.verticalSection.extrasSection,
+div.verticalSection.themeSongsSection,
+div.verticalSection.themeVideosSection { order: var(--order-specials) !important; }
+
+/* More From (Seasons, Artists, etc.) */
+div.verticalSection.moreFromSeasonSection,
+div.verticalSection.moreFromArtistSection { order: var(--order-more-from) !important; }
+
+/* Music Videos (Primarily for Artist pages) */
+div.verticalSection.musicVideosSection { order: var(--order-music-videos) !important; }
+
+/* Chapters & Scenes */
 div.verticalSection.chapterSection,
-div.verticalSection.chaptersSection    { order: var(--order-chapters) !important; }
+div.verticalSection.chaptersSection,
+div.verticalSection.scenesSection { order: var(--order-chapters) !important; }
 
 /* Cast & Crew */
-div.verticalSection.peopleSection      { order: var(--order-cast-crew) !important; margin-top: 20px; }
-
-/* More Like This (Similar) */
-div.verticalSection.similarSection     { order: var(--order-similar) !important; }
-
-/* About / Overview */
-div.verticalSection.aboutSection       { order: var(--order-about) !important; }
+div.verticalSection.peopleSection { order: var(--order-cast-crew) !important; margin-top: 20px; }
 
 /* Included In (Collections, Playlists, & Lists) */
 div.verticalSection.appearsInSection,
@@ -3651,12 +3673,14 @@ div.verticalSection.collectionsSection,
 div.verticalSection.itemDetailsCollectionsSection,
 div.verticalSection.itemDetailsPlaylistsSection { order: var(--order-included-in) !important; }
 
-/* More From (Seasons, Artists, etc.) */
-div.verticalSection.moreFromSeasonSection,
-div.verticalSection.moreFromArtistSection { order: var(--order-more-from) !important; }
+/* More Like This (Similar) */
+div.verticalSection.similarSection { order: var(--order-similar) !important; }
 
-/* Keep all standard About items grouped together based on the About variable */
-div.verticalSection.aboutSection       { order: var(--order-about) !important; }
+/* Critic Reviews */
+div.verticalSection.criticReviewsSection { order: var(--order-reviews) !important; }
+
+/* About / Overview */
+div.verticalSection.aboutSection { order: var(--order-about) !important; }
 
 /* --- 6B. Info Banner & Panels --- */
 
