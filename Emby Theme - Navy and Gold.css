@@ -119,6 +119,7 @@ html,
   /* --- DIALOG POPUPS --- */
   --dialog-icon-color: var(--my-gold);                             /* Dialog popup icon color */
   --dialog-icon-hover-color: color-mix(in srgb, var(--my-gold-light) 40%, white); /* Dialog popup icon color in a hovered state */
+  --dialog-backdrop-blur: var(--blur-extra-light);                 /* Frost intensity behind dialogs. Options: var(--blur-extra-light), var(--blur-light), var(--blur-medium), var(--blur-heavy), var(--blur-extreme), or none */
 
    /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
   --guide-premiere: rgb(89, 35, 71);                             /* Cell background for TV Series Premieres */
@@ -384,11 +385,6 @@ html,
 
   /* --- TEST OPTIONS - USED FOR DEVELOPMENT/DEBUGGING PURPOSES -- */
   /*--test-color1: #004d08; --test-color2: #00f410; --test-color3: #6c0101; --test-color4: #ff0505; --test-color5: #321592; --test-color6: #0000ff; --test-color7: #880a73; --test-color8: #fa00e1; /* Test Colors */
-
-
-
-
-
 
   /* ============================================================
       SEASONAL EVENT TOGGLE
@@ -1790,8 +1786,8 @@ html[class*="theme-"] body .appfooter .navMenuOption:hover .navMenuOptionText {
 /* 1. Backdrop Overlay: Dims the interface when a modal is active */
 html[class*="theme-"] .dialogBackdrop {
   background:              var(--black-alpha-90) !important;
-  backdrop-filter:         none !important;
-  -webkit-backdrop-filter: none !important;
+  backdrop-filter:         var(--dialog-backdrop-blur) !important;
+  -webkit-backdrop-filter: var(--dialog-backdrop-blur) !important;
   will-change:             opacity, backdrop-filter !important;
   transform:               translateZ(0) !important;    
   backface-visibility:     hidden !important; 
@@ -3621,9 +3617,6 @@ html[class*="theme-"] body .imageEditorCard .cardFooter .cardText-secondary {
    ============================================================ */
 
 /* --- 6A. Page Layout & Section Ordering --- */
-
-/* --- 6A. Page Layout & Section Ordering --- */
-
 /* 1. Flex Container: Allows us to re-order page sections using the variables in Section 1 */
 .detailPageWrapperContainer,
 .detailPagePrimaryContainer,
