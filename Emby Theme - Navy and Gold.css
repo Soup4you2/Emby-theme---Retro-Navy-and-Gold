@@ -98,6 +98,8 @@ html,
   --media-footer-blur: var(--blur-medium);                         /* Frost blur intensity:var(--blur-extra-light), var(--blur-light), var(--blur-medium), var(--blur-heavy), var(--blur-extreme), or none */
   --media-footer-border: 1px solid var(--pure-black);              /* Border of thickness of media card footers (Good options are --gold-alpha-15 or --pure-black) */
   --media-footer-shadow: 0 10px 25px -5px var(--black-alpha-70);   /* Shadow used for media card footers, none to disable */
+  --media-card-title-color: var(--white-alpha-80);                     /* Main title text under posters (e.g., Movie/Show name) */
+  --media-card-subtitle-color: var(--text-muted);                  /* Secondary text under posters (e.g., Year, Episode name) */
 
   /* --- SIDEBAR OPTIONS --- */
   --custom-sidebar-width: 250px;                                   /* Define the custom width (Triggered only when the full sidebar is open) */  
@@ -282,7 +284,7 @@ html,
    /* --- CORE SOLID COLORS --- */
   --pure-white: rgba(var(--pure-white-rgb), 1);                    /* Solid white for high-contrast icons */
   --pure-black: rgba(var(--pure-black-rgb), 1);                    /* Solid black for deep shadow foundations */
-  --text-muted: var(--white-alpha-70);                             /* Soft white used globally for primary paragraph/body text */
+  --text-muted: var(--white-alpha-60);                             /* Soft white used globally for primary paragraph/body text */
   --scrollbar-thumb: rgb(51, 51, 51);                            /* Color of the draggable handle on the browser scrollbar */
 
   /* --- CORE RGB VALUES (The Source of Truth for Transparencies) --- */
@@ -741,10 +743,17 @@ html[class*="theme-"] body .aboutSection .mediaInfoPanel h2 {
   color: var(--h2-color) !important;
 }
 
-/* 2.5 MEDIA CARD TITLES (Mapped to: H3 Variable) */
-html[class*="theme-"] .cardText-first {
-  color: var(--h3-color) !important;
-  -webkit-text-fill-color: var(--h3-color) !important;
+/* 2.5 MEDIA CARD TITLES (Decoupled from global H3/H6 variables) */
+html[class*="theme-"] .cardText-first,
+html[class*="theme-"] .cardText-first .button-link {
+  color: var(--media-card-title-color) !important;
+  -webkit-text-fill-color: var(--media-card-title-color) !important;
+}
+
+html[class*="theme-"] .cardText-secondary,
+html[class*="theme-"] .cardText-secondary .button-link {
+  color: var(--media-card-subtitle-color) !important;
+  -webkit-text-fill-color: var(--media-card-subtitle-color) !important;
 }
 
 /* 2b. INDIVIDUAL HEADING COLORS */
@@ -2898,6 +2907,83 @@ html[class*="theme-"] body :is(.dialog, .formDialog, .settingsView, .page) .list
   opacity:                 1 !important;
 }
 
+/* --- 4P. DIALOG HEADER & IMAGE EDITOR ICONS --- */
+
+/* 1. Kill native Emby grey hover rings for clean icons */
+html[class*="theme-"] body .imageEditorCard .cardFooter .paper-icon-button-light:hover,
+html[class*="theme-"] body .formDialog .sectionTitleIconButton:hover {
+    background-color: transparent !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* 2. Resting State: Search, Delete, and Section Title Icons (Muted White) */
+html[class*="theme-"] body .imageEditorCard .cardFooter .paper-icon-button-light,
+html[class*="theme-"] body .imageEditorCard .cardFooter .paper-icon-button-light .md-icon,
+html[class*="theme-"] body .formDialog .sectionTitleIconButton,
+html[class*="theme-"] body .formDialog .sectionTitleIconButton .md-icon {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    opacity: 0.8 !important;
+    transition: all var(--transition-speed) ease !important;
+    transform: scale(1) !important;
+    filter: none !important;
+}
+
+/* 3. Drag Handle Resting State (Standard Gold) */
+html[class*="theme-"] body .imageEditorCard .dragHandle,
+html[class*="theme-"] body .imageEditorCard .dragHandle .md-icon {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    opacity: 0.8 !important;
+    transition: all var(--transition-speed) ease !important;
+    transform: scale(1) !important;
+    filter: none !important;
+}
+
+/* 4. Action Hover (Search / Add) -> Gold Pop */
+html[class*="theme-"] body .imageEditorCard .cardFooter [data-action="searchimageproviders"]:hover,
+html[class*="theme-"] body .imageEditorCard .cardFooter [data-action="searchimageproviders"]:hover .md-icon,
+html[class*="theme-"] body .formDialog .sectionTitleIconButton:hover,
+html[class*="theme-"] body .formDialog .sectionTitleIconButton:hover .md-icon {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    opacity: 1 !important;
+    transform: scale(1.15) !important;
+}
+
+/* 5. Danger Hover (Delete) -> Red Pop */
+html[class*="theme-"] body .imageEditorCard .cardFooter [data-action="delete"]:hover,
+html[class*="theme-"] body .imageEditorCard .cardFooter [data-action="delete"]:hover .md-icon {
+    color: var(--danger-red-light) !important;
+    -webkit-text-fill-color: var(--danger-red-light) !important;
+    opacity: 1 !important;
+    transform: scale(1.15) !important;
+}
+
+/* 6. Resting State: Muted White without native hover boxes */
+html[class*="theme-"] body .formDialogHeader .dialogCloseButton,
+html[class*="theme-"] body .formDialogHeader .dialogCloseButton .md-icon,
+html[class*="theme-"] body .dialogHeader .dialogCloseButton,
+html[class*="theme-"] body .dialogHeader .dialogCloseButton .md-icon {
+    color: var(--white-alpha-60) !important;
+    -webkit-text-fill-color: var(--white-alpha-60) !important;
+    transition: all var(--transition-speed) ease !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* 7. Hover State: Pops to Danger Red */
+html[class*="theme-"] body .formDialogHeader .dialogCloseButton:hover,
+html[class*="theme-"] body .formDialogHeader .dialogCloseButton:hover .md-icon,
+html[class*="theme-"] body .dialogHeader .dialogCloseButton:hover,
+html[class*="theme-"] body .dialogHeader .dialogCloseButton:hover .md-icon {
+    color: var(--danger-red-light) !important;
+    -webkit-text-fill-color: var(--danger-red-light) !important;
+    transform: scale(1.15) !important;
+    background: transparent !important;
+}
+
 /* ============================================================
    05. CARDS & PORTRAITS (POSTERS)
    ============================================================ */
@@ -2953,40 +3039,6 @@ html[class*="theme-"] body .cardOverlayContainer:hover .cardOverlayButton.cardOv
 /* 5. Card Footer: Subtle text shadow for readability over background art */
 .innerCardFooter {
   text-shadow: 1px 1px 2px var(--black-alpha-80);
-}
-
-/* 6. Button Geometry (Egg Fix): Forces floating action buttons into perfect circles and centers icons */
-
-/* Secondary Action Buttons (Heart, Checkmark, More) */
-html[class*="theme-"] body .cardOverlayButton-fab {
-  width:           36px !important;
-  height:          36px !important;
-  min-width:       36px !important;
-  min-height:      36px !important;
-  max-width:       36px !important;
-  max-height:      36px !important;
-  border-radius:   50% !important;
-  padding:         0 !important;
-  display:         flex !important;
-  align-items:     center !important;
-  justify-content: center !important;
-}
-
-/* Primary Action Button (Play) */
-html[class*="theme-"] body .cardOverlayFab-primary {
-  width:      48px !important;
-  height:     48px !important;
-  min-width:  48px !important;
-  min-height: 48px !important;
-  max-width:  48px !important;
-  max-height: 48px !important;
-}
-
-/* Ensures the icon stays dead-center without pushing the borders */
-html[class*="theme-"] body .cardOverlayButton-fab .md-icon,
-html[class*="theme-"] body .cardOverlayFab-primary .md-icon {
-  margin:  0 !important;
-  padding: 0 !important;
 }
 
 /* 7. Card Footers: Forces portrait card footers to use dynamic seasonal colors */
@@ -3434,7 +3486,7 @@ html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox {
     border: var(--media-footer-border) !important;
     border-radius: var(--border-radius-md) !important;
     box-shadow: var(--media-footer-shadow) !important;
-    padding-bottom: 5px !important;
+    padding-bottom: 10px !important;
 }
 
 /* 2. Global Left/Right Padding Reset for Text */
@@ -3457,17 +3509,8 @@ html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox .cardText-fi
 /* 4. Bottom padding exclusively for Year/Metadata */
 html[class*="theme-"] body .card:not(.peopleSection *, .personCard, [data-type="Person"], [data-type="MusicArtist"], .spotlightSection *, .spotlight *, .spotlightCard, .detailImageContainer *, .osdInfoImageCard *, .osdRemoteControlImageCard *, .detailMediaStreamsItemsContainer *, .bannerCard *, .sideFooterCard *) .cardBox:not(:has(.cardContent-round)) .cardText-secondary,
 html[class*="theme-"] body .view-librarysetup-librarysetup .cardBox .cardText-secondary {
-    padding-bottom: 8px !important;
-}
-
-/* 5. THE GHOST LINE ASSASSIN (Upgraded for Folder Views) */
-html[class*="theme-"] body .card:not(.peopleSection *, .personCard, [data-type="Person"], [data-type="MusicArtist"], .spotlightSection *, .spotlight *, .spotlightCard) .cardBox:not(:has(.cardContent-round)) .cardText-secondary ~ .cardText-secondary:not(:has(*)),
-html[class*="theme-"] body .card:not(.peopleSection *, .personCard, [data-type="Person"], [data-type="MusicArtist"], .spotlightSection *, .spotlight *, .spotlightCard) .cardBox:not(:has(.cardContent-round)) .cardText-secondary ~ .cardText-secondary:has(.mediaInfoItems):not(:has(.mediaInfoItems *)),
-html[class*="theme-"] body .card.squareCard:not([data-type]) .cardBox .cardText-secondary:not(:has(*)) {
-    display: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    height: 0 !important;
+    padding-bottom: 0px !important; 
+    margin-top: 2px !important; 
 }
 
 /* 6. IMAGE CORNER RADIUS FIX (Match inner poster to outer card) */
@@ -3534,6 +3577,32 @@ html[class*="theme-"] body :is(.card.personCard, .peopleSection .card, .card[dat
     -webkit-line-clamp: 2 !important; 
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
+}
+
+/* Applies the glass effect directly to the cardFooter element inside the Image Editor */
+html[class*="theme-"] body .imageEditorCard .cardFooter {
+    background: var(--media-footer-bg) !important;
+    backdrop-filter: var(--media-footer-blur) !important;
+    -webkit-backdrop-filter: var(--media-footer-blur) !important;
+    border: var(--media-footer-border) !important;
+    border-radius: var(--border-radius-md) !important;
+    box-shadow: var(--media-footer-shadow) !important;
+    padding-bottom: 5px !important;
+}
+
+/* Ensures the text padding matches the rest of the UI */
+html[class*="theme-"] body .imageEditorCard .cardFooter .cardText {
+    padding: 0 12px !important;
+}
+
+/* Adjusts the top padding for the first text line (e.g., "Art", "Primary") */
+html[class*="theme-"] body .imageEditorCard .cardFooter .cardText-first {
+    padding-top: 8px !important;
+}
+
+/* Adjusts the bottom padding for the resolution text (e.g., "1000x562") */
+html[class*="theme-"] body .imageEditorCard .cardFooter .cardText-secondary {
+    padding-bottom: 8px !important;
 }
 
 /* ============================================================
