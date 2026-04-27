@@ -33,9 +33,9 @@ html,
   --font-body: 'Sofia Sans', sans-serif;                           /* Standard readable body font */
   
   /* --- TYPOGRAPHY TEXT CASE TOGGLES --- */
-  --text-transform-pillbar: uppercase;                              /* Pillbars - Set to 'uppercase' for all-caps, or 'none' for title-case */
-  --text-transform-primaryHeaders: uppercase;                       /* Section Titles (Header and Pages)  - Set to 'uppercase' for all-caps, or 'none' for title-case */
-  --text-transform-dialogHeaders: none;                             /* Header text in dialogs - Set to 'uppercase' for all-caps, or 'none' for title-case */
+  --text-transform-pillbar: uppercase;                             /* Pillbars - Set to 'uppercase' for all-caps, or 'none' for title-case */
+  --text-transform-primaryHeaders: uppercase;                      /* Section Titles (Header and Pages)  - Set to 'uppercase' for all-caps, or 'none' for title-case */
+  --text-transform-dialogHeaders: none;                            /* Header text in dialogs - Set to 'uppercase' for all-caps, or 'none' for title-case */
 
   /* --- CUSTOM MASTER PALETTE --- */
 
@@ -98,7 +98,7 @@ html,
   --media-footer-blur: var(--blur-medium);                         /* Frost blur intensity:var(--blur-extra-light), var(--blur-light), var(--blur-medium), var(--blur-heavy), var(--blur-extreme), or none */
   --media-footer-border: 1px solid var(--pure-black);              /* Border of thickness of media card footers (Good options are --gold-alpha-15 or --pure-black) */
   --media-footer-shadow: 0 10px 25px -5px var(--black-alpha-70);   /* Shadow used for media card footers, none to disable */
-  --media-card-title-color: var(--white-alpha-80);                     /* Main title text under posters (e.g., Movie/Show name) */
+  --media-card-title-color: var(--white-alpha-80);                 /* Main title text under posters (e.g., Movie/Show name) */
   --media-card-subtitle-color: var(--text-muted);                  /* Secondary text under posters (e.g., Year, Episode name) */
 
   /* --- SIDEBAR OPTIONS --- */
@@ -159,7 +159,7 @@ html,
   --favorite-heart-hover-rgb: 255, 0, 68;                          /* Raw RGB for hover red */
   --favorite-heart: rgba(var(--favorite-heart-rgb), 1);            /* Solid resting color */
   --favorite-heart-hover: rgba(var(--favorite-heart-hover-rgb), 1); /* Solid hover color */
-  --favorite-heart-alpha-50: rgba(var(--favorite-heart-rgb), 0.5);  /* 50% opacity for soft shadow/aura */
+  --favorite-heart-alpha-50: rgba(var(--favorite-heart-rgb), 0.5); /* 50% opacity for soft shadow/aura */
   --favorite-heart-hover-alpha-80: rgba(var(--favorite-heart-hover-rgb), 0.8); /* 80% opacity for bright hover glow */
 
    /* --- NAVIGATION PILL BARS --- */
@@ -168,7 +168,7 @@ html,
   --nav-pill-hover-text: var(--my-gold-light);                     /* Text color when hovering over an unselected pill */
   --nav-pill-hover-border-color: transparent;                      /* Border color when hovering over an unselected pill */
   --nav-pill-active: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%); /* The gradient filling the currently active pill */
-  --nav-pill-text: var(--text-muted);                          /* Standard text color for unselected pills */
+  --nav-pill-text: var(--text-muted);                              /* Standard text color for unselected pills */
   --nav-pill-active-text: var(--retro-navy);                       /* Text color inside the currently active pill */
   --nav-pill-active-border-color: var(--retro-navy);               /* Outer border color of the active pill */
   --nav-pill-active-border: 2px solid var(--nav-pill-active-border-color); /* Border thickness and style for active pills */
@@ -223,7 +223,7 @@ html,
   /* --- BUTTONS AND INDICATORS --- */
   --button-popout-shadow: 3px 3px 0px var(--my-gold), 6px 6px 15px var(--black-alpha-80);   /* Popout Buttons */
   --button-popout-transform: translate(-3px, -3px);                /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
-  --button-popout-active-shadow: 0px 0px 5px var(--black-alpha-80); /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
+  --button-popout-active-shadow: 0px 0px 5px var(--black-alpha-80);/* Popout - (Resume, Play, Play from Beginaning, etc...)*/
   --button-popout-active-transform: translate(0px, 0px);           /* Popout - (Resume, Play, Play from Beginaning, etc...)*/
   --count-indicator-bg: linear-gradient(135deg, var(--my-gold-light) 0%, var(--my-gold) 100%);    /* Popout - Unwatched count style */
   --count-indicator-color: var(--retro-navy);                      /* Popout - Unwatched count style */
