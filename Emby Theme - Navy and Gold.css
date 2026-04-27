@@ -119,6 +119,7 @@ html,
   /* --- DIALOG POPUPS --- */
   --dialog-icon-color: var(--my-gold);                             /* Dialog popup icon color */
   --dialog-icon-hover-color: color-mix(in srgb, var(--my-gold-light) 40%, white); /* Dialog popup icon color in a hovered state */
+  --dialog-background-color: var(--black-alpha-70);                /* Default background color of modal popups */
   --dialog-backdrop-blur: var(--blur-extra-light);                 /* Frost intensity behind dialogs. Options: var(--blur-extra-light), var(--blur-light), var(--blur-medium), var(--blur-heavy), var(--blur-extreme), or none */
 
    /* --- LIVE TV GUIDE PROGRAM TYPE COLORS --- */
@@ -242,19 +243,6 @@ html,
   --media-badge-hover-border: 2px solid var(--pure-black);         /* Popout - Media Info Badges */
   --media-badge-hover-shadow: var(--shadow-glow-standard);         /* Popout - Media Info Badges */
  
-  /* --- LAYOUT & ORDERING - (MEDIA DETAIL PAGES) --- */
-  --order-seasons: 1;                                              /* Vertical order of Seasons / Albums section */
-  --order-next-up: 2;                                              /* Vertical order of Next Up section */
-  --order-specials: 3;                                             /* Vertical order of Special Features, Extras, & Theme Media */
-  --order-more-from: 4;                                            /* Vertical order of "More from Season/Artist" sections */
-  --order-music-videos: 5;                                         /* Vertical order of Music Videos (Artist pages) */
-  --order-chapters: 6;                                             /* Vertical order of the Chapters & Scenes row */
-  --order-cast-crew: 7;                                            /* Vertical order of Cast & Crew section */
-  --order-included-in: 8;                                          /* Vertical order of "Appears In" / Collections section */
-  --order-similar: 9;                                              /* Vertical order of "More Like This" (Similar) section */
-  --order-reviews: 10;                                             /* Vertical order of Critic Reviews */
-  --order-about: 11;                                               /* Vertical order of the Text Overview/About section and Media stream info cards */
-
   /* --- SPOTLIGHT BANNER ARTWORK --- */
   --spotlight-fit: cover;                                          /* Options: 'cover' (Fills box, crops edges), 'contain' (Shows full image, adds bars), '100%' (Stretches) */ 
   --spotlight-position: center top;                                /* Options: 'right top' (Protects logos/faces), 'center top', 'center' (Emby default), 'left top' */  
@@ -284,6 +272,19 @@ html,
 /* ============================================================
    ADVANCED OPTIONS: CHANGE THESE WITH CAUTION.
    ============================================================ */
+
+  /* --- LAYOUT & ORDERING - (MEDIA DETAIL PAGES) --- */
+  --order-seasons: 1;                                              /* Vertical order of Seasons / Albums section */
+  --order-next-up: 2;                                              /* Vertical order of Next Up section */
+  --order-specials: 3;                                             /* Vertical order of Special Features, Extras, & Theme Media */
+  --order-more-from: 4;                                            /* Vertical order of "More from Season/Artist" sections */
+  --order-music-videos: 5;                                         /* Vertical order of Music Videos (Artist pages) */
+  --order-chapters: 6;                                             /* Vertical order of the Chapters & Scenes row */
+  --order-cast-crew: 7;                                            /* Vertical order of Cast & Crew section */
+  --order-included-in: 8;                                          /* Vertical order of "Appears In" / Collections section */
+  --order-similar: 9;                                              /* Vertical order of "More Like This" (Similar) section */
+  --order-reviews: 10;                                             /* Vertical order of Critic Reviews */
+  --order-about: 11;                                               /* Vertical order of the Text Overview/About section and Media stream info cards */
 
    /* --- CORE SOLID COLORS --- */
   --pure-white: rgba(var(--pure-white-rgb), 1);                    /* Solid white for high-contrast icons */
@@ -316,7 +317,6 @@ html,
   --line-background: var(--gold-alpha-15);                         /* Color of horizontal divider lines */
   --line-size: 1px;                                                /* Thickness of horizontal divider lines */
   --background-color: var(--retro-navy);                           /* Safety fallback for the main background */
-  --dialog-background-color: var(--navy-light-alpha-80);           /* Default background color of modal popups */
   --theme-text-color-force: var(--text-muted);                     /* Custom override variable to force text colors */
 
   /* --- RGBA TRANSLUCENCY VARIABLES (The Math) --- */
@@ -450,7 +450,6 @@ html[class*="theme-"] {
   --theme-text-color-opaque:    var(--pure-white) !important;
   --theme-secondary-text-color: var(--white-alpha-70) !important;
   --line-background:            var(--gold-alpha-15) !important;
-  --dialog-background-color:    var(--navy-light-alpha-80) !important;
 }
 
 /* 2. Global Foundation: Sets the base app background (Gradient or Custom Image) */
@@ -1785,7 +1784,7 @@ html[class*="theme-"] body .appfooter .navMenuOption:hover .navMenuOptionText {
 
 /* 1. Backdrop Overlay: Dims the interface when a modal is active */
 html[class*="theme-"] .dialogBackdrop {
-  background:              var(--black-alpha-90) !important;
+  background:              var(--dialog-background-color) !important;
   backdrop-filter:         var(--dialog-backdrop-blur) !important;
   -webkit-backdrop-filter: var(--dialog-backdrop-blur) !important;
   will-change:             opacity, backdrop-filter !important;
@@ -5941,24 +5940,21 @@ html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardCont
   background-color: var(--navy-mid-solid) !important; 
 }
 
-/* 6. Edit Button Fix: Brings the hidden edit circle back to the top layer and syncs its hover animation */
-html[class*="theme-"] body .view-librarysetup-librarysetup .cardOverlayContainer {
-  z-index: 20 !important;
-}
-
-html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardOverlayContainer {
-  transform: translateY(-8px) scale(1.04) !important;
-}
-
 /* 6. Edit Button & Progress Ring Fix: Forces the hidden overlay back to the top layer */
 html[class*="theme-"] body .view-librarysetup-librarysetup .cardOverlayContainer {
-  z-index: 30 !important;
-  transform: translateY(-2px) scale(1.01) !important;
-  transition: transform var(--transition-speed) ease !important;
+ z-index: 30 !important;
+ transform: translateY(-2px) scale(1.01) !important;
+ transition: transform var(--transition-speed) ease !important;
 }
 
 html[class*="theme-"] body .view-librarysetup-librarysetup .card:hover .cardOverlayContainer {
-  transform: translateY(-8px) scale(1.04) !important;
+ transform: translateY(-8px) scale(1.04) !important;
+}
+
+/* 7. Hide the 3-dots edit button until hover (so it doesn't stay visible with the 0% ring) */
+html[class*="theme-"] body .view-librarysetup-librarysetup .card:not(:hover) .cardOverlayContainer .itemAction[data-action="menu"] {
+ opacity: 0 !important;
+ visibility: hidden !important;
 }
 
 /* --- 10K. DRAG & DROP REORDERING (LIGHT THEME FIX) --- */
@@ -6546,6 +6542,9 @@ html[class*="theme-"] body .paperListbox .button-flat:hover {
   color:                   var(--theme-primary-color) !important;
   -webkit-text-fill-color: var(--theme-primary-color) !important;
 }
+
+
+
 
 /* ============================================================
    13. UNIVERSAL SEASONAL LOGIC & GLOBAL SHIELDS
