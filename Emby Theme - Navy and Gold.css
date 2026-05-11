@@ -180,7 +180,7 @@ html,
   /* --- STANDARD MEDIA CARD SHAPE (Movies, Shows, Albums) --- */
   --media-card-radius: 15px;                                       /* Adjust the corner rounding of standard posters */
   --popout-perspective: 1000px;                                    /* Effects can be made when hovering over media cards to disable use "none" or to enable use "1000px" */
-  --popout-transform: scale(1.05) rotateX(4deg) translateY(-5px);  /* Effects can be made when hovering over media cards to disable use "none" or to enable use "scale(1.05) rotateX(4deg) translateY(-5px)" */
+  --popout-transform: scale(1.05);  /* Effects can be made when hovering over media cards to disable use "none" or to enable use "scale(1.05) rotateX(4deg) translateY(-5px)" */
   --popout-shadow: 0px 10px 10px var(--black-alpha-70);            /* Effects can be made when hovering over media cards to disable use "none" or to enable use "0px 10px 10px var(--black-alpha-70)" Shadow offset: 2px Right, 10px Down, 10px Blur */
 
   /* --- CAST & CREW NAME TEXT --- */
