@@ -2991,6 +2991,51 @@ html[class*="theme-"] body .dialogHeader .dialogCloseButton:hover .md-icon {
     background: transparent !important;
 }
 
+/* --- 4Q. MULTI-SELECT PANEL ICONS --- */
+
+/* 1. Base State: Make sure all icons start as a crisp, muted white */
+html[class*="theme-"] body .selectionCommandsPanel .paper-icon-button-light,
+html[class*="theme-"] body .selectionCommandsPanel .paper-icon-button-light .md-icon,
+html[class*="theme-"] body .selectionCommandsPanel .paper-icon-button-light i {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    opacity: 0.8 !important;
+    transition: all var(--transition-speed) ease !important;
+    transform: scale(1) !important;
+    filter: none !important;
+}
+
+/* 2. Strip any native grey background circles from Emby on hover */
+html[class*="theme-"] body .selectionCommandsPanel .paper-icon-button-light:hover {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* 3. The "X" (Clear Selection): Red Pop on Hover */
+/* Targets both the wrapper and the inner <i> element */
+html[class*="theme-"] body .selectionCommandsPanel .btnCloseSelectionPanel:hover,
+html[class*="theme-"] body .selectionCommandsPanel .btnCloseSelectionPanel:hover i.md-icon {
+    color: var(--danger-red-light) !important;
+    -webkit-text-fill-color: var(--danger-red-light) !important;
+    opacity: 1 !important;
+}
+
+/* Applies the physical pop-out scale only to the parent wrapper */
+html[class*="theme-"] body .selectionCommandsPanel .btnCloseSelectionPanel:hover {
+    transform: scale(1.2) !important;
+}
+
+/* 4. The Action Buttons (Play, Playlist, More Dots): Gold Pop on Hover */
+/* These buttons carry the md-icon class directly on themselves! */
+html[class*="theme-"] body .selectionCommandsPanel .multiSelectPrimaryButtons button:hover,
+html[class*="theme-"] body .selectionCommandsPanel .btnSelectionPanelOptions:hover {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    opacity: 1 !important;
+    transform: scale(1.2) !important;
+}
+
 /* ============================================================
    05. CARDS & PORTRAITS (POSTERS)
    ============================================================ */
@@ -5240,6 +5285,21 @@ html[class*="theme-"] body .videoOsdBottom .osdPlayQueue .listItem:hover .listIt
   text-shadow:             none !important;
 }
 
+/* --- 8I. SUBTITLE FORMATTING --- */
+
+/* 1. Force the subtitle layers to respect Emby's inline color styles */
+html[class*="theme-"] body .videoSubtitles,
+html[class*="theme-"] body .videoSubtitles *,
+html[class*="theme-"] body .playerSubtitles,
+html[class*="theme-"] body .playerSubtitles * {
+    -webkit-text-fill-color: currentColor !important;
+}
+
+/* 2. Fallback for native HTML5 video player text tracks */
+::cue {
+    -webkit-text-fill-color: currentColor !important;
+}
+
 /* ============================================================
    09. FULLSCREEN AUDIO & PLAYLIST
    ============================================================ */
@@ -6427,6 +6487,109 @@ html[class*="theme-"] body .navDrawerCollapseSection:has([data-listtype="collect
   display: var(--sidebar-collections) !important;
 }
 
+/* --- 11E. PHOTO SLIDESHOW & DOCUMENT VIEWERS --- */
+
+/* 1. Photo Slideshow Pop-out Shield: Disable 3D perspective physics */
+html[class*="theme-"] body .slideshowDialog .cardBox,
+html[class*="theme-"] body .slideshowCard .cardBox {
+    perspective: none !important;
+}
+
+/* 2. Photo Slideshow: Keep images completely flat and borderless */
+/* (Chaining .card multiple times artificially inflates the CSS weight to beat the global rule) */
+html[class*="theme-"] body .slideshowDialog .slideshowCard.card.card.card:hover .cardImageContainer,
+html[class*="theme-"] body .slideshowDialog .slideshowCard.card.card.card:hover .cardContent,
+html[class*="theme-"] body .slideshowDialog .slideshowCard.card.card.card.show-focus .cardImageContainer,
+html[class*="theme-"] body .slideshowDialog .slideshowCard.card.card.card.show-focus .cardContent {
+    transform: none !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
+
+/* 3. Photo Slideshow Controls: Base State (White Icons) */
+html[class*="theme-"] body .slideshowDialog .paper-icon-button-light .md-icon,
+html[class*="theme-"] body .slideshowDialog .paper-icon-button-light i {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    opacity: 0.8 !important;
+    transition: all var(--transition-speed) ease !important;
+    transform: scale(1) !important;
+    filter: none !important;
+}
+
+/* 4. Photo Slideshow Controls: Strip native hover grey circles */
+html[class*="theme-"] body .slideshowDialog .paper-icon-button-light:hover {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* 5. Photo Slideshow Controls: The "X" (Close) -> Red Pop on Hover */
+html[class*="theme-"] body .slideshowDialog button.btnSlideshowExit:hover .md-icon,
+html[class*="theme-"] body .slideshowDialog button[data-action="close"]:hover .md-icon,
+html[class*="theme-"] body .slideshowDialog button[data-action="back"]:hover .md-icon {
+    color: var(--danger-red-light) !important;
+    -webkit-text-fill-color: var(--danger-red-light) !important;
+    opacity: 1 !important;
+    transform: scale(1.2) !important;
+}
+
+/* 6. Photo Slideshow Controls: Action Buttons (Play/Nav/Menu) -> Gold Pop on Hover */
+html[class*="theme-"] body .slideshowDialog button:not(.btnSlideshowExit):not([data-action="close"]):not([data-action="back"]):hover .md-icon {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    opacity: 1 !important;
+    transform: scale(1.2) !important;
+}
+
+/* 7. PDF / Document Reader Controls: Base State (White Icons) */
+html[class*="theme-"] body .pdfPlayerDialog .paper-icon-button-light,
+html[class*="theme-"] body .pdfPlayerDialog .paper-icon-button-light .md-icon,
+html[class*="theme-"] body .pdfPlayerDialog .paper-icon-button-light i {
+    color: var(--pure-white) !important;
+    -webkit-text-fill-color: var(--pure-white) !important;
+    opacity: 0.8 !important;
+    transition: all var(--transition-speed) ease !important;
+    transform: scale(1) !important;
+    filter: none !important;
+}
+
+/* 8. PDF / Document Reader Controls: Strip native hover grey circles */
+html[class*="theme-"] body .pdfPlayerDialog .paper-icon-button-light:hover {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* 9. PDF / Document Reader Controls: The "X" (Close) -> Red Pop on Hover */
+html[class*="theme-"] body .pdfPlayerDialog .pdfDialogCloseButton:hover,
+html[class*="theme-"] body .pdfPlayerDialog .pdfDialogCloseButton:hover .md-icon,
+html[class*="theme-"] body .pdfPlayerDialog .pdfDialogCloseButton:hover i {
+    color: var(--danger-red-light) !important;
+    -webkit-text-fill-color: var(--danger-red-light) !important;
+    opacity: 1 !important;
+}
+
+/* Apply the physical scale pop-out only to the parent wrapper */
+html[class*="theme-"] body .pdfPlayerDialog .pdfDialogCloseButton:hover {
+    transform: scale(1.2) !important;
+}
+
+/* 10. PDF / Document Reader Controls: Action Buttons (Zoom/Pages/Menu) -> Gold Pop on Hover */
+html[class*="theme-"] body .pdfPlayerDialog .pdfControls button:hover,
+html[class*="theme-"] body .pdfPlayerDialog .pdfControls button:hover .md-icon,
+html[class*="theme-"] body .pdfPlayerDialog .pdfControls button:hover i {
+    color: var(--my-gold) !important;
+    -webkit-text-fill-color: var(--my-gold) !important;
+    opacity: 1 !important;
+}
+
+/* Apply the physical scale pop-out only to the parent wrappers */
+html[class*="theme-"] body .pdfPlayerDialog .pdfControls button:hover {
+    transform: scale(1.2) !important;
+}
+
 /* ============================================================
    12. GLOBAL FIXES / HOTFIX (WIP) ZONE
    ============================================================ */
@@ -6496,53 +6659,6 @@ html[class*="theme-"] body div.popupStylePicker.dialog.popup > div {
 /* 2. Shift Plugin Pages for the Mini Sidebar (Overrides Full Width) */
 html[class*="theme-"] body .page.page-withDockedDrawer.page-withMiniDrawer {
   left: 5.5em !important;
-}
-
-/* ============================================================
-   HOTFIX: MULTI-SELECT DROPDOWN DOUBLE-TEXT GLITCH
-   NOTE: - TO REMOVE ON RELEASE OF EMBY 4.10 (ISSUE ONLY AFFECTS 4.9)
-         - FIX THE "SELECT ALL" IN BASE BEFORE REMOVING.
-         - AFFECTED AREA: USER PREFERENCES -> PLAYBACK AUDIO || SUBTITLE LANGUAGE
-   ============================================================ */
-html[class*="theme-"] body select.emby-select[multiple] {
-  color:                   transparent !important; 
-  -webkit-text-fill-color: transparent !important; 
-  text-shadow:             none !important;
-}
-
-html[class*="theme-"] body .emby-select-selectedName {
-  color:                   var(--pure-white) !important;
-  -webkit-text-fill-color: var(--pure-white) !important;
-  font-weight:             500 !important;
-}
-
-html[class*="theme-"] body select.emby-select[multiple]:focus ~ .emby-select-selectedNameContainer .emby-select-selectedName,
-html[class*="theme-"] body select.emby-select[multiple]:active ~ .emby-select-selectedNameContainer .emby-select-selectedName {
-  color:                   var(--theme-primary-color) !important;
-  -webkit-text-fill-color: var(--theme-primary-color) !important;
-}
-
-html[class*="theme-"] body .actionSheet .button-link:not(.mediaInfoItem),
-html[class*="theme-"] body .actionSheet .button-link:not(.mediaInfoItem) *,
-html[class*="theme-"] body .dialog .button-flat,
-html[class*="theme-"] body .formDialog .button-flat,
-html[class*="theme-"] body .paperListbox .button-flat {
-  color:                   var(--pure-white) !important;
-  -webkit-text-fill-color: var(--pure-white) !important;
-  background:              transparent !important;
-  box-shadow:              none !important;
-  opacity:                 1 !important;
-  font-weight:             600 !important;
-  transition:              all var(--transition-speed) ease !important;
-}
-
-html[class*="theme-"] body .actionSheet .button-link:not(.mediaInfoItem):hover,
-html[class*="theme-"] body .actionSheet .button-link:not(.mediaInfoItem):hover *,
-html[class*="theme-"] body .dialog .button-flat:hover,
-html[class*="theme-"] body .formDialog .button-flat:hover,
-html[class*="theme-"] body .paperListbox .button-flat:hover {
-  color:                   var(--theme-primary-color) !important;
-  -webkit-text-fill-color: var(--theme-primary-color) !important;
 }
 
 /* ============================================================
