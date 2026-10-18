@@ -78,7 +78,7 @@ html,
   --header-blur: var(--blur-heavy);                                /* Frost blur intensity: var(--blur-extra-light), var(--blur-light), var(--blur-medium), var(--blur-heavy), var(--blur-extreme), or none */
   --header-bg: var(--navy-base-alpha-75);                          /* Set to 'transparent' for a completely clear header, or use a translucent color */
   --header-border: var(--standard-border-thickness) solid var(--gold-alpha-15);  /* Set to 'none' to disable, or var(--standard-border-thickness) solid var(--gold-alpha-15) to enable */
-  --header-content-padding: 45px;                                  /* Media details header padding, push the content down from the header */
+  --header-content-padding: 90px;                                  /* Media details header padding, push the content down from the header */
   --header-logo-display: block;                                    /* Set to 'block' to show the top left Emby logo, or 'none' to hide it */
   --header-icon-color: var(--my-gold);                             /* Header icon color */
   --header-icon-hover-color: color-mix(in srgb, var(--my-gold-light) 40%, white); /* Header icon color in a hover state */
@@ -1205,15 +1205,11 @@ html[class*="theme-"] body .skinHeader .headerButton:has(.md-icon-star) {
 }
 
 /* 5. Content Spacing: Nudges the main page content down safely below the header */
-html[class*="theme-"] body .view-home-home > .scrollSlider,
-html[class*="theme-"] body .view-item-item > .scrollSlider,
-html[class*="theme-"] body .view[class*="view-list"] > .scrollSlider,
-html[class*="theme-"] body .view[class*="view-movies"] > .scrollSlider,
-html[class*="theme-"] body .view[class*="view-tvshows"] > .scrollSlider,
-html[class*="theme-"] body .view[class*="view-music"] > .scrollSlider,
-html[class*="theme-"] body .view[class*="view-livetv"] > .scrollSlider,
-html[class*="theme-"] body .view[class*="view-collections"] > .scrollSlider {
-  margin-top: var(--header-content-padding) !important;
+html[class*="theme-"] body .padded-top-page,
+html[class*="theme-"] body .view > .scrollSlider,
+html[class*="theme-"] body .view > .emby-scroller > .scrollSlider {
+  padding-top: var(--header-content-padding) !important;
+  margin-top: 0 !important;
 }
 
 /* 6. TOP HEADER */
@@ -6319,9 +6315,9 @@ html[class*="theme-"] body :is(.dialog, .formDialog, .settingsContainer, .series
    ============================================================ */
 
 /* --- 11A. Login Screen Layout --- */
-body:has(.view-startup-manuallogin:not(.hide)) .skinHeader,
-body:has(.view-startup-login:not(.hide)) .skinHeader,
-body:has(.view-login:not(.hide)) .skinHeader {
+body:has(.view-startup-manuallogin:not(.hide):not(.page-hidden)) .skinHeader,
+body:has(.view-startup-login:not(.hide):not(.page-hidden)) .skinHeader,
+body:has(.view-login:not(.hide):not(.page-hidden)) .skinHeader {
   display: none !important;
 }
 
